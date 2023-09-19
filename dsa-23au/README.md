@@ -35,3 +35,9 @@ Answer some preliminary questions about our use of Gitpod for this class.
 You can adjust your answers to suit your preferences, it won't affect your development experience.
 
 <img width="625" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/9dbdf8bb-0bc8-4cba-8543-25af7edea404">
+
+Choose "Open in Browser". This will open up VSCode in your browser.
+
+<img width="498" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/3caf24e4-7478-4438-ada7-24114b3d1efe">
+
+<img width="900" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/e78511b9-f307-4af5-bbc8-4e5908963583">
