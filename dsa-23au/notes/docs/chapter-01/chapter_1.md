@@ -1,4 +1,4 @@
-# Chapter 1: Intro---Duality---Five Problems
+# Intro---Duality---Five Problems
 
 ## The Duality of Time and Space
 
