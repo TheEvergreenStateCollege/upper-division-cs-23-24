@@ -19,7 +19,7 @@ USER ${NB_UID}
 
 RUN gu install nodejs
 
-MKDIR ~/src
+RUN mkdir ~/src
 RUN cd ~/src; git clone https://github.com/TheEvergreenStateCollege/upper-division-cs
 
 WORKDIR "${HOME}"
