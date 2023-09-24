@@ -1,255 +1,140 @@
-import sys 
-
-if (len(sys.argv) < 2):
-    exit(f"Usage: {sys.argv[0]} <output_file>")
-
-outfile = sys.argv[1]
-
-page = ""
-
-title = "Welcome to Data Structures and Algorithms"
-
-sec1 = (
-    """
-    <p style="text-align: center;">
-    <span style="font-style: normal;"><strong style="font-family: inherit; font-size: 1.8em; color: var(--ic-brand-font-color-dark);">
-    """
-    + title +
-    """
-    </strong><br /></span></p>
-    """
-)
-page += sec1 
-
-notices = """
-    <p>
-      <span>Read our&nbsp;<a title="Syllabus" href="https://canvas.evergreen.edu/courses/5162/assignments/syllabus">syllabus&nbsp;</a>to get oriented to the program<br /><br />
-      </span>
-    </p>
-    <p>
-      <span>
-        <strong>Our first class is on Tuesday Sept. 26th at 10am (PST) in Evans 2617 (Computer Center)
-        </strong><br />
-      </span>
-    </p>
-"""
-page += notices
-
-sec2 = (
-        """
+<p style="text-align: center;"><span style="font-style: normal;"><strong style="font-family: inherit; font-size: 1.8em; color: var(--ic-brand-font-color-dark);">Welcome to Data Structures and Algorithms</strong><br /></span></p>
 <div id="content-wrapper" class="ic-Layout-contentWrapper">
     <div id="content" class="ic-Layout-contentMain" role="main">
         <div id="course_home_content">
             <div id="wiki_page_show">
                 <div class="show-content user_content clearfix enhanced">
-        """
-)
-page += sec2 
-
-# The script will render all of these wrapped with <p></p> tags
-body_paragraphs = [
-        """
-        Data Structures and Algorithms is a 12-credit upper division applied Computer Science program that is important for doing any additional advanced work in computer science and software engineering. Some students in the program have already studied data structures (DS &amp; A). Those students will be creating their own curriculum in groups. For students who want to learn DS &amp; A, the program syllabus will look like this:
-        """,
-        """
-        <ul>
-            <li>Data Structures and Algorithms;</li>
-            <li>Team programming projects (with ChangeMakers)</li>
-            <li>Synthesis of real-world problems with software modeling</li>
-            <li>Software Engineering</li>
-        </ul>
-        """,
-        """
-        As computer science students, you will deepen your technical knowledge and skills required to understand, analyze, modify, and build complex software systems. The concepts and skills from Data Structures and Algorithms are key for software engineering and programming. Through this program you will also deepen your understanding of computing systems, both in theory and practice. The work will provide prerequisite knowledge for Evergreen's advanced computer science programs.&nbsp;
-        """,
-        """
-        Working on team projects is very important for almost any job, especially in computer science. Also, at Evergreen we expect students to take charge of their learning. We make this easier by providing&nbsp; a caring and safe innovative team environment. This is ideal for those looking for a practical, hands-on approach to learning. This radically different pathway gives students the opportunity to set-up and run their own projects and ventures. Inspired by the pioneering Finnish &lsquo;Tiimiakatemia&rsquo; approach, we designed this program collaboratively with the ChangeMaker Lab, which was the first to introduce this approach in the United States. The Tiimiakatemia ChangeMaker Lab is accredited by Tiimiakatemia Global&reg;.
-        """,
-        """
-        In the first few weeks you will form a Team Company of up to 20 students, and work on real projects and research the programming, software engineering, and theoretical&nbsp; skills needed for those projects. You will gain entrepreneurial experience and learn how to operate and run an organization as a Holacratic structure. As a Team Entrepreneur, you&rsquo;ll work with your team in your own office environment virtually or in the classroom in our innovative open office space.&nbsp; You will create and manage projects around your passions, attend directors' meetings. You will have the opportunity to learn the auxiliary skills to manage budgets and build valuable contacts and networks.&nbsp;
-        """,
-        """
-        You will learn by doing and specifically develop the following job skills: Self‐leadership skills, Project leading skills, Planning skills, Team Coaching skills, Strategic skills, Team leadership skills, Service, negotiation and selling skills, Understanding of financial issues, Marketing skills, Innovation skills, Team leadership skills, Data processing and IT &ndash;skills, Team Learning skills, Creativity skills, International skills and Communication skills and work on developing Initiative, Courage to make choices and goal orientation.
-        """,
-        """
-        This full-time daytime program will be taught on the Olympia campus. Students who need to participate fully remotely should contact the faculty to discuss that option.
-        """,
-        """
-        Computer technology has an impact on almost anything we do, and data structures and algorithms are central to advanced study in computer science and to building large complex systems. When applying for positions such as Software Developer or Software Engineer, you will probably find that this program is the most important in helping you prepare for job interviews. In this program, you&rsquo;ll learn about ways to organize data (we&rsquo;ll see various data structures such as Lists, Trees, Graphs), ways to compare algorithms (we&rsquo;ll focus on space and time complexity using big Oh) and efficiently solve programming problems. It will also give you a chance to practice object-oriented and functional programming.
-        """,
-        """
-        We are so excited to work with all of you in this awesome program.
-        """,
-        """
-        We expect everyone to attend in person, unless you contact us to make alternative arrangements.
-        """
-        ] 
-
-page += "\n".join([f"<p>{x}</p>" for x in body_paragraphs])
-
-CLASS_TIMES = [
-    {
-        "times": "10am-1pm",
-        "Monday": {
-            "event": "Data Structures",
-            "room": "(Evans 2617)",
-        },
-        "Tuesday": {
-            "event": "Systems and Teams",
-            "room": "(Evans 2617)",
-        },
-        "Wednesday": {
-            "event": "&nbsp;",
-            "room": "",
-        },
-        "Thursday": {
-            "event": "Data Structures",
-            "room": "(Evans 2617)",
-        },
-        "Friday": {
-            "event": "&nbsp;",
-            "room": "",
-        },
-    },
-    {
-        "times": "12noon-1pm",
-        "Monday": {
-            "event": "&nbsp;",
-            "room": "",
-        },
-        "Tuesday": {
-            "event": "Forest Walk",
-            "room": "",
-        },
-        "Wednesday": {
-            "event": "&nbps;",
-            "room": "",
-        },
-        "Thursday": {
-            "event": "break",
-            "room": "",
-        },
-        "Friday": {
-            "event": "tutoring",
-            "room": "",
-        },
-    }, {
-        "times": "1-3pm",
-        "Monday": {
-            "event": "Cracking the Coding Interview / Software Engineering",
-            "room": "(Evans 2617)",
-        },
-        "Tuesday": {
-            "event": "ChangeMaker Lab",
-            "room": "Sem2 C4105",
-        },
-        "Wednesday": {
-            "event": "&nbsp;",
-            "room": "",
-        },
-        "Thursday": {
-            "event": "ChangeMaker Lab",
-            "room": "Sem2 C4105",
-        },
-        "Friday": {
-            "event": "&nbsp;",
-            "room": "",
-        }
-    }, {
-        "times": "3-5pm",
-        "Monday": {
-            "event": "&nbsp;",
-            "room": "",
-        },
-        "Tuesday": {
-            "event": "ChangeMaker Lab",
-            "room": "Sem2 C4105",
-        },
-        "Wednesday": {
-            "event": "&nbsp;",
-            "room": "",
-        },
-        "Thursday": {
-            "event": "ChangeMaker Lab",
-            "room": "Sem2 C4105",
-        },
-        "Friday": {
-            "event": "&nbsp;",
-            "room": "",
-        }
-    }
-] 
-
-WIDTHS = {
-  "times": 77,
-  "Monday": 108,
-  "Tuesday": 125,
-  "Wednesday": 110,
-  "Thursday": 111,
-  "Friday": 104,
-}
-
-def render_schedule_body_cell(event, room, width):
-    return (
-        f'<td width="{width}">' +
-        f'  <p>{event}</p>' +
-        f'  <p>{room}</p>' + 
-        f'</td>'
-        )
-
-def render_schedule_header_cell(day, width):
-    return (
-        f'<th class="col" width="{width}">' +
-        f'  <p>{day}</p>' + 
-        f'</th>' +
-        "\n"
-        )
-
-DAYS = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-]
-
-def render_schedule_header_row():
-    return (
-        "<tr>" +
-        "\n".join([ render_schedule_header_cell(day, WIDTHS[day]) for day in DAYS ]) +
-        "</tr>\n" 
-    )    
-
-def render_schedule_body_row(row):
-  return (
-      "<tr>" +
-      f'  <td>{row["times"]}' +
-      "\n".join([
-          render_schedule_body_cell(row[day]["event"], row[day]["room"], WIDTHS[day]) for day in DAYS
-      ]) +
-      "</tr>\n"
-      )    
-
-class_schedule = (
-    """
-    <table border="1" width="0">
-        <caption>class meeting times. You can find the information in the Syllabus.</caption>
-        <tbody>
-    """ +
-    render_schedule_header_row() +
-    "\n".join([ render_schedule_body_row(row) for row in CLASS_TIMES ]) +
-    """
-       </tbody>
-    </table>
-    """
-)
-
-page += class_schedule
-
-with open(outfile, "w") as f:
-    f.write(page)
-
-"""
+                    <p><span>Read our&nbsp;<a title="Syllabus" href="https://canvas.evergreen.edu/courses/5162/assignments/syllabus">syllabus&nbsp;</a>to get oriented to the program<br /><br /></span></p>
+                    <p><span><strong>Our first class is on Tuesday Sept. 26th at 10am (PST) in Evans 2617 (Computer Center)</strong><br /></span></p>
+                    <div class="eg-cat-entry__desc">
+                        <div class="eg-body">
+                            <p>Data Structures and Algorithms is a 12-credit upper division applied Computer Science program that is important for doing any additional advanced work in computer science and software engineering. Some students in the program have already studied data structures (DS &amp; A). Those students will be creating their own curriculum in groups. For students who want to learn DS &amp; A, the program syllabus will look like this:</p>
+                            <ul>
+                                <li>Data Structures and Algorithms;</li>
+                                <li>Team programming projects (with ChangeMakers)</li>
+                                <li>Synthesis of real-world problems with software modeling</li>
+                                <li>Software Engineering</li>
+                            </ul>
+                            <p>As computer science students, you will deepen your technical knowledge and skills required to understand, analyze, modify, and build complex software systems. The concepts and skills from Data Structures and Algorithms are key for software engineering and programming. Through this program you will also deepen your understanding of computing systems, both in theory and practice. The work will provide prerequisite knowledge for Evergreen's advanced computer science programs.&nbsp;</p>
+                            <p>Working on team projects is very important for almost any job, especially in computer science. Also, at Evergreen we expect students to take charge of their learning. We make this easier by providing&nbsp; a caring and safe innovative team environment. This is ideal for those looking for a practical, hands-on approach to learning. This radically different pathway gives students the opportunity to set-up and run their own projects and ventures. Inspired by the pioneering Finnish &lsquo;Tiimiakatemia&rsquo; approach, we designed this program collaboratively with the ChangeMaker Lab, which was the first to introduce this approach in the United States. The Tiimiakatemia ChangeMaker Lab is accredited by Tiimiakatemia Global&reg;.</p>
+                            <p>In the first few weeks you will form a Team Company of up to 20 students, and work on real projects and research the programming, software engineering, and theoretical&nbsp; skills needed for those projects. You will gain entrepreneurial experience and learn how to operate and run an organization as a Holacratic structure. As a Team Entrepreneur, you&rsquo;ll work with your team in your own office environment virtually or in the classroom in our innovative open office space.&nbsp; You will create and manage projects around your passions, attend directors' meetings. You will have the opportunity to learn the auxiliary skills to manage budgets and build valuable contacts and networks.&nbsp;</p>
+                            <p>You will learn by doing and specifically develop the following job skills: Self‐leadership skills, Project leading skills, Planning skills, Team Coaching skills, Strategic skills, Team leadership skills, Service, negotiation and selling skills, Understanding of financial issues, Marketing skills, Innovation skills, Team leadership skills, Data processing and IT &ndash;skills, Team Learning skills, Creativity skills, International skills and Communication skills and work on developing Initiative, Courage to make choices and goal orientation.</p>
+                            <p>This full-time daytime program will be taught on the Olympia campus. Students who need to participate fully remotely should contact the faculty to discuss that option.</p>
+                        </div>
+                    </div>
+                    <p>Computer technology has an impact on almost anything we do, and data structures and algorithms are central to advanced study in computer science and to building large complex systems. When applying for positions such as Software Developer or Software Engineer, you will probably find that this program is the most important in helping you prepare for job interviews. In this program, you&rsquo;ll learn about ways to organize data (we&rsquo;ll see various data structures such as Lists, Trees, Graphs), ways to compare algorithms (we&rsquo;ll focus on space and time complexity using big Oh) and efficiently solve programming problems. It will also give you a chance to practice object-oriented and functional programming.</p>
+                    <p>We are so excited to work with all of you in this awesome program.</p>
+                    <p>We expect everyone to attend in person, unless you contact us to make alternative arrangements.</p>
+                    <table border="1" width="0">
+                        <caption>class meeting times. You can find the information in the Syllabus.</caption>
+                        <tbody>
+                            <tr>
+                                <th scope="col" width="77">
+                                    <p>&nbsp;</p>
+                                </th>
+                                <th scope="col" width="108">
+                                    <p>Monday</p>
+                                </th>
+                                <th scope="col" width="125">
+                                    <p>Tuesday</p>
+                                </th>
+                                <th scope="col" width="110">
+                                    <p>Wednesday</p>
+                                </th>
+                                <th scope="col" width="111">
+                                    <p>Thursday</p>
+                                </th>
+                                <th scope="col" width="104">
+                                    <p>Friday</p>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td width="77">
+                                    <p>10-12</p>
+                                </td>
+                                <td width="108">
+                                    <p><span>Data Structures</span></p>
+                                    <p><span>(Evans 2617)</span></p>
+                                </td>
+                                <td width="125">
+                                    <p>&nbsp;<span>Systems and Teams</span></p>
+                                    <p><span>(Evans 2617)</span></p>
+                                </td>
+                                <td width="110">
+                                    <p>&nbsp;</p>
+                                </td>
+                                <td width="111">
+                                    <p><span>Data Structures</span></p>
+                                    <p><span>(Evans 2617)</span></p>
+                                    <p>&nbsp;</p>
+                                </td>
+                                <td width="104">
+                                    <p>&nbsp;</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="77">
+                                    <p>12-1</p>
+                                </td>
+                                <td width="108">
+                                    <p>&nbsp;</p>
+                                </td>
+                                <td width="125">
+                                    <p>Forest Walk</p>
+                                </td>
+                                <td width="110"></td>
+                                <td width="111">break</td>
+                                <td width="104">
+                                    <p>tutoring</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="77">
+                                    <p>1-3</p>
+                                </td>
+                                <td width="108">
+                                    <p>Cracking the Coding Interview/ Software Engineering</p>
+                                    <p>(Evans 2617)</p>
+                                </td>
+                                <td width="125">
+                                    <p>ChangeMaker</p>
+                                    <p>Lab</p>
+                                    <p>Sem2 C4105</p>
+                                </td>
+                                <td width="110"></td>
+                                <td width="111">
+                                    <p>ChangeMaker</p>
+                                    <p>Lab</p>
+                                    <p>Sem2 C4105</p>
+                                </td>
+                                <td width="104">
+                                    <p>&nbsp;</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="77">
+                                    <p>3-5</p>
+                                </td>
+                                <td width="108">
+                                    <p>&nbsp;</p>
+                                </td>
+                                <td width="125">
+                                    <p>ChangeMaker</p>
+                                    <p>Lab</p>
+                                </td>
+                                <td width="110">
+                                    <p>&nbsp;</p>
+                                </td>
+                                <td width="111">
+                                    <p>ChangeMaker</p>
+                                    <p>Lab</p>
+                                </td>
+                                <td width="104">
+                                    <p>&nbsp;</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <p>&nbsp;</p>
                     <p>Textbooks:</p>
                     <p><strong><span>Required</span></strong></p>
@@ -264,9 +149,6 @@ with open(outfile, "w") as f:
                         <li><span class="a-list-item"><span>The Mythical Man-Month, Fred Brooks</span></span></li>
                         <li>Parallel computing for Beginners https://www.learnpdc.org/PDCBeginners2e/</li>
                     </ul>
-"""
-
-"""
                     <table border="1">
                         <tbody>
                             <tr>
@@ -451,4 +333,3 @@ with open(outfile, "w") as f:
 <p style="text-align: center;">&nbsp;</p>
 <h2 style="text-align: center;"><a id=" " class="Button Button--primary" title="Modules List" href="https://canvas.evergreen.edu/courses/5926/modules" data-api-endpoint="https://canvas.evergreen.edu/api/v1/courses/5926/modules" data-api-returntype="[Module]">START HERE</a></h2>
 <p style="text-align: center;">Or click on <a id="" class="" title="Modules List" href="https://canvas.evergreen.edu/courses/5926/modules" target="" data-api-endpoint="https://canvas.evergreen.edu/api/v1/courses/5926/modules" data-api-returntype="[Module]">Modules</a> in menu at left to view list.</p>
-"""

@@ -11,8 +11,8 @@ import java.util.List;
 
 public class App
 {
-    public static final float DARK_THRESHOLD = 0.2f; // out of 1.0f
-    public static final float LIGHT_THRESHOLD = 0.8f; // out of 1.0f
+    public static final float DARK_THRESHOLD = 0.3f; // out of 1.0f
+    public static final float LIGHT_THRESHOLD = 0.7f; // out of 1.0f
 
     private static void sortVerticalRegions(BufferedImage img, List<VerticalRegion> vertRegions) {
         for (int x = 0; x < img.getWidth(); x +=1 ) {
@@ -60,12 +60,12 @@ public class App
                     } else {
                         // If we are returning to non-blacked-out pixels, start a new region
                         if (currentRegion == null) {
-                            currentRegion = new VerticalRegion(y, -1);
+                            currentRegion = new VerticalRegion(x, y, -1);
                         }
                     }
 
                     modifiedPixels[x*img.getHeight() + y] = pixelValue;
-
+                    img.setRGB(x,y,pixelValue);
                 }
             }
 
