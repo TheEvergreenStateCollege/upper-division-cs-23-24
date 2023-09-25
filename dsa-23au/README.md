@@ -41,3 +41,12 @@ Choose "Open in Browser". This will open up VSCode in your browser.
 <img width="498" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/3caf24e4-7478-4438-ada7-24114b3d1efe">
 
 <img width="900" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/e78511b9-f307-4af5-bbc8-4e5908963583">
+
+Enable permissions in Gitpod's integrations for Github / Bitbucket / Gitlab.
+
+https://gitpod.io/user/integrations
+<img width="1103" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/6e2b9019-00b3-4b5f-bd4e-4073f28b6551">
+
+<img width="703" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/dfe3093a-93c5-4441-9ec3-00798bb29dfb">
+
+<img width="655" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/b7f844af-3fc0-404c-b663-14c5f5fed97f">
