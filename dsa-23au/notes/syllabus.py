@@ -7,24 +7,25 @@ outfile = sys.argv[1]
 
 page = ""
 
-title = "Welcome to Data Structures and Algorithms"
+title = "Welcome to Data Structures and Algorithms, Autumn 2023"
 
 sec1 = (
     """
-    <p style="text-align: center;">
+    <h1 style="text-align: center;">
     <span style="font-style: normal;"><strong style="font-family: inherit; font-size: 1.8em; color: var(--ic-brand-font-color-dark);">
     """
     + title +
     """
-    </strong><br /></span></p>
+    </strong><br /></span></h1>
+    <h2>Syllabus and Class Information</h2>
     """
 )
 page += sec1 
 
 notices = """
     <p>
-      <span>Read our&nbsp;<a title="Syllabus" href="https://canvas.evergreen.edu/courses/5162/assignments/syllabus">syllabus&nbsp;</a>to get oriented to the program<br /><br />
-      </span>
+      You can find our public class website <a href="https://theevergreenstatecollege.github.io/upper-division-cs/dsa-23au/">https://theevergreenstatecollege.github.io/upper-division-cs/dsa-23au/</a>,
+      which is mirrored to our Canvas site at <a href="https://canvas.evergreen.edu/courses/5926">https://canvas.evergreen.edu/courses/5926</a>.
     </p>
     <p>
       <span>
@@ -246,9 +247,7 @@ class_schedule = (
 
 page += class_schedule
 
-with open(outfile, "w") as f:
-    f.write(page)
-
+page += (
 """
                     <p>&nbsp;</p>
                     <p>Textbooks:</p>
@@ -265,7 +264,9 @@ with open(outfile, "w") as f:
                         <li>Parallel computing for Beginners https://www.learnpdc.org/PDCBeginners2e/</li>
                     </ul>
 """
+)
 
+page += (
 """
                     <table border="1">
                         <tbody>
@@ -452,3 +453,8 @@ with open(outfile, "w") as f:
 <h2 style="text-align: center;"><a id=" " class="Button Button--primary" title="Modules List" href="https://canvas.evergreen.edu/courses/5926/modules" data-api-endpoint="https://canvas.evergreen.edu/api/v1/courses/5926/modules" data-api-returntype="[Module]">START HERE</a></h2>
 <p style="text-align: center;">Or click on <a id="" class="" title="Modules List" href="https://canvas.evergreen.edu/courses/5926/modules" target="" data-api-endpoint="https://canvas.evergreen.edu/api/v1/courses/5926/modules" data-api-returntype="[Module]">Modules</a> in menu at left to view list.</p>
 """
+)
+
+with open(outfile, "w") as f:
+    f.write(page)
+
