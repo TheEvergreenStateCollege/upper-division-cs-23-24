@@ -17,36 +17,3 @@ which can accept text input piped to `stdin` and returning an output on `stdout`
 in a UNIX shell, as this is how we will be testing your solutions. Don't worry,
 99% of programming languages out there offer this feature.
 
-## Software Setup
-
-### Cloud IDE 
-We will be using GitPod, a online integrated development environment (IDE) that can be
-accessed from any web browser, allowing you to easily work on lab computers or on your
-home machines.
-
-There is free plan allowing up to 50 hours per month of use if you create and link
-your [LinkedIn](https://linkedin.com) account. You may wish to do this to connect
-with alumni, recruiters, or professionals in the field or specialty that you are
-interested in working in.
-
-<img width="647" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/a88ddaef-3e6b-4144-b3ef-77db384c63ca">
-
-Answer some preliminary questions about our use of Gitpod for this class.
-You can adjust your answers to suit your preferences, it won't affect your development experience.
-
-<img width="625" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/9dbdf8bb-0bc8-4cba-8543-25af7edea404">
-
-Choose "Open in Browser". This will open up VSCode in your browser.
-
-<img width="498" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/3caf24e4-7478-4438-ada7-24114b3d1efe">
-
-<img width="900" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/e78511b9-f307-4af5-bbc8-4e5908963583">
-
-Enable permissions in Gitpod's integrations for Github / Bitbucket / Gitlab.
-
-https://gitpod.io/user/integrations
-<img width="1103" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/6e2b9019-00b3-4b5f-bd4e-4073f28b6551">
-
-<img width="703" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/dfe3093a-93c5-4441-9ec3-00798bb29dfb">
-
-<img width="655" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/b7f844af-3fc0-404c-b663-14c5f5fed97f">
