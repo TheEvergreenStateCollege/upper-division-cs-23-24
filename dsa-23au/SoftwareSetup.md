@@ -65,7 +65,7 @@ Add the following path, notificing that the directories `dsa-23au` (meaning Data
 and `scripts` already exist, and you are simply creating a new file called `git-config.sh`
 
 ```
-./dsa-23au/scripts/git-config.sh`
+./scripts/git-config.sh`
 ```
 
 In this file, paste the no-reply email address that you copied previous in Step 4.
