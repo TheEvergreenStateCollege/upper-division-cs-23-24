@@ -7,42 +7,51 @@ outfile = sys.argv[1]
 
 page = ""
 
-title = "Welcome to Data Structures and Algorithms"
+title = "Welcome to Data Structures and Algorithms, Autumn 2023"
 
 sec1 = (
-    """
-    <p style="text-align: center;">
-    <span style="font-style: normal;"><strong style="font-family: inherit; font-size: 1.8em; color: var(--ic-brand-font-color-dark);">
-    """
-    + title +
-    """
-    </strong><br /></span></p>
-    """
+"""
+<h1 style="text-align: center;">
+<span style="font-style: normal;"><strong style="font-family: inherit; font-size: 1.8em; color: var(--ic-brand-font-color-dark);">
+"""
++ title +
+"""
+</strong><br /></span></h1>
+<h2>Syllabus and Class Information</h2>
+"""
 )
 page += sec1 
 
 notices = """
-    <p>
-      <span>Read our&nbsp;<a title="Syllabus" href="https://canvas.evergreen.edu/courses/5162/assignments/syllabus">syllabus&nbsp;</a>to get oriented to the program<br /><br />
-      </span>
-    </p>
-    <p>
-      <span>
-        <strong>Our first class is on Tuesday Sept. 26th at 10am (PST) in Evans 2617 (Computer Center)
-        </strong><br />
-      </span>
-    </p>
+<p>
+  You can find our public class website with all information you need at:
+</p>
+<p><strong>
+<a href="https://theevergreenstatecollege.github.io/upper-division-cs/dsa-23au/">https://theevergreenstatecollege.github.io/upper-division-cs/dsa-23au/</a>
+</strong></p>
+<p>
+which is mirrored to our Canvas site at
+</p>
+<p><strong>
+<a href="https://canvas.evergreen.edu/courses/5926">https://canvas.evergreen.edu/courses/5926</a>
+</strong></p>.
+<p>
+  <span>
+    <strong>Our first class is on Tuesday Sept. 26th at 10am (PST) in Evans 2617 (Computer Center)
+    </strong><br />
+  </span>
+</p>
 """
 page += notices
 
 sec2 = (
-        """
+"""
 <div id="content-wrapper" class="ic-Layout-contentWrapper">
     <div id="content" class="ic-Layout-contentMain" role="main">
         <div id="course_home_content">
             <div id="wiki_page_show">
                 <div class="show-content user_content clearfix enhanced">
-        """
+"""
 )
 page += sec2 
 
@@ -232,8 +241,8 @@ def render_schedule_body_row(row):
 
 class_schedule = (
     """
+    <h3>Class Meeting Times</h3>
     <table border="1" width="0">
-        <caption>class meeting times. You can find the information in the Syllabus.</caption>
         <tbody>
     """ +
     render_schedule_header_row() +
@@ -246,9 +255,7 @@ class_schedule = (
 
 page += class_schedule
 
-with open(outfile, "w") as f:
-    f.write(page)
-
+page += (
 """
                     <p>&nbsp;</p>
                     <p>Textbooks:</p>
@@ -261,11 +268,12 @@ with open(outfile, "w") as f:
                     <ul>
                         <li><span>Data Structures and Algorithms in Java, 3rd or 4th edition, by Mark Allen Weiss</span></li>
                         <li><span class="NormalTextRun SCXW197021631 BCX0">Dive into Systems (DIS)&nbsp;<span>&nbsp;</span><span><a class="external" href="https://diveintosystems.org/development/antora/diveintosystems/1.0/index.html" target="_blank" rel="noopener">Dive Into Systems Text: https://diveintosystems.org/development/antora/diveintosystems/1.0/index.html</a></span></span></li>
-                        <li><span class="a-list-item"><span>The Mythical Man-Month, Fred Brooks</span></span></li>
                         <li>Parallel computing for Beginners https://www.learnpdc.org/PDCBeginners2e/</li>
                     </ul>
 """
+)
 
+page += (
 """
                     <table border="1">
                         <tbody>
@@ -430,6 +438,55 @@ with open(outfile, "w") as f:
         </div>
     </div>
 </div>
+""")
+
+page += (
+"""
+<h3>Tracks</h3>
+
+<p>
+Student who have never taken DSA before will take DSA in this quarter and participate in Changemakers team companies.
+They may choose either the Java programming language (with examples and support provided by DSA assignments) or any 
+other programming language where they must provide their own support and collaborate with each other.
+For example, if you choose Rust, you need to find at least one other classmate who wants to do Rust and check in with 
+each other.
+These students will be evaluated by Richard with feedback from Paul.
+</p>
+
+<p>
+Students who have already taken DSA will be doing an Independent Learning Contract, with a self-designed 
+curriculum, weekly milestones, and a statement of deliverables. These students will be evaluated by Paul
+with feedback from Richard, and will be asked to give updates on their progress and share feedback with
+the class each Thursday morning except the first.
+</p>
+
+<h3>Evaluation</h3>
+<p>
+Depending on which track of the class you are doing, you will be evaluated by a different faculty.
+If in doubt, please ask either Richard or Paul.
+<p>
+<ul>
+  <li>Students in the DSA and Changemakers track will be evaluated by Richard, with feedback from Paul.</li>
+  <li>Students in the Independent Learning Contract track will be evaluated by Paul, with feedback from Richard.</li>
+</ul>
+
+<h4>Paul's Feedback Criteria</h4>
+<p>
+For students in both tracks, Paul will assign *quantity* of credits (totalling 12 or 16 as agreed upon after the first week)
+based on amount of work, and write a narrative evaluation based on the quality of work and concepts demonstrated.
+</p>
+
+<p>Quantity of Credits</p>
+<ul>
+  <li>33% from completing weekly DSA assignments, or completing weekly milestones.</li>
+  <li>33% from participating in class activities and GitHub contributions to the class monorepo, especially merging pull requests.</li>
+  <li>33% from final project, which may be your Changemakers' team or individual project, or your Independent Learning Contract.</li> 
+</ul>
+"""
+)
+
+page += (
+"""
 <div id="right-side-wrapper" class="ic-app-main-content__secondary">
     <aside id="right-side" role="complementary">
         <div id="course_show_secondary">
@@ -452,3 +509,8 @@ with open(outfile, "w") as f:
 <h2 style="text-align: center;"><a id=" " class="Button Button--primary" title="Modules List" href="https://canvas.evergreen.edu/courses/5926/modules" data-api-endpoint="https://canvas.evergreen.edu/api/v1/courses/5926/modules" data-api-returntype="[Module]">START HERE</a></h2>
 <p style="text-align: center;">Or click on <a id="" class="" title="Modules List" href="https://canvas.evergreen.edu/courses/5926/modules" target="" data-api-endpoint="https://canvas.evergreen.edu/api/v1/courses/5926/modules" data-api-returntype="[Module]">Modules</a> in menu at left to view list.</p>
 """
+)
+
+with open(outfile, "w") as f:
+    f.write(page)
+
