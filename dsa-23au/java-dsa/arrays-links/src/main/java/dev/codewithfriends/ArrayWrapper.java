@@ -5,7 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ArrayWrapper implements List {
+public class ArrayWrapper<T> implements List {
+
+    private Object[] _array;
+
     @Override
     public int size() {
         return 0;
@@ -17,7 +20,7 @@ public class ArrayWrapper implements List {
     }
 
     @Override
-    public boolean contains(Object o) {
+    public boolean contains(<T> o) {
         return false;
     }
 
@@ -27,18 +30,35 @@ public class ArrayWrapper implements List {
     }
 
     @Override
-    public Object[] toArray() {
-        return new Object[0];
+    public <T>[] toArray() {
+        return new <T>[0];
     }
 
     @Override
-    public boolean add(Object o) {
+    public boolean add(<T> o) {
         return false;
     }
 
     @Override
-    public boolean remove(Object o) {
+    public boolean remove(<T> o) {
+        int count = null;  //interate through array to find element to remove, assign to count
+        for ( i = 0; i <= this._array.length; i += 1) { 
+            if (o == this._array[i]) {
+                count = i;
+                break;
+            }
+        }
+        //create a new array and add all elements except for the one to be removed (count)
+        <T> newArr[] = <T> [ArrayWrapper[].size() - 1];
+        for (i = 0; i <= newArr[].size(); i += 1) {
+            if (i != count) {
+            newArr.add(i);
+            }
+        }
+        if (count == null) { //if the element to be removed doesn't exist
         return false;
+        }
+        this._array = newArr;
     }
 
     @Override
@@ -57,32 +77,32 @@ public class ArrayWrapper implements List {
     }
 
     @Override
-    public Object get(int index) {
+    public <T> get(int index) {
         return null;
     }
 
     @Override
-    public Object set(int index, Object element) {
+    public <T> set(int index, <T> element) {
         return null;
     }
 
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, <T> element) {
 
     }
 
     @Override
-    public Object remove(int index) {
+    public <T> remove(int index) {
         return null;
     }
 
     @Override
-    public int indexOf(Object o) {
+    public int indexOf(<T> o) {
         return 0;
     }
 
     @Override
-    public int lastIndexOf(Object o) {
+    public int lastIndexOf(<T> o) {
         return 0;
     }
 
@@ -117,7 +137,7 @@ public class ArrayWrapper implements List {
     }
 
     @Override
-    public Object[] toArray(Object[] a) {
-        return new Object[0];
+    public <T>[] toArray(<T>[] a) {
+        return new <T>[0];
     }
 }
