@@ -29,8 +29,9 @@ RUN . /root/.shrc; gu install nodejs
 # Download and install maven
 WORKDIR /opt
 RUN wget "https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz"
-RUN tar -xzvf apache-maven-3.9.4-bin.tar.gz
-ENV PATH=/opt/apache-maven-3.9.4/bin:${PATH}
+RUN tar -xzvf apache-maven-3.9.4-bin.tar.gz && rm apache-maven-3.9.4-bin.tar.gz
+# add java and maven to path
+ENV PATH=/opt/apache-maven-3.9.4/bin:/opt/graalvm-community-openjdk-20.0.2+9.1/bin:${PATH}
 
 RUN mkdir ~/src
 RUN cd ~/src; git clone https://github.com/TheEvergreenStateCollege/upper-division-cs
