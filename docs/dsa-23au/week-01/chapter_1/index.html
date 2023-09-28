@@ -9,17 +9,21 @@
       
       
       
+        <link rel="prev" href="../asymptotic/">
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      
+        <link rel="next" href="../../week-02/chapter_2/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
-        <title>Data Structures & Algorithms</title>
+        <title>Intro---Duality---Five Problems - Data Structures & Algorithms</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
       
       
 
@@ -35,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -56,6 +60,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#intro-duality-five-problems" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -68,7 +77,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Data Structures &amp; Algorithms" class="md-header__button md-logo" aria-label="Data Structures & Algorithms" data-md-component="logo">
+    <a href="../.." title="Data Structures &amp; Algorithms" class="md-header__button md-logo" aria-label="Data Structures & Algorithms" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -87,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Intro---Duality---Five Problems
             
           </span>
         </div>
@@ -166,7 +175,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Data Structures &amp; Algorithms" class="md-nav__button md-logo" aria-label="Data Structures & Algorithms" data-md-component="logo">
+    <a href="../.." title="Data Structures &amp; Algorithms" class="md-nav__button md-logo" aria-label="Data Structures & Algorithms" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -197,7 +206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -212,7 +221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/FinalProject/" class="md-nav__link">
+      <a href="../../FinalProject/" class="md-nav__link">
         Final Project
       </a>
     </li>
@@ -227,7 +236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/SoftwareSetup/" class="md-nav__link">
+      <a href="../../SoftwareSetup/" class="md-nav__link">
         Software Setup
       </a>
     </li>
@@ -240,14 +249,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -256,7 +267,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Week 01
@@ -269,7 +280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-01/2023-09-26-ctf-event/" class="md-nav__link">
+      <a href="../2023-09-26-ctf-event/" class="md-nav__link">
         CTF Event
       </a>
     </li>
@@ -283,7 +294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-01/2023-09-26/" class="md-nav__link">
+      <a href="../2023-09-26/" class="md-nav__link">
         Week 1 - Day 1
       </a>
     </li>
@@ -297,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-01/2023-09-28/" class="md-nav__link">
+      <a href="../2023-09-28/" class="md-nav__link">
         Week 1 - Day 2
       </a>
     </li>
@@ -311,7 +322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-01/asymptotic/" class="md-nav__link">
+      <a href="../asymptotic/" class="md-nav__link">
         Asymptotic Analysis
       </a>
     </li>
@@ -323,11 +334,161 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/week-01/chapter_1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Intro---Duality---Five Problems
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Intro---Duality---Five Problems
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-duality-of-time-and-space" class="md-nav__link">
+    The Duality of Time and Space
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#five-problems" class="md-nav__link">
+    Five Problems
+  </a>
+  
+    <nav class="md-nav" aria-label="Five Problems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#satisfiability" class="md-nav__link">
+    Satisfiability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knapsack" class="md-nav__link">
+    Knapsack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier" class="md-nav__link">
+    Classifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-endgames" class="md-nav__link">
+    Go Endgames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reinforcement-learning" class="md-nav__link">
+    Reinforcement Learning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asymptotic-analysis" class="md-nav__link">
+    Asymptotic Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Asymptotic Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-and-its-growth" class="md-nav__link">
+    Time and its Growth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-and-its-growth" class="md-nav__link">
+    Space and its Growth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ram-model" class="md-nav__link">
+    The RAM Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+    <nav class="md-nav" aria-label="Links">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-double-and-more" class="md-nav__link">
+    Single, Double, and More
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -374,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-02/chapter_2/" class="md-nav__link">
+      <a href="../../week-02/chapter_2/" class="md-nav__link">
         Chapter 2: Trees---Heaps---CRUD
       </a>
     </li>
@@ -423,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-03/chapter_3/" class="md-nav__link">
+      <a href="../../week-03/chapter_3/" class="md-nav__link">
         Chapter 3: Greed---Satisficing---Optimality
       </a>
     </li>
@@ -472,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-04/chapter_4/" class="md-nav__link">
+      <a href="../../week-04/chapter_4/" class="md-nav__link">
         Chapter 4: Caching---Subdividing---Recursion
       </a>
     </li>
@@ -521,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-05/chapter_5/" class="md-nav__link">
+      <a href="../../week-05/chapter_5/" class="md-nav__link">
         Chapter 5: Graphs---Clustering
       </a>
     </li>
@@ -570,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-06/chapter_6/" class="md-nav__link">
+      <a href="../../week-06/chapter_6/" class="md-nav__link">
         Chapter 6: Paths---Flows
       </a>
     </li>
@@ -619,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-07/chapter_7/" class="md-nav__link">
+      <a href="../../week-07/chapter_7/" class="md-nav__link">
         Chapter 7: Sorting---Sampling
       </a>
     </li>
@@ -668,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-08/chapter_8/" class="md-nav__link">
+      <a href="../../week-08/chapter_8/" class="md-nav__link">
         Chapter 8: Parallel---Distributed---Quantum
       </a>
     </li>
@@ -717,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/week-09/chapter_9/" class="md-nav__link">
+      <a href="../../week-09/chapter_9/" class="md-nav__link">
         Chapter 9: Outro---Five Systems
       </a>
     </li>
@@ -748,6 +909,132 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-duality-of-time-and-space" class="md-nav__link">
+    The Duality of Time and Space
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#five-problems" class="md-nav__link">
+    Five Problems
+  </a>
+  
+    <nav class="md-nav" aria-label="Five Problems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#satisfiability" class="md-nav__link">
+    Satisfiability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knapsack" class="md-nav__link">
+    Knapsack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier" class="md-nav__link">
+    Classifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-endgames" class="md-nav__link">
+    Go Endgames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reinforcement-learning" class="md-nav__link">
+    Reinforcement Learning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asymptotic-analysis" class="md-nav__link">
+    Asymptotic Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Asymptotic Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-and-its-growth" class="md-nav__link">
+    Time and its Growth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-and-its-growth" class="md-nav__link">
+    Space and its Growth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ram-model" class="md-nav__link">
+    The RAM Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+    <nav class="md-nav" aria-label="Links">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-double-and-more" class="md-nav__link">
+    Single, Double, and More
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -759,8 +1046,56 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<h1 id="intro-duality-five-problems">Intro---Duality---Five Problems</h1>
+<h2 id="the-duality-of-time-and-space">The Duality of Time and Space</h2>
+<p>Exercise:
+* Pick a duality from another science, area of knowledge, popular culture, your favorite
+movies and books. Describe how the duals complement and define each other, what role
+balance plays, and how you can tradeoff one dual for another.</p>
+<h2 id="five-problems">Five Problems</h2>
+<h3 id="satisfiability">Satisfiability</h3>
+<p>Satisfaction is </p>
+<h3 id="knapsack">Knapsack</h3>
+<h3 id="classifier">Classifier</h3>
+<h3 id="go-endgames">Go Endgames</h3>
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+<h2 id="asymptotic-analysis">Asymptotic Analysis</h2>
+<h3 id="time-and-its-growth">Time and its Growth</h3>
+<h3 id="space-and-its-growth">Space and its Growth</h3>
+<h2 id="the-ram-model">The RAM Model</h2>
+<p>In Donald Knuth's classic and neverending text, <em>The Art of Computer Programming</em>, he invents and uses
+an imaginary assembly language called MMIX. Some programmers may think that assembly language is too
+low level and has no bearing on analyzing algorithms day to day, and they have a point: you don't need to 
+understand the laws of quantum physics to use a computer, and yet this daily task rests on a foundation
+of electrons tunneling between semiconductors of different types.</p>
+<p>[insert picture of RAM DIMMs]
+[insert picture of RAM grid]</p>
+<p>Underlying all algorithmic analysis on all modern computers that you can use today is the RAM Model,
+which stands for (Random Access Memory). Other than being the greatest techno album of all time from
+Daft Punk, Random Access Memory means that "constant-time access to any address." Whether you want to 
+read address </p>
+<h2 id="arrays">Arrays</h2>
+<p>An array is the "bare metal" of the RAM Model, the ur-data-structure. It is the most direct access that
+programmers have to the underlying hardware because it behaves exactly as the memory circuits do:
+it's a vast contiguous grid of memory locations in sequential order, with address bits being input,
+and the corresponding data bits being output (if it's a read-only operation) or with data bits being input
+to overwrite the existing data (if it's a write operation).</p>
+<p>Think of arrays as a row of lockers or house addresses on a street, with the quirk that the addresses start
+at 0. The reason is that </p>
+<h2 id="links">Links</h2>
+<h3 id="single-double-and-more">Single, Double, and More</h3>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -792,13 +1127,13 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
-          <script src="/javascripts/mathjax.js"></script>
+          <script src="../../javascripts/mathjax.js"></script>
         
       
         
