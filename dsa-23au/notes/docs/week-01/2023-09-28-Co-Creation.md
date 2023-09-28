@@ -4,7 +4,7 @@ Thursday, 28 September 2023
 ## Add your five sentences and your pair programing partner's 5 sentences below
 I took the Changemaker Lab in Fall 2022 and I learned lots of leaderships skills and workshopping skills.
 I love Destiny 2 and Sonic the Hedgehog.
-I cant wait to buy my new GPU went I am not a broke boy.
+I cant wait to buy my new GPU so I can do more in programming and designs/modeling.
 I am excited to graduate this year with BS and get my cybersecurity.
 I am also excited to further my skills at game development.
 
