@@ -30,7 +30,7 @@ RUN . /root/.shrc; gu install nodejs
 WORKDIR /opt
 RUN wget "https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz"
 RUN tar -xzvf apache-maven-3.9.4-bin.tar.gz
-ENV PATH=/opt/apache-maven-3.9.4-bin:${PATH}
+ENV PATH=/opt/apache-maven-3.9.4/bin:${PATH}
 
 RUN mkdir ~/src
 RUN cd ~/src; git clone https://github.com/TheEvergreenStateCollege/upper-division-cs
