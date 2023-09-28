@@ -11,6 +11,7 @@ RUN apt-get install -yqq wget
 RUN apt-get install -yqq ca-certificates
 RUN apt-get install -yqq ssh
 RUN apt-get install -yqq git
+RUN apt-get install -yqq sudo
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
