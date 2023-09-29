@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class ArrayWrapper implements List {
+
+    private Object[] _array;
+    
     @Override
     public int size() {
         return 0;
