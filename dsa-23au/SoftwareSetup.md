@@ -146,7 +146,7 @@ Run the `git-config.sh` script you set in the `GitHub` section above.
 ### 8. Source environment variables
 
 ```
-source ~/scripts/.shrc
+source ./scripts/.shrc
 ```
 
 ### 9. Update this Document
