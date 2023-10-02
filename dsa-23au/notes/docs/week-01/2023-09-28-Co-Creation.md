@@ -8,4 +8,6 @@ Is this classs monday as well? Yes this class is Mnday Tuesday Thursday
 Taking this Course has already Changed my life !
 I was choosing to work a job from 8am- 4pm runing netwrok data abling for $26 an hour but chose this class instead I am very very greatful
 
+Git is alot of fun
+
 1. I would like more direction from the instructer. I find this horribly challenging not having any steps to guide us. 
