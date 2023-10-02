@@ -102,3 +102,161 @@ worry about it for now.
 ```
 mvn test
 ```
+
+## List Specs
+
+We will practice the idea of *interfaces* vs.
+*implementations*, and the "CRUD" heuristic
+for data structures, on the *list*.
+
+A *list* is a data structure interface
+which represents an everyday list,
+that can grow and shrink as you add and
+remove items to it while retaining any
+items not being added or removed.
+It starts out empty, and has a maximum
+capacity.
+
+### Global Invariant
+
+items before and after the deletion index `k`
+remain in the same order after deleting
+an existing item at index `k`.
+
+### Create (Insert)
+
+Invariants:
+
+if the list is not already at a maximum
+size, then inserting will increase
+the list by one.
+
+items before and after the insertion index `k`
+remain in the same order after inserting
+a new item at index `k`.
+
+The length of a list equals all the
+insertions minus all the deletions
+that occur since the list was created.
+
+Let `L = [ x_0, x_1, ..., x_{n-1} ]`
+be a list with `n` ordered items
+(size `n`).
+
+We insert a new item `x_j` at index `j`,
+where `0 <= j < n`.
+
+```
+L` = L.insert(j, x_j)
+```
+
+All previous items are 
+`L' = [x_0, ... x_j, x_{j+1}, ... x_{n-1} ]`
+
+For all `k < j`,
+
+```
+L'[k] = L[k]
+```
+
+For `k > j`,
+
+```
+L'[k] = L[k-1]
+```
+
+### Read (Search)
+
+Invariants:
+
+items before and after reading stay
+in the same order.
+
+
+Let `L = [ x_0, x_1, ..., x_{n-1} ]`
+be a list with `n` ordered items
+(size `n`).
+
+We read an item `x_j` at index `j`,
+where `0 <= j < n`.
+
+```
+[L`,x_k] = L.read(k)
+```
+
+After a read, all items are in the same
+order as before.
+`L' == L`
+
+For all `0 <= j < n`,
+
+```
+L'[j] = L[j]
+```
+
+#### Special Cases of Read
+
+* First (read of `x_0`)
+* Last (read of `x_{n-1}`)
+
+### Update
+
+Invariants:
+
+items with indices before and after
+updating an item `x_k` stay in the same order.
+
+Let `L = [ x_0, x_1, ..., x_k, ... x_{n-1} ]`
+be a list with `n` ordered items
+(size `n`).
+
+We update an item `x_k` at index `k`,
+where `0 <= k < n`.
+
+```
+[L`,x'_k] = L.update(k, x'_k)
+```
+
+For all `k < j`,
+
+```
+L'[k] = L[k]
+```
+
+For `k > j`,
+
+```
+L'[k] = L[k+1]
+```
+
+### Delete
+
+The length of a list equals all the
+insertions minus all the deletions
+that occur since the list was created.
+
+Let `L = [ x_0, x_1, ..., x_{n-1} ]`
+be a list with `n` ordered items
+(size `n`).
+
+We delete an existing item `x_k` at index `k`,
+where `0 <= k < n`.
+
+```
+[L`, k] = L.delete(k)
+```
+
+All previous items are
+`L' = [x_0, ... x_j, x_{j+1}, ... x_{n-1} ]`
+
+For all `k < j`,
+
+```
+L'[k] = L[k]
+```
+
+For `k > j`,
+
+```
+L'[k] = L[k+1]
+```
