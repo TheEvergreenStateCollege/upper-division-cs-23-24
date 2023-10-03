@@ -31,10 +31,24 @@ public class ArrayWrapper implements List {
         return new Object[0];
     }
 
+    Book[] _booksArr = new Book[10];
+    int lastl = 0;
+
     @Override
     public boolean add(Object o) {
+
+        if(lastl < _booksArr.size())
+        {
+            _booksArr[lastl + 1] = o;
+            lastl+=1; 
+            return true;
+        }
         return false;
+
+    
     }
+
+
 
     @Override
     public boolean remove(Object o) {
