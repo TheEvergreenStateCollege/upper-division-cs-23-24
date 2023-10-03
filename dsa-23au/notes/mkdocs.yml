@@ -1,6 +1,7 @@
 site_name: Data Structures & Algorithms
 theme:
   name: material
+    #  name: terminal
 
 repo_url: https://github.com/theevergreenstatecollege/upper-division-cs/dsa-23au
 

@@ -6,12 +6,18 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import java.util.List;
 
-/**
- * Unit test for simple App.
- */
-public class ArrayWrapperTest
-{
+import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
+public class LinkedListWrapperTest {
+
     Book b1 = new Book("Some title", "some author");
+
+    // Create / Insert operation
+    // List Spec
     @Test
     public void insertShifts()
     {
@@ -20,4 +26,6 @@ public class ArrayWrapperTest
         l.add(b1);
         assertEquals(1, l.size());
     }
+
 }
+
