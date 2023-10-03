@@ -11,13 +11,30 @@ import java.util.List;
  */
 public class ArrayWrapperTest
 {
-    Book b1 = new Book("Some title", "some author");
+    String[] s1 = {"Eggs", "Bread", "Peanut Butter", "Butter"};
     @Test
-    public void insertShifts()
+    public void testAdd
     {
-        List l = new ArrayWrapper<Book>(10);
-        assertEquals(0, l.size());
-        l.add(b1);
-        assertEquals(1, l.size());
+        List l = new ArrayWrapper<String>(10);
+        l.add(s1[0]);
+        l.add(s1[1]);
+        l.add(s1[2]);
+        l.add(s1[3]);
+        //L not 1 lol
+        int k=2;
+
+        assertEquals("Eggs",1.get(0));
+        assertEquals("Bread",1.get(1));
+        assertEquals("Peanut Butter",1.get(k+1));
+        assertEquals("Butter",1.get(k+2));
+        
+        1.add(2, "Broccoli");
+
+         assertEquals("Eggs",1.get(0));
+        assertEquals("Bread",1.get(1));
+        
+        assertEquals("Peanut Butter",1.get(k+1));
+        assertEquals("Butter",1.get(k+2));
+
     }
 }
