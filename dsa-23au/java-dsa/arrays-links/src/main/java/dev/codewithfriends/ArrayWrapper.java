@@ -25,6 +25,11 @@ public class ArrayWrapper<T> implements List {
     }
 
     @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @Override
     public boolean contains(Object o) {
         return false;
     }
@@ -34,10 +39,6 @@ public class ArrayWrapper<T> implements List {
         return null;
     }
 
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
 
     @Override
     public boolean add(Object o) {
@@ -66,22 +67,32 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object get(int index) {
+        // check the range, if outside range return null
+        // return item at the given index
         return null;
     }
 
     @Override
     public Object set(int index, Object element) {
+        // check the range, if outside range return null
+        // set the given Object at the given index
+        // return item at the given index
         return null;
     }
 
     @Override
     public void add(int index, Object element) {
-
+        // check that the index is in range
+        // loop from end of list to index, shifting items forward one slot
+        // set the saved Object
     }
 
     @Override
     public Object remove(int index) {
-        return null;
+        // check that the index is in range
+        // save the Object to be returned
+        // loop from end of list to index, shifting items back one slot
+        // return the saved Object
     }
 
     @Override

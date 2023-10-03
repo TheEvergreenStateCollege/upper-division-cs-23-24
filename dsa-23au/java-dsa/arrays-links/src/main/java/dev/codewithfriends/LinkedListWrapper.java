@@ -29,6 +29,7 @@ public class LinkedListWrapper<T> implements List {
 
     @Override
     public boolean contains(Object o) {
+        
         return false;
     }
 
