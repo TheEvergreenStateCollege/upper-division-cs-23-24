@@ -5,15 +5,29 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ArrayWrapper implements List {
+public class ArrayWrapper<T> implements List {
+
+    private Object[] _array;
+    private int maxSize;
+    private int currentSize;
+    private boolean isEmpty;
+
+    public ArrayWrapper(int maxSize) {
+        this._array = new Object[maxSize];
+        this.maxSize = maxSize;
+        this.currentSize = 0;
+        this.isEmpty = true;
+    }
+    
+    
     @Override
     public int size() {
-        return 0;
+        return this.maxSize;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.isEmpty;
     }
 
     @Override
@@ -33,7 +47,9 @@ public class ArrayWrapper implements List {
 
     @Override
     public boolean add(Object o) {
-        return false;
+        this._array[currentSize]=o;
+        this.currentSize++;
+        return true;
     }
 
     @Override
@@ -58,7 +74,7 @@ public class ArrayWrapper implements List {
 
     @Override
     public Object get(int index) {
-        return null;
+        return this._array[index];
     }
 
     @Override
