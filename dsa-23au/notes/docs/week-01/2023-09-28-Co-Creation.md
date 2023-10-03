@@ -8,4 +8,5 @@ Is this classs monday as well? Yes this class is Mnday Tuesday Thursday
 Taking this Course has already Changed my life !
 I was choosing to work a job from 8am- 4pm runing netwrok data abling for $26 an hour but chose this class instead I am very very greatful
 
-1. This is the fourth time doing this, this all you get.
+1. This is the fourth time doing this,
+2. None of my comments are added when I try and commint from gitpod. 
