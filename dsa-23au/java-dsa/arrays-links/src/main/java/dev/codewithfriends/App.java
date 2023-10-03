@@ -19,6 +19,7 @@ public class App
             for (String line : lines) {
                 String[] tokens = line.split(",");
                 Book book = new Book(tokens[0], tokens[1]);
+                
             }
         } catch(IOException ioe) {
 
@@ -27,5 +28,3 @@ public class App
 
         System.out.println( "Hello World!" )
 
-    }
-}

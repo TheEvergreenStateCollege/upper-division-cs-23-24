@@ -5,20 +5,38 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ArrayWrapper implements List {
+public class ArrayWrapper<T> implements List {
+
+    private Object[] _array;
+
     @Override
     public int size() {
-        return 0;
+        return _array.length;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        if ( _array.length =< 10 && >1 ) {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     @Override
     public boolean contains(Object o) {
+       
+       if ( _array.length =< 10 && <1 ) {
+        return true;
+       }
+       else{
         return false;
+       }
+        
+        // o = input
+        // count = i
     }
 
     @Override
@@ -121,3 +139,4 @@ public class ArrayWrapper implements List {
         return new Object[0];
     }
 }
+
