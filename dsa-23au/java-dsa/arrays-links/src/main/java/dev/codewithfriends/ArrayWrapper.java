@@ -8,13 +8,12 @@ import java.util.ListIterator;
 public class ArrayWrapper<T> implements List {
 
     private Object[] _array;
-    private int maxSize;
+    private int size;
     private int currentSize;
     private boolean isEmpty;
 
     public ArrayWrapper(int maxSize) {
         this._array = new Object[maxSize];
-        this.maxSize = maxSize;
         this.currentSize = 0;
         this.isEmpty = true;
     }
@@ -22,7 +21,9 @@ public class ArrayWrapper<T> implements List {
     
     @Override
     public int size() {
-        return this.maxSize;
+        int size = this.size();
+        return size;
+
     }
 
     @Override
