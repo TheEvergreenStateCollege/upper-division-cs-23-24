@@ -8,28 +8,20 @@ import java.util.ListIterator;
 public class ArrayWrapper<T> implements List {
 
     private Object[] _array;
-    private int theSize;
-    private int currentSize;
-    private boolean isEmpty;
-    private String l1;
+    private int maxSize;
 
     public ArrayWrapper(int maxSize) {
-        this._array = new Object[maxSize];
-        this.currentSize = 0;
-        this.isEmpty = true;
+        this.maxSize = maxSize;
     }
     
-    
     @Override
-    // Returns the current size when called
     public int size() {
-        return theSize;
+        return 0;
     }
 
     @Override
-    // Returns boolean if empty
     public boolean isEmpty() {
-        return size() == 0;
+        return false;
     }
 
     @Override
@@ -44,16 +36,12 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object[] toArray() {
-        // Object[] objects = l1.toArray(new String[0]); needs new logic
         return new Object[0];
     }
 
     @Override
     public boolean add(Object o) {
-        this._array[currentSize]=o;
-        this.currentSize++;
-        this.isEmpty = false;
-        return true;
+        return false;
     }
 
     @Override
@@ -78,31 +66,17 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object get(int index) {
-        return this._array[index];
+        return null;
     }
 
     @Override
     public Object set(int index, Object element) {
-        if (index > maxSize) {
-            return null;
-        }
-        else {
-            Object previousElement = this._array[index];
-            this._array[index] = element;
-            return previousElement;
-        }
+        return null;
     }
 
     @Override
     public void add(int index, Object element) {
-        if (this.currentSize != this.maxSize) {
-            for (int i=0; i < this.currentSize-(index);i++){
-                _array[this.currentSize-i] = _array[this.currentSize-i-1];
-            }
-            _array[index] = element;
-            this.currentSize++;
-            this.isEmpty = false;
-        }
+
     }
 
     @Override
