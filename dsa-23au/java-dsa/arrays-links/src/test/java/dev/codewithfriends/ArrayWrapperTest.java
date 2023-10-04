@@ -23,7 +23,7 @@ public class ArrayWrapperTest
         }
         //Insert Broccoli at index 2 in l, k=2
         l.add(2,"Broccoli");
-
+        int k = 2;
         assertEquals("Bread", l.get(0));
         assertEquals("Eggs", l.get(1));
         assertEquals("Broccoli", l.get(k));

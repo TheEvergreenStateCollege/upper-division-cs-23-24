@@ -18,6 +18,9 @@ public class App
             String[] lines = inputString.split("\n");
             for (String line : lines) {
                 String[] tokens = line.split(",");
+                if (tokens.length == 0 || line.length() == 0) {
+                    continue;
+                }
                 Book book = new Book(tokens[0], tokens[1]);
             }
         } catch(IOException ioe) {
