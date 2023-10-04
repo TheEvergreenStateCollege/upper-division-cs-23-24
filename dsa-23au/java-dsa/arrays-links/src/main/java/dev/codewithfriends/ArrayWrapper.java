@@ -8,9 +8,10 @@ import java.util.ListIterator;
 public class ArrayWrapper<T> implements List {
 
     private Object[] _array;
-    private int size;
+    private int theSize;
     private int currentSize;
     private boolean isEmpty;
+    private String l1;
 
     public ArrayWrapper(int maxSize) {
         this._array = new Object[maxSize];
@@ -20,15 +21,15 @@ public class ArrayWrapper<T> implements List {
     
     
     @Override
+    // Returns the current size when called
     public int size() {
-        int size = this.size();
-        return size;
-
+        return theSize;
     }
 
     @Override
+    // Returns boolean if empty
     public boolean isEmpty() {
-        return this.isEmpty;
+        return size() == 0;
     }
 
     @Override
@@ -43,6 +44,7 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object[] toArray() {
+        // Object[] objects = l1.toArray(new String[0]); needs new logic
         return new Object[0];
     }
 

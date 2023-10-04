@@ -40,7 +40,14 @@ public class ArrayWrapperTest
     }
 
     @Test
-    public void testtoArray(){
+    public void test_isEmtpy(){
+        List<String> l = new ArrayWrapper<String>(10);
+        assertTrue(l.size() == 0);
+    }
+    @Test
+    public void test_toArray(){
+        // need lots of logic
         return;
     }
 }
+
