@@ -49,6 +49,7 @@ public class ArrayWrapper<T> implements List {
     public boolean add(Object o) {
         this._array[currentSize]=o;
         this.currentSize++;
+        this.isEmpty = false;
         return true;
     }
 
@@ -79,12 +80,26 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object set(int index, Object element) {
-        return null;
+        if (index > maxSize) {
+            return null;
+        }
+        else {
+            Object previousElement = this._array[index];
+            this._array[index] = element;
+            return previousElement;
+        }
     }
 
     @Override
     public void add(int index, Object element) {
-
+        if (this.currentSize != this.maxSize) {
+            for (int i=0; i < this.currentSize-(index);i++){
+                _array[this.currentSize-i] = _array[this.currentSize-i-1];
+            }
+            _array[index] = element;
+            this.currentSize++;
+            this.isEmpty = false;
+        }
     }
 
     @Override

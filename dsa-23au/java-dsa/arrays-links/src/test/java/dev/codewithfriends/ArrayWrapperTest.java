@@ -26,10 +26,15 @@ public class ArrayWrapperTest
         l.add(k,"Broccoli");
         assertEquals("Bread", l.get(0));
         assertEquals("Eggs", l.get(1));
-        assertEquals("Broccoli", l.get(k+1));
+        assertEquals("Broccoli", l.get(k));
         assertEquals("Peanut Butter", l.get(k+1));
         assertEquals("Butter", l.get(k+2));
-
+        l.set(2, "Cauliflower");
+        assertEquals("Bread", l.get(0));
+        assertEquals("Eggs", l.get(1));
+        assertEquals("Cauliflower", l.get(k));
+        assertEquals("Peanut Butter", l.get(k+1));
+        assertEquals("Butter", l.get(k+2));
     }
 
     Book b1 = new Book("Some title", "some author");
