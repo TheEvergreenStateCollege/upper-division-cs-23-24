@@ -107,13 +107,28 @@ public class ArrayWrapper implements List {
     }
 
     @Override
-    public boolean removeAll(Collection c) {
-        return false;
+    public boolean removeAll(Collection<?> c) {
+        Objects.requireNonNull(c);
+        boolean modified = false;
+        for (int i = 0; i < size; i++) {
+            if (c.contains(array[i])) {
+                remove(i);
+                i--; // Decrement i to recheck the current index.
+                modified = true;
+            }
+        }
+        return modified;
     }
 
     @Override
-    public boolean containsAll(Collection c) {
-        return false;
+    public boolean containsAll(Collection<?> c) {
+        Objects.requireNonNull(c);
+        for (Object item : c) {
+            if (!contains(item)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
