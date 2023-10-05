@@ -44,20 +44,20 @@ public class LinkedListWrapper<T> implements List {
     }
 
     @Override
-    public boolean add(Object o) {
-        if (this.head == null) {
-            this.head = newNode;  // create / instantiate a new Node object
-        } else {
-            Node newNode = new Node(o);
-            
+   public boolean add(Object o) {
+    Node newNode = new Node(o); // Create a new node with the object o as payload
 
-            // create a new node with the object o as payload
-            // traverse to the end, and set the last node's next to a new node
-             while (current.next != null) {
-            current = current.next;
+    if (this.head == null) {
+        this.head = newNode; // If the list is empty, set the new node as the head
+    } else {
+        Node current = this.head;
+        while (current.next != null) {
+            current = current.next; // Traverse to the end of the list
         }
-        current.next = newNode;
+        current.next = newNode; // Set the last node's next to the new node
     }
+    return true; // Indicate that the addition was successful
+}
 
     @Override
     public boolean remove(Object o) {
