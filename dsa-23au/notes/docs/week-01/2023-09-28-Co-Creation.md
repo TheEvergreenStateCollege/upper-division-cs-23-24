@@ -8,6 +8,7 @@ I cant wait to buy my new GPU so I can do more in programming and designs/modeli
 I am excited to graduate this year with BS and get my cybersecurity.
 I am also excited to further my skills at game development. 
 
+////FOR OCT 5 assignment
 This past week, I had to brush up on my programming and psuedocode skills that we learned in CSF. I have grown pretty comfortable with arrays and linked lists. My syntax skills have gotten better as I have been using Java API (I urge you to use that as a tool). I have also been practicing call function because that is a great skill to learn with arrays and linked lists. Also ALWAYS PUT COMMENTS IN YOUR CODE!!!
 
 
