@@ -4,7 +4,12 @@ import java.util.List;
 import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
-public class ArrayListTest {
+public class ArrayWrapper<T>
+implements List<E> {
+    private Object[] elements;
+    private int size = 0;
+}
+    public ArrayWrapper{
 
     @Test
     public void testAdd() {
