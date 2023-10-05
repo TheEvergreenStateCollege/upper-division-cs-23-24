@@ -106,7 +106,10 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object get(int index) {
-        return null;
+        if (index < 0 || index > size()) {
+        throw new ArrayIndexOutOfBoundsException();
+        }
+        return this._array[index];
     }
 
     @Override
