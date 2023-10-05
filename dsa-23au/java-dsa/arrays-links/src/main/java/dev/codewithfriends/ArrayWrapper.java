@@ -24,7 +24,7 @@ public class ArrayWrapper<T> implements List {
     @Override
     // Returns the current size when called
     public int size() {
-        return maxSize;
+        return currentSize;
     }
 
     @Override
