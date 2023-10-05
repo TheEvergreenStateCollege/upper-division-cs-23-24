@@ -5,7 +5,18 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+
+
 public class LinkedListWrapper<T> implements List {
+
+    private int maxSize;
+    private Node head;
+
+    public LinkedListWrapper(int maxSize) {
+        this.maxSize = maxSize;
+        this.head = null;
+    }
+
     @Override
     public int size() {
         return 0;
@@ -17,14 +28,7 @@ public class LinkedListWrapper<T> implements List {
     }
 
     @Override
-    public boolean contains(Object o) { 
-        //requieres the size of the LinkedListWrapper to be something any method can access in the class
-                       
-        for (int i = 0; i < size; i++) {
-            if (data[i].equals(o)) {
-                return true;
-            }
-        }
+    public boolean contains(Object o) {
         return false;
     }
 
@@ -39,9 +43,20 @@ public class LinkedListWrapper<T> implements List {
     }
 
     @Override
-    public boolean add(Object o) {
-        return false;
+   public boolean add(Object o) {
+    Node newNode = new Node(o); // Create a new node with the object o as payload
+
+    if (this.head == null) {
+        this.head = newNode; // If the list is empty, set the new node as the head
+    } else {
+        Node current = this.head;
+        while (current.next != null) {
+            current = current.next; // Traverse to the end of the list
+        }
+        current.next = newNode; // Set the last node's next to the new node
     }
+    return true; // Indicate that the addition was successful
+}
 
     @Override
     public boolean remove(Object o) {
