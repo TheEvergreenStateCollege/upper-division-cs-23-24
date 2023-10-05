@@ -8,20 +8,28 @@ import java.util.ListIterator;
 public class ArrayWrapper<T> implements List {
 
     private Object[] _array;
-    private int maxSize;
+    private int theSize;
+    private int currentSize;
+    private boolean isEmpty;
+    private String l1;
 
     public ArrayWrapper(int maxSize) {
-        this.maxSize = maxSize;
+        this._array = new Object[maxSize];
+        this.currentSize = 0;
+        this.isEmpty = true;
     }
     
+    
     @Override
+    // Returns the current size when called
     public int size() {
-        return 0;
+        return theSize;
     }
 
     @Override
+    // Returns boolean if empty
     public boolean isEmpty() {
-        return false;
+        return size() == 0;
     }
 
     @Override
@@ -39,10 +47,17 @@ public class ArrayWrapper<T> implements List {
         return null;
     }
 
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
 
     @Override
     public boolean add(Object o) {
-        return false;
+        this._array[currentSize]=o;
+        this.currentSize++;
+        this.isEmpty = false;
+        return true;
     }
 
     @Override
@@ -67,24 +82,17 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object get(int index) {
-        // check the range, if outside range return null
-        // return item at the given index
         return null;
     }
 
     @Override
     public Object set(int index, Object element) {
-        // check the range, if outside range return null
-        // set the given Object at the given index
-        // return item at the given index
         return null;
     }
 
     @Override
     public void add(int index, Object element) {
-        // check that the index is in range
-        // loop from end of list to index, shifting items forward one slot
-        // set the saved Object
+
     }
 
     @Override
