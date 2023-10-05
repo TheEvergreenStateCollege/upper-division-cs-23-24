@@ -45,11 +45,17 @@ public class LinkedListWrapper<T> implements List {
     @Override
     public boolean add(Object o) {
         if (this.head == null) {
-            this.head = // create / instantiate a new Node object
+            this.head = newNode;  // create / instantiate a new Node object
         } else {
+            Node newNode = new Node(o);
+            
+
             // create a new node with the object o as payload
             // traverse to the end, and set the last node's next to a new node
+             while (current.next != null) {
+            current = current.next;
         }
+        current.next = newNode;
     }
 
     @Override
