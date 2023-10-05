@@ -10,10 +10,13 @@ Week two co-creation notes
        are confusing.
     b: Keep trying.
 
-3: We discussed "linked lists" vs an "array".  
+3: We discussed "linked lists" vs an "array". 
 
 
-4: Hash Map(wrapper): Caches, Associative Arrays, Web Browser Storage, Dictionaries... etc
+4: Hash Map(wrapper): Caches, Associative Arrays, Web Browser Storage, Dictionaries, cryptography uses hashes... etc
+    a: think of the yellow pages, like the phone book, large amount of data
 
 
-5:
+5:  Code Review, why it is important, why is it important for people to review you code?
+
+6:  
