@@ -26,18 +26,18 @@ public class LinkedListWrapperTest {
         groceries.add(item);
     }
    
-    assertEquals(0, groceries.get(0));
-    assertEquals(1, groceries.get(1));
-    assertEquals(2, groceries.get(2));
-    assertEquals(3, groceries.get(3));
+    assertEquals("Apples", groceries.get(0));
+    assertEquals("Bananas", groceries.get(1));
+    assertEquals("Carrots", groceries.get(2));
+    assertEquals("Grapes", groceries.get(3));
 
-    groceries.add("Candy");
+    groceries.add(4, "Candy");
 
-    assertEquals(0, groceries.get(0));
-    assertEquals(1, groceries.get(1));
-    assertEquals(2, groceries.get(2));
-    assertEquals(3, groceries.get(3));
-    assertEquals(4, groceries.get(4));
+    assertEquals("Apples", groceries.get(0));
+    assertEquals("Bananas", groceries.get(1));
+    assertEquals("Carrots", groceries.get(2));
+    assertEquals("Grapes", groceries.get(3));
+    assertEquals("Candy", groceries.get(4));
 
     }
 
