@@ -62,7 +62,9 @@ we are lost but so is everyone else so its okay.
 
 I still don't know what to make a list of.
 
-======= We learned that data structures are found commonly in everday life.
+======= Robinson - Nguyen - Deanon - Hutchson 
+
+We learned that data structures are found commonly in everday life.
 
 They are used to organize data.
 
