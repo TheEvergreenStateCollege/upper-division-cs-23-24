@@ -23,7 +23,7 @@
 hs_err_pid*
 replay_pid*
 
-scripts/git-config.sh
+git-config.sh
 
 # Maven
 .classpath
