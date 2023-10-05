@@ -5,7 +5,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ArrayWrapper implements List {
+public class ArrayWrapper<T> implements List {
+
+    private Object[] _array;
+    private int maxSize;
+
+    public ArrayWrapper(int maxSize) {
+        this.maxSize = maxSize;
+    }
+    
     @Override
     public int size() {
         return 0;
