@@ -17,6 +17,31 @@ public class LinkedListWrapperTest {
 
     Book b1 = new Book("Some title", "some author");
 
+    public void testAdd()
+    {
+    String[] groceryItems = {"Apples", "Bananas","Carrots","Grapes"};
+
+    LinkedList<String> groceries = new LinkedList<>();
+    for(String item : groceryItems)
+    {
+        groceries.add(item);
+    }
+   
+    assertEquals("Apples", groceries.get(0));
+    assertEquals("Bananas", groceries.get(1));
+    assertEquals("Carrots", groceries.get(2));
+    assertEquals("Grapes", groceries.get(3));
+
+    groceries.add(4, "Candy");
+
+    assertEquals("Apples", groceries.get(0));
+    assertEquals("Bananas", groceries.get(1));
+    assertEquals("Carrots", groceries.get(2));
+    assertEquals("Grapes", groceries.get(3));
+    assertEquals("Candy", groceries.get(4));
+
+    }
+
     public void testLinkedList() {
         
     }
@@ -29,6 +54,8 @@ public class LinkedListWrapperTest {
         // insert a 5th grocery item (as a string)
         // check the order again
     }
+
+
 
 }
 
