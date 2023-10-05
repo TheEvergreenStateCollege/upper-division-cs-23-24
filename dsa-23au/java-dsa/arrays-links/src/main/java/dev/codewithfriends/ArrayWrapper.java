@@ -34,6 +34,11 @@ public class ArrayWrapper<T> implements List {
     }
 
     @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @Override
     public boolean contains(Object o) {
         return false;
     }
@@ -81,36 +86,25 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object get(int index) {
-        return this._array[index];
+        return null;
     }
 
     @Override
     public Object set(int index, Object element) {
-        if (index > maxSize) {
-            return null;
-        }
-        else {
-            Object previousElement = this._array[index];
-            this._array[index] = element;
-            return previousElement;
-        }
+        return null;
     }
 
     @Override
     public void add(int index, Object element) {
-        if (this.currentSize != this.maxSize) {
-            for (int i=0; i < this.currentSize-(index);i++){
-                _array[this.currentSize-i] = _array[this.currentSize-i-1];
-            }
-            _array[index] = element;
-            this.currentSize++;
-            this.isEmpty = false;
-        }
+
     }
 
     @Override
     public Object remove(int index) {
-        return null;
+        // check that the index is in range
+        // save the Object to be returned
+        // loop from end of list to index, shifting items back one slot
+        // return the saved Object
     }
 
     @Override
