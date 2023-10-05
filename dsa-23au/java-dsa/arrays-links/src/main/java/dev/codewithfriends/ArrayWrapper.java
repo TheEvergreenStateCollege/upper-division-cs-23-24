@@ -7,7 +7,6 @@ import java.util.ListIterator;
 import java.util.ArrayList;
 
 public class ArrayWrapper<T> implements List {
-
     private Object[] _array;
     private int maxSize;
     private int currentSize;
@@ -46,14 +45,6 @@ public class ArrayWrapper<T> implements List {
     @Override
     public Iterator iterator() {
         return null;
-    }
-
-    @Override
-    public Object[] toArray() {
-        List<T> al1= new ArrayList<T>();
-        this.add(al1);
-        al1.toArray(); 
-        return _array;
     }
 
     @Override
@@ -104,7 +95,7 @@ public class ArrayWrapper<T> implements List {
         // check that the index is in range
         // save the Object to be returned
         // loop from end of list to index, shifting items back one slot
-        // return the saved Object
+        return null;
     }
 
     @Override
@@ -149,6 +140,10 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object[] toArray(Object[] a) {
-        return new Object[0];
+        List<T> al1= new ArrayList<T>();
+        this.add(al1);
+        Object object = al1.toArray(); 
+        return _array;
+    // }
     }
 }

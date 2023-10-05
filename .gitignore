@@ -30,3 +30,6 @@ git-config.sh
 .project
 .settings/
 target/
+.vscode/
+dsa-23au/java-dsa/arrays-links/src/main/java/dev/codewithfriends/scratch.java
+.gitignore
