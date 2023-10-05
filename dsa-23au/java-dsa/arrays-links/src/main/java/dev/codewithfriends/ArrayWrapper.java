@@ -4,11 +4,12 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.ArrayList;
 
 public class ArrayWrapper<T> implements List {
 
     private Object[] _array;
-    private int theSize;
+    private int maxSize;
     private int currentSize;
     private boolean isEmpty;
     private String l1;
@@ -23,7 +24,7 @@ public class ArrayWrapper<T> implements List {
     @Override
     // Returns the current size when called
     public int size() {
-        return theSize;
+        return maxSize;
     }
 
     @Override
@@ -44,8 +45,10 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object[] toArray() {
-        // Object[] objects = l1.toArray(new String[0]); needs new logic
-        return new Object[0];
+        List<T> al1= new ArrayList<T>();
+        this.add(al1);
+        al1.toArray(); 
+        return _array;
     }
 
     @Override
