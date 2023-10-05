@@ -12,6 +12,9 @@ public class Node<T> {
 
     public Node<T>(T value) {
         this.value = value;
-
+    }
+    public Node(T value) {
+        this.value = value;
+        this.next = null; // Initialize the next reference to null
     }
 }
