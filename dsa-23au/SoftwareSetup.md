@@ -111,9 +111,13 @@ Run the `git-config.sh` script you set in the `GitHub` section above.
 ### 8. Make sure you have tools in your $PATH
 
 ```
-> which java
-
-> which mvn
+$ which java
+/opt/graalvm-community-openjdk-20.0.2+9.1/bin/java
+$ which mvn
+/opt/apache-maven-3.9.4/bin/mvn
+```
+```
+source ./scripts/.shrc
 ```
 
 ### 9. Go to your GitHub settings
