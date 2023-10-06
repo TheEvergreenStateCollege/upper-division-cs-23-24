@@ -27,6 +27,11 @@ Everyone has their own way of setting things up.
 
 Algorithms are processes that take an input state and put out an output state.
 
+-- Stella Parker -- 
+I'm excited for this quarter. I personally haven't applied anything from CML to DSA.
+Being incentivized by credits to talk to the nearest person is something? Either way,
+I am happy to be here. Thank you.
+
 -- Tor-Dev-Paul-Thal --
 
 They will always have an invariant, which is a known stating state.
