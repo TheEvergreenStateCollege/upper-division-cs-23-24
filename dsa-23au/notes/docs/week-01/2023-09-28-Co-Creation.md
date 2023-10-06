@@ -27,6 +27,11 @@ Everyone has their own way of setting things up.
 
 Algorithms are processes that take an input state and put out an output state.
 
+-- Stella Parker -- 
+I'm excited for this quarter. I personally haven't applied anything from CML to DSA.
+Being incentivized by credits to talk to the nearest person is something? Either way,
+I am happy to be here. Thank you.
+
 -- Tor-Dev-Paul-Thal --
 
 They will always have an invariant, which is a known stating state.
@@ -41,12 +46,40 @@ Change makers lab is from 1pm -5pm
 Is this classs monday as well? Yes this class is Mnday Tuesday Thursday
 Taking this Course has already Changed my life !
 I was choosing to work a job from 8am- 4pm runing netwrok data abling for $26 an hour but chose this class instead I am very very greatful
-Working in teams requires active listening to what one person is saying so that you can repeat back what they said.
 
-One technique is: "I heard you say <blah>, is that right?" and then "This is what I want to contribute to the conversation."
+Readjusting work to fit around this class was wise.
+Learning how to work Gitpod/Github is hard.
+I need to get blue light glasses to protect my eyes.
+Bringing water is a great idea so I can focus.
+I consume caffeine in order to stay awake, but it would be better to drink Matcha than Coffee.
 
-Students who have taken CSF can "speak code," and say "we are going to create this program with these functions and variables to do A, B, and C."
+I took the Changemaker Lab in Fall 2022 and I learned lots of leaderships skills and workshopping skills. I love Destiny 2 and Sonic the Hedgehog. I cant wait to buy my new GPU so I can do more in programming and designs/modeling. I am excited to graduate this year with BS and get my cybersecurity. I am also excited to further my skills at game development.
 
-"Speaking code" is a necessary skill for pair programming, which we will use a lot in future quarters.
+////FOR OCT 5 assignment This past week, I had to brush up on my programming and psuedocode skills that we learned in CSF. I have grown pretty comfortable with arrays and linked lists. My syntax skills have gotten better as I have been using Java API (I urge you to use that as a tool). I have also been practicing call function because that is a great skill to learn with arrays and linked lists. Also ALWAYS PUT COMMENTS IN YOUR CODE!!!
 
-Sometimes there is confusion, and teammates having a different viewpoint corrects for missing information in conversation.
+<<<<<<< HEAD Paul is cryptogoth.
+
+we need more practice with git and gitpod and github.
+
+SSH keys are confusing and I just want to use my VS code not GitPods'.
+
+we are lost but so is everyone else so its okay.
+
+I still don't know what to make a list of.
+
+======= Robinson - Nguyen - Deanon - Hutchson 
+
+We learned that data structures are found commonly in everday life.
+
+They are used to organize data.
+
+Everyone has their own way of setting things up.
+
+Algorithms are processes that take an input state and put out an output state.
+
+They will always have an invariant, which is a known stating state.
+ Readjusting work to fit around this class was wise.
+Learning how to work Gitpod/Github is hard.
+I need to get blue light glasses to protect my eyes.
+Bringing water is a great idea so I can focus.
+I consume caffeine in order to stay awake, but it would be better to drink Matcha than Coffee.
