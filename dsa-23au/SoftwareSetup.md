@@ -208,3 +208,9 @@ typically one-sentence message summarizing the changes you made.
 ```
 git push
 ```
+
+
+// This is also Jon. I enrolled in this class to better my programming and design skills. 
+// A little bit about, I am a Senior at evergreen going for a Bachelors in Science and looking to get my Cybersecurity Cerftificate.
+//Im Looking forward to working with everyone this quarter.
+// One little fun fact about me is that I am currently working on an Unreal Project with my friend over in Las Vegas.
