@@ -76,3 +76,10 @@ Learning how to work Gitpod/Github is hard.
 I need to get blue light glasses to protect my eyes.
 Bringing water is a great idea so I can focus.
 I consume caffeine in order to stay awake, but it would be better to drink Matcha than Coffee.
+
+=========== Hyre-Elson-Branch
+Learning to use Github is confusing, will take time and effort to learn.
+Caffiene is my best friend.
+There will usually be an invarient of some kind.
+Nobody knows what we are doing, but it can be fun to pair with others to learn.
+Being lost is oddly helping me learn more, if that makes sense.
