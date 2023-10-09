@@ -27,10 +27,13 @@ public class LinkedListWrapper<T> implements List {
         return false;
     }
 
-    @Override
-    public boolean contains(Object o) {
-        return false;
-    }
+       @Override
+    public boolean contains(Object o) { 
+        //requieres the size of the LinkedListWrapper to be something any method can access in the class
+
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(o)) {
+                return true;
 
     @Override
     public Iterator iterator() {
