@@ -83,3 +83,6 @@ Learning how to work Gitpod/Github is hard.
 I need to get blue light glasses to protect my eyes.
 Bringing water is a great idea so I can focus.
 I consume caffeine in order to stay awake, but it would be better to drink Matcha than Coffee.
+
+Jonathan Rodriguez - Co-Creation 2
+For those who would like to know, a hash table is a data structure that maps keys to values for highly efficient lookup. I like to split hash code into a 3 step process (Compute, Map, Avoid Collisions). There are many ways to deal hash code collisions such as linked lists, search trees, and linear probing. A stack is a fundamental data structure in computer science. Think of it as a stack of plates where you can only remove or add plates to the top of the stack.
