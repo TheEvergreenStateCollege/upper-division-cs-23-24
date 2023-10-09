@@ -10,6 +10,7 @@ Some notes about Reading Wk 2(Hiraeth):
 5)The dictionary data type gives access to data items.
 
 [Instructions here.](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/notes/docs/week-01/2023-09-28.md#practice-markdown-co-creation)
+<<<<<<< HEAD
 whereismyprozac
 Cracking the Coding Interview (McDowell)
 •	I think, for me personally I’m somewhere in the middle of page 31. The market right now looks really bleak and it seems like you need to be related to someone already working at the company to actually get noticed.
@@ -29,3 +30,12 @@ ndeanon25 - Nathan Deanon
 4) The reason we should code review is that it transfers knowledge from one person to another, and it helps to see someone's process to incorporate it into your own process.
 5) I am still getting the hang of the GitPod so the steps are to make a new branch, write/modify code, commit, push a request, get a code review, and then delete the branch once reviewed and merged.
    ==================================================================
+=======
+
+
+1. Take note of all the interview questions if you have many steps of the flowchart to interview day already complete.
+2. Some interesting info on how to tackle a problem and how to solve it with an algorithm. Looks like a guide on how to practice the much dreaded code whiteboard interview, which I have never done.
+3. I spent a few hours searching about stack overflow issues a few days ago. Page 91 provides all the information I needed in a non-comment format. Just the facts.
+4. Much of the reading is heavy in the weeds and worth a re-read or three.
+5. A linked list is a data structure that represents a sequence of nodes. An array provides constant read access to an index where a linked list does not which I found like a key tidbit to determine the difference
+>>>>>>> a7a6362... Uploading co-creation notes for wk2-wk3
