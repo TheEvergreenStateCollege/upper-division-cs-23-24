@@ -50,3 +50,12 @@ Students who have taken CSF can "speak code," and say "we are going to create th
 "Speaking code" is a necessary skill for pair programming, which we will use a lot in future quarters.
 
 Sometimes there is confusion, and teammates having a different viewpoint corrects for missing information in conversation.
+
+
+/// faulkdf \\\
+This class so far is *incredbly* chaotic. I don't belive that I have ever taken a class here at Evergreen that is this level of "all over the place."
+Code, and coding has never been my strong suit, but having to do a fair amount of it has been a good refresher. \
+Many times, I really feel as if I am totall lost in class, however I'm pretty sure that theres a fair amount of us that feel the same. 
+Skills are improving on how to do everthing in a co-created repository, I still worry that I am often doing something wrong.
+\\\ end ///
+
