@@ -10,9 +10,6 @@ public class Node<T> {
 //its return type is the same as the class?
 //the object is the return type in the constructor
 
-    public Node<T>(T value) {
-        this.value = value;
-    }
     public Node(T value) {
         this.value = value;
         this.next = null; // Initialize the next reference to null
