@@ -12,6 +12,8 @@ public class LinkedListWrapper<T> implements List {
     private int maxSize;
     private int currentSize;
     private Node head;
+    private Node tail;
+    
 
     public LinkedListWrapper(int maxSize) {
         this.maxSize = maxSize;
@@ -25,11 +27,12 @@ public class LinkedListWrapper<T> implements List {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return currentSize == 0;
     }
 
        @Override
-    public boolean contains(Object o) { 
+    public boolean contains(Object o) {
+        Node current = head; 
         //requieres the size of the LinkedListWrapper to be something any method can access in the class
 
         for (int i = 0; i < currentSize; i++) {
@@ -37,6 +40,7 @@ public class LinkedListWrapper<T> implements List {
                 return true;
             }
         }
+        return false;  // Add this line to ensure all code paths return a value
     }
     @Override
     public Iterator iterator() {
