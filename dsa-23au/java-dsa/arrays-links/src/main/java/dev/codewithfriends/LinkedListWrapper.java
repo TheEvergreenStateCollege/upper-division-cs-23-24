@@ -49,22 +49,35 @@ public class LinkedListWrapper<T> implements List {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] result = new Object[this.currentSize];
+
+        int i = 0;
+        Node current = head;
+        while (current != null) {
+            result[i] = current.data;
+            i++;
+        }
+
+        return result;
     }
 
     @Override
    public boolean add(Object o) {
     Node newNode = new Node(o); // Create a new node with the object o as payload
 
+    if (currentSize >= maxSize) {
+        return false;
+    }
+
     if (this.head == null) {
         this.head = newNode; // If the list is empty, set the new node as the head
+        this.tail = newNode;
     } else {
-        Node current = this.head;
-        while (current.next != null) {
-            current = current.next; // Traverse to the end of the list
-        }
-        current.next = newNode; // Set the last node's next to the new node
+        this.tail.next = newNode;
+        this.tail = newNode;
     }
+
+    currentSize++;
     return true; // Indicate that the addition was successful
 }
 
