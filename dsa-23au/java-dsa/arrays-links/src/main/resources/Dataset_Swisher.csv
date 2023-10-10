@@ -10,3 +10,7 @@ Time,Date,Elapsed,Orig,Dest,Detour enroute,Driver,Distance
 845,10/03/2023,22 mins,Millersylvania,Evergreen,no,P,11 miles
 1645,10/03/2023,32 mins,Evergreen,Millersylvania,no,P,11 miles
 1058,10/04/2023,27 mins,Millersylvania,Evergreen,yes,P,11 miles
+1540,10/05/2023,27 mins,Evergreen,Millersylvania,no,P,11 miles
+0924,10/09/2023,37 mins,Millersylvania,Evergreen,yes,P,11 miles
+1905,10/09/2023,22 mins,Evergreen,Millersylvania,yes,P,11 miles
+0730,10/10/2023,207 mins,Millersylvania,Evergreen,yes,P, 114 miles
