@@ -10,6 +10,7 @@ import java.util.ListIterator;
 public class LinkedListWrapper<T> implements List {
 
     private int maxSize;
+    private int currentSize;
     private Node head;
 
     public LinkedListWrapper(int maxSize) {
@@ -19,7 +20,7 @@ public class LinkedListWrapper<T> implements List {
 
     @Override
     public int size() {
-        return 0;
+        return this.currentSize;
     }
 
     @Override
@@ -31,10 +32,12 @@ public class LinkedListWrapper<T> implements List {
     public boolean contains(Object o) { 
         //requieres the size of the LinkedListWrapper to be something any method can access in the class
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < currentSize; i++) {
             if (data[i].equals(o)) {
                 return true;
-
+            }
+        }
+    }
     @Override
     public Iterator iterator() {
         return null;
