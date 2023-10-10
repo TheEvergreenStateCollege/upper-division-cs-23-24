@@ -70,6 +70,14 @@ I still don't know what to make a list of.
  dawsonwhi-faulkdf
 Sometimes there is confusion, and teammates having a different viewpoint corrects for missing information in conversation.
 
+Devin 
+
+1: I'm having issues adapting to gitpod, but it's starting to slowly feel more intuitive.
+2: Working in a well coordinated team makes for exponentially faster work.
+3: It's nice to be able to talk to people and ask for help while coding, it makes things much less demotivating.
+4: I am not sure how all the talk about teams being fractals and manifesting energy will help me, but it is nice to work in a team.
+5: The list of 21 skills to learn seemed nice. I might look into that.
+
 
 /// faulkdf \\\
 This class so far is *incredbly* chaotic. I don't belive that I have ever taken a class here at Evergreen that is this level of "all over the place."
