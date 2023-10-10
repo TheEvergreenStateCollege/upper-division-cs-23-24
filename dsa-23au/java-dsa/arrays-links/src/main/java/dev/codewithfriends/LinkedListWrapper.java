@@ -165,4 +165,11 @@ public class LinkedListWrapper<T> implements List {
     public Object[] toArray(Object[] a) {
         return new Object[0];
     }
+
+    
+
+
+
 }
+
+
