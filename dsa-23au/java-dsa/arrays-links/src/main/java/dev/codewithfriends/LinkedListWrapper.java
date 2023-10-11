@@ -34,13 +34,14 @@ public class LinkedListWrapper<T> implements List {
     public boolean contains(Object o) {
         Node current = head; 
         //requieres the size of the LinkedListWrapper to be something any method can access in the class
-
-        for (int i = 0; i < currentSize; i++) {
-            if (data[i].equals(o)) {
+        while (current != null) {
+            if (current.value.equals(o)) {
                 return true;
             }
+            current = current.next;
         }
-        return false;  // Add this line to ensure all code paths return a value
+        return false;
+
     }
     @Override
     public Iterator iterator() {
