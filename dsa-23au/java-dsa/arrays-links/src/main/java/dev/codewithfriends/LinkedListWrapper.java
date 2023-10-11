@@ -10,7 +10,10 @@ import java.util.ListIterator;
 public class LinkedListWrapper<T> implements List {
 
     private int maxSize;
+    private int currentSize;
     private Node head;
+    private Node tail;
+    
 
     public LinkedListWrapper(int maxSize) {
         this.maxSize = maxSize;
@@ -19,19 +22,27 @@ public class LinkedListWrapper<T> implements List {
 
     @Override
     public int size() {
-        return 0;
+        return this.currentSize;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return currentSize == 0;
     }
 
-    @Override
+       @Override
     public boolean contains(Object o) {
+        Node current = head; 
+        //requieres the size of the LinkedListWrapper to be something any method can access in the class
+        while (current != null) {
+            if (current.value.equals(o)) {
+                return true;
+            }
+            current = current.next;
+        }
         return false;
-    }
 
+    }
     @Override
     public Iterator iterator() {
         return null;
@@ -39,22 +50,35 @@ public class LinkedListWrapper<T> implements List {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] result = new Object[this.currentSize];
+
+        int i = 0;
+        Node current = head;
+        while (current != null) {
+            result[i] = current.data;
+            i++;
+        }
+
+        return result;
     }
 
     @Override
    public boolean add(Object o) {
     Node newNode = new Node(o); // Create a new node with the object o as payload
 
+    if (currentSize >= maxSize) {
+        return false;
+    }
+
     if (this.head == null) {
         this.head = newNode; // If the list is empty, set the new node as the head
+        this.tail = newNode;
     } else {
-        Node current = this.head;
-        while (current.next != null) {
-            current = current.next; // Traverse to the end of the list
-        }
-        current.next = newNode; // Set the last node's next to the new node
+        this.tail.next = newNode;
+        this.tail = newNode;
     }
+
+    currentSize++;
     return true; // Indicate that the addition was successful
 }
 
@@ -142,4 +166,11 @@ public class LinkedListWrapper<T> implements List {
     public Object[] toArray(Object[] a) {
         return new Object[0];
     }
+
+    
+
+
+
 }
+
+

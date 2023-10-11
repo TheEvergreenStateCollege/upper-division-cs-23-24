@@ -1,4 +1,4 @@
-package dev.codewithfriends;
+/*package dev.codewithfriends;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -24,7 +24,7 @@ public class ArrayWrapper<T> implements List {
     @Override
     // Returns the current size when called
     public int size() {
-        return maxSize;
+        return currentSize;
     }
 
     @Override
@@ -106,7 +106,10 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object get(int index) {
-        return null;
+        if (index < 0 || index > size()) {
+        throw new ArrayIndexOutOfBoundsException();
+        }
+        return this._array[index];
     }
 
     @Override
@@ -172,3 +175,4 @@ public class ArrayWrapper<T> implements List {
         return new Object[0];
     }
 }
+*/
