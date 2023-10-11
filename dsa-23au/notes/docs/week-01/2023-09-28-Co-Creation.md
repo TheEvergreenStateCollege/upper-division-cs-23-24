@@ -57,8 +57,6 @@ I took the Changemaker Lab in Fall 2022 and I learned lots of leaderships skills
 
 ////FOR OCT 5 assignment This past week, I had to brush up on my programming and psuedocode skills that we learned in CSF. I have grown pretty comfortable with arrays and linked lists. My syntax skills have gotten better as I have been using Java API (I urge you to use that as a tool). I have also been practicing call function because that is a great skill to learn with arrays and linked lists. Also ALWAYS PUT COMMENTS IN YOUR CODE!!!
 
-<<<<<<< HEAD Paul is cryptogoth.
-
 we need more practice with git and gitpod and github.
 
 SSH keys are confusing and I just want to use my VS code not GitPods'.
@@ -83,6 +81,13 @@ Learning how to work Gitpod/Github is hard.
 I need to get blue light glasses to protect my eyes.
 Bringing water is a great idea so I can focus.
 I consume caffeine in order to stay awake, but it would be better to drink Matcha than Coffee.
+
+=========== Hyre-Elson-Branch
+Learning to use Github is confusing, will take time and effort to learn.
+Caffiene is my best friend.
+There will usually be an invarient of some kind.
+Nobody knows what we are doing, but it can be fun to pair with others to learn.
+Being lost is oddly helping me learn more, if that makes sense.
 
 Jonathan Rodriguez - Co-Creation 2
 For those who would like to know, a hash table is a data structure that maps keys to values for highly efficient lookup. I like to split hash code into a 3 step process (Compute, Map, Avoid Collisions). There are many ways to deal hash code collisions such as linked lists, search trees, and linear probing. A stack is a fundamental data structure in computer science. Think of it as a stack of plates where you can only remove or add plates to the top of the stack.
