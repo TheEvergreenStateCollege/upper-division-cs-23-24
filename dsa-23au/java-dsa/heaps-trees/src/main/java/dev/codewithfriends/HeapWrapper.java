@@ -1,5 +1,5 @@
 //TODO: std library includes
-
+package dev.codewithfriends;
 public class HeapWrapper<T implements Comparable> {
     private int size;
     private int maxSize;
@@ -53,5 +53,8 @@ public class HeapWrapper<T implements Comparable> {
         } while (continueChecking);
 
         return oldMin;
+    }
+    public T getMin () {  
+        getMin 
     }
 }
