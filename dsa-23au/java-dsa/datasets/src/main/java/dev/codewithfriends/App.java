@@ -16,7 +16,7 @@ import static java.util.Map.entry;
 
 public class App {
 
-    public final static String LETTERS = "A";
+    public final static String LETTERS = "ABCDEFGHI";
     public final static String BASE_URL = "https://www.names.org/baby-names-by-letter";
 
     public static Map<String,String> HEADERS_MAP;
