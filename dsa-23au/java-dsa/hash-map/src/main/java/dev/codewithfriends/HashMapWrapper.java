@@ -39,10 +39,17 @@ public class HashMapWrapper<K,V> {
  */
     public V put(K key, V value) {
         // check if exceeded max capacity
-        if (m >= maxSize) {
-            int index = (((Key.hashCode() * this.a) + this.b) % this.m); 
-            _value_array[index] = value;
+        if (this.currentSize >= this.maxSize) {
+            return null;
         }
+
+        int index = (((key.hashCode() * this.a) + this.b) % this.m);
+        // check if _value_array index already contains a linked list
+        if (_value_array[index] )
+        //_value_array[index] = value;
+        
+
+
         
         // ?? // set the _value_array at index to value
         //this.itemCount += 1;
