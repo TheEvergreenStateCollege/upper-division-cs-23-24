@@ -125,17 +125,21 @@ public class LinkedListWrapper<T> implements List<T> {
     @Override
     public Object remove(int index) {
         //Return 0 if the list has nothing in it
-        if(currentSize == 0){
-            return 0; 
+        if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index out of bounds");
         } 
-
         //if the list has only one element in it
-        for(int i=0; i< currentSize; i++){
-            if(i == index)
-
+        if(index == 0){
             head = head.next; //removes the head
-            return;
+            
+        } else {
+            Node<T> temp = head;
+            for(int i = 0; i < index-1;i++){
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
         }
+        size--;
     }
 
     @Override
