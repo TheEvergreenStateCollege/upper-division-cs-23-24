@@ -11,7 +11,6 @@ public class ArrayWrapper<T> implements List {
     private Object[] _array;
     private int maxSize;
     private int currentSize;
-    private boolean isEmpty;
     private String l1;
 
     public ArrayWrapper(int maxSize) {
@@ -34,7 +33,6 @@ public class ArrayWrapper<T> implements List {
             return true;
         }
         return false;
-
     }
 
     @Override
@@ -50,6 +48,12 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public boolean contains(Object o) {
+        for (int i = 0; i < currentSize; i++) {
+            if (_array[i] == o) {
+                return true;
+            }
+        }
+
         return false;
     }
 
@@ -66,37 +70,68 @@ public class ArrayWrapper<T> implements List {
         return _array;
     }
 */
-    @Override
+    /*@Override
     public boolean add(Object o) {
         this._array[currentSize]=o;
         this.currentSize++;
         this.isEmpty = false;
         return true;
-    }
+    }*/
 
     @Override
-    //iterate throught the array
+    public boolean add(Object o) {
+        // check to ensure array has enough space, resize (2x previous max size) if not
+        if (currentSize >= (maxSize / 2)) {
+            Object[] resized = new Object[maxSize * 2];
+            for (int i = 0; i < currentSize; i++){
+                resized[i] = _array[i];
+            }
+
+            maxSize = maxSize * 2;
+            _array = resized;
+        }
+
+        // add element, increment currentSize
+        _array[currentSize - 1] = o;
+        currentSize++;
+    }
+
+    //TODO: finish method after implementing remove(int i)
+    @Override
+    //iterate through the array
     public boolean remove(Object o) {
-        int count = null; 
-        for(i = 0; i<=this._array.length; i+=1){
-            if(o == this.array[i]){
+        int count = null; // index of object to be removed
+        for (int i = 0; i <= _array.length; i++) {
+            if (o == array[i]) {
                 count = i;
-                break;  
+                break;
             }
         }
-        //Once found, create an array and add all elements except the removed one
-        <T> newArr[] = <T>[ArrayWrapper[].size - 1];
-        for(i= 0; i<= newArr[].size(); i+=1) {
-            if(i != count){
+
+        Object result = remove(count);
+
+        if (result != null) {
+            return true;
+        }
+
+        return false;
+
+        /*//Once found, create an array and add all elements except the removed one
+        int newArrSize = maxSize - 1;
+        Object[] newArr = new Object[newArrSize];
+
+
+        for (int i = 0; i <= maxSize; i++) {
+            if (array[i] != count) {
                 newArr.add(i);
             }
         }
+
         // if element does not exist, return false
-        if (count == null){
+        if (count == null) {
             return false)
         }
-        this._array = newArr;
-
+        this._array = newArr;*/
     }
 
     @Override
@@ -132,12 +167,26 @@ public class ArrayWrapper<T> implements List {
 
     }
 
+    // TODO: check if currentSize is less than half maxSize, resize array
+    // Returns null if index is out of bounds of used array indices
     @Override
     public Object remove(int index) {
         // check that the index is in range
         // save the Object to be returned
         // loop from end of list to index, shifting items back one slot
         // return the saved Object
+
+        if (index > 0 && index < currentSize) {
+            Object removed = _array[index];
+
+            for (int i = index + 1; i < currentSize; i++) {
+                _array[i - 1] - _array[i];
+            }
+
+            return removed;
+        }
+
+        return null;
     }
 
     @Override
