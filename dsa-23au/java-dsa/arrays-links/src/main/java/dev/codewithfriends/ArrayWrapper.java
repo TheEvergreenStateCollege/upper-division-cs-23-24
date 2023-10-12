@@ -1,4 +1,4 @@
-package dev.codewithfriends;
+/*package dev.codewithfriends;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -24,7 +24,7 @@ public class ArrayWrapper<T> implements List {
     @Override
     // Returns the current size when called
     public int size() {
-        return maxSize;
+        return currentSize;
     }
 
     @Override
@@ -65,8 +65,28 @@ public class ArrayWrapper<T> implements List {
     }
 
     @Override
+    //iterate throught the array
     public boolean remove(Object o) {
-        return false;
+        int count = null; 
+        for(i = 0; i<=this._array.length; i+=1){
+            if(o == this.array[i]){
+                count = i;
+                break;  
+            }
+        }
+        //Once found, create an array and add all elements except the removed one
+        <T> newArr[] = <T>[ArrayWrapper[].size - 1];
+        for(i= 0; i<= newArr[].size(); i+=1) {
+            if(i != count){
+                newArr.add(i);
+            }
+        }
+        // if element does not exist, return false
+        if (count == null){
+            return false)
+        }
+        this._array = newArr;
+
     }
 
     @Override
@@ -86,7 +106,10 @@ public class ArrayWrapper<T> implements List {
 
     @Override
     public Object get(int index) {
-        return null;
+        if (index < 0 || index > size()) {
+        throw new ArrayIndexOutOfBoundsException();
+        }
+        return this._array[index];
     }
 
     @Override
@@ -152,3 +175,4 @@ public class ArrayWrapper<T> implements List {
         return new Object[0];
     }
 }
+*/
