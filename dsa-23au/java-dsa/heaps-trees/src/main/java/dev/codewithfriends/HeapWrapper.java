@@ -1,4 +1,6 @@
+
 package dev.codewithfriends;
+
 
 public class HeapWrapper<T implements Comparable> {
     private int size;
@@ -11,13 +13,17 @@ public class HeapWrapper<T implements Comparable> {
         this._array = new Object[maxSize + 1];
     }
 
+
+   
       
     public void insert(T value) {
         // Make a hole at the next empty space
+
         this.size += 1;
         int i = this.size;
         this._array[i] = value;
         // While the new node violates the heap property with its parent, bubble it up
+ 
         while (i > 1 && this._array[i].compareTo(this._array[i / 2]) < 0) {
             T temp = this._array[i / 2];
             this._array[i / 2] = this._array[i];
@@ -26,8 +32,8 @@ public class HeapWrapper<T implements Comparable> {
         }
     }
 
-        }
-    }
+
+        
     
     public void deleteMin() {
         // Make a hole at the root and save the old min
@@ -59,4 +65,15 @@ public class HeapWrapper<T implements Comparable> {
 
         return oldMin;
     }
+
+    public int getMin () {  
+        if (this.size == 0) {
+            System.out.println("Heap is empty, cannot get min");
+            return this.size; 
+
+        } 
+        return 0;
+    }
 }
+
+
