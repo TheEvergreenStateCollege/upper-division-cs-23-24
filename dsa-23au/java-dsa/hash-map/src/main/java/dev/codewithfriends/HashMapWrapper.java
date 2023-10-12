@@ -39,8 +39,12 @@ public class HashMapWrapper<K,V> {
  */
     public V put(K key, V value) {
         // check if exceeded max capacity
-        //int hashCode = (((K.hashCode * a) + b) % m);
-        // ?? // set the _value_array at hashCode to value
+        if (m >= maxSize) {
+            int index = (((Key.hashCode() * this.a) + this.b) % this.m); 
+            _value_array[index] = value;
+        }
+        
+        // ?? // set the _value_array at index to value
         //this.itemCount += 1;
         //return ?? //
         return null;
