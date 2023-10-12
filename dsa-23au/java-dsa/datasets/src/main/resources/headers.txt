@@ -1,0 +1,13 @@
+Host: www.names.org
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/118.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Alt-Used: www.names.org
+Connection: keep-alive
+Cookie: datadome=6N0Bhwyjo3Xb2AkM_5jtQbz9Aw13Wj9Jxlj-DO8W65-CAd7PcoBCegh63kQVdz1-XzkFcHiI5VnTyku9hU9k_yEn8m2YQHkwn7yTHewC6puhYfbILk9eOo87f~-I7lRi; _pk_ref.32.25f8=%5B%22%22%2C%22%22%2C1697079798%2C%22https%3A%2F%2Fwww.google.com%2F%22%5D; _pk_id.32.25f8=79e34824dc9e44cd.1696998822.; _pk_ses.32.25f8=1
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: cross-site
+TE: trailers
