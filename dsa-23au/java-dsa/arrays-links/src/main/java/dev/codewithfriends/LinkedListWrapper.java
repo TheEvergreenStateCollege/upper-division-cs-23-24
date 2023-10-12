@@ -11,8 +11,8 @@ public class LinkedListWrapper<T> implements List {
 
     private int maxSize;
     private int currentSize;
-    private Node head;
-    private Node tail;
+    private Node<T> head;
+    private Node<T> tail;
     
 
     public LinkedListWrapper(int maxSize) {
@@ -44,28 +44,44 @@ public class LinkedListWrapper<T> implements List {
 
     }
     @Override
+    ///Skipped during class 10/12/2023
     public Iterator iterator() {
         return null;
+        
     }
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] returnArray = new Object[this.currentSize];
+
+        int i = 0;
+        Node<T> current = head;
+        while (current != null) {
+            returnArray[i] = current.value;
+            i++;
+           current = current.next;
+        }
+
+        return returnArray;
     }
 
     @Override
    public boolean add(Object o) {
-    Node newNode = new Node(o); // Create a new node with the object o as payload
+    Node<T> newNode = new Node(o); // Create a new node with the object o as payload
+
+    if (currentSize >= maxSize) {
+        return false;
+    }
 
     if (this.head == null) {
         this.head = newNode; // If the list is empty, set the new node as the head
+        this.tail = newNode;
     } else {
-        Node current = this.head;
-        while (current.next != null) {
-            current = current.next; // Traverse to the end of the list
-        }
-        current.next = newNode; // Set the last node's next to the new node
+        this.tail.next = newNode;
+        this.tail = newNode;
     }
+
+    currentSize++;
     return true; // Indicate that the addition was successful
 }
 
@@ -152,5 +168,13 @@ public class LinkedListWrapper<T> implements List {
     @Override
     public Object[] toArray(Object[] a) {
         return new Object[0];
+        // Duplicate method to line 54
     }
+
+    
+
+
+
 }
+
+
