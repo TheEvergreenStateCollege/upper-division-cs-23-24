@@ -53,7 +53,6 @@ public class LinkedListWrapper<T> implements List {
     @Override
     public Object[] toArray() {
         Object[] returnArray = new Object[this.currentSize];
-
         int i = 0;
         Node<T> current = head;
         while (current != null) {
@@ -61,13 +60,16 @@ public class LinkedListWrapper<T> implements List {
             i++;
            current = current.next;
         }
-
         return returnArray;
     }
 
     @Override
    public boolean add(Object o) {
     Node<T> newNode = new Node(o); // Create a new node with the object o as payload
+
+    if (currentSize >= maxSize) {
+        return false;
+    }
 
     if (currentSize >= maxSize) {
         return false;
