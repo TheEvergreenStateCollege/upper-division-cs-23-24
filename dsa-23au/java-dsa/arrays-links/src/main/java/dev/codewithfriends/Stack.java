@@ -1,4 +1,4 @@
-package dev.codewithfriends
+/*package dev.codewithfriends
 
 //2 methods
 //push pop :)
@@ -34,3 +34,4 @@ public class stack<T>
 
 
 }
+*/

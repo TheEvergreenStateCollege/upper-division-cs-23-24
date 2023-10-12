@@ -1,4 +1,4 @@
-/*package dev.codewithfriends;
+package dev.codewithfriends;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -30,12 +30,22 @@ public class ArrayWrapper<T> implements List {
     @Override
     // Returns boolean if empty
     public boolean isEmpty() {
-        return size() == 0;
+        if (currentSize == 0) {
+            return true;
+        }
+        return false;
+
     }
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] result = new Object[currentSize];
+
+        for (int i = 0; i < currentSize; i++){
+            result[i] = _array[i];
+        }
+
+        return result;
     }
 
     @Override
@@ -48,14 +58,14 @@ public class ArrayWrapper<T> implements List {
         return null;
     }
 
-    @Override
+    /*@Override
     public Object[] toArray() {
         List<T> al1= new ArrayList<T>();
         this.add(al1);
         al1.toArray(); 
         return _array;
     }
-
+*/
     @Override
     public boolean add(Object o) {
         this._array[currentSize]=o;
@@ -175,4 +185,3 @@ public class ArrayWrapper<T> implements List {
         return new Object[0];
     }
 }
-*/
