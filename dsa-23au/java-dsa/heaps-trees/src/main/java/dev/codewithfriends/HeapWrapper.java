@@ -55,7 +55,7 @@ public class HeapWrapper<T implements Comparable> {
         return oldMin;
     }
     public T getMin () {  
-        if (size == 0) {
+        if (this.size == 0) {
             System.out.println("Heap is empty, cannot get min");
             return false; 
 
