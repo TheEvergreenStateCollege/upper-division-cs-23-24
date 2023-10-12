@@ -45,25 +45,23 @@ public class LinkedListWrapper<T> implements List<T> {
     }
     // We are skipping this method as of 10/12/2023
     @Override
+    ///Skipped during class 10/12/2023
     public Iterator iterator() {
         return null;
+        
     }
 
     @Override
     public Object[] toArray() {
         Object[] returnArray = new Object[this.currentSize];
-
         int i = 0;
         Node<T> current = head;
         while (current != null) {
             returnArray[i] = current.value;
             i++;
-            current = current.next;
+           current = current.next;
         }
-
         return returnArray;
-        //Done!(maybe)
-        //!!!!!!!!!!!!!!!!!!
     }
     
 
@@ -89,6 +87,8 @@ public class LinkedListWrapper<T> implements List<T> {
 
     @Override
     public boolean remove(Object o) {
+
+
         return false;
     }
 
@@ -124,7 +124,18 @@ public class LinkedListWrapper<T> implements List<T> {
 
     @Override
     public Object remove(int index) {
-        return null;
+        //Return 0 if the list has nothing in it
+        if(currentSize == 0){
+            return 0; 
+        } 
+
+        //if the list has only one element in it
+        for(int i=0; i< currentSize; i++){
+            if(i == index)
+
+            head = head.next; //removes the head
+            return;
+        }
     }
 
     @Override
@@ -170,6 +181,7 @@ public class LinkedListWrapper<T> implements List<T> {
     @Override
     public Object[] toArray(Object[] a) {
         return new Object[0];
+        // Duplicate method to line 54
     }
 
     

@@ -1,36 +1,43 @@
-package dev.codewithfriends
+
+package dev.codewithfriends;
+
+
+
 
 //2 methods
 //push pop :)
 //use nodes
 
-public class stack<T>
+public class Stack<T>
 {
     private T item;
     private Node<T> top;
 
-   public void push(T item)
-   {
-
-    private Node <T> newNode = new Node<> (item);
-    newNode.Next = top;
-    top = newNode;
-    
-   }
-
-   public <T> pop(T item)
-   {
-
-    if(isEmpty()) 
+    public void push(T item)
     {
-        return null;
-        T item = top.item;
-        top = top.Next;
-        return item;
+
+        Node <T> newNode = new Node<> (item);
+        newNode.next = top;
+        top = newNode;
+    
     }
 
+    public <T> pop(T item)
+    {
 
+
+        if(isEmpty()) 
+        {
+            return null;
+        }
+            T item = top.item;
+            top = top.next;
+            return item;
+    }
+}
+=======
    }
 
 
 }
+
