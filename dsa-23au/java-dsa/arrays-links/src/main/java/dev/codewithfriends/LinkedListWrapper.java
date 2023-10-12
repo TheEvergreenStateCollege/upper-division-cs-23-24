@@ -89,6 +89,8 @@ public class LinkedListWrapper<T> implements List {
 
     @Override
     public boolean remove(Object o) {
+
+
         return false;
     }
 
@@ -124,7 +126,18 @@ public class LinkedListWrapper<T> implements List {
 
     @Override
     public Object remove(int index) {
-        return null;
+        //Return 0 if the list has nothing in it
+        if(currentSize == 0){
+            return 0; 
+        } 
+
+        //if the list has only one element in it
+        for(int i=0; i< currentSize; i++){
+            if(i == index)
+
+            head = head.next; //removes the head
+            return;
+        }
     }
 
     @Override
