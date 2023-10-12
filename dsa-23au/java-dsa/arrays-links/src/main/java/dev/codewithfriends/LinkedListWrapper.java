@@ -7,12 +7,12 @@ import java.util.ListIterator;
 
 
 
-public class LinkedListWrapper<T> implements List {
+public class LinkedListWrapper<T> implements List<T> {
 
     private int maxSize;
     private int currentSize;
-    private Node head;
-    private Node tail;
+    private Node<T> head;
+    private Node<T> tail;
     
 
     public LinkedListWrapper(int maxSize) {
@@ -32,7 +32,7 @@ public class LinkedListWrapper<T> implements List {
 
        @Override
     public boolean contains(Object o) {
-        Node current = head; 
+        Node<T> current = head; 
         //requieres the size of the LinkedListWrapper to be something any method can access in the class
         while (current != null) {
             if (current.value.equals(o)) {
@@ -43,6 +43,7 @@ public class LinkedListWrapper<T> implements List {
         return false;
 
     }
+    // We are skipping this method as of 10/12/2023
     @Override
     public Iterator iterator() {
         return null;
@@ -50,21 +51,25 @@ public class LinkedListWrapper<T> implements List {
 
     @Override
     public Object[] toArray() {
-        Object[] result = new Object[this.currentSize];
+        Object[] returnArray = new Object[this.currentSize];
 
         int i = 0;
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
-            result[i] = current.data;
+            returnArray[i] = current.value;
             i++;
+            current = current.next;
         }
 
-        return result;
+        return returnArray;
+        //Done!(maybe)
+        //!!!!!!!!!!!!!!!!!!
     }
+    
 
     @Override
    public boolean add(Object o) {
-    Node newNode = new Node(o); // Create a new node with the object o as payload
+    Node<T> newNode = new Node(o); // Create a new node with the object o as payload
 
     if (currentSize >= maxSize) {
         return false;
