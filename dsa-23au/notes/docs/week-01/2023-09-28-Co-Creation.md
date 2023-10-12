@@ -67,6 +67,18 @@ I still don't know what to make a list of.
 
 ======= Robinson - Nguyen - Deanon - Hutchson 
 
+ dawsonwhi-faulkdf
+Sometimes there is confusion, and teammates having a different viewpoint corrects for missing information in conversation.
+
+
+/// faulkdf \\\
+This class so far is *incredbly* chaotic. I don't belive that I have ever taken a class here at Evergreen that is this level of "all over the place."
+Code, and coding has never been my strong suit, but having to do a fair amount of it has been a good refresher. \
+Many times, I really feel as if I am totall lost in class, however I'm pretty sure that theres a fair amount of us that feel the same. 
+Skills are improving on how to do everthing in a co-created repository, I still worry that I am often doing something wrong.
+\\\ end ///
+
+=======
 We learned that data structures are found commonly in everday life.
 
 They are used to organize data.
@@ -91,3 +103,4 @@ Being lost is oddly helping me learn more, if that makes sense.
 
 Jonathan Rodriguez - Co-Creation 2
 For those who would like to know, a hash table is a data structure that maps keys to values for highly efficient lookup. I like to split hash code into a 3 step process (Compute, Map, Avoid Collisions). There are many ways to deal hash code collisions such as linked lists, search trees, and linear probing. A stack is a fundamental data structure in computer science. Think of it as a stack of plates where you can only remove or add plates to the top of the stack.
+ main
