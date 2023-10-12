@@ -1,5 +1,8 @@
+
 package dev.codewithfriends;
-import 
+
+
+
 
 //2 methods
 //push pop :)
@@ -22,6 +25,7 @@ public class Stack<T>
     public <T> pop(T item)
     {
 
+
         if(isEmpty()) 
         {
             return null;
@@ -31,3 +35,9 @@ public class Stack<T>
             return item;
     }
 }
+=======
+   }
+
+
+}
+
