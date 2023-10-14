@@ -20,6 +20,7 @@ public class App {
     public final static String BASE_URL = "https://www.names.org/baby-names-by-letter";
 
     public static Map<String,String> HEADERS_MAP;
+    //public static Random RANDGEN = new Random();
 
     public static Document getNamesPage(String name) {
         try {
@@ -40,7 +41,7 @@ public class App {
             if (cells.size() == 3) {
                 Element nameLink = cells.get(0);
                 String nameURL = nameLink.attr("href");
-                String nameKey = nameLink.text();
+                String nameKey = nameLink.text().split(" ")[1];
                 Element language = cells.get(1);
                 String meaning = cells.get(2).text();
                 meaningsByName.put(nameKey, meaning);
@@ -105,6 +106,7 @@ public class App {
             Map<String,String> page1Meanings = getNamesFromElements(tableRows);
             result.putAll(page1Meanings);
             for (int i = 2; i <= pageCount; i += 1) {
+                //Thread.sleep(RANDGEN.nextInt(1000));
                 Map<String,String> pageMeanings = getNamesByLetterPage(letter, i);
                 System.out.printf("Found %d names from page %d\n", pageMeanings.size(), i);
                 result.putAll(pageMeanings);
@@ -178,7 +180,7 @@ public class App {
 
     }
     public static void main( String[] args ) {
-        System.out.println(args[1]);
+        System.out.println(args[0]);
 
         if (args[0].equals("load")) {
             loadNamesAndSearch(args[1]);
