@@ -1,8 +1,4 @@
-
 package dev.codewithfriends;
-
-
-
 
 //2 methods
 //push pop :)
@@ -13,6 +9,10 @@ public class Stack<T>
     private T item;
     private Node<T> top;
 
+    public boolean isEmpty() {
+        throw new RuntimeException("Not yet implemented.");
+    }
+
     public void push(T item)
     {
 
@@ -22,22 +22,14 @@ public class Stack<T>
     
     }
 
-    public <T> pop(T item)
+    public T pop()
     {
-
-
-        if(isEmpty()) 
+        if(isEmpty())
         {
             return null;
         }
-            T item = top.item;
+            T item = top.value;
             top = top.next;
             return item;
     }
 }
-=======
-   }
-
-
-}
-
