@@ -16,7 +16,6 @@ public class ArrayWrapper<T> implements List {
     public ArrayWrapper(int maxSize) {
         this._array = new Object[maxSize];
         this.currentSize = 0;
-        this.isEmpty = true;
     }
     
     
@@ -94,15 +93,16 @@ public class ArrayWrapper<T> implements List {
         // add element, increment currentSize
         _array[currentSize - 1] = o;
         currentSize++;
+        return false;
     }
 
     //TODO: finish method after implementing remove(int i)
     @Override
     //iterate through the array
     public boolean remove(Object o) {
-        int count = null; // index of object to be removed
+        int count = 0; // index of object to be removed
         for (int i = 0; i <= _array.length; i++) {
-            if (o == array[i]) {
+            if (o == _array[i]) {
                 count = i;
                 break;
             }
@@ -180,7 +180,7 @@ public class ArrayWrapper<T> implements List {
             Object removed = _array[index];
 
             for (int i = index + 1; i < currentSize; i++) {
-                _array[i - 1] - _array[i];
+                _array[i - 1] = _array[i];
             }
 
             return removed;

@@ -1,6 +1,4 @@
 package dev.codewithfriends;
-package dev.codewithfriends;
-
 
 import static org.junit.Assert.assertEquals;
 

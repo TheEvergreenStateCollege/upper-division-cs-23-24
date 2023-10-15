@@ -47,7 +47,6 @@ public class ArrayWrapperTest{
         assertEquals("Broccoli", L.get(k));
         assertEquals("Peanut Butter", L.get(k + 1));
         assertEquals("Butter", L.get(k + 2));
->>>>>>> eb7382b357699c11fa06ca8c642963bf9afeed9f
     }
 }
 

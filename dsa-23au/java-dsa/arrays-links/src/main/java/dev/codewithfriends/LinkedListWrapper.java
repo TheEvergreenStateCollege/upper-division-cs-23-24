@@ -127,7 +127,7 @@ public class LinkedListWrapper<T> implements List {
     @Override
     public Object remove(int index) {
         //Return 0 if the list has nothing in it
-        if(index < 0 || index >= size){
+        if(index < 0 || index >= this.currentSize){
             throw new IndexOutOfBoundsException("Index out of bounds");
         } 
         //if the list has only one element in it
@@ -141,7 +141,8 @@ public class LinkedListWrapper<T> implements List {
             }
             temp.next = temp.next.next;
         }
-        size--;
+        this.currentSize--;
+        return null;
     }
 
     @Override
