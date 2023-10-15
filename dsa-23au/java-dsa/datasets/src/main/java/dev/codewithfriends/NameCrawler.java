@@ -1,7 +1,6 @@
 package dev.codewithfriends;
 
 import java.io.*;
-import java.net.URLClassLoader;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,16 +10,15 @@ import org.jsoup.*;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import static java.util.Map.entry;
 
 
-public class App {
+public class NameCrawler {
 
-    public final static String LETTERS = "ABCDEFGHI";
+    public final static String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public final static String BASE_URL = "https://www.names.org/baby-names-by-letter";
 
     public static Map<String,String> HEADERS_MAP;
-    //public static Random RANDGEN = new Random();
+    public static Random RANDGEN = new Random();
 
     public static Document getNamesPage(String name) {
         try {
@@ -106,7 +104,7 @@ public class App {
             Map<String,String> page1Meanings = getNamesFromElements(tableRows);
             result.putAll(page1Meanings);
             for (int i = 2; i <= pageCount; i += 1) {
-                //Thread.sleep(RANDGEN.nextInt(1000));
+                Thread.sleep(RANDGEN.nextInt(1000));
                 Map<String,String> pageMeanings = getNamesByLetterPage(letter, i);
                 System.out.printf("Found %d names from page %d\n", pageMeanings.size(), i);
                 result.putAll(pageMeanings);
@@ -122,7 +120,7 @@ public class App {
     public static void loadHeadersMap() {
         HEADERS_MAP = new HashMap<>();
 
-        InputStream is = App.class.getClassLoader().getResourceAsStream("headers.txt");
+        InputStream is = NameCrawler.class.getClassLoader().getResourceAsStream("headers.txt");
 
         BufferedInputStream bis = new BufferedInputStream(is);
         String fileContents;
@@ -139,29 +137,60 @@ public class App {
         });
     }
 
+    public static void saveFile(Object obj, String filenameSuffix) {
+        FileOutputStream fout = null;
+        try {
+            fout = new FileOutputStream(String.format("name-meanings-%s.oos", filenameSuffix));
+            ObjectOutputStream oos = new ObjectOutputStream(fout);
+            oos.writeObject(obj);
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+
+    }
+
+    public static boolean checkMetadataFile(String filenameSuffix) {
+        try {
+            FileInputStream fin = new FileInputStream(String.format("name-meanings-%s.done", filenameSuffix));
+            String contents = new String(fin.readAllBytes());
+            return true;
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+        return false;
+    }
+
+    public static boolean writeMetadataFile(String filenameSuffix, int count) {
+        try {
+            FileOutputStream fos = new FileOutputStream(String.format("name-meanings-%s.done", filenameSuffix));
+            fos.write(String.valueOf(count).getBytes());
+            return true;
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+        return false;
+    }
+
     public static void retrieveNames() {
         loadHeadersMap();
 
-        Map<String,String> result = new HashMap<>();
         for (char letter : LETTERS.toLowerCase().toCharArray()) {
-            result.putAll(getNamesByLetter(letter));
-        }
-        System.out.printf("All names %s", result.size());
-        FileOutputStream fout = null;
-        try {
-            fout = new FileOutputStream("name-meanings.oos");
-            ObjectOutputStream oos = new ObjectOutputStream(fout);
-            oos.writeObject(result);
-        } catch (FileNotFoundException e) {
-            System.err.println(e.toString());
-        } catch (IOException e) {
-            System.err.println(e.toString());
+            if (checkMetadataFile(String.valueOf(letter))) {
+                continue;
+            }
+            Map<String,String> resultByLetter = getNamesByLetter(letter);
+            saveFile(resultByLetter, String.valueOf(letter));
+            writeMetadataFile(String.valueOf(letter), resultByLetter.size());
         }
     }
 
     public static void loadNamesAndSearch(String searchName) {
+        String firstLetter = searchName.substring(0,1);
+        if (!checkMetadataFile(firstLetter)) {
+            System.out.printf("Names %s not retrieved\n", firstLetter);
+        }
         try {
-            FileInputStream fis = new FileInputStream("name-meanings.oos");
+            FileInputStream fis = new FileInputStream(String.format("name-meanings-%s.oos", firstLetter));
             ObjectInputStream ois = new ObjectInputStream(fis);
             Map<String,String> nameMeanings = (Map<String, String>) ois.readObject();
             String meaning = nameMeanings.get(searchName);
