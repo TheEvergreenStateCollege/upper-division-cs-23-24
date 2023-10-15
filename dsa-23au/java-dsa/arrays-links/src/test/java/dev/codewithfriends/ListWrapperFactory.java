@@ -1,6 +1,8 @@
 package dev.codewithfriends;
 
+import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Test;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ public abstract class ListWrapperFactory {
 
     List<String> l;
 
+    @Before
     public void setUp() {
         l = createList(10);
     };
@@ -26,12 +29,36 @@ public abstract class ListWrapperFactory {
         }
     }
 
-    public void testContains() {
+    @Test
+    public void testContainsAfterAdd() {
         assertFalse(l.contains(groceryItems[0]));
         l.add(groceryItems[0]);
         assertTrue(l.contains(groceryItems[0]));
     }
 
+    @Test
+    public void testDoesntContainAfterRemove() {
+
+        // Starting with an empty list, we don't contain an item
+        // before we add it.
+        assertFalse(l.contains("Eggs"));
+
+        // After adding a single item, the size is 1
+        l.add("Eggs");
+        assertTrue(l.contains(groceryItems[0]));
+
+        // Add a second item and check that size is 2 and we contain it
+        l.add(groceryItems[1]);
+        assertTrue(l.contains(groceryItems[1]));
+        assertEquals(2, l.size());
+
+        // Remove the first item and make sure size decreases to 1
+        l.remove(groceryItems[0]);
+        assertEquals(2, l.size());
+        assertFalse(l.contains(groceryItems[0]));
+    }
+
+    @Test
     public void testAddAndSize() {
 
         for (int i = 0; i < 4; i++) {
@@ -57,10 +84,12 @@ public abstract class ListWrapperFactory {
         assertEquals("Grapes", l.get(k + 2));
     }
 
+    @Test
     public void testSize(){
         assertEquals(0, l.size());
     }
 
+    @Test
     public void test_isEmpty(){
         assertTrue(l.isEmpty());
     }

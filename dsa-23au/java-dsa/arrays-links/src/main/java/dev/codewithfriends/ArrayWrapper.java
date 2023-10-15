@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.ArrayList;
 
-public class ArrayWrapper<T> implements List {
+public class ArrayWrapper<T> implements List<T> {
 
     private Object[] _array;
     private int maxSize;
@@ -91,9 +91,9 @@ public class ArrayWrapper<T> implements List {
         }
 
         // add element, increment currentSize
-        _array[currentSize - 1] = o;
+        _array[currentSize] = o;
         currentSize++;
-        return false;
+        return true;
     }
 
     //TODO: finish method after implementing remove(int i)
@@ -150,34 +150,34 @@ public class ArrayWrapper<T> implements List {
     }
 
     @Override
-    public Object get(int index) {
+    public T get(int index) {
         if (index < 0 || index > size()) {
         throw new ArrayIndexOutOfBoundsException();
         }
-        return this._array[index];
+        return (T)this._array[index];
     }
 
     @Override
-    public Object set(int index, Object element) {
+    public T set(int index, T element) {
         return null;
     }
 
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, T element) {
 
     }
 
     // TODO: check if currentSize is less than half maxSize, resize array
     // Returns null if index is out of bounds of used array indices
     @Override
-    public Object remove(int index) {
+    public T remove(int index) {
         // check that the index is in range
         // save the Object to be returned
         // loop from end of list to index, shifting items back one slot
         // return the saved Object
 
         if (index > 0 && index < currentSize) {
-            Object removed = _array[index];
+            T removed = (T)_array[index];
 
             for (int i = index + 1; i < currentSize; i++) {
                 _array[i - 1] = _array[i];

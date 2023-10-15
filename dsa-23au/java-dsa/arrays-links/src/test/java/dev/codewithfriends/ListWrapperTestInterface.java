@@ -29,8 +29,12 @@ public class ListWrapperTestInterface<T>{
     }
 
     @Test
-    public void testContains() {
-        lwf.testContains();
+    public void testContainsAfterAdd() {
+        lwf.testContainsAfterAdd();
+    }
+
+    @Test void testDoesntContainAfterRemove() {
+        lwf.testDoesntContainAfterRemove();
     }
 
     @Test

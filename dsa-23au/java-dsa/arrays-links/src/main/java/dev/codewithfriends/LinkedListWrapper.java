@@ -7,7 +7,7 @@ import java.util.ListIterator;
 
 
 
-public class LinkedListWrapper<T> implements List {
+public class LinkedListWrapper<T> implements List<T> {
 
     private int maxSize;
     private int currentSize;
@@ -110,22 +110,22 @@ public class LinkedListWrapper<T> implements List {
     }
 
     @Override
-    public Object get(int index) {
+    public T get(int index) {
         return null;
     }
 
     @Override
-    public Object set(int index, Object element) {
+    public T set(int index, T element) {
         return null;
     }
 
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, T element) {
 
     }
 
     @Override
-    public Object remove(int index) {
+    public T remove(int index) {
         //Return 0 if the list has nothing in it
         if(index < 0 || index >= this.currentSize){
             throw new IndexOutOfBoundsException("Index out of bounds");
