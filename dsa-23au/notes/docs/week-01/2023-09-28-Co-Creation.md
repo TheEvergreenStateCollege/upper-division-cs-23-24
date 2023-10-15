@@ -3,6 +3,9 @@ Thursday, 28 September 2023
 
 ## Add your five sentences and your pair programing partner's 5 sentences below
 
+-- Sean Sellers --
+This weekend I Finally made progress on getting caught up after having missed week 2, I need a lot of practis with everything we are doing. I am still feeling lost and overwhelmed but it is incouraging to read below that I am not alone in this. The past week in Change Makers was interesting and productive and I can tell I am going to benefit a lot from it. There is still a ways to go with getting anywhere close to feeling like I'm up to speed with the rest of the class but all I can do is keep trying and not let my nerves get the better of me. I cant help but feel very intimidated by my classmates and like I don't belong, working on it though.
+
 On Tuesday, we discussed fundamental algorithm principle.
 'Algorithms take state where invariant is true, then outputs invariant as true.'
 On Thursday, we uploaded a dataset to upper-division-cs/dsa-23au/java-dsa/arrays-link/src/main/GhostTowns.CSV
