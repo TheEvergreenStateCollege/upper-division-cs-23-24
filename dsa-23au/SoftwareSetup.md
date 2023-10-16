@@ -107,7 +107,7 @@ Next to the "GitHub" integration, click on the three dots and choose "Manager th
 ### 7. Set your Git Config Email
 
 Go to your `gitpod.io` environment variable settings at https://gitpod.io/user/variables.
-On the left of the page navigate to the variables tab and add two new variables with the keys being
+On this page add two new variables with the keys being
 `GIT_AUTHOR_EMAIL` and `GIT_COMMITER_EMAIL` and value being your github privacy email address. You will need to set a scope for this environment variables.
 `*/*` can be used if you want these emails to be applied to all workspaces opened in gitpod,or they could be set to `TheEvergreenStateCollege/upper-division-cs`. 
 
