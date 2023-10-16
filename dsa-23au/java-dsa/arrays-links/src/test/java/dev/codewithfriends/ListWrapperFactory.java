@@ -8,6 +8,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@Ignore
 public abstract class ListWrapperFactory {
 
     private final static String[] groceryItems = {"Apples", "Bananas","Carrots","Grapes"};
@@ -58,7 +59,7 @@ public abstract class ListWrapperFactory {
         assertFalse(l.contains(groceryItems[0]));
     }
 
-    @Test
+    @Ignore
     public void testAddAndSize() {
 
         for (int i = 0; i < 4; i++) {

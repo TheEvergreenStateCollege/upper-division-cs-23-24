@@ -1,14 +1,53 @@
-# Final Project
+# Final Project and Independent Contract
 
-A progressively realized project demonstrating your data structures and algorithms skills
-and also your ability to find and develop them in a Real-World Application.
+This document describes 1/3 of your credit and evaluation for DSA students, and all of your credit
+and evaluation if you have taken DSA before and are doing an independent, in-program learning contract
+with Paul.
+
+For DSA students, I'd like to see a progressively realized project demonstrating your data structures and algorithms skills
+and also your ability to find and develop them in a Real-World Application throughout the quarter.
+
+For independent students, I'd like to see the ability to apply your computer science skills to a
+problem that is personally interesting to you. It may be to make progress on a project that
+you have previously started. Your goal during this quarter is to show software engineering
+judgment for *time estimation* and your *circle of competence*.
+
+That is, it's an attempt to carve out
+a smaller piece of a possibly bigger project or life goal and make a commitment to another person
+(a faculty member, and optionally a classmate that you exchange your contract with).
+It requires knowledge of yourself and your current capabilities, as well as the desire to steer
+where you want to go.
+
+## Deliverables for All Projects (DSA and Independent)
+
+You can apply the criteria below, or present a case in your proposal for alternative
+criteria that meets the intent of showing substantial effort for upper division computer science credit.
+
+Per team member:
+* 500 lines of original code, newly written or refactored while maintaining existing functionality, written this quarter
+* 5 tests showing how to run your code and demonstrating 5 different modes of operation or functionality.
+  * These can be unit tests written in code, integration tests written as a script, screenrecording videos, screenshots
+
+For the whole project:
+* A three-page or longer report describing
+  * What you learned
+  * New functionality or properties of your code
+  * The technology stack you used and why,
+  * Strengths of your work
+  * Challenges you encountered and how you handled them
+  * Opportunities for growth and future direction
+
+You can incorporate some or all of the above sections into your required Evergreen self evaluation.
+
+For example: if you have two members of your team, you'll each need to contribute 500 lines of code or code changes.
 
 ## Credits and Team 
 
 One-third of your credits and evaluation this quarter will be based on your final project,
 which will be done as a team that you choose among classmates in both the
 Data Structures and Algorithms program and the Changemakers business program. Teams may be 
-solo (one person) or up to 20 people.
+solo (one person) or up to 20 people. You will have to do some legwork and talk to your
+classmates to learn what teams may be forming and how you can contribute!
 
 We recommend and will support you in pushing outside your comfort zone. If you normally 
 prefer to work alone, we suggest finding teammates, and if you normally like to work with 
@@ -83,10 +122,4 @@ them as time permits. In conjunction, you can modify your algorithm to gracefull
 
 Handling missing, incomplete, or invalid data, and also preprocessing or "cleaning up" data is a very 
 common operation in Real-World Applications.
-
-## Steps to Refining Your Project 
-
-## Rubric
-
-Total of 4 credits (in the 12 credit version of the program) or 
 
