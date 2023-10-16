@@ -1,6 +1,6 @@
 # Readings 04
 
- Week 03 Readings
+ Week 04 Readings
 
 ## Cracking the Coding Interview (McDowell), the green book
 
