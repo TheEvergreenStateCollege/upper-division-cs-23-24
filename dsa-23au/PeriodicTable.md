@@ -4,11 +4,11 @@
 |---------------------|---------------|---------------|--------|-----------|--------------|-------|----------|----------------|-------------|
 | From size n, afterwards...  | size increases to n+1 || size stays the same at `n`   ||||| size stays the same at `n`         | size decreases to `n-1`      |
 |                     | insertAt(i,v) | insertLast(v) | size() | isEmpty() | searchFor(v) | min() | max()    | replaceAt(i,v) | removeAt(i) |
-| Arrays              | [O(?)](#arrays-insert-at)          |               |        |           |              |       |          |                |             |
-| Linked lists        |               |               |        |           |              |       |          |                |             |
+| Arrays              | O(n)          |               |        |           |              |       |          |                |             |
+| Linked lists        | O(1)          |               |        |           |              |       |          |                |             |
 | Stacks              |               |               |        |           |              |       |          |                |             |
 | Queues              |               |               |        |           |              |       |          |                |             |
-| Heaps               |               |               |        |           |              |       |          |                |             |
+| Heaps               | O(logn)       |               |        |           |              | O(1)  |          |                |             |
 | Binary Search Trees |               |               |        |           |              |       |          |                |             |
 
 ## Arrays
