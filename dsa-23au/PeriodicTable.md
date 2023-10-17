@@ -4,8 +4,8 @@
 |---------------------|---------------|---------------|--------|-----------|--------------|-------|----------|----------------|-------------|
 | From size n, afterwards...  | size increases to n+1 || size stays the same at `n`   ||||| size stays the same at `n`         | size decreases to `n-1`      |
 |                     | insertAt(i,v) | insertLast(v) | size() | isEmpty() | searchFor(v) | min() | max()    | replaceAt(i,v) | removeAt(i) |
-| Arrays              | [O(1)](#arrays-insert-at)         O(n) |               |        |           |              |       |                |                 |     O(1), O(n)        |
-| Linked lists        |               |               |   O(n)     |           |              |       |          |                |             |
+| Arrays              | [O(1)](#arrays-insert-at)        O(n)      |               |        |           |              |       |                |                 |     O(1), O(n)        |
+| Linked lists        |               |               |        |           |              |       |          |                |             |
 | Stacks              |               |               |        |           |              |       |          |                |             |
 | Queues              |               |               |        |           |              |       |          |                |             |
 | Heaps               |               |               |        |           |              |       |          |                |             |
