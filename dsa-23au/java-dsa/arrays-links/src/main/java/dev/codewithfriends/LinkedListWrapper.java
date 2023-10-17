@@ -1,4 +1,4 @@
-package dev.codewithfriends;
+/*package dev.codewithfriends;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -146,3 +146,4 @@ public class LinkedListWrapper<T> implements List {
         return new Object[0];
     }
 }
+*/
