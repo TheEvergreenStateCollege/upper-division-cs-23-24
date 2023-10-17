@@ -1,13 +1,13 @@
 package dev.codewithfriends;
 
-private static class BinaryNode<T>
+public class BinaryNode<T>
 {
-    private T data;
-    private BinaryNode<T> left;
-    private BinaryNode<T> right;
+    T data;
+    BinaryNode<T> left;
+    BinaryNode<T> right;
 
         //Constructors
-    BinaryNode( T, data )
+    public BinaryNode( T data )
     {
         this.data = data;
         this.left = null;

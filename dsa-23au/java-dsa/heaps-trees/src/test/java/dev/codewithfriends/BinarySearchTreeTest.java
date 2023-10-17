@@ -1,6 +1,8 @@
 package dev.codewithfriends;
 
+import java.lang.Integer;
 import static org.junit.Assert.assertTrue;
+import org.junit.Before;
 
 import org.junit.Test;
 
@@ -15,12 +17,12 @@ public class BinarySearchTreeTest
     @Before
     public void setUp() {
         bst = new BinarySearchTree<Integer>();
-        bst.insert(BinaryNode<Integer>(6));
-        bst.insert(BinaryNode<Integer>(2));
-        bst.insert(BinaryNode<Integer>(8));
-        bst.insert(BinaryNode<Integer>(1));
-        bst.insert(BinaryNode<Integer>(3));
-        bst.insert(BinaryNode<Integer>(4));
+        bst.insert(6);
+        bst.insert(2);
+        bst.insert(8);
+        bst.insert(1);
+        bst.insert(3);
+        bst.insert(4);
     }
 
     @Test

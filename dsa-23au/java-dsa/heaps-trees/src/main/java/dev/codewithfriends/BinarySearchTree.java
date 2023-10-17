@@ -1,40 +1,38 @@
 package dev.codewithfriends;
 
-public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>{
+public class BinarySearchTree<T extends Comparable<? super T>>{
 
-    private static class BinaryNode<AnyType> {
+    private BinaryNode<T> root;
 
-        // Constructors
-        BinaryNode(AnyType theElement)
-        {
-            this(theElement, null, null); 
-        }
-
-        BinaryNode(AnyType theElement, BinaryNode<AnyType> lt, BinaryNode<AnyType> rt)
-
-        {
-            element = theElement; left = lt; right = rt;
-
-        }
-
-        AnyType element; 
-        BinaryNode<AnyType> left;
-        BinaryNode<AnyType> right;
+    public void makeEmpty() {
+        root = null;
     }
 
-    private BinaryNode<AnyType> root;
+    public boolean isEmpty() {
+        return root == null;
+    }
 
-    public boolean contains(AnyType x)
+    public boolean contains(T x)
     {
         return contains(x, root);
     }
 
-    public void insert(AnyType x)
-    {
+    public T findMin() throws UnderFlowException {
+        if ( isEmpty() ){
+            throw new UnderFlowException();
+        } 
+        return findMax( root ).data;
+    }
+
+    public T findMax() {
+        throw new RuntimeException("Not yet implemented");
+    }
+
+    public void insert (T x) {
         root = insert(x, root);
     }
 
-    private boolean contains(AnyType x, BinaryNode<AnyType> t)
+    private boolean contains(T x, BinaryNode<T> t)
     // Internal method tofind an item in a subtree.
     // @parm x is item to search for
     // @parm t is node that roots the subtree.
@@ -44,35 +42,38 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>{
         if(t == null)
             return false;
 
-        int compareResult = x.compareTo(t.element);
-        if(compareResult < 0)
+        int compareResult = x.compareTo(t.data);
+
+        if(compareResult < 0) {
             return contains(x, t.left);
-        else if(compareResult > 0)
+        } else if(compareResult > 0) {
             return contains(x, t.right);
-        else
+        } else {
             return true;
+        }
     }
 
-    private BinaryNode<AnyType> insert(AnyType x, BinaryNode<AnyType> t)
-    {
-        // Internal method to insert into a subtree
-        // @parm x the item to insert
-        // @parm t the node that roots the subtree.
-        // @ return the new root of the subtree.
-            if (t == null)
-                return new BinaryNode<>(x, null, null);
-            
-            int compareResult = x.compareTo(t.element);
+    private BinaryNode<T> findMax(BinaryNode<T> t) {
+        throw new RuntimeException("Not yet implemented.");
+    }
 
-            if (compareResult < 0)
-                t.left = insert(x, t.left);
-            else if (compareResult > 0);
-                t.right = insert(x, t.right);
-            else
-                ; 
-                return t;
+    private BinaryNode<T> insert(T x, BinaryNode<T> t) {
+        if (t == null) {
+            return new BinaryNode<>(x);
         }
 
+        int compareResult = x.compareTo( t.data );
+
+        if (compareResult < 0) {
+            t.left = insert( x, t.left );
+        } else if (compareResult > 0) {
+            t.right = insert( x, t.right );
+        } // else duplicate
+        return t;
+    }
+
+    private BinaryNode<T> remove(T x, BinaryNode<T> t) {
+        throw new RuntimeException("Not yet implemented.");
     }
 
 }
