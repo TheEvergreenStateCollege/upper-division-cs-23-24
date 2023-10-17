@@ -23,59 +23,24 @@ or "Login" if you already have an account.
 
 Verify with your phone number.
 
-### 2. Fork the class monorepo
-Go to https://github.com/TheEvergreenStateCollege/upper-division-cs
+### 2. Request to be added to class monorepo
+Go to https://github.com/TheEvergreenStateCollege/upper-division-cs/issues
 
-In the top-right corner of the page, click **Fork**.
+Click the "New issue" green button and create a new issue with the title
+"Add <your-username> as maintainer" and with the label `admin`.
+Assign it to ten of your classmates.
 
-Under "Owner," select the dropdown menu and click an owner for the forked repository.
-
-Click **Create fork**.
-
-### 3. Go to your GitHub settings
-
-In your GitHub email settings:
-https://github.com/settings/emails
-
-and copy your private, "no-reply" email address that GitHub generated for you,
-to avoid leaking your real email address to the public.
-
-It will look similar to mine, which is
-`148553+cryptogoth@users.noreply.github.com`
-
-### 4. Create a configuration script
-
-You'll run this script the first time you start up GitPod using this repository (below).
-
-Create the file in this location with this name, which you can do right from your
-repo's GitHub page from Step 3 by clicking the "Add file" and "New file" from the
-drop-down button.
-
-`https://github.com/<user-name>/upper-division-cs`
-
-Add the following path, notificing that the directories `dsa-23au` (meaning Data Structures & Algorithms, Autumn 2023)
-and `scripts` already exist, and you are simply creating a new file called `git-config.sh`
-
+You can paste the following body into a new issue:
 ```
-./scripts/git-config.sh`
+This issue is part of [SoftwareSetup.md](dsa-23au/SoftwareSetup.md).
+I would like to be a maintainer of our learning organization,
+responsible for surfacing any problems I can find, helping my classmates,
+and creating a fun and safe learning environment.
+I will do my best to learn how to create pull requests, merge branches,
+give code reviews, write and refactor Java code in this monorepo,
+and work on resolving issues and pull requests opened by my classmates.
 ```
 
-In this file, paste the no-reply email address that you copied previous in Step 4.
-Then click "Commit changes" so that this email address is saved for future use.
-
-Don't worry, this is not a real email address, and this is a private repo, so you are not revealing anything
-unsafe by saving it here.
-
-### 5. Finish the script
-
-Add the following lines to your newly , and modify it to fit around the no-reply email address that you pasted in Step 5.
-
-```
-#!/bin/sh
-
-# Enable us to push, through email privacy features
-git config --global user.email <no-reply-email-address>
-```
 
 ## Cloud IDE 
 
@@ -143,13 +108,54 @@ Next to the "GitHub" integration, click on the three dots and choose "Manager th
 
 Run the `git-config.sh` script you set in the `GitHub` section above.
 
-### 8. Source environment variables
+### 8. Make sure you have tools in your $PATH
 
 ```
-source ~/scripts/.shrc
+$ which java
+/opt/graalvm-community-openjdk-20.0.2+9.1/bin/java
+$ which mvn
+/opt/apache-maven-3.9.4/bin/mvn
+```
+```
+source ./scripts/.shrc
 ```
 
-### 9. Update this Document
+### 9. Go to your GitHub settings
+
+In your GitHub email settings:
+https://github.com/settings/emails
+
+and copy your private, "no-reply" email address that GitHub generated for you,
+to avoid leaking your real email address to the public.
+
+It will look similar to mine, which is
+`148553+learner-long-life@users.noreply.github.com`
+
+Copy this and save it for the next step.
+
+### 10. Create a configuration script
+
+You'll run this script the first time you start up GitPod using this repository (below).
+
+In GitPod, create a new file in the path `/workspace/upper-division-cs/dsa-23au/scripts/git-config.sh`
+which you can do by clicking the file icon with a plus sign show in the screenshot below
+
+<img width="447" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/07fac582-5576-47e9-8a64-b089f8a440bb">
+
+<img width="1000" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/2c97e315-ba12-46cf-9631-70d97e121895">
+
+Add these contents to the file, being sure to replace your private email address 
+```
+#!/bin/sh
+
+# Enable us to push, through email privacy features
+git config --global user.email 148553+learner-long-life@users.noreply.github.com
+```
+
+Don't worry, this is not a real email address, and this is a private repo, so you are not revealing anything
+unsafe by saving it here.
+
+### 11. Update this Document
 
 Test that everything works by making a change to these instructions, adding
 any corrections, insights, jokes, comments, or memes that you think will help future students.
@@ -170,7 +176,7 @@ meant to be plaintext and human-readable.
 
 You can read more about [using Markdown here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
-### 10. Add, Commit, Push
+### 12. Add, Commit, Push
 
 After making your changes, you will perform the `version control dance` of hackers everywhere.
 
@@ -203,15 +209,8 @@ typically one-sentence message summarizing the changes you made.
 git push
 ```
 
-## TODO
 
-Here is a list where we'll collect beginner-friendly improvements that anyone can make.
-If you're looking for a change to make, take one from here
-There are a few things we'd like to run in every GitPod session we start up for this repository.
-
-One is to add the GraalVM Java Development Kit to our shell's `PATH` environment variable.
-
-Step 8 above, sourcing environment variables in `.shrc` should be done automatically when
-starting a GitPod workspace for this repo.
-
-I think this feature is enabled in the `.gitpod.yml` file.
+// This is also Jon. I enrolled in this class to better my programming and design skills. 
+// A little bit about, I am a Senior at evergreen going for a Bachelors in Science and looking to get my Cybersecurity Cerftificate.
+//Im Looking forward to working with everyone this quarter.
+// One little fun fact about me is that I am currently working on an Unreal Project with my friend over in Las Vegas.
