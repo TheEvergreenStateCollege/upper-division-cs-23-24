@@ -1,15 +1,32 @@
 package dev.codewithfriends;
 
-public class BinaryNode<T> {
-    
-    BinaryNode(<T> theElement) {
-        this(element, null, null);
+private static class BinaryNode<T>
+{
+    private T data;
+    private BinaryNode<T> left;
+    private BinaryNode<T> right;
+
+        //Constructors
+    BinaryNode( T, data )
+    {
+        this.data = data;
+        this.left = null;
+        this.right = null;
     }
-    BinaryNode(<T> theElement, BinaryNode<T> lt, BinaryNode<T> rt) { 
-        element = theElement; left = lt; right = rt;
+
+    public T getData()
+    {
+        return data;
     }
-    T element;
-    BinaryNode<T> left;
-    BinaryNode<T> right;
-    
+
+    public BinaryNode<T> getLeft()
+    {
+        return right;
+    }
+
+
+    public BinaryNode<T> getRight()
+    {
+        return left;
+    }
 }
