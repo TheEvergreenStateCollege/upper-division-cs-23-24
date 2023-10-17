@@ -2,18 +2,30 @@ package com.pswishcorp.app;
 
 import java.util.HashMap;
 import java.util.Map;
-/**
- * Hello world!
- *
- */
+
 public class HighwayTune {
 
+    public static void main(String[] args) {
+        Map<String, Map<String, Integer>> driverNameToDriverData = new HashMap<>();
+        // Create a dictionary of dictionaries
+        
+        Map<String, Integer> innerDict1 = new HashMap<>();
+        innerDict1.put("Entry1", 42);
+        innerDict1.put("Entry2", 73);
+
+        Map<String, Integer> innerDict2 = new HashMap<>();
+        innerDict2.put("keyA", 100);
+        innerDict2.put("keyB", 200);
+
+        driverNameToDriverData.put("driver1", innerDict1);
+        driverNameToDriverData.put("driver2", innerDict2);
+
 /*
-Exmaple
+Data structure model selected(As of 10/17)
+Example from: 
     public static void main(String[] args) {
         // Create a dictionary of dictionaries
-        Map<String, Map<String, Integer>> dictOfDicts = new HashMap<>();
-
+        Map<String, Map<String, Integer>> dictOfDicts = new HashMap<>(); 
         // Add data to the dictionary of dictionaries
         Map<String, Integer> innerDict1 = new HashMap<>();
         innerDict1.put("key1", 42);
@@ -34,4 +46,5 @@ Exmaple
         System.out.println("Value in dict2: " + value2);
     }
 */
+}
 }

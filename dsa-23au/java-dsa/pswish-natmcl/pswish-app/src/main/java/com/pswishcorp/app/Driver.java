@@ -1,4 +1,4 @@
-package main.java.com.pswiscorp.app;
+package com.pswishcorp.app;
 
 public class Driver {
     int distanceFromHome;
