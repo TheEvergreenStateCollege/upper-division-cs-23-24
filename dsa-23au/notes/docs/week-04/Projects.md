@@ -1,3 +1,9 @@
+# Final Project Updates
+
+This is a work in progress in Week 4. Please keep evolving, revision, iterating,
+refining your projects. We'll check in again in Week 6, and I'll give you 5 minutes
+per team to lead a progress update in class, with 5 minute Q&A and discussion.
+
 ## Input Dataset from CSV
 List<T>
 
