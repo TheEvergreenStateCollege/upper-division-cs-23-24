@@ -41,5 +41,28 @@ public class BinarySearchTree<T extends Comparable<? super T>>{
         } 
         return findMax( root ).element;
     }
+    public void insert (T x) {
+        root = insert(x, root);
+    }
+    public void remove (T x) {
+        root = remove(x, root);
+    }
 
+
+    private boolean contains(T x, BinaryNode<T> t){
+        if(t == null){
+            return false;
+        }
+
+        int compareResult = x.compareTo(t.element);
+
+        if(compareResult < 0){
+            return contains(x, t.left);
+        }
+        else if(compareResult > 0){
+            return contains(x, t.right);
+        }
+        else
+            return true; //match
+    }
 }
