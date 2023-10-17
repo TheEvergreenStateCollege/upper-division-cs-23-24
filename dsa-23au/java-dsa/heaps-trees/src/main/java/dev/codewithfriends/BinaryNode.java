@@ -1,4 +1,3 @@
-
 package dev.codewithfriends;
 
 private static class BinaryNode<T>
