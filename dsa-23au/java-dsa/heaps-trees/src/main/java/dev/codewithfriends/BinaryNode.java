@@ -1,3 +1,4 @@
+
 package dev.codewithfriends;
 
 private static class BinaryNode<T>
@@ -24,8 +25,10 @@ private static class BinaryNode<T>
         return right;
     }
 
+
     public BinaryNode<T> getRight()
     {
         return left;
     }
 }
+

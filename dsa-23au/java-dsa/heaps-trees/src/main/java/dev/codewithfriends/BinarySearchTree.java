@@ -1,5 +1,6 @@
 package dev.codewithfriends;
 
+ 
 public class BinarySearchTree<T extends Comparable<? super T>>{
 
     private static class BinaryNode<T>{
@@ -66,3 +67,4 @@ public class BinarySearchTree<T extends Comparable<? super T>>{
             return true; //match
     }
 }
+
