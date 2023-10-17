@@ -122,6 +122,101 @@ Changemakers, supporting IT needs for students, helping teams determine minimum 
 Example Input Row:
 ProjectSupported(teammate1, teammate2, projectType, ITneed1, ITneed2,)
 
+## Duc and Julian and Quinn and Damiana
+
+Changemakers: team ideas
+
+* Make a video game.
+* Survey of gamers at Evergreen for their favorite hardware, etc.
+
+Changemakers process:
+
+* Dialogue
+* Active listening
+
+Level 4 listening: repeating back to make sure you understood.
+
+"Opening your own pre-existing plans and thoughts to be adjusted by another person."
+
+Iteration: every plan or understanding is going to be subjected to re-iterative revision.
+Successive refinement of the idea within that vehicle.
+
+Customer collaboration, customer visits, flexibility, adaptability, user-centered design, cross-functional teams
+
+Prompt for Changemaker students: on Tuesday presentation, consider how to apply
+these and your
+
+Possibilities: Agile development, version control systems, code reviews
+
+## Richard Weiss
+
+Code reviews are often stressful and don't reflect the above principles of active listening, understanding human context, open discussion in a group.
+
+## Dawson and Dante
+noting which music they listen to, keeping a spreadsheet for a long time.
+liked songs on Spotify, 3000?
+connected to last.fm which tracks every song listened to. possible last.fm API
+is it possible to export your data from Spotify? Ethical / privacy considerations?
+
+### Question from Quinn
+Are you also gathering songs that are skipped?
+
+### Question from Paul Swisher
+Are Fridays, or days of new music releases, more likely to have songs added?
+
+What is the most likely time of day songs are added?
+What music do I dislike?
+
+### Jonathan
+working with Dawson, Dante, Trinity
+collecting crime reports from agencies in NY
+splitting it into index of property crime
+murder, rape, aggravated assault
+burglary, larceny, motor vehicle theft
+
+Example Input Row:
+Crime(isMurder, isRobbery, isAggroAssault, isRape, isPerpetratorKnown, location, time, )
+CrimeRegion(isHigherThanNationalAvg, countyName, )
+
+Might limit to high-crime rate regions.
+
+Which counties have the highest crime rate in the state / region?
+
+How does this correlate with firearm registration rate or population (density) for that county?
+
+## David Dunston
+open to teammates
+personal note-taking from phone, collected from 2012/2017, over 309 
+can apply to other people's notes, useful for creatives (writers)
+to draw visual synopsys
+
+Example Input Row:
+Note(creationDateTime, modificationDateTime, wordCount, isSongIdea, isInformation, isTodo)
+
+Map<Integer,List<Category>> categoriesByGranularity;
+
+Possible auto-tagging, or clustering notes by similarity, suggest keywords
+
+## Joe Granville
+circadian system measurements.
+helping Stella with EEG
+
+beginning of Global Business Challenge this morning.
+some data from farm shipments or proteinaceous animal feed (from insects)
+
+in Changemakers, just broken up into big teams.
+
+timelapse photos from cactus growing
+
+## Jonah Eadie
+wanting to join a project or team
+possible dataset idea: company profits by country
+suggestion: join Juniper's project
+
+## Sean Sellers
+Changemakers
+possible dataset idea: tree species recommendations, branching, leaf size, soil type, etc.
+
 ## Ethical Concerns of Data Gathering Research
 
 If your project involves gathering data from others (not yourself),
