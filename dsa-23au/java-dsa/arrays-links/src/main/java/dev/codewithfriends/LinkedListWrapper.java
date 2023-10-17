@@ -32,7 +32,7 @@ public class LinkedListWrapper<T> implements List<T> {
 
        @Override
     public boolean contains(Object o) {
-        Node current = head; 
+        Node<T> current = head; 
         //requieres the size of the LinkedListWrapper to be something any method can access in the class
         while (current != null) {
             if (current.value.equals(o)) {
@@ -43,6 +43,7 @@ public class LinkedListWrapper<T> implements List<T> {
         return false;
 
     }
+    // We are skipping this method as of 10/12/2023
     @Override
     ///Skipped during class 10/12/2023
     public Iterator iterator() {
@@ -62,14 +63,11 @@ public class LinkedListWrapper<T> implements List<T> {
         }
         return returnArray;
     }
+    
 
     @Override
    public boolean add(Object o) {
     Node<T> newNode = new Node(o); // Create a new node with the object o as payload
-
-    if (currentSize >= maxSize) {
-        return false;
-    }
 
     if (currentSize >= maxSize) {
         return false;

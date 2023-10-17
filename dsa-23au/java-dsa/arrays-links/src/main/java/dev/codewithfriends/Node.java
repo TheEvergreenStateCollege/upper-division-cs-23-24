@@ -1,8 +1,8 @@
 package dev.codewithfriends;
 
 public class Node<T> {
-    public T value;
-    public Node<T> next;
+     public T value;
+     public Node<T> next;
 
 //this has the same name as the class
 //it is a special method
