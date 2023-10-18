@@ -10,6 +10,7 @@
 | Queues              |               |               |        |           |              |       |          |                |             |
 | Heaps               |               |               |        |           |              |       |          |                |             |
 | Binary Search Trees |               |               |        |           |              |       |          |                |             |
+Hash map | [O(1)](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/027ccf7fbb6086255319aee7f481a04160c912b5/dsa-23au/java-dsa/pswish-natmcl/pswish-app/src/main/java/com/pswishcorp/app/HighwayTune.java#L13)          |               |        |           |              |       |          |                |             |
 
 ## Arrays
 
