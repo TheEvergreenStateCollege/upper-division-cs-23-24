@@ -1,4 +1,4 @@
-package main.java.com.pswishcorp.app;
+package com.pswishcorp.app;
 
 import java.util.HashMap;
 import java.util.Map;

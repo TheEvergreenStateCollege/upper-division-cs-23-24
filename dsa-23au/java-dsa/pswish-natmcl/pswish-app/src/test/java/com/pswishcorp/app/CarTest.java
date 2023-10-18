@@ -1,4 +1,4 @@
-// package test.java.com.pswishcorp.app;
+// package com.pswishcorp.app;
 
 // import org.junit.Before;
 // import org.junit.Test;
