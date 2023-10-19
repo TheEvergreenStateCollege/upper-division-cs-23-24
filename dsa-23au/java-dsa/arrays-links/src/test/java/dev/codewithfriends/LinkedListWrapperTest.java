@@ -1,33 +1,15 @@
+package dev.codewithfriends;
 
-/**package dev.codewithfriends;
-
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import java.util.List;
+import java.util.ArrayList;
 
-import org.junit.Test;
+public class LinkedListWrapperTest extends ListWrapperFactory {
 
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-
-public class LinkedListWrapperTest {
-
-    Book b1 = new Book("Some title", "some author");
-
-    // Create / Insert operation
-    // List Spec
-    @Test
-    public void insertShifts()
-    {
-        List l = new ArrayWrapper<Book>(10);
-        assertEquals(0, l.size());
-        l.add(b1);
-        assertEquals(1, l.size());
+    @Override
+    public List<String> createList(int maxSize) {
+        return new LinkedListWrapper<String>(maxSize);
     }
-
 }
-
-*/
