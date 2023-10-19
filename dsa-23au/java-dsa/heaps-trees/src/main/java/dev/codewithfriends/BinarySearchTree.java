@@ -3,6 +3,10 @@ package dev.codewithfriends;
 public class BinarySearchTree<T extends Comparable<? super T>>{
 
     private BinaryNode<T> root;
+    
+    public BinaryNode<T> getRoot(){
+        return root;
+    }
 
     public void makeEmpty() {
         root = null;
