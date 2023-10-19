@@ -174,7 +174,7 @@ What is the most likely time of day songs are added?
 What music do I dislike?
 
 ### Jonathan
-working with Dawson, Dante, Trinity
+working with Trinity
 collecting crime reports from agencies in NY
 splitting it into index of property crime
 murder, rape, aggravated assault
