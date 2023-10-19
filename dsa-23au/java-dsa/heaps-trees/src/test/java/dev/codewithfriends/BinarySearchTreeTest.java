@@ -28,5 +28,6 @@ public class BinarySearchTreeTest
     @Test
     public void testInsertAndContains()
     {
+        assertTrue(bst.contains(6));
     }
 }

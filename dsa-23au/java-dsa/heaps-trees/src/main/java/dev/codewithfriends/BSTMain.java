@@ -4,7 +4,7 @@ package dev.codewithfriends;
  * Hello world!
  *
  */
-public class App 
+public class BSTMain 
 {
     public static void main( String[] args )
     {
