@@ -19,6 +19,7 @@ public class BSTMain {
         // devin duc use linked list (doubly)
         BinaryNode curr = node;
         // 2. iterate (while/for loop) or recurse
+        
 
             // body
             visited.add(node);
@@ -41,7 +42,8 @@ public class BSTMain {
     }
     public static void main(String[] args) {
         LinkedList<BinaryNode> visited = new LinkedList<>();
-        List<BinaryNode> allNodes = new List<>();
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        List<BinaryNode> resultNodes = dfs(bst.getRoot(), visited);
 
     }
 }
