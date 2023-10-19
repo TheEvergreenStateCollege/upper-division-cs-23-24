@@ -120,162 +120,161 @@ which is mirrored to our Canvas site at
 
                     <table border="1">
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td width="265">Concrete Examples</td>
-                                <td width="391">Synthesis / Lateral Thinking</td>
-                            </tr>
-                            <tr>
-                                <td>Week 1</td>
-                                <td>
-                                    <p>A Self-Guided Tour</p>
-                                    <p>RAM Model, Lists</p>
-                                    <p>Arrays, Links, Counters</p>
-                                    <p>Interfaces, CRUD Operations</p>
-                                </td>
-                                <td>
-                                    <p>IntelliJ and Git: practice and warmup</p>
-                                    <p>Pair Programming: what roles? what rules?</p>
-                                    <p>Learning Log, ChatGPT / AI prompting</p>
-                                    <p>ChangeMaker teams, learning together</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Week 2</td>
-                                <td>
-                                    <p>Implementation vs. Interfaces</p>
-                                    <p>Stacks, Queues</p>
-                                    <p>Key-Value Maps, Hashing</p>
-                                    <p>Collisions, Links</p>
-                                </td>
-                                <td>
-                                    <p>Time-Space and Other Dualities, Resources</p>
-                                    <p>How to trade off time for space, vice versa?</p>
-                                    <p>Combining two or more data structures</p>
-                                    <p>Counting and visualizing resources: VisualVM</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Week 3</td>
-                                <td>
-                                    <p>Asymptotic Analysis (Big O)</p>
-                                    <p>Trees, Relations, Searching</p>
-                                    <p>Traversals: Bread-first, Depth-First</p>
-                                    <p>Heaps (Priority Queues)</p>
-                                </td>
-                                <td>
-                                    <p>Recursion and Iteration</p>
-                                    <p>Cleaning Up: Invariants, Rebalancing</p>
-                                    <p>Combining two or more data structures</p>
-                                    <p>Overview of Final Project: Problem-Finding</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Week 4</td>
-                                <td>
-                                    <p>Rebalancing Trees</p>
-                                    <p>Red-Black Trees</p>
-                                    <p>Rebalancing Heaps</p>
-                                    <p>Inventing New Data Structures</p>
-                                </td>
-                                <td>
-                                    <p>An Exotic Zoo: Fibonacci Forest, Skip Lists</p>
-                                    <p>Amortized Analysis</p>
-                                    <p>Combining two or more data structures</p>
-                                    <p>Final Project Work: Collecting / Mocking Datasets</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Week 5</td>
-                                <td>
-                                    <p>Maximum Subset Sum</p>
-                                    <p>Dynamic Programming</p>
-                                    <p>Interval Scheduling</p>
-                                    <p>Satisficing (Greedy)</p>
-                                </td>
-                                <td>
-                                    <p>Subproblems</p>
-                                    <p>Memoizing / Caching</p>
-                                    <p>Combining two or more algorithms</p>
-                                    <p>Final Project Work: Collecting Datasets</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Week 6</td>
-                                <td>
-                                    <p>Graphs</p>
-                                    <p>Topological Sort, Dependencies</p>
-                                    <p>Shortest Path (Dijkstra's)</p>
-                                    <p>Network Flow</p>
-                                </td>
-                                <td>
-                                    <p>MapQuest / Google Maps</p>
-                                    <p>Find algorithms in the news</p>
-                                    <p>Final Project Work: Designing Operations</p>
-                                    <p>AI proompting and co-pilot: write code</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Week 7</td>
-                                <td>
-                                    <p>Sorting, with Heaps and Trees</p>
-                                    <p>Merge Sort</p>
-                                    <p>Quicksort</p>
-                                    <p>Radix Sort</p>
-                                </td>
-                                <td>
-                                    <p>Randomized analysis</p>
-                                    <p>Combining two sorts</p>
-                                    <p>Joke Sorts: delay as much as possible</p>
-                                    <p>Art: Pixel sorting</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Week 8</td>
-                                <td>
-                                    <p>Database Indexes, Search</p>
-                                    <p>Page Rank</p>
-                                    <p>Linear Systems of Equations</p>
-                                    <p>Constraint Satisfaction</p>
-                                </td>
-                                <td>
-                                    <p>Boggle / Scrabble</p>
-                                    <p>Final Project Work: Analysis and Correctness</p>
-                                    <p>Find linear systems / constraints in real-life</p>
-                                    <p>Connect DS &amp; A to another discipline</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Week 9</td>
-                                <td>
-                                    <p>Karatsuba / Matrix Multiplication</p>
-                                    <p>Divide and Conquer</p>
-                                    <p>Streaming Algorithms</p>
-                                    <p>Parallel Merge Sort</p>
-                                </td>
-                                <td>
-                                    <p>Data Privacy</p>
-                                    <p>Find algorithms in the news</p>
-                                    <p>Parallelize a previous algorithm</p>
-                                    <p>Final Project Work: Analysis and Correctness</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Week 10</td>
-                                <td>
-                                    <p>Bonus Topics / Catchup Week</p>
-                                    <p>Quantum DS &amp; A</p>
-                                    <p>Recommender Systems</p>
-                                    <p>Collaborative Filtering</p>
-                                </td>
-                                <td>
-                                    <p>Finding Real World Examples: Go Local, Go Deep</p>
-                                    <p>Final Project Work</p>
-                                    <p>Synthesizing notes&nbsp;</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <tr>
+          <td></td>
+            <td width="265">Concrete Examples</td>
+            <td width="391">Synthesis and Lateral Thinking</td>
+        </tr>
+        <tr>
+          <td>Week 1</td>
+          <td>
+            <p>A Self-Guided Tour</p>
+            <p>RAM Model, Lists</p>
+            <p>Arrays, Links, Counters</p>
+            <p>Interfaces, CRUD Operations</p>
+           </td>
+           <td>
+            <p>IntelliJ and Git: practice and warmup</p>
+            <p>Pair Programming: what roles? what rules?</p>
+            <p>Learning Log, ChatGPT / AI prompting</p>
+            <p>ChangeMaker teams, learning together</p>
+           </td>
+         </tr>
+        <tr>
+          <td>Week 2</td>
+          <td>
+            <p>Implementation vs. Interfaces</p>
+            <p>Stacks, Queues</p>
+            <p>Key-Value Maps, Hashing</p>
+            <p>Collisions, Links</p>
+           </td>
+           <td>
+            <p>Time-Space and Other Dualities, Resources</p>
+            <p>How to trade off time for space, vice versa?</p>
+            <p>Combining two or more data structures</p>
+            <p>Counting and visualizing resources: VisualVM</p>
+           </td>
+         </tr>
+        <tr>
+          <td>Week 3</td>
+          <td>
+            <p>Asymptotic Analysis (Big O)</p>
+            <p>Trees, Relations, Searching</p>
+            <p>Traversals: Bread-first, Depth-First</p>
+            <p>Heaps (Priority Queues)</p>
+           </td>
+           <td>
+            <p>Recursion and Iteration</p>
+            <p>Cleaning Up: Invariants, Rebalancing</p>
+            <p>Combining two or more data structures</p>
+            <p>Overview of Final Project: Problem-Finding</p>
+           </td>
+         </tr>
+        <tr>
+          <td>Week 4</td>
+          <td>
+            <p>Rebalancing Trees</p>
+            <p>Red-Black Trees</p>
+            <p>Rebalancing Heaps</p>
+            <p>Inventing New Data Structures</p>
+           </td>
+           <td>
+            <p>An Exotic Zoo: Fibonacci Forest, Skip Lists</p>
+            <p>Amortized Analysis</p>
+            <p>Combining two or more data structures</p>
+            <p>Final Project Work: Collecting / Mocking Datasets</p>
+           </td>
+         </tr>
+        <tr>
+          <td>Week 5</td>
+          <td>
+            <p>Maximum Subset Sum</p>
+            <p>Dynamic Programming</p>
+            <p>Interval Scheduling</p>
+            <p>Satisficing (Greedy)</p>
+           </td>
+           <td>
+            <p>Subproblems</p>
+            <p>Memoizing / Caching</p>
+            <p>Combining two or more algorithms</p>
+            <p>Final Project Work: Collecting Datasets</p>
+           </td>
+         </tr>
+        <tr>
+          <td>Week 6</td>
+          <td>
+            <p>Graphs</p>
+            <p>Topological Sort, Dependencies</p>
+            <p>Shortest Path (Dijkstra's)</p>
+            <p>Network Flow</p>
+           </td>
+           <td>
+            <p>MapQuest / Google Maps</p>
+            <p>Find algorithms in the news</p>
+            <p>Final Project Work: Designing Operations</p>
+            <p>AI proompting and co-pilot: write code</p>
+           </td>
+         </tr>
+        <tr>
+          <td>Week 7</td>
+          <td>
+            <p>Sorting, with Heaps and Trees</p>
+            <p>Merge Sort</p>
+            <p>Quicksort</p>
+            <p>Radix Sort</p>
+           </td>
+           <td>
+            <p>Randomized analysis</p>
+            <p>Combining two sorts</p>
+            <p>Joke Sorts: delay as much as possible</p>
+            <p>Art: Pixel sorting</p>
+           </td>
+         </tr>
+        <tr>
+          <td>Week 8</td>
+          <td>
+            <p>Database Indexes, Search</p>
+            <p>Page Rank</p>
+            <p>Linear Systems of Equations</p>
+            <p>Constraint Satisfaction</p>
+           </td>
+           <td>
+            <p>Boggle / Scrabble</p>
+            <p>Final Project Work: Analysis and Correctness</p>
+            <p>Find linear systems / constraints in real-life</p>
+            <p>Connect DS &amp; A to another discipline</p>
+           </td>
+         </tr>
+        <tr>
+          <td>Week 9</td>
+          <td>
+            <p>Karatsuba / Matrix Multiplication</p>
+            <p>Divide and Conquer</p>
+            <p>Streaming Algorithms</p>
+            <p>Parallel Merge Sort</p>
+           </td>
+           <td>
+            <p>Data Privacy</p>
+            <p>Find algorithms in the news</p>
+            <p>Parallelize a previous algorithm</p>
+            <p>Final Project Work: Analysis and Correctness</p>
+           </td>
+         </tr>
+        <tr>
+          <td>Week 10</td>
+          <td>
+            <p>Bonus Topics / Catchup Week</p>
+            <p>Quantum DS &amp; A</p>
+            <p>Recommender Systems</p>
+            <p>Collaborative Filtering</p>
+           </td>
+           <td>
+            <p>Finding Real World Examples: Go Local, Go Deep</p>
+            <p>Final Project Work</p>
+            <p>Synthesizing notes&nbsp;</p>
+           </td>
+         </tr>
+</tbody></table>
                 </div>
             </div>
         </div>
