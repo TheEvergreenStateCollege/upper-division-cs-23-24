@@ -37,7 +37,7 @@ public class BSTMain {
 
         // 3. post-processing (none)
         // 4. return
-        Lvisited.toArray()
+        visited.toArray();
     }
     public static void main(String[] args) {
         LinkedList<BinaryNode> visited = new LinkedList<>();
