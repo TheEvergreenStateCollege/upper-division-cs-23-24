@@ -4,7 +4,7 @@ import java.util.List;
 
 public class BSTMain {
     
-    public static boolean isVisited(BinaryNode node, LinkedList visited) {
+    public static boolean isVisited(BinaryNode node, List<BinaryNode> visited) {
         for (int i=0; i < visited.size(); i++) {
             if (node.equals(visited.get(i))) {
                 return true;
@@ -13,11 +13,10 @@ public class BSTMain {
         return false;
     }
 
-    public static List<BinaryNode> dfs(BinaryNode node, LinkedList visited) {
+    public static List<BinaryNode> dfs(BinaryNode node, List<BinaryNode> visited) {
         // 1. setup
         // initialized v visited data structure
         // devin duc use linked list (doubly)
-        BinaryNode curr = node;
         // 2. iterate (while/for loop) or recurse
         
 
@@ -34,13 +33,15 @@ public class BSTMain {
                 dfs(node.right, visited);
             }
             // then return
+            return visited;
             // update
 
         // 3. post-processing (none)
         // 4. return
-        visited.toArray();
+        
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         LinkedList<BinaryNode> visited = new LinkedList<>();
         BinarySearchTree<Integer> bst = new BinarySearchTree<>();
         List<BinaryNode> resultNodes = dfs(bst.getRoot(), visited);
