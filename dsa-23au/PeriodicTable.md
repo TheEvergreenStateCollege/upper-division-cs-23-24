@@ -6,7 +6,7 @@
 |                     | insertAt(i,v) | insertLast(v) | size() | isEmpty() | searchFor(v) | min() | max()    | replaceAt(i,v) | removeAt(i) |
 | Arrays              | [O(?)](#arrays-insert-at)          |               |        |           |              |       |          |                |             |
 | Linked lists        |               |               |        |           |              |       |          |                |             |
-| Stacks              |               |               |        |           |              |       |          |                |             |
+| Stacks              | [O(1)](#stacks-insert-at)             |               |        |           |              |       |          |                |             |
 | Queues              |               |               |        |           |              |       |          |                |             |
 | Heaps               |               |               |        |           |              |       |          |                |             |
 | Binary Search Trees |               |               |        |           |              |       |          |                |             |
