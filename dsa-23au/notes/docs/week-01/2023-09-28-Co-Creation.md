@@ -104,3 +104,6 @@ Being lost is oddly helping me learn more, if that makes sense.
 Jonathan Rodriguez - Co-Creation 2
 For those who would like to know, a hash table is a data structure that maps keys to values for highly efficient lookup. I like to split hash code into a 3 step process (Compute, Map, Avoid Collisions). There are many ways to deal hash code collisions such as linked lists, search trees, and linear probing. A stack is a fundamental data structure in computer science. Think of it as a stack of plates where you can only remove or add plates to the top of the stack.
  main
+
+ =================== Jon week 4
+ This week was very challenging for me regarding search trees. But the more and more that we practiced in class I do feel my grasp on them has gotten better. For my first project with Dante and Dawson I was thiniking implementing of the data structure that we used in class into our spotify data that we are collecting. As an update, we have to wait less than a month to recieve our spotify data. In the meantime, I can create designs for what our goals would be. An example can be making a class that checks our most listened to artist or song.
