@@ -1,0 +1,7 @@
+image: 
+  file: .gitpod.Dockerfile
+  context: /
+
+vscode:
+  extensions:
+    - gitpod.gitpod-web
