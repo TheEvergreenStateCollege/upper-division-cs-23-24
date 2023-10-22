@@ -26,13 +26,13 @@ Upper Division Computer Science at
 
 ## Autumn 2023: Data Structures & Algorithms (DSA)
 
-[Course Website](./dsa-23au/)
+[Program Website](./dsa-23au/)
 
-## Winter 2024: Purpose-Driven Web (PDW)
+## Winter 2024: Networking and Engineering for the Web (NEW)
 
-[Course Website](./pdw-24wi/)
+[Program Website](./new-24wi/)
 
-## Spring 2024: Software Construction (SC)
+## Spring 2024: Software Construction and Operating Systems (SC)
 
-[Course Website](./sc-24sp/)
+[Course Website](./scos-24sp/)
 
