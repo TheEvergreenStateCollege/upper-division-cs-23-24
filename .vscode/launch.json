@@ -4,6 +4,14 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Launch Java Program",
+            "request": "launch",
+            "mainClass": ""
+        },
+
     
         {
             "type": "java",
@@ -34,7 +42,7 @@
         },
         {
             "type": "java",
-            "name": "App(3)",
+            "name": "heaps-trees",
             "request": "launch",
             "mainClass": "dev.codewithfriends.App",
             "projectName": "heaps-trees"

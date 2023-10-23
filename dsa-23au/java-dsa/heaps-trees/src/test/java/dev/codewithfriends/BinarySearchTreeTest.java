@@ -1,7 +1,10 @@
 package dev.codewithfriends;
 
+import java.util.List;
+import java.util.LinkedList;
 import java.lang.Integer;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 
 import org.junit.Test;
@@ -30,4 +33,24 @@ public class BinarySearchTreeTest
     {
         assertTrue(bst.contains(6));
     }
+
+    @Test
+    public void testDFS()
+    {
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        bst.insert(0);
+        bst.insert(3);
+        bst.insert(1);
+        bst.insert(4);
+        bst.insert(2);
+
+        List<BinaryNode<Integer>> visited = BSTMain.dfs(bst.getRoot(), new LinkedList<>());
+        assertEquals(5, visited.size());
+        assertEquals(Integer.valueOf(0), visited.get(0).data);
+        assertEquals(Integer.valueOf(3), visited.get(1).data);
+        assertEquals(Integer.valueOf(1), visited.get(2).data);
+        assertEquals(Integer.valueOf(2), visited.get(3).data);
+        assertEquals(Integer.valueOf(4), visited.get(4).data);
+    }
+
 }
