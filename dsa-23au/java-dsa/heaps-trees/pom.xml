@@ -55,7 +55,7 @@
             <configuration>
                 <archive>
                     <manifest>
-                        <mainClass>dev.codewithfriends.App</mainClass>
+                        <mainClass>dev.codewithfriends.BSTMain</mainClass>
                     </manifest>
                 </archive>
             </configuration>

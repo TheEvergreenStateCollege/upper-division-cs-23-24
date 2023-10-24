@@ -44,13 +44,13 @@ public class BinarySearchTreeTest
         bst.insert(4);
         bst.insert(2);
 
-        List<BinaryNode<Integer>> visited = BSTMain.dfs(bst.getRoot(), new LinkedList<>());
+        List<Integer> visited = BSTMain.dfs(bst.getRoot(), new LinkedList<>());
         assertEquals(5, visited.size());
-        assertEquals(Integer.valueOf(0), visited.get(0).data);
-        assertEquals(Integer.valueOf(3), visited.get(1).data);
-        assertEquals(Integer.valueOf(1), visited.get(2).data);
-        assertEquals(Integer.valueOf(2), visited.get(3).data);
-        assertEquals(Integer.valueOf(4), visited.get(4).data);
+        assertEquals(Integer.valueOf(0), visited.get(0));
+        assertEquals(Integer.valueOf(3), visited.get(1));
+        assertEquals(Integer.valueOf(1), visited.get(2));
+        assertEquals(Integer.valueOf(2), visited.get(3));
+        assertEquals(Integer.valueOf(4), visited.get(4));
     }
 
 }
