@@ -13,23 +13,6 @@ public class BSTMain {
         return false;
     }
 
-    public static List<String> dfsDiagram(BinaryNode<Integer> node, List<String> diagramSoFar) {
-
-        // if there is a left
-        if (node.left != null) {
-            diagramSoFar.add(String.format("    %s --> %s", node.data, node.left.data ));
-            dfsDiagram(node.left, diagramSoFar);
-        }
-        // if there is a right, or right unvisited
-        if (node.right != null) {
-            diagramSoFar.add(String.format("    %s --> %s", node.data, node.right.data ));
-            dfsDiagram(node.right, diagramSoFar);
-        }
-        // then return
-        return diagramSoFar;
-        // update
-    }
-
     public static List<Integer> dfs(BinaryNode<Integer> node, List<Integer> visited) {
 
         // mark the current node as visited
@@ -47,6 +30,29 @@ public class BSTMain {
         return visited;
         // update
     }
+    /**
+     * @param node
+     * @param diagramSofar
+     * @return
+     */
+    public static List<String> dfsDiagram(BinaryNode<Integer> node, List<String> diagramSofar) {
+
+        // mark the current node as visited
+
+        // if there is a left, or left unvisited
+        if (node.left != null) {
+            diagramSofar.add(String.format("   %s --> %s", node.data, node.left.data));
+            dfsDiagram(node.left, diagramSofar);
+        }
+        // if there is a right, or right unvisited
+        if (node.right != null) {
+            diagramSofar.add(String.format("   %s --> %s", node.data, node.right.data));
+            dfsDiagram(node.right, diagramSofar);
+        }
+        // then return
+        return diagramSofar;
+        // update
+    }
 
   public static void main(String[] args) 
     {
@@ -55,9 +61,6 @@ public class BSTMain {
         bst.insert(73);
         bst.insert(22);
         List<Integer> result = dfs(bst.getRoot(), visited);
-        for (Integer i : result) {
-            System.out.println(i);
-        }
 
         List<String> diagramLines = dfsDiagram(bst.getRoot(), new LinkedList<>());
         for (String d : diagramLines) {
