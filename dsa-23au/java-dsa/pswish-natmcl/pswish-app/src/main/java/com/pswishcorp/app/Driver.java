@@ -1,6 +1,6 @@
 package com.pswishcorp.app;
-import java.util.HashMap;
-import java.util.Map;
+// import java.util.HashMap;
+// import java.util.Map;
 
 public class Driver {
     int distanceFromHome;
@@ -26,26 +26,27 @@ public static void main(String[] args) {
         }
 
     // Remove the throws exception when finished then check for all following tests
-    public Object getDistanceFromHome() throws Exception {
-        throw new Exception("Not yet implemented, v0.4");
+    public Object getDistanceFromHome() {
+        return distanceFromHome;
     }
 
     public Object getDriverName(String driver) {
-        Map<String, String> drivers = new HashMap<>();
-        return drivers;
+        return driver;
     }
 
-    public Object getCarMake() throws Exception {
-        throw new Exception("Not yet implemented, v0.4");
+    public Object getCarMake() {
+        return carMake;
     }
-    public Object getCarModel() throws Exception {
-        throw new Exception("Not yet implemented, v0.4");
+    
+    public Object getCarModel() {
+        return carModel;
     }
-    public Object getHome() throws Exception {
-        throw new Exception("Not yet implemented, v0.4");
+
+    public Object getHome() {
+        return home;
     }
-    public Object getSchool() throws Exception {
-        throw new Exception("Not yet implemented, v0.4");
-    }
-        
+
+    public Object getSchool() {
+        return school;
+    }   
 }
