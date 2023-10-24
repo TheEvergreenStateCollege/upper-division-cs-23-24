@@ -44,13 +44,32 @@ public class BinarySearchTreeTest
         bst.insert(4);
         bst.insert(2);
 
-        List<Integer> visited = BSTMain.dfs(bst.getRoot(), new LinkedList<>());
-        assertEquals(5, visited.size());
-        assertEquals(Integer.valueOf(0), visited.get(0));
-        assertEquals(Integer.valueOf(3), visited.get(1));
-        assertEquals(Integer.valueOf(1), visited.get(2));
-        assertEquals(Integer.valueOf(2), visited.get(3));
-        assertEquals(Integer.valueOf(4), visited.get(4));
+        List<Integer> diagram = BSTMain.dfs(bst.getRoot(), new LinkedList<>());
+        assertEquals(5, diagram.size());
+        assertEquals(Integer.valueOf(0), diagram.get(0));
+        assertEquals(Integer.valueOf(3), diagram.get(1));
+        assertEquals(Integer.valueOf(1), diagram.get(2));
+        assertEquals(Integer.valueOf(2), diagram.get(3));
+        assertEquals(Integer.valueOf(4), diagram.get(4));
     }
 
+
+    @Test
+    public void testDFSDiagram()
+    {
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        bst.insert(0);
+        bst.insert(3);
+        bst.insert(1);
+        bst.insert(4);
+        bst.insert(2);
+
+        List<String> diagram = BSTMain.dfsDiagram(bst.getRoot(), new LinkedList<>());
+        assertEquals(4, diagram.size());
+        assertEquals("    0 --> 3", diagram.get(0));
+        assertEquals("    3 --> 1", diagram.get(1));
+        assertEquals("    1 --> 2", diagram.get(2));
+        assertEquals("    3 --> 4", diagram.get(3));
+        
+    }
 }
