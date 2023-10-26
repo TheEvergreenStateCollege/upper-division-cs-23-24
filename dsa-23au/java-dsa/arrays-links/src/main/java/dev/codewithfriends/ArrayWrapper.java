@@ -1,4 +1,4 @@
-/*package dev.codewithfriends;
+package dev.codewithfriends;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -47,6 +47,7 @@ public class ArrayWrapper<T> implements List<T> {
 
     @Override
     public boolean contains(Object o) {
+
         for (int i = 0; i < currentSize; i++) {
             if (_array[i] == o) {
                 return true;
@@ -61,23 +62,22 @@ public class ArrayWrapper<T> implements List<T> {
         return null;
     }
 
-    /*@Override
+    @Override
     public Object[] toArray() {
         List<T> al1= new ArrayList<T>();
         this.add(al1);
         al1.toArray(); 
         return _array;
     }
-*/
-    /*@Override
+
+    @Override
     public boolean add(Object o) {
         this._array[currentSize]=o;
         this.currentSize++;
         this.isEmpty = false;
         return true;
-    }*/
+    }
 
-    @Override
     public boolean add(Object o) {
         // check to ensure array has enough space, resize (2x previous max size) if not
         if (currentSize >= (maxSize / 2)) {
@@ -234,4 +234,3 @@ public class ArrayWrapper<T> implements List<T> {
         return new Object[0];
     }
 }
-*/
