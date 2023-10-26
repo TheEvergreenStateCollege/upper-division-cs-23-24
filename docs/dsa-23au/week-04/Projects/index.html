@@ -1,0 +1,1553 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Assignment-04/">
+      
+      
+        <link rel="next" href="../Readings-04/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>Final Project Updates - Data Structures & Algorithms</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#final-project-updates" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Data Structures &amp; Algorithms" class="md-header__button md-logo" aria-label="Data Structures & Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Structures & Algorithms
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Final Project Updates
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/theevergreenstatecollege/upper-division-cs/dsa-23au" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Data Structures &amp; Algorithms" class="md-nav__button md-logo" aria-label="Data Structures & Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Data Structures & Algorithms
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/theevergreenstatecollege/upper-division-cs/dsa-23au" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FinalProject/" class="md-nav__link">
+        Final Project and Independent Contract
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PeriodicTable/" class="md-nav__link">
+        Periodic Table of DSA
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SoftwareSetup/" class="md-nav__link">
+        Software Setup
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Week 01
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Week 01
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/2023-09-26-ctf-event/" class="md-nav__link">
+        CTF Event
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/2023-09-26/" class="md-nav__link">
+        Week 1 - Day 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/2023-09-28-Co-Creation/" class="md-nav__link">
+        Knowledge Co-Creation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/2023-09-28/" class="md-nav__link">
+        Week 1 - Day 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/Slides-01-JavaClasses/" class="md-nav__link">
+        Slides 01 JavaClasses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/asymptotic/" class="md-nav__link">
+        Asymptotic Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/chapter_1/" class="md-nav__link">
+        Week 01
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Week 02
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Week 02
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/2023-10-02/" class="md-nav__link">
+        Week 2 - Day 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/2023-10-03/" class="md-nav__link">
+        Week 2 - Day 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/2023-10-05/" class="md-nav__link">
+        Week 2 - Day 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/Co-Creation-02/" class="md-nav__link">
+        Co-Creation Week 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/Readings-02/" class="md-nav__link">
+        Week 02 Readings
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/Week02/" class="md-nav__link">
+        Week 02
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Week 03
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Week 03
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-03/2023-10-09/" class="md-nav__link">
+        Week 3 - Day 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-03/2023-10-10/" class="md-nav__link">
+        Week 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-03/2023-10-12/" class="md-nav__link">
+        Week 3 - Day 8
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-03/Readings-03/" class="md-nav__link">
+        Week 03 Readings
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Week 04
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Week 04
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-10-16/" class="md-nav__link">
+        Week 4 - Day 9
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assignment-04/" class="md-nav__link">
+        Assignment and Co-Creation Week 04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Final Project Updates
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Final Project Updates
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input-dataset-from-csv" class="md-nav__link">
+    Input Dataset from CSV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nathan-mclaughlin-paul-swisher" class="md-nav__link">
+    Nathan McLaughlin, Paul Swisher
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devin" class="md-nav__link">
+    Devin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#juniper" class="md-nav__link">
+    Juniper
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dylana" class="md-nav__link">
+    Dylana
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#torsten" class="md-nav__link">
+    Torsten
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nathan-deanon" class="md-nav__link">
+    Nathan Deanon
+  </a>
+  
+    <nav class="md-nav" aria-label="Nathan Deanon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lottery-winning-numbers-since-2002" class="md-nav__link">
+    lottery winning numbers since 2002
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hangman-game" class="md-nav__link">
+    Hangman game
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#damiana" class="md-nav__link">
+    Damiana
+  </a>
+  
+    <nav class="md-nav" aria-label="Damiana">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#suggestion-from-stella" class="md-nav__link">
+    Suggestion from Stella:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestion-from-nathanmcl" class="md-nav__link">
+    Suggestion from NathanMCL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestion-from-quinn" class="md-nav__link">
+    Suggestion from Quinn:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestion-from-paul-pham" class="md-nav__link">
+    Suggestion from Paul Pham
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stella" class="md-nav__link">
+    Stella
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dominic-severe" class="md-nav__link">
+    Dominic Severe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quinn-allen" class="md-nav__link">
+    Quinn Allen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duc-and-julian-and-quinn-and-damiana" class="md-nav__link">
+    Duc and Julian and Quinn and Damiana
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#richard-weiss" class="md-nav__link">
+    Richard Weiss
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dawson-and-dante" class="md-nav__link">
+    Dawson and Dante
+  </a>
+  
+    <nav class="md-nav" aria-label="Dawson and Dante">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question-from-quinn" class="md-nav__link">
+    Question from Quinn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question-from-paul-swisher" class="md-nav__link">
+    Question from Paul Swisher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jonathan" class="md-nav__link">
+    Jonathan
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#david-dunston" class="md-nav__link">
+    David Dunston
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joe-granville" class="md-nav__link">
+    Joe Granville
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jonah-eadie" class="md-nav__link">
+    Jonah Eadie
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sean-sellers" class="md-nav__link">
+    Sean Sellers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ethical-concerns-of-data-gathering-research" class="md-nav__link">
+    Ethical Concerns of Data Gathering Research
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Readings-04/" class="md-nav__link">
+        Readings 04
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Week 08
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Week 08
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-08/chapter_8/" class="md-nav__link">
+        Chapter 8: Parallel---Distributed---Quantum
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          Week 09
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Week 09
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-09/chapter_9/" class="md-nav__link">
+        Chapter 9: Outro---Five Systems
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input-dataset-from-csv" class="md-nav__link">
+    Input Dataset from CSV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nathan-mclaughlin-paul-swisher" class="md-nav__link">
+    Nathan McLaughlin, Paul Swisher
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devin" class="md-nav__link">
+    Devin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#juniper" class="md-nav__link">
+    Juniper
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dylana" class="md-nav__link">
+    Dylana
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#torsten" class="md-nav__link">
+    Torsten
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nathan-deanon" class="md-nav__link">
+    Nathan Deanon
+  </a>
+  
+    <nav class="md-nav" aria-label="Nathan Deanon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lottery-winning-numbers-since-2002" class="md-nav__link">
+    lottery winning numbers since 2002
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hangman-game" class="md-nav__link">
+    Hangman game
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#damiana" class="md-nav__link">
+    Damiana
+  </a>
+  
+    <nav class="md-nav" aria-label="Damiana">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#suggestion-from-stella" class="md-nav__link">
+    Suggestion from Stella:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestion-from-nathanmcl" class="md-nav__link">
+    Suggestion from NathanMCL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestion-from-quinn" class="md-nav__link">
+    Suggestion from Quinn:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestion-from-paul-pham" class="md-nav__link">
+    Suggestion from Paul Pham
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stella" class="md-nav__link">
+    Stella
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dominic-severe" class="md-nav__link">
+    Dominic Severe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quinn-allen" class="md-nav__link">
+    Quinn Allen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duc-and-julian-and-quinn-and-damiana" class="md-nav__link">
+    Duc and Julian and Quinn and Damiana
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#richard-weiss" class="md-nav__link">
+    Richard Weiss
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dawson-and-dante" class="md-nav__link">
+    Dawson and Dante
+  </a>
+  
+    <nav class="md-nav" aria-label="Dawson and Dante">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question-from-quinn" class="md-nav__link">
+    Question from Quinn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question-from-paul-swisher" class="md-nav__link">
+    Question from Paul Swisher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jonathan" class="md-nav__link">
+    Jonathan
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#david-dunston" class="md-nav__link">
+    David Dunston
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joe-granville" class="md-nav__link">
+    Joe Granville
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jonah-eadie" class="md-nav__link">
+    Jonah Eadie
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sean-sellers" class="md-nav__link">
+    Sean Sellers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ethical-concerns-of-data-gathering-research" class="md-nav__link">
+    Ethical Concerns of Data Gathering Research
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="final-project-updates">Final Project Updates</h1>
+<p>This is a work in progress in Week 4. Please keep evolving, revision, iterating,
+refining your projects. We'll check in again in Week 6, and I'll give you 5 minutes
+per team to lead a progress update in class, with 5 minute Q&amp;A and discussion.</p>
+<h2 id="input-dataset-from-csv">Input Dataset from CSV</h2>
+<p>List<T></p>
+<p>Book(author, publisher)</p>
+<h2 id="nathan-mclaughlin-paul-swisher">Nathan McLaughlin, Paul Swisher</h2>
+<p>Example Input datapoint:
+Commute(startCity, endCity, mileage, time)</p>
+<p>Map<String,Map\<String,Integer>> driverNameToDriverData;
+Does weather affect drive time equally?</p>
+<h2 id="devin">Devin</h2>
+<p>Example Input datapoint:
+DiscordDayMessages(messageCount, day)</p>
+<p>Array<Integer> messageCountByDay
+have a way of mapping from day to index in array
+What are the major events happening on this Discord server and when?</p>
+<h2 id="juniper">Juniper</h2>
+<p>Looking for teammates
+Global distribution of value-added for G20 (20 companies that add the most to global economy) from 2016-2022.</p>
+<p>Example Input Row:
+CountryPercentGlobalValue(countryName, year, percentValue, avgManufacturingWages)</p>
+<p>algorithm: loop over combinations of columns, calculate correlations,
+https://en.wikipedia.org/wiki/Correlation_coefficient
+Map&lt;?,?&gt;</p>
+<p>Which change is most correlated with change in wages over time, by country?</p>
+<h2 id="dylana">Dylana</h2>
+<p>Looking for a team
+Interested in compbio with plant reflexes</p>
+<h2 id="torsten">Torsten</h2>
+<p>Health tracking on Apple app, steps, calories</p>
+<p>Example Input Row:
+DayStats(date, stepCount, caloriesBurned, heartRate)</p>
+<p>Heap<DayStat> lowestHeartRateSoFar</p>
+<p>TBD: question about health</p>
+<h2 id="nathan-deanon">Nathan Deanon</h2>
+<p>Open to teammates
+Choosing between two projects:</p>
+<h3 id="lottery-winning-numbers-since-2002">lottery winning numbers since 2002</h3>
+<p>Example Input Row:
+LotteryDrawing(date, winningNumbers, contest)</p>
+<p>Array<Integer> mostFrequentNumbers </p>
+<h3 id="hangman-game">Hangman game</h3>
+<p>dictionary of 400,000 words</p>
+<p>tree, breaks into letters with A's and not A's</p>
+<p>LotteryDrawing(date, winningNumbers, contest)</p>
+<p>Example Input Row:
+Word(term, definition, ...)</p>
+<p>Tree<Letter,Word> wordsByBeginningLetter</p>
+<h2 id="damiana">Damiana</h2>
+<p>Changemakers idea: survey of students and community makers</p>
+<p>Example Input Row:
+CommunitySurveyResult(respondent, whatAreProblemsAtEvergreen, possibleSolution1, ...)</p>
+<h3 id="suggestion-from-stella">Suggestion from Stella:</h3>
+<p>matplotlib in python for graphing</p>
+<p>Suggestion from Joe:
+Graph with edges waited by number of responses</p>
+<p>Can put into a SQL server.</p>
+<p>Map&lt;?,Integer&gt; surveyProblemFrequencyCount</p>
+<h3 id="suggestion-from-nathanmcl">Suggestion from NathanMCL</h3>
+<p>Tri-plot, from matplotlib</p>
+<h3 id="suggestion-from-quinn">Suggestion from Quinn:</h3>
+<p>Use graph, weighting of edges is how frequently those two nodes appear in same response.
+Nodes are different survey problems.</p>
+<h3 id="suggestion-from-paul-pham">Suggestion from Paul Pham</h3>
+<h2 id="stella">Stella</h2>
+<p>open to teammates
+map brainwaves, collect raw data, clean it up, put it into graph
+Muse headset, need to register SDK</p>
+<p>Example Input Row:
+EEGMeasurement(subject, timestamp, deltaDTP9, deltaAF8, ... )</p>
+<p>Does any of it matter?</p>
+<h2 id="dominic-severe">Dominic Severe</h2>
+<p>open to teammates
+Look at data on a hard drive in a meaningful way</p>
+<p>Example Input Row:
+WholeHardDriveMetadata(id, snapshotTime, ssdOrHD, systemCpuLoad, systemIOLoad, )
+HardDriveFile(hardDriveId, filename, location, size, lastModTime, lastReadTime)</p>
+<p>What files are taking up the most space, or are unused for the longest time?</p>
+<h2 id="quinn-allen">Quinn Allen</h2>
+<p>open to teammates
+Changemakers, supporting IT needs for students, helping teams determine minimum viable </p>
+<p>Example Input Row:
+ProjectSupported(teammate1, teammate2, projectType, ITneed1, ITneed2,)</p>
+<h2 id="duc-and-julian-and-quinn-and-damiana">Duc and Julian and Quinn and Damiana</h2>
+<p>Changemakers: team ideas</p>
+<ul>
+<li>Make a video game.</li>
+<li>Survey of gamers at Evergreen for their favorite hardware, etc.</li>
+</ul>
+<p>Changemakers process:</p>
+<ul>
+<li>Dialogue</li>
+<li>Active listening</li>
+</ul>
+<p>Level 4 listening: repeating back to make sure you understood.</p>
+<p>"Opening your own pre-existing plans and thoughts to be adjusted by another person."</p>
+<p>Iteration: every plan or understanding is going to be subjected to re-iterative revision.
+Successive refinement of the idea within that vehicle.</p>
+<p>Customer collaboration, customer visits, flexibility, adaptability, user-centered design, cross-functional teams</p>
+<p>Prompt for Changemaker students: on Tuesday presentation, consider how to apply
+these and your</p>
+<p>Possibilities: Agile development, version control systems, code reviews</p>
+<h2 id="richard-weiss">Richard Weiss</h2>
+<p>Code reviews are often stressful and don't reflect the above principles of active listening, understanding human context, open discussion in a group.</p>
+<h2 id="dawson-and-dante">Dawson and Dante</h2>
+<p>noting which music they listen to, keeping a spreadsheet for a long time.
+liked songs on Spotify, 3000?
+connected to last.fm which tracks every song listened to. possible last.fm API
+is it possible to export your data from Spotify? Ethical / privacy considerations?</p>
+<h3 id="question-from-quinn">Question from Quinn</h3>
+<p>Are you also gathering songs that are skipped?</p>
+<h3 id="question-from-paul-swisher">Question from Paul Swisher</h3>
+<p>Are Fridays, or days of new music releases, more likely to have songs added?</p>
+<p>What is the most likely time of day songs are added?
+What music do I dislike?</p>
+<h3 id="jonathan">Jonathan</h3>
+<p>working with Dawson, Dante, Trinity
+collecting crime reports from agencies in NY
+splitting it into index of property crime
+murder, rape, aggravated assault
+burglary, larceny, motor vehicle theft</p>
+<p>Example Input Row:
+Crime(isMurder, isRobbery, isAggroAssault, isRape, isPerpetratorKnown, location, time, )
+CrimeRegion(isHigherThanNationalAvg, countyName, )</p>
+<p>Might limit to high-crime rate regions.</p>
+<p>Which counties have the highest crime rate in the state / region?</p>
+<p>How does this correlate with firearm registration rate or population (density) for that county?</p>
+<h2 id="david-dunston">David Dunston</h2>
+<p>open to teammates
+personal note-taking from phone, collected from 2012/2017, over 309 
+can apply to other people's notes, useful for creatives (writers)
+to draw visual synopsys</p>
+<p>Example Input Row:
+Note(creationDateTime, modificationDateTime, wordCount, isSongIdea, isInformation, isTodo)</p>
+<p>Map<Integer,List\<Category>> categoriesByGranularity;</p>
+<p>Possible auto-tagging, or clustering notes by similarity, suggest keywords</p>
+<h2 id="joe-granville">Joe Granville</h2>
+<p>circadian system measurements.
+helping Stella with EEG</p>
+<p>beginning of Global Business Challenge this morning.
+some data from farm shipments or proteinaceous animal feed (from insects)</p>
+<p>in Changemakers, just broken up into big teams.</p>
+<p>timelapse photos from cactus growing</p>
+<h2 id="jonah-eadie">Jonah Eadie</h2>
+<p>wanting to join a project or team
+possible dataset idea: company profits by country
+suggestion: join Juniper's project</p>
+<h2 id="sean-sellers">Sean Sellers</h2>
+<p>Changemakers
+possible dataset idea: tree species recommendations, branching, leaf size, soil type, etc.</p>
+<h2 id="ethical-concerns-of-data-gathering-research">Ethical Concerns of Data Gathering Research</h2>
+<p>If your project involves gathering data from others (not yourself),
+you should consider the following and address them in your project
+How to ask for and record consent of subjects
+Cybersecurity concerns: security / privacy regarding gender, race, ...
+HIPAA: government policy
+FERPA: </p>
+<p>https://www.evergreen.edu/offices-services/institutional-review-board/evergreen-irb-policy</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>
