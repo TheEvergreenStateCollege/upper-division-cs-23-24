@@ -1,6 +1,7 @@
 package dev.codewithfriends;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -13,22 +14,15 @@ public class AppTest
      * Rigorous Test :-)
      */
     @Test
-    public void testInsertionSort() {
-        // integers are easy to compare with < > ==
-        int[] inputList = {
-                12, 3, 21, 8, 1, 47, 50, 88, 3, 13
-        };
-        // 1 3 3 8 12 13 21 47 50 88
+    public void testInsertionSort()
+    {
+        int[] testArray = {5,4,3,2,1,0};
 
-        int[] result = App.insertionSort(inputList);
+        int[] result = App.insertionSort(testArray);
 
-        // inputList.length gives you the length of the array
-        // write a loop here that compares every result[i] with what
-        // you think is the correct value in the sorted list
-
-        // write loop
-            assertEquals(Integer.valueOf(8), Integer.valueOf(result[3]));
+        // assertEquals(Integer.valueOf(0),  Integer.valueOf(result[0]));
+        for(int i = 0; i < testArray.length; i++){
+            assertEquals(Integer.valueOf(i),  Integer.valueOf(result[i]));
         }
-
     }
 }
