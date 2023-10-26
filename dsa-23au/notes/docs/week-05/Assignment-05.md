@@ -1,10 +1,14 @@
 # Assignment Week 5
 
-Do the [Readings 5](Readings-05.md) and attempt the exercises recommended, committing them into your personal Maven projects.
+Do the [Readings 5](Readings-05.md) and attempt the exercises recommended, submitting them into the
+Canvas text entry for this assignment.
+
+https://canvas.evergreen.edu/courses/5926/assignments/110041
 
 ## 1. AI for Learning
 
-Write a few paragraphs about the following topics, or a related one of your choosing.
+Write a few paragraphs about the following topics, or a related one of your choosing,
+into this [Co-Creation 5 document](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/notes/docs/week-05/Week5Co-Creation.md).
 
 How do you think the increasing availability and quality of AI chat and large learning models
 will affect the software industry in the near future?
@@ -91,7 +95,7 @@ https://static.mlh.io/docs/mlh-code-of-conduct.pdf
 This is an online-only hackathon. We will be participating in the hackathon during normal class times during
 the week of November 10th-16th and using it to make progress on our final projects for this class.
 
-Submit your responses to the following questions into Canvas:
+Submit your responses to the following questions into the [Co-Creation 5](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/notes/docs/week-05/Week5Co-Creation.md) document.
 
 * What are you looking forward to, or could you look forward to, in the hackathon?
 * What are some concerns you have or challenges we might encounter in the hackathon?
