@@ -30,8 +30,8 @@ public static void main(String[] args) {
         return distanceFromHome;
     }
 
-    public Object getDriverName(String driver) {
-        return driver;
+    public Object getDriverName(String string) {
+        return driverName;
     }
 
     public Object getCarMake() {
