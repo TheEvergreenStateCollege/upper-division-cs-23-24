@@ -28,7 +28,7 @@ public class App
             // Set a previous variable 
             int previous = i - 1;
 
-            // loop through the input lit at j index
+            // loop through the input list at j index
             while (previous >= 0 && inputList[previous] > key) {
                 inputList[previous + 1] = inputList[previous];
                 previous--;
