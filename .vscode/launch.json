@@ -6,7 +6,7 @@
     "configurations": [
         {
             "type": "java",
-            "name": "App",
+            "name": "ndeanon25",
             "request": "launch",
             "mainClass": "com.ndeanon25.App",
             "projectName": "ndeanon25"
@@ -25,21 +25,21 @@
         },
         {
             "type": "java",
-            "name": "App",
+            "name": "arrays-links",
             "request": "launch",
             "mainClass": "dev.codewithfriends.App",
             "projectName": "arrays-links"
         },
         {
             "type": "java",
-            "name": "App(1)",
+            "name": "crawler",
             "request": "launch",
             "mainClass": "dev.codewithfriends.App",
             "projectName": "datasets"
         },
         {
             "type": "java",
-            "name": "App(2)",
+            "name": "hash-map",
             "request": "launch",
             "mainClass": "dev.codewithfriends.App",
             "projectName": "hash-map"
@@ -53,14 +53,14 @@
         },
         {
             "type": "java",
-            "name": "App(4)",
+            "name": "interval-scheduling",
             "request": "launch",
             "mainClass": "dev.codewithfriends.App",
             "projectName": "interval-scheduling"
         },
         {
             "type": "java",
-            "name": "App(5)",
+            "name": "pixel-sort",
             "request": "launch",
             "mainClass": "dev.codewithfriends.App",
             "projectName": "pixel-sort"

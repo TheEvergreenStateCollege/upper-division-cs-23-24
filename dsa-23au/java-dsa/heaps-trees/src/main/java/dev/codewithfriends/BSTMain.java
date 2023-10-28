@@ -1,6 +1,12 @@
 package dev.codewithfriends;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class BSTMain {
     
@@ -41,18 +47,34 @@ public class BSTMain {
 
         // if there is a left, or left unvisited
         if (node.left != null) {
-            diagramSofar.add(String.format("   %s --> %s", node.data, node.left.data));
+            diagramSofar.add(String.format("    %s --> %s", node.data, node.left.data));
             dfsDiagram(node.left, diagramSofar);
         }
         // if there is a right, or right unvisited
         if (node.right != null) {
-            diagramSofar.add(String.format("   %s --> %s", node.data, node.right.data));
+            diagramSofar.add(String.format("    %s --> %s", node.data, node.right.data));
             dfsDiagram(node.right, diagramSofar);
         }
         // then return
         return diagramSofar;
         // update
     }
+
+    public static Map<String,String> loadNames(String filename) {
+        try {
+            FileInputStream fis = new FileInputStream(filename);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Map<String,String> nameMeanings = (Map<String, String>) ois.readObject();
+            return nameMeanings;
+        } catch (FileNotFoundException e) {
+            System.err.println(e.toString());
+        } catch (IOException e) {
+            System.err.println(e.toString());
+        } catch (ClassNotFoundException e) {
+            System.err.println(e.toString());
+        }
+        return null;
+  }
 
   public static void main(String[] args) 
     {
@@ -67,6 +89,7 @@ public class BSTMain {
             System.out.println(d);
         }
 
-
+        Map<String,String> names = loadNames(args[0]);
+        
     }
 }
