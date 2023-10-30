@@ -33,10 +33,13 @@ public class App
 
     public static int[] mergeSortHelper(int[] arr, int start, int end){
         int[] newArray = new int[end - start + 1]; 
+        int length = end - start + 1;
+
+        mergeSortHelper(arr, start, start + (length / 2));       // left half
+        mergeSortHelper(arr, start + (length / 2), end + 1);     // right half
         //Split into left and right
         //Recursively call mergeSortHelper on left and right halves
 
-        return arr; 
-
+        return arr;
     } 
 }
