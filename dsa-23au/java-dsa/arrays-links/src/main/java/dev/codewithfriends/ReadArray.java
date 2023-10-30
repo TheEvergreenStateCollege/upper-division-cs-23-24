@@ -10,6 +10,8 @@ import java.io.IOException;
  */
 public class ReadArray 
 {
+
+    
     public static void main( String[] args )
     {
         try (FileInputStream fis = new FileInputStream("GhostTowns.csv")) {
