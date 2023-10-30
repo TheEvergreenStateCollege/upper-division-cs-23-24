@@ -8,6 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
+ 
         
     }
     public static int[] insertionSort(int[] arr) {
@@ -25,22 +26,17 @@ public class App
 
         return arr;
     }
-    public static int[] mergeSort(int[] arr){
-        throw new RuntimeException();
-       
-        
-
-
+    public static int[] mergeSort(int[] array){
+        return mergeSortHelper(array, 0, array.length - 1);
 
     }
 
     public static int[] mergeSortHelper(int[] arr, int start, int end){
+        int[] newArray = new int[end - start + 1]; 
+        //Split into left and right
+        //Recursively call mergeSortHelper on left and right halves
 
+        return arr; 
 
-
-
-    }
-
-
-
+    } 
 }
