@@ -1,4 +1,4 @@
-package com.pswishcorp.app;
+package com.ActivityTor.app;
 
 import static org.junit.Assert.assertTrue;
 

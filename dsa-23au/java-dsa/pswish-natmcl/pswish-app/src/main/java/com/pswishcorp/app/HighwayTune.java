@@ -1,7 +1,5 @@
 package com.pswishcorp.app;
 
-import java.util.HashMap;
-
 public class HighwayTune {
 
      public static void main(String[] args) {
