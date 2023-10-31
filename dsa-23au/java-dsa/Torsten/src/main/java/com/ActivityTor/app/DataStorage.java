@@ -21,12 +21,10 @@ public class DataStorage {
         stepCounts.put(date, stepCount);
         distances.put(date, distance);
         calories.put(date, calorie);
-        //restingEnergy.put(date, restingEnergy);
         restingEnergy.put(date, restingEnergy);
         soundLevels.put(date, soundLevel);
         flightsClimbed.put(date, flightsClimbed);
         handWashingSeconds.put(date, handWashingSeconds);
     }
-
-    // Other accessor and mutator methods for specific data types...
 }
+
