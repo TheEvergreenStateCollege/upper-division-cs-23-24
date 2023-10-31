@@ -32,13 +32,33 @@ public class App
     }
 
     public static int[] mergeSortHelper(int[] arr, int start, int end){
-        int[] newArray = new int[end - start + 1]; 
-        int length = end - start + 1;
+        
+        // int[] newArray = new int[end - start + 1]; 
+        int middle = (start + end) /2;        
 
-        mergeSortHelper(arr, start, start + (length / 2));       // left half
-        mergeSortHelper(arr, start + (length / 2), end + 1);     // right half
-        //Split into left and right
-        //Recursively call mergeSortHelper on left and right halves
+        if (start == end) { // base case
+            return arr;                // check if the requested part of the array is size 1
+        } else { // inductive case
+            mergeSortHelper(arr, start, start + middle);       // left half
+            mergeSortHelper(arr, start + middle + 1, end);     // right half
+            merge(arr, start, middle, end); 
+        }
+        
+        return arr;
+    } 
+
+    public static int[] merge(int[] arr, int left, int middle, int right){
+        
+        int[] newArray = new int[end right - left +1];
+        
+
+        for(int i = 0; i < leftArray.length; i++){
+            leftArray[i] = 
+        }
+        for(int i = 0; i < rightArray.length; i++){
+
+        }
+
 
         return arr;
     } 
