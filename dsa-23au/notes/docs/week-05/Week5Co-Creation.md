@@ -20,3 +20,15 @@ Reflection: So far, I have learned more java syntax effectively than in the past
 
 Trinity Hyre (Hiraeth_Awaits) :
 Reflection: Over these past weeks, I have learned more about java then I thought I would. Algorithms have been hard to understand for me, and since I am taking the Codecademy Pro Career path for computer science, I will go over it again in the next month or so. This class, thusfar, has helped kickstart my learning journey. I am confident that when it is time for me to redo Algorithms and data structures, I will have a basic enough understanding to work through it efficiently. I personally enjoyed learning how to make our own personal project spaces within the main branch, it was very helpful to go step by step with that process.
+What are you looking forward to, or could you look forward to, in the hackathon?
+Possibly learning more about the world of hacking.
+What are some concerns you have or challenges we might encounter in the hackathon?
+I feel as if it might be difficult for me to keep up with others, as I am not that skilled or informed with hacking.
+What well-defined, one-weeks' worth of difficulty piece of your final project do you hope to complete for your hackathon submission / entry?
+I hope to input the Spotify data that I collected, along with my groupmates, into an excel sheet to sort it. Then start on creating a program to sort it automatically.
+What resources, work, or tools (software or otherwise) do you think all of us will need to succeed in the hackathon, that we can prepare in advance?
+Caffiene and sleep. 
+How will you judge whether the week was a successful experience or not?
+If I at least tried to complete something, wrong or right, I will know I at least tried my best; therefore succeeding.
+
+                                                                                    --- End of my Sentences ---
