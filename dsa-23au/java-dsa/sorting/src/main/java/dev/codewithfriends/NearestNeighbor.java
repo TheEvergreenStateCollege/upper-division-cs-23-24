@@ -23,6 +23,32 @@ public class NearestNeighbor {
         return closestPoint;
     }
 
+    public static Point findNearestNeighborHelper(Point[] allPoints, int startX, int endX, Point target) {
+
+        int mid = (endX + startX) / 2; // start + (end - start)/2;
+
+        Point leftClosest = findNearestNeighborHelper(allPoints, startX, mid-1, target);
+        Point rightClosest = findNearestNeighborHelper(allPoints, mid, endX, target);
+
+        Point closest;
+
+        if (leftClosest.distanceTo(target) < rightClosest.distanceTo(target)) {
+            closest = leftClosest;
+        }
+
+
+        double closestDist = Double.MAX_VALUE;
+        Point closestPoint = null;
+        for (Point p : allPoints) {
+            if (p.distanceTo(target) < closestDist) {
+                closestDist = p.distanceTo(target);
+                closestPoint = p;
+            }
+        }
+
+        return closestPoint;
+    }
+
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
 
         double closestDist = Double.MAX_VALUE;
