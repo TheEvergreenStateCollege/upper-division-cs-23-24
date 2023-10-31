@@ -40,10 +40,10 @@ public class App
     public static int[] mergeSortHelper(int[] arr, int start, int end){
         int[] newArray = new int[end - start + 1]; 
         int length = end - start + 1;
-            if(arr == null){
-                 return arr;
+            if(arr.length <= 0){
+                 return null;
             }
-            if(arr.length == 1){
+            if(start == end){
                 return arr;
             }
 
@@ -54,14 +54,14 @@ public class App
         int leftHalfPointer = start;
         int rightHalfPointer = start + (length / 2);
         for(int i = 0; leftHalfPointer < rightHalfPointer; i++){
-            if(arr[leftHalfPointer] <= arr[rightHalfPointer]){
-                arr[i] = arr[leftHalfPointer];
+            if(newArray[leftHalfPointer] <= newArray[rightHalfPointer]){
+                newArray[i] = newArray[leftHalfPointer];
             }
             else{
-                arr[i] = arr[rightHalfPointer];
+                newArray[i] = newArray[rightHalfPointer];
             }
         }
 
-        return arr;
+        return newArray;
     } 
 }
