@@ -45,6 +45,9 @@ public class App
             // Merge the two sorted halves
             merge(arr, start, mid, end);
         }
+        else {
+            return;
+        }
     }
     
     public static void merge(int[] arr, int start, int mid, int end) {
