@@ -15,16 +15,6 @@ public class DataStorage {
     private HashMap<String, Integer> flightsClimbed = new HashMap<>();
     private HashMap<String, Double> handWashingSeconds = new HashMap<>();
 
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-    public void addData(String date, int stepCount, double distance, double calorie, double restingEnergy, double soundLevel, int flightsClimbed, double handWashingSeconds) {
-        stepCounts.put(date, stepCount);
-        distances.put(date, distance);
-        calories.put(date, calorie);
-        restingEnergy.put(date, restingEnergy);
-        soundLevels.put(date, soundLevel);
-        flightsClimbed.put(date, flightsClimbed);
-        handWashingSeconds.put(date, handWashingSeconds);
-    }
+    
 }
 
