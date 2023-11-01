@@ -27,3 +27,15 @@ What will this mean for the future of software engineers? It is impossible to pr
   
 Here is an interesting listen to a podcast The Pulse: https://www.npr.org/2023/08/09/1192997798/will-a-i-take-your-job-or-make-it-better 
  
+#6 Hackerthon prelim-notes:
+	• What are you looking forward to, or could you look forward to, in the hackathon?
+		○ Looking forward to experiencing a hackathon in a different way.
+		○ Looking forward to some solid coding session which is one of my fav things
+	• What are some concerns you have or challenges we might encounter in the hackathon?
+		○ Concerns is possibly getting distracted or going down a rabbit hole
+	• What well-defined, one-weeks' worth of difficulty piece of your final project do you hope to complete for your hackathon submission / entry?
+		○ Building the data structure and the methods to answer our questions
+	• What resources, work, or tools (software or otherwise) do you think all of us will need to succeed in the hackathon, that we can prepare in advance?
+		○ Coffee and lots of it. Maybe a set of benchmarks, make sure everyone is up to speed and have a good idea where to save their work. Build before and after each edit or break, save frequently if making progress.
+	• How will you judge whether the week was a successful experience or not?
+		○ I would like to complete the 2 of 3 major benchmarks and have a working query tool by the end. Already have data and have a working csv reader that prints to the console.
