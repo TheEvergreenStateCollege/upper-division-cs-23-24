@@ -31,4 +31,8 @@ Caffiene and sleep.
 How will you judge whether the week was a successful experience or not?
 If I at least tried to complete something, wrong or right, I will know I at least tried my best; therefore succeeding.
 
+
+Jonathan Rodriguez (JonR2002): Increasing the availability and quality of AI chat could provide signficant advancement for the software industry. These developments could bring about a range of changes, such as the automation of customer support, the creation of more user-friendly interfaces, content generation, tailored user experiences, enhanced data analysis, and improvements in software development processes. AI will also find applications in fields like security, healthcare, education, and entertainment. While these advancements could offer clear benefits in terms of efficiency and personalization, they also introduce challenges, including ethical concerns, regulatory considerations, and the potential for workforce displacement. To fully leverage the capabilities of AI models, the software industry must address these issues and invest in ongoing education for its workforce. 
+I am also very excited for the hackathon in a couple of weeks because of the oppurtunites that can arise from this. I am also very worried because this is also my first hackathon/coding competition or any of the sorts. I dont know what to expect apart from what I have heard from my other fellow classmates. Im hoping that the hackathon can harden my programming and coneptual computer science skills as well as providing concise and adoptable methodologies. 
+
                                                                                     --- End of my Sentences ---
