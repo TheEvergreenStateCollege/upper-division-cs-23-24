@@ -1,17 +1,20 @@
 package dev.codewithfriends;
 
+import java.util.Random;
 /**
  * Hello world!
  *
  */
 public class mergesort 
 {
+
     public static void main( String[] args )
     {   
         int[] valArr = {1, 3, 5, 9};
         mergeSort(valArr);
-        
+        main
     }
+
     public static int[] insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int key = arr[i];
