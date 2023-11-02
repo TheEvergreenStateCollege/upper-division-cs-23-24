@@ -26,6 +26,27 @@ public class NearestNeighbor {
     }
 
     public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
+       Point[] newArray = new Point[endCoord -startCoord + 1];
+       int length = endCoord - startCoord + 1;
+
+       if(allPoints.length <= 0){
+        return null;
+       }
+       if(startCoord == endCoord){
+        return allPoints[startCoord];
+       }
+       findNearestNeighborHelper(allPoints,startCoord,startCoord + (length/2),target);
+       findNearestNeighborHelper(allPoints,startCoord + (length/2),endCoord + 1, target);
+        int leftHalfPointer = startCoord;
+        int rightHalfPointer = startCoord + (length/2);
+        
+        for(int i = 0; leftHalfPointer < rightHalfPointer; i++){
+            if (newArray[leftHalfPointer] <= newArray[rightHalfPointer]){
+                newArray[i] = newArray[leftHalfPointer];
+            } else{
+                newArray[i] = newArray[rightHalfPointer];
+            }
+        }
         return null;
     }
 
@@ -37,7 +58,7 @@ public class NearestNeighbor {
 
         // divide up array into halves and recurse
         
-        return null;
+        return findNearestNeighborHelper(allPoints,0,allPoints.length-1,target);
     }
 
     public static final int NEIGHBORHOOD_SIZE = 8_350_000;
