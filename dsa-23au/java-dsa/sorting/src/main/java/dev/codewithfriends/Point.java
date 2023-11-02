@@ -1,19 +1,23 @@
 package dev.codewithfriends;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import com.google.common.collect.Streams;
 import com.google.common.primitives.Ints;
 
-public class Point {
+public class Point implements Comparable<Point> {
     
     public final static int DIMENSION = 100;
     public final static int MAX_X = 1_000_000;
 
     private int[] x;
     public static Random rand = new Random();
+
+    @Override
+    public int compareTo(Point p2) {
+        return p2.x[0] - this.x[0];
+    }
     
     public static Point getRandomPoint() {
         int[] randomArray = IntStream.range(0, DIMENSION)
