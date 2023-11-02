@@ -77,7 +77,7 @@ public class mergesort
             // Main Loop
 
             while(start <= leftEnd && center <= end){
-                if (arr[start].compareTo(arr[end]) <= 0 ){
+                if (arr[start] < arr[end] ){
                     newArray[tmpPos++] = arr[start++];
                 } else
                     newArray[tmpPos++] = arr[end++];
