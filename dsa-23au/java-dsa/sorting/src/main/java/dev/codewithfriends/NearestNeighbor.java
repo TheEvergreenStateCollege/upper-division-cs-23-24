@@ -1,4 +1,5 @@
 package dev.codewithfriends;
+import java.util.Arrays;
 
 import java.util.Random;
 
@@ -26,8 +27,32 @@ public class NearestNeighbor {
     }
 
     public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
-        return null;
+      
+        if (endCoord == startCoord){      //base case  
+            return allPoints[startCoord];
     }
+
+    if (startCoord < endCoord) {
+
+        int centerCoord = (startCoord + endCoord) /2;
+        //divide arrays into halves and recurse
+        Point leftClosePoint = findNearestNeighborHelper(allPoints, startCoord, centerCoord, target);
+        Point rightClosestPoint = findNearestNeighborHelper(allPoints, centerCoord +1, endCoord, target);  //inductive case
+        
+        //merge 2 results into 1
+       if (leftClosePoint.distanceTo(target) < rightClosestPoint.distanceTo(target)) {
+        return leftClosePoint;
+
+        } else {
+            return rightClosestPoint;
+        }
+    }
+    return target;
+ }
+         
+       
+         
+       
 
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
 
@@ -59,7 +84,7 @@ public class NearestNeighbor {
         System.out.println(String.format("Target point %s", target.toString()));
 
         long now = System.currentTimeMillis();
-        Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);
+        Point closest = NearestNeighbor.findNearestNeighbor(neighborhood, target);
         long elapsed = System.currentTimeMillis() - now;
         System.out.printf("Elapsed time: %d seconds\n", Math.round(elapsed / 1000));
 
