@@ -1,8 +1,7 @@
-package main.java.com.practice.app;
 
-public class mergeSort 
+public class MergeSort 
 {
-    public void sort(int[] inputArray)
+    public static int[] sort(int[] inputArray)
     {
 		
 		//Instantiating the variables length and midpoint
@@ -20,7 +19,7 @@ public class mergeSort
 		//or necessary
 		if (length < 2)
 		{
-			return;
+			return inputArray;
 		}
 		
 		//for inputs greater than that it is splitting them
@@ -41,8 +40,9 @@ public class mergeSort
 			
 			merge(inputArray, rightSide, leftSide);
 		}
+		return inputArray;
     }
-    public void merge(int[] leftSide, int[] rightSide, int[] inputArray)
+    public static void merge(int[] leftSide, int[] rightSide, int[] inputArray)
 	{
 	int i = 0, j = 0, k = 0;
 	

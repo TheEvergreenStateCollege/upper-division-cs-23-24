@@ -1,4 +1,5 @@
-/*public class BinaryTree {
+/*public class BST
+{
 	public static void main(String args[])
 	{
 	
@@ -40,5 +41,6 @@
 					}
 					return;
 				}
-			}
-             */
+}
+
+ */

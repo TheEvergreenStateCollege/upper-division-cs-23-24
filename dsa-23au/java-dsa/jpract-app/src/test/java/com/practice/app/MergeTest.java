@@ -1,11 +1,8 @@
-package test.java.com.practice.app;
 
 
 import java.util.Random;
 
-import main.java.com.practice.app.mergeSort;
-
-public class mergeTest 
+public class MergeTest 
 {
     public static void main(String[] args)
 {
@@ -14,7 +11,9 @@ public class mergeTest
 
     int i;
     int j;
+    int u = 9;
 
+    System.out.println(u);
 
     for(i = 0; i < num.length; i++)
     {
@@ -23,7 +22,6 @@ public class mergeTest
 
     }
 
-    mergeSort MergeSort = new mergeSort();
     MergeSort.sort(num);
 
     for(j = 0; j < num.length; j++)
