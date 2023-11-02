@@ -1,6 +1,18 @@
 package dev.codewithfriends;
 
 public class MergeSort {
+/*
+ * This is what I got from ChatGPT,
+ * <AnyType extends Comparable<? super AnyType>>: This is a generic type parameter declaration. 
+ * AnyType is a placeholder for a type that must extend Comparable. 
+ * The ? super AnyType part means that the Comparable interface can compare objects of type AnyType or any of its super types. 
+ * This is used to ensure type safety, so that you can only pass objects that can be compared to each other.
+ */
+ 
+ /*
+  * mergeSort(args): This line calls the mergeSort method and passes the args array to it. 
+  * It should take an array of AnyType and sort it.
+  */
 
     public static <AnyType extends Comparable<? super AnyType>> void main(String[] args) {
         mergeSort(args);
