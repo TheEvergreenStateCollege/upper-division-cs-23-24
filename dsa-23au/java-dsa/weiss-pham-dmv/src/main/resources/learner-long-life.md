@@ -1,25 +1,54 @@
 # DMV Diagram for @learner-long-life
 
 Practice diagrams in Mermaid in GitHub Markdown.
-
-```mermaid
-flowchart LR
-   car --> stop
-```
-
 ```mermaid
 classDiagram
+    class Appointment {
+        -Date date
+        -Driver driver
+        -ServiceType serviceType
+        +displayAppointmentDetails(Appointment)
+        +Appointment(Date, Driver, ServiceType)
+        +getDate(): Date
+        +getDriver(): Driver
+        +getServiceType(): ServiceType
+    }
+    class Clerk {
+        +Clerk()
+        +processDriver(Driver)
+    }
+    class DMVMain {
+        -List<Driver> drivers
+        -List<Clerk> clerks
+        -PriorityQueue<Appointment> appointments
+        -Queue<Driver> waitList
+        +DMVMain()
+        +addDriverWithAppointment(Driver, Appointment)
+        +addDriverToWaitlist(Driver)
+        +processAppointments()
+        +processWaitList()
+    }
     class Driver {
-        name : String
-        dob : Date
+        -String name
+        -String address
+        -String licenseNumber
+        -Date birthdate
+        -boolean hasAppointment
+        -Date checkInTime
+        +Driver(String, String, String, Date, boolean)
+        +checkIn()
+        +isLateForAppointment(Appointment): boolean
+        +getName(): String
+        +getAddress(): String
+        +getLicenseNumber(): String
+        +getBirthdate(): Date
+        +hasAppointment(): boolean
+        +getCheckInTime(): Date
+        +setHasAppointment(boolean)
     }
-    class ClerkWindow {
-        queue : Queue
-        +beginAppt(Driver d)
-        -endAppt(Driver d)
-    }
-    class TicketCounter {
-        lastTicketNumber : int
-        getNextTicket() : int
-    }
+    Appointment --> Driver : has
+    DMVMain --> Driver : uses
+    DMVMain --> Clerk : uses
+    DMVMain --> Appointment : uses
+    Clerk --> Driver : processes
 ```
