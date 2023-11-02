@@ -49,8 +49,8 @@ public class App
         if (start < end){
             int center = (start + end) /2;
 
-            mergeSortHelper(arr, start, start + center);       // left half
-            mergeSortHelper(arr, start, center + 1);     // right half
+            mergeSortHelper(arr, start, center);        // left half
+            mergeSortHelper(arr, center +1 , end);      // right half
             merge(arr, newArray, start, center, end);
 
             int leftHalfPointer = start;

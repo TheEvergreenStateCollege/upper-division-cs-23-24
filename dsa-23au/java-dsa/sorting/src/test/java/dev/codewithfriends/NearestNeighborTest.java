@@ -30,7 +30,7 @@ public class NearestNeighborTest {
     public void testBruteForce() {
         System.out.println(String.format("Target point %s", target.toString()));
 
-        Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);
+        Point closest = NearestNeighbor.findNearestNeighbor(neighborhood, target);
 
         System.out.println(String.format("Closest neighbor was %s", closest.toString()));
 

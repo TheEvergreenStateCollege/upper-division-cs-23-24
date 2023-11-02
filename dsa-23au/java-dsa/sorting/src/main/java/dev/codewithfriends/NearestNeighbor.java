@@ -21,12 +21,31 @@ public class NearestNeighbor {
                 closestPoint = p;
             }
         }
-
+        
         return closestPoint;
     }
-
+    
     public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
-        return null;
+        int middle = (startCoord + endCoord) / 2;
+        
+        // base case
+        if(endCoord <= startCoord) {
+            return allPoints[startCoord];
+        }
+        
+        // inductive case
+
+        // divide arrays in half then recurse
+        Point leftClosest = findNearestNeighborHelper(allPoints, startCoord, middle, target);       // left half
+        Point rightClosest = findNearestNeighborHelper(allPoints, middle + 1, endCoord, target);    // right half
+
+        // merge results from the two halves        
+        if (leftClosest.distanceTo(target) < rightClosest.distanceTo(target)) {
+            return leftClosest;
+        }
+        else {
+            return rightClosest;
+        }
     }
 
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
@@ -34,10 +53,8 @@ public class NearestNeighbor {
         // sort all the points in allPoints by their first coordinate
         // p.x[0]
         Point[] sorted = App.insertionSort(allPoints);
-
-        // divide up array into halves and recurse
-        
-        return null;
+            
+        return findNearestNeighborHelper(sorted, 0, allPoints.length - 1, target);
     }
 
     public static final int NEIGHBORHOOD_SIZE = 8_350_000;
@@ -59,7 +76,7 @@ public class NearestNeighbor {
         System.out.println(String.format("Target point %s", target.toString()));
 
         long now = System.currentTimeMillis();
-        Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);
+        Point closest = NearestNeighbor.findNearestNeighbor(neighborhood, target);
         long elapsed = System.currentTimeMillis() - now;
         System.out.printf("Elapsed time: %d seconds\n", Math.round(elapsed / 1000));
 
