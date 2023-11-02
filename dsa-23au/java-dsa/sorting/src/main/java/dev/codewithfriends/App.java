@@ -1,5 +1,6 @@
 package dev.codewithfriends;
 
+import java.util.Comparator;
 import java.util.Random;
 /**
  * Hello world!
@@ -14,12 +15,12 @@ public class App
         mergeSort(valArr);
     }
 
-    public static int[] insertionSort(int[] arr) {
+    public static <T extends Comparable<T>> T[] insertionSort(T[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            int key = arr[i];
+            T key = arr[i];
             int j = i - 1;
 
-            while (j >= 0 && arr[j] > key) {
+            while (j >= 0 && arr[j].compareTo(key) > 0) {
                 arr[j + 1] = arr[j];
                 j--;
             }
