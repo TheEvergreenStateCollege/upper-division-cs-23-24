@@ -50,7 +50,7 @@ public class App
             int center = (start + end) /2;
 
             mergeSortHelper(arr, start, start + center);       // left half
-            mergeSortHelper(arr, start, center + 1);     // right half
+            mergeSortHelper(arr, center + end);     // right half
             merge(arr, newArray, start, center, end);
 
             int leftHalfPointer = start;
