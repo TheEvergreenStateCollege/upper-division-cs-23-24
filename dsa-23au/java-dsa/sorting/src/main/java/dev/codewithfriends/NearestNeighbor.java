@@ -27,9 +27,20 @@ public class NearestNeighbor {
 
     public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
         return null;
+
+        if (endCoord == startCoord) {
+            return allPoints[startCoord];
+        } 
+        
+        else {
+            int centerCoord = findNearestNeighborHelper(startCoord, allPoints , endCoord, target); 
+            Point leftclosesPoint = findNearestNeighborHelper(startCoordCoord, allPoints , endCoord, target);
+            Point rightclosesPoint = findNearestNeighborHelper(startCoordCoord, allPoints , endCoord, target);    // right half
+        merge(arr, newArray, start, allPoints, endCoord);
+        }
     }
 
-    public static Point findNearestNeighbor(Point[] allPoints, Point target) {
+    public static Point findNearestNeighbor( Point[] allPoints, Point target) {
 
         // sort all the points in allPoints by their first coordinate
         // p.x[0]
@@ -64,7 +75,30 @@ public class NearestNeighbor {
         System.out.printf("Elapsed time: %d seconds\n", Math.round(elapsed / 1000));
 
         System.out.println(String.format("Closest neighbor was %s", closest.toString()));
+ public static int partition(Point[] arr, int low, int high) {
+        Point pivot = arr[high];
+        int i = low - 1;
 
+        for (int j = low; j < high; j++) {
+            if (calculateDistance(arr[j], target) < calculateDistance(pivot, target)) {
+                i++;
+                Point temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        Point temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        return i + 1;
+    }
+} public static double calculateDistance(Point point1, Point point2) {
+    int deltaX = point1.getX() - point2.getX();
+    int deltaY = point1.getY() - point2.getY();
+    return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+}
     }
     
 }
