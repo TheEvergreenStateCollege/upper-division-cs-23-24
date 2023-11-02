@@ -11,13 +11,6 @@ public class NearestNeighborTest {
     public static final int MAX_X = 1_000_000;
     public static final int MAX_Y = 1_000_000;
 
-    public static Random rand = new Random();
-    
-    public static Point getRandomPoint() {
-        int x = rand.nextInt(MAX_X);
-        int y = rand.nextInt(MAX_Y);
-        return new Point(x, y);
-    }
 
     Point[] neighborhood;
     Point target;
@@ -26,9 +19,9 @@ public class NearestNeighborTest {
     public void setup() {
         neighborhood = new Point[NEIGHBORHOOD_SIZE];
         for (int i = 0; i < neighborhood.length; i += 1) {
-            neighborhood[i] = getRandomPoint();
+            neighborhood[i] = Point.getRandomPoint();
         }
-        target = getRandomPoint();
+        target = Point.getRandomPoint();
 
 
     }
