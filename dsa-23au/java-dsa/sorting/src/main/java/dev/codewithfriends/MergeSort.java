@@ -44,6 +44,7 @@ public class MergeSort {
         // copy tmp array back
         for (int i = 0; i < numElements; i++, rightEnd--) {
             array[rightEnd] = tmpArray[rightEnd];
+            *rightEnd being copied back into place 
         }
     }   
 }
