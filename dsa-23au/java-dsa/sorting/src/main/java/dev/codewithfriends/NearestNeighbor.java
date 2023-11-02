@@ -1,5 +1,7 @@
 package dev.codewithfriends;
 
+import java.util.Random;
+
 public class NearestNeighbor {
 
     /**
@@ -61,6 +63,33 @@ public class NearestNeighbor {
         }
 
         return closestPoint;
+    }
+
+    public static final int NEIGHBORHOOD_SIZE = 8_350_000;
+    public static final int MAX_X = 1_000_000;
+    public static final int MAX_Y = 1_000_000;
+
+    public static Random rand = new Random();
+    static Point[] neighborhood;
+    static Point target;
+
+    public static void main(String[] args) {
+
+        neighborhood = new Point[NEIGHBORHOOD_SIZE];
+        for (int i = 0; i < neighborhood.length; i += 1) {
+            neighborhood[i] = Point.getRandomPoint();
+        }
+        target = Point.getRandomPoint();
+
+        System.out.println(String.format("Target point %s", target.toString()));
+
+        long now = System.currentTimeMillis();
+        Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);
+        long elapsed = System.currentTimeMillis() - now;
+        System.out.printf("Elapsed time: %d seconds\n", Math.round(elapsed / 1000));
+
+        System.out.println(String.format("Closest neighbor was %s", closest.toString()));
+
     }
     
 }
