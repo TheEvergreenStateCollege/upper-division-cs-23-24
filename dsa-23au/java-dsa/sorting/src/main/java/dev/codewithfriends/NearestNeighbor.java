@@ -26,18 +26,27 @@ public class NearestNeighbor {
     }
 
     public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
-        return null;
+        int length = endCoord - startCoord;
+        int middle = (length / 2) + startCoord;
+
+        if (endCoord == startCoord) {
+            return allPoints[startCoord];
+        }
+
+        Point leftClosest = findNearestNeighborHelper(allPoints, startCoord, middle, target);
+        Point rightClosest = findNearestNeighborHelper(allPoints, startCoord + middle + 1, endCoord, target);
+
+        Point bestClosest = leftClosest.distanceTo(target) > rightClosest.distanceTo(target) ? leftClosest : rightClosest;
+
+        return bestClosest;
     }
 
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
-
-        // sort all the points in allPoints by their first coordinate
-        // p.x[0]
         Point[] sorted = App.insertionSort(allPoints);
 
-        // divide up array into halves and recurse
+        Point closest = findNearestNeighborHelper(sorted, 0, allPoints.length - 1, target);
         
-        return null;
+        return closest;
     }
 
     public static final int NEIGHBORHOOD_SIZE = 8_350_000;
@@ -59,7 +68,8 @@ public class NearestNeighbor {
         System.out.println(String.format("Target point %s", target.toString()));
 
         long now = System.currentTimeMillis();
-        Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);
+        //Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);
+        Point closest = NearestNeighbor.findNearestNeighbor(neighborhood, target);
         long elapsed = System.currentTimeMillis() - now;
         System.out.printf("Elapsed time: %d seconds\n", Math.round(elapsed / 1000));
 
