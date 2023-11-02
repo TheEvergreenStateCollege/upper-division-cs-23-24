@@ -24,20 +24,67 @@ public class NearestNeighbor {
 
         return closestPoint;
     }
+    /*
+     *  /\ __ /\
+     *   0    0
+     *  '' ^ '' 
+     *   {      }   
+     */
 
     public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
-        return null;
-    }
+        //code recursively! this will go through and divide and conquer the different distances
+        //so we will comparing the relationships between different coordinate
+        //points
+        //base case:
 
+        //this is logn
+ 
+        if((endCoord - startCoord) <= 0)
+        {
+            //when it gets to the base case
+            //the start coord is the closest coord
+            //which it then returns
+            return allPoints[startCoord];
+
+        }
+        //we divide allpoints in half repeatedly
+        //and when we merge we make the first index into the one that
+        //is closer to the target
+        //
+        else
+        {
+            //issues!!!!
+            int centerCoord = (startCoord + endCoord);
+           Point leftClosest = findNearestNeighborHelper(allPoints, startCoord, centerCoord, target);
+           Point rightClosest = findNearestNeighborHelper(allPoints,centerCoord - 1, endCoord, target);
+
+           //merge two results into one
+
+          if (leftClosest.distanceTo(target) < rightClosest.distanceTo(target))
+          {
+            return leftClosest;
+          }
+          else
+          {
+            return rightClosest;
+          }
+        }
+    }
+//meow
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
 
+        Point closest;
         // sort all the points in allPoints by their first coordinate
         // p.x[0]
         Point[] sorted = App.insertionSort(allPoints);
 
-        // divide up array into halves and recurse
-        
-        return null;
+        findNearestNeighborHelper(allPoints, 0, allPoints.length, target);
+
+        return closest;
+
+    
+
+   
     }
 
     public static final int NEIGHBORHOOD_SIZE = 8_350_000;
