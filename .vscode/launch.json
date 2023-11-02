@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CountUppercase",
+            "request": "launch",
+            "mainClass": "dev.codewithfriends.CountUppercase",
+            "projectName": "sorting"
+        },
+        {
+            "type": "java",
             "name": "ndeanon25",
             "request": "launch",
             "mainClass": "com.ndeanon25.App",
