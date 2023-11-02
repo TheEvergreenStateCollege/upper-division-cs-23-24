@@ -12,6 +12,7 @@ public class Point implements Comparable<Point> {
     public final static int MAX_X = 1_000_000;
 
     private int[] x;
+    public Point highestLeftPoint;
     public static Random rand = new Random();
 
     @Override
