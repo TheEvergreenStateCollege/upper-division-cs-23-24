@@ -14,7 +14,8 @@ RUN apt-get install -yqq ssh
 RUN apt-get install -yqq git
 RUN apt-get install -yqq sudo
 RUN apt-get install -yqq unzip
-RUN apt-get install -yqq perf
+RUN apt-get install -yqq gcc
+RUN apt-get install -yqq zlib1g-dev
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -37,7 +38,5 @@ ENV PATH=/opt/apache-maven-3.9.4/bin:/opt/graalvm-community-openjdk-20.0.2+9.1/b
 
 RUN mkdir ~/src
 RUN cd ~/src; git clone https://github.com/TheEvergreenStateCollege/upper-division-cs
-
-RUN sudo chroot 
 
 WORKDIR "${HOME}"

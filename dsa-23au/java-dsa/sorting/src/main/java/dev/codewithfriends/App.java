@@ -5,14 +5,13 @@ import java.util.Random;
  * Hello world!
  *
  */
-public class mergesort 
+public class App
 {
 
     public static void main( String[] args )
     {   
         int[] valArr = {1, 3, 5, 9};
         mergeSort(valArr);
-        main
     }
 
     public static int[] insertionSort(int[] arr) {
@@ -80,7 +79,7 @@ public class mergesort
             // Main Loop
 
             while(start <= leftEnd && center <= end){
-                if (arr[start].compareTo(arr[end]) <= 0 ){
+                if (arr[start] < arr[end]){
                     newArray[tmpPos++] = arr[start++];
                 } else
                     newArray[tmpPos++] = arr[end++];
@@ -94,6 +93,7 @@ public class mergesort
             for (int i =0; i < numElements; i++, end--)
                 arr[end] = newArray[end];
 
+            return arr;
 
     }
 }
