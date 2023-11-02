@@ -26,7 +26,6 @@ public class NearestNeighbor {
     }
 
     public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
-       Point[] newArray = new Point[endCoord -startCoord + 1];
        int length = endCoord - startCoord + 1;
 
        if(allPoints.length <= 0){
@@ -35,20 +34,17 @@ public class NearestNeighbor {
        if(startCoord == endCoord){
         return allPoints[startCoord];
        }
-       findNearestNeighborHelper(allPoints,startCoord,startCoord + (length/2),target);
-       findNearestNeighborHelper(allPoints,startCoord + (length/2),endCoord + 1, target);
-        int leftHalfPointer = startCoord;
-        int rightHalfPointer = startCoord + (length/2);
+       Point leftClosest = findNearestNeighborHelper(allPoints,startCoord,startCoord + (length/2),target);
+       Point rightClosest = findNearestNeighborHelper(allPoints,startCoord + (length/2),endCoord + 1, target);
         
-        for(int i = 0; leftHalfPointer < rightHalfPointer; i++){
-            if (newArray[leftHalfPointer] <= newArray[rightHalfPointer]){
-                newArray[i] = newArray[leftHalfPointer];
-            } else{
-                newArray[i] = newArray[rightHalfPointer];
-            }
+        if (leftClosest.distanceTo(target) < rightClosest.distanceTo(target)); {
+            return leftClosest;
+        } else {
+            return rightClosest;
         }
-        return null;
+        
     }
+
 
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
 
