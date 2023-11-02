@@ -4,7 +4,7 @@ package dev.codewithfriends;
  * Hello world!
  *
  */
-public class mergesort 
+public class App 
 {
     public static void main( String[] args )
     {   
