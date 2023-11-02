@@ -26,21 +26,28 @@ public class NearestNeighbor {
     }
 
     public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
-        return null;
+        // base case
+        if (startCoord == endCoord) {
+            return allPoints[startCoord];
+        }
+        int midCoord = (startCoord+endCoord)/2;
+        // inductive case
+            // divide up arrays into halves and recurse
+            Point rightPointHighest = findNearestNeighborHelper(allPoints, startCoord, midCoord, target);
+            Point leftPointHighest = findNearestNeighborHelper(allPoints, midCoord+1, endCoord, target);
+            // merge the results from the two halves
+            if (rightPointHighest.distanceTo(target) < leftPointHighest.distanceTo(target)) {
+                return rightPointHighest;
+            } else return leftPointHighest;
     }
 
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
-
-        // sort all the points in allPoints by their first coordinate
-        // p.x[0]
-        Point[] sorted = App.insertionSort(allPoints);
-
-        // divide up array into halves and recurse
-        
-        return null;
+        int startCoord = 0;
+        int endCoord = allPoints.length-1;
+        return findNearestNeighborHelper(allPoints, startCoord, endCoord, target);
     }
 
-    public static final int NEIGHBORHOOD_SIZE = 8_350_000;
+    public static final int NEIGHBORHOOD_SIZE = 1_000_000;
     public static final int MAX_X = 1_000_000;
     public static final int MAX_Y = 1_000_000;
 
@@ -59,11 +66,12 @@ public class NearestNeighbor {
         System.out.println(String.format("Target point %s", target.toString()));
 
         long now = System.currentTimeMillis();
-        Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);
+        /*Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);*/
+        Point closest = NearestNeighbor.findNearestNeighbor(neighborhood, target);
         long elapsed = System.currentTimeMillis() - now;
         System.out.printf("Elapsed time: %d seconds\n", Math.round(elapsed / 1000));
 
-        System.out.println(String.format("Closest neighbor was %s", closest.toString()));
+        System.out.println(String.format("Closest neighbor was %s", closest.distanceTo(target)));
 
     }
     
