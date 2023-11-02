@@ -6,6 +6,9 @@ package dev.codewithfriends;
  */
 public class App 
 {
+    /**
+     * @param args
+     */
     public static void main( String[] args )
     {
  
@@ -26,44 +29,68 @@ public class App
 
         return arr;
     }
-    public static int[] mergeSort(int[] array){
-        return mergeSortHelper(array, 0, array.length - 1);
-
+    public static int[] mergeSort(int[] array) {
+        mergeSortHelper(array, 0, array.length - 1);
+        return array; // Return the sorted array
     }
-
-    public static int[] mergeSortHelper(int[] arr, int start, int end){
-        int[] newArray = new int[end - start + 1]; 
-        int length = end - start + 1;
-        int mid = (length / 2) - 1;
-
-        int[] arr1 = mergeSortHelper(arr, start, mid);       // left half
-        int[] arr2 = mergeSortHelper(arr, mid, end);     // right half
-        //Split into left and right
-        //Recursively call mergeSortHelper on left and right halves
-        int j = 0; int k = 0;
-        for (int i = 0; i < (arr1.length + arr2.length); i++) {
-            if (j == arr1.length) {
-                newArray[i] = arr2[k];
-                k++;
-                continue;
-            }
-            else if (k == arr2.length){
-                newArray[i] = arr1[j];
-                j++;
-                continue;
-                
-            }
-            if (arr1[j] >= arr2[k]) {
-                newArray[i] = arr1[j];
-                j++;
-            }
-            else {
-                newArray[i] = arr2[k];
-                k++;
-            }
+    
+    public static void mergeSortHelper(int[] arr, int start, int end) {
+        if (start < end) {
+            int mid = (start + end) / 2; // Calculate the midpoint of the subarray
+    
+            // Recursively sort the left and right halves
+            mergeSortHelper(arr, start, mid); // Sort the left half
+            mergeSortHelper(arr, mid + 1, end); // Sort the right half
+    
+            // Merge the two sorted halves
+            merge(arr, start, mid, end);
         }
-        
-
-        return newArray;
-    } 
+        else {
+            return;
+        }
+    }
+    
+    public static void merge(int[] arr, int start, int mid, int end) {
+        int leftLength = mid - start + 1;
+        int rightLength = end - mid;
+    
+        int[] leftArray = new int[leftLength];
+        int[] rightArray = new int[rightLength];
+    
+        // Copy data to temporary left and right arrays
+        for (int i = 0; i < leftLength; i++) {
+            leftArray[i] = arr[start + i];
+        }
+        for (int i = 0; i < rightLength; i++) {
+            rightArray[i] = arr[mid + 1 + i];
+        }
+    
+        int i = 0, j = 0, k = start;
+    
+        // Merge the two halves by comparing elements and putting them in the correct order
+        while (i < leftLength && j < rightLength) {
+            if (leftArray[i] <= rightArray[j]) {
+                arr[k] = leftArray[i];
+                i++;
+            } else {
+                arr[k] = rightArray[j];
+                j++;
+            }
+            k++;
+        }
+    
+        // Copy any remaining elements from left and right arrays
+        while (i < leftLength) {
+            arr[k] = leftArray[i];
+            i++;
+            k++;
+        }
+    
+        while (j < rightLength) {
+            arr[k] = rightArray[j];
+            j++;
+            k++;
+        }
+    }
 }
+    
