@@ -8,6 +8,13 @@
             "type": "java",
             "name": "App",
             "request": "launch",
+            "mainClass": "dev.codewithfriends.App",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
             "mainClass": "com.ndeanon25.App",
             "projectName": "ndeanon25"
         },
