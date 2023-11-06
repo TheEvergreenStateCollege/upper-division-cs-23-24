@@ -1,5 +1,8 @@
 package com.juniperGMVAD.app;
 
+public class fib{
+
+
 public static void main(String args[])
 {
     int a;
@@ -19,4 +22,5 @@ public static void main(String args[])
 		    
 		    }
 		    
+}
 }

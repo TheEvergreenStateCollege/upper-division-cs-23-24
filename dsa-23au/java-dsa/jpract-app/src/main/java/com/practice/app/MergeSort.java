@@ -1,6 +1,6 @@
+package com.practice.app;
 
-public class MergeSort 
-{
+public class MergeSort {
     public static int[] sort(int[] inputArray)
     {
 		
@@ -73,3 +73,4 @@ public class MergeSort
     }
 
 }
+
