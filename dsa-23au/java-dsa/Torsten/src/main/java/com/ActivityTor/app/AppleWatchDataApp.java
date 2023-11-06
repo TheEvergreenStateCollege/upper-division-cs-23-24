@@ -1,5 +1,13 @@
 package com.ActivityTor.app;
 
-public class AppleWatchDataApp {
-    
+/**
+ * Hello world!
+ *
+ */
+public class AppleWatchDataApp 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
 }
