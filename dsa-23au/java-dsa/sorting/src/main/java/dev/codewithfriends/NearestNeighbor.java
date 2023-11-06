@@ -26,25 +26,37 @@ public class NearestNeighbor {
     }
 
     public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
-        // base case
-        if (startCoord == endCoord) {
+
+        //base case
+        if((endCoord - startCoord) <= 0)
+        {
             return allPoints[startCoord];
         }
-        int midCoord = (startCoord+endCoord)/2;
-        // inductive case
-            // divide up arrays into halves and recurse
-            Point rightPointHighest = findNearestNeighborHelper(allPoints, startCoord, midCoord, target);
-            Point leftPointHighest = findNearestNeighborHelper(allPoints, midCoord+1, endCoord, target);
-            // merge the results from the two halves
-            if (rightPointHighest.distanceTo(target) < leftPointHighest.distanceTo(target)) {
-                return rightPointHighest;
-            } else return leftPointHighest;
+        else{
+            int centerCoord = (startCoord + endCoord)/2;
+
+            Point leftClosest = findNearestNeighborHelper(allPoints, startCoord, centerCoord, target);
+            Point rightClosest = findNearestNeighborHelper(allPoints, centerCoord +1, endCoord, target);
+
+           if (leftClosest.distanceTo(target) < rightClosest.distanceTo(target)){
+            return leftClosest;
+           }
+           else
+           {
+            return rightClosest;
+           }
+        }
+        
     }
 
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
-        int startCoord = 0;
-        int endCoord = allPoints.length-1;
-        return findNearestNeighborHelper(allPoints, startCoord, endCoord, target);
+
+        // sort all the points in allPoints by their first coordinate
+        // p.x[0]
+        Point[] sorted = App.insertionSort(allPoints);
+
+        
+        return null;
     }
 
     public static final int NEIGHBORHOOD_SIZE = 1_000_000;
