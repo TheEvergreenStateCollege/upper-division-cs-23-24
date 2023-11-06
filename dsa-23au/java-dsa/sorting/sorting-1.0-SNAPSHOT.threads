@@ -1,0 +1,81 @@
+Thread 0x7f6276401050
+  at com.oracle.svm.core.posix.headers.CSunMiscSignal.await (Unknown Source)
+  at com.oracle.svm.core.posix.Util_jdk_internal_misc_Signal$SignalState.await (SunMiscSubstitutions.java:353)
+  at com.oracle.svm.core.posix.Util_jdk_internal_misc_Signal$DispatchThread.run (SunMiscSubstitutions.java:289)
+  at java.lang.Thread.runWith (Thread.java:1636)
+  at java.lang.Thread.run (Thread.java:1623)
+  at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine (PlatformThreads.java:807)
+  at com.oracle.svm.core.posix.thread.PosixPlatformThreads.pthreadStartRoutine (PosixPlatformThreads.java:210)
+  at com.oracle.svm.core.code.IsolateEnterStub.PosixPlatformThreads_pthreadStartRoutine_cf47bd191b082a3631657d369b9255c828b9a95c (Unknown Source)
+
+  locals:
+    objectId=0x7f6276adf170, line=3
+    objectId=0x7f6276401050, line=5
+    objectId=0x7f6276401050, line=-1
+
+Thread 0x7f6276c5db40
+  at com.oracle.svm.core.heap.dump.HeapDumpWriter.dumpHeap0 (HeapDumpWriter.java:432)
+  at com.oracle.svm.core.heap.dump.HeapDumpWriter.dumpHeap (HeapDumpWriter.java:422)
+  at com.oracle.svm.core.heap.dump.HeapDumpSupportImpl$HeapDumpOperation.operate (HeapDumpSupportImpl.java:133)
+  at com.oracle.svm.core.thread.VMOperation.execute (VMOperation.java:104)
+  at com.oracle.svm.core.thread.VMOperationControl$WorkQueues.drain (VMOperationControl.java:620)
+  at com.oracle.svm.core.thread.VMOperationControl$WorkQueues.executeAllQueuedVMOperations (VMOperationControl.java:590)
+  at com.oracle.svm.core.thread.VMOperationControl$WorkQueues.enqueueAndExecute (VMOperationControl.java:527)
+  at com.oracle.svm.core.thread.VMOperationControl.enqueue (VMOperationControl.java:318)
+  at com.oracle.svm.core.thread.VMOperationControl.enqueue (VMOperationControl.java:280)
+  at com.oracle.svm.core.thread.NativeVMOperation.enqueue (NativeVMOperation.java:49)
+  at com.oracle.svm.core.heap.dump.HeapDumpSupportImpl.writeHeapTo (HeapDumpSupportImpl.java:85)
+  at com.oracle.svm.core.heap.dump.HeapDumpSupportImpl.dumpHeap (HeapDumpSupportImpl.java:72)
+  at org.graalvm.nativeimage.VMRuntime.dumpHeap (VMRuntime.java:92)
+  at com.oracle.svm.core.JavaMainWrapper.runCore0 (JavaMainWrapper.java:157)
+  at com.oracle.svm.core.JavaMainWrapper.runCore (JavaMainWrapper.java:136)
+  at com.oracle.svm.core.JavaMainWrapper.doRun (JavaMainWrapper.java:233)
+  at com.oracle.svm.core.JavaMainWrapper.run (JavaMainWrapper.java:219)
+  at com.oracle.svm.core.code.IsolateEnterStub.JavaMainWrapper_run_3148eece06270530b6e0d4d60311411342c82698 (Unknown Source)
+
+  locals:
+    objectId=0x7f6276ce6810, line=0
+    objectId=0x7f6276ddc718, line=1
+    objectId=0x7f6276ce6810, line=1
+    objectId=0x7f6276ddc678, line=2
+    objectId=0x7f6276d2c030, line=3
+    objectId=0x7f6276ddc678, line=3
+    objectId=0x7f6276ddc678, line=4
+    objectId=0x7f6276cf2498, line=4
+    objectId=0x7f6276e1fa58, line=4
+    objectId=0x7f6276e1fa08, line=5
+    objectId=0x7f6276ddd078, line=5
+    objectId=0x7f6276a35850, line=5
+    objectId=0x7f6276cf2498, line=5
+    objectId=0x7f6276cf2498, line=6
+    objectId=0x7f6276d63660, line=6
+    objectId=0x7f6276d63660, line=6
+    objectId=0x7f6276e6b708, line=7
+    objectId=0x7f6276ddc678, line=7
+    objectId=0x7f6276b132b8, line=12
+    objectId=0x7f6276401030, line=12
+    objectId=0x7f6276c5db40, line=-1
+    objectId=0x7f6276401110, line=-1
+    objectId=0x7f6276401138, line=-1
+    objectId=0x7f6276ddc718, line=-1
+
+Thread 0x7f6276c5dc00
+  at com.oracle.svm.core.genscavenge.HeapImpl.transitionToNativeThenAwaitPendingRefs (HeapImpl.java:577)
+  at com.oracle.svm.core.genscavenge.HeapImpl.waitForPendingReferenceList (HeapImpl.java:566)
+  at com.oracle.svm.core.genscavenge.HeapImpl.waitForReferencePendingList (HeapImpl.java:556)
+  at com.oracle.svm.core.heap.ReferenceInternals.waitForPendingReferences (ReferenceInternals.java:159)
+  at com.oracle.svm.core.heap.ReferenceHandlerThread.run (ReferenceHandlerThread.java:79)
+  at java.lang.Thread.runWith (Thread.java:1636)
+  at java.lang.Thread.run (Thread.java:1623)
+  at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine (PlatformThreads.java:807)
+  at com.oracle.svm.core.posix.thread.PosixPlatformThreads.pthreadStartRoutine (PosixPlatformThreads.java:210)
+  at com.oracle.svm.core.code.IsolateEnterStub.PosixPlatformThreads_pthreadStartRoutine_cf47bd191b082a3631657d369b9255c828b9a95c (Unknown Source)
+
+  locals:
+    objectId=0x7f6276c5dc00, line=1
+    objectId=0x7f6276c5dc00, line=1
+    objectId=0x7f6276c85020, line=3
+    objectId=0x7f6276adf170, line=5
+    objectId=0x7f6276c5dc00, line=7
+    objectId=0x7f6276c5dc00, line=-1
+
