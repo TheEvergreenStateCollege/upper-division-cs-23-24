@@ -1,26 +1,26 @@
 package dev.codewithfriends;
 
+import java.util.Comparator;
 import java.util.Random;
 /**
  * Hello world!
  *
  */
-public class mergesort 
+public class App
 {
 
     public static void main( String[] args )
     {   
         int[] valArr = {1, 3, 5, 9};
         mergeSort(valArr);
-        main
     }
 
-    public static int[] insertionSort(int[] arr) {
+    public static <T extends Comparable<T>> T[] insertionSort(T[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            int key = arr[i];
+            T key = arr[i];
             int j = i - 1;
 
-            while (j >= 0 && arr[j] > key) {
+            while (j >= 0 && arr[j].compareTo(key) > 0) {
                 arr[j + 1] = arr[j];
                 j--;
             }
@@ -80,7 +80,7 @@ public class mergesort
             // Main Loop
 
             while(start <= leftEnd && center <= end){
-                if (arr[start].compareTo(arr[end]) <= 0 ){
+                if (arr[start] < arr[end]){
                     newArray[tmpPos++] = arr[start++];
                 } else
                     newArray[tmpPos++] = arr[end++];
@@ -94,6 +94,7 @@ public class mergesort
             for (int i =0; i < numElements; i++, end--)
                 arr[end] = newArray[end];
 
+            return arr;
 
     }
 }
