@@ -22,8 +22,19 @@ public abstract class ListWrapperFactory {
 
     public abstract List<String> createList(int maxSize);
 
+    @Test
     public void testToArray() {
+        Object[] newArray = l.toArray();
+        for (int i = 0; i < newArray.length; i += 1) {
+            assertEquals(groceryItems[i], newArray[i]);
+        }
+    }
+
+    @Test
+    // The toArray version to a destination array currently doesn't work due
+    public void testToArrayDest() {
         String[] newArray = new String[groceryItems.length];
+        l.addAll(List.of(groceryItems));
         l.toArray(newArray);
         for (int i = 0; i < newArray.length; i += 1) {
             assertEquals(groceryItems[i], newArray[i]);
@@ -46,7 +57,7 @@ public abstract class ListWrapperFactory {
 
         // After adding a single item, the size is 1
         l.add("Eggs");
-        assertTrue(l.contains(groceryItems[0]));
+        assertTrue(l.contains("Eggs"));
 
         // Add a second item and check that size is 2 and we contain it
         l.add(groceryItems[1]);
