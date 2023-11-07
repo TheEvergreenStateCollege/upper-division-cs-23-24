@@ -25,7 +25,7 @@ public class BallTree {
         }
 
         public void updateMaxSoFar(int maxSoFar) {
-            this.maxSoFar = Math.min(maxSoFar, this.maxSoFar);
+            this.maxSoFar = Math.max(maxSoFar, this.maxSoFar);
         }
 
         public int getSpread() {
@@ -45,10 +45,13 @@ public class BallTree {
             return new BallNode(allPoints[start]);
         }
 
+        // Inductive case
         int biggestSpreadSoFar = Integer.MIN_VALUE;
         int mostSpreadDimSoFar = -1;
         DimensionStat[] dimStats = new DimensionStat[Point.DIMENSION];
 
+        // First pass:
+        // Updating of dimension stats in O(nd) time
         // https://en.wikipedia.org/wiki/Ball_tree#Pseudocode
         // Scan points to find most spread dimension so far
         for (int i = 0; i < allPoints.length; i += 1) {
@@ -71,7 +74,7 @@ public class BallTree {
         double pivot = (pivotStat.minSoFar + pivotStat.maxSoFar) / 2;
 
         // Partition points into left and right half
-        int leftRef = 0;
+        int leftRef = start;
         int rightRef = end;
         while (leftRef < rightRef) {
             // how do we partition in-place? 
@@ -82,13 +85,15 @@ public class BallTree {
 
             // Advance leftRef until we reach one that is greater than
             // or equal to the pivot and meant for the right half
-            if (allPoints[leftRef].x[mostSpreadDimSoFar] < pivot) {
+            while ((allPoints[leftRef].x[mostSpreadDimSoFar] < pivot) &&
+                   (leftRef < rightRef)) {
                 leftRef += 1;
             }
 
             // Advance rightRef until we reach one that is less than
             // the pivot and meant for the right half
-            if (allPoints[rightRef].x[mostSpreadDimSoFar] >= pivot) {
+            while ((allPoints[rightRef].x[mostSpreadDimSoFar] >= pivot) &&
+                   (leftRef < rightRef)) {
                 rightRef -= 1;
             }
 
