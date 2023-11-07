@@ -16,8 +16,8 @@ public class BallTree {
         int maxSoFar;
         
         public DimensionStat() {
-            this.minSoFar = Integer.MIN_VALUE;
-            this.maxSoFar = Integer.MAX_VALUE;
+            this.minSoFar = Integer.MAX_VALUE;
+            this.maxSoFar = Integer.MIN_VALUE;
         }
 
         public void updateMinSoFar(int minSoFar) {
@@ -58,12 +58,13 @@ public class BallTree {
         // Updating of dimension stats in O(nd) time
         // https://en.wikipedia.org/wiki/Ball_tree#Pseudocode
         // Scan points to find most spread dimension so far
-        for (int i = 0; i < allPoints.length; i += 1) {
+        for (int i = start; i <= end; i += 1) {
             for (int j = 0; j < Point.DIMENSION; j += 1) {
                 // Update the minSoFar for dimension j on point i
                 dimStats[j].updateMinSoFar(allPoints[i].x[j]);
                 dimStats[j].updateMaxSoFar(allPoints[i].x[j]);
                 if (dimStats[j].getSpread() > biggestSpreadSoFar) {
+                    biggestSpreadSoFar = dimStats[j].getSpread();
                     mostSpreadDimSoFar = j;
                 }
             }
