@@ -53,10 +53,10 @@ public class NearestNeighbor {
 
         // sort all the points in allPoints by their first coordinate
         // p.x[0]
-        Point[] sorted = App.insertionSort(allPoints);
+        // Point[] sorted = App.insertionSort(allPoints);
 
-        
-        return null;
+    
+        return findNearestNeighborHelper(allPoints, 0, allPoints.length-1, target);
     }
 
     public static final int NEIGHBORHOOD_SIZE = 1_000_000;

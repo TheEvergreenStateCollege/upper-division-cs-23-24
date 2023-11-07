@@ -5,8 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-
-
 public class LinkedListWrapper<T> implements List<T> {
 
     private int maxSize;
@@ -62,8 +60,9 @@ public class LinkedListWrapper<T> implements List<T> {
         }
         return returnArray;
     }
+
     @Override
-   public boolean add(T o) {
+    public boolean add(T o) {
         Node<T> newNode = new Node<T>(o); // Create a new node with the object o as payload
 
         if (currentSize >= maxSize) {
@@ -202,14 +201,9 @@ public class LinkedListWrapper<T> implements List<T> {
 
     @Override
     public Object[] toArray(Object[] a) {
-        return new Object[0];
-        // Duplicate method to line 54
+        throw new RuntimeException("Not yet implemented.");
     }
-
     
-
-
-
 }
 
 

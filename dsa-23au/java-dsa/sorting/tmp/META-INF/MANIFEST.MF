@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.2.2
+Build-Jdk-Spec: 20
+Main-Class: dev.codewithfriends.App
+
