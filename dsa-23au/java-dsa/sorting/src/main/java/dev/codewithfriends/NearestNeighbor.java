@@ -25,13 +25,7 @@ public class NearestNeighbor {
         return closestPoint;
     }
 
-    public static Point findNearestNeighborHelper(
-        Point[] allPoints, int startCoord, int endCoord, int dimension, Point target
-    ) {
-
-        // randomly choose a "median" point for the given dimension
-
-        
+    public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
 
         //base case
         if((endCoord - startCoord) <= 0)
@@ -65,7 +59,7 @@ public class NearestNeighbor {
         return findNearestNeighborHelper(allPoints, 0, allPoints.length-1, target);
     }
 
-    public static final int NEIGHBORHOOD_SIZE = 8_350_000;
+    public static final int NEIGHBORHOOD_SIZE = 1_000_000;
     public static final int MAX_X = 1_000_000;
     public static final int MAX_Y = 1_000_000;
 
@@ -84,11 +78,12 @@ public class NearestNeighbor {
         System.out.println(String.format("Target point %s", target.toString()));
 
         long now = System.currentTimeMillis();
-        Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);
+        /*Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);*/
+        Point closest = NearestNeighbor.findNearestNeighbor(neighborhood, target);
         long elapsed = System.currentTimeMillis() - now;
         System.out.printf("Elapsed time: %d seconds\n", Math.round(elapsed / 1000));
 
-        System.out.println(String.format("Closest neighbor was %s", closest.toString()));
+        System.out.println(String.format("Closest neighbor was %s", closest.distanceTo(target)));
 
     }
     
