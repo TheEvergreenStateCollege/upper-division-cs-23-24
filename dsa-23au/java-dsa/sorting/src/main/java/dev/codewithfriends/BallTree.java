@@ -9,7 +9,7 @@ public class BallTree {
     /**
      * Statistics for a given point dimension in a neighborhood
      */
-    private class DimensionStat {
+    private static class DimensionStat {
 
         // These will always be non-negative, from Point coordinates
         int minSoFar;
@@ -49,6 +49,10 @@ public class BallTree {
         int biggestSpreadSoFar = Integer.MIN_VALUE;
         int mostSpreadDimSoFar = -1;
         DimensionStat[] dimStats = new DimensionStat[Point.DIMENSION];
+    
+        for (int j = 0; j < Point.DIMENSION; j += 1) {
+            dimStats[j] = new DimensionStat();
+        }
 
         // First pass:
         // Updating of dimension stats in O(nd) time
@@ -106,8 +110,8 @@ public class BallTree {
             }
         }
         // At this point, leftRef == rightRef, and we should be roughly balanced
-        BallNode left = buildBallTree(allPoints, start, leftRef);
-        BallNode right = buildBallTree(allPoints, leftRef+1, end);
+        BallNode left = buildBallTree(allPoints, start, leftRef-1);
+        BallNode right = buildBallTree(allPoints, leftRef, end);
 
         return new BallNode(pivot, radius, mostSpreadDimSoFar, left, right);
     }

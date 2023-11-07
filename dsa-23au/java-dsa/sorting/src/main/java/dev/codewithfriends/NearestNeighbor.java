@@ -25,38 +25,14 @@ public class NearestNeighbor {
         return closestPoint;
     }
 
-    public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
-
-        //base case
-        if((endCoord - startCoord) <= 0)
-        {
-            return allPoints[startCoord];
-        }
-        else{
-            int centerCoord = (startCoord + endCoord)/2;
-
-            Point leftClosest = findNearestNeighborHelper(allPoints, startCoord, centerCoord, target);
-            Point rightClosest = findNearestNeighborHelper(allPoints, centerCoord +1, endCoord, target);
-
-           if (leftClosest.distanceTo(target) < rightClosest.distanceTo(target)){
-            return leftClosest;
-           }
-           else
-           {
-            return rightClosest;
-           }
-        }
-        
-    }
-
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
 
         // sort all the points in allPoints by their first coordinate
         // p.x[0]
         // Point[] sorted = App.insertionSort(allPoints);
 
-    
-        return findNearestNeighborHelper(allPoints, 0, allPoints.length-1, target);
+        BallTree bt = new BallTree(allPoints);
+        return bt.findNearestNeighbor(target);
     }
 
     public static final int NEIGHBORHOOD_SIZE = 1_000_000;
