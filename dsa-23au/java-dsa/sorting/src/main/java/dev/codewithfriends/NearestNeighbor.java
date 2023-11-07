@@ -25,7 +25,13 @@ public class NearestNeighbor {
         return closestPoint;
     }
 
-    public static Point findNearestNeighborHelper(Point[] allPoints, int startCoord, int endCoord, Point target) {
+    public static Point findNearestNeighborHelper(
+        Point[] allPoints, int startCoord, int endCoord, int dimension, Point target
+    ) {
+
+        // randomly choose a "median" point for the given dimension
+
+        
 
         //base case
         if((endCoord - startCoord) <= 0)
@@ -53,10 +59,10 @@ public class NearestNeighbor {
 
         // sort all the points in allPoints by their first coordinate
         // p.x[0]
-        Point[] sorted = App.insertionSort(allPoints);
+        // Point[] sorted = App.insertionSort(allPoints);
 
-        
-        return null;
+    
+        return findNearestNeighborHelper(allPoints, 0, allPoints.length-1, target);
     }
 
     public static final int NEIGHBORHOOD_SIZE = 8_350_000;
