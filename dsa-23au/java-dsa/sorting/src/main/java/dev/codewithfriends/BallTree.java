@@ -3,21 +3,18 @@ package dev.codewithfriends;
 public class BallTree {
 
     BallNode root;
-    int[] spreads;
-    int[] centers;
 
     /**
      * Statistics for a given point dimension in a neighborhood
      */
     private class DimensionStat {
 
-        // These will always be non-negative, from Point coordinates
         int minSoFar;
         int maxSoFar;
-        
+
         public DimensionStat() {
-            this.minSoFar = Integer.MIN_VALUE;
-            this.maxSoFar = Integer.MAX_VALUE;
+            this.minSoFar = Integer.MAX_VALUE;
+            this.maxSoFar = Integer.MIN_VALUE;
         }
 
         public void updateMinSoFar(int minSoFar) {
@@ -35,79 +32,56 @@ public class BallTree {
     }
 
     public BallTree(Point[] allPoints) {
-        root = buildBallTree(allPoints, 0, allPoints.length-1);
+        root = buildBallTree(allPoints, 0, allPoints.length - 1);
     }
 
-    public static BallNode buildBallTree(Point[] allPoints, int start, int end) {
-
-        // Base case
+    public BallNode buildBallTree(Point[] allPoints, int start, int end) {
         if (start == end) {
             return new BallNode(allPoints[start]);
         }
 
-        // Inductive case
         int biggestSpreadSoFar = Integer.MIN_VALUE;
         int mostSpreadDimSoFar = -1;
         DimensionStat[] dimStats = new DimensionStat[Point.DIMENSION];
+        for (int i = 0; i < Point.DIMENSION; i++) {
+            dimStats[i] = new DimensionStat();
+        }
 
-        // First pass:
-        // Updating of dimension stats in O(nd) time
-        // https://en.wikipedia.org/wiki/Ball_tree#Pseudocode
-        // Scan points to find most spread dimension so far
-        for (int i = 0; i < allPoints.length; i += 1) {
-            for (int j = 0; j < Point.DIMENSION; j += 1) {
-                // Update the minSoFar for dimension j on point i
+        for (int i = start; i <= end; i++) {
+            for (int j = 0; j < Point.DIMENSION; j++) {
                 dimStats[j].updateMinSoFar(allPoints[i].x[j]);
                 dimStats[j].updateMaxSoFar(allPoints[i].x[j]);
                 if (dimStats[j].getSpread() > biggestSpreadSoFar) {
+                    biggestSpreadSoFar = dimStats[j].getSpread();
                     mostSpreadDimSoFar = j;
                 }
             }
         }
-        // At this point,
-        // - biggestSpreadSoFar contains the biggest spread between
-        //   the max and min of any coordinate
-        // - mostSpreadDimSoFar contains the corresponding dimension / axis
-        //   which has this biggest spread
+
         DimensionStat pivotStat = dimStats[mostSpreadDimSoFar];
         double radius = biggestSpreadSoFar / 2.0;
-        double pivot = (pivotStat.minSoFar + pivotStat.maxSoFar) / 2;
+        double pivot = (pivotStat.minSoFar + pivotStat.maxSoFar) / 2.0;
 
-        // Partition points into left and right half
         int leftRef = start;
         int rightRef = end;
         while (leftRef < rightRef) {
-            // how do we partition in-place? 
-            // we can't predict where in the middle we will meet,
-            // so we have to start at far left and right ends
-            // leftRef advances to the right,
-            // rightRef advances to the left
-
-            // Advance leftRef until we reach one that is greater than
-            // or equal to the pivot and meant for the right half
-            while ((allPoints[leftRef].x[mostSpreadDimSoFar] < pivot) &&
-                   (leftRef < rightRef)) {
+            while (leftRef <= rightRef && allPoints[leftRef].x[mostSpreadDimSoFar] < pivot) {
                 leftRef += 1;
             }
 
-            // Advance rightRef until we reach one that is less than
-            // the pivot and meant for the right half
-            while ((allPoints[rightRef].x[mostSpreadDimSoFar] >= pivot) &&
-                   (leftRef < rightRef)) {
+            while (leftRef <= rightRef && allPoints[rightRef].x[mostSpreadDimSoFar] >= pivot) {
                 rightRef -= 1;
             }
 
-            // When we reach this point, if we haven't met in the middle
-            // yet of our partition, we have an inversion and swap
             if (leftRef < rightRef) {
                 Point temp = allPoints[leftRef];
                 allPoints[leftRef] = allPoints[rightRef];
                 allPoints[rightRef] = temp;
             }
         }
-        // At this point, leftRef == rightRef, and we should be roughly balanced
-        BallNode left = buildBallTree(allPoints, start, leftRef);
-        BallNode right = buildBallTree(allPoints, leftRef+1, end);
+
+        BallNode left = buildBallTree(allPoints, start, leftRef - 1);
+        BallNode right = buildBallTree(allPoints, leftRef, end);
 
         return new BallNode(pivot, radius, mostSpreadDimSoFar, left, right);
     }
