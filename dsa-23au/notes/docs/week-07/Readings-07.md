@@ -16,7 +16,12 @@ Commit and push these projects on a branch, and create a pull request for them a
 * Chapter 15: Threads and Locks
   * pp. 174-179
   * Problems 15.1, 15.2, 15.3
-  
+
+## Articles
+
+* pp. 610-613 of https://dl.acm.org/doi/pdf/10.1145/3442188.3445922
+  "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?"
+
 ## The Algorithm Design Manual, 3rd ed. by Skiena (Red Book)
 
 * Chapter 10
