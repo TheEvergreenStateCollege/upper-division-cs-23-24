@@ -48,3 +48,6 @@ https://dig.watch/updates/ai-wont-replace-people-but-people-who-use-ai-will-repl
 https://alessiobresciani.com/productivity/finding-flow-at-work-20-tips-to-overcoming-overwhelm-eliminating-boredom/  
 
                                                                                     --- End of my Sentences ---
+
+Dylana(WagornDyl):
+I'd been doing some independent research into mRNA nanopore data post-processing, but it's been fairly hard to understand, and I'm excited to work more with other people. In terms of AI, at first I was skeptical at how much asking it could help, but then I tried it and found it really impressive - and then as I got used to using it I noticed a lot more of what it can't do. I like to understand how things work and why, and it seems for the most part it can't "understand" questions about the reasons behind its answers too well. I think the high-level making-connections type of thinking is just not one it can assist with and that's probably a good thing. 
