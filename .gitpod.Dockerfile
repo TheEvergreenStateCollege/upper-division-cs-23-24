@@ -13,6 +13,10 @@ RUN apt-get install -yqq ca-certificates
 RUN apt-get install -yqq ssh
 RUN apt-get install -yqq git
 RUN apt-get install -yqq sudo
+RUN apt-get install -yqq unzip
+RUN apt-get install -yqq gcc
+RUN apt-get install -yqq zlib1g-dev
+RUN apt-get install -yqq htop
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 

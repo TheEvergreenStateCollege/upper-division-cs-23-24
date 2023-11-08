@@ -107,3 +107,8 @@ For those who would like to know, a hash table is a data structure that maps key
 
  =================== Jon week 4
  This week was very challenging for me regarding search trees. But the more and more that we practiced in class I do feel my grasp on them has gotten better. For my first project with Dante and Dawson I was thiniking implementing of the data structure that we used in class into our spotify data that we are collecting. As an update, we have to wait less than a month to recieve our spotify data. In the meantime, I can create designs for what our goals would be. An example can be making a class that checks our most listened to artist or song.
+
+
+Jonathan Week 6
+This past week in DSA has been super helpful for me in developing and sharpening my skills. From our time in Gitpod working on the sorting algorithms, I am starting to become accustomed to debugging, especially using certain extensions. My attention to detail such as concise and legible syntax has shined from this week compared to how I started in CSF and a few weeks into the course. I’ve also made a good habit of commenting on my code so that my peer-programmers can get some assistance on what to make of my code. I have also gotten much better at git commands with wanting to learn more in the future like unix and PowerShell. Version Control is something that I have become accustomed to now that we're pretty deep in the quarter (I am able to navigate through Github without bashing my head against the wall). I also believe my problem solving skills regarding code is more refined with understanding how methods are implemented and how they access or manipulate data in whatever project we are working on.
+

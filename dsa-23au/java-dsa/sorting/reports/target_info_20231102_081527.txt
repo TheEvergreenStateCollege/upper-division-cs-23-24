@@ -1,0 +1,8 @@
+Building image for target platform: org.graalvm.nativeimage.Platform$LINUX_AMD64
+Using native toolchain:
+   Name: GNU project C and C++ compiler (gcc)
+   Vendor: linux
+   Version: 9.4.0
+   Target architecture: x86_64
+   Path: /usr/bin/gcc
+Using CLibrary: com.oracle.svm.hosted.c.libc.HostedGLibC

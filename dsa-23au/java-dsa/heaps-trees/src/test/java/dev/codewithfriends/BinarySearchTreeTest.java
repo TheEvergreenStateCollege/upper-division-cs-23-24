@@ -65,11 +65,14 @@ public class BinarySearchTreeTest
 
         List<String> diagram = BSTMain.dfsDiagram(bst.getRoot(), new LinkedList<>());
         assertEquals(4, diagram.size());
-        assertEquals("   0 --> 3", diagram.get(0));
-        assertEquals("   3 --> 1", diagram.get(1));
-        assertEquals("   1 --> 2", diagram.get(2));
-        assertEquals("   3 --> 4", diagram.get(3));
-         
+        assertEquals("    0 --> 3", diagram.get(0));
+        assertEquals("    3 --> 1", diagram.get(1));
+        assertEquals("    1 --> 2", diagram.get(2));
+        assertEquals("    3 --> 4", diagram.get(3));
+        for (String d : diagram) {
+            System.out.println(d);
+        }
+    }
 
-    }              
+
 }

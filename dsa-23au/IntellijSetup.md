@@ -4,6 +4,8 @@ IntelliJ (Community Edition) is by a large margin the best development experienc
 It is freely available, and was my primary development environment when I worked on the Search Infrastructure Team
 at Etsy, and at many other tech companies.
 
+https://www.jetbrains.com/idea/download/?section=windows
+
 ## Download
 
 These instructions were developed with the following version:

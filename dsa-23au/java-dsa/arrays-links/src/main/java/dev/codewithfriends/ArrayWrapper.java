@@ -1,20 +1,17 @@
-/*package dev.codewithfriends;
+package dev.codewithfriends;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.ArrayList;
+import java.util.*;
 
 public class ArrayWrapper<T> implements List<T> {
 
-    private Object[] _array;
+    private T[] _array;
     private int maxSize;
     private int currentSize;
     private String l1;
 
     public ArrayWrapper(int maxSize) {
-        this._array = new Object[maxSize];
+        this.maxSize = maxSize;
+        this._array = (T[])new Object[maxSize];
         this.currentSize = 0;
     }
     
@@ -35,18 +32,8 @@ public class ArrayWrapper<T> implements List<T> {
     }
 
     @Override
-    public Object[] toArray() {
-        Object[] result = new Object[currentSize];
-
-        for (int i = 0; i < currentSize; i++){
-            result[i] = _array[i];
-        }
-
-        return result;
-    }
-
-    @Override
     public boolean contains(Object o) {
+
         for (int i = 0; i < currentSize; i++) {
             if (_array[i] == o) {
                 return true;
@@ -58,30 +45,47 @@ public class ArrayWrapper<T> implements List<T> {
 
     @Override
     public Iterator iterator() {
-        return null;
+        throw new RuntimeException("Not yet implemented.");
     }
-
-    /*@Override
-    public Object[] toArray() {
-        List<T> al1= new ArrayList<T>();
-        this.add(al1);
-        al1.toArray(); 
-        return _array;
-    }
-*/
-    /*@Override
-    public boolean add(Object o) {
-        this._array[currentSize]=o;
-        this.currentSize++;
-        this.isEmpty = false;
-        return true;
-    }*/
 
     @Override
-    public boolean add(Object o) {
+    public Object[] toArray() {
+        // implementation from https://bard.google.com/chat/eea8cb83d404423a
+        Object[] dest = new Object[size()];
+
+        for (int i = 0; i < dest.length; i++) {
+            dest[i] = get(i);
+        }
+
+        return dest;
+    }
+
+    @Override
+    public <T1> T1[] toArray(T1[] dest) {
+
+        // Copy elements to the destination array
+        int size = Math.min(size(), dest.length);
+        try {
+            for (int i = 0; i < size; i++) {
+                dest[i] = (T1)get(i);
+            }
+        } catch(ClassCastException cce) {
+            return null;
+        }
+
+        // If the destination array is too small, create a new array of the appropriate size
+        if (size < dest.length) {
+            return Arrays.copyOf(dest, size);
+        }
+
+        return dest;
+    }
+
+    @Override
+    public boolean add(T o) {
         // check to ensure array has enough space, resize (2x previous max size) if not
         if (currentSize >= (maxSize / 2)) {
-            Object[] resized = new Object[maxSize * 2];
+            T[] resized = (T[])new Object[maxSize * 2];
             for (int i = 0; i < currentSize; i++){
                 resized[i] = _array[i];
             }
@@ -101,7 +105,7 @@ public class ArrayWrapper<T> implements List<T> {
     //iterate through the array
     public boolean remove(Object o) {
         int count = 0; // index of object to be removed
-        for (int i = 0; i <= _array.length; i++) {
+        for (int i = 0; i < _array.length; i++) {
             if (o == _array[i]) {
                 count = i;
                 break;
@@ -136,7 +140,14 @@ public class ArrayWrapper<T> implements List<T> {
 
     @Override
     public boolean addAll(Collection c) {
-        return false;
+        for (Object o : c ) {
+            try {
+                add((T)o);
+            } catch (ClassCastException cce) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -229,9 +240,4 @@ public class ArrayWrapper<T> implements List<T> {
         return false;
     }
 
-    @Override
-    public Object[] toArray(Object[] a) {
-        return new Object[0];
-    }
 }
-*/
