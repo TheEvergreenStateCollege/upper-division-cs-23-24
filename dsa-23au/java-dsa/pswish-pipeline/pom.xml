@@ -5,17 +5,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.pswishcorp.app</groupId>
-  <artifactId>pswish_insertion_app</artifactId>
+  <artifactId>pswish-pipeline</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>pswish_insertion_app</name>
+  <name>pswish-pipeline</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>20</maven.compiler.source>
+    <maven.compiler.target>20</maven.compiler.target>
   </properties>
 
   <dependencies>
