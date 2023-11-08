@@ -22,6 +22,9 @@ Commit and push these projects on a branch, and create a pull request for them a
 * pp. 610-613 of https://dl.acm.org/doi/pdf/10.1145/3442188.3445922
   "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?"
 
+* https://martinfowler.com/articles/on-pair-programming.html#HowToPair
+  * The first section, "How to pair"
+
 ## The Algorithm Design Manual, 3rd ed. by Skiena (Red Book)
 
 * Chapter 10
