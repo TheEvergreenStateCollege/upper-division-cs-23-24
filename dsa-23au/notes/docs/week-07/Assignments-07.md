@@ -1,6 +1,7 @@
 # Assignment 07
 
-Read the [Readings-07](Readings-07.md), and write 
+Read the [Readings-07](Readings-07.md) and write your responses
+to any prompts in  [Co-Creation-07](Co-Creation-07.md)
 
 ## 1. Hackathon
 
@@ -40,7 +41,7 @@ any filename ending in .md).
 ## 3. Practice Pair Programming
 
 During class, ask someone if they would like to practice pair programming
-with you for 25 minutes.
+with you for 25 minutes. We will spend time doing this in a Tuesday morning session.
 
 You may choose one of the following three tasks:
 
@@ -48,7 +49,7 @@ You may choose one of the following three tasks:
   in your personal Maven project and commit it to a pull request.
 * Adding a unit test to [`ListWrapperFactory`](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/java-dsa/arrays-links/src/test/java/dev/codewithfriends/ListWrapperFactory.java) and modifying `ArrayWrapper` or `LinkedListWrapper`
   to pass the test.
-* Add a sorting algorithm of your choice to the [`pixel-sort`](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/pixel-sort) project.
+* Add a sorting algorithm of your choice to the [`pixel-sort`](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/pixel-sort) project, to complete it and produce a pixel-sorted image of your choice.
   (you may copy, paste, and adapt any code that you typed
   in by hand and committed to GitHub on your account).
   Commit any code you write and progress you make, even if it's not complete,
@@ -131,16 +132,47 @@ Chamois
 
 ### Write a Unit Test
 
-In one of your corresponding test files in your final project, add a unit test to call
-`searchMeanings`. Now you will add a hard-coded response to your implementation like:
+In one of your corresponding test files in your final project (for example, `AppTest.java`,
+add a unit test to call
+`searchMeanings`.
+
+```
+   @Test
+   public void testSearchMeanings() {
+       List<String> matches = searchMeanings("gifted");
+       assertEquals(Integer.valueOf(3), matches.size());
+       assertEquals("Abraxis", matches.get(0));
+       assertEquals("Beelzebub", matches.get(0));
+       assertEquals("Chamois", matches.get(0));
+   }
+```
+
+Now you will add a hard-coded response to your implementation
+(for example, in `App.java` or wherever your `main` method is) like:
 
 ```
    public static List<String> searchMeanings(String searchArg) {
-      return new LinkedList<>() { 
+      return new LinkedList<>() { new LinkedList<>(Arrays.asList("Abraxis", "Beelzebub", "Chamois)); }
    }
 ```
 
 
-Exchange a code review with one of your classmates, who is not your project partner.
-Be sure to 
-About 20 lines is sufficient.
+### Exchange Code Reviews
+
+Exchange a code review with one of your classmates, who is not your project partner,
+and do the work outside of class when you are not able to talk face-to-face.
+To do this, add your comments to their pull request.
+
+Consider it as a collaborative effort to both understand the code and each other.
+Pretend that you are cooperating from a great distance, as if you work for the same
+company but live in different timezones and are awake and asleep at different times,
+but that you are on the same team and wish for the other person to be able to express
+themselves and achieve their goals expressed in code.
+
+Use any skills you have learned from the Changemakers Lab, either by being in ChangeMakers
+yourself, talking to Changemakers classmates, or reading past co-creations.
+
+* [Co-Creation 1](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/notes/docs/week-01/2023-09-28-Co-Creation.md) 
+* [Co-Creation 2](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/notes/docs/week-02/Co-Creation-02.md)
+* [Co-Creation 4](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/notes/docs/week-04/Projects.md)
+* [Co-Creation 5](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/notes/docs/week-05/Week5Co-Creation.md)
