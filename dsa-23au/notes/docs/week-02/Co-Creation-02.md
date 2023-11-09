@@ -20,3 +20,12 @@ The Algorithm Design Manual (Skiena, 3rd edition)
 •	Linked lists cater to dynamic data storage requirements, offering efficient insertions and deletions at the expense of O(n) random access.
 •	Stacks, with their LIFO nature, and queues, with their FIFO characteristic, are quintessential data structures for specific problem-solving paradigms.
 •	Hash maps or dictionaries facilitate rapid key-value look-ups, with efficiency hinging on a robust hash function and effective collision handling.
+
+ndeanon25 - Nathan Deanon 
+    Notes from Week 2
+1) C.R.U.D means to create, read/search, update, delete/remove
+2) Stacks are last in and first out while Queues are first in and first out.
+3) The weaknesses of arrays are the slow insertion, fixed size, and inefficient memory allocation. While the linked list has fast insertion, dynamic sizing, and efficient memory allocation. The downside to linked lists is that they have a slow search time.
+4) The reason we should code review is that it transfers knowledge from one person to another, and it helps to see someone's process to incorporate it into your own process.
+5) I am still getting the hang of the GitPod so the steps are to make a new branch, write/modify code, commit, push a request, get a code review, and then delete the branch once reviewed and merged.
+   ==================================================================
