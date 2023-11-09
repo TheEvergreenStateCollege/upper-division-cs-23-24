@@ -1,7 +1,9 @@
 package dev.codewithfriends;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +13,19 @@ import java.util.Map;
  */
 public class App 
 {
+    
+    public static class Pair 
+    {
+
+        int denomsUsed;
+        int amountRemaining;
+
+        public Pair(int denomsUsed, int amountRemaining) 
+        {
+            this.denomsUsed = denomsUsed;
+            this.amountRemaining = amountRemaining;
+        }
+    }
 
     /**
      * Recursive approach to making change from coins,
@@ -18,7 +33,10 @@ public class App
      * @param amount
      * @return The number of ways to make change for the given amount
      */
-    public static int coinChangeRecursive(List<Integer> denoms, int amount, Map<Integer,Integer> memo) {
+    public static int coinChangeRecursive(List<Integer> denoms, int amount, Map<{Pair,Integer> memo) {
+       Pair key = new Pair(denmos.size(), amount);
+      
+       Collections.sort(denoms);
         // Base case
 
         if (amount < 0 || denoms.size() == 0) {
@@ -35,13 +53,15 @@ public class App
             return memo.get(amount);
         }
 
+        int lastIndex = denoms.size() - 1;
+        int lastItem = denoms.get(lastIndex);
 
         // Recursive case
-        int includeCoin = coinChangeRecursive(denoms, amount - denoms.get(0), memo);
+        int includeCoin = 1 + coinChangeRecursive(denoms, amount - lastItem, memo);
         List<Integer> denomsExclude = Collections.unmodifiableList(denoms.subList(1, denoms.size()));
         int excludeCoin = coinChangeRecursive(denomsExclude, amount, memo);
 
-        memo.put(amount, includeCoin + excludeCoin);
+        memo.put(key, includeCoin + excludeCoin);
 
         return includeCoin + excludeCoin;
     }
@@ -52,6 +72,16 @@ public class App
 
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        List<Integer> coins = new ArrayList<>();
+        coins.add(25);
+        coins.add(1);
+        coins.add(10);
+        coins.add(5);
+
+        int amount = 73;
+        Map<Integer, Integer> memo = new HashMap<>();
+
+        int minCoins = coinChangeRecursive(coins, amount, memo);
+
     }
 }
