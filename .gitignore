@@ -30,3 +30,6 @@ git-config.sh
 .project
 .settings/
 target/
+RedbookQuesitons/
+Scratch/
+.vscode/
