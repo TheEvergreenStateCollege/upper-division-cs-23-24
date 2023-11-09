@@ -4,6 +4,7 @@
 
 import csv
 import pprint
+import DriverConfig
 
 class DriverToDriveData:
 
@@ -12,37 +13,38 @@ class DriverToDriveData:
         cls.dates = []
         cls.driver = []
         cls.driverAndDates = {}
-        cls.filepath1 = "dsa-23au/datasets/DriverData/DataSet_DSAau_pswish.csv"
-        cls.filepath2 = "dsa-23au/datasets/DriverData/Time_Driving_Spreadsheet.csv"
+        cls.filepath1 = DriverConfig.filepath1
+        cls.filepath2 = DriverConfig.filepath2
 
-    def getCSVfile(cls):  # Opens both csv files and adds them to a variable 
+    def get_csv_file_data(cls):  # Opens both csv files and adds them to a variable 
         try:
-            with open (cls.filepath1, "r") as cls.file:  # sets each in file line to a list, maybe refactor this
-                cls.Line = [line for line in cls.file]  
-            with open (cls.filepath2, "r") as cls.file2: # sets each in file2 line to a list, maybe refactor this
+            with open (cls.filepath1, "r") as cls.file, open (cls.filepath2, "r") as cls.file2:  # sets each in file line to a list, maybe refactor this
+                cls.Line = [line for line in cls.file]
                 cls.Line2 = [line2 for line2 in cls.file2]
         except Exception as e:
             print("fault at getCSVfilewith error ", e)
-
-
-    def addCSVtoLists(cls):  # TODO change this to be create first set of driver keys
-        lineLength = cls.Line.__len__()
-        
-        cls.driverKeys = []
-        cls.driver1keys = []
-        i = 1
-        while i < lineLength:
-            cls.Linelist = cls.Line[i].split(",")
-
-            # Date, time and driver constructed into a unique key
-            driver1Key = (f"{cls.Linelist[1]}_{cls.Linelist[0]}_{cls.Linelist[6].replace('P', 'Paul')}")
             
-            cls.driverKeys.append(driver1Key)  # main driver key list
-            cls.driver1keys.append(driver1Key) # driver1 key list
-            i+=1
 
+    def create_driver1_keys(cls):  # creates unique keys for driver 1 data construction
+        try:
+            lineLength = cls.Line.__len__()
+        
+            cls.driverKeys = []
+            cls.driver1keys = []
+            i = 1
+            while i < lineLength:
+                cls.Linelist = cls.Line[i].split(",")
 
-    def addCSVtoList2(cls): # TODO Change this to be create driver 2 keys
+                # Date, time and driver constructed into a unique key
+                driver1Key = (f"{cls.Linelist[1]}_{cls.Linelist[0]}_{cls.Linelist[6].replace('P', 'Paul')}")
+                
+                cls.driverKeys.append(driver1Key)  # main driver key list
+                cls.driver1keys.append(driver1Key) # driver1 key list
+                i+=1
+        except Exception as e:
+            print(e)
+
+    def create_driver2_keys(cls): # creates unique keys for driver 2 data construction
 
         lineLength2 = cls.Line2.__len__()
 
@@ -55,8 +57,8 @@ class DriverToDriveData:
             cls.driver2Keys.append(driver2Key)
             j+=1
 
-    def addListitemsToDict(cls):  # Add the data for driver 1 to a dictionary
-        cls.addCSVtoLists()
+    def add_list_to_dict_by_index(cls):  # Add the data for driver 1 to a dictionary
+        cls.create_driver1_keys()
         dict_1 = {}
         
         with open (cls.filepath1, "r") as f:  # Open csv file with a class object
@@ -75,8 +77,8 @@ class DriverToDriveData:
                 dict_1[key] = value
                 cls.DataStucture = dict_1  # set class wide data object
 
-    def addListitemsToDict2(cls): # Add the data for driver 2 to a dictionary
-        cls.addCSVtoList2()
+    def add_list_to_dict2_by_(cls): # Add the data for driver 2 to a dictionary
+        cls.create_driver2_keys()
         dict_2 = {}
         
         with open (cls.filepath2, "r") as f:  # Open csv file with a class object
@@ -98,7 +100,7 @@ class DriverToDriveData:
         for key2 in cls.driver2Keys:  # adds driver 2 keys to main driverkeys list
             cls.driverKeys.append(key2)
 
-    def print(cls):  # prints out the nested dictionary in an easy to read format
+    def pretty_print(cls):  # prints out the nested dictionary in an easy to read format
         pp = pprint.PrettyPrinter(depth=4)
         pp.pprint(cls.DataStucture)
         pp.pprint(cls.driverKeys)
@@ -107,7 +109,7 @@ class DriverToDriveData:
         # with the key, and vlaue name, you can get the value of value
         # ["9/29/2023_1807_Nathan"]["Distance"])
 
-    def operationMode(cls, sel, *kwargs) -> int:  # Data manipulation operation
+    def operation_mode(cls, sel, *kwargs) -> int:  # Data manipulation operation
         try:
             cls.sorted_keys = sorted(cls.driverKeys)
             cls.driver1sorted = sorted(cls.driver1keys)
@@ -145,7 +147,7 @@ class DriverToDriveData:
                 print("Total cost (miles * cost per mile($0.16)): $", formatted_num)
 
             elif selection == 4:  # pretty prints all data
-                cls.print()
+                cls.pretty_print()
 
             elif selection == 5:  # prints out total miles driven for both drivers
                 total_miles = 0
@@ -210,11 +212,14 @@ class DriverToDriveData:
 
 
         #   TODO      
+        #   Move csv file paths to a config file 
         #   Maybe a filterd date range for me from date1-date5, total miles (done_)
         #   Maybe a date range of 30 days, total miles (done by key)
         #   Maybe with ton of those data points... (forget what this was for)  
         #   XXX Add a print keys with index to the individual driver and then make the selection take the number from the printed list for application
         #   TODO add functions for each value than can be calculated upon (Miles, time spent driving)
+        #   TODO add a search the data fucntion in the operation mode
+        #   TODO prep for backend/web interfacing.
         
         #   TODO v1.1 break the large function up into separate files 
         #   cls.DataStucture[key][value])  # the nice way for accessing data
@@ -230,11 +235,11 @@ class DriverToDriveData:
         #              'Time': '1830'},
 
 def main():
-    DTDD = DriverToDriveData()
-    DTDD.getCSVfile()
-    DTDD.addListitemsToDict()
-    DTDD.addListitemsToDict2()
-    DTDD.operationMode(input("Please select a mode of operation: \
+    Driver = DriverToDriveData()
+    Driver.get_csv_file_data()
+    Driver.add_list_to_dict_by_index()
+    Driver.add_list_to_dict2_by_()
+    Driver.operation_mode(input("Please select a mode of operation: \
                             \n 1. Enter 1 for data viewing by key, \
                             \n 2. Enter 2 to view available keys, \
                             \n 3. Enter 3 to view a sample calculation \
