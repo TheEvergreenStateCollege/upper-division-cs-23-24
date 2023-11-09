@@ -1,0 +1,4 @@
+2-15. Suppose you have algorithms with the five running times listed below. 
+(Assume these are the exact running times.) How much slower do each of these 
+algorithms get when you (a) double the input size, or (b) increase the input size by one?
+(a) n° (b) n° (c) 100n° (d) nlogn (e) 2~
