@@ -112,3 +112,35 @@ For those who would like to know, a hash table is a data structure that maps key
 Jonathan Week 6
 This past week in DSA has been super helpful for me in developing and sharpening my skills. From our time in Gitpod working on the sorting algorithms, I am starting to become accustomed to debugging, especially using certain extensions. My attention to detail such as concise and legible syntax has shined from this week compared to how I started in CSF and a few weeks into the course. I’ve also made a good habit of commenting on my code so that my peer-programmers can get some assistance on what to make of my code. I have also gotten much better at git commands with wanting to learn more in the future like unix and PowerShell. Version Control is something that I have become accustomed to now that we're pretty deep in the quarter (I am able to navigate through Github without bashing my head against the wall). I also believe my problem solving skills regarding code is more refined with understanding how methods are implemented and how they access or manipulate data in whatever project we are working on.
 
+======================= 
+
+ndeanon25 - Nathan Deanon  
+Notes from Week 3 
+- We learned the Orders of Growth, Big O notation, and how we want our code to get to O(1) for the most efficient time.  
+- There is no clear answer on what the best data structure there is, it really just depends on what you need. Every data structure is useful in its own way.  
+- A problem-solving flowchart is really useful and helps break down problems into smaller actions that you are able to work on. Listen to all the information, find an example, brute force, so find a solution ASAP and it does not matter if it is efficient. Solve manually on an example and try to reverse engineer it. Optimize, so look at B.U.D (any bottlenecks, unnecessary or duplicated work) to take out of your code. 
+- Singly linked lists are when each node points to the next node while doubly linked list is when each node points to both the next node and the previous node. 
+- Array list is used for dynamic sizing an array while providing O(1) access, so when an array is full, it doubles and takes O(n) but that does not happen a lot so it should still be efficient when running.     
+
+====================== 
+
+ndeanon25 - Nathan Deanon   
+Notes from Week 4 
+- In-order transversal visits the nodes in ascending order. Pre-order transversal is when the root is always the first node visited. Post-order Transversal is when the root is the last node visited.  
+- A Trie is a variant of an n-ary tree in which characters are stored at each node, while a graph is a collection of nodes with edges between (some of) them.  
+- The two most common ways to search a graph are depth-first search and breath-first search. DFS starts at the root and explores each branch completely before moving on to the next branch. BFS starts at the root and explores each neighbor before going on to any of their children.  
+- DFS is often used if we want to visit every node in the graph while BFS is used to find the shortest path between two nodes.  
+- For adding runtimes, these are separated for loops. So, it is supposed to do this first loop and then when it is done with that, it does the second loop next. For multiplying the runtimes, it does the first loop and for each object it is iterating through, it must do another for loop. So, it is basically a do this, for each time you do that.     
+
+====================== 
+
+ndeanon25 - Nathan Deanon   
+Notes from Week 6 
+- I worked on Codeacademy and was brushing up on my Java syntax, there are a few lessons on recursion that are helpful. They use a great example of when you are in a line, and you do not know how many people are in front of you. You do the inductive case and ask the person in front of you how many people are in front of you. Then, that person asks, and so on until you reach your base case, there is only one person in front of you, so it goes back, and the person says one person in front of me, then it goes back and says two people are in front of me. CodeAcademy is helpful with their lessons.  
+- My final project is going okay, while I do have some methods and algorithms, I want to use for my lottery picks, it is difficult to start coding and just start from scratch. I have a couple of UMLs I created but besides that, it has been difficult to start it. 
+- I am also looking more into Binary Search Tree since my hangman project would use a BST to avoid the letter the player is choosing.  
+- Visualgo is helpful with showing us the sorts and how it works. I enjoy the pseudocode and the diagrams that are easy to follow and see. At first, I did not understand merge sort but just following the diagram and seeing the code run in real-time helped me understand it. 
+- Also, the presentations that the ILC students were working on were interesting. Quinn with the web scraping RedFin using Selenium and Aspen taught us about XSS cross-site scripting attacks. They were all really fascinating. 
+
+
+
