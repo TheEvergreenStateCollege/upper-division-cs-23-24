@@ -3,6 +3,7 @@ package dev.codewithfriends;
 import java.util.*;
 
 public class ArrayWrapper<T> implements List<T> {
+    //idk i think
 
     private T[] _array;
     private int maxSize;
