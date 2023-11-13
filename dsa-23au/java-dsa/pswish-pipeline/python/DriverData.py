@@ -75,7 +75,7 @@ class DriverToDriveData:
                 key = cls.driverKeys[i]
                 value = lines[i]
                 dict_1[key] = value
-                cls.DataStucture = dict_1  # set class wide data object
+                cls.DataStructure = dict_1  # set class wide data object
 
     def add_list_to_dict2_by_(cls): # Add the data for driver 2 to a dictionary
         cls.create_driver2_keys()
@@ -95,18 +95,18 @@ class DriverToDriveData:
                 key = cls.driver2Keys[i]
                 value = lines[i]
                 dict_2[key] = value
-                cls.DataStucture.update(dict_2)  # set class wide data object
+                cls.DataStructure.update(dict_2)  # set class wide data object
         
         for key2 in cls.driver2Keys:  # adds driver 2 keys to main driverkeys list
             cls.driverKeys.append(key2)
 
     def pretty_print(cls):  # prints out the nested dictionary in an easy to read format
         pp = pprint.PrettyPrinter(depth=4)
-        pp.pprint(cls.DataStucture)
+        pp.pprint(cls.DataStructure)
         pp.pprint(cls.driverKeys)
 
         # Accessing the info
-        # with the key, and vlaue name, you can get the value of value
+        # with the key, and value name, you can get the value of value
         # ["9/29/2023_1807_Nathan"]["Distance"])
 
     def operation_mode(cls, sel, *kwargs) -> int:  # Data manipulation operation
@@ -118,10 +118,11 @@ class DriverToDriveData:
 
             if selection == 1:  # get data by key and value entry
                 key = input("Please enter a key, example '9/29/2023_1807_Nathan': ")
+                print("Here are the available keys:", cls.Line[0].replace(",", ", "))
                 value = input("please enter a value name, example 'Distance': ")
                 print("For key :", key)
                 print("The value is: ", value)
-                compile = cls.DataStucture[key][value]
+                compile = cls.DataStructure[key][value]
                 print(compile)
 
             elif selection == 2:  # Prints all keys sorted and unsorted 
@@ -138,8 +139,8 @@ class DriverToDriveData:
                 print("\n--*-- End Sorted --*--\n")
             
             elif selection == 3:  # prints example calculation for miles * cost per mile
-                x = int((cls.DataStucture['10/19/2023_0850_Paul']['Distance']).split()[0]) 
-                y = int((cls.DataStucture['10/19/2023_1700_Paul']['Distance']).split()[0])
+                x = int((cls.DataStructure['10/19/2023_0850_Paul']['Distance']).split()[0]) 
+                y = int((cls.DataStructure['10/19/2023_1700_Paul']['Distance']).split()[0])
                 num = ((x + y)*.16)  # miles * cost per mile
                 formatted_num = f'{num:.2f}'
                 
@@ -152,12 +153,12 @@ class DriverToDriveData:
             elif selection == 5:  # prints out total miles driven for both drivers
                 total_miles = 0
                 for key in cls.sorted_keys:
-                    compile = cls.DataStucture[key]["Distance"]
+                    compile = cls.DataStructure[key]["Distance"]
 
                     x = int(compile.split()[0])
-                    # print(x)
                     total_miles += x
                 print("Total combined miles: ", total_miles)
+                return total_miles
 
             elif selection == 6:  # Choose 1, 2, both drivers for start and end data on distances
                 total_miles = 0
@@ -190,18 +191,28 @@ class DriverToDriveData:
                     end = cls.sorted_keys.index(inputStop)
                     select = cls.sorted_keys[start:end]
 
-                for i in select:  # Takes the selection data from above and calcualtes a hardcoded distance
-                    compile = cls.DataStucture[i]["Distance"]
+                for i in select:  # Takes the selection data from above and calculates a hardcoded distance
+                    compile = cls.DataStructure[i]["Distance"]
                     x = int(compile.split()[0])
                     total_miles += x
                     print(i, compile)
                 print("Total combined miles: ", total_miles)
+            
+            elif selection == 7:
+                total_time = 0
+                for key in cls.sorted_keys:
+                    compile = cls.DataStructure[key]["Elapsed"]
+                    x = int(compile.split()[0])
+                    total_time += x
+                print("Total combined minutes: ", total_time)
+                return total_time
+
 
             else: 
                 print("Nothing to do")
 
         except Exception as e:
-            print("Error in operation mode: ", e)
+            print("Error in operation mode, please make sure you typed a number: ", e)
         finally:
             replay = input("Push enter to run another operation or type 'exit' to quit: ")
 
@@ -212,17 +223,19 @@ class DriverToDriveData:
 
 
         #   TODO      
-        #   Move csv file paths to a config file 
-        #   Maybe a filterd date range for me from date1-date5, total miles (done_)
-        #   Maybe a date range of 30 days, total miles (done by key)
-        #   Maybe with ton of those data points... (forget what this was for)  
-        #   XXX Add a print keys with index to the individual driver and then make the selection take the number from the printed list for application
+        #   DONE: Move csv file paths to a config file 
+        #   DONE: Maybe a filtered date range for me from date1-date5, total miles (done_)
+        #   DONE: Maybe a date range of 30 days, total miles (done by key)
+        #   XXX: Maybe with ton of those data points... (forget what this was for)  
+        #   DONE: Add a print keys with index to the individual driver and then make the selection take the number from the printed list for application
         #   TODO add functions for each value than can be calculated upon (Miles, time spent driving)
-        #   TODO add a search the data fucntion in the operation mode
+            # Total time for a given range
+            #     is this range more or less than all ranged averages
+        #   TODO add a search the data function in the operation mode
         #   TODO prep for backend/web interfacing.
         
-        #   TODO v1.1 break the large function up into separate files 
-        #   cls.DataStucture[key][value])  # the nice way for accessing data
+        #   TODO v1.2 break the large function up into separate files 
+        #   cls.DataStructure[key][value])  # the nice way for accessing data
 
         # Example:
         #  '10/9/2023_1830_Paul': {'Date': '10/9/2023',
@@ -243,9 +256,10 @@ def main():
                             \n 1. Enter 1 for data viewing by key, \
                             \n 2. Enter 2 to view available keys, \
                             \n 3. Enter 3 to view a sample calculation \
-                            \n 4. Enter 4 to view all avialable data in readable format. \
+                            \n 4. Enter 4 to view all available data in readable format. \
                             \n 5. Enter 5 to view total combined miles driven. \
                             \n 6. Enter 6 to view a range of n to k sorted example miles data \
+                            \n 7. Enter 7 view total combined time driven \
                             \n\n Please type your selection and push enter:  "))
 
 if __name__ == "__main__":

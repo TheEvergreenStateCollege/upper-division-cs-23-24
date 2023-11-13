@@ -23,6 +23,7 @@ def index(request):
 
     # Perform any additional operations as needed
     total_miles = calculate_total_miles(driver_data)
+    total_mins = calculate_total_mins(driver_data)
 
     # Save or retrieve data from DriverData model
     save_data_to_model(driver_data)
@@ -31,23 +32,35 @@ def index(request):
     context = {
         'total_miles': total_miles,
         'driver_data': all_driver_data,
+        'total_mins' : total_mins,
     }
 
     return render(request, 'myapp/index.html', context)
 
 def calculate_total_miles(driver_data):
-    # Example: Calculate total miles from driver_data
+    
     total_miles = 0
     for key in driver_data.sorted_keys:
-        compile = driver_data.DataStucture[key]["Distance"]
+        compile = driver_data.DataStructure[key]["Distance"]
         x = int(compile.split()[0])
         total_miles += x
 
     return total_miles
 
+def calculate_total_mins(driver_data):
+
+    total_mins = 0
+    for key in driver_data.sorted_keys:
+        compile = driver_data.DataStructure[key]["Elapsed"]
+        x = int(compile.split()[0])
+        total_mins += x
+    return total_mins
+
+
+
 def save_data_to_model(driver_data):
     # Example: Save data to DriverData model
-    for key, value in driver_data.DataStucture.items():
+    for key, value in driver_data.DataStructure.items():
         DriverData.objects.update_or_create(
             key=key,
             defaults={'value': value},
