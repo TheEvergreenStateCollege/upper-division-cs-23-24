@@ -4,7 +4,7 @@ package com.ndeanon25;
  * Hello world!
  *
  */
-public class App 
+public class Fib
 {
     public static void fib(int n){
      int num1 = 0;
