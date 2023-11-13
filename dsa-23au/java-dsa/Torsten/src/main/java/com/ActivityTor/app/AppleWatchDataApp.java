@@ -1,5 +1,6 @@
 package com.ActivityTor.app;
 
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
@@ -29,14 +30,14 @@ public class AppleWatchDataApp
             int stepCount = Integer.parseInt(values[1]);
             double distance = Double.parseDouble(values[2]);
             int flightsClimbed = Integer.parseInt(values[3]);
-            double activeEnergy =Double.parseDouble(values[4]);
+            double activeEnergy = Double.parseDouble(values[4]);
             double handWashingSeconds = Double.parseDouble(values[5]);
             double restingEnergy = Double.parseDouble(values[6]);
             double soundLevel =Double.parseDouble(values[7]);
 
             dataStorage.addStepCount(date, stepCount);
             dataStorage.addDistance(date, distance);
-            dataStorage.addCalories(date, calorie);
+            dataStorage.addCalories(date, activeEnergy);
             dataStorage.addRestingEnergy(date, restingEnergy);
             dataStorage.addSoundLevels(date, soundLevel);
             dataStorage.addFlightsClimbed(date, flightsClimbed);
