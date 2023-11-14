@@ -12,7 +12,7 @@ public class AppleWatchDataApp
         DataStorage watchData = new DataStorage();
 
         // Provide the path to your CSV file
-        String csvFilePath = "";
+        String csvFilePath = "AppleWatchData-myData.csv";
 
         DataReader dataReader = new DataReader(csvFilePath);
         List<String[]> csvData = dataReader.readCSVData();
@@ -43,6 +43,8 @@ public class AppleWatchDataApp
             dataStorage.addFlightsClimbed(date, flightsClimbed);
             dataStorage.addHandWashingSeconds(date, handWashingSeconds);
 
+
+            
         }
 
     }
