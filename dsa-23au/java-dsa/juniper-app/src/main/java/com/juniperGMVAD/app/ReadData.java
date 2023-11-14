@@ -6,15 +6,12 @@ import java.io.IOException;
 /**
  * Hello world!
  *
- */
-public class ReadData
-{
-
+ 
     
-    public class CSVReader {
+    public class ReadData {
         //taking the data from the CSV file and putting it into a hashmap
         //Key is the name (+ year?) and the data is that countries MVA
-            Map<String, CountryData> countryDataMap = new HashMap<>();
+          //  Map<String, CountryData> countryDataMap = new HashMap<>();
             
             try (FileInputStream fis = new FileInputStream("G20-GMVA.csv")) {
                 BufferedInputStream bis = new BufferedInputStream(fis);
@@ -27,11 +24,15 @@ public class ReadData
                     if (tokens.length == 0 || line.length() == 0) {
                         continue;
                     }
-    
-                    CountryData countryData = new CountryData(tokens[0], tokens[1], );
+
+                    for (String token : tokens)
+                    {
+                        System.out.println(token);
+                    }
+                //   CountryData countryData = new CountryData(tokens[0], tokens[1], );
     
                  
-                    countryDataMap.put(countryData.getName(), countryData);
+                // countryDataMap.put(countryData.getName(), countryData);
                 }
             } catch (IOException ioe) {
                 System.err.println(ioe.toString());
@@ -39,8 +40,10 @@ public class ReadData
     
            
 
-            for (Map.Entry<String, CountryData> entry : countryDataMap.entrySet()) {
+            /*for (Map.Entry<String, CountryData> entry : countryDataMap.entrySet()) {
                 System.out.println("Country: " + entry.getKey() + ", Data: " + entry.getValue());
-            }
+            } 
     }
-}  
+
+*/
+

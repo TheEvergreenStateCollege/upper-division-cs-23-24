@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.juniperGMVAD.app.App",
+            "projectName": "juniper-app"
+        },
+        {
+            "type": "java",
             "name": "HelloProfiling",
             "request": "launch",
             "mainClass": "dev.codewithfriends.HelloProfiling",
