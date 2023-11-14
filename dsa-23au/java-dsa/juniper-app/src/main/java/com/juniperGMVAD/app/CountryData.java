@@ -1,5 +1,5 @@
 package com.juniperGMVAD.app;
-/* 
+/
 public class CountryData {
     String name; 
     double MVA
@@ -10,4 +10,4 @@ public class CountryData {
     }
     
 }
-*/
+
