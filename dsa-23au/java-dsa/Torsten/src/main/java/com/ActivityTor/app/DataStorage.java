@@ -1,6 +1,7 @@
 package com.ActivityTor.app;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -43,4 +44,26 @@ public class DataStorage {
     public void addHandWashingSeconds(String date, double seconds) {
         handWashingSeconds.put(date, seconds);
     }
+
+    // Method to print step counts
+    public void printStepCounts() 
+    {
+    for (Map.Entry<String, Integer> entry : stepCounts.entrySet()) 
+    {
+        System.out.println("Date: " + entry.getKey() + ", Step Count: " + entry.getValue());
+        }
+     }
+
+    // Method to print distances
+    public void printDistances() 
+    {
+    for (Map.Entry<String, Double> entry : distances.entrySet()) 
+    {
+        System.out.println("Date: " + entry.getKey() + ", Distance: " + entry.getValue());
+         }
+    }
+
+// Similar methods for other data types (calories, resting energy, etc.)
+
+
 }

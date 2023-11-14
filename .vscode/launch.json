@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AppleWatchDataApp",
+            "request": "launch",
+            "mainClass": "com.ActivityTor.app.AppleWatchDataApp",
+            "projectName": "Torsten"
+        },
+        {
+            "type": "java",
             "name": "CrimeDatabase",
             "request": "launch",
             "mainClass": "com.jon.app.CrimeDatabase",
