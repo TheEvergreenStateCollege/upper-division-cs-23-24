@@ -10,7 +10,7 @@ public class AppleWatchDataApp
     public static void main( String[] args )
     {
         DataStorage watchData = new DataStorage();
-
+        watchData.printAllData();
         // Provide the path to your CSV file
         String csvFilePath = "AppleWatchData-myData.csv";
 
