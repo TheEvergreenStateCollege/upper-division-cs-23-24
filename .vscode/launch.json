@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CrimeDatabase",
+            "request": "launch",
+            "mainClass": "com.jon.app.CrimeDatabase",
+            "projectName": "jon-app"
+        },
+        {
+            "type": "java",
+            "name": "Crime",
+            "request": "launch",
+            "mainClass": "com.jon.app.Crime",
+            "projectName": "jon-app"
+        },
+        {
+            "type": "java",
             "name": "HelloProfiling",
             "request": "launch",
             "mainClass": "dev.codewithfriends.HelloProfiling",
