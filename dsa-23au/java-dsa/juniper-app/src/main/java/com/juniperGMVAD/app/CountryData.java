@@ -2,11 +2,13 @@ package com.juniperGMVAD.app;
 
 public class CountryData {
     String name; 
-    double MVA
+    int year;
+    double MVAperc;
 
-    public CountryData(String name) 
+    public CountryData(String name, double MVAperc) 
     {
         this.name = name;
+        this.MVAperc = MVAperc;
     }
     
 }

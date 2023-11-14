@@ -30,18 +30,11 @@ public class ReadData
         int start = 0;
         for (int i = 0; i < line.length(); i++)
         {
-            if (line.charAt(i) == '"')
-            {
-                if (inQuotes == true)
-                {
-                    inQuotes = false;
-                    continue;
-                }
-                inQuotes = true;
-            }
+
             if (line.charAt(i) == ',' && inQuotes == false)
             {
                 tokens.add(line.substring(start, i));
+
                 start = i + 1;
             }
 
@@ -53,11 +46,4 @@ public class ReadData
 
 
     }
-          
-
-    for (Map.Entry<String, CountryData> entry : countryDataMap.entrySet()) 
-    {
-        System.out.println("Country: " + entry.getKey() + ", Data: " + entry.getValue());
-    } 
 }
-} 
