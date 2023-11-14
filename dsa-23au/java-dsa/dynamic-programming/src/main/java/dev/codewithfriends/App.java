@@ -11,7 +11,16 @@ import java.util.Map;
  */
 public class App 
 {
+    public static class Pair {
 
+        int denomsUsed;
+        int amountRemaining;
+
+        public Pair(int denomsUsed, int amountRemaining) {
+            this.denomsUsed = denomsUsed;
+            this.amountRemaining = amountRemaining;
+        }
+    }
     /**
      * Recursive approach to making change from coins,
      * @param denoms list of coin denominations as integers, sort in ascending order
@@ -19,6 +28,7 @@ public class App
      * @return The number of ways to make change for the given amount
      */
     public static int coinChangeRecursive(List<Integer> denoms, int amount, Map<Integer,Integer> memo) {
+        Pair key = new Pair(denoms.size(),amount);
         // Base case
 
         if (amount < 0 || denoms.size() == 0) {
@@ -40,6 +50,9 @@ public class App
         int includeCoin = coinChangeRecursive(denoms, amount - denoms.get(0), memo);
         List<Integer> denomsExclude = Collections.unmodifiableList(denoms.subList(1, denoms.size()));
         int excludeCoin = coinChangeRecursive(denomsExclude, amount, memo);
+
+        int newWays = Math.min(includeCoin,excludeCoin);
+        memo.put(key,newWays);
 
         memo.put(amount, includeCoin + excludeCoin);
 
