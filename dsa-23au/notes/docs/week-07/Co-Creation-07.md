@@ -17,3 +17,7 @@ We worked on my plans for my final project. These are my plans for my final proj
 
 We have learned alot about Java language in a short amount of time, In week 7 learning of the in and outs of Java programming , GitHub , GitPod and repositories has brought alot of satisfaction to a once daunting task. Now we are towards the final stretch with our final projects coming up and its important to remind ourselves to take a deep breath because the answer we're looking for may be right under our faces the main goal is to keep learning and have fun coding ! 
 
+=====================
+exoriparian
+
+We discussed our different projects and some of the challenges they might present.  We went over some of the technical details of git and its use.  We discussed a problem I worked on called "Egg Drop", a search problem involving limited tries before the algorithm is deemed to have failed.  To solve this, I used a natural sum formula to determine the optimum step size (also involved quadratic formula).  I considered trying to use dynamic programming / memoization, but I realized it won't because the solution from floor 0 will likely be different every time.
