@@ -65,5 +65,75 @@ public class DataStorage {
 
 // Similar methods for other data types (calories, resting energy, etc.)
 
+    // Method for flights climbed 
+    public void printFlightsClimbed()
+    {
+        for (Map.Entry<String, Integer> entry : flightsClimbed.entrySet())
+        {
+            System.out.println("Date: " + entry.getKey()+ ", FlightsClimbed: " + entry.getValue());
+            }
+    }
 
+    // Method for active energy 
+    public void printActiveEnergy()
+    {
+        for (Map.Entry<String, Double> entry : calories.entrySet())
+     {
+         System.out.println("Date: " + entry.getKey()+ ", Calories: " + entry.getValue());
+         }
+    }
+
+    // Method for Hand washing  
+    public void printHandWashing()
+    {
+        for (Map.Entry<String, Double> entry : handWashingSeconds.entrySet())
+     {
+         System.out.println("Date: " + entry.getKey()+ ", Average Time Washing Hands: " + entry.getValue());
+         }
+    }
+
+    // Method for Resting Energy  
+    public void printRestingEnergy()
+    {
+        for (Map.Entry<String, Double> entry : restingEnergy.entrySet())
+     {
+         System.out.println("Date: " + entry.getKey()+ ", Energy while not active: " + entry.getValue());
+         }
+    }
+
+    // Method for Sound Levels  
+    public void printSoundLevels()
+    {
+        for (Map.Entry<String, Double> entry : soundLevels.entrySet())
+     {
+         System.out.println("Date: " + entry.getKey()+ ", Sound Level : " + entry.getValue());
+         }
+    }
+
+    // Method to Print All Data 
+    public void printAllData()
+    {
+        System.out.println(" Step Count: ");
+        printStepCounts();
+
+        System.out.println(" Distances: ");
+        printDistances();
+
+        System.out.println(" Flights Climbed: ");
+        printFlightsClimbed();
+
+        System.out.println(" Active Energy: ");
+        printActiveEnergy();
+
+        System.out.println(" Hand Washing: ");
+        printHandWashing();
+
+        System.out.println(" Resting Energy: ");
+        printRestingEnergy();
+
+        System.out.println(" Sound Level: ");
+        printSoundLevels();
+    }
+
+    
 }
