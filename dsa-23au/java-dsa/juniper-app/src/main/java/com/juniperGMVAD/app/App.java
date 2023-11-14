@@ -13,8 +13,8 @@ public class App
 
         if (args[0].equals("top5mva")) {
             calculateTopMVA();
-        } else if (args[0].equals("retrieve")) {
-            retrieveTopCountries();
+        } else if (args[0].equals("country")) {
+            percByYear();
         }
     }
 
