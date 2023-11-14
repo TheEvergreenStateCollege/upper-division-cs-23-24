@@ -17,6 +17,7 @@ RUN apt-get install -yqq unzip
 RUN apt-get install -yqq gcc
 RUN apt-get install -yqq zlib1g-dev
 RUN apt-get install -yqq htop
+RUN apt-get install -yqq asciinema
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -29,6 +30,7 @@ RUN ssh-keyscan github.com
 # Download the right GraalVM for the given architecture
 RUN . /root/scripts/dl-graalvm.sh
 RUN . /root/.shrc; gu install nodejs
+RUN . /root/.shrc; gu install python
 
 # Download and install maven
 WORKDIR /opt
