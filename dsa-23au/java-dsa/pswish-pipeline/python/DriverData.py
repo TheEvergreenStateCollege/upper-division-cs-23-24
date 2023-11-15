@@ -13,6 +13,8 @@ class DriverToDriveData:
         cls.dates = []
         cls.driver = []
         cls.driverAndDates = {}
+        cls.DataStructure = {}
+        
         cls.filepath1 = DriverConfig.filepath1
         cls.filepath2 = DriverConfig.filepath2
 
@@ -22,7 +24,7 @@ class DriverToDriveData:
                 cls.Line = [line for line in cls.file]
                 cls.Line2 = [line2 for line2 in cls.file2]
         except Exception as e:
-            print("fault at getCSVfilewith error ", e)
+            print("fault at get_csv_file_data error ", e)
             
 
     def create_driver1_keys(cls):  # creates unique keys for driver 1 data construction
@@ -100,9 +102,11 @@ class DriverToDriveData:
         for key2 in cls.driver2Keys:  # adds driver 2 keys to main driverkeys list
             cls.driverKeys.append(key2)
 
+        cls.DataStructureFinal = cls.DataStructure
+
     def pretty_print(cls):  # prints out the nested dictionary in an easy to read format
         pp = pprint.PrettyPrinter(depth=4)
-        pp.pprint(cls.DataStructure)
+        pp.pprint(cls.DataStructureFinal)
         pp.pprint(cls.driverKeys)
 
         # Accessing the info
@@ -206,11 +210,11 @@ class DriverToDriveData:
                     total_time += x
                 print("Total combined minutes: ", total_time)
                 return total_time
-
-
             else: 
                 print("Nothing to do")
 
+
+            cls.DataStructureFinal = cls.DataStructure
         except Exception as e:
             print("Error in operation mode, please make sure you typed a number: ", e)
         finally:
@@ -253,13 +257,13 @@ def main():
     Driver.add_list_to_dict_by_index()
     Driver.add_list_to_dict2_by_()
     Driver.operation_mode(input("Please select a mode of operation: \
-                            \n 1. Enter 1 for data viewing by key, \
-                            \n 2. Enter 2 to view available keys, \
+                            \n 1. Enter 1 for data viewing by key. \
+                            \n 2. Enter 2 to view available keys. \
                             \n 3. Enter 3 to view a sample calculation \
                             \n 4. Enter 4 to view all available data in readable format. \
-                            \n 5. Enter 5 to view total combined miles driven. \
-                            \n 6. Enter 6 to view a range of n to k sorted example miles data \
-                            \n 7. Enter 7 view total combined time driven \
+                            \n 5. Enter 5 to view total combined miles driven for both drivers in all data. \
+                            \n 6. Enter 6 to view a range of n to k sorted example miles data. \
+                            \n 7. Enter 7 view total combined time driven. \
                             \n\n Please type your selection and push enter:  "))
 
 if __name__ == "__main__":

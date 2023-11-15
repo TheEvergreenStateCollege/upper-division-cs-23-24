@@ -7,10 +7,6 @@ from .DriverData import DriverToDriveData
 #     return HttpResponse("Hello, world. You're at the polls index.")
 
 # myapp/views.py
-from django.shortcuts import render
-from .models import DriverData
-from .DriverData import DriverToDriveData
-
 def index(request):
     # Initialize DriverToDriveData
     driver_data = DriverToDriveData()
