@@ -18,3 +18,15 @@
 4. run the following from upper-division-cs directory: `python3 dsa-23au/java-dsa/pswish-pipeline/DjangoPr/try2/pswishsite/manage.py runserver 0.0.0.0:8001`
 
 5. Once the server is running ignore the popup and navigate to Public IP viewable: http://18.144.90.119:8001/polls/
+
+
+## Files in this directory
+1. DjangoPr is my django project mentioned above.
+2. Homework_problems are problems from the reading assignments.
+3. python/ contains python files where most are run-able.
+    1. DriverData.py is described above.
+    2. NestedDicts.py is a demo of recursion using the data structure created in DriverData.
+    3. proof.py is more recursion but with the data hardcoded in for testing. 
+4. src is some Java code without a main function to do anything useful.
+
+### you can run any of the python files with >>> `python3 #filename`

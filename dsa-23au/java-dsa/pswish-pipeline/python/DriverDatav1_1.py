@@ -24,7 +24,7 @@ class DriverToDriveData:
                 cls.Line = [line for line in cls.file]
                 cls.Line2 = [line2 for line2 in cls.file2]
         except Exception as e:
-            print("fault at get_csv_file_data error ", e)
+            print("fault at get_csv_file_data, error is: ", e)
             
 
     def create_driver1_keys(cls):  # creates unique keys for driver 1 data construction
@@ -44,20 +44,22 @@ class DriverToDriveData:
                 cls.driver1keys.append(driver1Key) # driver1 key list
                 i+=1
         except Exception as e:
-            print(e)
+            print("Error in create_driver1_keys, check location of csv file. Error is: ", e)
 
     def create_driver2_keys(cls): # creates unique keys for driver 2 data construction
+        try:
+            lineLength2 = cls.Line2.__len__()
 
-        lineLength2 = cls.Line2.__len__()
+            cls.driver2Keys = []
+            j = 1
 
-        cls.driver2Keys = []
-        j = 1
-
-        while j < lineLength2:
-            cls.Line2list = cls.Line2[j].split(",")
-            driver2Key = (f"{cls.Line2list[1]}_{cls.Line2list[0]}_{cls.Line2list[6]}")
-            cls.driver2Keys.append(driver2Key)
-            j+=1
+            while j < lineLength2:
+                cls.Line2list = cls.Line2[j].split(",")
+                driver2Key = (f"{cls.Line2list[1]}_{cls.Line2list[0]}_{cls.Line2list[6]}")
+                cls.driver2Keys.append(driver2Key)
+                j+=1
+        except Exception as e:
+            print("Error in create_driver2_keys, check location of csv file. Error is: ", e )
 
     def add_list_to_dict_by_index(cls):  # Add the data for driver 1 to a dictionary
         cls.create_driver1_keys()
@@ -123,9 +125,11 @@ class DriverToDriveData:
             if selection == 1:  # get data by key and value entry
                 key = input("Please enter a key, example '9/29/2023_1807_Nathan': ")
                 print("Here are the available keys:", cls.Line[0].replace(",", ", "))
+                
                 value = input("please enter a value name, example 'Distance': ")
                 print("For key :", key)
                 print("The value is: ", value)
+                
                 compile = cls.DataStructure[key][value]
                 print(compile)
 
@@ -288,7 +292,7 @@ def main():
     Driver.operation_mode(input("""\nPlease select a mode of operation: \
                             \n 1. Enter 1 for data viewing by key. \
                             \n 2. Enter 2 to view available keys. \
-                            \n 3. Enter 3 to view a sample calculation \
+                            \n 3. Enter 3 to view a sample calculation. \
                             \n 4. Enter 4 to view all available data in readable format. \
                             \n 5. Enter 5 to view total combined miles driven for both drivers in all data. \
                             \n 6. Enter 6 to view a range of n to k sorted example miles data. \
