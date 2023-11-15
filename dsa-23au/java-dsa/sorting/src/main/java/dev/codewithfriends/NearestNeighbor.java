@@ -27,6 +27,7 @@ public class NearestNeighbor {
 
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
 
+        Point closest;
         // sort all the points in allPoints by their first coordinate
         // p.x[0]
         // Point[] sorted = App.insertionSort(allPoints);

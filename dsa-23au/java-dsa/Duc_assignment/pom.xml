@@ -4,11 +4,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.juniperGMVAD.app</groupId>
-  <artifactId>juniper-app</artifactId>
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>Duc_assignment</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>juniper-app</name>
+  <name>Duc_assignment</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -51,6 +51,18 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.2.2</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>com.mycompany.app.App</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
