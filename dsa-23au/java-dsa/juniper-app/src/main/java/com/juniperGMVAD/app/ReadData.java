@@ -21,17 +21,14 @@ public class ReadData
     String[] lines = inputString.split("\n");
 
     ArrayList<String> tokens = new ArrayList<String>();
-    boolean inQuotes = false;
 
-    //remove the quotes from the numbers in strings
-    //strip out commas, ascii to double
     for (String line : lines) 
     {
         int start = 0;
         for (int i = 0; i < line.length(); i++)
         {
 
-            if (line.charAt(i) == ',' && inQuotes == false)
+            if (line.charAt(i) == ',')
             {
                 tokens.add(line.substring(start, i));
 
