@@ -37,3 +37,22 @@ Time,Date,Elapsed,Orig,Dest,Detour enroute,Driver,Distance
 1640,10/24/2023,22 mins,Evergreen,Millersylvania,no,P,11 miles
 0745,10/26/2023,58 mins,Millersylvania,Evergreen,yes,P,11 miles
 1530,10/26/2023,111 mins,Evergreen,Gardiner,yes,P,86 miles
+1600,10/29/2023,140 mins,Gardiner,Millersylvania,yes,P,98 miles
+0730,10/30/2023,21 mins,Millersylvania,Evergreen,no,P,11 miles
+1930,10/30/2023,22 mins,Evergreen,Millersylvania,no,P,11 miles
+0730,10/31/2023,26 mins,Millersylvania,Evergreen,no,P,11 miles
+1515,10/31/2023,24 mins,Evergreen,Milersylvania,no,P,11 miles
+0700,11/02/2023,49 mins,Milersylvania,Evergreen,yes,P,11 miles
+1513,11/02/2023,118 mins,Evergreen,Gardiner,yes,P,86 miles
+1400,11/05/2023,140 mins,Gardiner,MIllersylvania,yes,P,98 miles
+0730,11/06/2023,21 mins,Millersylvania,Evergreen,no,P,11 miles
+1730,11/06/2023,22 mins,Evergreen,Millersylvania,no,P,11 miles
+0730,11/07/2023,21 mins,Millersylvania,Evergreen,no,P,11 miles
+1534,11/07/2023,24 mins,Evergreen,Millersylvania,no,P,11 miles
+0700,11/09/2023,47 mins,Millersylvania,Evergreen,yes,P,11 miles
+1500,11/09/2023,65 mins,Evergreen,Federal Way,no,P,46 Miles
+1400,11/12/2023,85 mins,Federal Way,Millersylvania,yes,P,46 miles
+0730,11/14/2023,22 mins,Millersylvania,Evergreen,no,P,11 miles
+1525,11/14/2023,21 Mins,Evergreen,Millersylvania,no,P,11 miles
+0900,11/15/2023,39 mins,Millersylvania,Olympia,yes,P,7 miles
+0900,11/16/2023,16 mins,Olympia,Evergreen,no,P,7 miles
