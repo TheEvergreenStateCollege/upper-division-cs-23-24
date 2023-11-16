@@ -3,11 +3,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class EvilHangman {
+public class FunHangman {
 
     public static final String dictionaryFile = "dictionary.txt";
     
-    //Show word count
+    //Show word count, is used to debug
     public static final boolean show_count = false;  
 
     public static void main(String[] args) throws FileNotFoundException{
@@ -33,7 +33,7 @@ public class EvilHangman {
         } 
         System.out.println();
         List<String> dictionaryList2 = Collections.unmodifiableList(theDictionary);
-        HangmanManager hangman = new HangmanManager(dictionaryList2,length,guessAmount);
+        HangmanLogic hangman = new HangmanLogic(dictionaryList2,length,guessAmount);
 
     }
     
