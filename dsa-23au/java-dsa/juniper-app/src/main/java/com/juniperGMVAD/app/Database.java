@@ -81,8 +81,11 @@ public class Database {
 
         for (int j = 0; j < topCountries.size(); j++)
         {
-            String cName = topCountries.get(j).
-            System.out.println(getMVA())
+            String[] x = topCountries.get(j).split(":");
+            String cName = x[0];
+          //  System.out.println(cName);
+          //  System.out.println(getMVAPerGMVA(cName, 2016));
+          //  System.out.println(getMVAPerGMVA(cName, 2022));
             System.out.println(topCountries.get(j));
 
 
@@ -112,7 +115,7 @@ public class Database {
     
                 return Double.compare(perc2, perc1);
             });
-            topPerYear = topPerYear.subList(0, Math.min(topPerYear.size(), 5));
+            topPerYear = topPerYear.subList(0, Math.min(topPerYear.size(), 10));
 
             for (int i = 0; i < topPerYear.size(); i++)
             {
