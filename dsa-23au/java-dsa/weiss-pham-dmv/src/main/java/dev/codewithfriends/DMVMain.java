@@ -1,5 +1,12 @@
 package dev.codewithfriends;
-import java.util.PriorityQueue;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class DMVMain {
@@ -7,17 +14,15 @@ public class DMVMain {
     List<Driver> drivers;
     List<Clerk> clerks;
     PriorityQueue<Appointment> appointments;
-    Queue<Driver> waitList; {
+    Queue<Driver> waitList; 
+    static Clerk firstClerk;
 
-        public DMVMain() {
-            this.drivers = new ArrayList<>();
-            this.clerks = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                this.clerks.add(new Clerk()); 
-            }
-            this.appointments = new PriorityQueue<>(Comparator.comparing(Appointment::getDate));
-            this.waitList = new LinkedList<>();
-        }
+    public DMVMain() {
+        drivers = new ArrayList<>();
+        clerks = new ArrayList<>();
+        appointments = new PriorityQueue<>();
+        clerks.add(new Clerk()); // add a first clerk
+    }
 
     public void addDriverWithAppointment(Driver driver, Appointment appointment) {
         drivers.add(driver);
@@ -38,7 +43,7 @@ public class DMVMain {
     
             // process with the first available clerk
             Clerk availableClerk = clerks.get(0); 
-            availableClerk.processDriver(driver, currentAppointment.getServiceType());  // Pass service type for processing
+            availableClerk.processDriver(driver);  // Pass service type for processing
     
             System.out.println("Processed appointment for driver: " + driver.getName());
         }
@@ -52,25 +57,57 @@ public class DMVMain {
             Clerk availableClerk = clerks.get(0); 
             availableClerk.processDriver(driver);
 
-            System.out.println("Processed driver from waitlist: " + driver.name);
+            System.out.println("Processed driver from waitlist: " + driver.getName());
         }
+    }
+
+    public Clerk getFirstClerk() {
+        return clerks.get(0);
+    }
+
+    public static int getMostFrequentAppointmentHour() {
+        return firstClerk.getMostFrequentAppointmentHour();
     }
 
     public static void main(String[] args) {
         DMVMain dmv = new DMVMain();
+        firstClerk = dmv.getFirstClerk();
+        InputStream is = ClassLoader.getSystemResourceAsStream("dmv-mock-data.csv");
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] tokens = line.split(",");
+                if (tokens.length == 0 || line.length() == 0) {
+                    continue;
+                }
+                    
+                try {
+                    String dateString = String.format("2023-11-13 %s", tokens[9]);
+                    String dateFormat = "yyyy-MM-dd HH:mm a";
+                    SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+                        Driver driver = new Driver(
+                        tokens[2] + tokens[3], sdf.parse(dateString));
+                    firstClerk.enqueueDriver(driver);
 
-        // Create drivers
-        Driver driver1 = new Driver("John Doe", "1234 Elm St", "D123456", new Date(), false);
-        Driver driver2 = new Driver("Jane Smith", "5678 Oak St", "D789012", new Date(), false);
+                } catch(ParseException pe) {
+                    // continue to next line
+                    System.err.println(pe.toString());
+                } catch(IndexOutOfBoundsException ioobe) {
+                    // that line did not have an appointment time                    
+                }
+            }
+        } catch(IOException ioe) {
+            System.err.println(ioe.toString());
+        }
 
-        // create appointments
-        Appointment appointment1 = new Appointment(new Date(), driver1, Appointment.ServiceType.LICENSE_RENEWAL);
+        if (args.length < 1) {
+            System.err.println("  Usage: <command> mostFreqHour");
+        }
 
-        // add drivers
-        dmv.addDriverWithAppointment(driver1, appointment1);
-        dmv.addDriverToWaitlist(driver2);
+        if (args[0].equals("mostFreqHour")) {
+            int hour = getMostFrequentAppointmentHour();
+            System.out.printf("  Most frequent appointment hour is %d\n", hour);
+        }
 
-        dmv.processAppointments();
-        dmv.processWaitList();
     }
 }

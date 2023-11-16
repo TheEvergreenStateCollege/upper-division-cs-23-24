@@ -7,7 +7,7 @@ public class CountryData {
     double gmva;
     double percentOfGMVA;
 
-    public CountryData(String name, int year, double mva, double gmva) 
+    public CountryData(int year, String name, double mva, double gmva) 
     {
         this.name = name;
         this.year = year;
