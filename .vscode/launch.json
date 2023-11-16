@@ -6,6 +6,7 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< Updated upstream
             "name": "AppleWatchDataApp",
             "request": "launch",
             "mainClass": "com.ActivityTor.app.AppleWatchDataApp",
@@ -24,6 +25,19 @@
             "request": "launch",
             "mainClass": "com.jon.app.Crime",
             "projectName": "jon-app"
+=======
+            "name": "ThreeWayMergeSort",
+            "request": "launch",
+            "mainClass": "com.pswishcorp.app.ThreeWayMergeSort",
+            "projectName": "pswish-pipeline"
+        },
+        {
+            "type": "java",
+            "name": "TowersOfHanoi",
+            "request": "launch",
+            "mainClass": "com.pswishcorp.app.TowersOfHanoi",
+            "projectName": "pswish-pipeline"
+>>>>>>> Stashed changes
         },
         {
             "type": "java",
