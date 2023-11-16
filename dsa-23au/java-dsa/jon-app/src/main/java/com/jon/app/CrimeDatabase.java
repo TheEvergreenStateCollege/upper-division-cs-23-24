@@ -80,6 +80,9 @@ public class CrimeDatabase {
             System.err.println("Usage: java CrimeDatabase <county> <year>");
             return;
         }
+        else {
+            System.err.println("Enter Correct Format");
+        }
 
         // Extract county and year from command-line arguments.
         String county = args[0];
