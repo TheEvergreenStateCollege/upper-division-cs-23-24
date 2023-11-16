@@ -24,8 +24,9 @@ public class AppTest
         denoms.add(10);
         denoms.add(25);
 
-        Map<Integer,Integer> memo = new HashMap<>();
-
-        assertEquals( 1, App.coinChangeRecursive(denoms,73, memo));
+        Map<App.Pair,Integer> memo = new HashMap<>();
+        System.out.println("Test");
+        assertEquals(7, App.coinChangeRecursive(denoms,73, memo));
+        assertEquals(20, App.coinChangeRecursive(denoms,500, memo));
     }
 }
