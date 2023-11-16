@@ -6,9 +6,6 @@ import java.util.*;
 public class FunHangman {
 
     public static final String dictionaryFile = "dictionary.txt";
-    
-    //Show word count, is used to debug
-    public static final boolean show_count = false;  
 
     public static void main(String[] args) throws FileNotFoundException{
         System.out.println("Welcome to Hangman!");
