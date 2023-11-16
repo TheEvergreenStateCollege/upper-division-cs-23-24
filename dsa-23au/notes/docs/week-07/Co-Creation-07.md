@@ -1,5 +1,7 @@
 # Co-Creation Week 7
-Hey, it'd be really, really cool if you would put assignments on canvas. It's frustrating to have to fish through github to try and find everything. I've been in and out of the hospital all week and didn't know that we had to submit a whole project into that hackathon. Not trying to be an ultra bitch but.. yeah. Thanks. Best wishes.
+Paul / Stella Co creation week 7
+Dear Abby:
+Paul is a Python wizard an he is very patient. He tried to help me with a weird error in my project, unfortunately the error was too weird. I may have picked up too much "white noise" when collecting my data and it might be causing issues. We'll find a workaround. Pauls project looks great.
 Add your responses below please.
 
 
