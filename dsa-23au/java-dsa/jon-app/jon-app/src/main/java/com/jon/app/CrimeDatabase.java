@@ -17,17 +17,51 @@ import org.jsoup.select.Elements;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class CrimeDatabase {
 
     // Assume CrimeDatabase class has a method to add crime data
-    public void addCrimeData(String[] tokens) {
+    public void addCrimeData(String[] header, String[] columns) {
         // Implement logic to add crime data to database
-        // may need to have a data structure to store the crime data
+        Map<String, Object> row = new HashMap<>();
+
+        for (int i = 0; i < header.length; i++) {
+            //convert value to appropriate types according to data type in that column
+            String columnName = header[i];
+            String columnValue = columns[i];
+        
+
+        if (isInteger(columnValue)) {
+            row.put(columnName, Integer.parseInt(columnValue));
+        }
+        else if (isFloat(columnValue)){
+            row.put(columnName, Float.parseFloat(columnValue));
+        }
+        else { row.put(columnName, columnValue); } 
+    }
+
+    
+    }
+    private static boolean isFloat(String columnValue) {
+        return false;
+    }
+    private static boolean isInteger(String columnValue) {
+        return false;
+    }
+
+       
         // For example, you might have a Crime class with fields like date, county, crimeType, etc.
         // Add logic here...
+    
+    
+    
+    private static void displayDataForCountyAndYear(CrimeDatabase cdd, String county, int year) {
+        // Implement logic to display data for the specified county and year
+        // You can use the 'cdd' instance to access the CrimeDatabase
+        // For example, might iterate over the stored crime data and filter based on county and year
+        // Add logic here...
     }
+
 
     public static void main(String[] args) {
         CrimeDatabase cdd = new CrimeDatabase();
@@ -39,7 +73,7 @@ public class CrimeDatabase {
                 if (tokens.length == 0 || line.length() == 0) {
                     continue;
                 }
-                cdd.addCrimeData(tokens); // Add crime data to your database
+                cdd.addCrimeData(tokens, tokens); // Add crime data to your database
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,10 +92,4 @@ public class CrimeDatabase {
         displayDataForCountyAndYear(cdd, county, year);
     }
 
-    private static void displayDataForCountyAndYear(CrimeDatabase cdd, String county, int year) {
-        // Implement logic to display data for the specified county and year
-        // You can use the 'cdd' instance to access the CrimeDatabase
-        // For example, might iterate over the stored crime data and filter based on county and year
-        // Add logic here...
-    }
 }
