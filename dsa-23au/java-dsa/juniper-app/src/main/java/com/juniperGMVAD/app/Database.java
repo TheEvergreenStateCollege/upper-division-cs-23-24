@@ -40,8 +40,6 @@ public class Database {
     public double getMVAPercentChange(String name, int firstYear, int lastYear) {
         if (data.get(name).containsKey(firstYear) && data.get(name).containsKey(lastYear))
         {
-            firstYear = 2016;
-            lastYear = 2022;
             CountryData dat1 = data.get(name).get(firstYear);
             CountryData dat2 = data.get(name).get(lastYear);
 

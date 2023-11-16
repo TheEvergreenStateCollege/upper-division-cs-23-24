@@ -2,7 +2,6 @@ package com.juniperGMVAD.app;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Hello world!
@@ -10,12 +9,15 @@ import java.util.ArrayList;
  */
 public class ReadData 
 {
+    private Database database;
+
+    public ReadData(Database database)
+    {
+        this.database = database;
+    }
     public void processData() 
     {
-    //taking the data from the CSV file and putting it into a hashmap
-    //Key is the name (+ year?) and the data is that countries MVA
-      //  Map<String, CountryData> countryDataMap = new HashMap<>();
-    Database database = new Database();
+    
     try (FileInputStream fis = new FileInputStream("dsa-23au/java-dsa/juniper-app/target/G20-GMVA.csv")) 
     {
     BufferedInputStream bis = new BufferedInputStream(fis);
