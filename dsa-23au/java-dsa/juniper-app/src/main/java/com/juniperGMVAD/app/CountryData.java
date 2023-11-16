@@ -16,6 +16,4 @@ public class CountryData {
 
         percentOfGMVA = (mva / gmva) * 100;
     }
-
-    
 }
