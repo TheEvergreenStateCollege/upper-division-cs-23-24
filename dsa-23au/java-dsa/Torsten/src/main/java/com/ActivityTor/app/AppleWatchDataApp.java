@@ -22,13 +22,20 @@ public class AppleWatchDataApp
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
             String line;
             int i = 0;
-    
+
+
+            boolean isHeaderSkipped = false;
             DataStorage watchData = new DataStorage(); // Initialize DataStorage
     
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split(",");
                 if (tokens.length == 0 || line.length() == 0) {
                     continue;
+                }
+
+                if (!isHeaderSkipped) {
+                    isHeaderSkipped = true;
+                    continue; // Skip the header line
                 }
     
                 try {
