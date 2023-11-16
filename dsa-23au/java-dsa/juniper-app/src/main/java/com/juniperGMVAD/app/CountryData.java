@@ -1,6 +1,7 @@
 package com.juniperGMVAD.app;
 
 public class CountryData {
+
     String name;
     int year;
     double mva;
