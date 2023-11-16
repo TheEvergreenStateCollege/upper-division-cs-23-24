@@ -18,17 +18,17 @@ def index(request):
     all_driver_data = DriverData.objects.all()
 
     # Perform any additional operations as needed
-    total_miles = calculate_total_miles(driver_data)
-    total_mins = calculate_total_mins(driver_data)
+    miles = calculate_total_miles(driver_data)
+    mins = calculate_total_mins(driver_data)
 
     # Save or retrieve data from DriverData model
     save_data_to_model(driver_data)
 
     # Prepare context for rendering the template
     context = {
-        'total_miles': total_miles,
+        'total_miles': miles,
         'driver_data': all_driver_data,
-        'total_mins' : total_mins,
+        'total_mins' : mins,
     }
 
     return render(request, 'myapp/index.html', context)
@@ -40,8 +40,8 @@ def calculate_total_miles(driver_data):
         compile = driver_data.DataStructure[key]["Distance"]
         x = int(compile.split()[0])
         total_miles += x
-
-    return total_miles
+    miles = f"{total_miles:,}"
+    return miles
 
 def calculate_total_mins(driver_data):
 
@@ -50,7 +50,10 @@ def calculate_total_mins(driver_data):
         compile = driver_data.DataStructure[key]["Elapsed"]
         x = int(compile.split()[0])
         total_mins += x
-    return total_mins
+    mins = f"{total_mins:,}"
+    hours = total_mins / 60
+    return mins 
+    
 
 
 

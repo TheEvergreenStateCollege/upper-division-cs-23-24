@@ -201,7 +201,7 @@ class DriverToDriveData:
                     x = int(compile.split()[0])
                     total_miles += x
                     print(i, compile)
-                print("Total combined miles: ", total_miles)
+                print(f"Total combined miles: {total_miles:,}")
             
             elif selection == 7:
                 total_time = 0
@@ -209,7 +209,7 @@ class DriverToDriveData:
                     compile = cls.DataStructure[key]["Elapsed"]
                     x = int(compile.split()[0])
                     total_time += x
-                print("Total combined minutes: ", total_time)
+                print(f"Total combined minutes: {total_time:,}")
                 return total_time
             else: 
                 print("Nothing to do")
