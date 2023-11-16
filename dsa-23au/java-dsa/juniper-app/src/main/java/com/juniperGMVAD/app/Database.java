@@ -50,7 +50,8 @@ public class Database {
         }
     }
 
-    public List<String> getTop5() {
+    public List<String> getTop5() 
+    {
         List<String> sortCountries = new ArrayList<String>();
 
         int firstYear = 2016;
@@ -88,5 +89,38 @@ public class Database {
         }
         return topCountries;
     }
+
+    public List<String> top5PerYear(int nYear)
+    {
+        List<String> topPerYear = new ArrayList<String>();
+        for (Map.Entry<String, HashMap<Integer, CountryData>> Entry : data.entrySet())
+        {
+            String newName = Entry.getKey();
+            double percCount = getMVAPerGMVA(newName, nYear);
+
+            if(!Double.isInfinite(percCount))
+            {
+                topPerYear.add(newName + ": " + percCount + "%");
+
+            }
+        }
+
+            Collections.sort(topPerYear, (s1, s2) ->
+            {
+                double perc1 = Double.parseDouble(s1.split(": ")[1].replace('%', ' '));
+                double perc2 = Double.parseDouble(s2.split(": ")[1].replace('%', ' '));
+    
+                return Double.compare(perc2, perc1);
+            });
+            topPerYear = topPerYear.subList(0, Math.min(topPerYear.size(), 5));
+
+            for (int i = 0; i < topPerYear.size(); i++)
+            {
+                System.out.println(topPerYear.get(i));
+    
+            }
+            return topPerYear;
+
+        }
 
 }

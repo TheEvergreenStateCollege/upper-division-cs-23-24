@@ -16,10 +16,10 @@ public class App
       //  System.out.println(args[0]);
      
        // if (args[0].equals("top5")) {
-           database.getTop5();
+       //    database.getTop5();
        // }
         
-
+        database.top5PerYear(2016);
     }
 
 }
