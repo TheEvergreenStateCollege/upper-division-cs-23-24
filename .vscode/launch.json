@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.juniperGMVAD.app.App",
+            "projectName": "juniper-app"
+        },
+        {
+            "type": "java",
             "name": "AppleWatchDataApp",
             "request": "launch",
             "mainClass": "com.ActivityTor.app.AppleWatchDataApp",
