@@ -9,15 +9,17 @@ public class App
 
     public static void main( String[] args )
     {
-
-        ReadData readData = new ReadData();
+        Database database = new Database();
+        ReadData readData = new ReadData(database);
         readData.processData();
 
-        System.out.println(args[0]);
-        Database newDatabase = new Database();
-        if (args[0].equals("top5")) {
-            newDatabase.getTop5();
-        }
+      //  System.out.println(args[0]);
+     
+       // if (args[0].equals("top5")) {
+           database.getTop5();
+       // }
+        
+
     }
 
 }

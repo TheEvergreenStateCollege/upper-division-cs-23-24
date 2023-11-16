@@ -14,7 +14,7 @@ public class CountryData {
         this.mva = mva;
         this.gmva = gmva;
 
-        percentOfGMVA = mva / gmva;
+        percentOfGMVA = (mva / gmva) * 100;
     }
 
     
