@@ -18,7 +18,7 @@ public class ReadData
     public void processData() 
     {
     
-    try (FileInputStream fis = new FileInputStream("/dsa-23au/java-dsa/juniper-app/target/G20-GMVA.csv")) 
+    try (FileInputStream fis = new FileInputStream("/workspace/upper-division-cs/dsa-23au/java-dsa/juniper-app/src/main/resources/G20-GMVA.csv")) 
     {
     BufferedInputStream bis = new BufferedInputStream(fis);
     byte[] buffer = bis.readAllBytes();

@@ -14,7 +14,7 @@ public class App
 
         switch (args[0]) {
             case "top5":
-                List<String> top5 = database.getTop5();
+                List<String> top5 = database.getTop(5, 2016, 2022);
                 System.out.println("Top 5 national GMVA change from 2016 to 2022");
 
                 int rank = 1;
@@ -28,7 +28,9 @@ public class App
                 break;
             case "default": 
                 System.out.println("Usage: [application] [top5 / gmva] [country name] [year]"); //TODO: make this legible and accurate
+            
         }
+            
     }
 }
 

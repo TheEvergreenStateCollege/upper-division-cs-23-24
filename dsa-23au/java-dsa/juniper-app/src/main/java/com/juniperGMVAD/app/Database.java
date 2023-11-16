@@ -50,12 +50,10 @@ public class Database {
         }
     }
 
-    public List<String> getTop5() 
+    public List<String> getTop(int top, int firstYear, int lastYear) 
     {
         List<String> sortCountries = new ArrayList<String>();
 
-        int firstYear = 2016;
-        int lastYear = 2022;
 
         for (Map.Entry<String, HashMap<Integer, CountryData>> Entry : data.entrySet())
         {
@@ -77,16 +75,16 @@ public class Database {
         });
 
         List<String>topCountries = new ArrayList<String>();
-        topCountries = sortCountries.subList(0, Math.min(sortCountries.size(), 5));
+        topCountries = sortCountries.subList(0, Math.min(sortCountries.size(), top));
 
         for (int j = 0; j < topCountries.size(); j++)
         {
             String[] x = topCountries.get(j).split(":");
             String cName = x[0];
-          //  System.out.println(cName);
-          //  System.out.println(getMVAPerGMVA(cName, 2016));
-          //  System.out.println(getMVAPerGMVA(cName, 2022));
-            System.out.println(topCountries.get(j));
+            System.out.println(cName);
+            System.out.println(firstYear + " percent: " + getMVAPerGMVA(cName, firstYear) + "%");
+            System.out.println(lastYear + " percent: " + getMVAPerGMVA(cName, lastYear) + "%");
+            System.out.println("Percent Change: " + x[1]);
 
 
         }
