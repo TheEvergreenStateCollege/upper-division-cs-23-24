@@ -76,7 +76,7 @@ class DriverToDriveData:
                 key = cls.driverKeys[i]
                 value = lines[i]
                 dict_1[key] = value
-                cls.DataStucture = dict_1  # set class wide data object
+                cls.DataStructure = dict_1  # set class wide data object
 
     def add_list_to_dict2_by_(cls): # Add the data for driver 2 to a dictionary
         cls.create_driver2_keys()
@@ -96,127 +96,23 @@ class DriverToDriveData:
                 key = cls.driver2Keys[i]
                 value = lines[i]
                 dict_2[key] = value
-                cls.DataStucture.update(dict_2)  # set class wide data object
+                cls.DataStructure.update(dict_2)  # set class wide data object
         
         for key2 in cls.driver2Keys:  # adds driver 2 keys to main driverkeys list
             cls.driverKeys.append(key2)
-
-    def pretty_print(cls):  # prints out the nested dictionary in an easy to read format
-        pp = pprint.PrettyPrinter(depth=4)
-        pp.pprint(cls.DataStucture)
-        pp.pprint(cls.driverKeys)
-
-        # Accessing the info
-        # with the key, and vlaue name, you can get the value of value
-        # ["9/29/2023_1807_Nathan"]["Distance"])
-
-    def operation_mode(cls, sel, *kwargs) -> int:  # Data manipulation operation
-        try:
+        
             cls.sorted_keys = sorted(cls.driverKeys)
             cls.driver1sorted = sorted(cls.driver1keys)
             cls.driver2sorted = sorted(cls.driver2Keys)
-            selection = int(sel)
 
-            if selection == 1:  # get data by key and value entry
-                key = input("Please enter a key, example '9/29/2023_1807_Nathan': ")
-                value = input("please enter a value name, example 'Distance': ")
-                print("For key :", key)
-                print("The value is: ", value)
-                compile = cls.DataStucture[key][value]
-                print(compile)
 
-            elif selection == 2:  # Prints all keys sorted and unsorted 
-                print("Being Unsorted:")
-                for keys in cls.driverKeys:
-                    print(keys) 
-                print("\n--*-- End unsorted --*\n")
-                
-                print("Begin sorted:\n")
-                i = 0
-                for s_key in cls.sorted_keys:
-                    print(i, s_key)
-                    i += 1
-                print("\n--*-- End Sorted --*--\n")
-            
-            elif selection == 3:  # prints example calculation for miles * cost per mile
-                x = int((cls.DataStucture['10/19/2023_0850_Paul']['Distance']).split()[0]) 
-                y = int((cls.DataStucture['10/19/2023_1700_Paul']['Distance']).split()[0])
-                num = ((x + y)*.16)  # miles * cost per mile
-                formatted_num = f'{num:.2f}'
-                
-                print('Distance in miles: ', x + y)
-                print("Total cost (miles * cost per mile($0.16)): $", formatted_num)
-
-            elif selection == 4:  # pretty prints all data
-                cls.pretty_print()
-
-            elif selection == 5:  # prints out total miles driven for both drivers
-                total_miles = 0
-                for key in cls.sorted_keys:
-                    compile = cls.DataStucture[key]["Distance"]
-
-                    x = int(compile.split()[0])
-                    # print(x)
-                    total_miles += x
-                print("Total combined miles: ", total_miles)
-
-            elif selection == 6:  # Choose 1, 2, both drivers for start and end data on distances
-                total_miles = 0
-                driver = input("For selection: enter 1 or 2, for driver 1, driver 2 or any other number for both drivers: ")
-                try: 
-                    inputDriver = int(driver)
-                except Exception as e:
-                    print ("error in input", e)
-                if inputDriver == 1:
-                    print(cls.driver1sorted)  # Prints out Driver1 keys to pick a range manually
-
-                    inputStart = input("Enter a start: ")
-                    inputStop =  input("Enter an end: ")
-                    start = cls.driver1sorted.index(inputStart)
-                    end = cls.driver1sorted.index(inputStop)
-                    select = cls.driver1sorted[start:end]
-    
-                elif inputDriver == 2:  # Prints out Driver2 keys to pick a range manually
-                    print(cls.driver2sorted)
-                    
-                    inputStart = input("Enter a start: ")
-                    inputStop =  input("Enter an end: ")
-                    start = cls.driver2sorted.index(inputStart)
-                    end = cls.driver2sorted.index(inputStop)
-                    select = cls.driver2sorted[start:end]
-                else:
-                    inputStart = input("Enter a start: ")
-                    inputStop =  input("Enter an end: ")
-                    start = cls.sorted_keys.index(inputStart)
-                    end = cls.sorted_keys.index(inputStop)
-                    select = cls.sorted_keys[start:end]
-
-                for i in select:  # Takes the selection data from above and calculates a hardcoded distance
-                    compile = cls.DataStucture[i]["Distance"]
-                    x = int(compile.split()[0])
-                    total_miles += x
-                    print(i, compile)
-                print("Total combined miles: ", total_miles)
-
-            else: 
-                print("Nothing to do")
-
-        except Exception as e:
-            print("Error in operation mode: ", e)
-        finally:
-            replay = input("Push enter to run another operation or type 'exit' to quit: ")
-
-            if replay == "exit".lower():  # replay the program main loop or type exit to quit
-                print("End of program...")
-            else: 
-                main()
-       
 
 def main():
     Driver = DriverToDriveData()
     Driver.get_csv_file_data()
     Driver.add_list_to_dict_by_index()
     Driver.add_list_to_dict2_by_()
-    Driver.operation_mode()
+    # Driver.operation_mode()
+
 if __name__ == "__main__":
     main()

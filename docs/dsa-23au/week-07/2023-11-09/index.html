@@ -1,0 +1,1874 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../2023-11-07/">
+      
+      
+        <link rel="next" href="../Assignments-07/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Week 7 - Day 21 - Data Structures & Algorithms</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-7-day-21" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Data Structures &amp; Algorithms" class="md-header__button md-logo" aria-label="Data Structures & Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Structures & Algorithms
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 7 - Day 21
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/theevergreenstatecollege/upper-division-cs/dsa-23au" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Data Structures &amp; Algorithms" class="md-nav__button md-logo" aria-label="Data Structures & Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Data Structures & Algorithms
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/theevergreenstatecollege/upper-division-cs/dsa-23au" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DSAFormat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Steppenwolfenstein: a Data Structures and Algorithms Format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FinalProject/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final Project and Independent Contract
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IntellijSetup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntellJ Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PeriodicTable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Periodic Table of DSA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SoftwareSetup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 01
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Week 01
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/2023-09-26-ctf-event/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CTF Event
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/2023-09-26/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 1 - Day 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/2023-09-28-Co-Creation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Knowledge Co-Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/2023-09-28/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 1 - Day 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/asymptotic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Asymptotic Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-01/chapter_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 01
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 02
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Week 02
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/2023-10-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 2 - Day 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/2023-10-03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 2 - Day 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/2023-10-05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 2 - Day 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/Co-Creation-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Co-Creation Week 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/Readings-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 02 Readings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-02/Week02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 03
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Week 03
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-03/2023-10-09/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 3 - Day 6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-03/2023-10-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-03/2023-10-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 3 - Day 8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-03/Readings-03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 03 Readings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 04
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Week 04
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-04/2023-10-16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 4 - Day 9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-04/2023-10-19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 4 - Day 11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-04/Assignment-04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assignment and Co-Creation Week 04
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-04/Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final Project Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-04/Readings-04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Readings 04
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 05
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Week 05
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-05/2023-10-22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 05
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-05/2023-10-26/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 5 - Day 14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-05/Assignment-05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assignment Week 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-05/Readings-05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Readings Week 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-05/Week5Co-Creation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 5 Co-Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 06
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Week 06
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-06/2023-10-30/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 6 - Day 15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-06/2023-11-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 6 - Day 17
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 07
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Week 07
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-11-06/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 7 - Day 18
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-11-07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 7 - Day 20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Week 7 - Day 21
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Week 7 - Day 21
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#morning-session" class="md-nav__link">
+    Morning Session
+  </a>
+  
+    <nav class="md-nav" aria-label="Morning Session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hackathon-schedule" class="md-nav__link">
+    Hackathon Schedule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-vs-iterative-and-dynamic-programming-review" class="md-nav__link">
+    Recursive vs. Iterative, and Dynamic Programming Review
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursive vs. Iterative, and Dynamic Programming Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mental-preparation-power-set" class="md-nav__link">
+    Mental Preparation: Power Set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-preparation" class="md-nav__link">
+    Physical Preparation:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-solution" class="md-nav__link">
+    Recursive Solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afternoon-session" class="md-nav__link">
+    Afternoon Session
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assignments-07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assignment 07
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Co-Creation-07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Co-Creation Week 7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Readings-07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Readings Week 07
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 08
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Week 08
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-08/chapter_8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8: Parallel---Distributed---Quantum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 09
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Week 09
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-09/chapter_9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9: Outro---Five Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#morning-session" class="md-nav__link">
+    Morning Session
+  </a>
+  
+    <nav class="md-nav" aria-label="Morning Session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hackathon-schedule" class="md-nav__link">
+    Hackathon Schedule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-vs-iterative-and-dynamic-programming-review" class="md-nav__link">
+    Recursive vs. Iterative, and Dynamic Programming Review
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursive vs. Iterative, and Dynamic Programming Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mental-preparation-power-set" class="md-nav__link">
+    Mental Preparation: Power Set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-preparation" class="md-nav__link">
+    Physical Preparation:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-solution" class="md-nav__link">
+    Recursive Solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afternoon-session" class="md-nav__link">
+    Afternoon Session
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="week-7-day-21">Week 7 - Day 21</h1>
+<p>8 Nov 2023 - Thursday</p>
+<h2 id="morning-session">Morning Session</h2>
+<h3 id="hackathon-schedule">Hackathon Schedule</h3>
+<p>Register for individual events</p>
+<p>There is not an official build component to this hack week, so we will make our own.
+Your goal is to </p>
+<h3 id="recursive-vs-iterative-and-dynamic-programming-review">Recursive vs. Iterative, and Dynamic Programming Review</h3>
+<p>This is based upon <a href="https://chat.openai.com/share/e4c02f56-658c-4430-ba77-d26c9ea055a7">this conversation with ChatGPT</a>.</p>
+<p>The "Coin Change Problem" is to count the number of ways to make a certain amount of cents,
+using a set of coin denominations.</p>
+<p>Formally, the problem for U.S. cents is:</p>
+<ul>
+<li>Given coins = [1,5,10,25]</li>
+<li>And an <code>amount</code> &gt;= 0 in cents</li>
+<li>Return a way to make the <code>amount</code> cents with the fewest number of coins.</li>
+</ul>
+<p>(The solution could be <em>degenerate</em>, which is a mathematical way of saying there could be more than one).</p>
+<p>If you've had to work a cash register before the age of swiping cards, Apple Pay, or cryptocurrencies,
+you may be able to see that the solution is (probably)</p>
+<pre><code>{25, 25, 10, 10, 1, 1, 1}
+</code></pre>
+<p>according to my human brain, or the 7 coins consisting of</p>
+<ul>
+<li>two quarters</li>
+<li>two dimes</li>
+<li>three pennies</li>
+</ul>
+<p>As for what a human brain is actually doing, whether it's dynamic programming or not,
+is a question for another time.</p>
+<p>Well, hold on. How do we know we can't use a nickel and eliminate those pennies?
+If we can't improve our change with one nickel, how about two nickels?
+As you can see, there are a dizzying number of combinations to consider if we go about it
+in this way, which is a good sign that we've stumbled upon the brute force solution.</p>
+<p>We are going to solve this problem in both a <em>recursive</em> way
+and an <em>iterative</em> way, but they are equivalent.</p>
+<p>The <em>iterative</em> way is often more complicated to express but more efficient,
+especially if you are
+using a language that doesn't support <em>tail recursion</em>, the ability
+to call a function and return its value in place of the current function call.</p>
+<p>That's because in the <em>recursive</em> case, the programming language,
+its calling convention, and the call stack (determined by its <code>Standard Library</code>)
+is doing extra work so that you can express your program in a concise way,
+and in the iterative case, you have to do this calling convention work yourself.</p>
+<h4 id="mental-preparation-power-set">Mental Preparation: Power Set</h4>
+<p>To gird up our mental joints, let's consider a form of a brute force solution.
+If we want to make the best change possible, we want to consider a set of all combinations
+of coins from our denomination, or a set of sets.</p>
+<p>One such set of sets which in general is quite large, is called the Power Set.
+It is equivalent to <em>enumerating</em> the sets in an ordered way,
+for example first:</p>
+<ul>
+<li>Including the penny</li>
+<li>Not including the penny</li>
+</ul>
+<p>And then</p>
+<ul>
+<li>Including the nickel</li>
+<li>Not including the nickel</li>
+</ul>
+<p>Continuing in this way, we see we have two choices for each denomination,
+leading to 2^4 = 16 combinations.</p>
+<p>In general, for <code>n</code> denominations, its power set has <code>2^n</code> sets in it.</p>
+<p>You can also see this because the choice to include or not include can be
+encoded as a bit <code>0</code> or <code>1</code>, and each set can be encoded as <code>n</code>-bit string,
+where the <code>0</code> means the denomination for that position was <em>not</em> chosen,
+and <code>1</code> means it was.</p>
+<p>This is the encoding for choosing 1 penny, 1 nickel, and 1 quarter,
+with the penny in the left-most bit, and the quarter in the right-most bit.</p>
+<pre><code>1101
+</code></pre>
+<p>Well, looping over 16 combinations doesn't seem like a big deal,
+but you may have noticed that none of these 16 actually adds up to 73 cents
+simply because we don't allow repetitions! It doesn't allow for choosing
+multiple coins of the same denomination (3 pennies for example).</p>
+<p>Well, how about now instead of binary strings, with only <code>0</code> and <code>1</code>,
+we now allow any non-negative number. Here's the encoding of our answer
+above, 3 pennies, 2 dimes, 2 quarters.</p>
+<pre><code>3022
+</code></pre>
+<p>To get there, we would now have to search through <code>4 * 4 * 4 * 4</code>
+possibilities, because each denomination can have <code>0</code> chosen.
+(If you've been programming as hard as you've been for the past
+several weeks, you're used to things being off-by-one and beginning at zero
+here in cyberia.)</p>
+<p>Searching through 256 choices is also feasible, if we stop when the
+amount is greater than 73. Our enumeration might look like:</p>
+<pre><code>0000
+0001
+0002
+0010
+0011
+0012
+0020
+0021
+0022
+...
+</code></pre>
+<p>It's an exercise left to you to design a <em>canonical</em> enumeration,
+one that is regular enough you could write a program to do it.
+You're probably convinced it could be done, and it would take
+more steps than enumerating just bit strings.</p>
+<p>Well, let's say you are in charge of programming the
+change maker in a coin-operated vending machine, or a toll booth.
+Or your change-making machine now is selling in a country
+with different denominations (<a href="https://en.wikipedia.org/wiki/Coins_of_the_pound_sterling#Denominations">Pre-decimal British coins anyone?</a>)</p>
+<p>Or you're in charge of supplying your company or army and
+have to choose between multiple provisions costing different amounts,
+taking up different amounts of space, and having different importances.
+(This is actually the knapsack problem, which in one version is
+solvable with dynamic programming, and in another version, is NP-complete
+and among the hardest problems we know how to solve exactly.
+If you're curious, try having a conversation with GPT about it.)</p>
+<p>You would like to come up with a general solution,
+and for more than just 73 cents, and it's possible
+you could enumerate each coin to infinity.</p>
+<p>It turns out, you might consider a kind of "meta-enumeration",
+where you not only choose coins from each denomination,
+but you also choose subsets of the denomination.</p>
+<h4 id="physical-preparation">Physical Preparation:</h4>
+<p>Open up Gitpod on the main branch to a fresh workspace in the <code>dynamic-programming</code>
+project.</p>
+<p><a href="https://gitpod.io/#https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main?folder=/workspace/upper-division-cs/dsa-23au/java-dsa/dynamic-programming"><img alt="Open in Gitpod" src="https://gitpod.io/button/open-in-gitpod.png" /></a></p>
+<p>Open the file <code>src/main/java/dev/codewithfriends/ChangeMakers.java</code></p>
+<h4 id="recursive-solution">Recursive Solution</h4>
+<p>This is also called a top-down solution because we start with the table entry that we want
+and work backwards to a base case, using recursive calls to the inductive case.</p>
+<p>As with all recursive approaches, this has a base case and an inductive case.</p>
+<p>The final table value is the answer we want:</p>
+<ul>
+<li>Answer = memo[(5, 73)]</li>
+</ul>
+<p>Meaning we want to count the number of ways to make change for 73 cents using 5 denominations.
+The reason the memo has a two-dimensional index instead of just a one-dimensional index
+(the amount of change left to make) so that we can pose the recursive calls for the inductive
+case in two ways at each level, which is, to include the last coin, or not to include the last coin.</p>
+<pre><code>* memo[(5,73)] = memo[(5, 73-25 = 48)] + memo[(4, 73)] // include a quarter or not
+</code></pre>
+<p>Each of these calls themselves can be broken up into including the last coin, or not including it.</p>
+<pre><code>* memo[(5,48)] = memo[(5, 48-25 = 23)] + memo[(4, 48)]
+* memo[(4,73)] = memo[(4, 73-10 = 63)] + memo[(3, 73)]
+</code></pre>
+<p>This doesn't seem like an improvement so far, but eventually you will get down to</p>
+<pre><code>* memo[(1,x)] = x // it takes x pennies to make x cents
+* memo[(0,x)] = Inf // it would take an infinite amount of no coins to make any amount
+</code></pre>
+<h2 id="afternoon-session">Afternoon Session</h2>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

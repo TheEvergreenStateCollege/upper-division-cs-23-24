@@ -176,3 +176,23 @@ yourself, talking to Changemakers classmates, or reading past co-creations.
 * [Co-Creation 2](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/notes/docs/week-02/Co-Creation-02.md)
 * [Co-Creation 4](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/notes/docs/week-04/Projects.md)
 * [Co-Creation 5](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/notes/docs/week-05/Week5Co-Creation.md)
+
+## Rubric
+
+This criterion is linked to a Learning Outcome Co-Creation
+
+| Criterion | Points |
+|-----------|--------|
+| 5 sentences added to Co-Creation-07.md                 |  5 |
+| 5. Final Project main method                           |  5 |
+| 5. Final Project Code Review                           |  5 |
+| 4. CSV Data Entered up to 1000 lines                   |  5 |
+| 1. Hackathon Event notes entered in Co-Creation-07.md  | 10 |
+| 2. improve the codebase - code                         | 15 |
+| 2. improve the codebase - documentation                |  5 |
+| 3. practice pair programming                           | 15 |
+| Readings CCI - 6 problems                              | 12 |
+| Readings - Articles, add response to Co-Creation-07.md |  5 |
+| Readings - Skiena - 2 problems                         | 12 |
+| 5. final project - unit test                           |  6 |
+| Total                                                  | 100 |
