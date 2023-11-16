@@ -14,7 +14,20 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
  
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class CrimeDatabase {
+
+    // Assume CrimeDatabase class has a method to add crime data
+    public void addCrimeData(String[] tokens) {
+        // Implement logic to add crime data to database
+        // may need to have a data structure to store the crime data
+        // For example, you might have a Crime class with fields like date, county, crimeType, etc.
+        // Add logic here...
+    }
 
     public static void main(String[] args) {
         CrimeDatabase cdd = new CrimeDatabase();
@@ -26,6 +39,7 @@ public class CrimeDatabase {
                 if (tokens.length == 0 || line.length() == 0) {
                     continue;
                 }
+                cdd.addCrimeData(tokens); // Add crime data to your database
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -36,17 +50,18 @@ public class CrimeDatabase {
             return;
         }
 
-        // Extract county and year from command-line arguments. 
+        // Extract county and year from command-line arguments.
         String county = args[0];
-        int year = Integer.parseInt(args[1]);   //FIXME??
+        int year = Integer.parseInt(args[1]);
 
         // Display data for the specified county and year
         displayDataForCountyAndYear(cdd, county, year);
     }
 
-    private static void displayDataForCountyAndYear(CrimeDatabase cdd, String county, int year) { //FIXME
-        // Implement your logic to display data for the specified county and year
+    private static void displayDataForCountyAndYear(CrimeDatabase cdd, String county, int year) {
+        // Implement logic to display data for the specified county and year
         // You can use the 'cdd' instance to access the CrimeDatabase
-        // Add your logic here...
+        // For example, might iterate over the stored crime data and filter based on county and year
+        // Add logic here...
     }
 }
