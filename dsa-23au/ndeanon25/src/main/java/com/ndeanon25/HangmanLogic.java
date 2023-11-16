@@ -1,5 +1,10 @@
 package com.ndeanon25;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class HangmanLogic {
     private Set<String> wordList;
@@ -12,6 +17,7 @@ public class HangmanLogic {
      * @param length = the legnth of the word
      * @param guessAmount = the guess amount the user chooses
      */
+
     public HangmanLogic(List<String> dictionary, int length, int guessAmount){
         remainingGuesses = guessAmount;
         guesses = new TreeSet<Character>();
@@ -47,10 +53,12 @@ public class HangmanLogic {
         return pattern(wordList.iterator().next());
     }
     /**
-     * 
-     * @param guess
-     * @return
+     * This method will record the user's guess and return a String representation of the word with the guessed char.
+     * Based on the guessed char, it will choose the next wordlist and then keep doing that every guess. 
+     * @param guess is the character that the user has guessed.
+     * @return the number of occurrences of the guessed letter in the new pattern and will update the remaining guesses.
      */
+
     public int record(char guess){
         if(wordList.isEmpty() || remainingGuesses == 0)
             throw new IllegalStateException();   // this throws an IllegalStateException since the game is over and no more guesses are allowed
@@ -70,29 +78,61 @@ public class HangmanLogic {
 
     /**
      * This method counts the occurrences of a specific character in a given String. It scans each character in the String and increments matches whenever
-     * it finds a character that matches the provide char guess. It will return matches
-     * @param pattern 
-     * @param guess
-     * @return
+     * it finds a character that matches the provide char guess. 
+     * @param pattern String representation of the wordList
+     * @param guess character that the user has guessed.
+     * @return the number of occurrences of the guessed letter within the pattern.
      */
+
     private int numOfwords(String pattern, char guess) {
         int matches = 0;
         for(int i = 0; i < pattern.length(); i++){
-            if(pattern.charAt(i) == guesses())
+            char j = pattern.charAt(i);
+            if( j == guess)
                 matches++;
         }
         return matches;
     }
 
-    //This method is used to update the wordList and categorizes words based on their letter pattern. 
-    private void afterGuessList(Map<String,Set<String>> wordChoices){
-
+    /**
+     * This method is used to update the wordList and categorizes words based on their letter pattern.
+     * @param similarWords HashMap of patterns and the sets of words in the wordList.
+     * Patterns represent the known and unknown letters of the wordList.
+     * 
+     */
+    private void afterGuessList(Map<String,Set<String>> similarWords){
+        for(String word: wordList){
+            String currentPattern = pattern(word);
+            if(!similarWords.containsKey(currentPattern))
+                similarWords.put(currentPattern, new TreeSet<String>());
+            similarWords.get(currentPattern).add(word);
+        }
+        wordList = similarWords.get(getLargestKey(similarWords));
+    }
+    
+    /**
+     * 
+     * @param similarWords
+     * @return
+     */
+    private String getLargestKey(Map<String, Set<String>> similarWords) {
+        int maxLength = 0;
+        String maxKey = "";
+        for(String key: similarWords.keySet()){
+            if(similarWords.get(key).size() > maxLength){
+                maxLength = similarWords.get(key).size();
+                maxKey = key;
+            }
+        }
+        return maxKey;
     }
 
-//returns a string of a given word with the unknown char
-    //The chars that have not been guessed are replaced with dashes
-    // @param word = desired String to be changed
-    // @param String = pattern created from given word
+    /**
+     * The chars that have not been guessed are replaced with dashes
+     * @param word desired String to be changed
+     * @return a string of a given word with the unknown char
+     */
+
     private String pattern(String word){
         String builder = "";
         for(int i = 0; i < word.length();i++){
