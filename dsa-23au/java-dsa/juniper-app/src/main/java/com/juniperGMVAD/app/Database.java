@@ -78,8 +78,14 @@ public class Database {
         List<String>topCountries = new ArrayList<String>();
         topCountries = sortCountries.subList(0, Math.min(sortCountries.size(), 5));
 
-        
-        System.out.println(Arrays.toString(topCountries.toArray()));
+        for (int j = 0; j < topCountries.size(); j++)
+        {
+            String cName = topCountries.get(j).
+            System.out.println(getMVA())
+            System.out.println(topCountries.get(j));
+
+
+        }
         return topCountries;
     }
 
