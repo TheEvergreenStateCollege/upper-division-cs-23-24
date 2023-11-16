@@ -11,16 +11,27 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class AppleWatchDataApp 
-{
-    InputStream is = ClassLoader.getSystemResourceAsStream("AppleWatchData_mydata.csv");{
+{    
+
+     public static void main( String[] args )
+    {
+
+        // Provide the path to your CSV file
+       String csvFilePath = "AppleWatchData_myData.csv";
+
+       // InputStream is = ClassLoader.getSystemResourceAsStream("/AppleWatchData_myData.csv");
+       InputStream is = AppleWatchDataApp.class.getClassLoader().getResourceAsStream(csvFilePath);
+      // System.out.printf(" is null? %b \n", is == null);
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
             String line;
+            int i = 0;
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split(",");
                 if (tokens.length == 0 || line.length() == 0) {
                     continue;
                 }
-                    
+                System.out.printf(" Line %d -%s\n", i, line);
+                i += 1;    
                 try {
                     String dateString = String.format("2023-11-13 %s", tokens[9]);
                     String dateFormat = "yyyy-MM-dd HH:mm a";
@@ -34,24 +45,8 @@ public class AppleWatchDataApp
         } catch(IOException ioe) {
             System.err.println(ioe.toString());
         }
-    
-       /*  if (args.length < 1) {
-            System.err.println("  Usage: <command> mostFreqHour");
-        }
 
-        if (args[0].equals("mostFreqHour")) {
-            int hour = getMostFrequentAppointmentHour();
-            System.out.printf("  Most frequent appointment hour is %d\n", hour);
-        }
-*/
-    }
-
-     public static void main( String[] args )
-    {
-
-        // Provide the path to your CSV file
-       String csvFilePath = "AppleWatchData_myData.csv";
-       
+/*
         DataReader dataReader = new DataReader(csvFilePath);
         List<String[]> csvData = dataReader.readCSVData();
 
@@ -61,6 +56,7 @@ public class AppleWatchDataApp
 
          // Print the data after processing
            watchData.printAllData();
+ */       
 
     }
     
