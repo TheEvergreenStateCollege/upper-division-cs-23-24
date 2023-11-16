@@ -8,10 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-import org.jsoup.*;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+ 
 
  
 import java.io.*;
@@ -65,7 +62,7 @@ public class CrimeDatabase {
 
     public static void main(String[] args) {
         CrimeDatabase cdd = new CrimeDatabase();
-        InputStream is = ClassLoader.getSystemResourceAsStream("Crime.csv");
+        InputStream is = CrimeDatabase.class.getClassLoader().getResourceAsStream("Crime.csv");
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
             String line;
             while ((line = br.readLine()) != null) {
