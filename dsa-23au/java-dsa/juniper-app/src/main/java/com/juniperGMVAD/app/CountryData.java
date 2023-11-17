@@ -1,12 +1,19 @@
 package com.juniperGMVAD.app;
 
 public class CountryData {
-    String name; 
-    double MVA
+    String name;
+    int year;
+    double mva;
+    double gmva;
+    double percentOfGMVA;
 
-    public CountryData(String name) 
+    public CountryData(int year, String name, double mva, double gmva) 
     {
         this.name = name;
+        this.year = year;
+        this.mva = mva;
+        this.gmva = gmva;
+
+        percentOfGMVA = (mva / gmva) * 100;
     }
-    
 }

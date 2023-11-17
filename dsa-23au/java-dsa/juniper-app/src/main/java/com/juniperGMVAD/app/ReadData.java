@@ -7,40 +7,47 @@ import java.io.IOException;
  * Hello world!
  *
  */
-public class ReadData
+public class ReadData 
 {
+    private Database database;
 
-    
-    public class CSVReader {
-        //taking the data from the CSV file and putting it into a hashmap
-        //Key is the name (+ year?) and the data is that countries MVA
-            Map<String, CountryData> countryDataMap = new HashMap<>();
-            
-            try (FileInputStream fis = new FileInputStream("G20-GMVA.csv")) {
-                BufferedInputStream bis = new BufferedInputStream(fis);
-                byte[] buffer = bis.readAllBytes();
-                String inputString = new String(buffer);
-                String[] lines = inputString.split("\n");
-    
-                for (String line : lines) {
-                    String[] tokens = line.split(",");
-                    if (tokens.length == 0 || line.length() == 0) {
-                        continue;
-                    }
-    
-                    CountryData countryData = new CountryData(tokens[0], tokens[1], );
-    
-                 
-                    countryDataMap.put(countryData.getName(), countryData);
-                }
-            } catch (IOException ioe) {
-                System.err.println(ioe.toString());
-            }
-    
-           
-
-            for (Map.Entry<String, CountryData> entry : countryDataMap.entrySet()) {
-                System.out.println("Country: " + entry.getKey() + ", Data: " + entry.getValue());
-            }
+    public ReadData(Database database)
+    {
+        this.database = database;
     }
-}  
+    public void processData() 
+    {
+    
+    try (FileInputStream fis = new FileInputStream("/workspace/upper-division-cs/dsa-23au/java-dsa/juniper-app/src/main/resources/G20-GMVA.csv")) 
+    {
+    BufferedInputStream bis = new BufferedInputStream(fis);
+    byte[] buffer = bis.readAllBytes();
+    String inputString = new String(buffer);
+    String[] lines = inputString.split("\n");
+
+
+
+    for (int i = 1; i < lines.length; i++) 
+    {
+        String[] tokens = lines[i].split(",");
+        
+        int year = Integer.parseInt(tokens[0].trim());
+        String name = tokens[1].trim();
+        double mva = Double.parseDouble(tokens[2].trim());
+        double gmva = Double.parseDouble(tokens[3].trim());
+        
+        database.addCountryData(year, name, mva, gmva);
+
+
+    }
+
+    }
+
+    catch(IOException ioe) 
+    {
+        System.err.println(ioe.toString());
+    }
+
+    }
+}
+

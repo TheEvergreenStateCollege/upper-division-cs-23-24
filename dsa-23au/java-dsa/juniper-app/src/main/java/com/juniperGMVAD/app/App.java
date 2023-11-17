@@ -6,24 +6,33 @@ import java.util.List;
  */
 public class App 
 {
-
-    public static void main( String[] args )
+    public static void main(String[] args)
     {
-        System.out.println(args[0]);
+        Database database = new Database();
+        ReadData readData = new ReadData(database);
+        readData.processData();
 
-        if (args[0].equals("top5mva")) {
-            calculateTopMVA();
-        } else if (args[0].equals("retrieve")) {
-            retrieveTopCountries();
+        switch (args[0]) {
+            case "top5":
+                List<String> top5 = database.getTop(5, 2016, 2022);
+                System.out.println("Top 5 national GMVA change from 2016 to 2022");
+
+                int rank = 1;
+                for (String s : top5) {
+                    System.out.printf("%n. %s\n", rank, s);
+                    rank += 1;
+                }
+
+                break;
+            case "gmva":
+                break;
+            case "default": 
+                System.out.println("Usage: [application] [top5 / gmva] [country name] [year]"); //TODO: make this legible and accurate
+            
         }
+            
     }
-
-    public static List<CountryData> calculateTopMVA ()
-    {
-
-    }
-
- }
+}
 
 
 
@@ -35,15 +44,4 @@ public class App
 
 
 
-/*
-Consider complextiy & big O shit
--Calculate the percent value of gmva
--Create a maxheap of the countries by gmva
-	->first in first out?
--take top 5 countries and put them into a hashmap
--do same with 5 bottom
--create something that represents the change in the top 5 countries and bottom 5 countries
--Compare this change in the top 5 countries for wages and bottom 5 and top 5 countries for interest rate and bottom 5
--What countries had the greatest increase? Decrease?
-*\
 
