@@ -12,11 +12,14 @@ public class HangmanLogic {
     private int remainingGuesses;
 
     /**
-     * 
-     * @param dictionary = the list of possible words of all lengths
-     * @param length = the legnth of the word
-     * @param guessAmount = the guess amount the user chooses
-     */
+    * Initializes the Hangman game logic with a given dictionary of words, word length, and guess amount.
+    * This constructor initializes the Hangman game logic by setting the remaining number of guesses,
+    * creating an empty set to store guessed characters, and filtering the provided dictionary to
+    * include only words of a specified length.
+    * @param dictionary    A list of words to be used as the dictionary for the Hangman game.
+    * @param length        The desired length of the secret word to be guessed in the game.
+    * @param guessAmount   The total number of incorrect guesses allowed in the game.
+    */
 
     public HangmanLogic(List<String> dictionary, int length, int guessAmount){
         remainingGuesses = guessAmount;
@@ -77,7 +80,8 @@ public class HangmanLogic {
     }
 
     /**
-     * This method counts the occurrences of a specific character in a given String. It scans each character in the String and increments matches whenever
+     * This method counts the occurrences of a specific character in a given String. 
+     * It scans each character in the String and increments matches whenever
      * it finds a character that matches the provide char guess. 
      * @param pattern String representation of the wordList
      * @param guess character that the user has guessed.
@@ -86,6 +90,7 @@ public class HangmanLogic {
 
     private int numOfwords(String pattern, char guess) {
         int matches = 0;
+        
         for(int i = 0; i < pattern.length(); i++){
             char j = pattern.charAt(i);
             if( j == guess)
@@ -100,6 +105,7 @@ public class HangmanLogic {
      * Patterns represent the known and unknown letters of the wordList.
      * 
      */
+
     private void afterGuessList(Map<String,Set<String>> similarWords){
         for(String word: wordList){
             String currentPattern = pattern(word);
@@ -111,13 +117,20 @@ public class HangmanLogic {
     }
     
     /**
-     * 
-     * @param similarWords
-     * @return
-     */
+    * Finds and returns the key associated with the largest set of similar words in the input map.
+    * This method iterates through the keys of the input map, where each key corresponds to a category or group
+    * of similar words, and the associated value is a set of strings representing those similar words.
+    * It determines the key that corresponds to the set with the maximum number of elements (i.e., the largest set).
+    * @param similarWords Map where keys are category labels and values are sets of similar words.
+    * @return The key (category label) associated with the largest set of similar words.
+    *         If the input map is empty, an empty string is returned.
+    *         If all sets in the input map are empty, the key of the first entry encountered is returned.
+    */
+
     private String getLargestKey(Map<String, Set<String>> similarWords) {
         int maxLength = 0;
         String maxKey = "";
+        
         for(String key: similarWords.keySet()){
             if(similarWords.get(key).size() > maxLength){
                 maxLength = similarWords.get(key).size();
@@ -135,6 +148,7 @@ public class HangmanLogic {
 
     private String pattern(String word){
         String builder = "";
+        
         for(int i = 0; i < word.length();i++){
             if(guesses.contains(word.charAt(i)))
                 builder += word.substring(i, i+1);
