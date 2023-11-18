@@ -17,13 +17,13 @@ public class ArrayWrapper<T> implements List<T> {
     
     
     @Override
-    // Returns the current size when called
+   
     public int size() {
         return currentSize;
     }
 
     @Override
-    // Returns boolean if empty
+  
     public boolean isEmpty() {
         if (currentSize == 0) {
             return true;
@@ -50,7 +50,6 @@ public class ArrayWrapper<T> implements List<T> {
 
     @Override
     public Object[] toArray() {
-        // implementation from https://bard.google.com/chat/eea8cb83d404423a
         Object[] dest = new Object[size()];
 
         for (int i = 0; i < dest.length; i++) {
@@ -63,7 +62,6 @@ public class ArrayWrapper<T> implements List<T> {
     @Override
     public <T1> T1[] toArray(T1[] dest) {
 
-        // Copy elements to the destination array
         int size = Math.min(size(), dest.length);
         try {
             for (int i = 0; i < size; i++) {
@@ -73,7 +71,6 @@ public class ArrayWrapper<T> implements List<T> {
             return null;
         }
 
-        // If the destination array is too small, create a new array of the appropriate size
         if (size < dest.length) {
             return Arrays.copyOf(dest, size);
         }
@@ -83,7 +80,6 @@ public class ArrayWrapper<T> implements List<T> {
 
     @Override
     public boolean add(T o) {
-        // check to ensure array has enough space, resize (2x previous max size) if not
         if (currentSize >= (maxSize / 2)) {
             T[] resized = (T[])new Object[maxSize * 2];
             for (int i = 0; i < currentSize; i++){
@@ -94,7 +90,6 @@ public class ArrayWrapper<T> implements List<T> {
             _array = resized;
         }
 
-        // add element, increment currentSize
         _array[currentSize] = o;
         currentSize++;
         return true;
