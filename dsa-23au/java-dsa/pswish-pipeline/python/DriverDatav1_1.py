@@ -1,7 +1,6 @@
 # Written by Paul Swisher @pswish, November 2023
 # This function takes two csv files and puts them into a list : nested dictionary 
 # Several functions are included to calculate different outputs 
-# v 1.00
 
 import csv
 import pprint
@@ -25,7 +24,7 @@ class DriverToDriveData:
                 cls.Line = [line for line in cls.file]
                 cls.Line2 = [line2 for line2 in cls.file2]
         except Exception as e:
-            print("fault at get_csv_file_data error ", e)
+            print("fault at get_csv_file_data, error is: ", e)
             
 
     def create_driver1_keys(cls):  # creates unique keys for driver 1 data construction
@@ -45,20 +44,22 @@ class DriverToDriveData:
                 cls.driver1keys.append(driver1Key) # driver1 key list
                 i+=1
         except Exception as e:
-            print(e)
+            print("Error in create_driver1_keys, check location of csv file. Error is: ", e)
 
     def create_driver2_keys(cls): # creates unique keys for driver 2 data construction
+        try:
+            lineLength2 = cls.Line2.__len__()
 
-        lineLength2 = cls.Line2.__len__()
+            cls.driver2Keys = []
+            j = 1
 
-        cls.driver2Keys = []
-        j = 1
-
-        while j < lineLength2:
-            cls.Line2list = cls.Line2[j].split(",")
-            driver2Key = (f"{cls.Line2list[1]}_{cls.Line2list[0]}_{cls.Line2list[6]}")
-            cls.driver2Keys.append(driver2Key)
-            j+=1
+            while j < lineLength2:
+                cls.Line2list = cls.Line2[j].split(",")
+                driver2Key = (f"{cls.Line2list[1]}_{cls.Line2list[0]}_{cls.Line2list[6]}")
+                cls.driver2Keys.append(driver2Key)
+                j+=1
+        except Exception as e:
+            print("Error in create_driver2_keys, check location of csv file. Error is: ", e )
 
     def add_list_to_dict_by_index(cls):  # Add the data for driver 1 to a dictionary
         cls.create_driver1_keys()
@@ -124,9 +125,11 @@ class DriverToDriveData:
             if selection == 1:  # get data by key and value entry
                 key = input("Please enter a key, example '9/29/2023_1807_Nathan': ")
                 print("Here are the available keys:", cls.Line[0].replace(",", ", "))
+                
                 value = input("please enter a value name, example 'Distance': ")
                 print("For key :", key)
                 print("The value is: ", value)
+                
                 compile = cls.DataStructure[key][value]
                 print(compile)
 
@@ -210,9 +213,38 @@ class DriverToDriveData:
                     x = int(compile.split()[0])
                     total_time += x
                 print("Total combined minutes: ", total_time)
-                return total_time
+            
+            elif selection == 8: ## This is a recursive search
+                def search_nested_dict(dictionary, target_value):
+                    result_keys = []
+                    results_values  = []
+                    # Iterate over key-value pairs in the dictionary
+                    for key, value in dictionary.items():
+                        # Check if the current value is equal to the target value
+                        if value == target_value:
+                            result_keys.append(key)
+                            results_values.append(value)
+
+                        # If the current value is a nested dictionary, recursively search it
+                        if isinstance(value, dict):
+                            nested_result = search_nested_dict(value, target_value)
+                            if nested_result:
+                                result_keys.append((key, nested_result))
+
+                    return result_keys if result_keys else None 
+                
+                driver = cls.DataStructure
+                target_value1 = input("Please enter a value to search for:\n")
+                result2 = search_nested_dict(driver, target_value1)
+
+                if result2 is not None:
+                    print(f"Value '{target_value1}' found ", len(result2), f" times at keys: {result2}")
+                else:
+                    print(f"Value '{target_value1}' not found in the nested dictionary.")
+                            
             else: 
                 print("Nothing to do")
+
 
 
             cls.DataStructureFinal = cls.DataStructure
@@ -233,11 +265,11 @@ class DriverToDriveData:
         #   DONE: Maybe a date range of 30 days, total miles (done by key)
         #   XXX: Maybe with ton of those data points... (forget what this was for)  
         #   DONE: Add a print keys with index to the individual driver and then make the selection take the number from the printed list for application
-        #   TODO add functions for each value than can be calculated upon (Miles, time spent driving)
-            # Total time for a given range
+        #   DONE: add functions for each value than can be calculated upon (Miles, time spent driving)
+        #   TODO: Total time for a given range
             #     is this range more or less than all ranged averages
-        #   TODO add a search the data function in the operation mode
-        #   TODO prep for backend/web interfacing.
+        #   DONE: add a search the data function in the operation mode
+        #   DONE: prep for backend/web interfacing.
         
         #   TODO v1.2 break the large function up into separate files 
         #   cls.DataStructure[key][value])  # the nice way for accessing data
@@ -257,15 +289,16 @@ def main():
     Driver.get_csv_file_data()
     Driver.add_list_to_dict_by_index()
     Driver.add_list_to_dict2_by_()
-    Driver.operation_mode(input("Please select a mode of operation: \
+    Driver.operation_mode(input("""\nPlease select a mode of operation: \
                             \n 1. Enter 1 for data viewing by key. \
                             \n 2. Enter 2 to view available keys. \
-                            \n 3. Enter 3 to view a sample calculation \
+                            \n 3. Enter 3 to view a sample calculation. \
                             \n 4. Enter 4 to view all available data in readable format. \
                             \n 5. Enter 5 to view total combined miles driven for both drivers in all data. \
                             \n 6. Enter 6 to view a range of n to k sorted example miles data. \
                             \n 7. Enter 7 view total combined time driven. \
-                            \n\n Please type your selection and push enter:  "))
+                            \n 8. Enter 8 to search the data for a value.  \
+                            \n\n Please type your selection and push enter:  """))
 
 if __name__ == "__main__":
     main()

@@ -45,6 +45,13 @@
             "request": "launch",
             "mainClass": "com.jon.app.Crime",
             "projectName": "jon-app"
+
+        {
+            "type": "java",
+            "name": "TowersOfHanoi",
+            "request": "launch",
+            "mainClass": "com.pswishcorp.app.TowersOfHanoi",
+            "projectName": "pswish-pipeline"
         },
         {
             "type": "java",
