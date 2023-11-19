@@ -1,0 +1,3 @@
+No arguments provided
+{'event_ID': 0, 'date': '2022/01/01', 'day': 'Sat', 'time': '04:56', 'pred': -0.82, 'highlow': 'L'}
+{'event_ID': 1, 'date': '2022/01/01', 'day': 'Sat', 'time': '12:41', 'pred': 3.65, 'highlow': 'H'}

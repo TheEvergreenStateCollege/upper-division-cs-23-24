@@ -1,0 +1,1465 @@
+
+	<datainfo>
+		<origin>NOAA/NOS/CO-OPS</origin>
+		<disclaimer>
+		Disclaimer: These data are based upon the latest information available as of the date of your request, and may differ from the published tide tables.
+		</disclaimer>
+	<datarange>Daily</datarange>
+		<producttype>Tide Prediction</producttype>
+		<stationname>Seattle</stationname>
+		<state>WA</state>
+		<stationid>9447130</stationid>
+	
+		<stationtype>Harmonic</stationtype>
+		<BeginDate>20220501 01:32</BeginDate>
+		<EndDate>20220531 19:11</EndDate>
+		
+		<dataUnits>Metric</dataUnits>
+		 
+	<Timezone>GMT</Timezone>
+	<Datum>MLLW</Datum>
+	<IntervalType>High/Low</IntervalType>
+	<data>
+	
+			<item>
+				<date>2022/05/01</date>
+				<day>Sun</day>
+		
+				<time>01:32</time>
+			
+				<pred>3.22</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/01</date>
+				<day>Sun</day>
+		
+				<time>06:55</time>
+			
+				<pred>1.56</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/01</date>
+				<day>Sun</day>
+		
+				<time>12:19</time>
+			
+				<pred>3.33</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/01</date>
+				<day>Sun</day>
+		
+				<time>19:09</time>
+			
+				<pred>-0.28</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/02</date>
+				<day>Mon</day>
+		
+				<time>02:16</time>
+			
+				<pred>3.32</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/02</date>
+				<day>Mon</day>
+		
+				<time>07:38</time>
+			
+				<pred>1.83</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/02</date>
+				<day>Mon</day>
+		
+				<time>12:46</time>
+			
+				<pred>3.22</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/02</date>
+				<day>Mon</day>
+		
+				<time>19:40</time>
+			
+				<pred>-0.38</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/03</date>
+				<day>Tue</day>
+		
+				<time>02:58</time>
+			
+				<pred>3.39</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/03</date>
+				<day>Tue</day>
+		
+				<time>08:22</time>
+			
+				<pred>2.04</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/03</date>
+				<day>Tue</day>
+		
+				<time>13:14</time>
+			
+				<pred>3.09</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/03</date>
+				<day>Tue</day>
+		
+				<time>20:13</time>
+			
+				<pred>-0.41</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/04</date>
+				<day>Wed</day>
+		
+				<time>03:39</time>
+			
+				<pred>3.41</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/04</date>
+				<day>Wed</day>
+		
+				<time>09:10</time>
+			
+				<pred>2.19</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/04</date>
+				<day>Wed</day>
+		
+				<time>13:45</time>
+			
+				<pred>2.93</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/04</date>
+				<day>Wed</day>
+		
+				<time>20:49</time>
+			
+				<pred>-0.36</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/05</date>
+				<day>Thu</day>
+		
+				<time>04:23</time>
+			
+				<pred>3.40</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/05</date>
+				<day>Thu</day>
+		
+				<time>10:02</time>
+			
+				<pred>2.29</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/05</date>
+				<day>Thu</day>
+		
+				<time>14:19</time>
+			
+				<pred>2.77</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/05</date>
+				<day>Thu</day>
+		
+				<time>21:29</time>
+			
+				<pred>-0.25</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/06</date>
+				<day>Fri</day>
+		
+				<time>05:11</time>
+			
+				<pred>3.34</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/06</date>
+				<day>Fri</day>
+		
+				<time>11:05</time>
+			
+				<pred>2.33</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/06</date>
+				<day>Fri</day>
+		
+				<time>14:59</time>
+			
+				<pred>2.59</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/06</date>
+				<day>Fri</day>
+		
+				<time>22:14</time>
+			
+				<pred>-0.09</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/07</date>
+				<day>Sat</day>
+		
+				<time>06:05</time>
+			
+				<pred>3.28</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/07</date>
+				<day>Sat</day>
+		
+				<time>12:30</time>
+			
+				<pred>2.29</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/07</date>
+				<day>Sat</day>
+		
+				<time>15:50</time>
+			
+				<pred>2.41</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/07</date>
+				<day>Sat</day>
+		
+				<time>23:04</time>
+			
+				<pred>0.10</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/08</date>
+				<day>Sun</day>
+		
+				<time>07:02</time>
+			
+				<pred>3.24</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/08</date>
+				<day>Sun</day>
+		
+				<time>14:06</time>
+			
+				<pred>2.14</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/08</date>
+				<day>Sun</day>
+		
+				<time>17:05</time>
+			
+				<pred>2.26</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/09</date>
+				<day>Mon</day>
+		
+				<time>00:00</time>
+			
+				<pred>0.29</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/09</date>
+				<day>Mon</day>
+		
+				<time>07:56</time>
+			
+				<pred>3.23</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/09</date>
+				<day>Mon</day>
+		
+				<time>14:59</time>
+			
+				<pred>1.91</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/09</date>
+				<day>Mon</day>
+		
+				<time>18:32</time>
+			
+				<pred>2.17</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/10</date>
+				<day>Tue</day>
+		
+				<time>01:01</time>
+			
+				<pred>0.47</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/10</date>
+				<day>Tue</day>
+		
+				<time>08:39</time>
+			
+				<pred>3.26</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/10</date>
+				<day>Tue</day>
+		
+				<time>15:31</time>
+			
+				<pred>1.62</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/10</date>
+				<day>Tue</day>
+		
+				<time>19:56</time>
+			
+				<pred>2.21</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/11</date>
+				<day>Wed</day>
+		
+				<time>02:02</time>
+			
+				<pred>0.64</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/11</date>
+				<day>Wed</day>
+		
+				<time>09:14</time>
+			
+				<pred>3.31</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/11</date>
+				<day>Wed</day>
+		
+				<time>15:57</time>
+			
+				<pred>1.26</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/11</date>
+				<day>Wed</day>
+		
+				<time>21:10</time>
+			
+				<pred>2.36</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/12</date>
+				<day>Thu</day>
+		
+				<time>03:00</time>
+			
+				<pred>0.82</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/12</date>
+				<day>Thu</day>
+		
+				<time>09:44</time>
+			
+				<pred>3.37</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/12</date>
+				<day>Thu</day>
+		
+				<time>16:25</time>
+			
+				<pred>0.84</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/12</date>
+				<day>Thu</day>
+		
+				<time>22:16</time>
+			
+				<pred>2.59</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/13</date>
+				<day>Fri</day>
+		
+				<time>03:53</time>
+			
+				<pred>1.04</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/13</date>
+				<day>Fri</day>
+		
+				<time>10:12</time>
+			
+				<pred>3.42</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/13</date>
+				<day>Fri</day>
+		
+				<time>16:55</time>
+			
+				<pred>0.36</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/13</date>
+				<day>Fri</day>
+		
+				<time>23:14</time>
+			
+				<pred>2.87</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/14</date>
+				<day>Sat</day>
+		
+				<time>04:44</time>
+			
+				<pred>1.28</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/14</date>
+				<day>Sat</day>
+		
+				<time>10:39</time>
+			
+				<pred>3.48</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/14</date>
+				<day>Sat</day>
+		
+				<time>17:28</time>
+			
+				<pred>-0.11</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/15</date>
+				<day>Sun</day>
+		
+				<time>00:09</time>
+			
+				<pred>3.15</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/15</date>
+				<day>Sun</day>
+		
+				<time>05:33</time>
+			
+				<pred>1.55</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/15</date>
+				<day>Sun</day>
+		
+				<time>11:08</time>
+			
+				<pred>3.52</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/15</date>
+				<day>Sun</day>
+		
+				<time>18:04</time>
+			
+				<pred>-0.55</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/16</date>
+				<day>Mon</day>
+		
+				<time>01:02</time>
+			
+				<pred>3.39</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/16</date>
+				<day>Mon</day>
+		
+				<time>06:22</time>
+			
+				<pred>1.81</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/16</date>
+				<day>Mon</day>
+		
+				<time>11:40</time>
+			
+				<pred>3.53</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/16</date>
+				<day>Mon</day>
+		
+				<time>18:44</time>
+			
+				<pred>-0.88</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/17</date>
+				<day>Tue</day>
+		
+				<time>01:55</time>
+			
+				<pred>3.58</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/17</date>
+				<day>Tue</day>
+		
+				<time>07:13</time>
+			
+				<pred>2.04</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/17</date>
+				<day>Tue</day>
+		
+				<time>12:16</time>
+			
+				<pred>3.50</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/17</date>
+				<day>Tue</day>
+		
+				<time>19:27</time>
+			
+				<pred>-1.08</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/18</date>
+				<day>Wed</day>
+		
+				<time>02:49</time>
+			
+				<pred>3.68</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/18</date>
+				<day>Wed</day>
+		
+				<time>08:06</time>
+			
+				<pred>2.21</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/18</date>
+				<day>Wed</day>
+		
+				<time>12:57</time>
+			
+				<pred>3.41</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/18</date>
+				<day>Wed</day>
+		
+				<time>20:14</time>
+			
+				<pred>-1.13</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/19</date>
+				<day>Thu</day>
+		
+				<time>03:45</time>
+			
+				<pred>3.71</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/19</date>
+				<day>Thu</day>
+		
+				<time>09:05</time>
+			
+				<pred>2.31</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/19</date>
+				<day>Thu</day>
+		
+				<time>13:43</time>
+			
+				<pred>3.25</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/19</date>
+				<day>Thu</day>
+		
+				<time>21:03</time>
+			
+				<pred>-1.02</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/20</date>
+				<day>Fri</day>
+		
+				<time>04:43</time>
+			
+				<pred>3.68</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/20</date>
+				<day>Fri</day>
+		
+				<time>10:11</time>
+			
+				<pred>2.32</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/20</date>
+				<day>Fri</day>
+		
+				<time>14:38</time>
+			
+				<pred>3.03</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/20</date>
+				<day>Fri</day>
+		
+				<time>21:57</time>
+			
+				<pred>-0.79</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/21</date>
+				<day>Sat</day>
+		
+				<time>05:44</time>
+			
+				<pred>3.63</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/21</date>
+				<day>Sat</day>
+		
+				<time>11:30</time>
+			
+				<pred>2.22</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/21</date>
+				<day>Sat</day>
+		
+				<time>15:45</time>
+			
+				<pred>2.76</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/21</date>
+				<day>Sat</day>
+		
+				<time>22:54</time>
+			
+				<pred>-0.46</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/22</date>
+				<day>Sun</day>
+		
+				<time>06:43</time>
+			
+				<pred>3.58</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/22</date>
+				<day>Sun</day>
+		
+				<time>12:58</time>
+			
+				<pred>1.97</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/22</date>
+				<day>Sun</day>
+		
+				<time>17:09</time>
+			
+				<pred>2.50</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/22</date>
+				<day>Sun</day>
+		
+				<time>23:55</time>
+			
+				<pred>-0.07</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/23</date>
+				<day>Mon</day>
+		
+				<time>07:38</time>
+			
+				<pred>3.56</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/23</date>
+				<day>Mon</day>
+		
+				<time>14:15</time>
+			
+				<pred>1.60</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/23</date>
+				<day>Mon</day>
+		
+				<time>18:45</time>
+			
+				<pred>2.33</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/24</date>
+				<day>Tue</day>
+		
+				<time>01:01</time>
+			
+				<pred>0.34</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/24</date>
+				<day>Tue</day>
+		
+				<time>08:26</time>
+			
+				<pred>3.54</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/24</date>
+				<day>Tue</day>
+		
+				<time>15:13</time>
+			
+				<pred>1.15</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/24</date>
+				<day>Tue</day>
+		
+				<time>20:25</time>
+			
+				<pred>2.32</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/25</date>
+				<day>Wed</day>
+		
+				<time>02:09</time>
+			
+				<pred>0.73</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/25</date>
+				<day>Wed</day>
+		
+				<time>09:06</time>
+			
+				<pred>3.53</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/25</date>
+				<day>Wed</day>
+		
+				<time>15:59</time>
+			
+				<pred>0.71</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/25</date>
+				<day>Wed</day>
+		
+				<time>21:56</time>
+			
+				<pred>2.48</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/26</date>
+				<day>Thu</day>
+		
+				<time>03:14</time>
+			
+				<pred>1.09</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/26</date>
+				<day>Thu</day>
+		
+				<time>09:40</time>
+			
+				<pred>3.50</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/26</date>
+				<day>Thu</day>
+		
+				<time>16:37</time>
+			
+				<pred>0.31</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/26</date>
+				<day>Thu</day>
+		
+				<time>23:10</time>
+			
+				<pred>2.73</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/27</date>
+				<day>Fri</day>
+		
+				<time>04:14</time>
+			
+				<pred>1.42</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/27</date>
+				<day>Fri</day>
+		
+				<time>10:09</time>
+			
+				<pred>3.45</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/27</date>
+				<day>Fri</day>
+		
+				<time>17:10</time>
+			
+				<pred>-0.02</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/28</date>
+				<day>Sat</day>
+		
+				<time>00:11</time>
+			
+				<pred>2.98</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/28</date>
+				<day>Sat</day>
+		
+				<time>05:10</time>
+			
+				<pred>1.72</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/28</date>
+				<day>Sat</day>
+		
+				<time>10:37</time>
+			
+				<pred>3.38</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/28</date>
+				<day>Sat</day>
+		
+				<time>17:40</time>
+			
+				<pred>-0.27</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/29</date>
+				<day>Sun</day>
+		
+				<time>01:02</time>
+			
+				<pred>3.19</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/29</date>
+				<day>Sun</day>
+		
+				<time>06:01</time>
+			
+				<pred>1.96</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/29</date>
+				<day>Sun</day>
+		
+				<time>11:04</time>
+			
+				<pred>3.28</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/29</date>
+				<day>Sun</day>
+		
+				<time>18:09</time>
+			
+				<pred>-0.44</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/30</date>
+				<day>Mon</day>
+		
+				<time>01:45</time>
+			
+				<pred>3.35</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/30</date>
+				<day>Mon</day>
+		
+				<time>06:49</time>
+			
+				<pred>2.15</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/30</date>
+				<day>Mon</day>
+		
+				<time>11:32</time>
+			
+				<pred>3.18</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/30</date>
+				<day>Mon</day>
+		
+				<time>18:39</time>
+			
+				<pred>-0.54</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/31</date>
+				<day>Tue</day>
+		
+				<time>02:24</time>
+			
+				<pred>3.46</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/31</date>
+				<day>Tue</day>
+		
+				<time>07:35</time>
+			
+				<pred>2.27</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/31</date>
+				<day>Tue</day>
+		
+				<time>12:02</time>
+			
+				<pred>3.06</pred>
+			
+			<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2022/05/31</date>
+				<day>Tue</day>
+		
+				<time>19:11</time>
+			
+				<pred>-0.58</pred>
+			
+			<highlow>L</highlow>
+			
+			</item>
+		
+		</data>
+</datainfo>
