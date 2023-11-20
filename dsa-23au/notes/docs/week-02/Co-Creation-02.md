@@ -29,3 +29,10 @@ ndeanon25 - Nathan Deanon
 4) The reason we should code review is that it transfers knowledge from one person to another, and it helps to see someone's process to incorporate it into your own process.
 5) I am still getting the hang of the GitPod so the steps are to make a new branch, write/modify code, commit, push a request, get a code review, and then delete the branch once reviewed and merged.
    ==================================================================
+riparian
+   wk2 notes from reading / cocreation
+   1)  Roadmaps to a goal are very helpful to keep you on track.
+   2)  Having a formal strategy to help you work through problem solving situations can be very helpful to help you not freeze up and stay moving
+   3)  Arrays are one of the most amazing and useful data structures that exist
+   4)  Pointers can enable a lot of advanced instructions and functionality in assembly
+   5)  Hash maps are great for look up but are not useful for ordering operations.
