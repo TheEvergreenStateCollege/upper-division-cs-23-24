@@ -1,3 +1,6 @@
+# Main method for the DriverData program
+# This logic requires python 3.10
+
 import DriverModes
 from DriverDatav1_2 import DriverToDriveData
 import logging
@@ -7,8 +10,9 @@ logger = logging.Logger
 driver_data = DriverToDriveData()
 driver_data.run_mode()
 driver = driver_data.DataStructure
+debug = False  # set to True to disable replay
 
-print (sorted(driver))
+
 def main():
     try:
         user_input = (input("""\nPlease select a mode of operation: \
@@ -22,7 +26,7 @@ def main():
                             \n 8. Enter 8 to view a range of n to k sorted example miles data. \
                             \n\n Please type your selection and push enter:  """))
 
-        Modes = DriverModes.DriverModes
+        Modes = DriverModes
         match int(user_input):   
             case 1:
                 Modes.print_keys(driver_data)
@@ -44,11 +48,14 @@ def main():
     except Exception as e:
         print("Error in DriverModels, please make sure you typed a number: ", e)
     finally:
-        replay = input("Push enter to run another operation or type 'exit' to quit: ")
+        if not debug:
+            replay = input("Push enter to run another operation or type 'exit' to quit: ")
 
-        if replay == "exit".lower():  # replay the program main loop or type exit to quit
-            print("End of program...")
-        else: 
-            main()
+            if replay == "exit".lower():  # replay the program main loop or type exit to quit
+                print("End of program...")
+            else: 
+                main()
 if __name__ == main():
     main()
+
+# TODO need to add if/then logic as backup to match in python 3.10

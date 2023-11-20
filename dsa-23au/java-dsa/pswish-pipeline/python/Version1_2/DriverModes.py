@@ -25,10 +25,21 @@ def pretty_print(data):  # prints out the nested dictionary in an easy to read f
     pp.pprint(data)
 
 def search_by_key_and_value(driver_data, driver):
+    numbered_keys = {} 
     try:
-        print("Here are the available keys:", list(driver.keys()))
-        driver_key = input("Please enter a key, example '09/26/2023_1640_Paul': ")
-        print("\nHere are the available Value keys:", driver_data.Line[0].replace(",", ", "))
+        # print("Here are the available keys:", list(driver.keys()))
+        keys = list(driver.keys())
+        j = 1
+        for i in keys:
+            print(j, i)
+            numbered_keys[j] = i
+            j += 1
+        
+        index_key = input("Please enter an index, example: 7:\n ")
+        driver_key = numbered_keys[int(index_key)]
+        print("You hav selected: ", driver_key)
+        print("\nChoose an available Value key:", driver_data.Line[0].replace(",", ", "))
+        
         driver_value = input("Please enter a value name, example 'Distance': ")
         print("For key:", driver_key)
         print("The value is:", driver_value)
@@ -46,11 +57,11 @@ def search_by_key_and_value(driver_data, driver):
 def sample_calculation(driver_data, driver): # prints example calculation for miles * cost per mile
     x = int((driver['10/19/2023_0850_Paul']['Distance']).split()[0]) 
     y = int((driver['10/19/2023_1700_Paul']['Distance']).split()[0])
-    num = ((x + y)*.16)  # miles * cost per mile
+    num = ((x + y)*.20)  # miles * cost per mile
     formatted_num = f'{num:.2f}'
     
     print('Distance in miles: ', x + y)
-    print("Total cost (miles * cost per mile($0.16)): $", formatted_num)
+    print("Total cost (miles * cost per mile($0.20)): $", formatted_num)
 
 def total_miles(driver_data, driver=dict):  # prints out total miles driven for both drivers
     total_miles = 0
@@ -59,7 +70,11 @@ def total_miles(driver_data, driver=dict):  # prints out total miles driven for 
 
         x = int(compile.split()[0])
         total_miles += x
+    total_cost = total_miles *.20
+    formatted_num = f'{total_cost:.2f}'
+
     print("Total combined miles: ", total_miles)
+    print("Total cost (miles * cost per mile($0.20)): $", formatted_num)
     return total_miles
 
 def calculate_distances(cls):  # Choose 1, 2, both drivers for start and end data on distances
