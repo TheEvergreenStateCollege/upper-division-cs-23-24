@@ -24,10 +24,10 @@ def pretty_print(data):  # prints out the nested dictionary in an easy to read f
     pp = pprint.PrettyPrinter(depth=4)
     pp.pprint(data)
 
-def search_by_key_and_value(driver_data, driver):
+def search_by_key_and_value(driver_data, driver):  # This method puts the generated keys into a list with a numbered key for selection, which the user picks from
+    #TODO the printed list is not sorted, sort it? 
     numbered_keys = {} 
     try:
-        # print("Here are the available keys:", list(driver.keys()))
         keys = list(driver.keys())
         j = 1
         for i in keys:
@@ -36,9 +36,14 @@ def search_by_key_and_value(driver_data, driver):
             j += 1
         
         index_key = input("Please enter an index, example: 7:\n ")
+        index_key = int(index_key)
+        if index_key > len(keys):
+             print("You entered an input outside the range of the provided list, press enter to continue")
+
         driver_key = numbered_keys[int(index_key)]
-        print("You hav selected: ", driver_key)
-        print("\nChoose an available Value key:", driver_data.Line[0].replace(",", ", "))
+        print("Accessing index:", index_key, "of", len(keys))
+        print("You have selected: ", driver_key)
+        print("\nChoose an available 'value' as a key:", driver_data.Line[0].replace(",", ", "))
         
         driver_value = input("Please enter a value name, example 'Distance': ")
         print("For key:", driver_key)
@@ -149,7 +154,9 @@ def search_by_value(driver):  # Recursive search for all values in the nested di
     result2 = search_nested_dict(driver, target_value1)
 
     if result2 is not None:
-        print(f"Value '{target_value1}' found ", len(result2), f" times at keys: {result2}")
+        print(f"Value '{target_value1}' found at keys:")
+        [print(*item) for item in sorted(result2)]
+        print ("Total items found:",len(result2))
     else:
         print(f"Value '{target_value1}' not found in the nested dictionary.")                            
 

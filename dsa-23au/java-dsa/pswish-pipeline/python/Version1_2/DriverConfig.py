@@ -1,3 +1,4 @@
+# This is a dependency of DriverMain
 import subprocess
 
 # filepath1 = "/home/ec2-user/workspace/Evergreen/upper-division-cs/dsa-23au/datasets/DriverData/DataSet_DSAau_pswish.csv"
@@ -27,5 +28,5 @@ def get_filepath2():
 filepath1 = get_filepath1()
 filepath2 = get_filepath2()
 
-print ("\nFilepath 1: ", filepath1)
-print ("Filepath 2: ", filepath2)
+print ("\nEnabling Filepath 1: ", filepath1)
+print ("Enabling Filepath 2: ", filepath2)
