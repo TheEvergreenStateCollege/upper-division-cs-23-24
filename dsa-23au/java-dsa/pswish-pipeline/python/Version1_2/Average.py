@@ -63,7 +63,7 @@ def averager(driver):
             print(f" Average cost per trip ~ ${average_cost}")
             # week = entries // 5
             weekly_cost = (float(average_cost) * 5.00)
-            print (f" Average per week (if searbus perabus 5 days a week) ${weekly_cost:.2f}")
+            print (f" Average per week (if cerberus paribus 5 days a week) ${weekly_cost:.2f}")
             print()
 
     except Exception as e:
