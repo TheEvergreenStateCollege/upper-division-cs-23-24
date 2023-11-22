@@ -4,17 +4,11 @@ import pprint
 
 def print_keys(driver): # Method for option 1, prints all keys sorted and unsorted 
     try:
-        print("Being Unsorted:")  # Need to revise
-        for keys in driver.driverKeys:
-            print(keys) 
-        print("\n--*-- End unsorted --*\n")
-        
-        print("Begin sorted:\n")
-        i = 0
+        index = 0
 
-        for s_key in sorted(driver.driverKeys):
-            print(i, s_key)
-            i += 1
+        for s_key in sorted(driver.sorted_keys):
+            print(index, s_key)
+            index += 1
         print("\n--*-- End Sorted --*--\n")
     except Exception as e:
         print(e)
@@ -43,7 +37,7 @@ def search_by_key_and_value(driver_data, driver):  # This method puts the genera
         driver_key = numbered_keys[int(index_key)]
         print("Accessing index:", index_key, "of", len(keys))
         print("You have selected: ", driver_key)
-        print("\nChoose an available 'value' as a key:", driver_data.Line[0].replace(",", ", "))
+        print("\nChoose an available 'value' as a key:", driver_data.Lines[0].keys())
         
         driver_value = input("Please enter a value name, example 'Distance': ")
         print("For key:", driver_key)
@@ -84,11 +78,13 @@ def total_miles(driver_data, driver=dict):  # prints out total miles driven for 
 
 def calculate_distances(cls):  # Choose 1, 2, both drivers for start and end data on distances
     total_miles = 0
-    driver = input("For selection: enter 1 or 2, for driver 1, driver 2 or any other number for both drivers: ")
+    inputDriver = 3
+    driver_input = input("For selection: enter 1 or 2, for driver 1, driver 2 or any other number for both drivers: ")
     try: 
-        inputDriver = int(driver)
+        inputDriver = int(driver_input)
     except Exception as e:
         print ("error in input", e)
+
     if inputDriver == 1:
         print(cls.driver1sorted)  # Prints out Driver1 keys to pick a range manually
 
@@ -106,7 +102,9 @@ def calculate_distances(cls):  # Choose 1, 2, both drivers for start and end dat
         start = cls.driver2sorted.index(inputStart)
         end = cls.driver2sorted.index(inputStop)
         select = cls.driver2sorted[start:end]
-    else:
+
+    elif inputDriver == 3:
+        print(cls.sorted_keys)
         inputStart = input("Enter a start: ")
         inputStop =  input("Enter an end: ")
         start = cls.sorted_keys.index(inputStart)
