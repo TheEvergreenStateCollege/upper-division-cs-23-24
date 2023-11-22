@@ -75,5 +75,22 @@ Juniper Campbell (Lucretian)
 		○ I would like to complete the 2 of 3 major benchmarks and have a working query tool by the end. Already have data and have a working csv reader that prints to the console.
 
                                                                                     --- End of my Sentences ---
+----
+riparian-AI
+AI is a very hotly contested topic, and there are many crucial topics of consideration, including AI safety, how it will impact industries and economies,
+how it could impact political affairs, availability & equity, and so much more.
 
+When it comes to safety, this is of course probably the most urgent topic of consideration, partly because it is more or less
+the foundation of the logic that would help address the other concerns.  After all, if the behavior of our AI is not reliably adherent to 
+how they are designed to behave, then the choices we make for how they should behave becomes less imporant.
 
+Extending from safety are the impacts it can have on our society, and whether there is any risk of its influence
+spiraling out of control.  We would have to consider what humans might do to make this the case even more so than
+what the AI might do for itself.  For example, at the current time, no AGI exists, and yet humans are driven to make it so.
+
+As far as software programming, however, I'm less concerned.  In fact, I don't really think it will change it that much, actually.  
+Yes, some roles will be eliminated, or at least cut way back (I have an ai voice model software I bought for $40),
+but overall, software development is about innovation and pushing boundaries, and I believe humanity is a long way from being ready to accept a general AI
+that would be capable of replacing humans on that level.  Overall, I think the talented and those who can pick up tools the best
+will continue to find employment in the technology field, whatever it may become.
+---
