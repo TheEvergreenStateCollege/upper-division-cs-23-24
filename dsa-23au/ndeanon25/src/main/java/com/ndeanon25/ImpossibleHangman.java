@@ -1,10 +1,12 @@
 package com.ndeanon25;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
 
 public class ImpossibleHangman {
 
@@ -42,25 +44,39 @@ public class ImpossibleHangman {
                     System.out.println("What word length do you want to use?");
                     length = console.nextInt(); 
                     
-                 // if(length < 2 || length > 23){
-                    //  break;
-                    //} else{
-                    //System.out.println("It has to be between 2 and 23");
-                    //}
+                    if(length >= 2 && length <= 23){
+                         break;
+                    }else{
+                        System.out.println();
+                         System.out.println("It has to be between 2 and 23");
+                    }
                 } catch(InputMismatchException e){
-                    System.out.println("Invalid input. PLease put an integer.");
+                    System.out.println("Invalid input. PLease put an integer between 2 and 23.");
+                    System.out.println();
+                    console.next();
+                }   
+            }
+    
+            int guessAmount;
+
+            while(true){
+                try{
+                    System.out.println("How many wrong answers do you want?");
+                    guessAmount = console.nextInt();
+                    
+                    if(guessAmount >= 2 && guessAmount <= 26){
+                         break;
+                    }else{
+                        System.out.println();
+                        System.out.println("Please choose between 2 and 26");
+                    }
+                } catch(InputMismatchException e){
+                    System.out.println("Invalid input. PLease put an integer between 2 and 26.");
                     System.out.println();
                     console.next();
                 }   
             }
 
-            System.out.println("How many wrong answers do you want?");
-            int guessAmount = console.nextInt();
-        
-            while(guessAmount < 1 || guessAmount > 26){
-                System.out.println("Please choose between 1 and 26");
-                guessAmount = console.nextInt();
-            } 
             System.out.println();
             List<String> dictionaryList2 = Collections.unmodifiableList(theDictionary);
             HangmanLogic hangman = new HangmanLogic(dictionaryList2,length,guessAmount);
@@ -96,6 +112,9 @@ public class ImpossibleHangman {
                 }
                 else if(counter == 1){
                     System.out.println("Nice! There is one " + letter);
+                }
+                else if((letter >='a' && letter >= 'z')){
+                    System.out.println("Invalid input. Please enter a-z.");
                 }
                 else {
                     System.out.println("Great Job! There are " + counter + " " + letter + "'s in the word");
