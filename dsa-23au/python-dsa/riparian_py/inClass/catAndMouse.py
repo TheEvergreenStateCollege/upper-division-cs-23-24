@@ -23,21 +23,17 @@ import re
 import sys
 import math
 
-
+# https://www.hackerrank.com/challenges/cats-and-a-mouse/problem
 def catAndMouse(catA, catB, mouse):
 
     # find absolute difference between index of catA and index of mouse
-    distA = abs(catA - mouse)
     # find absolute difference between index of catB and index of mouse
-    distB = abs(catB - mouse)
-    
+
     # compare absolute differences from previous steps
         # if differences are the same, return 'Mouse C'
-    if (distA == distB): return("Mouse C")
         # if catA from mouse difference is less than catB from mouse difference, return 'Cat A'
-    elif(distA < distB): return("Cat A")
         # otherwise (if catA from mouse difference is greater than catB from mouse difference), return 'Cat B'
-    else: return("Cat B")
+    pass
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
