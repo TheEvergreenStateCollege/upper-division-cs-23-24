@@ -42,11 +42,12 @@ public class ImpossibleHangman {
                     System.out.println("What word length do you want to use?");
                     length = console.nextInt(); 
                     
-                 // if(length < 2 || length > 23){
-                    //  break;
-                    //} else{
-                    //System.out.println("It has to be between 2 and 23");
-                    //}
+                    if(length >= 2 && length <= 23){
+                         break;
+                    }else{
+                        System.out.println();
+                         System.out.println("It has to be between 2 and 23");
+                    }
                 } catch(InputMismatchException e){
                     System.out.println("Invalid input. PLease put an integer.");
                     System.out.println();

@@ -1,6 +1,7 @@
+package com.ndeanon25;
 import java.util.*;
 
-public class Main {
+public class quickSorter {
     public static void main(String[] args) {
         int[] unsortedArray = {25, 90, 12, 7, 100};
         quickSort(unsortedArray,0,unsortedArray.length- 1);
