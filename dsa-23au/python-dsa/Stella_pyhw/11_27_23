@@ -1,0 +1,22 @@
+from html.parser import HTMLParser  # Import HTMLParser from the html.parser module
+
+class MyHTMLParser(HTMLParser):  # Define a class MyHTMLParser that inherits from HTMLParser
+    def handle_comment(self, data):  # Override handle_comment method to process comments
+        if '\n' in data:  # Check if the comment is multi-line (contains newline character)
+            print(">>> Multi-line Comment")  # Print the multi-line comment header
+            print(data)  # Print the multi-line comment content
+        else:  # If it's not a multi-line comment
+            print(">>> Single-line Comment")  # Print the single-line comment header
+            print(data)  # Print the single-line comment content
+
+    def handle_data(self, data):  # Override handle_data method to process data (text nodes)
+        if data.strip():  # Check if data is not empty or not just whitespace
+            print(">>> Data")  # Print the data header
+            print(data)  # Print the data content
+
+n = int(input())  # Read an integer input for the number of lines in HTML snippet
+html_code = "\n".join(input() for _ in range(n))  # Read n lines of HTML and join them with newline
+
+parser = MyHTMLParser()  # Create an instance of MyHTMLParser
+parser.feed(html_code)  # Feed the HTML code to the parser instance
+
