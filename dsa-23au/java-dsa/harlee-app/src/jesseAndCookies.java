@@ -28,26 +28,30 @@ class Result {
     //all elements are added in to the list A
     cookies.addAll(A);
     
-     cookies.size();
+     //initialize counter
     int counter = 0;
     //while loop to find the two lowest numbers
     //cookies.size < 2
     while(cookies.peek() < k ){
+        //if there are fewer than two cookies, return -1
         if (cookies.size() < 2 ) {
             return -1;
         }
+        //create two integers for first and second cookie and pop from stack
         int firstCookie = cookies.poll();
         int secondCookie = cookies.poll();
-        //sweetness = (1 x firstCookie + 2 x secondCookie)
+        //mix two cookies into a new sweeter cookie = (1 x firstCookie + 2 x secondCookie)
         int newCookie = firstCookie + (2 * secondCookie);
         
+        //add new cookie into queue
         cookies.add(newCookie);
         
+        //increment counter
         counter++;
         
     } 
-   return counter;
-
+    //return the number of times the cookies had to be mixed
+    return counter;
     }
 
 }
