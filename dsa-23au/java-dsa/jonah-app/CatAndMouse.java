@@ -3,6 +3,10 @@
 import java.lang.Math;
 
 public class CatAndMouse {
+    public static void main(String[] args) {
+        System.out.println(catAndMouse(3,2,4));
+    }
+
     public static String catAndMouse(int catA, int catB, int mouse) {
         int catADifference = Math.abs(mouse - catA);
         int catBDifference = Math.abs(mouse - catB);
