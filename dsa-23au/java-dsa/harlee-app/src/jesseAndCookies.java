@@ -23,37 +23,26 @@ class Result {
 
     public static int cookies(int k, List<Integer> A) {
     //A PriorityQueue is made for cookies from list A
-    PriorityQueue<Integer> cookies = new PriorityQueue<>();
     
     //all elements are added in to the list A
-    cookies.addAll(A);
     
      //initialize counter
-    int counter = 0;
+    
     //while loop to find the two lowest numbers
-    //cookies.size < 2
-    while(cookies.peek() < k ){
+    //cookies.size < 3
+    
         //if there are fewer than two cookies, return -1
-        if (cookies.size() < 2 ) {
-            return -1;
-        }
+       
         //create two integers for first and second cookie and pop from stack
-        int firstCookie = cookies.poll();
-        int secondCookie = cookies.poll();
+       
         //mix two cookies into a new sweeter cookie = (1 x firstCookie + 2 x secondCookie)
-        int newCookie = firstCookie + (2 * secondCookie);
         
         //add new cookie into queue
-        cookies.add(newCookie);
-        
+    
         //increment counter
-        counter++;
-        
-    } 
+         
     //return the number of times the cookies had to be mixed
-    return counter;
-    }
-
+    
 }
 
 public class Solution {
