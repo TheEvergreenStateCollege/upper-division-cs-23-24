@@ -3,8 +3,8 @@ import subprocess
 import sys
 
 # Filename output should be close to this:
-filepath1ec2 = "DriverResources/DataSet_DSAau_pswish.csv"
-filepath2ec2 = "DriverResources/Time_Driving_Spreadsheet.csv"
+filepath1ec2 = "/home/ec2-user/workspace/Evergreen/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverResources/DataSet_DSAau_pswish.csv"
+filepath2ec2 = "/home/ec2-user/workspace/Evergreen/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverResources/Time_Driving_Spreadsheet.csv"
 
 class theConfigurator:
     def __init__(self) -> None:
