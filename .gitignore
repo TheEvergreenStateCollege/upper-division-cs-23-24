@@ -33,3 +33,6 @@ target/
 RedbookQuesitons/
 Scratch/
 .vscode/
+
+# Python
+__pycache__/
