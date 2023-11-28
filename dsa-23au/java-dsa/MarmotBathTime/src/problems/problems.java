@@ -26,3 +26,12 @@ public class problems {
     }
     
 }
+
+// MODIFIED PROBLEM
+/* Find an element of an array such that the sum of all elements to the left of the element is the same as the sum of all elements to the right
+   	 initialize two int variables, one for total sum of the array, one for the left side
+    	calculate total sum of the array using for loop
+  	 calculate left sum by subtracting left sum and current element using for loop
+      		  if left and right sum are equal, return yes with sums
+        		update left sum for next iteration
+   	 return no with sums if no element has unbalanced subarrays */
