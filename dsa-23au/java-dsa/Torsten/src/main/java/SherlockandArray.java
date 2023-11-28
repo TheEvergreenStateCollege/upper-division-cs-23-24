@@ -1,4 +1,4 @@
-
+//Watson gives Sherlock an array of integers. His challenge is to find an element of the array such that the product of all elements to the left is equal to the productof all elements to the right.
         /*  method balanceSums(arr)
          * 
          * n = length of arr
@@ -6,7 +6,7 @@
          *  // Calculate the total sum of the array
          *      totalSum = 0
          * for i = 0 To n - 1
-         * totalSum = totalSum + arr[i]
+         * totalProduct= totalProduct * arr[i]
             END fOR
          * 
          *  leftSum = 0
