@@ -2,12 +2,6 @@ package com.ndeanon25;
 
 public class leftRotate {
 
-    /**
-     * We create a method that takes in an integer array and an integer that does not return anything. 
-     * The first thing we do is check our array length.
-     * If the array length is less than or equal to 1 then we just return back to the main method. 
-     * We make an algorithm that
-     */
 
      /**
       * 
