@@ -10,21 +10,31 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class Result {
 
+//HARLEE NOTE:
+//Psuedo code was pretty straight forward. All I had to discover was the Big Integer data type and some math functions.
+//Tested the code on the HackerRank page and it passed!
+//Thank you!
+class Result {
 
     // public longFactorial(int n)
     public static void extraLongFactorials(int n) {
 
         // largeN = n
+        BigInteger largeN = BigInteger.valueOf(n);
         // count = n - 1
+        int count = n - 1;
 
         
         // while count is bigger than 0 
+        while(count > 0){
         //      largeN = largeN * count
+        largeN = largeN.multiply(BigInteger.valueOf(count));
         //      count--
-        
+        count--;
+        }
         // print largeN
+        System.out.println(largeN);
 
     }
 
