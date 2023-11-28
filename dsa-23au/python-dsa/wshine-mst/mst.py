@@ -20,16 +20,6 @@ def prims_alg(graph):
     mst.edges.append(min_edge)
 
     while len(mst.vertices) < len(graph.vertices):
-        # i shouldn't have to check against mst.vertices,
-        # instead pick out the new vertex from min edge by comparing against the
-        # last selected vertex
-
-        # vertex = list(filter(lambda x: x != vertex, min_edge[:2]))[0]
-        # mst.vertices.append(vertex)
-
-        # with that approach the resulting mst consists of either 8 edges and a total weight of 87,
-        # or 9 edges and a total weight of 101. currently unsure why an extra edge
-        # is being added
         mst.vertices.extend([v for v in min_edge[:2] if v not in mst.vertices])
 
         # there is probably a more efficient way to identify incident edges
