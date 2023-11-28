@@ -1,20 +1,39 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+class Edge{
+    Node originNode;
+    Node destNode;
+    int edgeCost;
+
+    public Edge (Node origin, Node destination, int cost) {
+        edgeCost = cost;
+        destNode = destination;
+        originNode = origin;
+    }
+}
+class Node{
+
+    String name;
+    int leftEdge = 10 + rand.nextInt(21);
+    int rightEdge = 10 + rand.nextInt(21);
+    bool visited = false;
+
+}
 
 public class Bag {
 
-    // || 1. put all nodes into list
-    class Node{
+    Random rand = new Random();
 
-        int edge1 = 10;
-        int edge2 = 15;
-        int edge3 = 20;
-        
-    }
+    // 1. put all nodes into list
+
+
     
-    List<E> originalNodeList = new ArrayList<>();
-    List<E> unvisitedNodeList = new ArrayList<>();
+    List<E> nodeList = new ArrayList<>();
+    List<E> visited = new ArrayList<>();
+    List<E> unvisited = new ArrayList<>();
 
 
     Node fakeNode1 = new Node();
@@ -23,6 +42,8 @@ public class Bag {
     Node fakeNode4 = new Node();
     Node fakeNode5 = new Node();
     Node fakeNode6 = new Node();
+    
+
 
     
     // 2. take node at random, put into 2nd list of visited nodes
@@ -30,29 +51,36 @@ public class Bag {
     
     public Bag(){
         Node startNode = new Node();
-        originalNodeList.add(fakeNode1);
-        originalNodeList.add(fakeNode2);
-        originalNodeList.add(fakeNode3);
-        originalNodeList.add(fakeNode4);
-        originalNodeList.add(fakeNode5);
-        originalNodeList.add(fakeNode6);
-        unvisitedNodeList.addAll(originalNodeList);
+        nodeList.add(fakeNode1);
+        nodeList.add(fakeNode2);
+        nodeList.add(fakeNode3);
+        nodeList.add(fakeNode4);
+        nodeList.add(fakeNode5);
+        nodeList.add(fakeNode6);
+        visited.add(startNode);
+    }
+
+    public int findNextMove(Node nodeToProcess){
+
+        int[] edges = new ArrayList();
+
+        for (int i = 0 ; i < visited.size(); i++){
+
+
+        }
     }
     
     public int findMST(){
 
         int mstAccum = 0;
         
-        while (unvisitedNodeList.size() > 0) {
+        for (int i = 0; i < nodeList.size(); i++) {
             
             // 3. take shortest available edge from any visited node to any adjecent non-visited node, add to list of visited nodes
-            int leftEdge = unvisitedNodeList[i].edge1;
-            int rightEdge = unvisitedNodeList[i].edge2;
-
-            if (leftEdge > rightEdge) { mstAccum += leftEdge; } 
-            else { mstAccum += rightEdge; }
+            if (nodeList[i].visited == true) {continue;}
+            if (nodeList[i].leftEdge < nodeList[i].rightEdge) { mstAccum += nodeList[i].leftEdge; } 
+            else { mstAccum += nodeList[i].rightEdge; }
             
-            unvisitedNodeList.remove(i);
         }
         
         System.out.println(mstAccum);
