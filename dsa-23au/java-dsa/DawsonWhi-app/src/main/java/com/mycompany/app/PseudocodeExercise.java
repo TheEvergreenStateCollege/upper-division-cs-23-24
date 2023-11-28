@@ -18,25 +18,14 @@ class Result {
 
         // largeN = n
         // count = n - 1
-        BigInteger largeN = BigInteger.valueOf(n);
-        int count = n - 1;
+
         
-        
-        if (n > 100 || n < 0){
-            System.out.println("int too large or too small");
-        }
         // while count is bigger than 0 
         //      largeN = largeN * count
         //      count--
+        
         // print largeN
-        else {
-            while(count != 0){
-                largeN = largeN.multiply(BigInteger.valueOf(count));
-                --count;
-            }
-        }
-        largeN.toString();
-        System.out.println(largeN);
+
     }
 
 }
