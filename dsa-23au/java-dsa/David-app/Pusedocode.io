@@ -33,3 +33,13 @@ get the multiples of Least common Multiple that divide the \
 
 
 // return the buffer writer of the string value total to be printed and the reader to close out when its done 
+
+
+ // Convert the input string to an array of integers
+    s = CONVERT_STRING_TO_ARRAY(inputArray)
+
+// Step 3: Display the result
+ PRINT "The size of the smallest divisible subset is:", subsetSize
+
+ 
+
