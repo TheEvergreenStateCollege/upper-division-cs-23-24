@@ -16,17 +16,17 @@ return operation number
     public static int Cookies(int[] array, int k){ 
         PriorityQueue<Integer> CookieQueue = new PriorityQueue<Integer>();
         for(int i = 0; i < array.length;i++){
-            CookieQueue.push(array[i]);
+            CookieQueue.add(array[i]);
         }
-        operationCount = 0;
+        int operationCount = 0;
         while(CookieQueue.peek() < k){
-            if(CookieQueue.length < 2){
+            if(CookieQueue.size() < 2){
                 return -1;
             }
-            int smallestCookie = CookieQueue.pop();
-            int secondSmallestCookie = CookieQueue.pop();
+            int smallestCookie = CookieQueue.poll();
+            int secondSmallestCookie = CookieQueue.poll();
             int v = smallestCookie + secondSmallestCookie*6;
-            CookieQueue.push(v);
+            CookieQueue.add(v);
             operationCount +=1;
         }
         return operationCount;
