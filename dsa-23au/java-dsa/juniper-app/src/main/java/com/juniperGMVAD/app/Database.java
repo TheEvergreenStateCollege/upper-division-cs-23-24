@@ -13,8 +13,8 @@ public class Database {
         this.data = new HashMap<>();
     }
 
-    public boolean addCountryData(int year, String name, double mva, double gmva) {
-        CountryData newCountry = new CountryData(year, name, mva, gmva);
+    public boolean addCountryData(ArrayList<Integer> year, String name, ArrayList<Double> mva) {
+        CountryData newCountry = new CountryData(year, name, mva);
 
         if (!data.containsKey(name)) {
             data.put(name, new HashMap<>());
