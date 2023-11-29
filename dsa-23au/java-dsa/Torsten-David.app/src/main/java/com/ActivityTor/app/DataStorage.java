@@ -15,8 +15,14 @@ public class DataStorage {
     private HashMap<String, Double> soundLevels = new HashMap<>();
     private HashMap<String, Integer> flightsClimbed = new HashMap<>();
     private HashMap<String, Double> handWashingSeconds = new HashMap<>();
+   
+    BST<Double> soundLevelTree = new BST<Double>();
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+    // add public getters and setters for BST
+
+    //public void addToSoundTree (String date, double soundLevel){}
 
     public void addStepCount(String date, int stepCount) {
         stepCounts.put(date, stepCount);
@@ -26,7 +32,7 @@ public class DataStorage {
         distances.put(date, distance);
     }
 
-    public void addCalories(String date, double calorie) {
+    public void addCalories(String date, Double calorie) {
         calories.put(date, calorie);
     }
 
