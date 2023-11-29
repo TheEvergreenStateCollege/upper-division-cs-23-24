@@ -1,33 +1,40 @@
 import pytest
-from DriverFiles.Average import search_nested_dict, averager  # Replace 'your_module' with the actual module name
+import os
+from unittest.mock import patch
+from DriverFiles.DriverConfig import theConfigurator
 
 @pytest.fixture
-def sample_nested_dict():
-    # Define a sample nested dictionary for testing
-    return {
-        "City1": {"Distance": "10 miles", "Elapsed": "5 hours"},
-        "City2": {"Distance": "15 miles", "Elapsed": "7 hours"},
-        "City3": {"Distance": "10 miles", "Elapsed": "5 hours"},
-        "NestedCity": {"City4": {"Distance": "20 miles", "Elapsed": "10 hours"}},
-    }
+def mock_find_filepath():
+    return [
+        "/home/ec2-user/workspace/Evergreen/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverResources/DataSet_DSAau_pswish.csv",
+        "/workspace/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverResources/DataSet_DSAau_pswish.csv",
+        "java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverResources/DataSet_DSAau_pswish.csv",
+        "/home/ec2-user/workspace/Evergreen/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverResources/Time_Driving_Spreadsheet.csv",
+        "/workspace/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverResources/Time_Driving_Spreadsheet.csv",
+        "java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverResources/Time_Driving_Spreadsheet.csv"
+    ]
 
-def test_search_nested_dict(sample_nested_dict):
-    # Test search_nested_dict function
-    target_value = "20 miles"
-    result = search_nested_dict(sample_nested_dict, target_value)
-    print(result)
-    
-    # assert result == [("NestedCity", [("City4", {"Distance": "20 miles", "Elapsed": "10 hours"})])]
+def test_find_filepath(mock_find_filepath):
+    with patch.object(theConfigurator, 'find_filepath', return_value=None):
+        config = theConfigurator()
+        config.find_filepath()
+        assert config.filepath1 is not None 
+        assert config.filepath2 is not None
 
-def test_averager(sample_nested_dict, capsys):
-    # Test averager function
-    averager(sample_nested_dict)
-    captured = capsys.readouterr()
+def test_get_filepath1(monkeypatch, tmpdir):
+    fake_path = str(tmpdir.join("fake_file.csv"))
+    monkeypatch.setenv("PATH", fake_path)
 
-    # Add assertions based on the expected output or behavior of your function
-    # assert "Total combined miles" in captured.out
-    # assert "Total trips from or to the destination" in captured.out
-    # Add more assertions as needed
+    config = theConfigurator()
+    filepath1 = config.get_filepath1()
+    assert filepath1 is not None
 
-if __name__ == '__main__':
-    pytest.main()
+def test_get_filepath2(monkeypatch, tmpdir):
+    fake_path = str(tmpdir.join("fake_file.csv"))
+    monkeypatch.setenv("PATH", fake_path)
+
+    config = theConfigurator()
+    filepath2 = config.get_filepath2()
+    assert filepath2 is not None
+
+# Add more tests as needed

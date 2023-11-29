@@ -15,3 +15,6 @@
 
 if you get a syntax error, you may not have python 3.10 installed. You can still run my program with >>> `python3 BackupLogic.py`
 
+From Gitpod, run >>> python /workspace/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverFiles/DriverMain.py
+or
+run >>> python /workspace/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverFiles/BackupLogic.py
