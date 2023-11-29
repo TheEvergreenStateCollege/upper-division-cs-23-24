@@ -13,9 +13,9 @@ import java.util.List;
 public class AppleWatchDataApp 
 {    
 
-     public static void main( String[] args )
-    {
 
+    public static void ShowAllData(){
+        
         String csvFilePath = "AppleWatchData_myData.csv";
         InputStream is = AppleWatchDataApp.class.getClassLoader().getResourceAsStream(csvFilePath);
     
@@ -68,4 +68,16 @@ public class AppleWatchDataApp
             System.err.println(ioe.toString());
         }
     }
-}
+     public static void main( String[] args )
+    {
+         if (args[0].equals("print-all")) {
+            ShowAllData();
+         } else if (args[0].equals("sound-levels"))
+         {
+           SoundLevelsDataPoint sldp =  displaySoundLevels();
+            System.out.printf("%s %s\n", sldp.getDateString(), sldp.getSoundLevelString());
+         }
+       
+        }
+    }
+
