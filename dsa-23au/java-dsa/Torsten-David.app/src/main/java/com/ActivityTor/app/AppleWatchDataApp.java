@@ -13,8 +13,9 @@ import java.util.List;
 public class AppleWatchDataApp 
 {    
 
+    DataStorage watchData = new DataStorage(); // Initialize DataStorage
 
-    public static void ShowAllData(){
+    public void loadData(){
         
         String csvFilePath = "AppleWatchData_myData.csv";
         InputStream is = AppleWatchDataApp.class.getClassLoader().getResourceAsStream(csvFilePath);
@@ -25,7 +26,7 @@ public class AppleWatchDataApp
 
 
             boolean isHeaderSkipped = false;
-            DataStorage watchData = new DataStorage(); // Initialize DataStorage
+            //DataStorage watchData = new DataStorage(); // Initialize DataStorage
     
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split(",");
@@ -47,7 +48,9 @@ public class AppleWatchDataApp
                     double handWashingSeconds = Double.parseDouble(tokens[5]);
                     double restingEnergy = Double.parseDouble(tokens[6]);
                     double soundLevels = Double.parseDouble(tokens[7]);
-    
+                    
+                    //more code that adds date paired with it's sound level to a min tree or max tree (or min or max heap)
+
                     // Add parsed data to DataStorage
                     watchData.addStepCount(date, steps);
                     watchData.addDistance(date, distance);
@@ -56,6 +59,7 @@ public class AppleWatchDataApp
                     watchData.addHandWashingSeconds(date, handWashingSeconds);
                     watchData.addRestingEnergy(date, restingEnergy);
                     watchData.addSoundLevels(date, soundLevels);
+                    //watchdata.addSoundTree(date, sound level)...
     
                 } catch (IndexOutOfBoundsException | NumberFormatException e) {
                     System.out.println("Error parsing line: " + line);
@@ -63,19 +67,26 @@ public class AppleWatchDataApp
                 }
             }
     
-            watchData.printAllData(); // Print processed data
         } catch (IOException ioe) {
             System.err.println(ioe.toString());
         }
     }
+
+    public void ShowAllData(){
+        watchData.printAllData(); // Print processed data
+    }
+
      public static void main( String[] args )
     {
+        AppleWatchDataApp app = new AppleWatchDataApp();
+        app.loadData();
+
          if (args[0].equals("print-all")) {
-            ShowAllData();
+            app.ShowAllData();
          } else if (args[0].equals("sound-levels"))
          {
-           SoundLevelsDataPoint sldp =  displaySoundLevels();
-            System.out.printf("%s %s\n", sldp.getDateString(), sldp.getSoundLevelString());
+            //app.watchData.highestSound level
+           
          }
        
         }
