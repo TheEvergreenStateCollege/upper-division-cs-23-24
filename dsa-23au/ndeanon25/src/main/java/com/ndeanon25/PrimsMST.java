@@ -4,5 +4,5 @@ import java.util.List;
 
 public class PrimsMST {
     
-    private List<Vertex> graph; 
+    //private List<Vertex> graph; 
 }

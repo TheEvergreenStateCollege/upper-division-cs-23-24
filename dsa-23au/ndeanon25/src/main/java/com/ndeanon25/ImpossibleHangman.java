@@ -127,7 +127,7 @@ public class ImpossibleHangman {
         String answer = hangman.words().iterator().next();
         System.out.println("Answer = " + answer);
         if(hangman.remainingGuesses() > 0) {
-            System.out.println("gReaT jOb -_-");
+            System.out.println("GREAT JOB! =]");
         } else{
             System.out.println("Sorry, you lose ;( ");
         }

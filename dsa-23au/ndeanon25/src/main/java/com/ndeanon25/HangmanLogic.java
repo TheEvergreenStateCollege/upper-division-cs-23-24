@@ -88,7 +88,7 @@ public class HangmanLogic {
      * @return the number of occurrences of the guessed letter within the pattern.
      */
 
-    private int numOfwords(String pattern, char guess) {
+    public int numOfwords(String pattern, char guess) {
         int matches = 0;
         
         for(int i = 0; i < pattern.length(); i++){
@@ -146,7 +146,7 @@ public class HangmanLogic {
      * @return a string of a given word with the unknown char
      */
 
-    private String pattern(String word){
+    public String pattern(String word){
         String builder = "";
         
         for(int i = 0; i < word.length();i++){
