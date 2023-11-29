@@ -21,7 +21,7 @@ public class leftRotate {
       * Call leftRotate and move elements in myArray 
       */
 }
-THE CHANGES ON TUESDAY!!!!
+//THE CHANGES ON TUESDAY!!!!
  /**
       * 
       * public static void rightRotate(int[] numArry, int d)
@@ -39,7 +39,7 @@ THE CHANGES ON TUESDAY!!!!
       * Put elements into array
       * Call rightRotate and move elements in myArray 
       */
-}
+
 
 
 
