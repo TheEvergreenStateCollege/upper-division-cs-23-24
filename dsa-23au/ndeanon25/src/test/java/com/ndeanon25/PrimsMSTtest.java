@@ -2,6 +2,8 @@ package com.ndeanon25;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
+import com.ndeanon25.Graph.Graph;
+
 public class PrimsMSTtest {
 
     public void testPrimsMST(){

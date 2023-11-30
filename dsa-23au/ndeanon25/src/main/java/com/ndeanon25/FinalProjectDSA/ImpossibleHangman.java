@@ -1,4 +1,4 @@
-package com.ndeanon25;
+package com.ndeanon25.FinalProjectDSA;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class ImpossibleHangman {
     }
 
     public static void main(String[] args) {
-        String filePath = "/workspace/upper-division-cs/dsa-23au/ndeanon25/src/main/java/com/ndeanon25/dictionary.txt";
+        String filePath = "/workspace/upper-division-cs/dsa-23au/ndeanon25/src/main/java/com/ndeanon25/FinalProjectDSA/dictionary.txt";
         try{
             List<String> theDictionary = readDictionaryFromFile(filePath); 
             System.out.println();   
