@@ -94,10 +94,6 @@ public class ReadData
         {
             mva.add(Double.parseDouble(tokens[j].trim()));
         }
-        
-        //database.addCountryData(years, name, mva);
-
-
     }
 
     }
