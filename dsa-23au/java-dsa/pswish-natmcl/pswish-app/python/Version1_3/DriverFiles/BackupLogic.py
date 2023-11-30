@@ -1,5 +1,6 @@
 # Main method for the DriverData program
 # This logic does not require python 3.10
+# This function is O(1)
 
 import Average
 import DriverModes
@@ -15,6 +16,7 @@ driver = driver_data.DataStructure
 ReplayCounter = 1
 
 class BackupMode:
+    # The purpose of this function is to serve as backup DriverMain logic if python 3.10 is not installed
     def __init__(cls) -> None:
         cls.user_input = ""
 

@@ -5,7 +5,6 @@ from DriverFiles.DriverData2 import DriverToDriveData
 from DriverFiles.DriverConfig import theConfigurator
 
 
-
 ## TODO Add more assertions to each test, as needed
 ## TODO Fix the import in DriverData.py for DriverConfig to work in main method and pytest
 

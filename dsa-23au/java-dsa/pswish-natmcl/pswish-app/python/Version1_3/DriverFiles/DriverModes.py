@@ -2,7 +2,7 @@
 
 import pprint
 
-def print_keys(driver): # Method for option 1, prints all keys sorted and unsorted 
+def print_keys(driver): # Method for option 1, prints all keys sorted and unsorted, time complexity O(n log n)
     try:
         index = 0
 
@@ -13,12 +13,12 @@ def print_keys(driver): # Method for option 1, prints all keys sorted and unsort
     except Exception as e:
         print(e)
 
-def pretty_print(data):  # option #2, prints out the nested dictionary in an easy to read format
+def pretty_print(data):  # option #2, prints out the nested dictionary in an easy to read format, time complexity is O(n)
     print("pretty print called")
     pp = pprint.PrettyPrinter(depth=4)
     pp.pprint(data)
 
-def search_by_key_and_value(driver_data, driver):  # Option 4, This method puts the generated keys into a list with a numbered key for selection, which the user picks from
+def search_by_key_and_value(driver_data, driver):  # Option 4, This method puts the generated keys into a list with a numbered key for selection, which the user picks from. Time complexity is O(n)
     numbered_keys = {} 
     try:
         keys = list(driver.keys())
@@ -51,7 +51,7 @@ def search_by_key_and_value(driver_data, driver):  # Option 4, This method puts 
     except Exception as e:
         print(e)
 
-def sample_calculation(driver_data, driver): # Option #3, prints example calculation for miles * cost per mile
+def sample_calculation(driver_data, driver): # Option #3, prints example calculation for miles * cost per mile. Time complexity is O(1)
     x = int((driver['10/19/2023_0850_Paul']['Distance']).split()[0]) 
     y = int((driver['10/19/2023_1700_Paul']['Distance']).split()[0])
     num = ((x + y)*.20)  # miles * cost per mile
@@ -60,7 +60,7 @@ def sample_calculation(driver_data, driver): # Option #3, prints example calcula
     print('Distance in miles: ', x + y)
     print("Total cost (miles * cost per mile($0.20)): $", formatted_num)
 
-def total_miles(driver_data, driver=dict):  # Option 6, prints out total miles driven for both drivers
+def total_miles(driver_data, driver=dict):  # Option 6, prints out total miles driven for both drivers. Time complexity is O(n)
     total_miles = 0
     for key in driver_data.sorted_keys:
         compile = driver[key][str('Distance')]
@@ -74,7 +74,7 @@ def total_miles(driver_data, driver=dict):  # Option 6, prints out total miles d
     print("Total cost (miles * cost per mile($0.20)): $", formatted_num)
     return total_miles
 
-def calculate_distances(cls):  #Option 8, Choose 1, 2, both drivers for start and end data on distances
+def calculate_distances(cls):  #Option 8, Choose 1, 2, both drivers for start and end data on distances, Time complexity is O(k) where k is the selection size
     total_miles = 0
     inputDriver = 3  # 3 to ensure any entry not 1 or 2 is 3 for all keys
     driver_input = input("For selection: enter 1 or 2, for driver 1, driver 2 or any other number for both drivers: ")
@@ -116,7 +116,7 @@ def calculate_distances(cls):  #Option 8, Choose 1, 2, both drivers for start an
         print(i, compile)
     print("Total combined miles: ", total_miles)
     
-def total_time(driver_data, driver=dict): # Option 7, simple calculation to sum all time values
+def total_time(driver_data, driver=dict): # Option 7, simple calculation to sum all time values. Time complexity is O(n)
     total_time = 0
     for key in driver_data.sorted_keys:
         compile = driver[key][str("Elapsed")]
@@ -124,7 +124,7 @@ def total_time(driver_data, driver=dict): # Option 7, simple calculation to sum 
         total_time += x
     print("Total combined minutes: ", total_time)
 
-def search_by_value(driver):  # Option 5, Recursive search for all values in the nested dictionary and print out the number of occurrences
+def search_by_value(driver):  # Option 5, Recursive search for all values in the nested dictionary and print out the number of occurrences. Time complexity is O(n)
     def search_nested_dict(dictionary, target_value): # This is a recursive search
         result_keys = []
         results_values  = []
