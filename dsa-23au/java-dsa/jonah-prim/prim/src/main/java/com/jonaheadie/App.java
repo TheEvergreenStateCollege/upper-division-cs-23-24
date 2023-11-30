@@ -50,15 +50,13 @@ public class App
 
         graph.printAllEdges();
 
-        Graph clone = graph.cloneGraph();
-
         System.out.println("\n\n");
 
-        clone.printAllEdges();
+        Graph mst = new Graph();
+        Bag bag = new Bag(graph, mst);
 
-        List<String> result = clone.getAllNodesNames();
-        for (String s : result) {
-            System.out.println(s);
-        }
+        bag.prim();
+
+        mst.printAllEdges();
     }
 }

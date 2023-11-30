@@ -39,8 +39,25 @@ public class Edge {
         return false;
     }
 
+    public boolean isEdgeBetween(Node node1, Node node2) {
+        if ((origin == node1 || dest == node1) &&
+            (origin == node2 || dest == node2)) {
+            return true;
+        }
+
+        return false;
+    }
+
     public boolean isEdgeTo(String name) {
         if (origin.getName() == name || dest.getName() == name) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean isEdgeTo(Node node) {
+        if (origin == node || dest == node) {
             return true;
         }
 
