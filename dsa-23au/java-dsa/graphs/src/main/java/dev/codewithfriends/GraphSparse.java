@@ -3,7 +3,7 @@ package dev.codewithfriends;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class GraphSparse<N,E extends Comparable<E>> extends Graph<N,E> {
+public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extends Graph<N,E> {
 
     public Map<N, Vertex> verticesMap;
 
@@ -101,12 +101,19 @@ public class GraphSparse<N,E extends Comparable<E>> extends Graph<N,E> {
     public void printMermaidDiagram() {
         Collection<Vertex> nodes = this.verticesMap.values();
         System.out.printf("graph TD\n");
+        Set<String> graphStrings = new TreeSet<>();
         for (Vertex v : nodes) {
             Set<Vertex> nodes2 = v.edges.keySet();
             for (Vertex v2 : nodes2) {
-                System.out.printf("    %s-->%s\n", v.label, v2.label);
+                // Sort the strings into canonical order
+                N w1 = v.label.compareTo(v2.label) < 0 ? v.label : v2.label;
+                N w2 = v.label.compareTo(v2.label) < 0 ? v2.label : v.label;
+                graphStrings.add(String.format("    %s---%s", w1.toString(), w2.toString()));
 
             }
+        }
+        for (String string : graphStrings) {
+            System.out.println(string);
         }
     }
 

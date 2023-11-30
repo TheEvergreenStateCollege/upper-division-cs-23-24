@@ -3,7 +3,7 @@ package dev.codewithfriends;
 import java.util.Comparator;
 import java.util.Set;
 
-public abstract class Graph<N,E extends Comparable<E> > {
+public abstract class Graph<N extends Comparable<N>,E extends Comparable<E> > {
 
     public static interface Edge<E1> {
         public E1 getWeight();

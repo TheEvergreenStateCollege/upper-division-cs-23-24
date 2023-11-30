@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class GraphMatrix<N,E extends Comparable<E>> extends Graph<N,E> {
+public class GraphMatrix<N extends Comparable<N>,E extends Comparable<E>> extends Graph<N,E> {
 
     Object[][] matrix; // matrix of edge values
     Map<N,Integer> nodeKeysToIndex;
