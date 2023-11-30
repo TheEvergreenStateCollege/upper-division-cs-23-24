@@ -1,5 +1,45 @@
 # Co-Creation 09
 
+## Townhall Questions
+
+Include your answers below each question:
+
+How did you become interested in computer science or electronics?
+
+    Day-to-day, what is enjoyable about studying and practicing CS or electronics to you?
+
+    What would you like to do with a computer science, electronics engineering, and liberal arts education after graduating from Evergreen?
+
+    What question, book, article, quote, movie about computation, electronics, and society is interesting to you at the moment?
+
+    What do you wish you had known before beginning your CS or electronics studies at Evergreen, that you can tell incoming students to Computer Science Foundations or Electronics and Music?
+
+    Name all faculty members that you know of, or can search in the course catalog or faculty directory, who practice and teach computation at Evergreen?
+
+    What changes would you like to see in the computing or electronics culture (including academic computing support, electronic music programs, clubs, CS programs) at Evergreen if any?
+
+    What independent CS- or electronics- related projects or research would you like to pursue at Evergreen?
+
+    Student-led clubs like WORMS have done strong work in engaging with the CS community, having fun with computation, and helping them find employment in the tech industry. What ideas do you have to cultivate an even more welcoming atmosphere and environment for diversity newcomers entering the CS or electronics field? (I confess, I don't know much about women and underrepresented minorities in electronic music fields, but I suspect it is more diverse)
+
+    What program or CS / electronics material would you like to learn at Evergreen that we currently do not offer?
+
+    What communication do you feel is missing, or could be strengthened, between Evergreen CS / electronics faculty and students?
+    How can we better market or present our brand as Evergreen CS / electronics to prospective students in the PNW area?
+
+    What other discipline would you like to see combined with CS / electronics in a multi-disciplinary future program?
+
+    What challenges do you see facing the CS / electronics curriculum in the future at Evergreen? How should we meet it?
+    If there were a dedicated space at Evergreen for CS / electronics projects and events, what features would you want from it?
+    What questions do you have about CS / electronics classes in Winter quarter for faculty?
+
+    Who in the tech field would you like to invite to teach at Evergreen? It can be an example or archetypal person, or someone with influential work that you've read about.
+
+    What question related to CS / electronics education at Evergreen has not been asked on this survey that you would like to answer? (and please also include your answer)
+
+
+
+
 Add your sentences below. Each person must write at least five sentences.
 Use five of the following terms:
 
