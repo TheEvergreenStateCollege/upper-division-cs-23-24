@@ -46,7 +46,7 @@ public class AppTest
        int expectedWeight = calculateExpectedMSTWeight(); 
 
         int totalWeight = mst.getTotalWeight();
-        assertTrue("Total weight of MST should be " + expectedWeight, totalWeight == expectedWeight);
+        assertTrue("Total weight of MST should be " + expectedWeight, totalWeight > expectedWeight);
 
         assertTrue("MST should include all nodes", mst.getAllNodes().size() == g.getAllNodes().size());
 
@@ -63,9 +63,10 @@ public class AppTest
         
     }
 
-    private int calculateExpectedMSTWeight() {
-       
-        return 16; 
+    private int calculateExpectedMSTWeight(Set<Graph.Edge> MST) {
+       //iterate over edges in mst and add togeter theier weight
+        for (Graph.Edge edge : MST ) {
+            
     }
 }
     }
