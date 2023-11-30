@@ -1,7 +1,7 @@
 package com.Lohen-dsa.app;
 import java.util.*;
 
-public class Main {
+public class App {
     List<String> list;
     int[] array;
     PriorityQueue<Integer> priorityQueue;
@@ -30,7 +30,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main data = new Main();
+        App data = new App();
 
         System.out.println("Listy: " + data.list);
         System.out.println("Arrayy: " + Arrays.toString(data.array));
