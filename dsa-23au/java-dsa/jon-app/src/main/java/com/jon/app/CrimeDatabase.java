@@ -54,12 +54,35 @@ public class CrimeDatabase {
     
     private static void displayDataForCountyAndYear(CrimeDatabase cdd, String county, int year) {
         // Implement logic to display data for the specified county and year
+        List<CrimeData> crimeDataList = cdd.getCrimeDataList();
         // You can use the 'cdd' instance to access the CrimeDatabase
-        // For example, might iterate over the stored crime data and filter based on county and year
+       
+        System.out.println("Crime Data for " + county + " County in " + year + ":");
+
+        //Iterate over the stored data and filter based on county an year
+        for (CrimeData crimeData : crimeDataList) {
+            if (crimeData.getCounty().equalsIgnoreCase(county) && getYearFromDate(crimeData.getDate()) == year) {
+                //Display the relevant infromation for the matching county and year
+                System.out.println("Date:" + crimeData.getDate());
+                System.out.println("Crime Type: " + crimeData.getCrimeType());
+
+                //Add more infromation as needed
+                System.out.println("------------------------------"); //seperation
+            }
+        }
+
+        
+       
         // Add logic here...
     }
 
 
+    private static int getYearFromDate(String date) {
+        return 0;
+    }
+    private List<CrimeData> getCrimeDataList() {
+        return null;
+    }
     public static void main(String[] args) {
         CrimeDatabase cdd = new CrimeDatabase();
         InputStream is = CrimeDatabase.class.getClassLoader().getResourceAsStream("Crime.csv");
