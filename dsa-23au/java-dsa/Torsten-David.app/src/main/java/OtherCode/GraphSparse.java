@@ -1,3 +1,5 @@
+package OtherCode;
+
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -18,7 +20,7 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
             this.isIncluded = false;
         }
 
-        
+        @Override
         public E1 getWeight() {
             return this.weight;
         }
@@ -38,7 +40,7 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
         }
     }
 
-   
+    @Override
     public boolean addNode(N label) {
         if (label == null || verticesMap.containsKey(label)) {
             return false;
@@ -48,7 +50,7 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
         return true;
     }
 
-    
+    @Override
     public boolean addEdge(N srcNode, N destNode, E weight)
     {
         //Create node1 from the parameter source node
@@ -62,7 +64,7 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
         return true;
     }
 
-    
+    @Override
     public Edge<E> getEdge(N srcNode, N destNode)
     {
         //Create node1 from the parameter source node
@@ -74,7 +76,7 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
         return e1;
     }
 
-   
+    @Override
     public Edge<E> getMinEdgeToUnvisitedNode(N sourceNodeLabel) {
         EdgeComparator<E> ec = new EdgeComparator<>();
         Edge<E> minWeightEdgeSoFar = null;
@@ -95,7 +97,7 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
         return minWeightEdgeSoFar;
     }
 
-    
+    @Override
     public void printMermaidDiagram() {
         Collection<Vertex> nodes = this.verticesMap.values();
         System.out.printf("graph TD\n");
@@ -114,5 +116,6 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
             System.out.println(string);
         }
     }
+
 }
 
