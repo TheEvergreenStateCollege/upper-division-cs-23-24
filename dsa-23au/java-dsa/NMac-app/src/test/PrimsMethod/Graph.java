@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class Graph<S, N> {
+public class Graph extends MST_Graph<String, Integer> {
 
     public Map<String, Vertex> verticesMap = new HashMap<>();
 
@@ -41,8 +41,28 @@ public class Graph<S, N> {
         }
     }
 
+    @Override
+    public boolean addEdge(String nodeKey1, String nodeKey2, Integer edge) {
+        return false;
+    }
+
     public void addNode(String label) {
         verticesMap.put(label, new Vertex(label));
+    }
+
+    @Override
+    public MST_Graph.Edge<Integer> getEdge(String nodeKey1, String nodeKey2) {
+        return null;
+    }
+
+    @Override
+    public MST_Graph.Edge<Integer> getMinEdgeToUnvisitedNode(String sourceNodeKey) {
+        return null;
+    }
+
+    @Override
+    public void printMermaidDiagram() {
+
     }
 
     public void addEdge(String srcNode, String destNode, int weight) {
@@ -123,8 +143,8 @@ public class Graph<S, N> {
     }
 
     // Method to execute Prim's method algorithm
-    public static <S> void main(String[] args) {
-        Graph<S, Number> graph = new Graph<S, Number>();
+    public static void main(String[] args) {
+        Graph graph = new Graph();
 
         // Add nodes
         graph.addNode("A");
@@ -158,5 +178,4 @@ public class Graph<S, N> {
         }
     }
 }
-
 
