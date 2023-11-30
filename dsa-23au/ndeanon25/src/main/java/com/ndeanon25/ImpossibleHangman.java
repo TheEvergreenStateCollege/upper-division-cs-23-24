@@ -104,6 +104,8 @@ public class ImpossibleHangman {
             char letter = console.next().toLowerCase().charAt(0);
                 if(hangman.guesses().contains(letter)){
                     System.out.println("You already guessed that. ");
+                } else if(!(letter >='a' && letter <= 'z')){
+                    System.out.println("Invalid input. Please enter a-z.");
                 } 
                 else{
                     int counter = hangman.record(letter);
@@ -112,9 +114,6 @@ public class ImpossibleHangman {
                 }
                 else if(counter == 1){
                     System.out.println("Nice! There is one " + letter);
-                }
-                else if((letter >='a' && letter >= 'z')){
-                    System.out.println("Invalid input. Please enter a-z.");
                 }
                 else {
                     System.out.println("Great Job! There are " + counter + " " + letter + "'s in the word");
@@ -128,7 +127,7 @@ public class ImpossibleHangman {
         String answer = hangman.words().iterator().next();
         System.out.println("Answer = " + answer);
         if(hangman.remainingGuesses() > 0) {
-            System.out.println("gReaT jOb -_-");
+            System.out.println("GREAT JOB! =]");
         } else{
             System.out.println("Sorry, you lose ;( ");
         }
