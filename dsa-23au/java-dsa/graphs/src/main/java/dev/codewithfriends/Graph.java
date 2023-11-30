@@ -45,4 +45,6 @@ public abstract class Graph<N,E extends Comparable<E> > {
     public abstract Edge<E> getEdge(N nodeKey1, N nodeKey2);
 
     public abstract Edge<E> getMinEdgeToUnvisitedNode(N sourceNodeKey);
+
+    public abstract void printMermaidDiagram();
 }
