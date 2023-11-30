@@ -3,27 +3,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-class Edge{
-    Node originNode;
-    Node destNode;
-    int edgeCost;
-
-    public Edge (Node origin, Node destination, int cost) {
-        edgeCost = cost;
-        destNode = destination;
-        originNode = origin;
-    }
-}
-class Node{
-
-    String name;
-    int leftEdge = 10 + rand.nextInt(21);
-    int rightEdge = 10 + rand.nextInt(21);
-    bool visited = false;
-
-}
 
 public class Bag {
+    
+    class Edge{
+        Node originNode;
+        Node destNode;
+        int edgeCost;
+    
+        public Edge (Node origin, Node destination, int cost) {
+            edgeCost = cost;
+            destNode = destination;
+            originNode = origin;
+        }
+    }
+    class Node{
+    
+        String name;
+        int leftEdge = 10 + rand.nextInt(21);
+        int rightEdge = 10 + rand.nextInt(21);
+        bool visited = false;
+    
+    }
+
+
 
     Random rand = new Random();
 
@@ -86,7 +89,12 @@ public class Bag {
         System.out.println(mstAccum);
         return mstAccum;
 
-
+        
+    }
+    
+    public static void main(String[] args){
+    
+        
     }
     
     
