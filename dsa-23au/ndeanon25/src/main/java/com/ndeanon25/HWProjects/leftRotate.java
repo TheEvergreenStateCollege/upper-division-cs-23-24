@@ -1,4 +1,4 @@
-package com.ndeanon25;
+package com.ndeanon25.HWProjects;
 
 public class leftRotate {
 

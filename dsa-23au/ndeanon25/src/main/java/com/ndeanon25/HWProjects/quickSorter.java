@@ -1,4 +1,4 @@
-package com.ndeanon25;
+package com.ndeanon25.HWProjects;
 import java.util.*;
 
 public class quickSorter {

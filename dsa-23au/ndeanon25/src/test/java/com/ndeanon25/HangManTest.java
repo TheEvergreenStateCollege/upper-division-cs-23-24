@@ -10,6 +10,8 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.ndeanon25.FinalProjectDSA.HangmanLogic;
+
 
 public class HangManTest {
     private HangmanLogic game;

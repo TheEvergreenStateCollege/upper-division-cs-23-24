@@ -1,4 +1,4 @@
-package com.ndeanon25;
+package com.ndeanon25.Graph;
 
 import java.util.HashMap;
 import java.util.Map;

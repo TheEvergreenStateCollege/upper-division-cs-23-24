@@ -1,8 +1,9 @@
-package com.ndeanon25;
+package com.ndeanon25.Graph;
 
-import com.ndeanon25.GraphSparse.Edge;
 import java.util.Map;
 import java.util.Set;
+
+import com.ndeanon25.Graph.GraphSparse.Edge;
 
 public class PrimsMST<N,E> {
     public boolean isIncluded;
