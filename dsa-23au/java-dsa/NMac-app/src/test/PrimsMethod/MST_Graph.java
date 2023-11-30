@@ -1,16 +1,15 @@
 package graphEdgeVertex;
 
 import java.util.Comparator;
-import java.util.Set;
 
-public abstract class MST_Graph<N extends Comparable<N>,E extends Comparable<E> > {
+public abstract class MST_Graph<N extends Comparable<N>, E extends Comparable<E>> {
 
-    public static interface Edge<E1> {
-        public E1 getWeight();
+    public interface Edge<E1> {
+        E1 getWeight();
     }
 
     protected static class EdgeComparator<E1 extends Comparable<E1>> implements Comparator<E1> {
-        boolean initialMin; // edge comparators start always returning less-than
+        boolean initialMin;
 
         public EdgeComparator() {
             initialMin = true;
@@ -30,44 +29,24 @@ public abstract class MST_Graph<N extends Comparable<N>,E extends Comparable<E> 
 
         @Override
         public boolean equals(Object obj) {
-            if (!(obj instanceof graphEdgeVertex.Graph.EdgeComparator)) {
+            if (!(obj instanceof EdgeComparator)) {
                 return false;
             }
-            graphEdgeVertex.Graph.EdgeComparator ec = (graphEdgeVertex.Graph.EdgeComparator) obj;
-            return ((graphEdgeVertex.Graph.EdgeComparator<?>) ec).initialMin == this.initialMin;
+            EdgeComparator<?> ec = (EdgeComparator<?>) obj;
+            return ec.initialMin == this.initialMin;
         }
     }
 
-    // Overridden method from abstract Graph class
-    @Override
-    public boolean addEdge(String nodeKey1, String nodeKey2, Integer weight) {
-        // Implement the method according to the specific logic of your Graph class
-    }
+    public abstract boolean addEdge(N nodeKey1, N nodeKey2, E edge);
 
-    // Overridden method from abstract Graph class
-    @Override
-    public boolean addNode(String nodeKey) {
-        // Implement the method according to the specific logic of your Graph class
-    }
+    public abstract void addNode(N nodeKey);
 
-    // Overridden method from abstract Graph class
-    @Override
-    public graphEdgeVertex.Graph.Edge<Integer> getEdge(String nodeKey1, String nodeKey2) {
-        // Implement the method according to the specific logic of your Graph class
-    }
+    public abstract Edge<E> getEdge(N nodeKey1, N nodeKey2);
 
-    // Overridden method from abstract Graph class
-    @Override
-    public graphEdgeVertex.Graph.Edge<Integer> getMinEdgeToUnvisitedNode(String sourceNodeKey) {
-        // Implement the method according to the specific logic of your Graph class
-    }
+    public abstract Edge<E> getMinEdgeToUnvisitedNode(N sourceNodeKey);
 
-    // Overridden method from abstract Graph class
-    @Override
-    public void printMermaidDiagram() {
-        // Implement a method to print the graph in Mermaid diagram format
-    }
+    public abstract void printMermaidDiagram();
 
-    // Existing code for the Edge and Vertex classes, along with other methods...
-
+    // ... (Other code if any)
 }
+
