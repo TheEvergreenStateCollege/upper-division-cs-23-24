@@ -41,8 +41,13 @@ public class App
                 System.out.printf("  City %s\n", cities[i]);
 
                 for (int j = 1; j < tokens.length; j += 1) {
-                    graph.addEdge(cities[i], tokens[0], Math.round(Double.parseDouble(tokens[j])));
+                    String sourceCity = cities[i];
+                    String destCity = cities[j];
+                    long dist = Math.round(Double.parseDouble(tokens[j]));
+                    System.out.printf(" %s %d", destCity, dist);
+                    graph.addEdge(sourceCity, destCity, dist);
                 }
+                System.out.printf("\n");
                 // Increment the city row index
                 i += 1;
 
@@ -57,6 +62,6 @@ public class App
     public static void main( String[] args )
     {
         Graph<String,Long> graph = readUSCitiesDistances();
-        System.out.println(graph.getEdge("Austin", "San Francisco"));
+        System.out.println(graph.getEdge("Austin", "San Francisco").getWeight());
     }
 }
