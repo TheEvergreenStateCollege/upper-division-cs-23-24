@@ -4,45 +4,54 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Edge {
-    class Node {
-        private List<Edge> edges = new ArrayList<Edge>();
+    private Node origin;
+    private Node dest;
+    private int weight;
 
-        public Node() {
-            
-        }
-
-        public List<Edge> getEdges() {
-            return new ArrayList<Edge>(edges);
-        }
-
-        public void addEdge(Edge edge) {
-            edges.add(edge);
-        }
-
-        public boolean hasEdge(Edge edge) {
-            if (edges.contains(edge)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        public boolean removeEdge(Edge edge) {
-            if (hasEdge(edge)) {
-                edges.remove(edge);
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
-    Node origin;
-    Node dest;
-    int weight;
-
-    public Edge(Node origin, Node dest) {
+    public Edge(Node origin, Node dest, int weight) {
         this.origin = origin;
         this.dest = dest;
+        this.weight = weight;
+    }
+
+    public void setOrigin(Node origin) {
+        this.origin = origin;
+    }
+
+    public Node getOrigin() {
+        return origin;
+    }
+
+    public void setDest(Node dest) {
+        this.dest = dest;
+    }
+
+    public Node getDest() {
+        return dest;
+    }
+
+    public boolean isEdgeBetween(String node1, String node2) {
+        if ((origin.getName() == node1 || dest.getName() == node1) &&
+            (origin.getName() == node2 || dest.getName() == node2)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean isEdgeTo(String name) {
+        if (origin.getName() == name || dest.getName() == name) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }

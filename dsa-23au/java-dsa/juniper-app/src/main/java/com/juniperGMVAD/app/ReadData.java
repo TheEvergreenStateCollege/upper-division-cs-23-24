@@ -37,8 +37,6 @@ public class ReadData
         double gmva = Double.parseDouble(tokens[3].trim());
         
         database.addCountryData(year, name, mva, gmva);
-
-
     }
 
     }
