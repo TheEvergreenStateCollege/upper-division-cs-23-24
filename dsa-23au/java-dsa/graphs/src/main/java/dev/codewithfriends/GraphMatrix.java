@@ -2,6 +2,8 @@ package dev.codewithfriends;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class GraphMatrix<N,E extends Comparable<E>> extends Graph<N,E> {
 
@@ -79,5 +81,17 @@ public class GraphMatrix<N,E extends Comparable<E>> extends Graph<N,E> {
         throw new RuntimeException("getMinEdgeToUnvisitedNode not implemented  yet for graph adjacency matrix representation.");
     }
 
+    @Override
+    public void printMermaidDiagram() {
+        Set<N> nodes = this.nodeKeysToIndex.keySet();
+        Set<N> nodes2 = new TreeSet<>(nodes);
+        System.out.printf("graph TD\n");
+        for (N node : nodes) {
+            for (N node2 : nodes2) {
+                System.out.printf("    %s-->%s\n", node, node2);
+
+            }
+        }
+    }
 
 }

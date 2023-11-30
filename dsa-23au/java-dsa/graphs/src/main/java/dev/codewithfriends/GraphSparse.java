@@ -1,9 +1,7 @@
 package dev.codewithfriends;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
 
 public class GraphSparse<N,E extends Comparable<E>> extends Graph<N,E> {
 
@@ -98,4 +96,18 @@ public class GraphSparse<N,E extends Comparable<E>> extends Graph<N,E> {
         }
         return minWeightEdgeSoFar;
     }
+
+    @Override
+    public void printMermaidDiagram() {
+        Collection<Vertex> nodes = this.verticesMap.values();
+        System.out.printf("graph TD\n");
+        for (Vertex v : nodes) {
+            Set<Vertex> nodes2 = v.edges.keySet();
+            for (Vertex v2 : nodes2) {
+                System.out.printf("    %s-->%s\n", v.label, v2.label);
+
+            }
+        }
+    }
+
 }
