@@ -7,7 +7,8 @@ import java.util.Map;
 import java.util.*;
 
 public class Database {
-    HashMap<String,HashMap<Integer,CountryData>> data;
+    List<CountryData> countryData = new ArrayList<CountryData>();
+    /*HashMap<String,HashMap<Integer,CountryData>> data;
 
     Database() {
         this.data = new HashMap<>();
@@ -123,5 +124,5 @@ public class Database {
             return topPerYear;
 
         }
-
+*/
 }
