@@ -11,6 +11,7 @@ public class GraphMatrix<N extends Comparable<N>,E extends Comparable<E>> extend
     Map<N,Integer> nodeKeysToIndex;
     int i; //  current node
     int nodeCount;
+    
 
     N[] nodeKeys;
 
@@ -74,6 +75,13 @@ public class GraphMatrix<N extends Comparable<N>,E extends Comparable<E>> extend
             return null;
         }
         return (GraphSparse.Edge<E>)this.matrix[nodeIndex1][nodeIndex2];
+    }
+    
+    @Override 
+    public Set<N> getNodes ( node1.put(node2, edge);
+    node2.put(node1, edge);) {
+        Vertex node1 = verticesMap.get(srcNode);
+        Vertex node2 = verticesMap.get(destNode);
     }
 
     @Override
