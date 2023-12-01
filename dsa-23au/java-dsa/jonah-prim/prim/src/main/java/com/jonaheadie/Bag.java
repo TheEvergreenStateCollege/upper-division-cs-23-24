@@ -9,7 +9,7 @@ public class Bag {
     private Graph mst;
     private List<Node> inside;
     private List<Node> outside = new ArrayList<Node>();
-    private List<Edge> crossing;
+    private List<Edge> crossing = new ArrayList<Edge>();
 
     public Bag(Graph bag, Graph mst) {
         this.bag = bag;
@@ -19,8 +19,6 @@ public class Bag {
 
     public Graph prim() {
         Node firstNode = pullOutNode();
-
-        Node first = pullOutNode();
         Edge firstEdge = getLowestWeightCrossing();
         mst.addNode(firstNode);
         mst.addEdge(firstEdge);
@@ -87,6 +85,7 @@ public class Bag {
 
     // Pulls out first node
     public Node pullOutNode() {
+        System.out.println("pull out 1");
         Node node = inside.get(0);
 
         outside.add(node);
@@ -97,6 +96,7 @@ public class Bag {
     }
 
     public Node pullOutNode(Node node) {
+        System.out.println("pull out 2");
         if (inside.contains(node)) {
             outside.add(node);
             inside.remove(node);
@@ -108,6 +108,7 @@ public class Bag {
 
     // Returns lowest weight crossing edge
     public Edge getLowestWeightCrossing() {
+        System.out.println("lowest");
         pruneCrossing(); // Prunes crossing of all non-crossing
 
         Edge lowest = crossing.get(0);
@@ -122,6 +123,7 @@ public class Bag {
 
     // Prunes crossing of all non-crossing edges
     public void pruneCrossing() {
+        Syste.out.println("pruning");
         Iterator<Edge> iterator = crossing.iterator();
         while (iterator.hasNext()) {
             Edge e = iterator.next();
