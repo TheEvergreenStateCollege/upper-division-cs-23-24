@@ -1,8 +1,9 @@
-from mst import prims_alg, prims_alg_heap
+from mst import prims_alg_heap, Edge
+import os
 
-vertices = {"SB", "IGA", "RG", "KB", "CP", "CK", "M", "GK", "RN"}
+vertices = ["SB", "IGA", "RG", "KB", "CP", "CK", "M", "GK", "RN"]
 # missing 5 edges
-edges = {
+edges = [
     ("RN", "KB", 24),
     ("RN", "CP", 22),
     ("KB", "CP", 4),
@@ -21,23 +22,34 @@ edges = {
     ("M", "CK", 15),
     ("GK", "CK", 14),
     ("GK", "CP", 17)
-}
-
-
-def test_prims_alg():
-    v = vertices.copy()
-    e = edges.copy()
-    mst = prims_alg(v, e)
-    expected_sum = 87
-    # assert the msts are equivalent? or assert the total weight is equivalent?
-    mst_sum = sum([e[2] for e in mst])
-    assert expected_sum == mst_sum
+]
+edges = [Edge(e) for e in edges]
 
 
 def test_prims_alg_heap():
-    v = vertices.copy()
-    e = edges.copy()
-    mst = prims_alg_heap(v, e)
+    mst_cost, mst = prims_alg_heap(vertices, edges)
     expected_sum = 87
-    mst_sum = sum([e.weight for e in mst])
-    assert expected_sum == mst_sum
+    assert expected_sum == mst_cost
+
+
+def test_prims_alg_heap2():
+    path = os.path.join(os.path.dirname(__file__), "50v80e.txt")
+    file = open(path, "r")
+
+    num_vertices, num_edges = file.readline().split(" ")
+    data = file.readlines()
+    file.close()
+    v = set()
+    e = []
+
+    for line in data:
+        line = line.split(" ")
+        print(line)
+        v.add(line[0])
+        v.add(line[1])
+        e.append(Edge((line[0], line[1], int(line[2]))))
+    v = list(v)
+    mst_cost, mst = prims_alg_heap(v, e)
+    # data generated was supposed to be 50 but is apparently less
+    # i guess there are some unconnected vertices
+    assert len(mst) == len(v) - 1
