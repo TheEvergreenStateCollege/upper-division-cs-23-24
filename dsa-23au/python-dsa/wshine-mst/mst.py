@@ -5,6 +5,7 @@
 import random
 import heapq
 from dataclasses import dataclass, field
+from collections import defaultdict
 
 
 @dataclass(order=True)
@@ -21,11 +22,33 @@ class Edge:
         return hash(self.ends)
 
 
-# list<string> -> list<Edge> -> (int, set<Edge>)
-def prims_alg_heap(vertices, edges):
+class Graph:
+    __vertices: dict[str, list[Edge]]
+
+    def __init__(self):
+        self.__vertices = defaultdict(list)
+
+    def add_edges(self, edges: list[tuple[str, str, int]]):
+        for e in edges:
+            edge = Edge(e)
+            self.__vertices[e[0]].append(edge)
+            self.__vertices[e[1]].append(edge)
+
+    def get_vertices(self) -> list[str]:
+        return list(self.__vertices.keys())
+
+    def adjacent(self, vertex: str) -> list[Edge]:
+        return self.__vertices[vertex]
+
+    def acyclic(self) -> bool:
+        return False
+
+
+# Graph -> (int, list<Edge>)
+def prims_alg(graph):
+    vertices = graph.get_vertices()
     vertex = random.choice(vertices)
     visited = set()
-    available_edges = set(edges)
     incident_edges = []
     mst_edges = []
     mst_weight = 0
@@ -35,9 +58,7 @@ def prims_alg_heap(vertices, edges):
         visited.add(vertex)
         visited_count += 1
 
-        # could be improved if graph representation had an adjacency list
-        connected_edges = set(filter(lambda x: vertex in x.ends, available_edges))
-        available_edges.difference_update(connected_edges)
+        connected_edges = graph.adjacent(vertex)
         for e in connected_edges:
             heapq.heappush(incident_edges, e)
 
@@ -48,17 +69,16 @@ def prims_alg_heap(vertices, edges):
                 break
             min_edge = heapq.heappop(incident_edges)
 
-        diff = min_edge.ends.difference(visited)
-        if len(diff) == 1:
-            vertex = next(iter(diff))
-            mst_edges.append(min_edge)
-            mst_weight += min_edge.weight
+        for v in min_edge.ends:
+            if v not in visited:
+                vertex = v
+                mst_edges.append(min_edge)
+                mst_weight += min_edge.weight
 
     return mst_weight, mst_edges
 
 
 if __name__ == "__main__":
-    vertices = ["SB", "IGA", "RG", "KB", "CP", "CK", "M", "GK", "RN"]
     edges = [
         ("RN", "KB", 24),
         ("RN", "CP", 22),
@@ -79,13 +99,12 @@ if __name__ == "__main__":
         ("GK", "CK", 14),
         ("GK", "CP", 17)
     ]
-    edges = [Edge(e) for e in edges]
-    original_cost = sum([edge.weight for edge in edges])
-    original_edges = edges.copy()
-    original_vertices = vertices.copy()
-    mst_cost, mst = prims_alg_heap(vertices, edges)
-    assert vertices == original_vertices
-    assert edges == original_edges
+    original_cost = sum([edge[2] for edge in edges])
+    graph = Graph()
+    graph.add_edges(edges)
+    print(graph.get_vertices())
+    print(graph.adjacent("RN"))
+    mst_cost, mst = prims_alg(graph)
     print("mst_res: {}".format(mst))
     print("mst length: {}".format(len(mst)))
     print("original cost: {}".format(original_cost))

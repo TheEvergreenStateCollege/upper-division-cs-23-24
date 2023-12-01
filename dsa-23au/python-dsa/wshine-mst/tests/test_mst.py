@@ -1,4 +1,4 @@
-from mst import prims_alg_heap, Edge
+from mst import prims_alg, Edge, Graph
 import os
 
 vertices = ["SB", "IGA", "RG", "KB", "CP", "CK", "M", "GK", "RN"]
@@ -23,16 +23,17 @@ edges = [
     ("GK", "CK", 14),
     ("GK", "CP", 17)
 ]
-edges = [Edge(e) for e in edges]
 
 
-def test_prims_alg_heap():
-    mst_cost, mst = prims_alg_heap(vertices, edges)
+def test_prims_alg():
+    graph = Graph()
+    graph.add_edges(edges)
+    mst_cost, mst = prims_alg(graph)
     expected_sum = 87
     assert expected_sum == mst_cost
 
 
-def test_prims_alg_heap2():
+def test_prims_alg2():
     path = os.path.join(os.path.dirname(__file__), "50v80e.txt")
     file = open(path, "r")
 
@@ -47,9 +48,11 @@ def test_prims_alg_heap2():
         print(line)
         v.add(line[0])
         v.add(line[1])
-        e.append(Edge((line[0], line[1], int(line[2]))))
-    v = list(v)
-    mst_cost, mst = prims_alg_heap(v, e)
+        e.append((line[0], line[1], int(line[2])))
+
+    graph = Graph()
+    graph.add_edges(e)
+    mst_cost, mst = prims_alg(graph)
     # data generated was supposed to be 50 but is apparently less
     # i guess there are some unconnected vertices
     assert len(mst) == len(v) - 1
