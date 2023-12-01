@@ -5,6 +5,12 @@ public class Edge {
     private String second;
     private int weight;
 
+    public Edge (String first, String second, int weight) {
+        this.first = first;
+        this.second = second;
+        this.weight = weight;
+    }
+
     public String getFirst() {
         return first;
     }
@@ -14,7 +20,7 @@ public class Edge {
     }
 
     public String getSecond() {
-        return first;
+        return second;
     }
 
     public void setSecond(String name) {
@@ -27,5 +33,29 @@ public class Edge {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public boolean sameNodes(Edge other) {
+        if (first.equals(other.getFirst()) && second.equals(other.getSecond())) {
+            return true;
+        }
+
+        if (second.equals(other.getFirst()) && first.equals(other.getSecond())) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean isEqual(Edge other) {
+        if (first.equals(other.getFirst()) && second.equals(other.getSecond()) && weight == other.getWeight()) {
+            return true;
+        }
+
+        if (second.equals(other.getFirst()) && first.equals(other.getSecond()) && weight == other.getWeight()) {
+            return true;
+        }
+
+        return false;
     }
 }
