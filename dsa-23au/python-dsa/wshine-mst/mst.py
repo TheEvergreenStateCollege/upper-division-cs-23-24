@@ -27,15 +27,26 @@ class Graph:
 
     def __init__(self):
         self.__vertices = defaultdict(list)
+        self.__total_weight = 0
 
-    def add_edges(self, edges: list[tuple[str, str, int]]):
+    def add_edge(self, edge: Edge):
+        for v in edge.ends:
+            self.__vertices[v].append(edge)
+        self.__total_weight += edge.weight
+
+    def extend(self, edges: list[tuple[str, str, int]]):
         for e in edges:
-            edge = Edge(e)
-            self.__vertices[e[0]].append(edge)
-            self.__vertices[e[1]].append(edge)
+            e = Edge(e)
+            self.add_edge(e)
+
+    def get_edges(self) -> set[Edge]:
+        return set.union(*[set(edges) for edges in self.__vertices.values()])
 
     def get_vertices(self) -> list[str]:
         return list(self.__vertices.keys())
+
+    def get_weight(self) -> int:
+        return self.__total_weight
 
     def adjacent(self, vertex: str) -> list[Edge]:
         return self.__vertices[vertex]
@@ -44,14 +55,13 @@ class Graph:
         return False
 
 
-# Graph -> (int, list<Edge>)
-def prims_alg(graph):
+# Graph -> Graph
+def prims_alg(graph) -> Graph:
     vertices = graph.get_vertices()
     vertex = random.choice(vertices)
     visited = set()
     incident_edges = []
-    mst_edges = []
-    mst_weight = 0
+    mst = Graph()
     visited_count = 0
 
     while visited_count < len(vertices):
@@ -72,10 +82,9 @@ def prims_alg(graph):
         for v in min_edge.ends:
             if v not in visited:
                 vertex = v
-                mst_edges.append(min_edge)
-                mst_weight += min_edge.weight
+                mst.add_edge(min_edge)
 
-    return mst_weight, mst_edges
+    return mst
 
 
 if __name__ == "__main__":
@@ -101,11 +110,11 @@ if __name__ == "__main__":
     ]
     original_cost = sum([edge[2] for edge in edges])
     graph = Graph()
-    graph.add_edges(edges)
+    graph.extend(edges)
     print(graph.get_vertices())
     print(graph.adjacent("RN"))
-    mst_cost, mst = prims_alg(graph)
+    mst = prims_alg(graph)
     print("mst_res: {}".format(mst))
-    print("mst length: {}".format(len(mst)))
+    print("mst length: {}".format(len(mst.get_edges())))
     print("original cost: {}".format(original_cost))
-    print("mst cost: {}".format(mst_cost))
+    print("mst cost: {}".format(mst.get_weight()))

@@ -1,8 +1,5 @@
 from mst import prims_alg, Edge, Graph
 import os
-
-vertices = ["SB", "IGA", "RG", "KB", "CP", "CK", "M", "GK", "RN"]
-# missing 5 edges
 edges = [
     ("RN", "KB", 24),
     ("RN", "CP", 22),
@@ -27,10 +24,10 @@ edges = [
 
 def test_prims_alg():
     graph = Graph()
-    graph.add_edges(edges)
-    mst_cost, mst = prims_alg(graph)
+    graph.extend(edges)
+    mst = prims_alg(graph)
     expected_sum = 87
-    assert expected_sum == mst_cost
+    assert expected_sum == mst.get_weight()
 
 
 def test_prims_alg2():
@@ -51,8 +48,8 @@ def test_prims_alg2():
         e.append((line[0], line[1], int(line[2])))
 
     graph = Graph()
-    graph.add_edges(e)
-    mst_cost, mst = prims_alg(graph)
+    graph.extend(e)
+    mst = prims_alg(graph)
     # data generated was supposed to be 50 but is apparently less
     # i guess there are some unconnected vertices
-    assert len(mst) == len(v) - 1
+    assert len(mst.get_edges()) == len(v) - 1
