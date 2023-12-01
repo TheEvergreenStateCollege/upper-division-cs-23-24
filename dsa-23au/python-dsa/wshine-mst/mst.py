@@ -17,7 +17,6 @@ class Edge:
         self.ends = frozenset(edge[:2])
         self.weight = edge[2]
 
-    # not necessary
     def __hash__(self):
         return hash(self.ends)
 
@@ -26,18 +25,19 @@ class Edge:
 def prims_alg_heap(vertices, edges):
     vertex = random.choice(vertices)
     visited = set()
+    available_edges = set(edges)
     incident_edges = []
     mst_edges = []
     mst_weight = 0
     visited_count = 0
 
     while visited_count < len(vertices):
-        # set up
         visited.add(vertex)
         visited_count += 1
 
         # could be improved if graph representation had an adjacency list
-        connected_edges = filter(lambda x: vertex in x.ends, edges)
+        connected_edges = set(filter(lambda x: vertex in x.ends, available_edges))
+        available_edges.difference_update(connected_edges)
         for e in connected_edges:
             heapq.heappush(incident_edges, e)
 
