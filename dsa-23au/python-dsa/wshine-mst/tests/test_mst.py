@@ -22,6 +22,32 @@ edges = [
 ]
 
 
+def test_acyclic():
+    cyclic_edges = [("a", "b", 1),
+                    ("b", "c", 1),
+                    ("c", "a", 1),
+                    ("b", "d", 1)]
+    cyclic_graph = Graph()
+    cyclic_graph.extend(cyclic_edges)
+    vs = cyclic_graph.get_vertices()
+    res = []
+    for v in vs:
+        res.append(cyclic_graph.acyclic(v))
+    assert not all(res)
+
+    acyclic_edges = [("a", "c", 1),
+                     ("a", "d", 1),
+                     ("d", "b", 1),
+                     ("a", "e", 1)]
+    acyclic_graph = Graph()
+    acyclic_graph.extend(acyclic_edges)
+    vs = acyclic_graph.get_vertices()
+    res = []
+    for v in vs:
+        res.append(acyclic_graph.acyclic(v))
+    assert all(res)
+
+
 def test_prims_alg():
     graph = Graph()
     graph.extend(edges)
@@ -37,19 +63,21 @@ def test_prims_alg2():
     num_vertices, num_edges = file.readline().split(" ")
     data = file.readlines()
     file.close()
-    v = set()
+    vertices = set()
     e = []
 
     for line in data:
         line = line.split(" ")
         print(line)
-        v.add(line[0])
-        v.add(line[1])
+        vertices.add(line[0])
+        vertices.add(line[1])
         e.append((line[0], line[1], int(line[2])))
 
     graph = Graph()
     graph.extend(e)
     mst = prims_alg(graph)
+    acyclic = [mst.acyclic(v) for v in vertices]
     # data generated was supposed to be 50 but is apparently less
     # i guess there are some unconnected vertices
-    assert len(mst.get_edges()) == len(v) - 1
+    assert len(mst.get_edges()) == len(vertices) - 1
+    assert all(acyclic)

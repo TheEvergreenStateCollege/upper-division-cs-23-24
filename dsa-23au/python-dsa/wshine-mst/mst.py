@@ -5,7 +5,7 @@
 import random
 import heapq
 from dataclasses import dataclass, field
-from collections import defaultdict
+from collections import defaultdict, deque
 
 
 @dataclass(order=True)
@@ -20,6 +20,12 @@ class Edge:
 
     def __hash__(self):
         return hash(self.ends)
+
+    def dest(self, vertex) -> str:
+        for v in self.ends:
+            if v != vertex and vertex in self.ends:
+                return v
+        return ""
 
 
 class Graph:
@@ -39,8 +45,12 @@ class Graph:
             e = Edge(e)
             self.add_edge(e)
 
-    def get_edges(self) -> set[Edge]:
-        return set.union(*[set(edges) for edges in self.__vertices.values()])
+    def get_edges(self):
+        res = set()
+        for x in self.__vertices.values():
+            for edge in x:
+                res.add(edge)
+        return list(res)
 
     def get_vertices(self) -> list[str]:
         return list(self.__vertices.keys())
@@ -48,11 +58,33 @@ class Graph:
     def get_weight(self) -> int:
         return self.__total_weight
 
-    def adjacent(self, vertex: str) -> list[Edge]:
+    def connected(self, vertex: str) -> list[Edge]:
         return self.__vertices[vertex]
 
-    def acyclic(self) -> bool:
-        return False
+    def adjacent_vertices(self, vertex: str) -> list[str]:
+        edges = self.connected(vertex)
+        return [e.dest(vertex) for e in edges]
+
+    def acyclic(self, start) -> bool:
+        vertices = self.get_vertices()
+        visited = {v: False for v in vertices}
+        parent = {v: "" for v in vertices}
+        queue = deque()
+
+        visited[start] = True
+        queue.append(start)
+
+        while queue:
+            current = queue.pop()
+
+            for v in self.adjacent_vertices(current):
+                if not visited[v]:
+                    visited[v] = True
+                    queue.append(v)
+                    parent[v] = current
+                elif parent[current] != v:
+                    return False
+        return True
 
 
 # Graph -> Graph
@@ -68,7 +100,7 @@ def prims_alg(graph) -> Graph:
         visited.add(vertex)
         visited_count += 1
 
-        connected_edges = graph.adjacent(vertex)
+        connected_edges = graph.connected(vertex)
         for e in connected_edges:
             heapq.heappush(incident_edges, e)
 
@@ -111,10 +143,11 @@ if __name__ == "__main__":
     original_cost = sum([edge[2] for edge in edges])
     graph = Graph()
     graph.extend(edges)
-    print(graph.get_vertices())
-    print(graph.adjacent("RN"))
     mst = prims_alg(graph)
     print("mst_res: {}".format(mst))
     print("mst length: {}".format(len(mst.get_edges())))
     print("original cost: {}".format(original_cost))
     print("mst cost: {}".format(mst.get_weight()))
+    vertices = mst.get_vertices()
+    acyclic = [mst.acyclic(v) for v in vertices]
+    print(acyclic)
