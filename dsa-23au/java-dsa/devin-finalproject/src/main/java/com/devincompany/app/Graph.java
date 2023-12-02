@@ -7,9 +7,12 @@ public abstract class Graph<N extends Comparable<N>,E extends Comparable<E> > {
 
     public static interface Edge<E1> {
         public E1 getWeight();
-
-    
+        
     }
+    // public static interface N1{
+
+    // }
+
 
     protected static class EdgeComparator<E1 extends Comparable<E1>> implements Comparator<E1> {
         boolean initialMin; // edge comparators start always returning less-than
