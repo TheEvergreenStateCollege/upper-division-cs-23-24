@@ -21,6 +21,9 @@ public class DataStorage {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     // add public getters and setters for BST
+    public void addToSoundTree(double soundLevel, String date){
+        soundLevelTree.insert(soundLevel, date);
+    }
 
     //public void addToSoundTree (String date, double soundLevel){}
 
