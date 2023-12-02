@@ -1,9 +1,23 @@
 FROM ubuntu:20.04
 ENV SHELL=/usr/bin/bash
 
-LABEL maintainer="ComputerClub++ <https://github.com/TheEvergreenStateCollege/ProjectHopper>"
+LABEL maintainer="Upper Division CS <https://github.com/TheEvergreenStateCollege/upper-division-cs>"
 
 USER root
+
+# Install keys for yggdrasil to access machines at Evergreen on different subnets
+# via IPv6 tunneling
+# From https://yggdrasil-network.github.io/installation-linux-deb.html
+RUN mkdir -p /usr/local/apt-keys
+
+RUN apt-get update --yes && \
+    apt-get install --yes --no-install-recommends
+RUN apt-get install -yqq gpg
+
+RUN gpg --fetch-keys https://neilalexander.s3.dualstack.eu-west-2.amazonaws.com/deb/key.txt
+RUN gpg --export BC1BF63BD10B8F1A | tee /usr/local/apt-keys/yggdrasil-keyring.gpg > /dev/null
+
+RUN echo 'deb [signed-by=/usr/local/apt-keys/yggdrasil-keyring.gpg] http://neilalexander.s3.dualstack.eu-west-2.amazonaws.com/deb/ debian yggdrasil' | tee /etc/apt/sources.list.d/yggdrasil.list
 
 RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends
@@ -18,6 +32,8 @@ RUN apt-get install -yqq gcc
 RUN apt-get install -yqq zlib1g-dev
 RUN apt-get install -yqq htop
 RUN apt-get install -yqq asciinema
+RUN apt-get install -yqq python3-pip
+RUN apt-get install -yqq yggdrasil
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
