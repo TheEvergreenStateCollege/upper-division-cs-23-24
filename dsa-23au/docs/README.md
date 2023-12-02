@@ -1,32 +1,60 @@
-# Data Structures and Algorithms (DSA)
-Autumn 2023
+# Upper Division Computer Science Programs 2023-2024
 
-Current Maven Build Status
+The Evergreen State College is proud to offer the following upper division computer science programs
+during the academic school year 2023-2024.
 
-![example workflow](https://github.com/theevergreenstatecollege/upper-division-cs/actions/workflows/maven.yml/badge.svg)
+These three programs form a sequence over three quarters, progressing from
+* the basic principles of 
+* a scrappy startup experimenting with many products to resonate with users in the Purpose-Driven Web
+* scaling a proven product to more users with more reliability and a bigger team of developers in Software Construction
 
-Students taking DSA this quarter are on two tracks, which run parallel with frequent
-interaction via pair programming and mentorship.
+## Data Structures and Algorithms (DSA), Autumn 2023
 
-* First-time DSA students will be responsible for completing
-* Returning DSA students will be responsible for setting their own learning curriculum.
+[Course Catalog: Data Structures and Algorithms](https://www.evergreen.edu/catalog/offering/data-structures-and-algorithms-39926)
 
-## Choice of Programming Language
+Abstract data types, automated problem-solving, and analyzing computing resources for medium-sized organizations.
+Data Structures and Algorithms help students understand and implement software systems ranging from tens of datapoints
+to millions and billions, what it means to scale and how to enable it, and also to apply tools of
+computational thinking to problems common in technical interviews.
 
-All students can choose which programming language to use to complete this quarter.
-The teaching staff can provide full support for Java, building on students' experience from Computer Science Foundations.
+Data Structures & Algorithms cover how data is organized and transformed usefully on a single machine, or in parallel
+across multiple machines coordinating over a network.
 
-However, learning is an adventure, and there are a diverse array of programming languages,
-each with a different lens on computation. You are welcome to choose any programming language
-which can accept text input piped to `stdin` and returning an output on `stdout`, the two standard streams
-in a UNIX shell, as this is how we will be testing your solutions. Don't worry,
-99% of programming languages out there offer this feature.
+## Purpose-Driven Web (PDW), Winter 2024
 
-## Build Status
+[Course Catalog TBD: Purpose-Driven Web]()
 
-This program is a joint effort among students and teaching staff as a Learning Organization.
-For software and computer science, that means we are producing code (and tests) as artifacts
-as we are learning them. The build status indicates whether our code currently compiles, and all tests are currently passing
-successfully. During the quarter, this build status will fluctuate but by the end it should stay green (passing).
+Modern products and services that delight and benefit our lives every day often begin at a web (or mobile) app
+and end with an experience for our users and customers that enacts a change we wish to see in the world.
+This model underlies the majority of tech startups or tech-enabled ventures today, who are focused on
+rapid, agile iteration; testing successively more and more refined prototypes with users;
+As a younger Facebook has said, "move fast and break things".
 
-[Maven Workflows](https://github.com/TheEvergreenStateCollege/upper-division-cs/actions/workflows/maven.yml)
+Building upon the
+foundation of DSA, we add the *client-server architecture* and the *model-view-controller* paradigm.
+The two major areas that govern 
+These separate a backend, often involving
+databases, access control, and user data from a frontend, a user interface that focuses on
+visual effectiveness, aesthetics, and ease-of-interaction, that runs on user's devices.
+
+There is a wealth of modern information available over the web from businesses and organizations through 
+their Application Programming Interfaces (APIs). These interfaces allow new entrepreneurs and
+changemakers to combine, remix, and syndicate data in innovative ways to enable new web-based apps.
+
+## Software Construction (SC), Spring 2024
+
+[Course Catalog TBD: Software Construction]()
+
+As software products and their ventures mature, gain users, and become established in their fields,
+rapid iteration and a mismatch of past design decisions lead to overhead and tech debt. Continuing
+in the same startup mode creates perhaps as many problems as it solves, and this is where an entry-level
+software developer takes their first step on the path to being a software engineer.
+
+We call this beginning stage, where we balance adding completely new functionality with streamlining and
+*refactoring* our existing software systems and processes. The image here is removing the shoe from
+your pebble, before you run a marathon.
+
+* Requirements engineering and analysis
+* Continuous integration (CI) and continuous deployment (CD)
+* Testing pipelines, unit and integration testing
+* Design patterns, object-oriented and functional
