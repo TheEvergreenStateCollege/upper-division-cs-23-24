@@ -14,7 +14,11 @@ RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends
 RUN apt-get install -yqq gpg
 
-RUN gpg --fetch-keys https://neilalexander.s3.dualstack.eu-west-2.amazonaws.com/deb/key.txt
+RUN mkdir /keys
+ADD ./config/yggdrasil-key.txt /keys/yggdrasil-key.txt
+RUN gpg --import /keys/yggdrasil-key.txt
+# Fetching doesn't work when building the image in GitPod for some reason
+# RUN gpg --fetch-keys https://neilalexander.s3.dualstack.eu-west-2.amazonaws.com/deb/key.txt
 RUN gpg --export BC1BF63BD10B8F1A | tee /usr/local/apt-keys/yggdrasil-keyring.gpg > /dev/null
 
 RUN echo 'deb [signed-by=/usr/local/apt-keys/yggdrasil-keyring.gpg] http://neilalexander.s3.dualstack.eu-west-2.amazonaws.com/deb/ debian yggdrasil' | tee /etc/apt/sources.list.d/yggdrasil.list
