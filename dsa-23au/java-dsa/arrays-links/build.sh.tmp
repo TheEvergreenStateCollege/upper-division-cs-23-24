@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# This doesn't currently build cleanly
+# TODO rename it back to build.sh when it's fixed
+mvn clean compile assembly:single
