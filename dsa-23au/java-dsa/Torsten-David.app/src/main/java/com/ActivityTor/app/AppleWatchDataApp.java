@@ -2,13 +2,9 @@ package com.ActivityTor.app;
 
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.List;
 
 public class AppleWatchDataApp 
 {    
@@ -59,7 +55,7 @@ public class AppleWatchDataApp
                     watchData.addHandWashingSeconds(date, handWashingSeconds);
                     watchData.addRestingEnergy(date, restingEnergy);
                     watchData.addSoundLevels(date, soundLevels);
-                    //watchdata.addSoundTree(date, sound level)...
+                    watchData.addToSoundTree(soundLevels, date);
     
                 } catch (IndexOutOfBoundsException | NumberFormatException e) {
                     System.out.println("Error parsing line: " + line);
@@ -72,23 +68,9 @@ public class AppleWatchDataApp
         }
     }
 
-    public void ShowAllData(){
+    public void showAllData(){
         watchData.printAllData(); // Print processed data
     }
-
-     public static void main( String[] args )
-    {
-        AppleWatchDataApp app = new AppleWatchDataApp();
-        app.loadData();
-
-         if (args[0].equals("print-all")) {
-            app.ShowAllData();
-         } else if (args[0].equals("sound-levels"))
-         {
-            //app.watchData.highestSound level
-           
-         }
-       
-        }
-    }
+}
+    
 

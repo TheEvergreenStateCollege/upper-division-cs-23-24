@@ -21,15 +21,16 @@ public class BST < T extends Comparable<? super T>>{
         return contains(x, root);
     }
 
-    public T findMin() throws UnderFlowException {
-        if ( isEmpty() ){
-            throw new UnderFlowException();
-        } 
-        return findMax( root ).data;
+    public Object[] findMin(){
+        Object[] retR = root.findMin();
+        return retR;
     }
 
-    public T findMax() {
-        throw new RuntimeException("Not yet implemented");
+    public Object[] findMax(){
+
+        Object[] retR = root.findMax();
+        return retR;
+        
     }
 
     public void insert (T x, String date) {
@@ -57,11 +58,7 @@ public class BST < T extends Comparable<? super T>>{
         }
     }
 
-    private BSTNode<T> findMax(BSTNode<T> t) {
-        throw new RuntimeException("Not yet implemented.");
-    }
-
-    private BSTNode<T> insert(T x,String date, BSTNode<T> t) {
+    private BSTNode<T> insert(T x, String date, BSTNode<T> t) {
         if (t == null) {
             return new BSTNode<>(x, date);
         }
@@ -73,6 +70,9 @@ public class BST < T extends Comparable<? super T>>{
         } else if (compareResult > 0) {
             t.right = insert( x, date, t.right );
         } // else duplicate
+          else if(compareResult == 0){
+            t.dates.add(date);
+          }
         return t;
     }
 
