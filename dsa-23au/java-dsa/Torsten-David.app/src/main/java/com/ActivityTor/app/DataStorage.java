@@ -25,8 +25,6 @@ public class DataStorage {
         soundLevelTree.insert(soundLevel, date);
     }
 
-    //public void addToSoundTree (String date, double soundLevel){}
-
     public void addStepCount(String date, int stepCount) {
         stepCounts.put(date, stepCount);
     }
