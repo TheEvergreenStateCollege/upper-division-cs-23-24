@@ -142,5 +142,19 @@ public class DataStorage {
         printSoundLevels();
     }
 
-    
+// method for Average Step Count 
+ 
+    public double AverageDailyStepCount ()
+    {
+
+         int totalSteps = 0;
+         int totalDays = stepCounts.size();
+
+        for (int steps : stepCounts.values())
+        {
+            totalSteps += steps;
+        }
+            return (double) totalSteps / totalDays; 
+    }
+
 }
