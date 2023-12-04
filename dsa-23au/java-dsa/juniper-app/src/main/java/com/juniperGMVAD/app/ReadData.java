@@ -48,61 +48,34 @@ public class ReadData
 		}
     }
 
-    public readMVAIntoDatabase(String csv_filepath) {
+    public void readMVAIntoDatabase(String csv_filepath) 
+    {
+    List<List<String>> tokenized = readAndTokenizeCSV(String csv_filepath);
+
+            for (int i = 6; i < tokenized.size(); i++) 
+            {
+                int year = tokenized.get(5).get(0);
+                double mva;
         
-    }
-
-    /*public List<CountryData> readCountryData(String csv_filepath) {
-        try (FileInputStream fis = new FileInputStream("/workspace/upper-division-cs/dsa-23au/java-dsa/juniper-app/src/main/resources/GMVA.csv")) {
-            BufferedInputStream bis = new BufferedInputStream(fis);
-            byte[] buffer = bis.readAllBytes();
-            String inputString = new String(buffer);
-            String[] lines = inputString.split("\n");
-        } catch (IOException ioe) {
-
-        }
-    }*/
-
-    public void processData() 
-    {
-    
-    try (FileInputStream fis = new FileInputStream("/workspace/upper-division-cs/dsa-23au/java-dsa/juniper-app/src/main/resources/GMVA.csv")) 
-    {
-    BufferedInputStream bis = new BufferedInputStream(fis);
-    byte[] buffer = bis.readAllBytes();
-    String inputString = new String(buffer);
-    String[] lines = inputString.split("\n");
-
-
-
-    for (int i = 1; i < lines.length; i++) 
-    {
-        String[] tokens = lines[i].split(",");
-        int year = 1960;
-        ArrayList<Integer> years = new ArrayList<Integer>();
-        ArrayList<Double> mva = new ArrayList<Double>();
-
-        String name = tokens[0].trim();
-
-        for (String line : lines[i].split(","))
-        {
-            years.add(year);
-            year = year + 1;
-        }
-
-        for (int j = 5; j < tokens.length; j++)
-        {
-            mva.add(Double.parseDouble(tokens[j].trim()));
-        }
-    }
+                String countryName = tokenized.get(i).get(0);
+                String countryCode = tokenized.get(i).get(1);
+                String indicatorName = tokenized.get(i).get(2);
+                String indicatorCode = tokenized.get(i).get(3);
+        
+                for (String line : tokenized.get(i).size())
+                {
+                 y++
+                 years = years + 1;
+                 mva = Double.parseDouble(tokenized.get(i).get(5));
+            }
 
     }
-
+}
     catch(IOException ioe) 
     {
         System.err.println(ioe.toString());
     }
 
     }
-}
+
 
