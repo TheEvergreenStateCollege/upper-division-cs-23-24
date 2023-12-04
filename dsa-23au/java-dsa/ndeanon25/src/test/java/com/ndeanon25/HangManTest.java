@@ -30,12 +30,13 @@ public class HangManTest {
     @Test
     public void testRemainingGuessesAndGuesses(){
         int numOfwords = game.words().size();
-        game.record('a');
+        
 
-        //Tests
+        //This test is expected to test the remaining guesses 
         assertEquals(6,game.remainingGuesses());
-        game.record('b');
+        game.record('a');
         assertEquals(5, game.remainingGuesses());
+        game.record('b');
         assertTrue(game.guesses().contains('a'));
         assertTrue(numOfwords > game.words().size());
     }

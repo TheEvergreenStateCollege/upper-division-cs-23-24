@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ImpossibleHangman {
+    static boolean WordCountSwitch = false;
+    static int showWordCount; 
 
     /**
      * I got this off of your DMV project. This basically reads the dictionary text file and puts it in a List<String>
@@ -28,7 +30,7 @@ public class ImpossibleHangman {
     }
 
     public static void main(String[] args) {
-        String filePath = "/workspace/upper-division-cs/dsa-23au/ndeanon25/src/main/java/com/ndeanon25/FinalProjectDSA/dictionary.txt";
+        String filePath = "/workspace/upper-division-cs/dsa-23au/java-dsa/ndeanon25/src/main/java/com/ndeanon25/FinalProjectDSA/dictionary.txt";
         try{
             List<String> theDictionary = readDictionaryFromFile(filePath); 
             System.out.println();   
@@ -51,7 +53,7 @@ public class ImpossibleHangman {
                          System.out.println("It has to be between 2 and 23");
                     }
                 } catch(InputMismatchException e){
-                    System.out.println("Invalid input. PLease put an integer between 2 and 23.");
+                    System.out.println("Invalid input. Please put an integer between 2 and 23.");
                     System.out.println();
                     console.next();
                 }   
@@ -71,7 +73,7 @@ public class ImpossibleHangman {
                         System.out.println("Please choose between 2 and 26");
                     }
                 } catch(InputMismatchException e){
-                    System.out.println("Invalid input. PLease put an integer between 2 and 26.");
+                    System.out.println("Invalid input. Please put an integer between 2 and 26.");
                     System.out.println();
                     console.next();
                 }   
@@ -99,9 +101,14 @@ public class ImpossibleHangman {
             System.out.println("Guesses: " + hangman.remainingGuesses());
             System.out.println("Guessed: " + hangman.guesses());
             System.out.println("Current: " + hangman.pattern());
-            System.out.println("Your guess is? ");
+            System.out.println("What letter do you want to guess? ");
 
             char letter = console.next().toLowerCase().charAt(0);
+                if(WordCountSwitch){
+                    showWordCount = hangman.words().size();
+                    System.out.println("There are " + showWordCount + " words left.");
+                }
+
                 if(hangman.guesses().contains(letter)){
                     System.out.println("You already guessed that. ");
                 } else if(!(letter >='a' && letter <= 'z')){
