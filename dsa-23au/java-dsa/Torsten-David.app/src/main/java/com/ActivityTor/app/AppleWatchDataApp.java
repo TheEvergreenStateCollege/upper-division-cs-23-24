@@ -71,6 +71,8 @@ public class AppleWatchDataApp
     public void showAllData(){
         watchData.printAllData(); // Print processed data
     }
+    
 }
+
     
 

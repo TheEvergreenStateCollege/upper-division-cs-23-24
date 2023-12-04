@@ -15,7 +15,8 @@ public class Runtime {
                 System.out.println("Press 2 to find which day had the highest sound level ");
                 System.out.println("Press 3 to find the the day with the lowest sound level");
                 System.out.println("Press 4 to show credits for this project");
-                
+                System.out.println("Press 5 to show Average Daily Step Count for this project");
+
                 System.out.println("Press Q to Quit");
 
                 String usrResponse = kb.nextLine();
@@ -42,6 +43,10 @@ public class Runtime {
 
                         break;
 
+                    case "5":
+                        double averageSteps = app.watchData.AverageDailyStepCount(); 
+                        System.out.println("Averge Daily Step Count: " + averageSteps);
+                        break;
                 
 
                     case "Q":
