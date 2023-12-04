@@ -2,6 +2,7 @@ import pytest
 from DriverFiles.DriverData2 import DriverToDriveData
 from DriverFiles.DriverConfig import theConfigurator
 from unittest.mock import mock_open, patch
+import unittest
 
 @pytest.fixture
 def driver_instance():
@@ -50,13 +51,20 @@ def test_compile_driver_specific_lists(driver_instance):
     assert len(driver_instance.driver2keys) > 0
 
 def test_run_mode(driver_instance):
-    result = driver_instance.run_mode()
-    my_instance = DriverToDriveData()
+    # test to check if the file path input works as intended in the main method for driver data, run_mode
+    driver_instance.filepath1 = "path/to/file1.csv"
+    driver_instance.filepath2 = "path/to/file2.csv"
 
-    result = my_instance.run_mode()
- 
-    assert len(result) > 0
-    assert isinstance(result, dict) 
+    driver_instance._add_list_to_dict_by_index = unittest.mock.Mock()
+    driver_instance._compile_driver_specific_lists = unittest.mock.Mock()
+
+    driver_instance.run_mode()
+
+    driver_instance._add_list_to_dict_by_index.assert_has_calls([
+        unittest.mock.call("path/to/file1.csv"),
+        unittest.mock.call("path/to/file2.csv")
+    ])
+    driver_instance._compile_driver_specific_lists.assert_called_once()
 
 if __name__ == '__main__':
     pytest.main()

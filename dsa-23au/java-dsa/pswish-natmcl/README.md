@@ -65,7 +65,7 @@ Our tests are for Pytest only.
 Right now, tests passing mean that the data structure logic is functional. 
 
 Install `pytest` if you can >>> `pip3 install pytest`
-then update your path: `export PATH="$HOME/.local/bin:$PATH`
+then update your path: `export PATH="$HOME/.local/bin:$PATH"`
 
 Then navigate to the root directory or DriverFiles and simply run >> `pytest`
 
