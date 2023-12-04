@@ -77,3 +77,65 @@ public class MathUtility {
 Sibling methods can be described as methods in a class that are at the same level of hierarchy and have a related purpose or functionality.
 
 I thought Function declarations are interesting, I think what a function declaration is  like a precheck for the compiler. Here is a better explation. Function declaration is a statement that specifies the name, return type, and parameters of a function, but does not include the function body. It's a way to inform the compiler about a function's existence before its actual implementation.
+
+
+
+Jonathan Rodriguez
+ "Open source" software makes its source code freely accessible, encouraging collaboration and transparency, while "closed source" keeps the source code private, maintaining control and enabling revenue generation. The choice depends on project goals, with open source emphasizing community contributions, and closed source prioritizing proprietary control and financial sustainability.
+
+ Certainly! Let's delve deeper into the code review with specific examples to illustrate the concepts mentioned:
+
+1. **Function Signature:**
+   - Example: `public List<String> processData(int[] inputArray) {...}`
+   - In this function signature, the return type is a `List` of `String`, the function name is `processData`, and it takes an `int` array as a parameter.
+
+2. **Function Declaration and Parameters:**
+   - Example: 
+     ```java
+     public void manipulateData(String[] data, int index) {
+         // Function implementation
+     }
+     ```
+   - Here, the function is declared as `manipulateData`, and it takes a `String` array (`data`) and an `int` (`index`) as parameters.
+
+3. **Array Index:**
+   - Example: `int element = inputArray[index];`
+   - In this line, the array index (`index`) is used to access a specific element in the `inputArray`.
+
+4. **Class Name:**
+   - Example: `public class DataProcessor {...}`
+   - The class is named `DataProcessor`, reflecting its role in processing data.
+
+5. **Sibling Methods:**
+   - Example:
+     ```java
+     public void processDataA() {...}
+     public void processDataB() {...}
+     ```
+   - Here, `processDataA` and `processDataB` are sibling methods within the same class, likely performing related tasks.
+
+6. **Instance Data Member and Function Member:**
+   - Example:
+     ```java
+     public class DataManipulator {
+         private int count;
+
+         public void incrementCount() {
+             count++;
+         }
+     }
+     ```
+   - The `count` is an instance data member, and `incrementCount` is a function member that operates on this instance data.
+
+7. **Static Method:**
+   - Example:
+     ```java
+     public class Utility {
+         public static void performTask() {
+             // Static method implementation
+         }
+     }
+     ```
+   - The `performTask` method is static, indicating it can be called on the class itself rather than an instance of the class.
+
+In the context of the code review, these examples collectively showcase the significance of clear function signatures, well-defined classes, effective use of parameters and array indices, and the organization of related functionalities within sibling methods. The presence of instance data and function members emphasizes the importance of encapsulation and maintaining state within a class. The static method showcases scenarios where functionality is independent of specific instances.  
