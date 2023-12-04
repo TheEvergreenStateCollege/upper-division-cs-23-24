@@ -1,16 +1,19 @@
 package com.juniperGMVAD.app;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Hello world!
  *
  */
-public class ReadData 
+public class ReadData
 {
     private Database database;
 
@@ -23,20 +26,24 @@ public class ReadData
     public List<List<String>> readAndTokenizeCSV(String csv_filepath) {
         BufferedReader reader;
         List<List<String>> tokenized = new ArrayList<List<String>>();
+        String pattern = "\"([^\"]*)\",";
+        Pattern reg = Pattern.compile(pattern);
         
         try {
 		    reader = new BufferedReader(new FileReader(csv_filepath));
 			String line = reader.readLine();
 
 			while (line != null) {
-                String[] split = line.split(",");
+                List<String> split = new ArrayList<String>();
 
-                // Strip strings of '"' character
-                for (String s : split) {
-                    s = s.replace("\"", "");
+                Matcher ma = reg.matcher(line);
+                ma.groupCount();
+
+                while (ma.find()) {
+                    split.add(ma.group(1));
                 }
 
-                tokenized.add(Arrays.asList(split));
+                tokenized.add(split);
 				line = reader.readLine();
 			}
 
