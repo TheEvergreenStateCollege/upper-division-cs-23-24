@@ -3,7 +3,7 @@ package com.ActivityTor.app;
 import static java.util.stream.Collectors.flatMapping;
 
 import java.util.Scanner;
-3
+
 public class Runtime {
     public static void Run(AppleWatchDataApp app){
         try (Scanner kb = new Scanner(System.in)) {
