@@ -57,7 +57,7 @@ public class BSTNode<T>
     }
 
     public Object[] findMaxHelper(Object[] retArr) {
-        System.out.println(data);
+        
         if(this.right == null){
          retArr[0] = data;
          retArr[1] = dates;
