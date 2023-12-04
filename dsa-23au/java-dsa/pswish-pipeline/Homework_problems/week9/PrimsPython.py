@@ -82,8 +82,11 @@ def main():
     MST = prims.find_MST(graph)
 
     print("Prims MST list of edges:")
+    weight = 0
     for edge in MST:
         print(f"{edge.source} on edge:({edge.weight}) -to- {edge.destination}")
+        weight += edge.weight
+    print("Total weight:", weight)
 
 if __name__ == "__main__":
     main()
