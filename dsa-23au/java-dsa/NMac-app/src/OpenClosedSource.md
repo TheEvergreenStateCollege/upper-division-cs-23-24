@@ -1,0 +1,25 @@
+Licensing and Open Source vs. Closed Source
+Nathaniel McLaughlin
+
+What does it mean for software to be licensed as open source or closed source?
+Open-source software is licensed in a way that allows users to freely access, modify, and distribute the source code. To me, this means That I can use the software however I see fit, as long I am using the software ethically and adhering to local and federal laws.
+Closed-source software keeps its source code private. The use, redistribution, and modification of the software are restricted by the owner. To me I think closed-source is necessary for certain types of software. Closed-source software and open-source are both tested in their own way, if I have a company that runs certain software, I want it tested and guaranteed to be able to use the software services without disruptions
+
+Compare and contrast your favorite open-source software and your favorite closed-source software.
+Closed-source: SolidWorks CAD software
+Open-source: Raspberry Pi 4 Linux Debian
+How are they alike and different?
+In this example a closed-source: SolidWorks CAD software and an open-source: Raspberry Pi 4 Linux Debian Operating System are alike because both are designed to solve specific user problems. SolidWorks is tailored for computer-aided design, while Debian OS provides a stable operating system. Both types of Software have community support forums. Both can be used in professional settings.
+To me, they are different mainly due to price. Once I had paid for the Raspberry Pi 4 and any accessories, I purchased to build the Raspberry Pi Computing device the price for a yearly subscription is about the same. Once the year is over, I must renew my subscription to the software. However, the raspberry pi 4 I do not. Once I lose or do not renew my subscription, I cannot view the files I have created unless it is through another CAD software environment or I have the paid subscription. The SolidWorks software requires you to set up to use their user interface in their environment. Which only handled the login, subscription, and user settings. I had a subscription for about three years and prior to their new user-interface subscription plan, I could easily subscribe to their service through their website. Once they started their new subscription services the price went up for the student / Hobbyist software versions. Another issue was having to connect to their cloud service to store your CAD drawings. After having issues with connecting and not receiving correspondence from my help tickets. I no longer use their service.
+
+Why do you like them?
+With the Raspberry Pi 4, and its Linux-based environment, I believe using and putting into practice some of the things I have learned In my computer science studies will help me improve my versatility and computing understanding. Regarding SolidWorks and CAD, I like to create cases or components for computing devices for prototyping.    
+Why do you think it was released under its license?
+I used SolidWorks in a school environment, and the software is professional-grade CAD software designed for businesses and professionals in engineering, design, and related fields. I think that when a business needs to use certain types of software they need the reassurance of that dedicated team standing by in case the company that uses that software should have service issues. Another reason They could have decided to update their subscription model is because it provides a way to generate profit. SolidWorks, as a tool is used in professional settings, and maintaining high standards of quality, reliability, and support, is crucial. A closed-source model allows the company to have full control over the development process, ensuring that the software meets industry standards and customer expectations.
+
+
+How do you think detractors of these pieces of software and the way they are licensed would describe their objections to it?
+I maintain a neutral stance regarding the debates surrounding different software licensing models. It is evident that both open-source and closed-source software have their advocates and detractors, each with compelling arguments. The discourse often features passionate opinions and extensive discussions in blogs and forums about the merits of one model over the other. However, I believe the choice between open-source and closed-source largely depends on individual needs and circumstances. It's about assessing one's requirements, budget, and the level of support or customization needed. While open-source offers flexibility and community-driven innovation, closed-source can provide structured support and reliability. Ultimately, both licensing models present valid benefits and drawbacks, making the decision a subjective one based on specific use cases and preferences.
+
+How should we license our co-created work in the DSA class, and how do you wish to license your individual project, if at all?
+Considering we are collaborating within an educational environment I think I would consider an open-source license approach. An open-source approach could allow others to learn from, use, or build upon it. 

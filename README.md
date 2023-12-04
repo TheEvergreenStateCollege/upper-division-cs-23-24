@@ -8,6 +8,16 @@ These three programs form a sequence over three quarters, progressing from
 * a scrappy startup experimenting with many products to resonate with users in the Purpose-Driven Web
 * scaling a proven product to more users with more reliability and a bigger team of developers in Software Construction
 
+## Build Status
+
+This program is a joint effort among students and teaching staff as a Learning Organization.
+For software and computer science, that means we are producing code (and tests) as artifacts
+as we are learning them. The build status indicates whether our code currently compiles, and all tests are currently passing
+successfully. During the quarter, this build status will fluctuate but by the end it should stay green (passing).
+
+![Main DSA Build Status](https://github.com/theevergreenstatecollege/upper-division-cs/actions/workflows/maven.yml/badge.svg)
+[Maven Workflows](https://github.com/TheEvergreenStateCollege/upper-division-cs/actions/workflows/maven.yml)
+
 ## Data Structures and Algorithms (DSA), Autumn 2023
 
 [Course Catalog: Data Structures and Algorithms](https://www.evergreen.edu/catalog/offering/data-structures-and-algorithms-39926)
@@ -22,7 +32,7 @@ across multiple machines coordinating over a network.
 
 ## Purpose-Driven Web (PDW), Winter 2024
 
-[Course Catalog TBD: Purpose-Driven Web]()
+[Course Catalog: Student-Originated Software](https://www.evergreen.edu/catalog/offering/student-originated-software-39927)
 
 Modern products and services that delight and benefit our lives every day often begin at a web (or mobile) app
 and end with an experience for our users and customers that enacts a change we wish to see in the world.
@@ -43,7 +53,7 @@ changemakers to combine, remix, and syndicate data in innovative ways to enable 
 
 ## Software Construction (SC), Spring 2024
 
-[Course Catalog TBD: Software Construction]()
+[Course Catalog: Software Construction]()
 
 As software products and their ventures mature, gain users, and become established in their fields,
 rapid iteration and a mismatch of past design decisions lead to overhead and tech debt. Continuing
@@ -58,3 +68,4 @@ your pebble, before you run a marathon.
 * Continuous integration (CI) and continuous deployment (CD)
 * Testing pipelines, unit and integration testing
 * Design patterns, object-oriented and functional
+

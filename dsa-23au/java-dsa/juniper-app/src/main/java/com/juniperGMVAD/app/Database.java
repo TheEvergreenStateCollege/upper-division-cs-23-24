@@ -7,14 +7,15 @@ import java.util.Map;
 import java.util.*;
 
 public class Database {
-    HashMap<String,HashMap<Integer,CountryData>> data;
+    List<CountryData> countryData = new ArrayList<CountryData>();
+    /*HashMap<String,HashMap<Integer,CountryData>> data;
 
     Database() {
         this.data = new HashMap<>();
     }
 
-    public boolean addCountryData(int year, String name, double mva, double gmva) {
-        CountryData newCountry = new CountryData(year, name, mva, gmva);
+    public boolean addCountryData(ArrayList<Integer> year, String name, ArrayList<Double> mva) {
+        CountryData newCountry = new CountryData(year, name, mva);
 
         if (!data.containsKey(name)) {
             data.put(name, new HashMap<>());
@@ -123,5 +124,5 @@ public class Database {
             return topPerYear;
 
         }
-
+*/
 }

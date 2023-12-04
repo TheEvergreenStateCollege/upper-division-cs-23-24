@@ -1,0 +1,21 @@
+# Import HTMLParser from the html.parser module
+# Define a class MyHTMLParser that inherits from HTMLParser
+      # Override handle_comment method to process comments
+          # Check if the comment is multi-line (contains newline character)
+              # Print the multi-line comment header
+              # Print the multi-line comment content
+          # If it's not a multi-line comment
+              # Print the single-line comment header
+              # Print the single-line comment content
+
+      # Override handle_data method to process data (text nodes)
+          # Check if data is not empty or not just whitespace
+              # Print the data header
+              # Print the data content
+
+# Read an integer input for the number of lines in HTML snippet
+# Read n lines of HTML and join them with newline
+
+# Create an instance of MyHTMLParser
+# Feed the HTML code to the parser instance
+
