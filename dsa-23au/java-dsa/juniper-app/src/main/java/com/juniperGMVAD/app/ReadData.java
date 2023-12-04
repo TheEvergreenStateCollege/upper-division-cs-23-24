@@ -57,27 +57,31 @@ public class ReadData
 
     public void readMVAIntoDatabase(String csv_filepath) 
     {
-    List<List<String>> tokenized = readAndTokenizeCSV(String csv_filepath);
+    List<List<String>> gmvaTokens = readAndTokenizeCSV(String csv_filepath);
 
-            for (int i = 6; i < tokenized.size(); i++) 
+            for (int i = 6; i < gmvaTokens.size(); i++) 
             {
-                int year = tokenized.get(5).get(0);
+                int year = gmvaTokens.get(5).get(5);
                 double mva;
         
-                String countryName = tokenized.get(i).get(0);
-                String countryCode = tokenized.get(i).get(1);
-                String indicatorName = tokenized.get(i).get(2);
-                String indicatorCode = tokenized.get(i).get(3);
+                String countryName = gmvaTokens.get(i).get(0);
+                String countryCode = gmvaTokens.get(i).get(1);
+                String indicatorName = gmvaTokens.get(i).get(2);
+                String indicatorCode = gmvaTokens.get(i).get(3);
         
-                for (String line : tokenized.get(i).size())
+                for (String line : gmvaTokens.get(i).size())
                 {
                  y++
                  years = years + 1;
-                 mva = Double.parseDouble(tokenized.get(i).get(5));
+                 mva = Double.parseDouble(gmvaTokens.get(i).get(5));
             }
 
     }
 }
+    public void readIncomeIntoDatabase(String csv_filepath)
+    {
+        
+    }
     catch(IOException ioe) 
     {
         System.err.println(ioe.toString());

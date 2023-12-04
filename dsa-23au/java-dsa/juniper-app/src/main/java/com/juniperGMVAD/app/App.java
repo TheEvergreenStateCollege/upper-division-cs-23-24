@@ -4,6 +4,8 @@ import java.util.List;
  * Hello world!
  *
  */
+
+//Data structures: BST for database, Queue for BFS, Hashmap for command line interface, 2D Array for correlation
 public class App 
 {
     public static void main(String[] args)
