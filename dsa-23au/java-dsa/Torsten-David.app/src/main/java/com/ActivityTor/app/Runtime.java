@@ -3,48 +3,57 @@ package com.ActivityTor.app;
 import static java.util.stream.Collectors.flatMapping;
 
 import java.util.Scanner;
-
+3
 public class Runtime {
     public static void Run(AppleWatchDataApp app){
-        Scanner kb = new Scanner(System.in);
-        System.out.println("Welcome to Torsten's apple watch data developed by Torsten and David");
-        System.err.println();
-        boolean running = true;
-        while(running){
-            System.out.println("Press 1 to Print all data");
-            System.out.println("Press 2 to find which day had the highest sound level ");
-            System.err.println("Press 3 to find the the day with the lowest sound level");
-            
-            System.out.println("Press Q to Quit");
-
-            String usrResponse = kb.nextLine();
-            switch (usrResponse){
-                case "1":
-                    app.showAllData();
-                    break;
-
-                case "2":
-                    //code to print max sound level
+        try (Scanner kb = new Scanner(System.in)) {
+            System.out.println("Welcome to Torsten's apple watch data ");
+            System.err.println();
+            boolean running = true;
+            while(running){
+                System.out.println("Press 1 to Print all data");
+                System.out.println("Press 2 to find which day had the highest sound level ");
+                System.out.println("Press 3 to find the the day with the lowest sound level");
+                System.out.println("Press 4 to show credits for this project");
                 
-                    break;
+                System.out.println("Press Q to Quit");
 
-                case "3":
-                    //code to print the min sound level
-                    break;
+                String usrResponse = kb.nextLine();
+                switch (usrResponse){
+                    case "1":
+                    //Code to show all data
+                        app.showAllData();
+                        break;
+
+                    case "2":
+                        //code to print max sound level
+                       Object[] maxSoundLevel = app.watchData.soundLevelTree.findMax();
+                       System.out.println("The highest sound level: " + maxSoundLevel[0] + " " +
+                        "on" + " " + maxSoundLevel[1]);
+
+
+                        break;
+
+                    case "3":
+                        //code to print the min sound level
+                        Object[] minSoundLevel = app.watchData.soundLevelTree.findMin();
+                       System.out.println("The lowest sound level: " + minSoundLevel[0] + " " +
+                        "on" + " " + minSoundLevel[1]);
+
+                        break;
 
                 
 
-                case "Q":
-                    running = false;
-                    break;
+                    case "Q":
+                        running = false;
+                        break;
 
-                
+                    default:
+                        System.out.println("Your input is garbage, are you garbage too? Try again!");
+                        break;
+                }
 
-                default:
-                    System.out.println("Your input is garbage, are you garbage too? Try again!");
-                    break;
             }
-
         }
     }
 
