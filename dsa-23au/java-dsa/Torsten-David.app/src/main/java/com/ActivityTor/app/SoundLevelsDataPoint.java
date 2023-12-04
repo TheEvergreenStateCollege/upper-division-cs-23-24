@@ -10,5 +10,7 @@ public class SoundLevelsDataPoint {
     public SoundLevelsDataPoint(Date date, double soundLevel) {
         this.date = date;
         this.soundLevel = soundLevel;
+
+public class 
     }
 }
