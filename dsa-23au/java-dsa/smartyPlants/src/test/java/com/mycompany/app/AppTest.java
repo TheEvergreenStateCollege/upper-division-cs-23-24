@@ -1,4 +1,4 @@
-package edu.evergreen;
+package com.mycompany.app;
 
 import static org.junit.Assert.assertTrue;
 
