@@ -43,3 +43,5 @@ syntax errors
 
 ## Built With (your tech stack)
 
+## IF ALL ELSE FAILS COPY PASTE INTO CMND LINE
+/usr/bin/env /opt/graalvm-community-openjdk-20.0.2+9.1/b/java -XX:+ShowCodeDetailsInExceptionMessages -cp /workspace/upper-division-cs/dsa-23au/java-dsa/Torsten-David.app/target/classes com.ActivityTor.app.Main
