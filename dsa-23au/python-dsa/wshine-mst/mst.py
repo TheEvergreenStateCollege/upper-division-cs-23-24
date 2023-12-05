@@ -2,6 +2,7 @@
 # graph consists of a list of vertices
 # and a list of edges
 # edge (end1, end2, weight)
+from __future__ import annotations
 import random
 import heapq
 from pprint import pprint
