@@ -52,4 +52,18 @@ public class DataStorageTest {
        
             assertEquals(1, ((ArrayList<Date>)maxSoundLevel[1]).size());
     }
+
+        // @Test 
+
+        // public void testAverageDailyStepCount()  {
+        //     DataStorage dataStorage = new DataStorage();
+
+        //     dataStorage.addStepCount(null, 0);
+        //     dataStorage.addStepCount(null, 0);
+        //     dataStorage.addStepCount(null, 0);
+
+
+        }
+
+
 }

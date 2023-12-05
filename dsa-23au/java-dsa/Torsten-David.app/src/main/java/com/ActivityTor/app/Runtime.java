@@ -42,7 +42,7 @@ public class Runtime {
                         "on" + " " + minSoundLevel[1]);
 
                         break;
-
+                    
                     case "4":
                         System.out.println("****************************");
                         System.out.println("*         CREDITS          *");
@@ -58,6 +58,7 @@ public class Runtime {
                         System.out.println("****************************");
                         break;
 
+                        // code to convert average into a 100th decimal percentage
                     case "5":
                         double averageSteps = app.watchData.AverageDailyStepCount(); 
                         System.out.printf("Averge Daily Step Count: %5.2f \n" , averageSteps);
