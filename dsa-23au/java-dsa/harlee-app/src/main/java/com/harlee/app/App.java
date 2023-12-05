@@ -8,12 +8,11 @@ public class App {
 
         
         Scanner myScan = new Scanner(System.in);
-        String csvFile = "/workspace/DSA2023-Project/harlee-app/src/main/java/com/harlee/app/Meteorite_Landings2.csv"; //CSV file
+        String csvFile = "/workspace/upper-division-cs/dsa-23au/java-dsa/harlee-app/src/main/java/com/harlee/app/Meteorite_Landings2.csv"; //CSV file
         char delimiter = ','; // delimiter in CSV file
         List<String[]> parsedData = CSVDataParser.parseCSV(csvFile, delimiter);
-        
-        
 
+        
         System.out.println("Enter year: ");
         String inputYear = myScan.nextLine(); // specify the target year // make this a user input
         int targetYear = Integer.parseInt(inputYear);
@@ -29,15 +28,15 @@ public class App {
 
         //CSVDataVisualizer.after2000(parsedData);
 
-        int choice; 
+        //int choice; 
 
-        do {
+        /**do {
 
             System.out.println("Menu: ");
-            System.out.println("1.");
-            System.out.println("2.");
-            System.out.println("3.");
-            System.out.println("4.");
+            System.out.println("1. Example 1");
+            System.out.println("2. Example 2");
+            System.out.println("3. Example 3");
+            System.out.println("4. Exit");
             System.out.println("Enter choice: ");
 
             choice = myScan.nextInt();
@@ -68,7 +67,7 @@ public class App {
 
             }
 
-        } while (choice != 4);
+        } while (choice != 4); **/
 
         
     }
