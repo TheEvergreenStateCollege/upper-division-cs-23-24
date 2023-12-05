@@ -4,6 +4,7 @@
 # edge (end1, end2, weight)
 import random
 import heapq
+from pprint import pprint
 from dataclasses import dataclass, field
 from collections import defaultdict, deque
 
@@ -144,10 +145,17 @@ if __name__ == "__main__":
     graph = Graph()
     graph.extend(edges)
     mst = prims_alg(graph)
-    print("mst_res: {}".format(mst))
+    print("mst_res:")
+    pprint(mst.get_edges())
     print("mst length: {}".format(len(mst.get_edges())))
     print("original cost: {}".format(original_cost))
     print("mst cost: {}".format(mst.get_weight()))
     vertices = mst.get_vertices()
     acyclic = [mst.acyclic(v) for v in vertices]
     print(acyclic)
+    print("\noriginal")
+    for x in graph.get_edges():
+        print(hex(id(x)))
+    print("\nmst")
+    for x in mst.get_edges():
+        print(hex(id(x)))
