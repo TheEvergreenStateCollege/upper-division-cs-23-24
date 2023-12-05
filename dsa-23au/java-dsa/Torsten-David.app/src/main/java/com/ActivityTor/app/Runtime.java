@@ -43,9 +43,24 @@ public class Runtime {
 
                         break;
 
+                    case "4":
+                        System.out.println("****************************");
+                        System.out.println("*         CREDITS          *");
+                        System.out.println("****************************");
+                        System.out.println("*  Developers:             *");
+                        System.out.println("*  - Torsten               *");
+                        System.out.println("*  - David                 *");
+                        System.out.println("*                          *");
+                        System.out.println("*  Special Thanks To:      *");
+                        System.out.println("*  - [Paul]            *");
+                        System.out.println("*  - [Richard]            *");
+                        System.out.println("*  - [Quinn]            *");
+                        System.out.println("****************************");
+                        break;
+
                     case "5":
                         double averageSteps = app.watchData.AverageDailyStepCount(); 
-                        System.out.println("Averge Daily Step Count: " + averageSteps);
+                        System.out.printf("Averge Daily Step Count: %5.2f \n" , averageSteps);
                         break;
                 
 
