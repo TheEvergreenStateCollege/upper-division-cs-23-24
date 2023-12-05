@@ -13,7 +13,8 @@ public class App
 {
     public static void main(String[] args)
     {
-        CompareYear comp = new CompareYear();
+
+        /*CompareYear comp = new CompareYear();
         BinaryTree<YearValue> bt = new BinaryTree<YearValue>(comp);
 
         YearValue yv1 = new YearValue(1960, 10.23);
@@ -43,9 +44,9 @@ public class App
 
         if (bt.contains(yv3)) {
             System.out.println("Worked");
-        }
+        }*/
 
-        /*Database database = new Database();
+        Database database = new Database();
         ReadData readData = new ReadData(database);
 
         List<List<String>> tokens = readData.readAndTokenizeCSV("/workspace/upper-division-cs/dsa-23au/java-dsa/juniper-app/src/main/resources/GMVA.csv");
@@ -55,7 +56,8 @@ public class App
                 System.out.printf("%s,", s);
             }
             System.out.print("\n--------------------\n");
-        }*/
+        }
+
         /*Database database = new Database();
         ReadData readData = new ReadData(database);
         readData.processData();
@@ -78,7 +80,7 @@ public class App
                 System.out.println("Usage: [application] [top5 / gmva] [country name] [year]"); //TODO: make this legible and accurate
             
         }
-         */  
+        */  
     }
 }
 
