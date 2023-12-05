@@ -24,18 +24,13 @@ You can apply the criteria below, or present a case in your proposal for alterna
 criteria that meets the intent of showing substantial effort for upper division computer science credit.
 
 Per team member:
+
+For the whole project:
 * 500 lines of original code, newly written or refactored while maintaining existing functionality, written this quarter
 * 5 tests showing how to run your code and demonstrating 5 different modes of operation or functionality.
   * These can be unit tests written in code, integration tests written as a script, screenrecording videos, screenshots
-
-For the whole project:
-* A three-page or longer report describing
-  * What you learned
-  * New functionality or properties of your code
-  * The technology stack you used and why,
-  * Strengths of your work
-  * Challenges you encountered and how you handled them
-  * Opportunities for growth and future direction
+* 800 word or longer README.md in your GitHub repo following this template
+  * 
 
 You can incorporate some or all of the above sections into your required Evergreen self evaluation.
 
