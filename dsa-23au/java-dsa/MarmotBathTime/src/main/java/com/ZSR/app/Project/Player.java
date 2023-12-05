@@ -45,12 +45,15 @@ public class Player {
             }
             if (selection >= 0 && selection < this.hand.size()) {
                 this.hand.remove(selection);
-                this.hand.add(deck.deal());
+                //this.hand.add(deck.deal());
                 this.showHand();
                 count++;
             } else {
                 System.out.println("Invalid selection. Please try again.");
             }
+        }
+        for (int i = count + 1; i > 0;i-- ) {
+            this.hand.add(deck.deal());
         }
         System.out.println("Player " + name + " redrew " + count + " cards");
     }
@@ -62,5 +65,5 @@ public class Player {
         }
     }
 
-    // betting if time
+    // betting
 }
