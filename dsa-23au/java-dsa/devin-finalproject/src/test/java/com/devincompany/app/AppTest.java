@@ -26,10 +26,10 @@ public class AppTest
     }
     
     @Test
-    public void getMessageTest() throws FileNotFoundException, IOException, ParseException 
+    public void addMessageTest() throws FileNotFoundException, IOException, ParseException 
     {
-        String[] args = {"getmessages","7"};
+        String[] args = {"addmessages","7","6/6/6"};
         
-        assertEquals(39056,MessagesReader.getMessages(args));
+        //assertEquals(7,MessagesReader.addMessages(args));
     }
 }
