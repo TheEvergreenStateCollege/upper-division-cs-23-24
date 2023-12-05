@@ -11,9 +11,8 @@ public class App {
         String csvFile = "/workspace/upper-division-cs/dsa-23au/java-dsa/harlee-app/src/main/java/com/harlee/app/Meteorite_Landings2.csv"; //CSV file
         char delimiter = ','; // delimiter in CSV file
         List<String[]> parsedData = CSVDataParser.parseCSV(csvFile, delimiter);
-        
-        
 
+        
         System.out.println("Enter year: ");
         String inputYear = myScan.nextLine(); // specify the target year // make this a user input
         int targetYear = Integer.parseInt(inputYear);
