@@ -57,11 +57,11 @@ public class ReadData
 
     public void readMVAIntoDatabase(String csv_filepath) 
     {
-    List<List<String>> gmvaTokens = readAndTokenizeCSV(String csv_filepath);
+    List<List<String>> gmvaTokens = readAndTokenizeCSV(csv_filepath);
 
             for (int i = 6; i < gmvaTokens.size(); i++) 
             {
-                int year = gmvaTokens.get(5).get(5);
+                int year = Integer.parseInt(gmvaTokens.get(5).get(5));
                 double mva;
         
                 String countryName = gmvaTokens.get(i).get(0);
@@ -69,10 +69,9 @@ public class ReadData
                 String indicatorName = gmvaTokens.get(i).get(2);
                 String indicatorCode = gmvaTokens.get(i).get(3);
         
-                for (String line : gmvaTokens.get(i).size())
+                for (String line : gmvaTokens.get(i))
                 {
-                 y++
-                 years = years + 1;
+                 year = year + 1;
                  mva = Double.parseDouble(gmvaTokens.get(i).get(5));
             }
 
@@ -80,7 +79,25 @@ public class ReadData
 }
     public void readIncomeIntoDatabase(String csv_filepath)
     {
-        
+        List<List<String>> nniTokens = readAndTokenizeCSV(csv_filepath);
+
+        for (int i = 6; i < nniTokens.size(); i++) 
+        {
+            int year = Integer.parseInt(nniTokens.get(5).get(5));
+            double mva;
+    
+            String countryName = nniTokens.get(i).get(0);
+            String countryCode = nniTokens.get(i).get(1);
+            String indicatorName = nniTokens.get(i).get(2);
+            String indicatorCode = nniTokens.get(i).get(3);
+    
+            for (String line : nniTokens.get(i))
+            {
+             year = year + 1;
+             mva = Double.parseDouble(nniTokens.get(i).get(5));
+            }
+
+}
     }
     catch(IOException ioe) 
     {
