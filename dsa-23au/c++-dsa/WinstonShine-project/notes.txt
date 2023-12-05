@@ -1,0 +1,31 @@
+# questions
+    how do i print out all memory allocated in the heap? or 
+    a section of it, not just one var.
+    ie: iterate over a range of memory
+    
+    what is the purpose or benefit of setting a vbuf for stdout/stdin?
+
+# printing of address of class function
+    syntax
+    Return type (Class_name::*pointer_name) (ArgumentList) = &Classname::function_name
+    pointer to member func holds a relative position based on the class layout
+    typeid:
+        P pointer
+        m unsigned long (size_t)
+
+    object address some sort of pointer to pointer
+    casting object pointer as int and then dereferences gets closer to where
+    I know the objects fields are stored, and where i believe the vtable should be
+
+    size_t *optr = (size_t *)*(size_t *)(memtest);
+    size_t *testptr = (size_t *)memtest;
+
+    i believe the optr is the correct way to display this information
+
+    assigning class field to static string was changing the address the field
+    pointed to, resulting in alot of confusion when examining memory.
+    the appropriate way was to take from stdin or use strcpy
+    to copy a static string into the field
+
+    std::strcpy(dest, src);
+
