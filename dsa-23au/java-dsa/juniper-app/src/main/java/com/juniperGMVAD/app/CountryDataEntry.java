@@ -6,7 +6,7 @@ public class CountryDataEntry {
     private String countryCode;
     private String indicatorName;
     private String indicatorCode;
-    private List<Double> values;
+    private List<YearValue> values;
 
     public CountryDataEntry(String countryName, String countryCode, String indicatorName, String indicatorCode) 
     {
@@ -48,19 +48,27 @@ public class CountryDataEntry {
         return indicatorCode;
     }
 
-    public void setValue(int index, Double value) {
+    public void setYearValue(int year, Double value) {
+        //TODO check if exists
         values.set(index, value);
     }
 
-    public Double getValue(int index) {
+    public Double getYearValue(int year) {
+        //TODO Check if exists
         return values.get(index);
     }
 
-    public void addValue(Double value) {
-        values.add(value);
+    public void addYearValue(int year, Double value) {
+        //TODO: check if value already exists
+        YearValue yv = new YearValue(year, value);
+        values.add(yv);
     }
 
-    public int getValueSize() {
+    public void removeYearValue(int year) {
+
+    }
+
+    public int getYearsTracked() {
         return values.size();
     }
 }
