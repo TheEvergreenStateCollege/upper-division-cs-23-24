@@ -80,11 +80,9 @@ public class BinaryTree<T> {
         }
     }
 
-    private Node<T> deleteRecursive(Node<T> current, T value) {
+    /*private Node<T> deleteRecursive(Node<T> current, T value) {
         //case 0, null
-        if (current == null) {
-            return null;
-        }
+        return null;
 
         //case 1, no children
 
@@ -92,13 +90,13 @@ public class BinaryTree<T> {
 
         //case 2, two children
 
-        if (comparator.compare(value, current.value) < 0) { // value less than current.value
+        /*if (comparator.compare(value, current.value) < 0) { // value less than current.value
             
         } else if (comparator.compare(value, current.value) < 0) { // value greater
 
         } else { // values the same
 
-        }
+        }*/
         /*if (current == null) {
             return null;
         }
@@ -121,8 +119,8 @@ public class BinaryTree<T> {
             } 
         }
 
-        return root;*/
-    }
+        return root;
+    }*/
 
     private void inOrderPrintRecursive(Node current) {
         if (current != null) {

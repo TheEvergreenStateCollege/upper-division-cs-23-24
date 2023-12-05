@@ -48,15 +48,15 @@ public class CountryDataEntry {
         return indicatorCode;
     }
 
-    public void setYearValue(int year, Double value) {
+    /*public void setYearValue(int year, Double value) {
         //TODO check if exists
-        values.set(index, value);
-    }
+        values.set(year, value);
+    }*/
 
-    public Double getYearValue(int year) {
+    /*public Double getYearValue(int year) {
         //TODO Check if exists
         return values.get(index);
-    }
+    }*/
 
     public void addYearValue(int year, Double value) {
         //TODO: check if value already exists
