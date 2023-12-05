@@ -8,7 +8,7 @@ public class Node <T> {
     Node<T> right;
     Comparator<T> comparator;
 
-    Node (T value, Comparator<T> comparator) {
+    public Node (T value, Comparator<T> comparator) {
         this.value = value;
         left = null;
         right = null;
