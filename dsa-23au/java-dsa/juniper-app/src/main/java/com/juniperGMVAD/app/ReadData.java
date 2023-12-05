@@ -69,11 +69,11 @@ public class ReadData
                 String indicatorName = gmvaTokens.get(i).get(2);
                 String indicatorCode = gmvaTokens.get(i).get(3);
         
-                for (String line : gmvaTokens.get(i))
+                for (int j = 5; j < gmvaTokens.get(i).size(); j++)
                 {
                  year = year + 1;
-                 mva = Double.parseDouble(gmvaTokens.get(i).get(5));
-            }
+                 mva = Double.parseDouble(gmvaTokens.get(i).get(j));
+                }
 
     }
 }
@@ -84,17 +84,17 @@ public class ReadData
         for (int i = 6; i < nniTokens.size(); i++) 
         {
             int year = Integer.parseInt(nniTokens.get(5).get(5));
-            double mva;
+            double nni;
     
             String countryName = nniTokens.get(i).get(0);
             String countryCode = nniTokens.get(i).get(1);
             String indicatorName = nniTokens.get(i).get(2);
             String indicatorCode = nniTokens.get(i).get(3);
     
-            for (String line : nniTokens.get(i))
+            for (int j = 5; j < nniTokens.get(i).size(); i++)
             {
              year = year + 1;
-             mva = Double.parseDouble(nniTokens.get(i).get(5));
+             nni = Double.parseDouble(nniTokens.get(i).get(i-1));
             }
 
 }
