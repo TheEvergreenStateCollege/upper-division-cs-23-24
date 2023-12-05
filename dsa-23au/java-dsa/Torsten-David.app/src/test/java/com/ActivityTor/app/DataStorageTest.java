@@ -17,7 +17,8 @@ public class DataStorageTest {
     static AppleWatchDataApp app; 
 
     @BeforeClass
-    public static void setUp(){
+    public static void setUp()
+    {
         app = new AppleWatchDataApp();
         app.loadData();
     }
@@ -53,17 +54,22 @@ public class DataStorageTest {
             assertEquals(1, ((ArrayList<Date>)maxSoundLevel[1]).size());
     }
 
-        // @Test 
+          @Test 
 
-        // public void testAverageDailyStepCount()  {
-        //     DataStorage dataStorage = new DataStorage();
+         public void testAverageDailyStepCount()  {
+             DataStorage dataStorage = new DataStorage();
 
-        //     dataStorage.addStepCount(null, 0);
-        //     dataStorage.addStepCount(null, 0);
-        //     dataStorage.addStepCount(null, 0);
+             dataStorage.addStepCount("2023-10-08", 2908);
+             dataStorage.addStepCount("2023-10-11", 4583);
+             dataStorage.addStepCount("2023-10-31", 10124);
+
+             double average = dataStorage.AverageDailyStepCount();
+
+             assertEquals(5871.666667, average, 0.001);
 
 
         
 
 
+    }
 }
