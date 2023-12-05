@@ -6,6 +6,7 @@ Then, several modes are offered to the user to choose the next operations 1-9 wi
 I was faced with a challenging decision upon going back the school where I barely moved into my new house and school was 86 miles away. Would it be better to drive to and from class daily or to stay locally at a park with spares amenities and no internet. I decided to write a program to use data to help inform or reinforce my decision.
 
 ## Software Design Diagram
+
 ```mermaid
 graph TD;
     DriverMain --Instantiate --> DriverData2
@@ -19,10 +20,7 @@ graph TD;
     --> Replay --replay true--> DriverMain
 
 ```
-```mermaid
-flowchart LR
-    id1[[Step-by-step description]]
-````
+
 To start the program you call DriverMain.py or the BackupLogic.py (for python != 3.10)
 
 * Step 1: DriverMain calls DriverData to instantiate.
@@ -36,6 +34,17 @@ To start the program you call DriverMain.py or the BackupLogic.py (for python !=
 * Step 9: If replay is true, repeat from Step6.
 * Step 10: If exit is typed or 10 replays are reached or the user types 10, the program exits.
 ## How to run our demo on our included data
+
+### From Gitpod:
+> run >>> `python /workspace/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverFiles/DriverMain.py`
+
+or
+>run >>> `python /workspace/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverFiles/BackupLogic.py`
+
+Link to a live demo: https://asciinema.org/a/J5m0wUhuOukmelq7S9u3xflig
+[![asciicast](https://asciinema.org/a/J5m0wUhuOukmelq7S9u3xflig.svg)](https://asciinema.org/a/J5m0wUhuOukmelq7S9u3xflig)
+
+### Quick Troubleshooting:
 To run the stand-alone, command-line application do the following.
     
 1. Make sure you are on the main branch version or on my pipeline for the latest version
@@ -51,17 +60,12 @@ To run the stand-alone, command-line application do the following.
 
 if you get a syntax error at match, you may not have python 3.10 installed. You can still run my program with >>> `python3 BackupLogic.py`
 
-### From Gitpod:
-> run >>> `python /workspace/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverFiles/DriverMain.py`
-
-or
->run >>> `python /workspace/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverFiles/BackupLogic.py`
-
 ## How to run our tests and what they mean
 Our tests are for Pytest only. 
 Right now, tests passing mean that the data structure logic is functional. 
 
-Install `pytest` if you can. 
+Install `pytest` if you can >>> `pip3 install pytest`
+then update your path: `export PATH="$HOME/.local/bin:$PATH"`
 
 Then navigate to the root directory or DriverFiles and simply run >> `pytest`
 
