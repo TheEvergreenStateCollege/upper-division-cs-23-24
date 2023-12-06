@@ -113,20 +113,18 @@ public class ReadData
             String indicatorName = nniTokens.get(i).get(2);
             String indicatorCode = nniTokens.get(i).get(3);
     
-            for (int j = 5; j < nniTokens.get(i).size(); i++)
+            for (int j = 5; j < nniTokens.get(i).size(); j++)
             {
              year = year + 1;
-             nni = Double.parseDouble(nniTokens.get(i).get(i-1));
+             nni = Double.parseDouble(nniTokens.get(i).get(j));
             }
 
-}
-    }
-    catch(IOException ioe) 
-    {
-        System.err.println(ioe.toString());
-    }
 
-    }
+        }
+}
+
+
+}
 
 */
 

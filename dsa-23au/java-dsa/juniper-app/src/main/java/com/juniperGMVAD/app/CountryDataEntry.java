@@ -2,6 +2,7 @@ package com.juniperGMVAD.app;
 import java.util.*;
 
 public class CountryDataEntry {
+    
     private String countryName;
     private String countryCode;
     private String indicatorName;
@@ -72,4 +73,5 @@ public class CountryDataEntry {
     public int getYearsTracked() {
         return values.size();
     }
+    
 }
