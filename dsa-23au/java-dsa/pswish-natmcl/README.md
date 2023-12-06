@@ -36,9 +36,16 @@ To start the program you call DriverMain.py or the BackupLogic.py (for python !=
 ## How to run our demo on our included data
 
 ### From Gitpod:
+Tip! Sometimes you cannot copy from readme preview so watch your copy/paste!
+
 > run >>> `python /workspace/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverFiles/DriverMain.py`
 
-or
+>or
+
+>run >>> `python /workspace/upper-division-cs/dsa-23au/python-dsa/DriverMain.py`
+
+>or 
+
 >run >>> `python /workspace/upper-division-cs/dsa-23au/java-dsa/pswish-natmcl/pswish-app/python/Version1_3/DriverFiles/BackupLogic.py`
 
 Link to a live demo: https://asciinema.org/a/J5m0wUhuOukmelq7S9u3xflig
