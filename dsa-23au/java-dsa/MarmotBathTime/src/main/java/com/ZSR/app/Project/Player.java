@@ -55,7 +55,7 @@ public class Player {
         for (int i = count + 1; i > 0;i-- ) {
             this.hand.add(deck.deal());
         }
-        System.out.println("Player " + name + " redrew " + count + " cards");
+        System.out.println("Player " + name + " redrew " + count + " cards"); //prints extra card, figure out
     }
     
 
