@@ -36,12 +36,22 @@ Averge Daily Step Count: 7178.45
 ## Challenges we ran into
 syntax errors 
 ## Accomplishments that we're proud of
+Binary Tree
+
+Consider handling possible errors or edge cases that might occur during the execution of your program. For instance, what happens if the data is missing for a particular day when trying to calculate the average step count or the loudest sound level? Ensure the program handles such scenarios gracefully.
 
 ## What we learned
 
+the implementation of the Binary Tree and traversing through each node to find the min and maximum 
+
+
 ## What's next for the project next quarter
+
+
+
 
 ## Built With (your tech stack)
 
 ## IF ALL ELSE FAILS COPY PASTE INTO CMND LINE
+Backup Execution Method:
 /usr/bin/env /opt/graalvm-community-openjdk-20.0.2+9.1/b/java -XX:+ShowCodeDetailsInExceptionMessages -cp /workspace/upper-division-cs/dsa-23au/java-dsa/Torsten-David.app/target/classes com.ActivityTor.app.Main
