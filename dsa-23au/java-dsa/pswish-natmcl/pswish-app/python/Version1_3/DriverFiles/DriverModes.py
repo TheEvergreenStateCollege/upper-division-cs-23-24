@@ -101,7 +101,7 @@ def calculate_distances(cls):  #Option 8, Choose 1, 2, both drivers for start an
         end = cls.driver2sorted.index(inputStop)
         select = cls.driver2sorted[start:end]
 
-    elif inputDriver == 3:
+    elif inputDriver >= 3:
         print(cls.sorted_keys)
         inputStart = input("Enter a start: ")
         inputStop =  input("Enter an end: ")
