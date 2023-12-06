@@ -14,16 +14,6 @@ public class CountryData {
         }
     }
 
-    public class YearValue {
-        public int year;
-        public Double value;
-
-        public YearValue(int year, Double value) {
-            this.year = year;
-            this.value = value;
-        }
-    }
-
     private Country country;
     private List<Pair<Indicator,List<YearValue>>> values;
 

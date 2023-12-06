@@ -65,18 +65,40 @@ portfolio piece that you can display on your Git profiles, your websites and soc
 and as a starting point for your work in later quarters (Purpose Driven Web in Winter 2024
 and Software Construction in Spring 2024).
 
-## Criteria
+## Criteria and Rubric
 
-* Use and combine at least four data structures (beyond an array or a linked list) or algorithms.
+Final assignment on canvas:
+[200 points]
+
+* Use and combine at least four data structures (beyond an array or a linked list) or algorithms. [5 pts x4 = 20 pts]
 * Be compelling for you and your team. It doesn't have to appeal to anyone else but you and your teammates.
 You'll be working on this problem for 10 weeks, so when you think of the project, you want to feel 
 a certain eagerness to make progress.
-* Describe your *invariant*, in both plain English and in math or code. This invariant is true 
+* Describe one *invariant* of your code, in both plain English and in math or code. This invariant is true 
 of your data structures at every step along the way from input to output, and your algorithms 
-should preserve it.
-* Contains about 5 unit tests that verify your solution works as intended.
-* Contain 500 lines of code that compiles, runs, and passes your tests.
-* Contain at least 100 data items, either real or mocked. 
+should preserve it. [10 pts]
+  * Example: if you are inserting new data items into a min-heap call `x` by a date field, you can use the invariant of the heap to say that the top of `x` is always the earliest date of all your datapoints.
+* Contains at least 5 unit tests that verify your solution works as intended. [5pts x5 = 20 pts]
+* Contain at least 500 lines of code (total, not per partner) that compiles, runs, and passes your tests.
+  * Please have each partner commit roughly the same number of lines of code each. [50 pts]
+* Contain at least 100 data items, either real or mocked, in your CSV / JSON / other data file. [20 pts]
+* Have a 800 word README.md file describing your project, including a link to your video [40 pts]
+  * You were asked to start this README file in [Assignment 9]()
+* Both project partners will receive the same credit for the project.
+* At least a 2 minute screenrecording video [40 pts]
+  * If you use asciinema, Paul will record your voice narration to play accompanying the screencast.
+
+These numbers of lines of code is scaled for 10 credits of Data Structures & Algorithms,
+and 2 credits of Technical Software Interview Skills (Cracking the Coding Interview),
+for 12 credits total.
+
+If you are working towards more (for example, 14 credits of DSA), you will need to write
+proportionally more code and tests (for example, 40% more).
+
+If you don't complete as many tests or lines of code, you will still receive partial credit
+for the tests and lines of code you do complete. For example, if you have 3 unit tests
+out of 5 required, and 300 lines of code instead of 500, you would receive 60% (3/5ths)
+of the credit for those items.
 
 ## Real-World Application
 

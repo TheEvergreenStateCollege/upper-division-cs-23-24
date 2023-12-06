@@ -1,14 +1,16 @@
 package com.juniperGMVAD.app;
 import java.util.List;
-/**
- * Hello world!
- *
- */
+import java.util.Comparator;
+
+import com.juniperGMVAD.app.BinaryTree.*;
+import com.juniperGMVAD.app.HashMap.*;
+
+//Data structures: BST for database, Queue for BFS, Hashmap for command line interface, 2D Array for correlation
 public class App 
 {
     public static void main(String[] args)
     {
-        Database database = new Database();
+        /*Database database = new Database();
         ReadData readData = new ReadData(database);
         readData.processData();
 
@@ -30,7 +32,7 @@ public class App
                 System.out.println("Usage: [application] [top5 / gmva] [country name] [year]"); //TODO: make this legible and accurate
             
         }
-           
+        */  
     }
 }
 

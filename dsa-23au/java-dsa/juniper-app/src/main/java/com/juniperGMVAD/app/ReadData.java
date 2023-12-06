@@ -1,42 +1,57 @@
 package com.juniperGMVAD.app;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Hello world!
  *
  */
-public class ReadData 
+public class ReadData
 {
-    private Database database;
+   /*  private Database database;
 
-    public ReadData(Database database)
+   public ReadData(Database database)
     {
         this.database = database;
     }
+    */
+    private CountryDataEntry countryDataEntry;
+
+    public ReadData(CountryDataEntry countryDataEntry)
+    {
+        this.countryDataEntry = countryDataEntry;
+    }
+
 
     // Each list of strings represents one line of CSV file
     public List<List<String>> readAndTokenizeCSV(String csv_filepath) {
         BufferedReader reader;
         List<List<String>> tokenized = new ArrayList<List<String>>();
+        String pattern = "\"([^\"]*)\",";
+        Pattern reg = Pattern.compile(pattern);
         
         try {
 		    reader = new BufferedReader(new FileReader(csv_filepath));
 			String line = reader.readLine();
 
 			while (line != null) {
-                String[] split = line.split(",");
+                List<String> split = new ArrayList<String>();
 
-                // Strip strings of '"' character
-                for (String s : split) {
-                    s = s.replace("\"", "");
+                Matcher ma = reg.matcher(line);
+                ma.groupCount();
+
+                while (ma.find()) {
+                    split.add(ma.group(1));
                 }
 
-                tokenized.add(Arrays.asList(split));
+                tokenized.add(split);
 				line = reader.readLine();
 			}
 
@@ -48,61 +63,65 @@ public class ReadData
 		}
     }
 
-    public readMVAIntoDatabase(String csv_filepath) {
+
+    public void readMVAIntoDatabase(String csv_filepath) 
+    {
+    List<List<String>> gmvaTokens = readAndTokenizeCSV(csv_filepath);
+
+            for (int i = 6; i < gmvaTokens.size(); i++) 
+            {
+                int year = Integer.parseInt(gmvaTokens.get(5).get(5));
+                double mva;
         
-    }
-
-    /*public List<CountryData> readCountryData(String csv_filepath) {
-        try (FileInputStream fis = new FileInputStream("/workspace/upper-division-cs/dsa-23au/java-dsa/juniper-app/src/main/resources/GMVA.csv")) {
-            BufferedInputStream bis = new BufferedInputStream(fis);
-            byte[] buffer = bis.readAllBytes();
-            String inputString = new String(buffer);
-            String[] lines = inputString.split("\n");
-        } catch (IOException ioe) {
-
-        }
-    }*/
-
-    public void processData() 
+                String countryName = gmvaTokens.get(i).get(0);
+                String countryCode = gmvaTokens.get(i).get(1);
+                String indicatorName = gmvaTokens.get(i).get(2);
+                String indicatorCode = gmvaTokens.get(i).get(3);
+        
+                for (int j = 5; j < gmvaTokens.get(i).size(); j++)
+                {
+                    year = year + 1;
+                    mva = Double.parseDouble(gmvaTokens.get(i).get(j));
+                    countryDataEntry.addYearValue(year, mva);
+                }
+   
+                   countryDataEntry.setCountryName(countryName);
+                   countryDataEntry.setCountryCode(countryCode);
+                   countryDataEntry.setIndicatorCode(indicatorCode);
+                   countryDataEntry.setIndicatorName(indicatorName);
+   
+               }
+}
+    public void readNNIPCIntoDatabase(String csv_filepath)
     {
+        List<List<String>> nniTokens = readAndTokenizeCSV(csv_filepath);
+
+        for (int i = 6; i < nniTokens.size(); i++) 
+        {
+            int year = Integer.parseInt(nniTokens.get(5).get(5));
+            double nni;
     
-    try (FileInputStream fis = new FileInputStream("/workspace/upper-division-cs/dsa-23au/java-dsa/juniper-app/src/main/resources/GMVA.csv")) 
-    {
-    BufferedInputStream bis = new BufferedInputStream(fis);
-    byte[] buffer = bis.readAllBytes();
-    String inputString = new String(buffer);
-    String[] lines = inputString.split("\n");
+            String countryName = nniTokens.get(i).get(0);
+            String countryCode = nniTokens.get(i).get(1);
+            String indicatorName = nniTokens.get(i).get(2);
+            String indicatorCode = nniTokens.get(i).get(3);
+    
+            for (int j = 5; j < nniTokens.get(i).size(); j++)
+            {
+             year = year + 1;
+             nni = Double.parseDouble(nniTokens.get(i).get(j));
+            }
 
 
-
-    for (int i = 1; i < lines.length; i++) 
-    {
-        String[] tokens = lines[i].split(",");
-        int year = 1960;
-        ArrayList<Integer> years = new ArrayList<Integer>();
-        ArrayList<Double> mva = new ArrayList<Double>();
-
-        String name = tokens[0].trim();
-
-        for (String line : lines[i].split(","))
-        {
-            years.add(year);
-            year = year + 1;
         }
-
-        for (int j = 5; j < tokens.length; j++)
-        {
-            mva.add(Double.parseDouble(tokens[j].trim()));
-        }
-    }
-
-    }
-
-    catch(IOException ioe) 
-    {
-        System.err.println(ioe.toString());
-    }
-
-    }
 }
 
+
+}
+
+
+
+    /*public void readIncomeIntoDatabase(String csv_filepath) {
+        catch(IOException ioe) 
+        System.err.println(ioe.toString());
+    {*/

@@ -3,7 +3,7 @@ package com.ActivityTor.app;
 import static java.util.stream.Collectors.flatMapping;
 
 import java.util.Scanner;
-3
+
 public class Runtime {
     public static void Run(AppleWatchDataApp app){
         try (Scanner kb = new Scanner(System.in)) {
@@ -15,7 +15,8 @@ public class Runtime {
                 System.out.println("Press 2 to find which day had the highest sound level ");
                 System.out.println("Press 3 to find the the day with the lowest sound level");
                 System.out.println("Press 4 to show credits for this project");
-                
+                System.out.println("Press 5 to show Average Daily Step Count for this project");
+
                 System.out.println("Press Q to Quit");
 
                 String usrResponse = kb.nextLine();
@@ -41,7 +42,27 @@ public class Runtime {
                         "on" + " " + minSoundLevel[1]);
 
                         break;
+                    
+                    case "4":
+                        System.out.println("****************************");
+                        System.out.println("*         CREDITS          *");
+                        System.out.println("****************************");
+                        System.out.println("*  Developers:             *");
+                        System.out.println("*  - Torsten               *");
+                        System.out.println("*  - David                 *");
+                        System.out.println("*                          *");
+                        System.out.println("*  Special Thanks To:      *");
+                        System.out.println("*  - [Paul]            *");
+                        System.out.println("*  - [Richard]            *");
+                        System.out.println("*  - [Quinn]            *");
+                        System.out.println("****************************");
+                        break;
 
+                        // code to convert average into a 100th decimal percentage
+                    case "5":
+                        double averageSteps = app.watchData.AverageDailyStepCount(); 
+                        System.out.printf("Averge Daily Step Count: %5.2f \n" , averageSteps);
+                        break;
                 
 
                     case "Q":
