@@ -11,13 +11,17 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
         verticesMap = new HashMap<>();
     }
 
-    public static class Edge<E1> implements Graph.Edge<E1> {
+    public class Edge<E1> implements Graph.Edge<E1> {
         public E1 weight;
         public boolean isIncluded;
+        public N node1;
+        public N node2;
 
-        public Edge(E1 weight){
+        public Edge(E1 weight, N node1, N node2){
             this.weight = weight;
             this.isIncluded = false;
+            this.node1 = node1;
+            this.node2 = node2;
         }
 
         @Override
@@ -57,7 +61,7 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
         Vertex node1 = verticesMap.get(srcNode);
         Vertex node2 = verticesMap.get(destNode);
 
-        Edge<E> edge = new Edge<>(weight);
+        Edge<E> edge = new Edge<>(weight, srcNode, destNode);
 
         node1.edges.put(node2, edge);
         node2.edges.put(node1, edge);
@@ -97,6 +101,12 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
         return minWeightEdgeSoFar;
     }
 
+    @Override 
+        public Set<N> getNodes()
+     {
+        return verticesMap.keySet();
+    }
+    
     @Override
     public void printMermaidDiagram() {
         Collection<Vertex> nodes = this.verticesMap.values();
@@ -115,6 +125,16 @@ public class GraphSparse<N extends Comparable<N>,E extends Comparable<E>> extend
         for (String string : graphStrings) {
             System.out.println(string);
         }
+    }
+
+    @Override
+    public N[] getNodes(E edge) {
+        // TODO Auto-generated method stub
+
+        for(N node : verticesMap.keySet()){
+                if(node.edges) {}
+        }
+        throw new UnsupportedOperationException("Unimplemented method 'getNodes'");
     }
 
 }

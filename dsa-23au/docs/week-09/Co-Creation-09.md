@@ -78,7 +78,30 @@ Sibling methods can be described as methods in a class that are at the same leve
 
 I thought Function declarations are interesting, I think what a function declaration is  like a precheck for the compiler. Here is a better explation. Function declaration is a statement that specifies the name, return type, and parameters of a function, but does not include the function body. It's a way to inform the compiler about a function's existence before its actual implementation.
 
-
+------------------ @pswish -----------------
+1. I learned this week that it was better to write a csv filepath validation method for handling the hardcoded csv filepaths.
+2. Generic type has such a nonchalant name but it sure case be consuming and demanding. The strongly typed language model of Java is more like you must know your types.
+3. Sometimes, it is boring to just be this_method_does this so to add a bit of flair into the code, you can add some comedy (or attempt sat it). For example, I called my class name in the config file theConfigurator.
+4. I finally decided to go with more convention in my function names and so version 1.3 had this change. Sometimes breaking with convention is ok until other programmers need to decipher your code. 
+5. I think I finally got my head wrapped around sibling methods in java, something so easy can be confusing sometimes.
+Readings:
+* What does it mean for software to be licensed as open source or closed source?
+	Basically, it means do you want share your code with others to use normally with little restrictions or do you want to keep it secret and potentially charge users to use it. I don't think this is a binary choice since both the big producers in the gaming industry need to be closed source due to the length of projects and assets at stake where a sector like machine learning is heavily dependent on open source. Can you imagine every AI programmer needing to write the millions of lines of code to create AI sight? An then test it over and over. Since technology like that was shared open source, AI advancements have been monumental.
+* Compare and contrast your favorite open source software and your favorite closed source software.
+	My Favorite open source software has to be Linux. As a Windows user until 2013, and then a Mac user, Linux is by far my choice OS. My favorite closed source software would have to be Steam.
+* How are they alike and different?
+	They are similar that they both run on a code base, and different because one is an OS and the other is a software marketplace.
+* Why do you like them?
+	Ease of use and reliability is common for both of my use-cases. 
+* Why do you think it was released under its license?
+	Linux probably to change the world, where Steam is in the business to make money and wants to create a monopoly.
+* How do you think detractors of these pieces of software and the way they are licensed would describe their objections to it?
+	Linux was created by one guy so I think he may not be a detractor. Steam however, has created a sort of monopoly and they make it hard on indie game developers by demanding too much in fees.
+* How should we license our co-created work in the DSA class, and how do you wish to license your individual project, if at all?
+	I don’t think we are creating anything we should be super protective of. Take MIT for example, do they share everything? I'd say we share ours as open source. If students don't want to share, maybe they can create a private repository. 
+    I plan to have my code continue as open source unless I make a Nobel prize winning algorithm one day.
+    
+----------------------------- /@pswish --------------------------
 
 Jonathan Rodriguez
  "Open source" software makes its source code freely accessible, encouraging collaboration and transparency, while "closed source" keeps the source code private, maintaining control and enabling revenue generation. The choice depends on project goals, with open source emphasizing community contributions, and closed source prioritizing proprietary control and financial sustainability.
