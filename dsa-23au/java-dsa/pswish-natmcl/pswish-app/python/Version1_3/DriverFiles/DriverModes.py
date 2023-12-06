@@ -36,7 +36,7 @@ def search_by_key_and_value(driver_data, driver):  # Option 4, This method puts 
         driver_key = numbered_keys[int(index_key)]
         print("Accessing index:", index_key, "of", len(keys))
         print("You have selected: ", driver_key)
-        print("\nChoose an available 'value' as a key:", driver_data.Lines[0].keys())
+        print("\nChoose an available 'value' as a key:", *driver_data.Lines[0].keys())
         
         driver_value = input("Please enter a value name, example 'Distance': ")
         print("For key:", driver_key)
@@ -58,7 +58,7 @@ def sample_calculation(driver_data, driver): # Option #3, prints example calcula
     formatted_num = f'{num:.2f}'
     
     print('Distance in miles: ', x + y)
-    print("Total cost (miles * cost per mile($0.20)): $", formatted_num)
+    print("Total cost for key 10/19/2023_0850_Paul (miles * cost per mile($0.20)): $", formatted_num)
 
 def total_miles(driver_data, driver=dict):  # Option 6, prints out total miles driven for both drivers. Time complexity is O(n)
     total_miles = 0
