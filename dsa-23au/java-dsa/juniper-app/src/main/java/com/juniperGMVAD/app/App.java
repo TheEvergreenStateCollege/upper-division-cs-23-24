@@ -1,5 +1,6 @@
 package com.juniperGMVAD.app;
 import java.util.List;
+import java.util.Comparator;
 
 import com.juniperGMVAD.app.BinaryTree.*;
 
@@ -14,7 +15,7 @@ public class App
     public static void main(String[] args)
     {
 
-        /*CompareYear comp = new CompareYear();
+        CompareYear comp = new CompareYear();
         BinaryTree<YearValue> bt = new BinaryTree<YearValue>(comp);
 
         YearValue yv1 = new YearValue(1960, 10.23);
@@ -24,29 +25,33 @@ public class App
         YearValue yv5 = new YearValue(1980, 45.65);
         YearValue yv6 = new YearValue(1987, 42.22222);
 
-        bt.insert(yv1);
+        
         bt.insert(yv2);
-        bt.insert(yv3);
         bt.insert(yv4);
+        bt.insert(yv1);
+        bt.insert(yv3);
         bt.insert(yv5);
 
-        if (bt.contains(yv3)) {
-            System.out.println("Worked");
+        bt.printTreeInOrder();
+        //bt.delete(yv2);
+        bt.printTreeInOrder();
+        bt.delete(yv4);
+        bt.printTreeInOrder();
+        bt.delete(yv5);
+        bt.printTreeInOrder();
+        bt.delete(yv6);
+        bt.printTreeInOrder();
+
+        YearValue got = bt.search(new YearValue(1965, 0.0));
+        System.out.println(got);
+
+        for (YearValue y : bt.asList()) {
+            System.out.println(y);
         }
 
-        bt.printTreeInOrder();
-        bt.delete(yv1);
-        bt.printTreeInOrder();
-        bt.delete(yv1);
-        bt.printTreeInOrder();
-        bt.delete(yv2);
-        bt.printTreeInOrder();
+        System.out.println("Total size of tree: " + bt.size());
 
-        if (bt.contains(yv3)) {
-            System.out.println("Worked");
-        }*/
-
-        Database database = new Database();
+        /*Database database = new Database();
         ReadData readData = new ReadData(database);
 
         List<List<String>> tokens = readData.readAndTokenizeCSV("/workspace/upper-division-cs/dsa-23au/java-dsa/juniper-app/src/main/resources/GMVA.csv");
