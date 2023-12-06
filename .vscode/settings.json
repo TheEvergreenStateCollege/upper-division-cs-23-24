@@ -1,4 +1,11 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+<<<<<<< Updated upstream
+    "java.project.sourcePaths": [
+        "dsa-23au/java-dsa/jon-app"
+    ]
+=======
+    "java.debug.settings.onBuildFailureProceed": true
+>>>>>>> Stashed changes
 }

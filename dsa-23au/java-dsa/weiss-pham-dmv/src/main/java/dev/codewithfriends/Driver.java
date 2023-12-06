@@ -1,4 +1,6 @@
 package dev.codewithfriends;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class Driver {
@@ -8,8 +10,17 @@ public class Driver {
     private String address;
     private String licenseNumber;
     private Date birthdate;
+    private Date appointmentTime;
     private boolean hasAppointment;
     private Date checkInTime;  // added check-in time
+
+    public Driver(
+        String name,
+        Date appointmentTime
+    ) {
+        this.name = name;
+        this.appointmentTime = appointmentTime;
+    }
 
     public Driver(
         String name,
@@ -39,7 +50,11 @@ public class Driver {
         }
         return false; // The driver is not late
     }
-
+    public Integer getAppointmentHour(){
+        LocalDateTime localDataTime = this.appointmentTime.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        Integer hour = localDataTime.getHour();
+        return hour;
+    }
    
     public String getName() {
         return name;

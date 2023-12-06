@@ -1,0 +1,41 @@
+# 3.37 Red Book
+# Write a function to determine whether two binary trees are identical. 
+# Identical trees have the saem key value at each position and the same structure
+
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+def identical_tree_check(root1, root2):
+    # Error checking case: If both nodes are None, they are identical
+    if not root1 and not root2:
+        return True
+
+    # Edge case, one node is None and the other is not, they are not identical
+    if not root1 or not root2:
+        return False
+
+    # Inductive case: 
+    # Check if the key, values are equal and recursively check left and right subtrees
+    return (
+        root1.value == root2.value and
+        identical_tree_check(root1.left, root2.left) and
+        identical_tree_check(root1.right, root2.right)
+    )
+
+# Create two example binary trees
+tree1 = TreeNode(1)
+tree1.left = TreeNode(2)
+tree1.right = TreeNode(3)
+
+tree2 = TreeNode(1)
+tree2.left = TreeNode(2)
+tree2.right = TreeNode(4)
+
+# Check for identical trees
+result = identical_tree_check(tree1, tree2)
+
+# print result
+print("The trees are identical." if result else "The trees are not identical.")

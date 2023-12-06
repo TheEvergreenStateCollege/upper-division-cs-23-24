@@ -1,0 +1,9 @@
+Static libraries:
+   ../../../../../opt/graalvm-community-openjdk-20.0.2+9.1/lib/svm/clibraries/linux-amd64/liblibchelper.a
+   ../../../../../opt/graalvm-community-openjdk-20.0.2+9.1/lib/static/linux-amd64/glibc/libnet.a
+   ../../../../../opt/graalvm-community-openjdk-20.0.2+9.1/lib/static/linux-amd64/glibc/libnio.a
+   ../../../../../opt/graalvm-community-openjdk-20.0.2+9.1/lib/static/linux-amd64/glibc/libjava.a
+   ../../../../../opt/graalvm-community-openjdk-20.0.2+9.1/lib/static/linux-amd64/glibc/libfdlibm.a
+   ../../../../../opt/graalvm-community-openjdk-20.0.2+9.1/lib/static/linux-amd64/glibc/libzip.a
+   ../../../../../opt/graalvm-community-openjdk-20.0.2+9.1/lib/svm/clibraries/linux-amd64/libjvm.a
+Other libraries: z,pthread,dl,rt

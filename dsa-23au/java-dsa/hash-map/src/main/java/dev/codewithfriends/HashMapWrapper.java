@@ -3,9 +3,9 @@ package dev.codewithfriends;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class HashMapWrapper<K,V> extends Map<K,V> {
+public class HashMapWrapper<K,V> implements Map<K,V> {
     private List<Map.Entry<K,V>> _value_array[];
-    private K _key_array[];
+    
     private final int a;
     private final int b;
     private final int m;
@@ -13,30 +13,30 @@ public class HashMapWrapper<K,V> extends Map<K,V> {
     private int currentSize;
     private int maxSize;
 
-    public class Entry<K,V> implements Map.Entry<K, V> {
+    public class EntryWrapper implements Map.Entry<K, V> {
 
-        private K key;
-        private V value;
+        private K _key;
+        private V _value;
 
-        public Entry<K,V>(K key, V value) {
-            this.key = key;
-            this.value = value;
+        public EntryWrapper(K key, V value) {
+            this._key = key;
+            this._value = value;
         }
 
         @Override
         public K getKey() {
-            return key;
+            return _key;
         }
 
         @Override
         public V getValue() {
-            return value;
+            return _value;
         }
 
         @Override
         public V setValue(V value) {
-            V oldValue = this.value;
-            this.value = value;
+            V oldValue = this._value;
+            this._value = value;
             return oldValue;
         }
 
@@ -47,7 +47,7 @@ public class HashMapWrapper<K,V> extends Map<K,V> {
             }
             try {
                 Map.Entry<K,V> other = (Map.Entry<K,V>)o;
-                return (this.key.equals(other.getKey()) && (this.value.equals(other.getKey())));
+                return (this._key.equals(other.getKey()) && (this._value.equals(other.getValue())));
             } catch(ClassCastException cce) {
                 return false;
             }
@@ -55,7 +55,7 @@ public class HashMapWrapper<K,V> extends Map<K,V> {
 
         @Override
         public int hashCode() {
-            return hash(this.key.hashCode())
+            return hash(_key);
         }
     }
 
@@ -80,20 +80,25 @@ public class HashMapWrapper<K,V> extends Map<K,V> {
         this.itemCount = 0;
     }
 
-    private static int hash(K key) {
+    public int hash(K key) {
         return (((key.hashCode() * this.a) + this.b) % this.m);
     }
 
-    public V get(K key) {
-        int index = hash(key);
+    @Override
+    public V get(Object key) {
+        try {
+            int index = hash((K)key);
 
-        if (_value_array[index] != null) {
-            List<Map.Entry<K,V>> matches =_value_array[index].stream().filter((Map.Entry<K,V> e) -> e.getKey().equals(key)).collect(Collectors.toList());
-            if (matches.size() > 0) {
-                return matches.get(0).getValue();
+            if (_value_array[index] != null) {
+                List<Map.Entry<K,V>> matches =_value_array[index].stream().filter((Map.Entry<K,V> e) -> e.getKey().equals(key)).collect(Collectors.toList());
+                if (matches.size() > 0) {
+                    return matches.get(0).getValue();
+                }
             }
+            return null;    
+        } catch (ClassCastException cce) {
+            return null;
         }
-        return null;
     }
 
     @Override
@@ -116,11 +121,6 @@ public class HashMapWrapper<K,V> extends Map<K,V> {
         return false;
     }
 
-    @Override
-    public V get(Object key) {
-        return null;
-    }
-
     /**
  * Inserts a key-value mapping.
  * @param key
@@ -135,18 +135,18 @@ public class HashMapWrapper<K,V> extends Map<K,V> {
 
         int index = hash(key);
 
-        Map.Entry<K,V> testObj = new AbstractMap.Entry<>(key, value);
-        List<Map.Entry<K,V>> matches =_value_array[index].indexOf()
-        if (matches.size() > 0) {
-            return matches.get(0).getValue();
+        Map.Entry<K,V> testObj = new EntryWrapper(key, value);
+        int match =_value_array[index].indexOf(testObj);
+        if (match != -1) {
+            return _value_array[index].get(match).getValue();
         }
 
         // check if _value_array index already contains a linked list
         if (_value_array[index] != null) {
-            _value_array[index].add(value);
+            _value_array[index].add(new EntryWrapper(key, value));
         } else {
             List<Map.Entry<K,V>> collisions = new LinkedList<>();
-            collisions.add(value);
+            collisions.add(new EntryWrapper(key, value));
             _value_array[index] = collisions;
         }
         this.itemCount += 1;
@@ -155,7 +155,7 @@ public class HashMapWrapper<K,V> extends Map<K,V> {
 
     @Override
     public V remove(Object key) {
-        return null;
+        throw new RuntimeException("Not yet implemented.");
     }
 
     @Override
@@ -165,32 +165,32 @@ public class HashMapWrapper<K,V> extends Map<K,V> {
 
     @Override
     public void clear() {
-        _value_array.stream()
+        throw new RuntimeException("Not yet implemented.");
     }
 
     @Override
     public Set<K> keySet() {
-        return null;
+        throw new RuntimeException("Not yet implemented.");
     }
 
     @Override
     public Collection<V> values() {
-        return null;
+        throw new RuntimeException("Not yet implemented.");
     }
 
     @Override
     public Set<Entry<K, V>> entrySet() {
-        return null;
+        throw new RuntimeException("Not yet implemented.");
     }
 
     @Override
     public boolean equals(Object o) {
-        return false;
+        throw new RuntimeException("Not yet implemented.");
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        throw new RuntimeException("Not yet implemented.");
     }
 
 

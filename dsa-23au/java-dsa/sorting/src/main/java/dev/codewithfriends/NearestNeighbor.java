@@ -44,6 +44,7 @@ public class NearestNeighbor {
 
     public static Point findNearestNeighbor(Point[] allPoints, Point target) {
 
+        Point closest;
         // sort all the points in allPoints by their first coordinate
         // p.x[0]
         Point[] sorted = App.insertionSort(allPoints);
@@ -53,9 +54,15 @@ public class NearestNeighbor {
  
 
         return null;
+
+        // Point[] sorted = App.insertionSort(allPoints);
+
+        BallTree bt = new BallTree(allPoints);
+        return bt.findNearestNeighbor(target);
+
     }
 
-    public static final int NEIGHBORHOOD_SIZE = 8_350_000;
+    public static final int NEIGHBORHOOD_SIZE = 1_000_000;
     public static final int MAX_X = 1_000_000;
     public static final int MAX_Y = 1_000_000;
 
@@ -74,10 +81,12 @@ public class NearestNeighbor {
         System.out.println(String.format("Target point %s", target.toString()));
 
         long now = System.currentTimeMillis();
+        /*Point closest = NearestNeighbor.findNearestNeighborBruteForce(neighborhood, target);*/
         Point closest = NearestNeighbor.findNearestNeighbor(neighborhood, target);
         long elapsed = System.currentTimeMillis() - now;
         System.out.printf("Elapsed time: %d seconds\n", Math.round(elapsed / 1000));
-        System.out.println(String.format("Closest neighbor was %s", closest.toString()));
+
+        System.out.println(String.format("Closest neighbor was %s", closest.distanceTo(target)));
 
     }
     

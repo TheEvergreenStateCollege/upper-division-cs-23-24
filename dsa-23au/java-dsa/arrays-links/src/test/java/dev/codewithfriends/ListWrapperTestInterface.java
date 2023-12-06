@@ -1,4 +1,3 @@
-/*
 package dev.codewithfriends;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +34,7 @@ public class ListWrapperTestInterface<T>{
     }
 
     @Test
-    void testDoesntContainAfterRemove() {
+    public void testDoesntContainAfterRemove() {
         lwf.testDoesntContainAfterRemove();
     }
 
@@ -46,8 +45,7 @@ public class ListWrapperTestInterface<T>{
 
     @Test
     public void testAddAndSize() {
-        // lwf.testAddAndSize();
+        lwf.testAddAndSize();
     }
 }
 
-*/

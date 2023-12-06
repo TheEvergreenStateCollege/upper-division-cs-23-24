@@ -7,7 +7,14 @@ package com.practice.app;
 public class App 
 {
     public static void main( String[] args )
+{
+    
+    
+    sort(num);
+
+    for(j = 0; j < num.length; j++)
     {
-        System.out.println( "Hello World!" );
+        System.out.println(num[j]);
     }
+}
 }

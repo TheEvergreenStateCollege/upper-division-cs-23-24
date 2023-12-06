@@ -1,11 +1,9 @@
-/*package dev.codewithfriends;
+package dev.codewithfriends;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-
-
 
 public class LinkedListWrapper<T> implements List<T> {
 
@@ -32,7 +30,7 @@ public class LinkedListWrapper<T> implements List<T> {
 
        @Override
     public boolean contains(Object o) {
-        Node<T> current = head; 
+        Node current = head; 
         //requieres the size of the LinkedListWrapper to be something any method can access in the class
         while (current != null) {
             if (current.value.equals(o)) {
@@ -43,7 +41,6 @@ public class LinkedListWrapper<T> implements List<T> {
         return false;
 
     }
-    // We are skipping this method as of 10/12/2023
     @Override
     ///Skipped during class 10/12/2023
     public Iterator iterator() {
@@ -63,32 +60,29 @@ public class LinkedListWrapper<T> implements List<T> {
         }
         return returnArray;
     }
-    
 
     @Override
-   public boolean add(Object o) {
-    Node<T> newNode = new Node(o); // Create a new node with the object o as payload
+    public boolean add(T o) {
+        Node<T> newNode = new Node<T>(o); // Create a new node with the object o as payload
 
-    if (currentSize >= maxSize) {
-        return false;
+        if (currentSize >= maxSize) {
+            return false;
+        }
+
+        if (this.head == null) {
+            this.head = newNode; // If the list is empty, set the new node as the head
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+
+        currentSize++;
+        return true; // Indicate that the addition was successful
     }
-
-    if (this.head == null) {
-        this.head = newNode; // If the list is empty, set the new node as the head
-        this.tail = newNode;
-    } else {
-        this.tail.next = newNode;
-        this.tail = newNode;
-    }
-
-    currentSize++;
-    return true; // Indicate that the addition was successful
-}
 
     @Override
     public boolean remove(Object o) {
-
-
         return false;
     }
 
@@ -113,13 +107,35 @@ public class LinkedListWrapper<T> implements List<T> {
     }
 
     @Override
-    public T set(int index, T element) {
+    public T set(int index, Object element) {
         return null;
+    }
+
+    private Node<T> addBefore(Node<T> target, Node<T> newNode) {
+        newNode.next = target;
+        return newNode;
     }
 
     @Override
     public void add(int index, T element) {
-
+        if (index >= this.currentSize) {
+            return;
+        }
+        int i = 0;
+        Node<T> newNode = new Node<T>(element);
+        Node<T> current = this.head;
+        Node<T> prev = this.head;
+        while (i < index && this.head != null) {
+            prev = current;
+            current = current.next;
+            i += 1;
+        }
+        Node<T> beforeNode = addBefore(current, newNode);
+        if (prev == null || prev == this.head) {
+            this.head = newNode;
+        } else {
+            prev.next = newNode;
+        }
     }
 
     @Override
@@ -185,15 +201,9 @@ public class LinkedListWrapper<T> implements List<T> {
 
     @Override
     public Object[] toArray(Object[] a) {
-        return new Object[0];
-        // Duplicate method to line 54
+        throw new RuntimeException("Not yet implemented.");
     }
-
     
-
-
-
 }
 
-*/
 

@@ -1,0 +1,17 @@
+2-10. 13) For each of the following pairs of functions f(r) and g(n), determine whether
+f(n) = O(g(n), 
+g(n) = O(f(n)), 
+    or both.
+
+	a. f(n) = (n^2 -n)/2  ,   g(n) = 6n
+        f(n) = O(g(n))
+	b. f(n) = n + 2*sqrt(n)  ,   g(n) = n^2
+        g(n) = O(f(n))
+	c. f(n) = n log n  ,   g(n) = n* sqrt(n/2)
+        f(n) = O(g(n))
+	d. f(n) = n + log n  ,   g(n) = sqrt(n)
+        f(n) = O(g(n))
+	e. f(n) = 2(log n)^2  ,   g(n) = log n + 1
+        f(n) = O(g(n))
+    f. f(n) = 4n log n + n  ,   g(n) = (n^2 -n)/2
+        g(n) = O(f(n)

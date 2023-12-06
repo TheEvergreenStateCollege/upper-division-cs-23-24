@@ -30,3 +30,9 @@ git-config.sh
 .project
 .settings/
 target/
+RedbookQuesitons/
+Scratch/
+.vscode/*.pyc
+
+*.pyc
+**/__pycache__

@@ -1,0 +1,11 @@
+{
+  "types":[
+    {
+      "name":"java.util.HashMap"
+    }
+  ],
+  "lambdaCapturingTypes":[
+  ],
+  "proxies":[
+  ]
+}

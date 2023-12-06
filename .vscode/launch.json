@@ -6,6 +6,76 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ImpossibleHangman",
+            "request": "launch",
+            "mainClass": "com.ndeanon25.ImpossibleHangman",
+            "projectName": "ndeanon25"
+        },
+        {
+            "type": "java",
+            "name": "DMVMain",
+            "request": "launch",
+            "mainClass": "dev.codewithfriends.DMVMain",
+            "projectName": "weiss-pham-dmv"
+        },
+        {
+            "type": "java",
+            "name": "FunHangman",
+            "request": "launch",
+            "mainClass": "com.ndeanon25.FunHangman",
+            "projectName": "ndeanon25"
+        },
+        {
+            "type": "java",
+            "name": "Fib",
+            "request": "launch",
+            "mainClass": "com.ndeanon25.Fib",
+            "projectName": "ndeanon25"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.juniperGMVAD.app.App",
+            "projectName": "juniper-app"
+        },
+        {
+            "type": "java",
+            "name": "AppleWatchDataApp",
+            "request": "launch",
+            "mainClass": "com.ActivityTor.app.AppleWatchDataApp",
+            "projectName": "Torsten"
+        },
+        {
+            "type": "java",
+            "name": "CrimeDatabase",
+            "request": "launch",
+            "mainClass": "com.jon.app.CrimeDatabase",
+            "projectName": "jon-app"
+        },
+        {
+            "type": "java",
+            "name": "Crime",
+            "request": "launch",
+            "mainClass": "com.jon.app.Crime",
+            "projectName": "jon-app"
+
+        {
+            "type": "java",
+            "name": "TowersOfHanoi",
+            "request": "launch",
+            "mainClass": "com.pswishcorp.app.TowersOfHanoi",
+            "projectName": "pswish-pipeline"
+        },
+        {
+            "type": "java",
+            "name": "HelloProfiling",
+            "request": "launch",
+            "mainClass": "dev.codewithfriends.HelloProfiling",
+            "projectName": "sorting"
+        },
+        {
+            "type": "java",
             "name": "NearestNeighbor",
             "request": "launch",
             "mainClass": "dev.codewithfriends.NearestNeighbor",
