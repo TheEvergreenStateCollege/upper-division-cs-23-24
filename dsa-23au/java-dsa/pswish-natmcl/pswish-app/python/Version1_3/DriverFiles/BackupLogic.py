@@ -7,6 +7,7 @@ import DriverModes
 from DriverData2 import DriverToDriveData
 import logging
 import sys
+from memory_profiler import profile
 
 logger = logging.Logger
 
@@ -15,14 +16,14 @@ driver_data.run_mode()
 driver = driver_data.DataStructure
 ReplayCounter = 1
 
+@profile  # some memory profiling
 class BackupMode:
     # The purpose of this function is to serve as backup DriverMain logic if python 3.10 is not installed
     def __init__(cls) -> None:
         cls.user_input = ""
 
     def user_instructions(cls):
-        exit = False
-        global ReplayCounter 
+        global ReplayCounter
         ReplayCounter += 1
 
         user_input = (input("""\nPlease select a mode of operation: \
@@ -43,7 +44,9 @@ class BackupMode:
             print("please enter a number from the list above")
             cls.user_input = None
 
-    def run_mode(cls):  
+    @profile
+    def run_mode(cls):
+        exit = False
         try: 
             if cls.user_input == 1:
                 DriverModes.print_keys(driver_data)

@@ -3,6 +3,7 @@
 # Time complexity of this script is O(f) where f is the time complexity of the called function
 
 import DriverModes
+import DriverConfig
 from DriverData2 import DriverToDriveData
 import Average
 import logging
@@ -57,9 +58,12 @@ def main():
             case 10:
                 print("Exiting ...")
                 exit = True
+            case 11:
+                print("Secret function enabled, running pyest setup")
+                DriverConfig.pytest_setup()
 
-    except:
-        print("No selection detected...")
+    except Exception as e:
+        print("No selection detected...", e)
     finally:
         global ReplayCounter
         if not debug:
