@@ -29,7 +29,7 @@ def run_script(script_number, scripts_path):
 
 if __name__ == "__main__":
     # Set the path to the directory containing your Python scripts
-    scripts_path = "finalVersion"
+    scripts_path = "finalVersion-danteData"
 
     while True:
         print("\nSelect a script to run:")
