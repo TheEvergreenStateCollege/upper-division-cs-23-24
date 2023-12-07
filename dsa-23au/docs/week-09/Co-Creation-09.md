@@ -162,3 +162,52 @@ Jonathan Rodriguez
    - The `performTask` method is static, indicating it can be called on the class itself rather than an instance of the class.
 
 In the context of the code review, these examples collectively showcase the significance of clear function signatures, well-defined classes, effective use of parameters and array indices, and the organization of related functionalities within sibling methods. The presence of instance data and function members emphasizes the importance of encapsulation and maintaining state within a class. The static method showcases scenarios where functionality is independent of specific instances.  
+
+Torsten:
+A generic type allows you to create classes, interfaces, and methods that operate on a type that is specified as a parameter when the code is used. Generics provide a way to create reusable code that can work with different types while ensuring type safety. 
+
+A function call in programming refers to the execution of a function in a program. When you call a function, you're asking the program to execute a specific block of code that is encapsulated within that function. Here is a chat GPT example of a functio call:
+ublic class RectangleAreaCalculator {
+
+    // Function to calculate the area of a rectangle
+    public static int calculateArea(int width, int height) {
+        return width * height;
+    }
+
+    public static void main(String[] args) {
+        int width = 5;
+        int height = 10;
+
+        // Function call to calculate the area of a rectangle
+        int area = calculateArea(width, height);
+
+        System.out.println("Area of the rectangle: " + area);
+    }
+}
+In main, the function calculateArea() is called which runs teh code for that function. 
+
+A method is a block of code that performs a specific task and is defined within a class. It's similar to a function in other programming languages. Methods are used to define the behavior of objects, perform operations, and facilitate code reusability.
+
+A static method is a method that belongs to the class itself, rather than to instances of the class (objects). It's associated with the class and can be called directly using the class name without the need to create an instance of the class.
+
+A function parameter (a parameter) is a variable that is listed in the method's declaration. It represents the data that a method expects to receive when it is called. Parameters allow you to pass values to a method so that the method can perform its task using these values.
+Here is a GPT example:
+public class MyClass {
+
+    // Method that takes two integers as parameters and returns their sum
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        
+        int num1 = 5;
+        int num2 = 3;
+        
+        // Calling the add method and passing num1 and num2 as arguments
+        int result = obj.add(num1, num2);
+        
+        System.out.println("Result: " + result); // Output: Result: 8
+    }
+}
