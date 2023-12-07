@@ -61,8 +61,7 @@ public class CSVDataAnalyzer {
     }
 
 
-    public static void minYearMaxYear(List<String[]> parsedData) {
-       
+    public static String minYearMaxYear(List<String[]> parsedData) {
         int minYear = Integer.MAX_VALUE;
         int maxYear = Integer.MIN_VALUE;
     
@@ -77,13 +76,12 @@ public class CSVDataAnalyzer {
         }
     
         if (minYear != Integer.MAX_VALUE && maxYear != Integer.MIN_VALUE) {
-            System.out.println("Earliest year: " + minYear);
-            System.out.println("Latest year: " + maxYear);
+            return String.format("%d to %d", minYear, maxYear);
         } else {
-            System.out.println("No valid years found in the data.");
+            return "No valid years found in the data.";
         }
-    
     }
+    
     
     public static void minMaxMass(List<String[]> parsedData){
 
@@ -121,7 +119,9 @@ public class CSVDataAnalyzer {
 
         if (smallestMeteoriteName != null && largestMeteoriteName != null) {
             System.out.println("Smallest Meteorite: " + smallestMeteoriteName + ", Mass: " + smallestMeteoriteMass);
+            System.out.println("");
             System.out.println("Largest Meteorite: " + largestMeteoriteName + ", Mass: " + largestMeteoriteMass);
+            System.out.println("");
         } else {
             System.out.println("No valid meteorites found in the data.");
         }
@@ -129,6 +129,7 @@ public class CSVDataAnalyzer {
         if (meteoriteCount > 0) {
             double averageMass = totalMass / meteoriteCount;
             System.out.println("Total Average Mass of Meteorites: " + averageMass);
+            System.out.println("");
         } else {
             System.out.println("No valid meteorites found for calculating average mass.");
         }

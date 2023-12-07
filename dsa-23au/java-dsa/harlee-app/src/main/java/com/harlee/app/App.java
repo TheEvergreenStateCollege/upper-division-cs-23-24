@@ -64,55 +64,29 @@ public class App {
 
         System.out.println("=======================");
         System.out.println("     * Main Menu *     ");
-        System.out.println("=======================");
-        System.out.println("1. How many meteors fell in a given year?");
-        System.out.println("2. What is the largest and smallest meteorite recorded? What is the average?");
-        System.out.println("3. View a list of a requested column.");
-        System.out.println("4. Something else sigh");
-        System.out.println("5. Quit");
+        System.out.println("=======================\n");
+        System.out.println("1. Display a specific column from the meteorite dataset.\n");
+        System.out.println("2. Analyze meteorite mass: find the largest, smallest, and average.\n");
+        System.out.println("3. Explore meteorite occurrences: how many fell in a specific year?\n");
+        System.out.println("4. View Credits.\n");
+        System.out.println("5. Quit.\n");
         System.out.println("=====================");
     }
 
+    //OPTION ONE
     private static void optionOne() {
-        System.out.println("You selected Option One.\n");
-        System.out.println("=====================");;
-
-        System.out.println("Below is the current date range that you can select:");
-        CSVDataAnalyzer.minYearMaxYear(parsedData);
-    
-        int targetYear = CSVDataAnalyzer.getTargetYear();
-    
-        List<String> meteorNames = CSVDataAnalyzer.getMeteorNamesInYear(parsedData, targetYear);
-    
-        if (!meteorNames.isEmpty()) {
-            System.out.println("Meteors fallen in " + targetYear + ": " + meteorNames.size());
-            System.out.println("Meteor Names: " + meteorNames);
-        } else {
-            System.out.println("No meteors found in " + targetYear);
-        }
-    
-        pressEnterToContinue();
-    }
-
-    private static void optionTwo() {
-        System.out.println("You selected Option Two.\n");
-    
-        CSVDataAnalyzer.minMaxMass(parsedData);
-        
-       
-        pressEnterToContinue();
-    }
-
-    private static void optionThree() {
-        System.out.println("You selected Option Three.\n");
+        System.out.println("\nYou selected Option One: Display Dataset Column.\n");
+        System.out.println("=================================================");
         System.out.println("* Index 0 = name        * Index 6 = year");
         System.out.println("* Index 1 = id #        * Index 7 = reclat");
         System.out.println("* Index 2 = nametype    * Index 8 = relong");
         System.out.println("* Index 3 = recclass    * Index 9 = geolocation");
         System.out.println("* Index 4 = mass        * Index 10 = states");
-        System.out.println("* Index 5 = fall/found  * Index 11 = counties\n");
+        System.out.println("* Index 5 = fall/found  * Index 11 = counties");
+        System.out.println("=================================================\n");
     
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Some lists are not as clean as others. You've been warned.\n");
         System.out.print("Enter the column index you want to visualize '#': ");
     
         try {
@@ -122,17 +96,62 @@ public class App {
             System.out.println("Invalid input. Please enter a valid integer.");
         } finally {
             pressEnterToContinue();
+        };
+    }
+
+    private static void optionTwo() {
+        System.out.println("\nYou selected Option Two: Analyze Meteorite Mass\n");
+        System.out.println("=======================================================\n");
+    
+    
+        CSVDataAnalyzer.minMaxMass(parsedData);
+        
+       
+        pressEnterToContinue();
+    }
+
+    private static void optionThree() {
+        System.out.println("\nYou selected Option Three: Explore Meteorite Occurrences.\n");
+        System.out.println("==============================================================\n");
+
+        System.out.printf("The current date range that you can select: %s%n\n", CSVDataAnalyzer.minYearMaxYear(parsedData));
+
+        
+        int totalMeteorites = parsedData.size();
+        System.out.println("The current total of meteorites recorded: " + totalMeteorites);
+        System.out.println("");
+
+        int targetYear = CSVDataAnalyzer.getTargetYear();
+
+        List<String> meteorNames = CSVDataAnalyzer.getMeteorNamesInYear(parsedData, targetYear);
+
+        if (!meteorNames.isEmpty()) {
+            System.out.println("==============================================================\n");
+            System.out.println("Meteors fallen in " + targetYear + ": " + meteorNames.size());
+            System.out.println("");
+            System.out.println("Meteor Names: " + meteorNames);
+            System.out.println("");
+        } else {
+            System.out.println("No meteors found in " + targetYear);
         }
+
+        pressEnterToContinue();
+       
     }
 
     private static void optionFour() {
-        System.out.println("You selected Option Four.");
+        System.out.println("CREDITS: \n");
+        System.out.println("=== Meteorite Data Analyzer ===");
+        System.out.println("Version: 1.0");
+        System.out.println("Author: Harlee Hair");
+        System.out.println("Copyright @ 2023 My Total Real Company");
+        System.out.println("-------------------------------");
+        System.out.println("Special thanks to:");
+        System.out.println("- Rat 1");
+        System.out.println("- Rat 2");
+        System.out.println("-------------------------------");
+        System.out.println("For more information, visit: https://data.nasa.gov");
     
-        MeteoriteYearChart chart = new MeteoriteYearChart("Meteorites Over the Years", parsedData);
-        chart.pack();
-        RefineryUtilities.centerFrameOnScreen(chart);
-        chart.setVisible(true);
-      
     
         pressEnterToContinue();
     }
@@ -143,7 +162,6 @@ public class App {
             for (int i = 0; i < 50; ++i) System.out.println();
             
         } catch (final Exception e) {
-            // Handle exceptions
         }
     }
 
