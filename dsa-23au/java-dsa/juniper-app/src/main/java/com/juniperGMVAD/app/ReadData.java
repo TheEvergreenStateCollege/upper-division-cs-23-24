@@ -22,13 +22,13 @@ public class ReadData
         this.database = database;
     }
     */
-    private CountryDataEntry countryDataEntry;
+ /*    private CountryDataEntry countryDataEntry;
 
     public ReadData(CountryDataEntry countryDataEntry)
     {
         this.countryDataEntry = countryDataEntry;
     }
-
+*/
 
     // Each list of strings represents one line of CSV file
     public List<List<String>> readAndTokenizeCSV(String csv_filepath) {
@@ -82,13 +82,13 @@ public class ReadData
                 {
                     year = year + 1;
                     mva = Double.parseDouble(gmvaTokens.get(i).get(j));
-                    countryDataEntry.addYearValue(year, mva);
+                   // countryDataEntry.addYearValue(year, mva);
                 }
    
-                   countryDataEntry.setCountryName(countryName);
-                   countryDataEntry.setCountryCode(countryCode);
-                   countryDataEntry.setIndicatorCode(indicatorCode);
-                   countryDataEntry.setIndicatorName(indicatorName);
+                //countryDataEntry.setCountryName(countryName);
+                //countryDataEntry.setCountryCode(countryCode);
+                //countryDataEntry.setIndicatorCode(indicatorCode);
+                //countryDataEntry.setIndicatorName(indicatorName);
    
                }
 }

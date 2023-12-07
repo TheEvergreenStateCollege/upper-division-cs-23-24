@@ -10,6 +10,7 @@ import com.juniperGMVAD.app.BinaryTree.BinaryTree;
 import com.juniperGMVAD.app.HashMap.HashMap;
 
 public class CountryData {
+    
     private Country country;
     private Database database;
     private HashMap<Indicator, BinaryTree<YearValue>> values;
