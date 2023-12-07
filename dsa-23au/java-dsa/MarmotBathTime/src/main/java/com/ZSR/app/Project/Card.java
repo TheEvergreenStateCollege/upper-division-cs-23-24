@@ -35,7 +35,7 @@ public class Card {
     public HashMap<Card.Suit, Integer> flushCheck;
     public HashMap<Card.Value, Integer> counter;
 
-    flushCheck.put
+    
 
 
 }
