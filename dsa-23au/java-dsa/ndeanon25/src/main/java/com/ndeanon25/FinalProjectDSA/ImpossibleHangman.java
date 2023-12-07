@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ImpossibleHangman {
-    private static boolean wordCountSwitch = true;
+    private static boolean wordCountSwitch = false;
     private static int showWordCount; 
-    private static boolean showWordsSwitch = true;
+    private static boolean showWordsSwitch = false;
 
     /**
      * I got this off of your DMV project. This basically reads the dictionary text file and puts it in a List<String>
