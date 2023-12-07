@@ -10,7 +10,7 @@ Currently, we run our demo with our included data by going into `CrimeDatabase.j
 # Tech Stack for New York Crime Database
 
 ## 1. IDE:
-    * GitPod: Most of the development for this project was done mostly on GitPod. It was very helpful and convienient for this class because of its cloud based capabilites. Perosnally for the future programs, If I can utilize the dev pack for github next quarter on VS code, I believe I may switch because of my familiarity and I dont like using browser IDEs. 
+    * GitPod: Most of the development for this project was done mostly on GitPod. It was very helpful and convienient for this class because of its cloud based capabilites. During Perosnally for the future programs, If I can utilize the dev pack for github next quarter on VS code, I believe I may switch because of my familiarity and I dont like using browser IDEs. 
 
 ## 2 Programming Language/Formats:
     * JavaScript: OOP and dynamic programming for this project (Java 20).
