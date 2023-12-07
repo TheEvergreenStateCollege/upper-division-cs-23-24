@@ -16,20 +16,14 @@ import java.util.regex.Pattern;
  */
 public class ReadData
 {
-   /*  private Database database;
+    private Database database;
 
    public ReadData(Database database)
     {
         this.database = database;
     }
-    */
- /*    private CountryDataEntry countryDataEntry;
+    
 
-    public ReadData(CountryDataEntry countryDataEntry)
-    {
-        this.countryDataEntry = countryDataEntry;
-    }
-*/
 
     /*public void addCountryDataEntry(CountryDataEntry entry) {
         List<YearValue> values = entry.allYearValues();
@@ -38,7 +32,7 @@ public class ReadData
             Database.setYearValue(entry.getCountry(), entry.getIndicator(), yv.year, yv.value);
         } 
     }*/
-
+    
     // Each list of strings represents one line of CSV file
     public List<List<String>> readAndTokenizeCSV(String csv_filepath) {
         BufferedReader reader;

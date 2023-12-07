@@ -9,6 +9,12 @@ public class YearValue {
         this.value = value;
     }
 
+    public int getYear()
+    {
+        return year;
+    }
+
+
     @Override
     public String toString() {
         return "(" + year + ", " + value + ")";
