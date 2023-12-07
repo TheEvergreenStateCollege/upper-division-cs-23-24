@@ -166,7 +166,7 @@ public class HashMap<K, V> {
 
             Entry<K, V> currEntry = e;
             while (currEntry != null) {
-                System.out.print("(" + currEntry.key + ", " + currEntry.value + ")");
+                System.out.print("(" + currEntry.key + ", " + currEntry.value + ")" + "[" + currEntry.key.hashCode() + "]");
                 currEntry = currEntry.next;
             }
 
