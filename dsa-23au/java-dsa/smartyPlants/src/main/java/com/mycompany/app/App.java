@@ -40,7 +40,7 @@ public class App
 
 public class mrnaRead
 {
-    String hash; //We don't what it is, series of letters and numbers
+    String hash; 
     String runID;
     String sampleId;
     String read;
@@ -48,6 +48,14 @@ public class mrnaRead
     String startTime;
     String modelID;
     String data;
+
+    public String readCase(hash, runID, sampleId, read, ch, startTime, modelID, data){
+        this.hash = hash;
+        this.runID = runID;
+        this.sampleId = sampleId;
+        
+    }
+
 
 }
 

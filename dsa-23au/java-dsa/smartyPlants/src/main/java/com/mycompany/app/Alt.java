@@ -1,5 +1,7 @@
 package com.mycompany.app;
 
+///while the file says it's a fastq in its name
+//the actual .suffix says .fasta, I should probably install both... but that means writing code for both
 import org.biojava.nbio.genome.io.fasta.FastaReader;
 import org.biojava.nbio.genome.io.fasta.Fasta;
 
@@ -33,12 +35,16 @@ public class runLine {
         System.out.println("mRNA Sequence:");
         System.out.println(runLine.getSequence());        
     }
+
+    //make setters to put into the reader?
+    //that the reader will use to put the entries in...
 }
 
 //get the lines and put them in the right place
 public class filesReader(){
     FastaReader fastaReader = new FastaReader(); //something with the library...
     List<runLine> entryItems = new ArrayList<>(); //Arraylist must be imported still!
+     
     //put for-loop reader here 
     //it is very important that these are constructed correctly in order to keep each line of genetic data matched with its metadata
     //each pair of two lines, new object instance
