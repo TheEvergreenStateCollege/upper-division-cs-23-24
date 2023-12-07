@@ -2,36 +2,110 @@ package com.ZSR.app.Project;
 import java.util.*;
 
 public class Game {
+    private static int pot = 0;
+    private static int bet = 0;
+    private static int lastBet = 0;
+    private static boolean isEarlyPosition;
+
+    public static int getPot() {
+        return pot;
+    }
+
+    public static int getBet() {
+        return bet;
+    }
+
+    public static int getLastBet() {
+        return lastBet;
+    }
     public static void main(String[] args) {
+        String filePath = "dsa-23au/java-dsa/MarmotBathTime/src/main/resources/poker_strategy_subset.csv"; 
+        StrategyReader strategyReader = new StrategyReader();
+        Map<String, PokerStrategy> strategies = strategyReader.readStrategyCSV(filePath);
         Scanner scanner = new Scanner(System.in);
+       
         Deck deck = new Deck();
         deck.shuffle();
-        Queue<Player> Table;
-        Player player = new Player("Player1");
-        List<Card> playersHand = player.getHand(); 
+        
+        
+        Player player = new Player("Player1", 100);
+        ComputerPlayer computerPlayer = new ComputerPlayer("AI", 100, strategies);
+        ComputerPlayer robotPlayer = new ComputerPlayer("Robot", 100, strategies);
 
-        //number of players, add to table
-        //go around table and deal hands to players
+        Queue<Player> table = new LinkedList<>(); 
+        table.add(player);
+        table.add(computerPlayer);
+        table.add(robotPlayer);
 
-        for (int i = 0; i < 5; i++) {
-            player.drawCard(deck);
+        
+        isEarlyPosition = true;
+        if (player instanceof ComputerPlayer) {
+            ((ComputerPlayer) computerPlayer).setEarlyPosition(isEarlyPosition);
+        }if (player instanceof ComputerPlayer) {
+            ((ComputerPlayer) robotPlayer).setEarlyPosition(isEarlyPosition);
         }
 
-        //player hand is printed
+        for (int i = 0; i < 5; i++) {
+            for (Player p : table) {
+                p.drawCard(deck);
+            }
+        }
+
+        player.sortHand();
         player.showHand();
+    
 
-        //<?>betting and folding
+        for (Player p : table) {
+            int bet;
+            if (p instanceof ComputerPlayer) {
+                bet = ((ComputerPlayer) p).compBet(p.getChips());
+            } else {
+                bet = p.placeBet(p.getChips(), scanner);
+                //bet = 0;
+            }
+        
+            pot += bet;
+            lastBet = bet;
+            System.out.println(p.getName() + " bets " + bet + " CHIPS. POT is at " + pot + " CHIPS.");
+        }
 
-        //player can discard and redraw cards, <?> 1-3, 4 if high card
         player.redraw(deck, scanner);
-
-        // <?> player is notified of other players discards and draws
-
-        // <?> second round betting and folding
-
-        // hands are printed and compared, winner declared
-
+        player.sortHand();
         player.showHand();
+        Rank.HandType handType = Rank.evaluateHand(player.getHand());
+        System.out.println("Your hand is a " + handType);
+
+        isEarlyPosition = false;
+        if (player instanceof ComputerPlayer) {
+            ((ComputerPlayer) computerPlayer).setEarlyPosition(isEarlyPosition);
+        }if (player instanceof ComputerPlayer) {
+            ((ComputerPlayer) robotPlayer).setEarlyPosition(isEarlyPosition);
+        }
+
+        for (Player p : table) {
+            int bet;
+            if (p instanceof ComputerPlayer) {
+                bet = ((ComputerPlayer) p).compBet(p.getChips());
+            } else {
+                bet = p.placeBet(p.getChips(), scanner);
+               // bet = 0;
+            }
+        
+            pot += bet;
+            lastBet = bet;
+            System.out.println(p.getName() + " bets " + bet + " CHIPS. POT is at " + pot + " CHIPS.");
+        }
+        player.sortHand();
+        // hands are printed and compared, winner declared
+        handType = Rank.evaluateHand(player.getHand());
+        Rank.HandType CompHand = Rank.evaluateHand(computerPlayer.getHand());
+        Rank.HandType RoboHand = Rank.evaluateHand(robotPlayer.getHand());
+        // Display the evaluated hand type
+        System.out.println("Your hand is a " + handType);
+        System.out.println(computerPlayer + "hand is a " + CompHand);
+        System.out.println(robotPlayer + "hand is a " + RoboHand);
+
+        //player.showHand();
 
         //<?> play again with chips from betting rolled over, win counter
         scanner.close();

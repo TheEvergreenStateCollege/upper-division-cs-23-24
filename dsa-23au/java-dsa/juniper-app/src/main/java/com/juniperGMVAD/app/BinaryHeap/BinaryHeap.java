@@ -140,6 +140,11 @@ public class BinaryHeap<T> {
         */
     }
 
+    //isempty
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public void printHeapDebug() {
         for (int i = 0; i < size; i++) {
             System.out.print(heap[i] + ", ");

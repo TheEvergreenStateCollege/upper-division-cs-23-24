@@ -10,9 +10,7 @@ public class CSVDataParser {
      // parse CSV file
     public static List<String[]> parseCSV(String filePath, char delimiter) {
         List<String[]> data = new ArrayList<>();
-        //List<String[]> generalData = new ArrayList<>();
-        //List<String[]> yearData = new ArrayList<>();
-        //List<String[]> nameData = new ArrayList<>();
+       
 
         // close
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {

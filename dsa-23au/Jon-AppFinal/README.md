@@ -5,15 +5,16 @@ At the beginning of the course, I struggled on trying to find data that would be
 # Mermaid Diagram (work on Wed.)
 
 #How to run our demo on our included data
-Currently, we run our demo with our included data by going into `CrimeDatabase.java` and running the main method. That takes us through our menus to allow to access our data and code in numerous ways. We are storing our crime data in a seperate file so that the database doesnt get overcrowded with information. //FIXMEEEEEEEEEEEEEE
+Currently, we run our demo with our included data by going into `main.py` and running the method. That takes us through our menus to and allows the main method to access other dependencies and packages throughout the project particularly `crime_database.py` and  `temporalanalysis.py`. We are storing our crime data in a seperate file so that the database doesnt get overcrowded with information. //FIXMEEEEEEEEEEEEEE
 
 # Tech Stack for New York Crime Database
 
 ## 1. IDE:
-    * GitPod: Most of the development for this project was done mostly on GitPod. It was very helpful and convienient for this class because of its cloud based capabilites. During Perosnally for the future programs, If I can utilize the dev pack for github next quarter on VS code, I believe I may switch because of my familiarity and I dont like using browser IDEs. 
+    * GitPod: Most of the development for this project was done mostly on GitPod. It was very helpful and convienient for this class because of its cloud based capabilites. Through the progress of this project, switching to VS code proved to be more comfortable for me as a developer. Personally for the future programs, If I can utilize the dev pack for github next quarter on VS code, I believe I may switch because of my familiarity and I dont like using browser IDEs. 
 
 ## 2 Programming Language/Formats:
     * JavaScript: OOP and dynamic programming for this project (Java 20).
+    * Python: After many issues with Java I decided to really challenge myself and try out Python for this project.
     * CSV: This is the format that I turned my dataset into.
     * Mermaid: Used to set up UML diagram of my project
 
@@ -29,14 +30,72 @@ Currently, we run our demo with our included data by going into `CrimeDatabase.j
      JUnit: A widely used testing framework for Java.
      TestNG: An alternative testing framework with additional features like parallel test execution.
 
+     !!!!NOTE!!!
+     After the switch to Python I believe that I may use package cloud for build automation but I will continue to use maven for java projects.
+
 # Challenges that I ran into
 
 The biggest challenge that I ran into with this project was trying to find crime data that reflected trends regarding certain demographics such as age, sex, race, income, education, etc. My initital plan was to use census data to somehow pinpoint those trends. However not a lot of the Census data is split by county and even then that is just bad data usage. It would paint a blurry picutre of these connections if one at all.
 
 Another Challenge that I faced while completing this project was trying have my project read from the csv file. With Pauls Help, i was able to integrate into the `main` method in `CrimeDatabse` the ability to read the csv file. 
+    
+Dynamic Programming Skills:
+   -I found the implementation of dynamic programming concepts challenging. Understanding and applying dynamic programming in Python required a deep understanding of recursion, memoization, and bottom-up approaches.
+   -I struggled with breaking down complex problems into simpler subproblems and figuring out the optimal substructure to build dynamic programming solutions.
+
+CSV Reading:
+   -CSV reading posed some difficulties for me. I had to familiarize myself with Python's CSV module and understand how to efficiently read and process data from a CSV file.
+   -Dealing with headers, handling missing or inconsistent data, and converting data types from strings to appropriate types added an extra layer of complexity.
+
+Type Rules:
+   -Managing and enforcing type rules in Python, especially when dealing with user input or reading data from external sources like CSV files, was challenging.
+   -I encountered issues with data types, such as converting strings to integers or floats, and ensuring that the data used in calculations adhered to the expected types.
+
+Package Structure and OOP:
+   -Structuring the project into packages and implementing object-oriented programming (OOP) concepts required careful thought and planning.
+   -I faced challenges in organizing classes, defining relationships between them, and ensuring that the overall design was modular and maintainable.
+
+Multiline Text and Documentation:
+   -Writing multiline text for methods and documenting the code was a struggle. Clearly explaining the logic, time complexity, and space complexity in a concise yet informative manner required a balance that I found challenging to achieve.
+
+Mermaid Syntax:
+   -Creating a Mermaid flowchart and ensuring the correct syntax for depicting relationships between classes in VS Code was a new experience. I had to learn and apply Mermaid syntax effectively.
+
+Personal Coding Style:
+   -Maintaining a consistent and clean personal coding style across multiple files and packages was important but challenging. Deciding on naming conventions, indentation, and commenting required attention to detail.
+
+Despite these challenges, tackling them head-on has undoubtedly improved my Python programming skills and deepened my understanding of dynamic programming, data manipulation, and project organization. Each struggle became an opportunity for growth and learning.
 
 # Accomplishments/What I learned
-
+## 1. Java
 Overall with this final project, it really allowed me to see how important dynamic programming is. I am also very happy with how organized and concise my project is. Last year and beginning of this quarter, I was a very messy programmer. This meant awful spacing, lack of succinct comments, wrong indents, and various syntax errors. This are skills that I have been able to fix by working on this project. I am also proud of my knowledge of the JavaScript langauage and its numerous libriaries. Working on this project as well as lectures throughout the quarter has immensely soldified my skills in java. With `CrimeDatabase`, I have utilized all the skills that I have learned from this quarter whether it is using HashMaps or dictionaries and trying to calculate the runtime of these methods and algorithms. This is more of a note for me but I want to really get into learning Python for these next quarters. A lot of the things that came with coding (Ex: recongnizing when to initialize a new HasMap and recognizing how to connect code with design) has become almost second hand nature to me.
+
+ 
+## 2. Python
+Dynamic Programming Mastery
+   -I successfully grasped the intricacies of dynamic programming. Overcoming the initial challenges, I now feel confident implementing recursive solutions, memoization, and bottom-up approaches to solve complex problems efficiently.
+
+CSV Handling Proficiency:
+   -I triumphed over the complexities of CSV reading. From understanding Python's CSV module to handling headers and converting data types, I can now adeptly read and process data from CSV files, making data manipulation a smoother process.
+
+Type Rules and Data Integrity:
+   -I conquered the challenges associated with Python's type rules. Handling data types, especially converting strings to integers or floats, became second nature. Ensuring data integrity in calculations is now a strength, and I can confidently enforce type rules.
+
+Effective Package Structure and OOP Design:
+   -I successfully organized the project into packages and implemented sound object-oriented programming principles. Defining class relationships and creating a modular, maintainable design showcase my newfound proficiency in project structuring.
+
+Clear Multiline Text and Documentation:
+   -I honed my skills in writing clear and concise multiline text and documentation. Articulating complex logic, time complexity, and space complexity in a way that is both informative and approachable is now a strength in my coding repertoire.
+
+Fluent Mermaid Flowchart Creation:
+   -I delved into creating Mermaid flowcharts and established fluency in the syntax. Visualizing relationships between classes in VS Code is no longer a challenge, and I can effortlessly represent project structures using this powerful tool.
+
+Consistent Personal Coding Style:
+   -I achieved a harmonious and consistent personal coding style across multiple files and packages. From naming conventions to indentation and commenting, my code now reflects a polished and professional coding style.
+
+Problem-Solving Resilience:
+   -Each challenge became an opportunity for growth, strengthening my problem-solving skills. The ability to tackle new concepts and overcome hurdles is now ingrained in my approach to coding, making me a more resilient and resourceful programmer.
+
+In this project, I didn't just write code; I embraced challenges, learned new skills, and emerged with a heightened level of confidence in tackling real-world programming complexities. This journey was not just about the code itself but about personal and professional growth.
 
 # Whats next?????

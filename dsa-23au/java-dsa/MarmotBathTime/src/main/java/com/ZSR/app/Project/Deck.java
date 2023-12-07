@@ -12,7 +12,7 @@ public class Deck {
             }
         }
     }
-    //need discard if multiple games
+    
     public void shuffle() {
         Collections.shuffle(deck);
     }
@@ -24,9 +24,4 @@ public class Deck {
         return deck.pop();
     }
     
-    //public Card redraw(int discard) {
-    //    for (int i = 0;i < discard;i++) {
-    //        deck.pop();
-    //    }
-    //}
 }

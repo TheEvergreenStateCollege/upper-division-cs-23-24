@@ -107,7 +107,7 @@ public class CountryData {
      * @param endYear
      * @return List of yearly values as YearValues, null if indicator is not tracked or start and end do not constitute a range of at least one
      */
-    public List<YearValue> valuesAsList(Indicator indicator, int startYear, int endYear) {
+     public List<YearValue> valuesAsList(Indicator indicator, int startYear, int endYear) {
         if (startYear > endYear || endYear < startYear) {
             return null;
         }

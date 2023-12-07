@@ -17,6 +17,7 @@ import com.juniperGMVAD.app.YearValue.YearValue;
 public class ReadData
 {
     private Database database;
+    private Database database;
 
     public ReadData(Database database)
     {
@@ -58,7 +59,7 @@ public class ReadData
             Database.setYearValue(entry.getCountry(), entry.getIndicator(), yv.year, yv.value);
         } 
     }*/
-
+    
     // Each list of strings represents one line of CSV file
     private List<List<String>> readAndTokenizeCSV(String csv_filepath) {
         BufferedReader reader;

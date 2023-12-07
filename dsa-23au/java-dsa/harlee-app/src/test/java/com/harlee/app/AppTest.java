@@ -37,9 +37,7 @@ public class AppTest
     @Test
     public void shouldAnswerWithFalse()
     {
-       
         assertEquals(1,2);
-
     }
 
     @Test
@@ -57,5 +55,14 @@ public class AppTest
 
     }
 
+    @Test
+    public void emptyParsedData() 
+    {
+        int targetYear = 2000;
+        List<String[]> parsedData = new ArrayList<>();
+        int meteorCount = CSVDataAnalyzer.countMeteorsInYear(parsedData, targetYear);
+        assertEquals(0, meteorCount);
+    }
     
+
 }

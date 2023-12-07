@@ -17,7 +17,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-
 [![Contributors][contributors-shield]][contributors-url]
 
 <!-- PROJECT LOGO -->
@@ -77,7 +76,7 @@
 <img src="https://media4.giphy.com/media/dlMIwDQAxXn1K/giphy.gif?cid=ecf05e4711dc69ae387e4a243fb72b5b87f0ec33491bfff7&ep=v1_user_favorites&rid=giphy.gif&ct=g" alt="Logo" width="400" height="300" img align="right">
 
 
-This project has been satifying but frustrating at the same time. It has been along journey, and after multiple if statements, it has finally works.  
+This project has been satifying but frustrating at the same time. It has been a long journey, and after multiple if statements, it has finally works.  
 
 It features an interactive command-line interface where players can choose the word length and the number of incorrect guesses allowed. 
 
@@ -90,14 +89,39 @@ The project demonstrates object-oriented programming and game logic implementati
 
 * [![Java]][Java-url]
 * [![VSCode]][VSCode-url]
-* Pain :rage: / Headaches :anger: / No Sleep :japanese_goblin:
+* Pain  / Headaches  / No Sleep 
 
 
 <!-- Game Tree -->
 ## Game Tree
 ```mermaid
-graph TD
-a--> b
+graph TB
+A("Start: Receive the Player's guess ")
+B("Is the Game Over?")
+C("Is the Guess New?")
+D("Did Pattern Change?")
+E["End Game"]
+F[Add Guess to Set]
+G[Error. Ask again]
+H[Group Words by Pattern]
+I[Update Word List and Decrease Remaining Guesses]
+J[Decrease Remaining Guesses]
+K[Return Number of Word Matches]
+
+
+A---B
+B--No-->C
+B --Yes-->E
+C--Yes-->F
+C<--No-->G
+D--No-->J
+F---H
+H---D
+D--Yes-->I
+J---K
+I---K
+K--->A
+
 ```
 <p align="right">
 <a href="#top" >Back to top</a>
@@ -169,7 +193,7 @@ The Hangman project is an implementation of the classic word-guessing game in Ja
 
 ## How I did I Make it Run?!?
 
-<img src="https://media0.giphy.com/media/E3MQDZl9qsVwgnKA7b/giphy.gif?cid=ecf05e47e5c8snl6ye46cxtmin0hvv665klaq4w6vc2xsqkt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Logo" width="250" height="200" img align="left">
+<img src="https://media0.giphy.com/media/E3MQDZl9qsVwgnKA7b/giphy.gif?cid=ecf05e47e5c8snl6ye46cxtmin0hvv665klaq4w6vc2xsqkt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Logo" width="250" height="190" img align="left">
 
 
 Magic. Really, this was a struggle. I made a gameplan and the very broad steps of getting there.
@@ -218,13 +242,24 @@ pie title What I spent time on
 
 ## The Learning Experience 
 
-This is used for the
+The Learning Experience was a rollercoaster. There were times where I felt like I was on top and I understood everything about my code. Then there were times where I did not understand why it is not running properly. The Hang man game used a lot of game theory and I was able to connect with my Game Theory class. The decision tree was helpful when writing the code to understand the choices that the program was making and understanding what I expect it to do. 
+
+The most important part of my learning experience is that I really enjoyed writing and creating this game. While I was frustrated with this project multiple times. I have enjoyed seeing this come together. 
+
+<img src="https://media4.giphy.com/media/V0IdVIIW1y5d6/giphy.gif?cid=ecf05e47mxzz7egn4vm49pwlymp82lg2c73gxikcy56sgh6v&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Logo" width="200" height="200">
 
 <p align="right">
 <a href="#top" >Back to top</a>
 <!-- Accomplishments I am proud of  -->
 
 ## Accomplishments I am Proud of
+<li>The ReadMe file, this was fun to make and using Markdown and Mermaid was very intuitive.
+<li>Understanding HashMaps and Sets
+<li> Debugging the Input Errors on the front end and learning about try/catch.
+<li> Getting the code to compile
+<li> Getting my Junit test to compile
+<li>My Javadoc, I tried to make it simple to non-programmers so they could understand it.
+
 
 
 <p align="right">
@@ -234,6 +269,12 @@ This is used for the
 <!--Big O and Data Structures I used  -->
 
 ## Big O() and Data Structures I used
+HangmanLogic has multiple methods that are generally O(1) like the accessor methods. Then there is the Constructor that iterates through the dictionary. This runs at O(n) where n is the number of words in the dictionary.
+
+The record method has to insert into a treemap so it runs O(w*log k) where w is the number of words and k is the number of unique patterns. The record method uses the other methods so I believe the running time for this project runs at O(n*logn). 
+
+
+The Data Structure I used was a Set[String] wordList. This Set is used to store the list of words that are possible answers in the game. The next data structure was a SortedSet[Character]. This SortedSet keeps track of the characters (letters) that the player has guessed so far. The next data structure is the Map[String,Set[String]] which is used to group words based on a certain pattern formed after each guess. It maps a pattern (represented as a String) to a set of words (each a String) that match this pattern. 
 
 
 <p align="right">
@@ -246,8 +287,9 @@ This is used for the
 ## Acknowledgments
 
 * [Thank you, othneildrew for the Github README Template](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md?plain=1)
-* []()
-* []()
+* [ChatGPT helped debug my code](https://chat.openai.com/)
+* [StackOverFlow helped debug as well](https://stackoverflow.com/)
+* [DMV project we did in class](https://github.com/TheEvergreenStateCollege/upper-division-cs)
 <p align="right">
 <a href="#top" >Back to top</a>
 
