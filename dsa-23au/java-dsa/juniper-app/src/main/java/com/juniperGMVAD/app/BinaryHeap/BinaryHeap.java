@@ -53,9 +53,15 @@ public class BinaryHeap<T> {
     public T deleteMax() {
         T max = heap[0];
         heap[0] = heap[size - 1];
-        maxHeapify(0);
+        heap[size - 1] = null;
         size--;
+        maxHeapify(0);
+        //size--;
         return max;
+    }
+
+    public int size() {
+        return size;
     }
 
     private void resize() {
@@ -64,19 +70,53 @@ public class BinaryHeap<T> {
         heap = (T[]) new Object[capacity];
 
         for (int i = 0; i < size; i++) {
-            heap[i] = oldHeap[i];
+            insert(oldHeap[i]);
+        }
+    }
+
+    private void maxHeapifyRecursive(int root) {
+        int largest = root;
+        int left = leftChild(root);
+        int right = rightChild(root);
+
+        if (left < size && comparator.compare(heap[left], heap[largest]) > 0) {
+            largest = left;
+        }
+
+        if (right < size && comparator.compare(heap[right], heap[largest]) > 0) {
+            largest = right;
+        }
+
+        if (largest != root) {
+            T temp = heap[root];
+            heap[root] = heap[largest];
+            heap[largest] = temp;
+
+            maxHeapifyRecursive(root);
         }
     }
 
     private void maxHeapify(int index) {
+        maxHeapifyRecursive(index);
+        /*int currIndex = index;
+        int largest = index;
+        int left = leftChild(currIndex);
+        int right = rightChild(currIndex);
+
+        if (left < size && comparator.compare(heap[left], heap[largest]) > 0) {
+            largest = left;
+        }
+        */
+        /*
         int currIndex = index;
         int leftIndex = leftChild(currIndex);
         int rightIndex = rightChild(currIndex);
-
+        
+        
         while ((leftIndex < size && comparator.compare(heap[currIndex], heap[leftIndex]) < 0) || 
                (rightIndex < size && comparator.compare(heap[currIndex], heap[rightIndex]) < 0)) { // While child larger
             if (comparator.compare(heap[currIndex], heap[leftIndex]) < 0) {
-                // Swap value of child with parent
+                // Swap value of left child with parent
                 T temp = heap[currIndex];
                 heap[currIndex] = heap[leftIndex];
                 heap[leftIndex] = temp;
@@ -85,18 +125,19 @@ public class BinaryHeap<T> {
                 leftIndex = leftChild(currIndex);
                 rightIndex = rightChild(currIndex);
             } else if (comparator.compare(heap[currIndex], heap[rightIndex]) < 0) {
-                // Swap value of child with parent
+                // Swap value of right child with parent
                 T temp = heap[currIndex];
                 heap[currIndex] = heap[rightIndex];
                 heap[rightIndex] = temp;
 
-                currIndex = leftIndex;
+                currIndex = rightIndex;
                 leftIndex = leftChild(currIndex);
                 rightIndex = rightChild(currIndex);
             } else { // Current index either leaf or has no children with greater values than itself
                 return;
             }
         }
+        */
     }
 
     //isempty

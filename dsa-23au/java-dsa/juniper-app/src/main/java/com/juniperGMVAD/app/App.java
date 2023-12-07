@@ -8,6 +8,8 @@ import java.util.*;
 
 import com.juniperGMVAD.app.BinaryHeap.BinaryHeap;
 import com.juniperGMVAD.app.BinaryTree.*;
+import com.juniperGMVAD.app.Enum.Country;
+import com.juniperGMVAD.app.Enum.Indicator;
 import com.juniperGMVAD.app.HashMap.*;
 
 /**
@@ -147,12 +149,10 @@ private static void tokenizeCSV(String[] parameters)
             bh.insert(new YearValue(i, 2.33));
         }
 
-        bh.printHeapDebug();
-        */
-
-        /*Database database = new Database();
+        Database database = new Database();
         ReadData readData = new ReadData(database);
-        readData.processData();
+        //"/workspace/upper-division-cs/dsa-23au/java-dsa/juniper-app/src/main/resources/GMVA.csv"
+        readData.loadAndProcess("GMVA.csv");
 
          switch (args[0]) {
             case "top5":
@@ -163,12 +163,18 @@ private static void tokenizeCSV(String[] parameters)
                 for (String s : top5) {
                     System.out.printf("%n. %s\n", rank, s);
                     rank += 1;
-                    */
+                }
 
+                break;
+            case "gmva":
+                break;
+            case "default": 
+                System.out.println("Usage: [application] [top5 / gmva] [country name] [year]"); //TODO: make this legible and accurate
+            
+        }
+        */  
+    }
 }
-    
-
-
 
 
 

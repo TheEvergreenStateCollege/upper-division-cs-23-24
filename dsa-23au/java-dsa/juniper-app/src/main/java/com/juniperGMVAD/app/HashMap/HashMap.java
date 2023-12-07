@@ -66,6 +66,21 @@ public class HashMap<K, V> {
         return null;
     }
 
+    public List<V> valuesAsListDebug() {
+        List<V> list = new ArrayList<V>();
+
+        for (Entry<K, V> entry : table) {
+            Entry currEntry = entry;
+            while (currEntry != null) {
+                list.add((V) currEntry.value);
+
+                currEntry = currEntry.next;
+            }
+        }
+
+        return list;
+    }
+
     public V get(K key) {
         int index = indexFor(key);
 
