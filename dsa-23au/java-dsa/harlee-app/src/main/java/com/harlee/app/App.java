@@ -1,7 +1,6 @@
 package com.harlee.app;
 import java.util.List;
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 
@@ -144,7 +143,7 @@ public class App {
         System.out.println("=== Meteorite Data Analyzer ===");
         System.out.println("Version: 1.0");
         System.out.println("Author: Harlee Hair");
-        System.out.println("Copyright @ 2023 My Total Real Company");
+        System.out.println("Copyright @ 2023 NCC-1701");
         System.out.println("-------------------------------");
         System.out.println("Special thanks to:");
         System.out.println("- Rat 1");

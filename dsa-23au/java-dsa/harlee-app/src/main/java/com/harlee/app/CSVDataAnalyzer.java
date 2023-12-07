@@ -11,7 +11,6 @@ public class CSVDataAnalyzer {
 
     // How many meteors fell in the given year and what were their names?
 
-    //
     public static int getTargetYear() {
         Scanner scanner = new Scanner(System.in);
 
@@ -139,6 +138,7 @@ public class CSVDataAnalyzer {
 
 
     //Print All Names of Meteors
+    //THIS IS UNUSED
     public static void printNames(List<String[]> parsedData) {
         
         // Print names column values to the terminal
@@ -150,6 +150,7 @@ public class CSVDataAnalyzer {
     }
 
     //Print All Names of Meteors Starting with the lettter A
+    //THIS IS UNUSED
       public static void DataStartingWithA(List<String[]> parsedData) {
         // Define the column index for the first column 
         int columnIndex = 0;
@@ -166,6 +167,7 @@ public class CSVDataAnalyzer {
     }
 
     //Print All Years after 2000
+    //THIS IS UNUSED
     public static void after2000(List<String[]> parsedData) {
         int columnIndex = 6;
     
@@ -178,7 +180,7 @@ public class CSVDataAnalyzer {
                         System.out.println(year);
                     }
                 } catch (NumberFormatException e) {
-                    //WIP
+                    
                 }
             }
         }
