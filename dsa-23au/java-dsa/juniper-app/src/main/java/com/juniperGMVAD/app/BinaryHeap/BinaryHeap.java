@@ -2,6 +2,8 @@ package com.juniperGMVAD.app.BinaryHeap;
 
 import java.util.Comparator;
 
+//TODO: automatically resize array
+
 public class BinaryHeap<T> {
     private final static int CAPACITY_DEFAULT = 64;
     private final static double LOAD_FACTOR_DEFAULT = 0.75;
@@ -25,6 +27,8 @@ public class BinaryHeap<T> {
     }
 
     public void insert(T value) {
+        if (size >= (capacity * loadFactor)) resize();
+
         int newIndex = size;
         heap[newIndex] = value;
 
@@ -52,6 +56,16 @@ public class BinaryHeap<T> {
         maxHeapify(0);
         size--;
         return max;
+    }
+
+    private void resize() {
+        capacity *= 2;
+        T[] oldHeap = heap;
+        heap = (T[]) new Object[capacity];
+
+        for (int i = 0; i < size; i++) {
+            heap[i] = oldHeap[i];
+        }
     }
 
     private void maxHeapify(int index) {
