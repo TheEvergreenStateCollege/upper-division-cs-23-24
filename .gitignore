@@ -32,4 +32,7 @@ git-config.sh
 target/
 RedbookQuesitons/
 Scratch/
-.vscode/
+.vscode/*.pyc
+
+*.pyc
+**/__pycache__

@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ImpossibleHangman",
+            "request": "launch",
+            "mainClass": "com.ndeanon25.ImpossibleHangman",
+            "projectName": "ndeanon25"
+        },
+        {
+            "type": "java",
+            "name": "DMVMain",
+            "request": "launch",
+            "mainClass": "dev.codewithfriends.DMVMain",
+            "projectName": "weiss-pham-dmv"
+        },
+        {
+            "type": "java",
+            "name": "FunHangman",
+            "request": "launch",
+            "mainClass": "com.ndeanon25.FunHangman",
+            "projectName": "ndeanon25"
+        },
+        {
+            "type": "java",
+            "name": "Fib",
+            "request": "launch",
+            "mainClass": "com.ndeanon25.Fib",
+            "projectName": "ndeanon25"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "com.juniperGMVAD.app.App",

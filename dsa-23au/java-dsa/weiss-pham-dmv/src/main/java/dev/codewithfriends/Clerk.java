@@ -29,7 +29,7 @@ public class Clerk {
             count += 1;
             appointmentsByHour.put(hour, count);
         }
-        if ((count != null) and (count > mostFrequentCount)) {
+        if ((count != null) && (count > mostFrequentCount)) {
             mostFrequentCount = count;
             mostFrequentHour = hour;
         }

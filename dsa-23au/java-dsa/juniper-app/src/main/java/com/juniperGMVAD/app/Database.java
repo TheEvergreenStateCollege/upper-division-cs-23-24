@@ -7,14 +7,15 @@ import java.util.Map;
 import java.util.*;
 
 public class Database {
-    HashMap<String,HashMap<Integer,CountryData>> data;
+    List<CountryData> countryData = new ArrayList<CountryData>();
+    /*HashMap<String,HashMap<Integer,CountryData>> data;
 
     Database() {
         this.data = new HashMap<>();
     }
 
-    public boolean addCountryData(int year, String name, double mva, double gmva) {
-        CountryData newCountry = new CountryData(year, name, mva, gmva);
+    public boolean addCountryData(ArrayList<Integer> year, String name, ArrayList<Double> mva) {
+        CountryData newCountry = new CountryData(year, name, mva);
 
         if (!data.containsKey(name)) {
             data.put(name, new HashMap<>());
@@ -40,8 +41,6 @@ public class Database {
     public double getMVAPercentChange(String name, int firstYear, int lastYear) {
         if (data.get(name).containsKey(firstYear) && data.get(name).containsKey(lastYear))
         {
-            firstYear = 2016;
-            lastYear = 2022;
             CountryData dat1 = data.get(name).get(firstYear);
             CountryData dat2 = data.get(name).get(lastYear);
 
@@ -52,11 +51,10 @@ public class Database {
         }
     }
 
-    public List<String> getTop5() {
+    public List<String> getTop(int top, int firstYear, int lastYear) 
+    {
         List<String> sortCountries = new ArrayList<String>();
 
-        int firstYear = 2016;
-        int lastYear = 2022;
 
         for (Map.Entry<String, HashMap<Integer, CountryData>> Entry : data.entrySet())
         {
@@ -78,11 +76,53 @@ public class Database {
         });
 
         List<String>topCountries = new ArrayList<String>();
-        topCountries = sortCountries.subList(0, Math.min(sortCountries.size(), 5));
+        topCountries = sortCountries.subList(0, Math.min(sortCountries.size(), top));
 
-        
-        System.out.println(Arrays.toString(topCountries.toArray()));
+        for (int j = 0; j < topCountries.size(); j++)
+        {
+            String[] x = topCountries.get(j).split(":");
+            String cName = x[0];
+            System.out.println(cName);
+            System.out.println(firstYear + " percent: " + getMVAPerGMVA(cName, firstYear) + "%");
+            System.out.println(lastYear + " percent: " + getMVAPerGMVA(cName, lastYear) + "%");
+            System.out.println("Percent Change: " + x[1]);
+
+
+        }
         return topCountries;
     }
 
+    public List<String> top5PerYear(int nYear)
+    {
+        List<String> topPerYear = new ArrayList<String>();
+        for (Map.Entry<String, HashMap<Integer, CountryData>> Entry : data.entrySet())
+        {
+            String newName = Entry.getKey();
+            double percCount = getMVAPerGMVA(newName, nYear);
+
+            if(!Double.isInfinite(percCount))
+            {
+                topPerYear.add(newName + ": " + percCount + "%");
+
+            }
+        }
+
+            Collections.sort(topPerYear, (s1, s2) ->
+            {
+                double perc1 = Double.parseDouble(s1.split(": ")[1].replace('%', ' '));
+                double perc2 = Double.parseDouble(s2.split(": ")[1].replace('%', ' '));
+    
+                return Double.compare(perc2, perc1);
+            });
+            topPerYear = topPerYear.subList(0, Math.min(topPerYear.size(), 10));
+
+            for (int i = 0; i < topPerYear.size(); i++)
+            {
+                System.out.println(topPerYear.get(i));
+    
+            }
+            return topPerYear;
+
+        }
+*/
 }
