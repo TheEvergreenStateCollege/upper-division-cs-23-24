@@ -23,35 +23,28 @@ import java.util.List;
 
 public class CSVDataVisualizer {
 
-    public static void visualizeCSV(List<String[]> parsedData) {
-        
+    public static void visualizeColumn(List<String[]> parsedData, int columnIndex) {
         JFrame frame = new JFrame("CSV Data Visualizer");
-
-        
+    
         JTable table = new JTable();
-
-        
+    
         DefaultTableModel model = new DefaultTableModel();
-
-        
-        if (!parsedData.isEmpty()) {
-            for (String header : parsedData.get(0)) {
-                model.addColumn(header);
-            }
-        }
-
-        // Add data rows 
+    
+        // Add the selected column as a header
+        model.addColumn(parsedData.get(0)[columnIndex]);
+    
+        // Add data rows for the selected column
         for (int i = 1; i < parsedData.size(); i++) {
-            model.addRow(parsedData.get(i));
+            model.addRow(new Object[]{parsedData.get(i)[columnIndex]});
         }
-
-        
+    
         table.setModel(model);
         JScrollPane scrollPane = new JScrollPane(table);
         frame.add(scrollPane);
-
+    
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
+    
 }
