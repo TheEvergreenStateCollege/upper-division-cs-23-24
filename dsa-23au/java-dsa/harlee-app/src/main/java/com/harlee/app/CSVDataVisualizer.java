@@ -21,6 +21,8 @@ import java.util.List;
 
  public class CSVDataVisualizer {
 
+
+    //OPTION 1
     public static void visualizeColumn(List<String[]> parsedData, int columnIndex) {
         if (parsedData.isEmpty() || columnIndex < 0 || columnIndex >= parsedData.get(0).length) {
             System.out.println("Invalid column index or empty data.");

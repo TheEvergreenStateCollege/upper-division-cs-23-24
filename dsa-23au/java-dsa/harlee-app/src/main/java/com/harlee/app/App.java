@@ -12,10 +12,10 @@ public class App {
     static List<String[]> parsedData = CSVDataParser.parseCSV(csvFile, delimiter);
 
     public static void main(String[] args) {
-
+        //SCANNER FOR MENU
         Scanner scanner = new Scanner(System.in);
         int choice;
-
+        //MENU SYSTEM
         do {
             printMenu();
             System.out.print("Enter your choice: ");
@@ -47,7 +47,7 @@ public class App {
 
         scanner.close();
     }
-
+    //TERMINAL MENU
     private static void printMenu() {
         
         String titleArt = 
@@ -88,6 +88,7 @@ public class App {
         System.out.println("Some lists are not as clean as others. You've been warned.\n");
         System.out.print("Enter the column index you want to visualize '#': ");
     
+        //CORRECT NUMBER TRY/CATCH
         try {
             int columnIndex = scanner.nextInt();
             CSVDataVisualizer.visualizeColumn(parsedData, columnIndex);
@@ -97,18 +98,16 @@ public class App {
             pressEnterToContinue();
         };
     }
-
+    //OPTION 2
     private static void optionTwo() {
         System.out.println("\nYou selected Option Two: Analyze Meteorite Mass\n");
         System.out.println("=======================================================\n");
     
-    
         CSVDataAnalyzer.minMaxMass(parsedData);
         
-       
         pressEnterToContinue();
     }
-
+    //OPTION 3
     private static void optionThree() {
         System.out.println("\nYou selected Option Three: Explore Meteorite Occurrences.\n");
         System.out.println("==============================================================\n");
@@ -139,17 +138,17 @@ public class App {
     }
 
     private static void optionFour() {
-        System.out.println("CREDITS: \n");
+        System.out.println("\nCREDITS: \n");
         System.out.println("=== Meteorite Data Analyzer ===");
         System.out.println("Version: 1.0");
         System.out.println("Author: Harlee Hair");
         System.out.println("Copyright @ 2023 NCC-1701");
         System.out.println("-------------------------------");
         System.out.println("Special thanks to:");
-        System.out.println("- Rat 1");
-        System.out.println("- Rat 2");
+        System.out.println("- Paul and Richard");
+        System.out.println("- Fellow Evergeen CS Students");
         System.out.println("-------------------------------");
-        System.out.println("For more information, visit: https://data.nasa.gov");
+        System.out.println("For more information, visit: https://data.nasa.gov\n");
     
     
         pressEnterToContinue();
