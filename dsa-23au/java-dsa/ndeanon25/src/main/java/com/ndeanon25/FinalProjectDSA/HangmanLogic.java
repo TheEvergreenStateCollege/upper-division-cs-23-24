@@ -124,7 +124,7 @@ public class HangmanLogic {
      * 
      */
 
-    private void afterGuessList(Map<String,Set<String>> similarWords){
+    public void afterGuessList(Map<String,Set<String>> similarWords){
         for(String word: wordList){
             String currentPattern = pattern(word);
             if(!similarWords.containsKey(currentPattern))
