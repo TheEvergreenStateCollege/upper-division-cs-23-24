@@ -53,6 +53,12 @@ public class Game {
         pot += bet;
         lastBet = bet;
         System.out.println("POT is at " + pot + " CHIPS.");
+
+        bet = computerPlayer.compBet(computerPlayer.getChips());
+        pot += bet;
+        lastBet = bet;
+        System.out.println("POT is at " + pot + " CHIPS.");
+
         //player can discard and redraw cards, <?> 1-3, 4 if high card
         player.redraw(deck, scanner);
         player.sortHand();
@@ -64,13 +70,19 @@ public class Game {
         pot += bet;
         lastBet = bet;
         System.out.println("POT is at " + pot + " CHIPS.");
+
+        bet = computerPlayer.compBet(computerPlayer.getChips());
+        pot += bet;
+        lastBet = bet;
+        System.out.println("POT is at " + pot + " CHIPS.");
         // <?> second round betting and folding
         player.sortHand();
         // hands are printed and compared, winner declared
         handType = Rank.evaluateHand(player.getHand());
-
+        Rank.HandType CompHand = Rank.evaluateHand(computerPlayer.getHand());
         // Display the evaluated hand type
         System.out.println("Your hand is a " + handType);
+        System.out.println(computerPlayer + "hand is a " + CompHand);
 
         player.showHand();
 

@@ -12,8 +12,11 @@ public class ComputerPlayer extends Player {
     private String createStrategyKey(List<Card> sortedHand) {
         Card highestCard = sortedHand.get(sortedHand.size() - 1);
         Card secondHighestCard = sortedHand.get(sortedHand.size() - 2);
+
+        String L1 = highestCard.getValue().toString();
+        String L2 = secondHighestCard.getValue().toString();
     
-        String key = highestCard.getValue().toString() + secondHighestCard.getValue().toString();
+        String key = L1.substring(L1.length() - 1) + L2.substring(L2.length() - 1);
     
         // Check if the cards are of the same suit for suited combinations (e.g., "T9s")
         if (highestCard.getSuit() == secondHighestCard.getSuit()) {
@@ -23,8 +26,25 @@ public class ComputerPlayer extends Player {
         return key;
     }
 
+    private String chooseActionBasedOnStrategy(PokerStrategy strategy) {
+        // Determine the current position of the computer player (Early Position or Late Position)
+        // For simplicity, let's assume it's always Early Position (EP)
+        String position = "EP"; // This should be dynamically determined based on the actual game state
     
-    public int placeBet(int chips) {
+        String action;
+        if (position.equals("EP")) {
+            // Example: Choose between unopenedPotEP, withLimperEP, and raiseInFrontEP based on the game state
+            action = strategy.getUnopenedPotEP(); // Replace this with the correct field based on the game state
+        } else {
+            // Example for Late Position (LP)
+            action = strategy.getUnopenedPotLP(); // Replace with appropriate LP strategy
+        }
+    
+        return action;
+    }
+
+    
+    public int compBet(int chips) {
         List<Card> sortedHand = sortHand();
         String strategyKey = createStrategyKey(sortedHand);
         
@@ -47,9 +67,9 @@ public class ComputerPlayer extends Player {
     private int determineBetAmount(String action, int chips) {
         switch (action) {
             case "Fold":
-                return 0; // Stay in the game
+                return Game.getLastBet(); // Stay in the game
             case "Call":
-                return Game.getLastBet();
+                return Game.getLastBet() + 10;
             case "Raise":
                 return Game.getLastBet() + 20; 
             default:
