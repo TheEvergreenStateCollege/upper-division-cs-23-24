@@ -125,7 +125,7 @@ public class Rank {
     private static boolean hasPair(HashMap<Card.Value, Integer> Counter) {
         for (Integer count : Counter.values()) {
             if (count == 2) {
-                return true; // Found a pair
+                return true; 
             }
         }
         return false;
@@ -139,7 +139,7 @@ public class Rank {
             }
         }
         if (pairCount == 2) {
-            return true;// Found two pair
+            return true;
         }
         return false;
     }
@@ -147,7 +147,7 @@ public class Rank {
     private static boolean hasThreeOfAKind(HashMap<Card.Value, Integer> Counter) {
         for (Integer count : Counter.values()) {
             if (count == 3) {
-                return true; // Found three of a kind
+                return true; 
             }
         }
         return false;
@@ -159,13 +159,13 @@ public class Rank {
             if (count == 3) three = true;
             if (count == 2) two = true;
         }
-        return three && two; // Found a full house
+        return three && two; 
     }
     
     private static boolean hasFourOfAKind(HashMap<Card.Value, Integer> Counter) {
         for (Integer count : Counter.values()) {
             if (count == 4) {
-                return true; // Found four of a kind
+                return true; 
             }
         }
         return false;

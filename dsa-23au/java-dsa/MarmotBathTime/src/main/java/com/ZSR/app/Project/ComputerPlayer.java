@@ -3,6 +3,8 @@ import java.util.*;
 
 public class ComputerPlayer extends Player {
     private Map<String, PokerStrategy> strategies;
+    private boolean isEarlyPosition;
+
 
     public ComputerPlayer(String name, int startingChips, Map<String, PokerStrategy> strategies) {
         super(name, startingChips);
@@ -18,7 +20,6 @@ public class ComputerPlayer extends Player {
     
         String key = L1.substring(L1.length() - 1) + L2.substring(L2.length() - 1);
     
-        // Check if the cards are of the same suit for suited combinations (e.g., "T9s")
         if (highestCard.getSuit() == secondHighestCard.getSuit()) {
             key += "s";
         }
@@ -26,24 +27,6 @@ public class ComputerPlayer extends Player {
         return key;
     }
 
-    private String chooseActionBasedOnStrategy(PokerStrategy strategy) {
-        // Determine the current position of the computer player (Early Position or Late Position)
-        // For simplicity, let's assume it's always Early Position (EP)
-        String position = "EP"; // This should be dynamically determined based on the actual game state
-    
-        String action;
-        if (position.equals("EP")) {
-            // Example: Choose between unopenedPotEP, withLimperEP, and raiseInFrontEP based on the game state
-            action = strategy.getUnopenedPotEP(); // Replace this with the correct field based on the game state
-        } else {
-            // Example for Late Position (LP)
-            action = strategy.getUnopenedPotLP(); // Replace with appropriate LP strategy
-        }
-    
-        return action;
-    }
-
-    
     public int compBet(int chips) {
         List<Card> sortedHand = sortHand();
         String strategyKey = createStrategyKey(sortedHand);
@@ -51,29 +34,73 @@ public class ComputerPlayer extends Player {
         int pot = Game.getPot();
         int lastBet = Game.getLastBet();
         int bet = Game.getBet();
-
+    
         String gameState = determineGameState(pot, lastBet, bet);
-        PokerStrategy strategy = strategies.get(strategyKey + gameState); // Strategy key now includes game state
-
+        PokerStrategy strategy = strategies.get(strategyKey);
+    
         if (strategy != null) {
-            String action = chooseActionBasedOnStrategy(strategy);
+            String action = chooseActionBasedOnStrategy(strategy, gameState);
             return determineBetAmount(action, chips);
         } else {
-            // Stay in the game if no strategy found
             return 0;
         }
     }
 
+    public void setEarlyPosition(boolean isEarlyPosition) {
+        this.isEarlyPosition = isEarlyPosition;
+    }
+    
+
+    private String chooseActionBasedOnStrategy(PokerStrategy strategy, String gameState) {
+        String action;
+    
+        if (isEarlyPosition) {
+            switch (gameState) {
+                case "UnopenedPot":
+                    action = strategy.getUnopenedPotEP();
+                    break;
+                case "WithLimper":
+                    action = strategy.getWithLimperEP();
+                    break;
+                case "RaiseInFront":
+                    action = strategy.getRaiseInFrontEP();
+                    break;
+                default:
+                    action = "Fold"; 
+                    break;
+            }
+        } else {
+            switch (gameState) {
+                case "UnopenedPot":
+                    action = strategy.getUnopenedPotLP();
+                    break;
+                case "WithLimper":
+                    action = strategy.getWithLimperLP();
+                    break;
+                case "RaiseInFront":
+                    action = strategy.getRaiseInFrontLP();
+                    break;
+                default:
+                    action = "Fold"; 
+                    break;
+            }
+        }
+    
+        return action;
+    }
+    
+    
+
     private int determineBetAmount(String action, int chips) {
         switch (action) {
             case "Fold":
-                return Game.getLastBet(); // Stay in the game
+                return 10; 
             case "Call":
-                return Game.getLastBet() + 10;
+                return Game.getLastBet();
             case "Raise":
-                return Game.getLastBet() + 20; 
+                return Game.getLastBet() + 10; 
             default:
-                return 0; // Stay if action is unrecognized
+                return 20; 
         }
     }
 
@@ -85,7 +112,7 @@ public class ComputerPlayer extends Player {
         } else if (bet > lastBet) {
             return "RaiseInFront";
         } else {
-            return ""; // Default case if none of the conditions are met
+            return ""; 
         }
     }
 

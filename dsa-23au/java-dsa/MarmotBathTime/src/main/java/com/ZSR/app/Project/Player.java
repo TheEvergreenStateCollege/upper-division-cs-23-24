@@ -12,6 +12,10 @@ public class Player {
         this.chips = startingChips;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public List<Card> getHand() {
         return this.hand;
     }

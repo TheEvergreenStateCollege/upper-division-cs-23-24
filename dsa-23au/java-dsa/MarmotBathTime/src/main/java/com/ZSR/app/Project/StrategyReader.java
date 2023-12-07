@@ -16,7 +16,7 @@ public class StrategyReader {
                 String[] attributes = line.split(","); // Split the line into attributes
                 
                 PokerStrategy strategy = createStrategy(attributes);
-                strategies.put(strategy.getHand(), strategy); // Assuming you want to key by 'hand'
+                strategies.put(strategy.getHand(), strategy); 
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
