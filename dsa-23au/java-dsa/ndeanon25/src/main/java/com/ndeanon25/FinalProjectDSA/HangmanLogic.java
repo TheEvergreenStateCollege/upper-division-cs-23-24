@@ -7,8 +7,13 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class HangmanLogic {
+    //A set of strings representing the words to guess.
     private Set<String> wordList;
+
+    //A sorted set of characters representing the guesses made.
     private SortedSet<Character> guesses;
+
+    //An integer tracking the number of guesses left.
     private int remainingGuesses;
 
     /**
@@ -20,7 +25,8 @@ public class HangmanLogic {
     * @param length        The desired length of the secret word to be guessed in the game.
     * @param guessAmount   The total number of incorrect guesses allowed in the game.
     */
-
+    
+    //Constructor
     public HangmanLogic(List<String> dictionary, int length, int guessAmount){
         remainingGuesses = guessAmount;
         guesses = new TreeSet<Character>();
@@ -33,22 +39,22 @@ public class HangmanLogic {
             }
         }
     }
-
+    //Accessor Method
     // returns a set of the remaining possible words in the dictionary file
     public Set<String> words(){
         return wordList;
     }
-
+    //Accessor Method
     //returns the number of guesses remaining in the game
     public int remainingGuesses(){
         return remainingGuesses;
     }
-
+    //Accessor Method
     //returns a sorted set of the user's letter guesses
     public SortedSet<Character> guesses(){
         return guesses;
     }
-
+    //Accessor Method
     //returns a String representation of possible target words with the account of the guessed chars 
     public String pattern(){
         if(wordList.isEmpty())
@@ -64,17 +70,29 @@ public class HangmanLogic {
 
     public int record(char guess){
         if(wordList.isEmpty() || remainingGuesses == 0)
-            throw new IllegalStateException();   // this throws an IllegalStateException since the game is over and no more guesses are allowed
+        // this throws an IllegalStateException since the game is over and no more guesses are allowed
+            throw new IllegalStateException();   
         else if(!wordList.isEmpty() && guesses.contains(guess))
-            throw new IllegalArgumentException(); //this is when a user chooses the same char 
+            //this is when a user chooses the same char 
+            throw new IllegalArgumentException(); 
             
-        //Makes a HashMap and will group all the words with similar patterns
+        //Creates a Map to store possible word choices based on the new guess.
         Map<String,Set<String>> wordChoices = new TreeMap<String, Set<String>>();
+
+        //Stores the current pattern of the word (or words) before the guess is made.
         String initialWordChoice = this.pattern();
-        guesses.add(guess); // the guessed char is added to the Set<String> of the users guess
+
+        // the guessed char is added to the Set<String> of the users guess
+        guesses.add(guess);
+        
+        //Calls afterGuessList to update wordChoices based on the new guess.
         afterGuessList(wordChoices);
 
+        //Check Pattern Change and Update Remaining Guesses and decrements remainingGuesses if the pattern hasn't changed.
         if(this.pattern().equals(initialWordChoice))
+            remainingGuesses--;
+        //Added to catch all cases
+        else if(!this.pattern().equals(initialWordChoice))
             remainingGuesses--;
         return numOfwords(this.pattern(),guess);
     }
@@ -106,7 +124,7 @@ public class HangmanLogic {
      * 
      */
 
-    private void afterGuessList(Map<String,Set<String>> similarWords){
+    public void afterGuessList(Map<String,Set<String>> similarWords){
         for(String word: wordList){
             String currentPattern = pattern(word);
             if(!similarWords.containsKey(currentPattern))
@@ -125,9 +143,10 @@ public class HangmanLogic {
     * @return The key (category label) associated with the largest set of similar words.
     *         If the input map is empty, an empty string is returned.
     *         If all sets in the input map are empty, the key of the first entry encountered is returned.
+    *   Determines the pattern with the most words in similarWords.
     */
 
-    private String getLargestKey(Map<String, Set<String>> similarWords) {
+    public String getLargestKey(Map<String, Set<String>> similarWords) {
         int maxLength = 0;
         String maxKey = "";
         

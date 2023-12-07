@@ -15,12 +15,20 @@ import java.util.regex.Pattern;
  */
 public class ReadData
 {
-    private Database database;
+   /*  private Database database;
 
-    public ReadData(Database database)
+   public ReadData(Database database)
     {
         this.database = database;
     }
+    */
+    private CountryDataEntry countryDataEntry;
+
+    public ReadData(CountryDataEntry countryDataEntry)
+    {
+        this.countryDataEntry = countryDataEntry;
+    }
+
 
     // Each list of strings represents one line of CSV file
     public List<List<String>> readAndTokenizeCSV(String csv_filepath) {
@@ -55,28 +63,7 @@ public class ReadData
 		}
     }
 
-    public void readMVAIntoDatabase(String csv_filepath) {
-        List<List<String>> gmvaTokens = readAndTokenizeCSV(csv_filepath);
 
-        for (int i = 6; i < gmvaTokens.size(); i++) {
-            int year = Integer.parseInt(gmvaTokens.get(5).get(5));
-            double mva;
-        
-            String countryName = gmvaTokens.get(i).get(0);
-            String countryCode = gmvaTokens.get(i).get(1);
-            String indicatorName = gmvaTokens.get(i).get(2);
-            String indicatorCode = gmvaTokens.get(i).get(3);
-    
-            for (String line : gmvaTokens.get(i))
-            {
-                /*y++;
-                years = years + 1;
-                mva = Double.parseDouble(gmvaTokens.get(i).get(5));*/
-            }
-        }
-    }
-}
-/*
     public void readMVAIntoDatabase(String csv_filepath) 
     {
     List<List<String>> gmvaTokens = readAndTokenizeCSV(csv_filepath);
@@ -93,13 +80,19 @@ public class ReadData
         
                 for (int j = 5; j < gmvaTokens.get(i).size(); j++)
                 {
-                 year = year + 1;
-                 mva = Double.parseDouble(gmvaTokens.get(i).get(j));
+                    year = year + 1;
+                    mva = Double.parseDouble(gmvaTokens.get(i).get(j));
+                    countryDataEntry.addYearValue(year, mva);
                 }
-
-    }
+   
+                   countryDataEntry.setCountryName(countryName);
+                   countryDataEntry.setCountryCode(countryCode);
+                   countryDataEntry.setIndicatorCode(indicatorCode);
+                   countryDataEntry.setIndicatorName(indicatorName);
+   
+               }
 }
-    public void readIncomeIntoDatabase(String csv_filepath)
+    public void readNNIPCIntoDatabase(String csv_filepath)
     {
         List<List<String>> nniTokens = readAndTokenizeCSV(csv_filepath);
 
@@ -113,22 +106,20 @@ public class ReadData
             String indicatorName = nniTokens.get(i).get(2);
             String indicatorCode = nniTokens.get(i).get(3);
     
-            for (int j = 5; j < nniTokens.get(i).size(); i++)
+            for (int j = 5; j < nniTokens.get(i).size(); j++)
             {
              year = year + 1;
-             nni = Double.parseDouble(nniTokens.get(i).get(i-1));
+             nni = Double.parseDouble(nniTokens.get(i).get(j));
             }
 
+
+        }
 }
-    }
-    catch(IOException ioe) 
-    {
-        System.err.println(ioe.toString());
-    }
 
-    }
 
-*/
+}
+
+
 
     /*public void readIncomeIntoDatabase(String csv_filepath) {
         catch(IOException ioe) 

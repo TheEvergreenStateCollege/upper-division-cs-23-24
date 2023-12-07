@@ -8,13 +8,13 @@ import java.util.Date;
 
 public class DataStorage {
     
-    private HashMap<String, Integer> stepCounts = new HashMap<>();
-    private HashMap<String, Double> distances = new HashMap<>();
-    private HashMap<String, Double> calories = new HashMap<>();
-    private HashMap<String, Double> restingEnergy = new HashMap<>();
-    private HashMap<String, Double> soundLevels = new HashMap<>();
-    private HashMap<String, Integer> flightsClimbed = new HashMap<>();
-    private HashMap<String, Double> handWashingSeconds = new HashMap<>();
+    HashMap<String, Integer> stepCounts = new HashMap<>();
+    HashMap<String, Double> distances = new HashMap<>();
+    HashMap<String, Double> calories = new HashMap<>();
+    HashMap<String, Double> restingEnergy = new HashMap<>();
+    HashMap<String, Double> soundLevels = new HashMap<>();
+    HashMap<String, Integer> flightsClimbed = new HashMap<>();
+    HashMap<String, Double> handWashingSeconds = new HashMap<>();
    
     BST<Double> soundLevelTree = new BST<Double>();
 

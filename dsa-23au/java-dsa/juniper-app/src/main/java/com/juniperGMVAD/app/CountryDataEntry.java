@@ -2,11 +2,12 @@ package com.juniperGMVAD.app;
 import java.util.*;
 
 public class CountryDataEntry {
+    
     private String countryName;
     private String countryCode;
     private String indicatorName;
     private String indicatorCode;
-    private List<YearValue> values;
+    private List<YearValue> values; //TODO: implement as BST?
 
     public CountryDataEntry(String countryName, String countryCode, String indicatorName, String indicatorCode) 
     {
@@ -50,13 +51,14 @@ public class CountryDataEntry {
 
     public void setYearValue(int year, Double value) {
         //TODO check if exists
-        values.set(index, value);
+        YearValue yv = new YearValue(year, value);
+        values.add(yv);
     }
 
-    public Double getYearValue(int year) {
+    /*public Double getYearValue(int year) {
         //TODO Check if exists
         return values.get(index);
-    }
+    }*/
 
     public void addYearValue(int year, Double value) {
         //TODO: check if value already exists
@@ -71,4 +73,5 @@ public class CountryDataEntry {
     public int getYearsTracked() {
         return values.size();
     }
+    
 }
