@@ -1,13 +1,122 @@
-package com.juniperGMVAD.app;
-
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
+import java.time.Instant;
 import java.util.*;
 
 public class Database {
-    List<CountryData> countryData = new ArrayList<CountryData>();
+    HashMap<Country, CountryData> countryData = new HashMap<Country, CountryData>();
+
+    /**
+     * Sets yearly value of indicator for given country
+     * @param country
+     * @param indicator
+     * @param year
+     * @param value
+     * @return Value of previous value, null if yearly value did not exist
+     */
+    public Double setYearValue(Country country, Indicator indicator, int year, double value) {
+        // Is country already stored in database?
+        CountryData targetCountry = countryData.get(country);
+
+        // If country is not stored in database
+        if (targetCountry == null) {
+            // Create country
+            targetCountry = new CountryData(country, this);
+            // Add country to database
+            countryData.put(country, targetCountry);
+        }
+
+        // Set new value and return old value (if exists, otherwise null)
+        Double oldValue = targetCountry.setValue(indicator, year, value);
+        return oldValue;
+    }
+
+    /**
+     * Removes a yearly value of an indicator for a specified country
+     * @param country
+     * @param indicator
+     * @param year
+     * @return Value of old year value if it existed, otherwise this is null
+     */
+    public Double removeYearValue(Country country, Indicator indicator, int year) {
+        return 0.0;
+    }
+
+    /**
+     * Gets country's value for a specified indicator for a specified year
+     * @param country
+     * @param indicator
+     * @param year
+     * @return The value, null if non-existent
+     */
+    public Double getYearValue(Country country, Indicator indicator, int year) {
+        return 0.0;
+    }
+
+    /**
+     * Returns a list of all indicator YearValues for specified country
+     * @param country
+     * @param indicator
+     * @return
+     */
+    public List<YearValue> yearValuesAsList(Country country, Indicator indicator) {
+        // Is country already stored in database?
+        CountryData targetCountry = countryData.get(country);
+
+        // If country is not stored in database
+        if (targetCountry == null) {
+            return null;
+        }
+
+        // Otherwise, return list of values for indicator (returns null if not tracked)
+        return targetCountry.valuesAsList(indicator);
+    }
+
+    /**
+     * Returns a list of all indicator YearValues for specified country within range, inclusive
+     * @param country
+     * @param indicator
+     * @return
+     */
+    public List<YearValue> yearValuesAsList(Country country, Indicator indicator, int startYear, int endYear) {
+        // Is country already stored in database?
+        CountryData targetCountry = countryData.get(country);
+
+        // If country is not stored in database
+        if (targetCountry == null) {
+            return null;
+        }
+
+        // Otherwise, return list of values for indicator (returns null if not tracked)
+        return targetCountry.valuesAsList(indicator, startYear, endYear);
+    }
+
+    /**
+     * Checks if indicator is tracked for specified country
+     * @param country
+     * @param indicator
+     * @return
+     */
+    public boolean isIndicatorTracked(Country country, Indicator indicator) {
+        return false;
+    }
+
+    /**
+     * Returns a list of all tracked indicators for a specified country
+     * @param country
+     * @return List of indicators
+     */
+    public List<Indicator> indicatorsTracked(Country country) {
+        return new ArrayList<Indicator>();
+    }
+
+    public Instant lastUpdated(Country country, Indicator indicator, int year) {
+        CountryData updatedCountry = countryData.get(country); // get correct country data object for country enum
+        return updatedCountry.lastUpdated(indicator, year);
+    }
+
     /*HashMap<String,HashMap<Integer,CountryData>> data;
 
     Database() {
@@ -126,3 +235,4 @@ public class Database {
         }
 */
 }
+
