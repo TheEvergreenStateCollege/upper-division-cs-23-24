@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Hello world!
  *
- */
+ 
 public class  minimumSpanningTree<T>{
     List edgesMst = new ArrayList<>(); 
     List nodesMst = new ArrayList<>();
@@ -28,4 +28,4 @@ public class  minimumSpanningTree<T>{
     {
         
     }
-}
+}*/
