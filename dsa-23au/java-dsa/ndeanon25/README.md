@@ -1,5 +1,5 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
+
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -8,9 +8,8 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
+
 <!--
 *** I'm using markdown "reference style" links for readability.
 *** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
@@ -18,33 +17,33 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 [![Contributors][contributors-shield]][contributors-url]
 
-
-
-
 <!-- PROJECT LOGO -->
+
 <br />
 <div align="center">
   <a href="https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/ndeanon25/src/main/java/com/ndeanon25/FinalProjectDSA">
-    <img src="https://cdn-icons-png.flaticon.com/512/2241/2241387.png" alt="Logo" width="350" height="375">
+    <img src="https://cdn-icons-png.flaticon.com/512/2241/2241387.png" alt="Logo" width="450" height="375">
   </a>
 
 <h3 align="center">Impossible Hangman</h3>
 
-  <p align="center">
-    This is Hangman with a twist. It appears to be a simple hangman game but the twist is that the program does not choose a word but rather a list of words/patterns that match your input. Players will have to rely on their deduction skills to guess the word correctly.     
+<p align="center">
+    This is Hangman with a twist. It appears to be a simple hangman game but the twist! It is a program where it does not choose a word but rather a list of words/patterns that match your input. Players will have to rely on their deduction skills to guess the word correctly. Good Luck!   
     <br />
-    <a href="https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/ndeanon25/src/main/java/com/ndeanon25/FinalProjectDSA"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/ndeanon25/src/main/java/com/ndeanon25/FinalProjectDSA"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://asciinema.org/a/Oh27ssphaN97A8N0GFRhNdred">View Demo</a>
+    <a href="https://asciinema.org/a/cN3aa7p0QKWrrFNpfpLfUgqs3">View Normal Gameplay(Demo) OR </a>
+    <a href="https://asciinema.org/a/baR3GftCNksrmFD8ei2QMynuU"> View Cheat Gameplay(Demo)</a>
   </p>
+  
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
+
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -53,6 +52,7 @@
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
+      <li><a href="game-tree">Game Tree
     </li>
     <li>
       <a href="#inspiration">Inspiration</a>
@@ -62,54 +62,96 @@
       </ul>
     </li>
     <li><a href="#how-i-did-i-make-it-run">How I did I Make it Run</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#challenges-i-ran-into">Challenges I ran into</a></li>
+    <li><a href="#the-learning-experience">The Learning Experience</a></li>
+    <li><a href="#accomplishments-I-am-proud-of">Accomplishments I am Proud of</a></li>
+    <li><a href="#big-O()-and-data-structures-i-used">Big O() and Data Structures I used</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
-![This is me ](https://media4.giphy.com/media/dlMIwDQAxXn1K/giphy.gif?cid=ecf05e4711dc69ae387e4a243fb72b5b87f0ec33491bfff7&ep=v1_user_favorites&rid=giphy.gif&ct=g)
- <li> This project has been satifying but frustrating at the same time. 
+
+<img src="https://media4.giphy.com/media/dlMIwDQAxXn1K/giphy.gif?cid=ecf05e4711dc69ae387e4a243fb72b5b87f0ec33491bfff7&ep=v1_user_favorites&rid=giphy.gif&ct=g" alt="Logo" width="400" height="300" img align="right">
+
+
+This project has been satifying but frustrating at the same time. It has been along journey, and after multiple if statements, it has finally works.  
+
+It features an interactive command-line interface where players can choose the word length and the number of incorrect guesses allowed. 
+
+The project demonstrates object-oriented programming and game logic implementation in Java, providing an engaging and interactive gaming experience.
  <li> Github User : ndeanon25
- <li> Repo : Upper-Division-CS  
- 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+ <li> Repo : Upper-Division-CS
 
 
 ### Built With
 
-* [![Java][Java]][Java-url]
-* [![VSCode][VSCode]][VSCode-url]
-* Pain / Headaches / No Sleep
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+* [![Java]][Java-url]
+* [![VSCode]][VSCode-url]
+* Pain :rage: / Headaches :anger: / No Sleep :japanese_goblin:
 
 
+<!-- Game Tree -->
+## Game Tree
+```mermaid
+graph TD
+a--> b
+```
+<p align="right">
+<a href="#top" >Back to top</a>
 
 <!-- Inspiration  -->
+
 ## Inspiration
 
-My inspiration has always been video games. I did not want to over reach and try to create some 3-D video game, I wanted to do a simple puzzle. In my last CS class, we worked on a simple hangman game and I enjoyed it so much that I wanted to make a more complex hangman game. This led me to making a hangman game that basically cheats to make it impossible to win.  
+My inspiration has always been my love for video games. I did not want to over reach and try to create some 3-D video game, I wanted to do a simple puzzle. In my last CS class, we worked on a simple hangman game and I enjoyed it so much that I wanted to make a more complex hangman game. This led me to making a hangman game that basically cheats to make it impossible to win.
 
-### Software Design Diagram
+<p align="right">
+<a href="#top" >Back to top</a>
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
-### Getting Started and Running the Game
+## Software Design Diagram
 
-1. Go to this Directory 
+The Hangman project is an implementation of the classic word-guessing game in Java. This is my UML. I only have two different classes but my Hangman Logic class is the back-end how the hangman game runs while the Impossible Hangman class is what starts the game and plays it. I made this with mermaid and I could not figure out how to do angle brackets so I just used [].
+```mermaid
+		classDiagram
+   ImpossibleHangman <|-- HangmanLogic
+   ImpossibleHangman : -boolean wordCountSwitch
+   ImpossibleHangman : -int showWordCount
+   ImpossibleHangman : -boolean showWordsSwitch
+   ImpossibleHangman: +main(String[]) void
+   ImpossibleHangman: +startGame(Scanner,HangmanLogic) void
+   ImpossibleHangman: +endGame(HangmanLogic) void
+    class HangmanLogic{
+      -Set[String] wordList
+      -SortedSet [Character] guesses
+      -int remainingGuesses
+      +HangmanLogic(List[String], int, int)
+      +Set[String] words() wordList
+      +int remainingGuesses() remainingGuesses
+      +SortedSet[Characters] guesses() remainingGuesses
+      +String pattern() pattern(String)
+      +int record(char) numOfwords(String,char)
+      +afterGuessList(Map[String],Set[String]) void
+      String getLargestKey(Map[String],Set[String]) String
+      +String pattern(String) String
+
+
+      
+    }
+    		
+```
+
+<p align="right">
+<a href="#top" >Back to top</a>
+
+
+
+## Getting Started and Running the Game
+
+1. Go to this Directory
    ```sh
    /workspace/upper-division-cs/dsa-23au/java-dsa/ndeanon25/src/main/java/com/ndeanon25/FinalProjectDSA
    ```
@@ -118,86 +160,103 @@ This is an example of how to list things you need to use the software and how to
    Download = Name: Language Support for Java(TM) by Red Hat
    ```
 3. ENJOY THE GAME!!
-  
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+<p align="right">
+<a href="#top" >Back to top</a>
 
 
 <!-- How I did I Make it Run -->
-## How I did I Make it Run
 
-Magic. Really, this was a struggle. I made a gameplan and some diagrams of what I wanted. I changed my data structures like 7 times and most of the time I had a surface level understanding of what is I am implementing. StackOverFlow then finally led me to a TreeSet. It is a balanced tree, that uses Set. ChatGPT helped me implement it and figure out what I wanted to do.   
+## How I did I Make it Run?!?
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+<img src="https://media0.giphy.com/media/E3MQDZl9qsVwgnKA7b/giphy.gif?cid=ecf05e47e5c8snl6ye46cxtmin0hvv665klaq4w6vc2xsqkt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Logo" width="250" height="200" img align="left">
 
 
-<!-- ROADMAP -->
-## Roadmap
+Magic. Really, this was a struggle. I made a gameplan and the very broad steps of getting there.
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+<li> Read from my dictionary file
+<li> Get the input from the player
+<li> Use HangmanLogic ( Behind the scenes)
+<li> Start the Hangman game
+<li> Lose
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+It seemed pretty simple to start but once I started, it seemed like the problem was only getting deeper and deeper. **I just divided and conquered.** I broke the gameplan into smaller gameplans and started from there. The DMV project helped me read a file and get it into my project. The inputs from the player are multiple if statements that I lost count of. The Hangman logic was the heaviest of the problems. 
 
 
+<ins>**Tips and tricks**
+<li>Understanding HashMaps and Sets are also helpful. 
+<li>Tracking your objects and writing down where they are going and how they are being implemented is helpful.
+<li>Writing your Junit test before you start your methods. This would have be so helpful because I did not do this, and I know now that how helpful writing Junit can be. 
+<li>If doing a Junit test is too much, adding a debugger is super helpful. This could just be a print statement to show what you expect, which I did on my main method.
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">
+<a href="#top" >Back to top</a>
 
 
+<!-- Challenges I ran into-->
 
-<!-- LICENSE -->
-## License
+## Challenges I ran into
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+I changed my data structures like 7 times and most of the time I had a surface level understanding of what is I am implementing. StackOverFlow then finally led me to a TreeSet. It is a balanced tree, that uses Set. ChatGPT helped me implement it and figure out what I wanted to do. 
 
 
+The method record alone took me over 2 hours. The textbook from class and StackOverFlow helped me write this code. Writing the psducode and trying to implement it and getting the right syntax is what took the most time. This method was the hardest for me. This method would record the user's guess and return a String representation of the word with the guessed char. Based on the guessed char, it will choose the next wordlist and then keep doing that every guess. 
 
-<!-- CONTACT -->
-## Contact
+One of the biggest problem was that my hangman game kept taking all chars rather than just letters and just debugging this took over an hour of just trying different code from ChatGPT and StackOverFlow. From this experience it has helped me get a better grasp of different errors and try/catch flow.
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+```mermaid
+pie title What I spent time on
+         "Time spent writing code" : 20
+         "Time spent debugging/confused" : 80
+        
+```
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+<p align="right">
+<a href="#top" >Back to top</a>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- What I learned-->
+
+## The Learning Experience 
+
+This is used for the
+
+<p align="right">
+<a href="#top" >Back to top</a>
+<!-- Accomplishments I am proud of  -->
+
+## Accomplishments I am Proud of
+
+
+<p align="right">
+<a href="#top" >Back to top</a>
+
+
+<!--Big O and Data Structures I used  -->
+
+## Big O() and Data Structures I used
+
+
+<p align="right">
+<a href="#top" >Back to top</a>
 
 
 
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
 * [Thank you, othneildrew for the Github README Template](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md?plain=1)
 * []()
 * []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">
+<a href="#top" >Back to top</a>
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
 [contributors-url]: https://github.com/ndeanon25
 [Java]: https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white

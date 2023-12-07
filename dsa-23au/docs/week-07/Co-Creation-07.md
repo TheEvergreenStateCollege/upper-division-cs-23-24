@@ -36,3 +36,13 @@ We have learned alot about Java language in a short amount of time, In week 7 le
 
 Jonathan Rodriguez (Week 7)
 This was week was very reassuring but also very challenging at the same time. First Paul helped me understand how pom file plugin and syntax works. Thanks to the resoruces provided by MLH, Paul Swisher and Nathan Maclaughlin, Im going to start my tech blog during break and also learn a little bit of python. Intergrating files within code such as CSV was challenging due to folder issues but once the cuplrit was found, I was able to solve it with ease. Using my past skills from CSF and Intro to C progamming was to create java usage exceptions for the given year and county. This week has been very infromative and helpful from MLH but a lot of the events I was looking forward to were cancelled but im going to check in regularly with future MLH events.
+
+
+**faulkdf week7**
+
+I am realising how difficult java is as a programming language. I have serious considerations on switching languages for my final. I have a little bit of experience in C and Python. Java is just so finicky. 
+I am very grateful for my classmates being very patient with me during pair-programming sessions. I am very much struggling at this point in the quarter, but everyone has been very kind and showed me grace. 
+Getting the GitHub repo set up on my personal machine with VSCode is an absolute godsend. I don’t need to have gitpod usage anxiety anymore. (I feel like its similar to range anxiety for electric car owners {*what do I know I don’t own an ev*})
+Somehow programming languages don’t feel intuitive to learn for me. I am very good at describing (in English) what I want a simple program to do, but I have trouble remembering how to express my feelings in a programming language; java or otherwise. 
+
+Thats all, just a couple complaints. 

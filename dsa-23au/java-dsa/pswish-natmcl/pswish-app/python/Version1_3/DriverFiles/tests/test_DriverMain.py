@@ -10,6 +10,10 @@ class TestDriverModes(unittest.TestCase):
         self.driver_data = DriverToDriveData()
         self.driver_data.run_mode()
         self.driver = self.driver_data.DataStructure
+    
+    def test_driver_data_creation(cls):
+        driver_data = DriverToDriveData()
+        assert isinstance(driver_data, DriverToDriveData)
 
     def test_print_keys(self):
         with patch("sys.stdout", new_callable=StringIO) as mock_stdout:

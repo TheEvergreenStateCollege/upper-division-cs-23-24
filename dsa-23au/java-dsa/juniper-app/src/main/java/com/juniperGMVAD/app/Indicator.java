@@ -3,6 +3,7 @@ package com.juniperGMVAD.app;
 public enum Indicator {
     // Canonical, given, non-calculated non-percentile indicators
     MVA("Manufacturing, value added (current US$)", "NV.IND.MANF.CD"),
+    NNIPC("", ""),
 
     // User-defined, calculated indicators
     // Percentile

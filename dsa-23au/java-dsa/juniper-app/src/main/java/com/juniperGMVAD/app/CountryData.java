@@ -4,6 +4,10 @@ import java.time.Instant;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.*;
+
+import com.juniperGMVAD.app.BinaryTree.BinaryTree;
+import com.juniperGMVAD.app.HashMap.HashMap;
 
 import com.juniperGMVAD.app.BinaryTree.BinaryTree;
 import com.juniperGMVAD.app.HashMap.HashMap;
@@ -112,6 +116,18 @@ public class CountryData {
             for (YearValue yv : basisValues) {
                 calculateAndUpdate(indicator, yv.year);
             }
+
+            // Knowing that these bases exist, check if they have been updated more recently than calculated indicator value
+            if (areBasesNewer(indicator, year)) {
+                // If so, calculate new value for year, store it, and return it
+                Double percentile = basisValue / percentileBasisValue;
+                setAnyValue(indicator, year, percentile);
+                updateTimestamp(indicator, year);
+                return percentile;
+            }
+
+            // If they are not newer, return the previously stored value
+            return oldCalculated;    
         }
 
         BinaryTree<YearValue> indicatorValues = values.get(indicator);
@@ -138,7 +154,6 @@ public class CountryData {
 
         return true;
     }
-
 
     private Double calculateAndUpdate(Indicator indicator, int year) {
         Indicator base = indicator.indicatorBasis; // Base indicator type on which this indicator bases its value

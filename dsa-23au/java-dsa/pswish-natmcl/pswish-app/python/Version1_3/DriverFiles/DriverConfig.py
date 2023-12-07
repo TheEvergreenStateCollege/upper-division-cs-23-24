@@ -4,6 +4,7 @@
 import os
 import subprocess
 import sys
+import time
 
 # You can run this independently of DriverMain to check the csv file capture
 
@@ -34,7 +35,9 @@ class theConfigurator:
         p = subprocess.Popen(commands_with_args, shell=True, bufsize=8 * 1024, stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
         (output, err) = p.communicate()
         read = output.decode().split("\n")[0]
-        return read
+        error = err
+        print(read, error)
+        return read, error
 
     # The following two methods search the root directory for the last modified file with regex
     def get_filepath1(cls):
@@ -61,21 +64,33 @@ class theConfigurator:
 
     # Sometimes the python path needs to be updated, not currently used
     def update_path(cls):
-        update_path_command = "export PYTHONPATH=$PYTHONPATH:Version1_3/DriverFiles"
-        cls.run_command(update_path_command)
-        sys.path.append(update_path_command)
+        # update_path_command = 'export PATH="$HOME/.local/bin:$PATH"'
+        # cls.run_command(update_path_command)
+        # sys.path.append(update_path_command)
+        print("run pytest with >>> /home/gitpod/.local/bin/pytest")
+    
+    def install_pytest(cls):
+        pytest_install_command = "pip3 install pytest"
+        cls.run_command(pytest_install_command)
 
     # Print out the results of the filepath find and prints it during normal operation for data validation
     def print_to_start(cls):
         print ("\nEnabling Filepath 1: ", cls.filepath1)
         print ("Enabling Filepath 2: ", cls.filepath2)
 
+def pytest_setup():
+    print("Starting pytest install")
+    config = theConfigurator()
+    config.install_pytest()
+    time.sleep(2)
+    config.update_path()
 
 def main():
     config = theConfigurator()
     filepath1 = config.get_filepath1()
     filepath2 = config.get_filepath2()
     config.print_to_start()
+
 
 if __name__ == main():
     main()

@@ -21,10 +21,10 @@ def pretty_print(data):  # option #2, prints out the nested dictionary in an eas
 def search_by_key_and_value(driver_data, driver):  # Option 4, This method puts the generated keys into a list with a numbered key for selection, which the user picks from. Time complexity is O(n)
     numbered_keys = {} 
     try:
-        keys = list(driver.keys())
+        keys = list(sorted(driver.keys())) # sorting them to print them out in order
         index = 1  # simple counter start to create an index key
-        for key in keys:
-            print(index, key)
+        for key in keys: # this for loop is the cause of the O(n) time complexity
+            print(index, key)  # printing for selection purposes
             numbered_keys[index] = key
             index += 1
         
