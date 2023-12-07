@@ -36,5 +36,5 @@ https://learn.zybooks.com/zybook/EVERGREEN10034PhamWinter2024/chapter/4/section/
 ## Completion Stats
 
 * As of 6 December 2023
-  * 12 
+  * 12 submitted, out of 19 expected
 
