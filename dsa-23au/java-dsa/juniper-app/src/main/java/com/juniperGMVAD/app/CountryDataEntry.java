@@ -1,6 +1,8 @@
 package com.juniperGMVAD.app;
 import java.util.*;
 
+import com.juniperGMVAD.app.YearValue.YearValue;
+
 public class CountryDataEntry {
     
     private String countryName;

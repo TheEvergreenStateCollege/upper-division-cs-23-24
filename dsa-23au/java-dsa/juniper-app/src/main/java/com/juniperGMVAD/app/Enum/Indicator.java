@@ -1,4 +1,4 @@
-package com.juniperGMVAD.app;
+package com.juniperGMVAD.app.Enum;
 
 public enum Indicator {
     // Canonical, given, non-calculated non-percentile indicators

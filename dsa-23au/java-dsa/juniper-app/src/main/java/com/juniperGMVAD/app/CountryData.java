@@ -7,13 +7,16 @@ import java.util.List;
 import java.util.*;
 
 import com.juniperGMVAD.app.BinaryTree.BinaryTree;
+import com.juniperGMVAD.app.Enum.Country;
+import com.juniperGMVAD.app.Enum.Indicator;
 import com.juniperGMVAD.app.HashMap.HashMap;
-
+import com.juniperGMVAD.app.YearValue.SortByYear;
+import com.juniperGMVAD.app.YearValue.YearValue;
 import com.juniperGMVAD.app.BinaryTree.BinaryTree;
 import com.juniperGMVAD.app.HashMap.HashMap;
 
 public class CountryData {
-    private Country country;
+    public Country country;
     private Database database;
     private HashMap<Indicator, BinaryTree<YearValue>> values;
     private HashMap<Pair<Indicator, Integer>, Instant> lastUpdated; // Key: Tuple of Indicator enum and Year; Value: Timestamp of last update
@@ -109,6 +112,12 @@ public class CountryData {
             return null;
         }
 
+        BinaryTree<YearValue> indicatorValues = values.get(indicator);
+
+        if (indicatorValues == null) {
+            return null;
+        }
+
         if (indicator.isCalculated == true) {
             Indicator basis = indicator.indicatorBasis;
             List<YearValue> basisValues = valuesAsList(basis, startYear, endYear);
@@ -116,24 +125,6 @@ public class CountryData {
             for (YearValue yv : basisValues) {
                 calculateAndUpdate(indicator, yv.year);
             }
-
-            // Knowing that these bases exist, check if they have been updated more recently than calculated indicator value
-            if (areBasesNewer(indicator, year)) {
-                // If so, calculate new value for year, store it, and return it
-                Double percentile = basisValue / percentileBasisValue;
-                setAnyValue(indicator, year, percentile);
-                updateTimestamp(indicator, year);
-                return percentile;
-            }
-
-            // If they are not newer, return the previously stored value
-            return oldCalculated;    
-        }
-
-        BinaryTree<YearValue> indicatorValues = values.get(indicator);
-
-        if (indicatorValues == null) {
-            return null;
         }
 
         return indicatorValues.rangeAsList(new YearValue(startYear, 0d), new YearValue(endYear, 0d));

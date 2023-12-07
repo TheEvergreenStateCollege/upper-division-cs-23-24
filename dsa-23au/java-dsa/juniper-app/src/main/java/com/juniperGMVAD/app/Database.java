@@ -1,11 +1,16 @@
 package com.juniperGMVAD.app;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
+
+import com.juniperGMVAD.app.Enum.Country;
+import com.juniperGMVAD.app.Enum.Indicator;
+import com.juniperGMVAD.app.YearValue.YearValue;
+import com.juniperGMVAD.app.HashMap.*;
+
 import java.time.Instant;
-import java.util.*;
 
 public class Database {
     HashMap<Country, CountryData> countryData = new HashMap<Country, CountryData>();
@@ -34,6 +39,21 @@ public class Database {
         Double oldValue = targetCountry.setValue(indicator, year, value);
         return oldValue;
     }
+
+    /*public List<Pair<Country, Double>> getRanking(Indicator indicator, int year) {
+        List<Pair<Country, Double>> values = new ArrayList<Pair<Country, Double>>();
+        List<CountryData> countries = countryData.valuesAsListDebug();
+
+        for (CountryData country : countries) {
+            values.add(new Pair<Country, Double>(country.country, country.getValue(indicator, year)));
+        }
+
+        Ranking rank = new Ranking();
+
+        for (Pair<Country, Double> value : values) {
+
+        }
+    }*/
 
     /**
      * Removes a yearly value of an indicator for a specified country

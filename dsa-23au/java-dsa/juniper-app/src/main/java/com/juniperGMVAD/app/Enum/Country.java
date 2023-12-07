@@ -1,4 +1,4 @@
-package com.juniperGMVAD.app;
+package com.juniperGMVAD.app.Enum;
 
 /*
  * T[] values()           -- implicit method for all enum types, returns list of each constant

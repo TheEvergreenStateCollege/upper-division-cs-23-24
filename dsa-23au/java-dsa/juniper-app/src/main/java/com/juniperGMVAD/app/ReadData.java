@@ -10,28 +10,48 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Hello world!
- *
- */
+import com.juniperGMVAD.app.Enum.Country;
+import com.juniperGMVAD.app.Enum.Indicator;
+import com.juniperGMVAD.app.YearValue.YearValue;
+
 public class ReadData
 {
-   /*  private Database database;
+    private Database database;
 
-   public ReadData(Database database)
+    public ReadData(Database database)
     {
         this.database = database;
     }
-    */
-    private CountryDataEntry countryDataEntry;
 
-    public ReadData(CountryDataEntry countryDataEntry)
-    {
-        this.countryDataEntry = countryDataEntry;
+    public void loadAndProcess(String csv_filepath) {
+        List<List<String>> tokenized = readAndTokenizeCSV(csv_filepath);
+        readMVAIntoDatabase(tokenized);
     }
 
+    public void readMVAIntoDatabase(List<List<String>> tokenized) {
+        for (List<String> line : tokenized.subList(5, tokenized.size())) {
+            String countryCode = line.get(1);
 
-    /*public void addCountryDataEntry(CountryDataEntry entry) {
+            int year = 1960;
+            List<YearValue> yearValues = new ArrayList<YearValue>();
+            for (String value : line.subList(4, line.size())) {
+                if (!value.isEmpty()) {
+                    yearValues.add(new YearValue(year, Double.parseDouble(value)));
+                } else {
+                    yearValues.add(new YearValue(year, -1d));
+                }
+                year++;
+            }
+
+            Country country = Country.valueOf(countryCode);
+
+            for (YearValue yearValue : yearValues) {
+                database.setYearValue(country, Indicator.MVA, yearValue.year, yearValue.value);
+            }
+        }
+    }
+
+    /*private void addCountryDataEntry(CountryDataEntry entry) {
         List<YearValue> values = entry.allYearValues();
 
         for (YearValue yv : values) {
@@ -40,7 +60,7 @@ public class ReadData
     }*/
 
     // Each list of strings represents one line of CSV file
-    public List<List<String>> readAndTokenizeCSV(String csv_filepath) {
+    private List<List<String>> readAndTokenizeCSV(String csv_filepath) {
         BufferedReader reader;
         List<List<String>> tokenized = new ArrayList<List<String>>();
         String pattern = "\"([^\"]*)\",";
@@ -73,34 +93,33 @@ public class ReadData
     }
 
 
-    public void readMVAIntoDatabase(String csv_filepath) 
-    {
-    List<List<String>> gmvaTokens = readAndTokenizeCSV(csv_filepath);
+    /*public void readMVAIntoDatabase(String csv_filepath) {
+        List<List<String>> gmvaTokens = readAndTokenizeCSV(csv_filepath);
+        for (int i = 6; i < gmvaTokens.size(); i++) {
+            int year = Integer.parseInt(gmvaTokens.get(5).get(5));
+            double mva;
 
-            for (int i = 6; i < gmvaTokens.size(); i++) 
-            {
-                int year = Integer.parseInt(gmvaTokens.get(5).get(5));
-                double mva;
-        
-                String countryName = gmvaTokens.get(i).get(0);
-                String countryCode = gmvaTokens.get(i).get(1);
-                String indicatorName = gmvaTokens.get(i).get(2);
-                String indicatorCode = gmvaTokens.get(i).get(3);
-        
-                for (int j = 5; j < gmvaTokens.get(i).size(); j++)
-                {
-                    year = year + 1;
-                    mva = Double.parseDouble(gmvaTokens.get(i).get(j));
-                    countryDataEntry.addYearValue(year, mva);
-                }
-   
-                   countryDataEntry.setCountryName(countryName);
-                   countryDataEntry.setCountryCode(countryCode);
-                   countryDataEntry.setIndicatorCode(indicatorCode);
-                   countryDataEntry.setIndicatorName(indicatorName);
-   
-               }
-}
+            String countryName = gmvaTokens.get(i).get(0);
+            String countryCode = gmvaTokens.get(i).get(1);
+            String indicatorName = gmvaTokens.get(i).get(2);
+            String indicatorCode = gmvaTokens.get(i).get(3);
+
+            for (int j = 5; j < gmvaTokens.get(i).size(); j++) {
+                year = year + 1;
+                mva = Double.parseDouble(gmvaTokens.get(i).get(j));
+                countryDataEntry.addYearValue(year, mva);
+            }
+
+            countryDataEntry.setCountryName(countryName);
+            countryDataEntry.setCountryCode(countryCode);
+            countryDataEntry.setIndicatorCode(indicatorCode);
+            countryDataEntry.setIndicatorName(indicatorName);
+
+        }
+    }*/
+
+
+    /*
     public void readNNIPCIntoDatabase(String csv_filepath)
     {
         List<List<String>> nniTokens = readAndTokenizeCSV(csv_filepath);
@@ -123,7 +142,8 @@ public class ReadData
 
 
         }
-}
+    }
+    */
 
 
 }

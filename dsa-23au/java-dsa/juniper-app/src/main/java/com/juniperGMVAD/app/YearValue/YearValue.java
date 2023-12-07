@@ -1,4 +1,4 @@
-package com.juniperGMVAD.app;
+package com.juniperGMVAD.app.YearValue;
 
 public class YearValue {
     public int year;
