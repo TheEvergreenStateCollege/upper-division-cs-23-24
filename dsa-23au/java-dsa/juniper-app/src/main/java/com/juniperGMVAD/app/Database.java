@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.time.Instant;
 import java.util.*;
+import com.juniperGMVAD.app.BinaryHeap.BinaryHeap;
 
 public class Database {
     HashMap<Country, CountryData> countryData = new HashMap<Country, CountryData>();
@@ -152,6 +153,62 @@ public class Database {
 
         targetCountry.printLastUpdatedDebug();
     }
+    public float getTop40ContCorrNNIMVA(int startYear, int endYear) {
+
+        Comparator<Country> gmvaComparator = Comparator.comparingDouble(country -> {
+            return getYearValue(country, Indicator.PGMVA, endYear);
+        });
+
+        BinaryHeap<Country> gmvaHeap = new BinaryHeap<>(gmvaComparator);
+
+        
+        for (Country country : countryData.keySet()) {
+            gmvaHeap.insert(country);
+        }
+
+
+        List<YearValue> nniValues = new ArrayList<>();
+        List<YearValue> gmvapValues = new ArrayList<>();
+
+        for (int i = 0; i < 40 && !gmvaHeap.isEmpty(); i++) {
+            Country country = gmvaHeap.deleteMax(); 
+
+          
+            List<YearValue> nniYearValues = yearValuesAsList(country, Indicator.NNIPC, startYear, endYear);
+            List<YearValue> gmvapYearValues = yearValuesAsList(country, Indicator.PGMVA, startYear, endYear);
+
+      
+            nniValues.addAll(nniYearValues);
+            gmvapValues.addAll(gmvapYearValues);
+        }
+
+        nniValues.sort(Comparator.comparingInt(YearValue::getYear));
+        gmvapValues.sort(Comparator.comparingInt(YearValue::getYear));
+
+        double[] nniValuesArr = valuesAsArray(nniValues);
+        double[] gmvapValuesArr = valuesAsArray(gmvapValues); 
+
+        float corr = GetValueCorrelation.getCorrTwoValues(nniValuesArr, gmvapValuesArr);
+        return corr;
+        
+    }
+
+
+    public double[] valuesAsArray(List<YearValue> yearValues) {
+        if (yearValues == null) {
+            return new double[0]; 
+        }
+    
+        double[] valuesArray = new double[yearValues.size()];
+    
+        for (int i = 0; i < yearValues.size(); i++) {
+            valuesArray[i] = yearValues.get(i).value;
+        }
+    
+        return valuesArray;
+    }
+
+}
 
     /*HashMap<String,HashMap<Integer,CountryData>> data;
 
@@ -270,5 +327,5 @@ public class Database {
 
         }
 */
-}
+
 

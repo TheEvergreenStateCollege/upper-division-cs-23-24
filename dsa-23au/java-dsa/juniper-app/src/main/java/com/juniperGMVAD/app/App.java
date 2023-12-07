@@ -77,13 +77,14 @@ private static void tokenizeCSV(String[] parameters)
         String param = parameters[0];
 
         System.out.println(readData.readAndTokenizeCSV(param));
-    } else {
+    } 
+    else 
+    {
         System.out.println("Invalid number of parameters");
     }
 }
 
-} 
-=======
+
   /*  public static void main(String[] args)
     {
         
@@ -164,7 +165,7 @@ private static void tokenizeCSV(String[] parameters)
                     rank += 1;
                     */
 
-
+}
     
 
 
