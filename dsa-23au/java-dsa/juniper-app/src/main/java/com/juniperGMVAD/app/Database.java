@@ -42,8 +42,15 @@ public class Database {
      * @param year
      * @return Value of old year value if it existed, otherwise this is null
      */
-    public Double removeYearValue(Country country, Indicator indicator, int year) {
-        return 0.0;
+    public void removeYearValue(Country country, Indicator indicator, int year) {
+        //TODO: implement returning old year value
+        CountryData targetCountry = countryData.get(country);
+
+        if (targetCountry == null) {
+            return;
+        }
+
+        targetCountry.removeValue(indicator, year);
     }
 
     /**
@@ -54,7 +61,14 @@ public class Database {
      * @return The value, null if non-existent
      */
     public Double getYearValue(Country country, Indicator indicator, int year) {
-        return 0.0;
+        CountryData targetCountry = countryData.get(country);
+
+        // Country does not exist
+        if (targetCountry == null) {
+            return null;
+        }
+
+        return targetCountry.getValue(indicator, year);
     }
 
     /**
@@ -102,6 +116,16 @@ public class Database {
      * @return
      */
     public boolean isIndicatorTracked(Country country, Indicator indicator) {
+        CountryData targetCountry = countryData.get(country);
+
+        if (targetCountry == null) {
+            return false;
+        }
+
+        if (targetCountry.isIndicatorTracked(indicator)) {
+            return true;
+        }
+
         return false;
     }
 
@@ -110,13 +134,23 @@ public class Database {
      * @param country
      * @return List of indicators
      */
-    public List<Indicator> indicatorsTracked(Country country) {
+    /*public List<Indicator> indicatorsTracked(Country country) {
         return new ArrayList<Indicator>();
-    }
+    }*/
 
     public Instant lastUpdated(Country country, Indicator indicator, int year) {
         CountryData updatedCountry = countryData.get(country); // get correct country data object for country enum
         return updatedCountry.lastUpdated(indicator, year);
+    }
+
+    public void printLastUpdatedDebug(Country country) {
+        CountryData targetCountry = countryData.get(country);
+
+        if (targetCountry == null) {
+            return;
+        }
+
+        targetCountry.printLastUpdatedDebug();
     }
 
     /*HashMap<String,HashMap<Integer,CountryData>> data;

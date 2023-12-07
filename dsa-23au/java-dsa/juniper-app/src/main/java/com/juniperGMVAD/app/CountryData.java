@@ -9,6 +9,9 @@ import java.util.*;
 import com.juniperGMVAD.app.BinaryTree.BinaryTree;
 import com.juniperGMVAD.app.HashMap.HashMap;
 
+import com.juniperGMVAD.app.BinaryTree.BinaryTree;
+import com.juniperGMVAD.app.HashMap.HashMap;
+
 public class CountryData {
     
     private Country country;
@@ -52,33 +55,44 @@ public class CountryData {
             return calculateAndUpdate(indicator, year);
         }
 
-        //Case 2: indicator is not calculated
-        BinaryTree<YearValue> indicatorValues = values.get(indicator);
-
-        if (indicatorValues == null) {
-            return null;
-        }
-
-        YearValue yv = indicatorValues.search(new YearValue(year, 0d));
-
-        if (yv == null) {
-            return null;
-        }
-
-        return yv.value;
+        // Case 2: indicator is not calculated, null if nonexistent
+        return getValueWithoutUpdate(indicator, year);
     }
 
-    /*public Double removeValue(Indicator indicator, int year) {
-        // Case 1: indicator is basis for a calculated indicator. Remove calculated indicator and its timestamp, along with given indicator and its timestamp
+    public void removeValue(Indicator indicator, int year) {
+        // TODO: fix if-statement hacky solution, implement real return value
+        if (indicator.isCalculated == true) {
+            BinaryTree<YearValue> indicatorValues = values.get(indicator);
+            indicatorValues.delete(new YearValue(year, 0d));
+            lastUpdated.remove(new Pair<Indicator, Integer>(indicator, year));
+            return;
+        }
 
-        // Case 2: indicator is not a basis
-    }*/
+        if (indicator == Indicator.MVA) {
+            BinaryTree<YearValue> indicatorValues = values.get(indicator);
+            BinaryTree<YearValue> calcIndicatorValues = values.get(Indicator.PGMVA);
+            indicatorValues.delete(new YearValue(year, 0d));
+            calcIndicatorValues.delete(new YearValue(year, 0d));
+            lastUpdated.remove(new Pair<Indicator, Integer>(indicator, year));
+            lastUpdated.remove(new Pair<Indicator, Integer>(Indicator.PGMVA, year));
+            return;
+        }
+    }
 
     public List<YearValue> valuesAsList(Indicator indicator) {
         BinaryTree<YearValue> indicatorValues = values.get(indicator);
 
         if (indicatorValues == null) {
             return null;
+        }
+
+        if (indicator.isCalculated == true) {
+            Indicator basis = indicator.indicatorBasis;
+            List<YearValue> basisValues = valuesAsList(basis);
+
+            for (YearValue yv : basisValues) {
+                calculateAndUpdate(indicator, yv.year);
+            }
         }
 
         return indicatorValues.asList();
@@ -94,6 +108,27 @@ public class CountryData {
     public List<YearValue> valuesAsList(Indicator indicator, int startYear, int endYear) {
         if (startYear > endYear || endYear < startYear) {
             return null;
+        }
+
+        if (indicator.isCalculated == true) {
+            Indicator basis = indicator.indicatorBasis;
+            List<YearValue> basisValues = valuesAsList(basis, startYear, endYear);
+
+            for (YearValue yv : basisValues) {
+                calculateAndUpdate(indicator, yv.year);
+            }
+
+            // Knowing that these bases exist, check if they have been updated more recently than calculated indicator value
+            if (areBasesNewer(indicator, year)) {
+                // If so, calculate new value for year, store it, and return it
+                Double percentile = basisValue / percentileBasisValue;
+                setAnyValue(indicator, year, percentile);
+                updateTimestamp(indicator, year);
+                return percentile;
+            }
+
+            // If they are not newer, return the previously stored value
+            return oldCalculated;    
         }
 
         BinaryTree<YearValue> indicatorValues = values.get(indicator);
@@ -113,15 +148,22 @@ public class CountryData {
         lastUpdated.printHashMapDebug();
     }
 
+    public boolean isIndicatorTracked(Indicator indicator) {
+        if (values.get(indicator) == null) {
+            return false;
+        }
+
+        return true;
+    }
 
     private Double calculateAndUpdate(Indicator indicator, int year) {
         Indicator base = indicator.indicatorBasis; // Base indicator type on which this indicator bases its value
 
         if (indicator.isPercentile) {
             // Here we assume that the percentile indicator is the same as the base
-            Double oldCalculated        = getValue(indicator, year);
+            Double oldCalculated        = getValueWithoutUpdate(indicator, year);
             Double percentileBasisValue = database.getYearValue(indicator.percentileBasis, base, year); // this year's value for percentile basis
-            Double basisValue           = getValue(base, year); // this object's value for this year, given indicator
+            Double basisValue           = getValueWithoutUpdate(base, year); // this object's value for this year, given indicator
 
             if (percentileBasisValue == null || basisValue == null) {
                 //TODO: error handling; bases does not exist
@@ -132,7 +174,17 @@ public class CountryData {
                 return oldCalculated;
             }
 
-            // Knowing that these bases exist, check if they have been updated more recently than calculated indicator value
+            // If indicator has not been previously calculated
+            if (oldCalculated == null) {
+                // If so, calculate new value for year, store it, and return it
+                Double percentile = basisValue / percentileBasisValue;
+                setAnyValue(indicator, year, percentile);
+                updateTimestamp(indicator, year);
+                return percentile;
+            }
+
+            // Knowing that these bases exist and value has been calculated, 
+            // check if they have been updated more recently than calculated indicator value
             if (areBasesNewer(indicator, year)) {
                 // If so, calculate new value for year, store it, and return it
                 Double percentile = basisValue / percentileBasisValue;
@@ -147,6 +199,22 @@ public class CountryData {
 
         //TODO: implement other kinds of calculated indicators
         return null;
+    }
+
+    private Double getValueWithoutUpdate(Indicator indicator, int year) {
+        BinaryTree<YearValue> indicatorValues = values.get(indicator);
+
+        if (indicatorValues == null) {
+            return null;
+        }
+
+        YearValue yv = indicatorValues.search(new YearValue(year, 0d));
+
+        if (yv == null) {
+            return null;
+        }
+
+        return yv.value;
     }
 
     /**

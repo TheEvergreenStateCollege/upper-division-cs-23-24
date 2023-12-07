@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.Year;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,6 +30,14 @@ public class ReadData
         this.countryDataEntry = countryDataEntry;
     }
 */
+
+    /*public void addCountryDataEntry(CountryDataEntry entry) {
+        List<YearValue> values = entry.allYearValues();
+
+        for (YearValue yv : values) {
+            Database.setYearValue(entry.getCountry(), entry.getIndicator(), yv.year, yv.value);
+        } 
+    }*/
 
     // Each list of strings represents one line of CSV file
     public List<List<String>> readAndTokenizeCSV(String csv_filepath) {
