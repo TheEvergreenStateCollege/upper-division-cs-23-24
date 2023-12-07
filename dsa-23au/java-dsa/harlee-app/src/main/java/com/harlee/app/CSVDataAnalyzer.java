@@ -9,8 +9,7 @@ public class CSVDataAnalyzer {
     static int massColumnIndex = 4;
     static int yearColumnIndex = 6;
 
-    // How many meteors fell in the given year and what were their names?
-
+    // OPTION 3: SCAN FOR YEAR TRY/CATCH FOR EXCEPTIONS
     public static int getTargetYear() {
         Scanner scanner = new Scanner(System.in);
 
@@ -38,7 +37,7 @@ public class CSVDataAnalyzer {
 
         return targetYear;
     }
-
+    //OPTION 3: GET METEOR NAMES IN REQUESTED YEAR 
     public static List<String> getMeteorNamesInYear(List<String[]> parsedData, int targetYear) {
 
         List<String> meteorNames = new ArrayList<>();
@@ -52,14 +51,14 @@ public class CSVDataAnalyzer {
                     meteorNames.add(meteorName);
                 }
             } catch (NumberFormatException e) {
-                // Invalid year
+                // Invalid year in CSV File
                 System.out.println("Invalid year format in the CSV data.");
             }
         }
         return meteorNames;
     }
 
-
+    //OPTION 3: WHAT RANGE OF YEARS IS PRESENT
     public static String minYearMaxYear(List<String[]> parsedData) {
         int minYear = Integer.MAX_VALUE;
         int maxYear = Integer.MIN_VALUE;
@@ -73,7 +72,7 @@ public class CSVDataAnalyzer {
                 
             }
         }
-    
+        //RETURN
         if (minYear != Integer.MAX_VALUE && maxYear != Integer.MIN_VALUE) {
             return String.format("%d to %d", minYear, maxYear);
         } else {
@@ -81,7 +80,7 @@ public class CSVDataAnalyzer {
         }
     }
     
-    
+    //OPTION 2: MIN AND MAX MASS
     public static void minMaxMass(List<String[]> parsedData){
 
         double totalMass = 0;  
@@ -107,7 +106,7 @@ public class CSVDataAnalyzer {
                     largestMeteoriteName = row[nameColumnIndex];
                 }
         
-                // Accumulate total mass
+                //total mass
                 totalMass += mass;
                 meteoriteCount++;
             } catch (NumberFormatException e) {
@@ -136,7 +135,8 @@ public class CSVDataAnalyzer {
 
     }
 
-
+    //DRAFTS AND TESTS
+    
     //Print All Names of Meteors
     //THIS IS UNUSED
     public static void printNames(List<String[]> parsedData) {
