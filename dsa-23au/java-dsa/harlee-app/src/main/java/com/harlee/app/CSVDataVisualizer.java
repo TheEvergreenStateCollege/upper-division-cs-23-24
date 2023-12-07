@@ -1,9 +1,7 @@
 package com.harlee.app;
 
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,37 +19,38 @@ import java.util.List;
  * Index 11 = counties
  */
 
-public class CSVDataVisualizer {
+ public class CSVDataVisualizer {
 
-    public static void visualizeCSV(List<String[]> parsedData) {
-        
-        JFrame frame = new JFrame("CSV Data Visualizer");
+    public static void visualizeColumn(List<String[]> parsedData, int columnIndex) {
+        if (parsedData.isEmpty() || columnIndex < 0 || columnIndex >= parsedData.get(0).length) {
+            System.out.println("Invalid column index or empty data.");
+            return;
+        }
 
-        
-        JTable table = new JTable();
+        System.out.println("Column: " + columnIndex);
 
-        
-        DefaultTableModel model = new DefaultTableModel();
+        // Extract values from the specified column
+        List<String> columnValues = extractColumnValues(parsedData, columnIndex);
 
-        
-        if (!parsedData.isEmpty()) {
-            for (String header : parsedData.get(0)) {
-                model.addColumn(header);
+        // Sort the values
+        Collections.sort(columnValues);
+
+        // Print the sorted values in a comma-separated format
+        System.out.println(String.join(", ", columnValues));
+    }
+
+    private static List<String> extractColumnValues(List<String[]> parsedData, int columnIndex) {
+        // Extract values from the specified column
+        List<String> columnValues = new ArrayList<>();
+
+        for (int i = 0; i < parsedData.size(); i++) {
+            String[] row = parsedData.get(i);
+            if (columnIndex < row.length) {
+                columnValues.add(row[columnIndex]);
             }
         }
 
-        // Add data rows 
-        for (int i = 1; i < parsedData.size(); i++) {
-            model.addRow(parsedData.get(i));
-        }
-
-        
-        table.setModel(model);
-        JScrollPane scrollPane = new JScrollPane(table);
-        frame.add(scrollPane);
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        return columnValues;
     }
 }
+
