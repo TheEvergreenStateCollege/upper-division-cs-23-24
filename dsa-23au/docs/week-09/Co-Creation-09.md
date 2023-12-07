@@ -162,3 +162,135 @@ Jonathan Rodriguez
    - The `performTask` method is static, indicating it can be called on the class itself rather than an instance of the class.
 
 In the context of the code review, these examples collectively showcase the significance of clear function signatures, well-defined classes, effective use of parameters and array indices, and the organization of related functionalities within sibling methods. The presence of instance data and function members emphasizes the importance of encapsulation and maintaining state within a class. The static method showcases scenarios where functionality is independent of specific instances.  
+
+Torsten:
+A generic type allows you to create classes, interfaces, and methods that operate on a type that is specified as a parameter when the code is used. Generics provide a way to create reusable code that can work with different types while ensuring type safety. 
+
+A function call in programming refers to the execution of a function in a program. When you call a function, you're asking the program to execute a specific block of code that is encapsulated within that function. Here is a chat GPT example of a functio call:
+ublic class RectangleAreaCalculator {
+
+    // Function to calculate the area of a rectangle
+    public static int calculateArea(int width, int height) {
+        return width * height;
+    }
+
+    public static void main(String[] args) {
+        int width = 5;
+        int height = 10;
+
+        // Function call to calculate the area of a rectangle
+        int area = calculateArea(width, height);
+
+        System.out.println("Area of the rectangle: " + area);
+    }
+}
+In main, the function calculateArea() is called which runs teh code for that function. 
+
+A method is a block of code that performs a specific task and is defined within a class. It's similar to a function in other programming languages. Methods are used to define the behavior of objects, perform operations, and facilitate code reusability.
+
+A static method is a method that belongs to the class itself, rather than to instances of the class (objects). It's associated with the class and can be called directly using the class name without the need to create an instance of the class.
+
+A function parameter (a parameter) is a variable that is listed in the method's declaration. It represents the data that a method expects to receive when it is called. Parameters allow you to pass values to a method so that the method can perform its task using these values.
+Here is a GPT example:
+public class MyClass {
+
+    // Method that takes two integers as parameters and returns their sum
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        
+        int num1 = 5;
+        int num2 = 3;
+        
+        // Calling the add method and passing num1 and num2 as arguments
+        int result = obj.add(num1, num2);
+        
+        System.out.println("Result: " + result); // Output: Result: 8
+    }
+}
+
+Torsten:
+A generic type allows you to create classes, interfaces, and methods that operate on a type that is specified as a parameter when the code is used. Generics provide a way to create reusable code that can work with different types while ensuring type safety. 
+
+A function call in programming refers to the execution of a function in a program. When you call a function, you're asking the program to execute a specific block of code that is encapsulated within that function. Here is a chat GPT example of a functio call:
+ublic class RectangleAreaCalculator {
+
+    // Function to calculate the area of a rectangle
+    public static int calculateArea(int width, int height) {
+        return width * height;
+    }
+
+    public static void main(String[] args) {
+        int width = 5;
+        int height = 10;
+
+        // Function call to calculate the area of a rectangle
+        int area = calculateArea(width, height);
+
+        System.out.println("Area of the rectangle: " + area);
+    }
+}
+In main, the function calculateArea() is called which runs teh code for that function. 
+
+A method is a block of code that performs a specific task and is defined within a class. It's similar to a function in other programming languages. Methods are used to define the behavior of objects, perform operations, and facilitate code reusability.
+
+A static method is a method that belongs to the class itself, rather than to instances of the class (objects). It's associated with the class and can be called directly using the class name without the need to create an instance of the class.
+
+A function parameter (a parameter) is a variable that is listed in the method's declaration. It represents the data that a method expects to receive when it is called. Parameters allow you to pass values to a method so that the method can perform its task using these values.
+Here is a GPT example:
+public class MyClass {
+
+    // Method that takes two integers as parameters and returns their sum
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        
+        int num1 = 5;
+        int num2 = 3;
+        
+        // Calling the add method and passing num1 and num2 as arguments
+        int result = obj.add(num1, num2);
+        
+        System.out.println("Result: " + result); // Output: Result: 8
+    }
+}
+
+
+**Faulkdf Week9**
+
+Uuuhhh... I'm slightly confused on if we (as studends) are supposed to answer the town hall questions, or if those were from the town hall that WORMs hosted. However, the questions seem intereseting so I will answer them breifly:
+
+    I became interested in computer science and electronics from a young age. I have always loved taking apart appliances and computers and learning how they work from a hands on perspective. 
+
+    It is enjoyable to have an understanding of how computers behave. We use them every day, we carry around a small metal and glass computer in our pocket. I am fascinated by the machines that have become essential within society. 
+
+    Honestly I don’t know what I want to do. I didn’t want to graduate early and I decided to pursue a dual degree to extend my time at evergreen. I have been looking at some computer diagnostic and repair jobs for airlines. I love to travel, and this would afford me an opportunity to travel less expensively if I work for an airline. 
+
+    The question that I ponder in the CS field quite a lot is “is AI the future, and how so?”
+
+    I would tell incoming students to the CS field at evergreen, that knowing a programming language ahead of time will be very helpful. Especially java. 
+
+    The ones I can think of off the top of my head, are Richard Weiss (the GOAT) Paul Pham, Arun Chandra, and perhaps Ben Kamen (not sure if he teaches code but im pretty sure he has some knowledge of coding)
+
+    I would love to see more hardware related classes. I really wanted to study hardware and hardware repair as part of my degree, but it fundamentally isn’t something thats offered at evergreen. 
+
+    If I do any independent studies, I would like them to be hardware related (I’m a hardware guy okay?)
+
+    Honestly I don’t have any better ideas than WORMs. A proper computer science club is a great idea for engagement. 
+
+    Honestly communication for assignments for this class feel like they have been very chaotic and hard to understand. It seems like there are many places to submit things, and trying to navigate between both canvas *and* GitHub is confusing. Im behind on assignments partially because of how disorganised things are from my prospective. 
+
+    Honestly Evergreen as a whole needs to do a better job about marketing itself. I don’t think the CS department has any responsibility in that. 
+
+    I really wish I took the computer science and linguistics programme. Thats a combo that seems very interesting to me. Seeing CS combined with stagecraft/lighting design would also be neat :)
+
+    Biggest challenge is not having a centralised campus server for CS. I feel like every other university has a centralised server for their department, and Evergreen does not. Out of all the departments the CS classes need it the most. 
+
+    This one is predictable from my past answers but I’d love to see a hardware specialist come and teach a full programme.
+    I don’t believe I can think of any other questions at this time. This survey was relatively comprehensive. 
