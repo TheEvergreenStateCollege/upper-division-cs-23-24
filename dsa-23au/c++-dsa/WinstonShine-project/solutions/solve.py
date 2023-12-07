@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from pwn import *
 
-io = process("../vtables")
+io = process("./vtables")
 io.recvuntil(b": ")
 win_addr = int(io.recvline(), 16)
 log.info(win_addr)
