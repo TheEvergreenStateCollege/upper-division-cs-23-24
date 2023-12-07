@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList; 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.util.Arrays;
+
 
 /**
  * Hello world!
@@ -14,7 +19,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        ArrayList<mrnaRead> readzz = new ArrayList<mrnaRead>();
+        ArrayList<mrnaRead> readsz = new ArrayList<mrnaRead>();
+        Arrays[] readzz = readsz.toArray();
         readFastQ(readzz, "../../testData/fastq_runid_9d742d72b6f5d334c2d0d388f2eb1da13decd9a6_34_0"); 
         for(int i = 0; i <= readzz.length(); i++){
             //replace [] with .get(i)
@@ -36,7 +42,7 @@ public class App
             System.out.println(readzz[i].data);
         }
     } 
-}
+
 
 public class mrnaRead
 {
@@ -49,12 +55,6 @@ public class mrnaRead
     String modelID;
     String data;
 
-    public String readCase(hash, runID, sampleId, read, ch, startTime, modelID, data){
-        this.hash = hash;
-        this.runID = runID;
-        this.sampleId = sampleId;
-        
-    }
 
 
 }
@@ -66,10 +66,9 @@ public void readFastQ(ArrayList dataset, String file)
     String currentLine =  reader.readLine(); 
     while(currentLine != null){
         mrnaRead temp = new mrnaRead(); //double-check this is grammar
-        Sting[] arr = currentLine.split(" "); 
+        String[] arr = currentLine.split(" "); 
         for(int i = 0; i <= arr.length(); i++){
             String[] innerArray = arr[i].split("=");
-            
             switch(innerArray[0]){
                 case "runid" :
                     temp.runID = innerArray[1];
@@ -102,7 +101,7 @@ public void readFastQ(ArrayList dataset, String file)
 
 
 }
-
+}
 
 //Iterate through lines of file while, if-else check for if metadata/data - meta starts with ">", edge case of missing half in the tuple
 //Identified three tiers: line of metadata, data, and space-seperated categories within the line of metadata

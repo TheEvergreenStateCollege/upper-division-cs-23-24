@@ -1,13 +1,16 @@
 package com.mycompany.app;
 
+//Identifiers needed for everything?
+
 ///while the file says it's a fastq in its name
 //the actual .suffix says .fasta, I should probably install both... but that means writing code for both
-import org.biojava.nbio.genome.io.fasta.FastaReader;
-import org.biojava.nbio.genome.io.fasta.Fasta;
+//import fasta from bio library 
+
 
 //create classes for file, reader and entries within file 
 
 //entries within file
+/*
 public class runLine {
     private String firstLine;
     private String[] metadata;
@@ -56,3 +59,4 @@ public class filesReader(){
 
 //class for reporting to user probably
 ///iterate through array of runLine objects after toArray from list and print getEntry 
+*/
