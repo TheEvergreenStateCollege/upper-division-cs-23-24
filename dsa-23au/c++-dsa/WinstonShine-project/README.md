@@ -44,6 +44,7 @@ void Recorder::print_message() {
 };
 ```
 
+![asciinema example](./example.svg)
 
     
 
