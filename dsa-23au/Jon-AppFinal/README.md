@@ -2,9 +2,61 @@
 
 At the beginning of the course, I struggled on trying to find data that would be interesting from a personal level but also from a technical level as well. At first I was very intrigued by the spotify data project that some of my fellow classmates were working on. After many weeks of debate, I decided to generally split from that group and focus on data that would grab my attention. With this in mind, I chose to work on crime data specifically the state of New York. I chose New York in particular becuase of the availabilty and vast quantity of data that the Division of Criminal Justice Services has that is ready to be accessed by the public. The data they have also goes back 20 years so that will allow to perform temporal analysis to see how crime trends have changed over the years that this data has been taken. 
 
-# Mermaid Diagram (work on Wed.)
+# Mermaid Diagram 
 
-#How to run our demo on our included data
+```mermaid
+classDiagram
+    CrimeData 
+    CrimeData : +String County
+    CrimeData : +int Year
+    CrimeData : +int Population
+    CrimeData : +int indexCount
+    CrimeData : +float indexRate
+    CrimeData : +int violentCount
+    CrimeData : +float violentRate
+    CrimeData : +int propertyCount
+    CrimeData : +float propertyRate
+    CrimeData : +int firearmCount
+    CrimeData : +float firearmRate
+    CrimeData : +String toString()
+
+    class Main {
+        +convert_input_to_float(value)
+        cdd = CrimeDatabase()
+    }
+    
+    class CrimeDatabase {
+      -List<CrimeData> crimeDataList
+      +addCrimeData(CrimeData)
+      +displayCrimeDataList()
+      +displayDataForCountyAndYear(String, int)
+      +yearlyAnalysis(String, int, int)
+      +yearToYearAnalysis(String, int, int)
+      +calculatePercentageChange(int, int) : float
+    }
+
+    class TemporalAnalysis {
+      +calculatePercentageChange(int, int) : float
+      +yearlyAnalysis(List<CrimeData>, String, int, int)
+      +yearToYearAnalysis(List<CrimeData>, String, int, int)
+    }
+
+    class BigOAnalysis {
+      -addCrimeDataAnalysis_txt
+      -yearlyAnalysis_text
+    }
+
+    CrimeDatabase --> CrimeData
+    TemporalAnalysis --> CrimeData
+    TemporalAnalysis --> CrimeDatabase
+    BigOAnalysis --> CrimeDatabase
+    Main --> CrimeDatabase  
+    Main --> TemporalAnalysis  
+```
+    
+
+
+# How to run our demo on our included data
 Currently, we run our demo with our included data by going into `main.py` and running the method. That takes us through our menus to and allows the main method to access other dependencies and packages throughout the project particularly `crime_database.py` and  `temporalanalysis.py`. We are storing our crime data in a seperate file so that the database doesnt get overcrowded with information. //FIXMEEEEEEEEEEEEEE
 
 # Tech Stack for New York Crime Database
@@ -99,3 +151,35 @@ Problem-Solving Resilience:
 In this project, I didn't just write code; I embraced challenges, learned new skills, and emerged with a heightened level of confidence in tackling real-world programming complexities. This journey was not just about the code itself but about personal and professional growth.
 
 # Whats next?????
+ 
+
+Crafting a User-Friendly Experience:
+   As I delve into this project, my vision is to enchant users with a seamless journey through the crime data. Picture this – a web-based dashboard or a sleek desktop application where users, like myself, can intuitively interact with the data, almost like exploring the hidden corners of a well-designed city park.
+
+Bringing Data to Life with Visualization:
+   I want to infuse life into the data, turning it into a visual masterpiece that even someone unfamiliar with the dance of data can appreciate. Picture me using tools like Matplotlib, Seaborn, or Plotly in Python as my paintbrushes, creating dynamic charts and graphs that tell a story – a story that's not just about numbers but an artistic interpretation of crime trends.
+
+Predicting Tomorrow's Story:
+   Imagine if I could use machine learning algorithms to predict the future of crime rates based on historical data. It's not just about analysis; it's about forecasting a narrative that impacts law enforcement and policymakers. I envision turning insights into proactive measures, creating safer communities – a storyline that transcends the limits of present-day data.
+
+Mapping Crime's Heartbeat:
+   Geospatial analysis, for me, adds a touch of adventure to the project. I envision crime hotspots lighting up on a map like stars in the night sky. It's not just about seeing numbers; it's about feeling the pulse of areas with higher crime rates, guiding law enforcement like a compass to where it's needed most.
+
+Empowering Users with Filters and Sorts:
+   Think of it as giving users, including myself, a magic wand to summon the exact data they need. Filters and sorts transform complexity into simplicity, allowing users to sculpt the data landscape to match their queries. It's not just about data manipulation; it's about putting me in control of my investigative journey.
+
+Exporting Insights, Sharing Stories:
+   Imagine me waving a wand to export my findings into PDFs or Excel sheets, creating shareable stories. It's not just about analysis; it's about empowering me to share my discoveries with colleagues, stakeholders, or anyone curious about the narrative the data tells.
+
+Securing the Castle:
+   For a project meant for many, I want to fortify it with user authentication and authorization – a digital drawbridge to ensure data security. It's not just about access; it's about tailoring the experience, letting users, including myself, explore based on our roles in the kingdom of crime data.
+
+Harmonizing with External Data Sources:
+   Imagine me weaving external data sources into the tapestry, enriching the story of crime rates with demographic or economic data. It's not just about crime numbers; it's about creating a comprehensive understanding, exploring how external factors influence the plot.
+
+A Symphony of Refinement:
+   I see this project as a living entity, evolving with each interaction. Regular updates and refinements, like tuning an instrument, ensure the project harmonizes with the ever-changing needs of its users. It's not just about development; it's about creating a masterpiece that stands the test of time.
+
+Guiding Users with Documentation and Tutorials:
+    Think of it as creating a treasure map for users, including myself, to navigate the project effortlessly. Documentation and tutorials become the compass, making it easy for newcomers to embark on their exploration. It's not just about information; it's about guiding users, and yes, myself, on an adventure through the world of crime data.
+
