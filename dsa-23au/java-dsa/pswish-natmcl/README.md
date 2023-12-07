@@ -91,3 +91,26 @@ I learned what a complex data structure looked like in python. I also learned th
 
 ## What's next for the project next quarter (as an app engineered for the web)
 Next, I would like to add a few more methods to calculate other predictions. Also, I want to shift to a django project for more persistent results. I would like to add in weather and possibly traffic info to see if there is a relationship to drive times over 10 miles vs 20 vs 80+ and how much cost does bad weather add to a drive? Maybe add threading for reading csv data if the dataset is gigantic.
+
+## The Main Invariant
+An important invariant in our program is the cls.DataStructure. Once it is created in DriverFiles.DriverData2._add_list_to_dict_by_index(). At the conclusion of n csv files, the function ends with the final invariant. It is then passed around the program without changing. This is important because several algorithms and calculations depending on counting totals of items in the data structure. If they were to change mid-flight, the calculations would be inconsistent and thus useless.
+
+## Space Complexity (preliminary)
+Preliminary testing using guppy3 returned this info:
+```
+Partition of a set of 50564 objects. Total size = 7143962 bytes.
+ Index  Count   %     Size   % Cumulative  % Referrers by Kind (class / dict of class)
+     0   3649   7  1189372  17   1189372  17 function
+     1  13768  27  1165236  16   2354608  33 types.CodeType
+     2   5594  11   626983   9   2981591  42 dict of type
+     3   5890  12   451635   6   3433226  48 tuple
+     4     15   0   394777   6   3828003  54 _io.TextIOWrapper
+     5   2388   5   386461   5   4214464  59 type
+     6   1783   4   338523   5   4552987  64 dict of module
+     7    916   2   245033   3   4798020  67 function, tuple
+     8   3954   8   236177   3   5034197  70 dict (no owner)
+     9    239   0   222503   3   5256700  74 dict of module, tuple
+     <662 more rows. Type e.g. '_.more' to view.>
+```
+
+Gitpod reserved 1g to run this program(as obsvered with `top`)
