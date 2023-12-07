@@ -1,9 +1,7 @@
 package com.harlee.app;
 
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,30 +19,38 @@ import java.util.List;
  * Index 11 = counties
  */
 
-public class CSVDataVisualizer {
+ public class CSVDataVisualizer {
 
     public static void visualizeColumn(List<String[]> parsedData, int columnIndex) {
-        JFrame frame = new JFrame("CSV Data Visualizer");
-    
-        JTable table = new JTable();
-    
-        DefaultTableModel model = new DefaultTableModel();
-    
-        // Add the selected column as a header
-        model.addColumn(parsedData.get(0)[columnIndex]);
-    
-        // Add data rows for the selected column
-        for (int i = 1; i < parsedData.size(); i++) {
-            model.addRow(new Object[]{parsedData.get(i)[columnIndex]});
+        if (parsedData.isEmpty() || columnIndex < 0 || columnIndex >= parsedData.get(0).length) {
+            System.out.println("Invalid column index or empty data.");
+            return;
         }
-    
-        table.setModel(model);
-        JScrollPane scrollPane = new JScrollPane(table);
-        frame.add(scrollPane);
-    
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+
+        System.out.println("Column: " + columnIndex);
+
+        // Extract values from the specified column
+        List<String> columnValues = extractColumnValues(parsedData, columnIndex);
+
+        // Sort the values
+        Collections.sort(columnValues);
+
+        // Print the sorted values in a comma-separated format
+        System.out.println(String.join(", ", columnValues));
     }
-    
+
+    private static List<String> extractColumnValues(List<String[]> parsedData, int columnIndex) {
+        // Extract values from the specified column
+        List<String> columnValues = new ArrayList<>();
+
+        for (int i = 0; i < parsedData.size(); i++) {
+            String[] row = parsedData.get(i);
+            if (columnIndex < row.length) {
+                columnValues.add(row[columnIndex]);
+            }
+        }
+
+        return columnValues;
+    }
 }
+

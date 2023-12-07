@@ -115,7 +115,7 @@ public class CSVDataAnalyzer {
                 meteoriteCount++;
             } catch (NumberFormatException e) {
                 // Invalid mass format
-                System.out.println("Invalid mass format in the CSV data. Skipping this entry.");
+                //System.out.println("Invalid mass format in the CSV data. Skipping this entry.");
             }
         }
 

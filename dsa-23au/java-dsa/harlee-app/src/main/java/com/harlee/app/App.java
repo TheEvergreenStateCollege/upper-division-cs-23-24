@@ -4,11 +4,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.nio.charset.StandardCharsets;
 
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import java.util.List;
 
 public class App {
 
@@ -35,7 +30,7 @@ public class App {
                     optionTwo();
                     break;
                 case 3:
-                    optionThree(parsedData);
+                    optionThree();
                     break;
                 case 4:
                     optionFour();
@@ -68,13 +63,13 @@ public class App {
       
         System.out.println(titleArt);
 
-        System.out.println("=====================");
-        System.out.println("      Main Menu      ");
-        System.out.println("=====================");
+        System.out.println("=======================");
+        System.out.println("     * Main Menu *     ");
+        System.out.println("=======================");
         System.out.println("1. How many meteors fell in a given year?");
         System.out.println("2. What is the largest and smallest meteorite recorded? What is the average?");
-        System.out.println("3. View a list of requested column.");
-        System.out.println("4. Closest meteor to a given meteor //Nearest Neighbor");
+        System.out.println("3. View a list of a requested column.");
+        System.out.println("4. Something else sigh");
         System.out.println("5. Quit");
         System.out.println("=====================");
     }
@@ -101,7 +96,7 @@ public class App {
     }
 
     private static void optionTwo() {
-        System.out.println("You selected Option Two.");
+        System.out.println("You selected Option Two.\n");
     
         CSVDataAnalyzer.minMaxMass(parsedData);
         
@@ -109,24 +104,33 @@ public class App {
         pressEnterToContinue();
     }
 
-    private static void optionThree(List<String[]> parsedData) {
-        System.out.println("You selected Option Three.");
+    private static void optionThree() {
+        System.out.println("You selected Option Three.\n");
+        System.out.println("* Index 0 = name        * Index 6 = year");
+        System.out.println("* Index 1 = id #        * Index 7 = reclat");
+        System.out.println("* Index 2 = nametype    * Index 8 = relong");
+        System.out.println("* Index 3 = recclass    * Index 9 = geolocation");
+        System.out.println("* Index 4 = mass        * Index 10 = states");
+        System.out.println("* Index 5 = fall/found  * Index 11 = counties\n");
+    
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the column index to visualize: ");
-        int columnIndex = scanner.nextInt();
-
-        if (columnIndex >= 0 && columnIndex < parsedData.get(0).length) {
+        System.out.print("Enter the column index you want to visualize '#': ");
+    
+        try {
+            int columnIndex = scanner.nextInt();
             CSVDataVisualizer.visualizeColumn(parsedData, columnIndex);
-        } else {
-        System.out.println("Invalid column index.");
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a valid integer.");
+        } finally {
+            pressEnterToContinue();
         }
-        pressEnterToContinue();
     }
 
     private static void optionFour() {
         System.out.println("You selected Option Four.");
-
-        //
+    
+      
+    
         pressEnterToContinue();
     }
 

@@ -21,9 +21,9 @@
 //search 
 //hash map allow search
 
-//the largest meteorite, the smallest, the median
-//most metorites in one country
+//the largest meteorite, the smallest, the average
 
-//search enteries of hash map with the key value "year"
+
+
 //an array of hash maps
 //scanner
