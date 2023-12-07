@@ -1,4 +1,5 @@
 # main.py
+
 import os
 import csv
 import sys
@@ -16,7 +17,6 @@ def convert_input_to_float(value):
 
 def main():
     cdd = CrimeDatabase()
-C
     # Get the absolute path to the directory containing your script
     script_directory = os.path.dirname(os.path.abspath(__file__))
 
@@ -56,6 +56,9 @@ C
                 cdd.addCrimeData(CrimeData(*converted_row))
 
     cdd.displayCrimeDataList()
+
+    # Create an instance of BigOAnalysis
+    big_o_analysis = BigOAnalysis()
 
     # Display menu
     choice = 0
@@ -125,15 +128,15 @@ C
             sub_choice = int(input("Enter your sub-choice: "))
 
             if sub_choice == 1:
-                print(cdd.addCrimeDataAnalysis_txt)
+                print(big_o_analysis.addCrimeDataAnalysis_txt)
             elif sub_choice == 2:
-                print(displayCrimeDataList_txt)
+                print(big_o_analysis.displayCrimeDataList_txt)
             elif sub_choice == 3:
-                print(displayDataForCountyAndYear_txt)
+                print(big_o_analysis.displayDataForCountyAndYear_txt)
             elif sub_choice == 4:
-                print(cdd.yearlyAnalysis_text)
+                print(big_o_analysis.yearlyAnalysis_text)
             elif sub_choice == 5:
-                print(cdd.yearToYearAnalysis_txt)
+                print(big_o_analysis.yearToYearAnalysis_txt)
             else:
                 print("Invalid sub-choice. Please enter a valid option.")
         elif choice == 4:

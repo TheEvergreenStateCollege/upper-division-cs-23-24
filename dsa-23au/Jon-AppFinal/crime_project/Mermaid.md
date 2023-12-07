@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
     CrimeData 
     CrimeData : +String County
@@ -45,4 +46,5 @@ classDiagram
     BigOAnalysis --> CrimeDatabase
     Main --> CrimeDatabase  
     Main --> TemporalAnalysis  
+```
     
