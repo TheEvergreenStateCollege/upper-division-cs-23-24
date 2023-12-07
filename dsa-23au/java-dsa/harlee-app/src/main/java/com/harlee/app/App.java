@@ -2,7 +2,7 @@ package com.harlee.app;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.nio.charset.StandardCharsets;
+import java.util.InputMismatchException;
 
 
 public class App {
@@ -42,7 +42,6 @@ public class App {
                     System.out.println("Invalid choice. Please try again.");
             }
 
-            // Clear the terminal
             clearConsole();
 
         } while (choice != 5);
@@ -75,7 +74,7 @@ public class App {
     }
 
     private static void optionOne() {
-        System.out.println("You selected Option One.");
+        System.out.println("You selected Option One.\n");
         System.out.println("=====================");;
 
         System.out.println("Below is the current date range that you can select:");
@@ -129,6 +128,10 @@ public class App {
     private static void optionFour() {
         System.out.println("You selected Option Four.");
     
+        MeteoriteYearChart chart = new MeteoriteYearChart("Meteorites Over the Years", parsedData);
+        chart.pack();
+        RefineryUtilities.centerFrameOnScreen(chart);
+        chart.setVisible(true);
       
     
         pressEnterToContinue();
