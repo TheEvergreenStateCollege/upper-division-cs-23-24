@@ -76,4 +76,16 @@ Juniper Campbell (Lucretian)
 
                                                                                     --- End of my Sentences ---
 
+**Faulkdf's week5 notes**
+
+Something that I believe is true about computer science, is that it is a forever growing industry. Our use of technology always seems to be increasing, and tech engineers (both software and hardware) seem to be constantly pushing the boundaries of whats possible. 
+The biggest thing that I think is about to maybe shock the industry is the development of useful “AI” technology. I don’t necessarily think it will be a bad thing, however. The internet as a whole went thought a phase of being new and distrusted, and so far it has become arguably the most influential “invention” of the last 100 years. Every product when its new tends to follow a “[sigmoid curve](https://miro.medium.com/v2/resize:fit:1284/0*9Va78m-Wanjp8lOF)” for product adoption. The internet, as a whole, is sort of at the top of the curve right now, there is innovation, but not a big boom like there was in the late 1990s/early 2000s. AI technology I believe is closer to the critical point at the bottom of the curve. I believe we are about to see a rapid amount of innovation, and it will change how we interact with technology as a whole. 
+
+**Hackathon Notes:**
+
+1. I’m looking forward to just participating in the hackathon! I’ve never done one before
+2. Main concerns is that I wont be “up to snuff” compared to everyone else. I don’t know what to expect, and I really am not as strong in my programming as I’d like to be. 
+3. Hopefully something that is good at processing large amounts of data in .json files. 
+4. I will certainly be relying on my classmates, as well as documentation from this class. chatGPT is always helpful too if I get stuck. (Especially for basic functionality cheat sheets)
+5. I am not sure. I have a hard time judging myself based on no other input. I suppose I should do a similar amount of work to everyone else in the class. 
 
