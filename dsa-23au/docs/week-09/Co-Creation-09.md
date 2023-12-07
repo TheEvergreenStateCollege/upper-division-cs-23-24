@@ -139,3 +139,37 @@ Jonathan Rodriguez
    - The `performTask` method is static, indicating it can be called on the class itself rather than an instance of the class.
 
 In the context of the code review, these examples collectively showcase the significance of clear function signatures, well-defined classes, effective use of parameters and array indices, and the organization of related functionalities within sibling methods. The presence of instance data and function members emphasizes the importance of encapsulation and maintaining state within a class. The static method showcases scenarios where functionality is independent of specific instances.  
+
+
+**Faulkdf Week9**
+
+Uuuhhh... I'm slightly confused on if we (as studends) are supposed to answer the town hall questions, or if those were from the town hall that WORMs hosted. However, the questions seem intereseting so I will answer them breifly:
+
+    I became interested in computer science and electronics from a young age. I have always loved taking apart appliances and computers and learning how they work from a hands on perspective. 
+
+    It is enjoyable to have an understanding of how computers behave. We use them every day, we carry around a small metal and glass computer in our pocket. I am fascinated by the machines that have become essential within society. 
+
+    Honestly I don’t know what I want to do. I didn’t want to graduate early and I decided to pursue a dual degree to extend my time at evergreen. I have been looking at some computer diagnostic and repair jobs for airlines. I love to travel, and this would afford me an opportunity to travel less expensively if I work for an airline. 
+
+    The question that I ponder in the CS field quite a lot is “is AI the future, and how so?”
+
+    I would tell incoming students to the CS field at evergreen, that knowing a programming language ahead of time will be very helpful. Especially java. 
+
+    The ones I can think of off the top of my head, are Richard Weiss (the GOAT) Paul Pham, Arun Chandra, and perhaps Ben Kamen (not sure if he teaches code but im pretty sure he has some knowledge of coding)
+
+    I would love to see more hardware related classes. I really wanted to study hardware and hardware repair as part of my degree, but it fundamentally isn’t something thats offered at evergreen. 
+
+    If I do any independent studies, I would like them to be hardware related (I’m a hardware guy okay?)
+
+    Honestly I don’t have any better ideas than WORMs. A proper computer science club is a great idea for engagement. 
+
+    Honestly communication for assignments for this class feel like they have been very chaotic and hard to understand. It seems like there are many places to submit things, and trying to navigate between both canvas *and* GitHub is confusing. Im behind on assignments partially because of how disorganised things are from my prospective. 
+
+    Honestly Evergreen as a whole needs to do a better job about marketing itself. I don’t think the CS department has any responsibility in that. 
+
+    I really wish I took the computer science and linguistics programme. Thats a combo that seems very interesting to me. Seeing CS combined with stagecraft/lighting design would also be neat :)
+
+    Biggest challenge is not having a centralised campus server for CS. I feel like every other university has a centralised server for their department, and Evergreen does not. Out of all the departments the CS classes need it the most. 
+
+    This one is predictable from my past answers but I’d love to see a hardware specialist come and teach a full programme.
+    I don’t believe I can think of any other questions at this time. This survey was relatively comprehensive. 

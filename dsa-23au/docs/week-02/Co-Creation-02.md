@@ -29,3 +29,13 @@ ndeanon25 - Nathan Deanon
 4) The reason we should code review is that it transfers knowledge from one person to another, and it helps to see someone's process to incorporate it into your own process.
 5) I am still getting the hang of the GitPod so the steps are to make a new branch, write/modify code, commit, push a request, get a code review, and then delete the branch once reviewed and merged.
    ==================================================================
+
+faulkdf:
+
+Looking back through my notes. Ah what fun!
+
+1. CRUD was a very important idea this week. I like how its a simply acronym to remember, while also having a funny name
+2. Being proactive seems to be important in the job market. Especially the programmer job market. 
+2. I like how many of the basic data strucures have a name that visually describes them A stack is like a *stack* of playing cards. An organised pile. Queues are like a reverse stack, and fucntion, well... like a queue. Heaps are a pile etc etc. 
+4. the flowchart in Cracking the Coding Interview was fun. I like explanations that include a visual aid. 
+5. Specifically, the point on the map "Be confident (not cocky)" is such an important point. lots of people may have extraordinary skills, but if they are fundamentally difficult to be around, they arent usefull in a team setting. 
