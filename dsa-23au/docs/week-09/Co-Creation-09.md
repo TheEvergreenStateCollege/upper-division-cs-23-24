@@ -264,7 +264,16 @@ public class MyClass {
 
 **Faulkdf Week9**
 
-Uuuhhh... I'm slightly confused on if we (as studends) are supposed to answer the town hall questions, or if those were from the town hall that WORMs hosted. However, the questions seem intereseting so I will answer them breifly:
+Opensource vs closed source:
+The software that I will contrast are two very similar pieces of software that I have experience using. One is G.I.M.P, the Gnu Image Manipulation Software (opensource) and Adobe Photoshop. 
+This software is alike in the way that they are both image editing programs, and they both have a very similar slew of functions and features. They have a slightly different UI, and in my opinion, GIMP is harder to use. However GIMP is free, forever, and Photoshop costs $240 per year. 
+I like both of these apps, because they are both relatively easy to use to edit images. I personally have more expeience with Photoshop, but the skills traslated to GIMP easily. 
+Photoshop was relesed they way it is because it is a product. Adobe is a company that is making money. That is their goal. GIMP was relesed for the common good; as an image manipulation tool that is accessible for anyone with a computer. 
+I really don't understand what this next bullet point is asking. 
+I also don't really have opinions on what the license should be for DSA. I would maybe prefer the GitHub repo to be private, but I don't have very strong opinions on this. I am not intending to make money off of the code I submitted for this class. 
+
+
+Uuuhhh... I'm slightly confused on if we (as students) are supposed to answer the town hall questions, or if those were from the town hall that WORMs hosted. However, the questions seem intereseting so I will answer them breifly:
 
     I became interested in computer science and electronics from a young age. I have always loved taking apart appliances and computers and learning how they work from a hands on perspective. 
 
