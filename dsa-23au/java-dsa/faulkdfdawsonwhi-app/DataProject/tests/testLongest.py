@@ -14,7 +14,7 @@ from LongestPlayed import find_best_match_max_ms_played
 class TestLongestPlayed(unittest.TestCase):
     def test_find_best_match_max_ms_played(self):
         
-        test_folder_path = "mockData"
+        test_folder_path = "TestSpotifyData"
 
 
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
@@ -22,10 +22,9 @@ class TestLongestPlayed(unittest.TestCase):
             
             printed_output = mock_stdout.getvalue()
 
-            self.assertIn("525600", printed_output)
-            self.assertIn("TEST LONG SONG", printed_output)
-            self.assertIn("LONG SONG ARTIST", printed_output)
-
+            self.assertEqual("Track Name: TEST LONG SONG", printed_output)
+            self.assertIn("Album Artist: LONG SONG ARTIST", printed_output)
+            self.assertIn("Time Played: 31536000000 (525600 minutes)", printed_output)
 
 if __name__ == '__main__':
     unittest.main()
