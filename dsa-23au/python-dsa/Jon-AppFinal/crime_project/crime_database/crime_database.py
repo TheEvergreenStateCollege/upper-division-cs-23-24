@@ -76,7 +76,7 @@ class CrimeDatabase:
             print(f"Property Count: {crime_data.propertyCount}, Property Rate: {crime_data.propertyRate}")
             print(f"Firearm Count: {crime_data.firearmCount}, Firearm Rate: {crime_data.firearmRate}")
             print("-" * 30)
-
+    #measures the rate of growth in a specific metric over two comparable periods, such as the current and prior period.
     def yearToYearAnalysis(self, county, year1, year2):
         # Filter data for a specific county and range of years
         data_for_county_and_years = [data for data in self.crimeDataList if
