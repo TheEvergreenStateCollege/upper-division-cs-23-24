@@ -159,7 +159,24 @@ Personal Coding Style:
    -Maintaining a consistent and clean personal coding style across multiple files and packages was important but challenging. Deciding on naming conventions, indentation, and commenting required attention to detail.
 
 Despite these challenges, tackling them head-on has undoubtedly improved my Python programming skills and deepened my understanding of dynamic programming, data manipulation, and project organization. Each struggle became an opportunity for growth and learning.
+Certainly, dealing with attribute errors in a project can be a common challenge, and understanding how to handle them is crucial for writing robust and error-free code. Here's a breakdown of common reasons for attribute errors and tips on how to avoid and fix them:
 
+##Understanding Attribute Errors:
+
+Attribute Does Not Exist:
+   - **Issue:** Trying to access an attribute or method that does not exist for a given object.
+   - **Example:** Calling `object.nonexistent_attribute` or `object.nonexistent_method()`.
+
+Incorrect Object Type:
+   - Issue: Attempting to access an attribute that is not applicable to the object's type.
+   - Example: Accessing `string.length` instead of `len(string)`.
+
+This was an error that I encountered frequently throghout my project. I checked the other files to make sure there were no typos when doing method calls in the main function. This occured in many of my methods though the logic and syntax was correct this was a eror that 
+had me stuck for the majority of this process. Also some base 10 errors as well but it didnt change the solution. Through future debugging it may be the way the CSV data is stored and accessed through the `CrimeData` class.
+`AttributeError: 'CrimeDatabase' object has no attribute 'crimeDataMap'`
+ 
+
+ 
 # Accomplishments/What I learned
  
 
