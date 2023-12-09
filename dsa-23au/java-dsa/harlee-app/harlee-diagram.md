@@ -1,3 +1,4 @@
+```mermaid
 graph TD
 
 subgraph CSVDataParser
@@ -41,3 +42,4 @@ S -->|calls| H
 T -->|calls| V
 
 U -->|calls| V
+```
