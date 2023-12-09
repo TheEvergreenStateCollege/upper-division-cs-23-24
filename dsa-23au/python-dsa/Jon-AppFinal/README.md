@@ -277,3 +277,52 @@ A Symphony of Refinement:
 Guiding Users with Documentation and Tutorials:
     Think of it as creating a treasure map for users, including myself, to navigate the project effortlessly. Documentation and tutorials become the compass, making it easy for newcomers to embark on their exploration. It's not just about information; it's about guiding users, and yes, myself, on an adventure through the world of crime data.
 
+#Invariant examples
+Invariants are conditions or properties that are expected to be true at certain points in the execution of a program. They are assertions about the state of the program that should hold at specific moments. In plain English, invariants express facts that are guaranteed to be true at certain checkpoints during the program's execution.
+
+In the provided code, there are a few invariants:
+
+1. CSV Header Invariant:
+   - Plain English: The header of the CSV file must match the expected column names.
+   - Code:
+     ```python
+     # Check if the CSV file has the expected header
+     if header != ['County', 'Year', 'Population', 'Index Count', 'Index Rate', 'Violent Count', 'Violent Rate', 'Property Count', 'Property Rate', 'Firearm Count', 'Firearm Rate']:
+         print("Invalid CSV format. Please check the header.")
+         sys.exit(1)
+     ```
+
+2. Row Length Invariant:
+   - Plain English: Each row in the CSV file must contain 11 values.
+   - Code:
+     ```python
+     for row in csv_reader:
+         if len(row) == 11:
+             # Process the row
+             # ...
+         else:
+             # Handle rows with incorrect length
+             # ...
+     ```
+
+3. Data Conversion Invariant:
+   - Plain English: Certain columns in each row must be convertible to specific types (int or float).
+   - Code:
+     ```python
+     # Convert relevant columns to appropriate types when adding crime data
+     converted_row = [
+         row[0],  # County
+         int(row[1]),  # Year (convert to int)
+         convert_input_to_float(row[2]),  # Population (convert to float)
+         convert_input_to_float(row[3]),  # Index Count (convert to float)
+         convert_input_to_float(row[4]),  # Index Rate (convert to float)
+         convert_input_to_float(row[5]),  # Violent Count (convert to float)
+         convert_input_to_float(row[6]),  # Violent Rate (convert to float)
+         convert_input_to_float(row[7]),  # Property Count (convert to float)
+         convert_input_to_float(row[8]),  # Property Rate (convert to float)
+         convert_input_to_float(row[9]),  # Firearm Count (convert to float)
+         convert_input_to_float(row[10])  # Firearm Rate (convert to float)
+     ]
+     ```
+
+These invariants help ensure that the data being processed adheres to certain expectations and formats, preventing potential issues caused by unexpected data structures or types. They act as checks to catch inconsistencies or errors early in the execution of the program.
