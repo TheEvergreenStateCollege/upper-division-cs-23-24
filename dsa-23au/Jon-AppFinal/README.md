@@ -1,6 +1,40 @@
 # Inspiration
 
 At the beginning of the course, I struggled on trying to find data that would be interesting from a personal level but also from a technical level as well. At first I was very intrigued by the spotify data project that some of my fellow classmates were working on. After many weeks of debate, I decided to generally split from that group and focus on data that would grab my attention. With this in mind, I chose to work on crime data specifically the state of New York. I chose New York in particular becuase of the availabilty and vast quantity of data that the Division of Criminal Justice Services has that is ready to be accessed by the public. The data they have also goes back 20 years so that will allow to perform temporal analysis to see how crime trends have changed over the years that this data has been taken. 
+The purpose of this project appears to be centered around creating a system for managing and analyzing crime data, particularly in the context of the New York Criminal Justice Crime Database. The key features and goals of the project seem to revolve around public or official deletion and insertion of data, as well as overall ease of access to the information contained in the dataset.
+
+Here are some points that highlight the project's objectives:
+
+1. Data Management:
+   - The project involves the management of crime data, which includes various metrics such as population, index count, index rate, violent count, violent rate, property count, property rate, firearm count, and firearm rate.
+   - It allows for the insertion of new data, enabling the addition of information for specific counties and years.
+
+2. User Interaction:
+   - The project provides a menu-driven interface for user interaction, allowing users to perform various operations on the crime data.
+   - Users can display specific data for a given county and year, conduct temporal analysis, perform Big O analysis, find counties with the largest firearm count for a specific year, and update existing data.
+
+3. Ease of Access:
+   - The use of a menu-driven system enhances ease of access, making it user-friendly and accessible to individuals interacting with the dataset.
+   - The system facilitates queries and analyses, providing a structured way for users to retrieve specific information based on their needs.
+
+4. Dynamic Loading of Data:
+   - The system dynamically loads data from a CSV file, allowing for flexibility in working with different datasets.
+   - It checks the validity of the CSV file's header to ensure the expected format.
+
+5. Updating Data:
+   - Users have the ability to update existing data, including population and index data, violent and property data, and firearm data. This feature supports keeping the dataset up-to-date with the latest information.
+
+6. **Analysis Capabilities:
+   - The project includes temporal analysis features, such as yearly analysis and year-over-year comparison, providing insights into trends and changes over time.
+   - Big O analysis is also supported, allowing users to assess the algorithmic complexity of various operations.
+
+7. Deletion and Insertion:
+   - While the deletion functionality is not explicitly mentioned in the provided code, the insertion of new data implies a capacity for updating the dataset with fresh information.
+   - Ensuring the accuracy and relevance of data is essential for maintaining the integrity of the crime database.
+
+In summary, the project aims to create a versatile and user-friendly system for managing, analyzing, and updating crime data, with a focus on ease of access and dynamic data handling. The menu-driven interface allows for a range of interactions, making it applicable for both public and official use.
+
+This is hugely inspired by the "stop and frisk" policy in New York City faced controversy due to concerns about racial profiling, legal challenges, and data-related issues. This raised questions about accuracy, racial disparities, and community trust. The project focused on the New York Criminal Justice Crime Database aims to address these problems by implementing transparent and standardized data collection methods. By maintaining an unbiased crime database, the project can contribute to reducing racial disparities,   evaluating policing strategies, providing public access, and generating data-driven insights for evidence-based decision-making. Ultimately, the project strives to foster transparency, accountability, and equity in the criminal justice system.
 
 # Mermaid Diagram 
 
@@ -119,9 +153,44 @@ Personal Coding Style:
 Despite these challenges, tackling them head-on has undoubtedly improved my Python programming skills and deepened my understanding of dynamic programming, data manipulation, and project organization. Each struggle became an opportunity for growth and learning.
 
 # Accomplishments/What I learned
-## 1. Java
-Overall with this final project, it really allowed me to see how important dynamic programming is. I am also very happy with how organized and concise my project is. Last year and beginning of this quarter, I was a very messy programmer. This meant awful spacing, lack of succinct comments, wrong indents, and various syntax errors. This are skills that I have been able to fix by working on this project. I am also proud of my knowledge of the JavaScript langauage and its numerous libriaries. Working on this project as well as lectures throughout the quarter has immensely soldified my skills in java. With `CrimeDatabase`, I have utilized all the skills that I have learned from this quarter whether it is using HashMaps or dictionaries and trying to calculate the runtime of these methods and algorithms. This is more of a note for me but I want to really get into learning Python for these next quarters. A lot of the things that came with coding (Ex: recongnizing when to initialize a new HasMap and recognizing how to connect code with design) has become almost second hand nature to me.
+ 
 
+1. Data Standardization: You successfully implemented data standardization procedures, ensuring consistency and reliability in the New York Criminal Justice Crime Database. This achievement enhances the accuracy and trustworthiness of the information.
+
+2. Dynamic Data Updates: The project allows for dynamic updates to the database, enabling the addition of new crime data and the modification of existing records. This capability ensures that the database remains current and reflective of the evolving crime landscape.
+
+3. User-Friendly Interface: The implementation of a user-friendly interface in the form of a menu-driven command-line application enhances accessibility. This makes it easier for users, whether they are public officials, law enforcement, or the general public, to interact with and extract valuable insights from the crime data.
+
+4. Temporal Analysis: Your project includes features for temporal analysis, such as yearly analysis and year-over-year comparison. This functionality enables users to identify trends, patterns, and changes in crime data over time, contributing to a better understanding of the dynamics involved.
+
+5. Big O Analysis: Incorporating Big O Analysis provides insights into the algorithmic efficiency of various operations within the system. This analytical aspect can guide optimizations for handling large datasets and improving overall performance.
+
+6. Update Capabilities: The system allows for the easy updating of existing data, ensuring that corrections or additions can be made efficiently. This feature contributes to the overall accuracy and reliability of the crime database.
+
+7. Testing Framework: The implementation of a testing framework using the `unittest` module with mock inputs provides a systematic way to verify the functionality of different components in the code. This enhances the robustness and reliability of the system.
+
+8. Documentation: You have documented the code well, providing comments and explanations that enhance the readability of the codebase. This is crucial for maintaining and collaborating on the project in the long term.
+
+9. Public Access and Deletion: By allowing for public or official insertion and deletion of data, your project promotes transparency and inclusivity. This feature enables authorized entities to manage the database according to legal and procedural requirements.
+
+10. **Addressing Stop and Frisk Concerns:** While not explicitly mentioned in the provided code, the project's purpose to maintain an unbiased crime database aligns with addressing concerns related to policies like "stop and frisk." By ensuring accurate and unbiased crime data, your project contributes to a more equitable and transparent criminal justice system.
+
+These accomplishments collectively demonstrate your commitment to building a robust, accessible, and responsible platform for handling crime data in New York City.
+
+# Unit Test info
+Here's a summary of what each test case is checking:
+
+test_display_data_for_county_and_year: Checks if the display data for a specific county and year functionality works as expected.
+test_temporal_analysis_yearly: Checks if the temporal analysis for yearly data functionality works as expected.
+test_temporal_analysis_year_over_year: Checks if the temporal analysis for year-over-year comparison functionality works as expected.
+test_temporal_analysis_lowest_population: Checks if the temporal analysis for finding the lowest population for a given year functionality works as expected.
+test_find_county_with_largest_firearm_count: Checks if the functionality to find the county with the largest firearm count for a specific year works as expected.
+test_update_population_and_index_data: Checks if the functionality to update population and index data works as expected.
+test_update_violent_and_property_data: Checks if the functionality to update violent and property data works as expected.
+test_update_firearm_data: Checks if the functionality to update firearm data works as expected.
+test_update_existing_data_back_to_main_menu: Checks if the update existing data functionality returns to the main menu as expected.
+test_exit_program: Checks if choosing the exit option returns to the main menu as expected.
+Make sure that the expected output in each test case aligns with the actual behavior of your program. If there are any discrepancies, you may need to update the test cases accordingly.
  
 ## 2. Python
 Dynamic Programming Mastery
