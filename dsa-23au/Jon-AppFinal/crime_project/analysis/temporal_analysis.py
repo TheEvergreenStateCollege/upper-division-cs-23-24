@@ -49,3 +49,5 @@ def yearToYearAnalysis(crime_data_list, county, year1, year2): #FIXME
         print(f"Property Count: {TemporalAnalysis.calculate_percentage_change(data_year1.propertyCount, data_year2.propertyCount)}%")
         print(f"Firearm Count: {TemporalAnalysis.calculate_percentage_change(data_year1.firearmCount, data_year2.firearmCount)}%")
         print("-" * 30)
+    
+     

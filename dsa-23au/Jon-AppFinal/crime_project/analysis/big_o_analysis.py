@@ -76,3 +76,85 @@ class BigOAnalysis:
         In summary, the method has a linear time complexity based on the size of the input data and linear space complexity based on the number of elements that match the specified county and year.
     """
 
+    findCountyWithLargestFirearmCount_text = """
+        Big O Analysis:
+
+        Time Complexity: O(N), where N is the number of entries in the crime data list.
+        Space Complexity: O(N), where N is the number of unique counties in the specified year.
+
+        Time Complexity Analysis:
+        The time complexity is O(N) due to the recursive search through the crime data list. In the worst case, the algorithm needs to iterate through all entries in the crime data list once. The recursion involves a simple iteration over the crime data list for each call, making the time complexity linear.
+
+        Space Complexity Analysis:
+        The space complexity is O(N) as well. This is primarily due to the storage of the county counts in the county_dict. In the worst case, the algorithm may store the firearm counts for each unique county in the specified year. The size of the dictionary is directly proportional to the number of unique counties, making the space complexity linear.
+
+        Implementation Notes:
+        Recursive Approach: The method uses a recursive approach to traverse the crime data list. This design simplifies the logic and improves readability.
+
+        Base Case: The base case checks if the end of the crime data list is reached. If so, it returns the current state of the county dictionary.
+
+        Data Validation: The method validates the crime data before adding it to the dictionary. It ensures that the year matches the specified year, and the firearm count is not None and non-negative.
+
+        Dictionary Usage: A dictionary (county_dict) is used to store the cumulative firearm counts for each county. This allows efficient retrieval of the county with the largest firearm count.
+
+        Struggles:
+        None Handling: Handling None values for firearm counts was challenging. The implementation skips entries with None or negative counts to address this issue.
+
+        NameError: Instances of NameError were encountered where variables were not defined. The code was adjusted to ensure proper variable scope.
+
+        Recursion Logic: Ensuring proper recursion termination and returning the correct values during each step was crucial for the correct implementation.
+
+        Interactive Debugging: Interactive debugging, including the use of print statements, played a vital role in identifying and resolving issues.
+
+        User Interface: Interaction with the user through the menu system required careful consideration to ensure a smooth and error-free experience.
+
+        Despite the challenges, the final implementation aims to provide an accurate and efficient solution for finding the county with the largest firearm count in a specific year.
+        """
+    
+
+    bfsLowestPopulation_txt = """
+        Insights and Potential Improvements for bfsLowestPopulation Method:
+
+        Time Complexity Analysis:
+
+        The outer loop iterates through all counties once, contributing O(V) to the time complexity.
+        The inner loop, which searches for neighbors, iterates through all data points to find counties with the same year. This contributes O(E) to the time complexity.
+        Overall, the time complexity is O(V + E).
+
+        Space Complexity Analysis:
+
+        The space complexity is determined by the visited_counties dictionary and the queue.
+        The visited_counties dictionary stores the population of each visited county, contributing O(V) to the space complexity.
+        The queue stores the counties to be processed, contributing O(V) to the space complexity.
+        Overall, the space complexity is O(V).
+
+        Potential Issues and Struggles:
+
+        1. Redundant Visits:
+        - The inner loop unnecessarily iterates through all data points for each county in the queue, leading to redundant visits.
+        - It would be more efficient to pre-process the data to find neighbors before starting the BFS.
+
+        2 . Inefficient Population Lookup:
+        - The getPopulation function iterates through all data points for each population lookup, which can be inefficient.
+        - Consider preprocessing the data to create a data structure that allows for more efficient population lookups.
+
+        3. Breadth-First Search Variation:
+        - The current implementation of BFS might not be the most efficient for this scenario.
+        - A variation of BFS might be more suitable, considering the unique requirements of finding the lowest population.
+
+        Future Insights:
+
+        1. Optimizing Preprocessing:
+        - Consider preprocessing the data to create a graph or adjacency list, where neighbors of each county are already identified.
+        - This can significantly reduce redundant visits and improve efficiency.
+
+        2. Data Structure Choices:
+        - Explore different data structures for efficient population lookups, such as dictionaries or hash maps.
+
+        3. Algorithmic Variations:
+        - Explore variations of BFS or other algorithms that might be better suited to finding the lowest population.
+        - Especially consider algorithms that can exploit patterns in the data.
+
+        By addressing these issues and considering future insights, you can enhance the efficiency and effectiveness of the algorithm for finding the county with the lowest population for a given year.
+        """
+
