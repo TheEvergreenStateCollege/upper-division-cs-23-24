@@ -1,5 +1,7 @@
 # big_o_analysis.py
 
+# big_o_analysis.py
+
 class BigOAnalysis:
     addCrimeDataAnalysis_txt = """
         Explanation:
@@ -158,3 +160,18 @@ class BigOAnalysis:
         By addressing these issues and considering future insights, you can enhance the efficiency and effectiveness of the algorithm for finding the county with the lowest population for a given year.
         """
 
+    updateExistingData_txt = """
+        The updateExistingData method exhibits a time complexity of O(1) and a space complexity of O(1). Here's a breakdown of the analysis:
+
+        Time Complexity (O(1)):
+
+        The method performs a constant number of operations. It conducts a key lookup in the crimeDataMap dictionary, where dictionary access is typically O(1) in average and best cases.
+        Updating data fields involves direct attribute access on the CrimeData object, which is a constant time operation.
+        Space Complexity (O(1)):
+
+        The space complexity is constant, as the method doesn't utilize additional data structures whose size depends on the input. Memory consumption remains constant irrespective of the data size.
+        It's essential to emphasize that the mentioned time and space complexities assume that dictionary lookups (crimeDataMap) and attribute access operations are constant time. This is a reasonable assumption in Python, given well-implemented dictionaries and efficient attribute access. While worst-case scenarios might involve O(n) time complexity for dictionary lookups due to collisions, practical implementations of dictionaries are optimized for fast lookups, minimizing the likelihood of collisions.
+
+        """
+        
+     

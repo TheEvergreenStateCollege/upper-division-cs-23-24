@@ -58,6 +58,8 @@ classDiagram
         +convert_input_to_float(value)
         cdd = CrimeDatabase()
     }
+
+    
     
     class CrimeDatabase {
       -List<CrimeData> crimeDataList
@@ -67,6 +69,10 @@ classDiagram
       +yearlyAnalysis(String, int, int)
       +yearToYearAnalysis(String, int, int)
       +calculatePercentageChange(int, int) : float
+      +def bfsLowestPopulation
+      +def getPopulation(self, String, int) : float
+      +def findCountyWithLargestFirearmCount(self, year)
+      +def recursive_search(self, index, year, county_dict)
     }
 
     class TemporalAnalysis {
@@ -76,9 +82,9 @@ classDiagram
     }
 
     class BigOAnalysis {
-      -addCrimeDataAnalysis_txt
-      -yearlyAnalysis_text
+      -All big txt files
     }
+       
 
     CrimeDatabase --> CrimeData
     TemporalAnalysis --> CrimeData
@@ -86,6 +92,8 @@ classDiagram
     BigOAnalysis --> CrimeDatabase
     Main --> CrimeDatabase  
     Main --> TemporalAnalysis  
+     
+
 ```
     
 
