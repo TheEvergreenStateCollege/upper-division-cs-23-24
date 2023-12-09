@@ -71,7 +71,6 @@ def main():
     # Create an instance of BigOAnalysis
     big_o_analysis = BigOAnalysis()
     
-    cdd.tempo
     
 
     # Display menu
@@ -149,6 +148,9 @@ def main():
             print("3. displayDataForCountyAndYear")
             print("4. yearlyAnalysis")
             print("5. yearOverYearComparison")
+            print("6. bfsLowestPopulation")
+            print("7. findCountyWithLargestFirearmCount")
+            print("8. updateExistingData")
 
             sub_choice = int(input("Enter your sub-choice: "))
 
@@ -162,6 +164,12 @@ def main():
                 print(big_o_analysis.yearlyAnalysis_text)
             elif sub_choice == 5:
                 print(big_o_analysis.yearToYearAnalysis_txt)
+            elif sub_choice == 6:
+                print(big_o_analysis.bfsLowestPopulation_txt)
+            elif sub_choice == 7:
+                print(big_o_analysis.findCountyWithLargestFirearmCount_txt)
+            elif sub_choice == 8:
+                print(big_o_analysis.updateExistingData_txt)
             else:
                 print("Invalid sub-choice. Please enter a valid option.")
 
