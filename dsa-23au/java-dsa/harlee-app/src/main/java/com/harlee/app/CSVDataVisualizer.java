@@ -24,6 +24,7 @@ import java.util.List;
 
     //OPTION 1
     public static void visualizeColumn(List<String[]> parsedData, int columnIndex) {
+        //if empty
         if (parsedData.isEmpty() || columnIndex < 0 || columnIndex >= parsedData.get(0).length) {
             System.out.println("Invalid column index or empty data.");
             return;
@@ -41,7 +42,7 @@ import java.util.List;
         System.out.println(String.join(", ", columnValues));
     }
 
-    private static List<String> extractColumnValues(List<String[]> parsedData, int columnIndex) {
+    public static List<String> extractColumnValues(List<String[]> parsedData, int columnIndex) {
         // Extract values from the specified column
         List<String> columnValues = new ArrayList<>();
 

@@ -125,22 +125,22 @@ public class App {
 
         if (!meteorNames.isEmpty()) {
             System.out.println("==============================================================\n");
-            System.out.println("Meteors fallen in " + targetYear + ": " + meteorNames.size());
+            System.out.println("Meteorites found in " + targetYear + ": " + meteorNames.size());
             System.out.println("");
-            System.out.println("Meteor Names: " + meteorNames);
+            System.out.println("Meteorite Names: " + meteorNames);
             System.out.println("");
         } else {
-            System.out.println("No meteors found in " + targetYear);
+            System.out.println("No meteorites found in " + targetYear);
         }
 
         pressEnterToContinue();
        
     }
-
+    //OPTION 4
     private static void optionFour() {
         System.out.println("\nCREDITS: \n");
         System.out.println("=== Meteorite Data Analyzer ===");
-        System.out.println("Version: 1.0");
+        System.out.println("Version: 1.01");
         System.out.println("Author: Harlee Hair");
         System.out.println("Copyright @ 2023 NCC-1701");
         System.out.println("-------------------------------");
