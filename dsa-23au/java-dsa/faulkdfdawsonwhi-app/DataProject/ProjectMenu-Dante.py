@@ -3,6 +3,7 @@ import os
 def run_script(script_number, scripts_path):
     scripts = [
         "LongestPlayed.py",
+        "LongestTimeSpentListening.py",
         "ShortestPlayed.py",
         "MostPlayed.py",
         "SearchCountry.py"
@@ -25,7 +26,7 @@ def run_script(script_number, scripts_path):
         else:
             print(f"Script file not found: {script_path}")
     else:
-        print("Invalid choice. Please enter a number between 1 and 4.")
+        print("Invalid choice. Please enter a number between 1 and 5.")
 
 if __name__ == "__main__":
     # Set the path to the directory containing your Python scripts
@@ -34,9 +35,10 @@ if __name__ == "__main__":
     while True:
         print("\nSelect a script to run:")
         print("1. Show Longest Played Track")
-        print("2. Show Shortest Played Track")
-        print("3. Show Most Played Track")
-        print("4. Search Tracks Per Country")
+        print("2. Show Track With Longest Time Listened To")
+        print("3. Show Shortest Played Track")
+        print("4. Show Most Played Track")
+        print("5. Search Tracks Per Country")
         print("0. Exit\n")
 
         choice = input("Enter the number of the script to run (or 0 to exit): ")

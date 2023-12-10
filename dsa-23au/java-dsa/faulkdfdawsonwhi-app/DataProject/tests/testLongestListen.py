@@ -1,4 +1,4 @@
-# testLongest.py
+# testLongestListen.py
 import json
 import unittest
 import sys
@@ -7,26 +7,23 @@ from io import StringIO
 from unittest.mock import patch
 
 # Include the path to finalVersion-danteData in sys.path
-sys.path.append('../finalVersion-danteData')
+sys.path.append('../finalVersion-dawsonData')
 
-from LongestPlayed import find_best_match_max_ms_played
+from LongestTimeSpentListening import find_longest_time_spent
 
-
-class TestLongestPlayed(unittest.TestCase):
-    def test_find_best_match_max_ms_played(self):
-        
+class testLongestTimeSpentListening(unittest.TestCase):
+    def test_LongestTimeSpentListening(self):
         folder_path = "TestSpotifyData"
-        
+
         expected_output = (
-            "Best match with the highest 'ms_played':\n"
+            "Longest time spent on a single track:\n"
             "Track Name: TEST LONGER SONG\n"
-            "Album Artist: LONGER SONG ARTIST\n"
-            "Time Played: 31536001000 milliseconds (525600.02 minutes)\n"
+            "Artist: LONGER SONG ARTIST\n"
+            "Total Time Played: 31536001000 milliseconds (525600.02 minutes)\n"
         )
 
-
         with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-            find_best_match_max_ms_played(folder_path)
+            find_longest_time_spent(folder_path)
 
             printed_output = mock_stdout.getvalue()
 
