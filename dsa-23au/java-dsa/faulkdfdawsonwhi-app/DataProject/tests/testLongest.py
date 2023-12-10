@@ -19,9 +19,9 @@ class TestLongestPlayed(unittest.TestCase):
         
         expected_output = (
             "Best match with the highest 'ms_played':\n"
-            "Track Name: TEST LONG SONG\n"
-            "Album Artist: LONG SONG ARTIST\n"
-            "Time Played: 31536000000 milliseconds (525600.00 minutes)\n"
+            "Track Name: TEST LONGER SONG\n"
+            "Album Artist: LONGER SONG ARTIST\n"
+            "Time Played: 31536001000 milliseconds (525600.02 minutes)\n"
         )
 
 
