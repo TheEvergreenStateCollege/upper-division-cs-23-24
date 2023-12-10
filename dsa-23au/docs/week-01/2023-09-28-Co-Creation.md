@@ -142,5 +142,12 @@ Notes from Week 6
 - Visualgo is helpful with showing us the sorts and how it works. I enjoy the pseudocode and the diagrams that are easy to follow and see. At first, I did not understand merge sort but just following the diagram and seeing the code run in real-time helped me understand it. 
 - Also, the presentations that the ILC students were working on were interesting. Quinn with the web scraping RedFin using Selenium and Aspen taught us about XSS cross-site scripting attacks. They were all really fascinating. 
 
+=======================
+Juniper - Lucretian
+-Week 1 perplexed me with the idea of a clearly different way of going about the subject than I was expecting.
+-I was excited about the idea of a fundamental principle of data structures and algorithms.
+-I immediately realized that not coding for the whole summer did not do me any favors.
+-I was excited about the idea of pairprogramming and working with others over shared code while still doing independent development. 
+-Learning gitpod was extremely clumsy. 
 
 
