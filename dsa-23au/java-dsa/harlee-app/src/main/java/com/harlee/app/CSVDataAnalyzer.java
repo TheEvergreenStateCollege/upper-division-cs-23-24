@@ -134,11 +134,12 @@ public class CSVDataAnalyzer {
 
 
     }
+   
 
     //DRAFTS AND TESTS
     
     //Print All Names of Meteors
-    //THIS IS UNUSED
+    /**THIS IS UNUSED
     public static void printNames(List<String[]> parsedData) {
         
         // Print names column values to the terminal
@@ -181,8 +182,8 @@ public class CSVDataAnalyzer {
                     }
                 } catch (NumberFormatException e) {
                     
-                }
+                } 
             }
         }
-    }
+    }**/
 }

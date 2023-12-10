@@ -23,6 +23,10 @@ public class CSVDataParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //if empty
+        if (data.isEmpty()){
+            throw new RuntimeException("CSV file is empty.");
+        }
 
         return data;
     }
