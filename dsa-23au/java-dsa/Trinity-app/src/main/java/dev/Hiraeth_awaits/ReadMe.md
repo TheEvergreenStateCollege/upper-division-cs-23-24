@@ -1,6 +1,6 @@
 # This is my README File for my Final Project Tarot.py:
 
-I did my project in Python because that is the coding Language that I was most comfortable and experienced in.
+I did my project in Python because that is the coding Language that I was most comfortable and experienced in. My inspiration came from my decks of Tarot Cards and my passion for using them.
 ## Part One
 In the start of my project I start out by defining all of the Tarot Cards in a list. I had to bring out a Tarot Set of mine to reference while also looking at others to cross reference. I used "Tattoo Tarot" but Megamunden and also your basic Rider-Waite Tarot Deck. I wanted both a new and old interpretation of the cards, to give a better variety to the Readings. I did all 78 Card Meanings one by one in a list. I followed this list by determining how may cards would be drawn for each reading and what they mean or symbolize. 
 
