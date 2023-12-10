@@ -3,10 +3,7 @@
 The Evergreen State College is proud to offer the following upper division computer science programs
 during the academic school year 2023-2024.
 
-These three programs form a sequence over three quarters, progressing from
-* the basic principles of 
-* a scrappy startup experimenting with many products to resonate with users in the Purpose-Driven Web
-* scaling a proven product to more users with more reliability and a bigger team of developers in Software Construction
+(Insert schedule or graphic for Winter and Spring quarter here)
 
 ## Build Status
 
