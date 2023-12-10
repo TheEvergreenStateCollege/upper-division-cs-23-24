@@ -1,6 +1,6 @@
 # Faulkdf's spotify data analysis project.
 
-To run this project, you will want to set your terminal path to be `/workspace/upper-division-cs/dsa-23au/java-dsa/faulkdf-app/DataProject` and run command `python ProjectMenu.py`
+To run this project, you will want to set your terminal path to be `/workspace/upper-division-cs/dsa-23au/java-dsa/faulkdf-app/DataProject` and run command `python ProjectMenu-Dawson.py` for Dawson's data and `python ProjectMenu-Dante.py` for Dante's.
 
 Once the project is running you will get a dialog box with various options on what to display after data analysis. 
 
