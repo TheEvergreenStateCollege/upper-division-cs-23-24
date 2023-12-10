@@ -2,6 +2,15 @@
 
 Meteorite Data Analyzer is a Java program that allows users to analyze and visualize data from a meteorite dataset provided in a CSV file. It provides various options to explore the dataset, such as displaying specific columns, analyzing meteorite masses, exploring meteorite occurrences in a specific year, and viewing credits.
 
+[![asciicast](https://asciinema.org/a/Y2G2Zct72FciZwQTHthsQaFRg.svg)](https://asciinema.org/a/Y2G2Zct72FciZwQTHthsQaFRg)
+
+- Please know that the recording above is a little old. The code is the same, but I fixed a few small errors to what appears on the console. I tried to rerecord a new video but none of my other attempts worked. 
+
+- I am also required to note one invariant in my code. The 'parsedData' list always contains rows of data parsed from a CSV file, where each row is represented as a string array. THe data in each row corresponds the the columns in teh CSV file, and the list maintains this structure throughout the program execution.
+
+   List<String[]> prasedData = CSVDataParser.parseCSV(csvFile, delimiter);
+
+
 ## Inspiration
 
 Astronomy is a passion of mine. Every kid dreams of exploring the stars, to go where no man has gone before. I wanted to learn and absorb everything I could that was related to space. Fiction and non fiction. Every elective in school, every Star Trek series. I loved it all. One of the first things I searched for was a dataset involving space. My research took me to the NASA open data portal, where I had my pick of what I wanted to focus on. I ended up choosing the 35,000 data item set about meteorites recorded in history. Extraterrestrial objects hurtling through space, the Earth's gravity pulling them into our atmosphere, and what remains crashing into the planet. Their name, their mass, their geographical location, and more, recorded on a CSV file. This little menu program encompasses my love and enthusiasm for astronomy, while also show casing the progress I have made in my Data Structures and Algorithms class. 
