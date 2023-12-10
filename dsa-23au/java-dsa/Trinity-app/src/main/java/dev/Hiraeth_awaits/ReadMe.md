@@ -12,3 +12,5 @@ After making sure to define the readings, I had to make sure that the interpreta
 
 ## Part Four
 Finally, the most difficult part for me, making sure the user could input in the terminal. I have practiced with inputting on Codecademy, but this took a lot of trial and error to get right. Especially when it came to me making sure to input .lower() to avoid users putting in crazy answers and only allowing all lowercase answers. Within the else statement I made sure to mention that if they have an Invalid Input, they should try putting it in all lowercase. Otherwise, this program works as expected. I wish I could have put in functions for reverse card interpretations, but I was struggling with it and decided to just take it out of the final project for now. Yet, I expect to keep working on it.
+
+P.S. I wanted to attatch my ScreenCapture of the video but it was too large of a file, I will send it via Canvas
