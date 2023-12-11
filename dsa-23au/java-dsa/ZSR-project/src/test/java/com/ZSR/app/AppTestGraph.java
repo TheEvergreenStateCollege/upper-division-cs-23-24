@@ -5,6 +5,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import com.ZSR.app.Graph;
+import com.ZSR.app.GraphMatrix;
+import com.ZSR.app.GraphSparse;
+import com.ZSR.app.Graph.Edge;
+
 /**
  * Unit test for simple App.
  */

@@ -40,10 +40,6 @@ public class Rank {
         tiebreaker.put("HIGH_CARD A", 23);
 }
 
-//* tie HashMap will be used in the event of a tie, finding the highest card in the relevant grouping of cards, 
-     //* in the unlikely event of a that grouping of cards still tie (like if one or two pairs happen to do so), 
-     //* then the next highest relevant grouping will determine the winner (and so on in hypothetical increasingly unlikely tie-breaking scenarios).
-     //*  Flushes and straights that result in a perfect tie will make both players winners, pot will be split.
      
      public static HandType evaluateHand(List<Card> hand) {
          HashMap<Card.Value, Integer> Counter = new HashMap<>();

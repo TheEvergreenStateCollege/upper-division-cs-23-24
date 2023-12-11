@@ -9,8 +9,7 @@ public class Card {
     enum Value {
         TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
     }
-    
-    
+       
     private final Suit suit;
     private final Value value;
     
@@ -31,11 +30,4 @@ public class Card {
     public String toString() {
         return value + " of " + suit;
     }
-    
-    public HashMap<Card.Suit, Integer> flushCheck;
-    public HashMap<Card.Value, Integer> counter;
-
-    
-
-
 }

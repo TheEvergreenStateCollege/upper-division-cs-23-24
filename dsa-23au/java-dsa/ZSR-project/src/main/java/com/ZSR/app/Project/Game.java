@@ -32,10 +32,11 @@ public class Game {
         ComputerPlayer computerPlayer = new ComputerPlayer("AI", 100, strategies);
         ComputerPlayer robotPlayer = new ComputerPlayer("Robot", 100, strategies);
 
-        Queue<Player> table = new LinkedList<>(); 
+        Deque<Player> table = new ArrayDeque<>();
         table.add(player);
         table.add(computerPlayer);
         table.add(robotPlayer);
+        
 
         
         isEarlyPosition = true;
@@ -69,7 +70,16 @@ public class Game {
             System.out.println(p.getName() + " bets " + bet + " CHIPS. POT is at " + pot + " CHIPS.");
         }
 
-        player.redraw(deck, scanner);
+        for (Player p : table) {
+            if (p instanceof ComputerPlayer) {
+                ((ComputerPlayer) p).redraw(deck);
+            } else {
+                player.redraw(deck, scanner);
+                // Logic for human players to redraw
+            }
+        }
+
+        //player.redraw(deck, scanner);
         player.sortHand();
         player.showHand();
         Rank.HandType handType = Rank.evaluateHand(player.getHand());

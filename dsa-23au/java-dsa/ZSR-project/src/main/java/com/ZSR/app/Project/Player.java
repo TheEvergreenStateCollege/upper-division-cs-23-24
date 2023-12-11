@@ -2,9 +2,9 @@ package com.ZSR.app.Project;
 import java.util.*;
 
 public class Player {
-    private String name;
-    private List<Card> hand;
-    private int chips;
+    protected String name;
+    protected List<Card> hand;
+    protected int chips;
 
     public Player(String name, int startingChips) {
         this.name = name;
