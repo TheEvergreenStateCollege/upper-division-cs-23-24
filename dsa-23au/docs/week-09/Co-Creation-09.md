@@ -353,3 +353,71 @@ Question: How should we license our co-created work in the DSA class, and how do
 
 
 Answer: I think that we should license our projects under the GPL, so that they remain publicly accessible (if authors consent) and available to whoever may need to use the material. I'd like to license my project under the same license.
+
+
+------------------David Dunston----------
+
+
+What's enjoyable to me about computer science is I'm actually able to control my environment or be of some type of sorting an algorithmic data chaser that organizes and puts files where they need to be that's something that's psychologically just satisfying to me.
+
+What would you like to do with a computer science, electronics engineering, and liberal arts education after graduating from Evergreen?
+
+I would like to go on to help nonprofits organize their data and be a competitor in the global market where they would not normally be able to afford the infrastructure or the back end I would be I would like to be able to set it up for them in a philanthropist way. 
+
+    What question, book, article, quote, movie about computation, electronics, and society is interesting to you at the moment?
+
+It may not be completed related to computer science but a reoccurring version I have is of the 1970s version of the movie the Day the Earth stood still where technology was introduced into society and we quite literally attacked it because of the lack of understanding.
+
+    What do you wish you had known before beginning your CS or electronics studies at Evergreen, that you can tell incoming students to Computer Science Foundations or Electronics and Music?
+
+I wish I would've known that I was over complicating everything and that it wasn't that complicated when I was trying to understand it was more so the anxiety that I put on needing to understand everything all at once. So in shorter words to not be so hard on yourself.
+
+    Name all faculty members that you know of, or can search in the course catalog or faculty directory, who practice and teach computation at Evergreen?
+
+I can name Paul Richard and all the other faculties use computers to do their programs but it's not necessarily computer science faculty there more music science faculty and that would be Andrew Bockman been Grenada I don't know their last names unfortunately that would be a total of five but this is just my first quarter out here at Evergreen.
+
+    What changes would you like to see in the computing or electronics culture (including academic computing support, electronic music programs, clubs, CS programs) at Evergreen if any?
+
+I would like to see more language-based workshops and just computer science computer literacy technology assistance workshops in general. Possibly a field trip or more data scientist who work at the capital building to come and speak on their experience local computer science experts to come speak.
+
+    What independent CS- or electronics- related projects or research would you like to pursue at Evergreen?
+
+I would like to pursue a course cataloging infotainment map/app of some sorts that allow people to find their classes easily and I would also like to build an app that archived in cataloged my independent music catalog
+
+    Student-led clubs like WORMS have done strong work in engaging with the CS community, having fun with computation, and helping them find employment in the tech industry. What ideas do you have to cultivate an even more welcoming atmosphere and environment for diversity newcomers entering the CS or electronics field? (I confess, I don't know much about women and underrepresented minorities in electronic music fields, but I suspect it is more diverse)
+
+I would like to come up with like a welcome video that you could scan and be given a direct re-of resources even if no one is available to speak to you directly in the worms club you can be caught up on any events or resources that may have been spoken about.
+
+    What program or CS / electronics material would you like to learn at Evergreen that we currently do not offer?
+
+
+
+    What communication do you feel is missing, or could be strengthened, between Evergreen CS / electronics faculty and students?
+
+As a new student I was overwhelmed by just being immersed in a community of belonging or better yet like I've understanding not to be so high strong on completing tasks but more of the experience of learning and being in an environment that fosters growth in mistakes as well as perfection.
+
+Explaining to students that perfection would come after participation will highly be recommended to make a core value because I know a lot of students can feel left out sometimes going into week three and four hours things can seem very abstract still at that point.
+
+    How can we better market or present our brand as Evergreen CS / electronics to prospective students in the PNW area?
+
+Creating more front end user experiences and user interfaces that allow people to connect and interact remotely with the program would get people excited about the program definitely
+
+    What other discipline would you like to see combined with CS / electronics in a multi-disciplinary future program?
+
+I would definitely like to see a combination of hardware-based programming that could take a programmable logic controllers in various industry standard tools that are used every day to work on different hardware that we use software on.
+
+    What challenges do you see facing the CS / electronics curriculum in the future at Evergreen? How should we meet it?
+
+Communication is an ongoing challenge in every industry and disciplinarian and society is in a growing of knowledge and technology so to continue to meet that need is a continue to have open dialogue and a real open door policy and information and resources but truly fostering a community of belonging helps people feel comfortable sharing their opinions and thoughts that grow communication overall.
+
+    If there were a dedicated space at Evergreen for CS / electronics projects and events, what features would you want from it?
+    What questions do you have about CS / electronics classes in Winter quarter for faculty?
+
+    Who in the tech field would you like to invite to teach at Evergreen? It can be an example or archetypal person, or someone with influential work that you've read about.
+
+I would love to invite you on musk to Evergreen to speak to students and faculty but there are also some people who work in AutoCAD and unreal engine that I would love to have come down especially anyone who works at Nintendo
+
+    What question related to CS / electronics education at Evergreen has not been asked on this survey that you would like to answer? (and please also include your answer)
+
+I would ask a question what did you like most about computer science and the electronics education at Evergreen
+And my answer would be that people were very passionate about their projects and where they see themselves in the future in the community. 
