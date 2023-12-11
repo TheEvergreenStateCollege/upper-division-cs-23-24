@@ -155,3 +155,8 @@ These tests test each individual script that was written for the project, and gi
 Upon completion of the test, relevant information will be printed to the console. 
 
 To run the tests, set your terminal path to be `upper-division-cs/dsa-23au/java-dsa/faulkdfdawsonwhi-app/DataProject/tests` and run command `python -m unittest <FILENAME>.py`
+
+
+## **Demo:**
+
+A demonstration video of the main functionality of the project can be found here: https://youtu.be/tIQU3vuzreA
