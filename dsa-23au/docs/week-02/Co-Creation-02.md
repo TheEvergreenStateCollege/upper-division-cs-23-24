@@ -47,3 +47,10 @@ Looking back through my notes. Ah what fun!
 4. the flowchart in Cracking the Coding Interview was fun. I like explanations that include a visual aid. 
 5. Specifically, the point on the map "Be confident (not cocky)" is such an important point. lots of people may have extraordinary skills, but if they are fundamentally difficult to be around, they arent usefull in a team setting. 
 
+
+david Dunston 
+1. I this week was a very important week for me I learned a lot about Hash Mabs and a raise while in class I was still trying to figure out just the process of how to do the homework
+2. There's a lot of things on my mind all week to you about the class is a Coke creation and I'm not sure if the part that I'm doing in class actually contributed
+3. What I can understand the link this is pretty much a list that is categorized and sorted through by the algorithm and keep track of by every cell in a consecutive order
+4. At this point I do remember feeling overwhelmed and that I've put myself into too much of a task and so I looked into dropping out of this course
+5. Overall I'm very grateful I did not come out of the course I ended up going to the library and getting the big red book and doing YouTube's of what Java code was all about
