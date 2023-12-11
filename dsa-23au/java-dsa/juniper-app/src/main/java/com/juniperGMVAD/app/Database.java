@@ -9,10 +9,14 @@ import com.juniperGMVAD.app.Enum.Country;
 import com.juniperGMVAD.app.Enum.Indicator;
 import com.juniperGMVAD.app.YearValue.YearValue;
 import com.juniperGMVAD.app.HashMap.*;
+import com.juniperGMVAD.app.HashMap.HashMap;
+
+import static java.util.stream.Collectors.averagingDouble;
 
 import java.time.Instant;
 import java.util.*;
 import com.juniperGMVAD.app.BinaryHeap.BinaryHeap;
+
 
 public class Database {
     HashMap<Country, CountryData> countryData = new HashMap<Country, CountryData>();
@@ -174,7 +178,7 @@ public class Database {
 
         targetCountry.printLastUpdatedDebug();
     }
-    public float getTop40ContCorrNNIMVA(int startYear, int endYear) {
+  public double getTop5ContCorrNNIMVA(int startYear, int endYear) {
 
         Comparator<Country> gmvaComparator = Comparator.comparingDouble(country -> {
             return getYearValue(country, Indicator.PGMVA, endYear);
@@ -183,15 +187,15 @@ public class Database {
         BinaryHeap<Country> gmvaHeap = new BinaryHeap<>(gmvaComparator);
 
         
-        for (Country country : countryData.keySet()) {
-            gmvaHeap.insert(country);
+        for (Map.Entry<Country, CountryData> entry : countryData.entrySet()) {
+            gmvaHeap.insert(entry.getKey());
         }
 
 
         List<YearValue> nniValues = new ArrayList<>();
         List<YearValue> gmvapValues = new ArrayList<>();
-
-        for (int i = 0; i < 40 && !gmvaHeap.isEmpty(); i++) {
+        List<Float> corrlist = new ArrayList<>();
+        for (int i = 0; i < 5 && !gmvaHeap.isEmpty(); i++) {
             Country country = gmvaHeap.deleteMax(); 
 
           
@@ -201,19 +205,24 @@ public class Database {
       
             nniValues.addAll(nniYearValues);
             gmvapValues.addAll(gmvapYearValues);
+            nniValues.sort(Comparator.comparingInt(YearValue::getYear));
+            gmvapValues.sort(Comparator.comparingInt(YearValue::getYear));
+    
+            double[] nniValuesArr = valuesAsArray(nniValues);
+            double[] gmvapValuesArr = valuesAsArray(gmvapValues); 
+            corrlist.add(GetValueCorrelation.getCorrTwoValues(nniValuesArr, gmvapValuesArr));
+            
         }
-
-        nniValues.sort(Comparator.comparingInt(YearValue::getYear));
-        gmvapValues.sort(Comparator.comparingInt(YearValue::getYear));
-
-        double[] nniValuesArr = valuesAsArray(nniValues);
-        double[] gmvapValuesArr = valuesAsArray(gmvapValues); 
-
-        float corr = GetValueCorrelation.getCorrTwoValues(nniValuesArr, gmvapValuesArr);
-        return corr;
+        double avgcorr = calculateAverage(corrlist);
+        return avgcorr;
         
     }
-
+    private double calculateAverage(List <Float> marks) {
+        return marks.stream()
+                    .mapToDouble(d -> d)
+                    .average()
+                    .orElse(0.0);
+    }
 
     public double[] valuesAsArray(List<YearValue> yearValues) {
         if (yearValues == null) {
@@ -229,6 +238,7 @@ public class Database {
         return valuesArray;
     }
 
+    
 }
 
     /*HashMap<String,HashMap<Integer,CountryData>> data;

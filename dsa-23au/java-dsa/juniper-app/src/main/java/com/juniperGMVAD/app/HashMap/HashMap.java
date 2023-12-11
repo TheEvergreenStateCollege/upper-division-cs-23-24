@@ -2,6 +2,7 @@ package com.juniperGMVAD.app.HashMap;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.*;
 
 public class HashMap<K, V> {
     private final static int CAPACITY_DEFAULT = 64;
@@ -214,4 +215,18 @@ public class HashMap<K, V> {
             }
         }
     }
+
+        public Set<Map.Entry<K, V>> entrySet() {
+            Set<Map.Entry<K, V>> entrySet = new HashSet<>();
+    
+            for (Entry<K, V> entry : table) {
+                Entry<K, V> currEntry = entry;
+                while (currEntry != null) {
+                    entrySet.add(new AbstractMap.SimpleEntry<>(currEntry.key, currEntry.value));
+                    currEntry = currEntry.next;
+                }
+            }
+    
+            return entrySet;
+        }
 }

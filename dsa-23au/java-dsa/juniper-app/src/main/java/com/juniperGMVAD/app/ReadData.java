@@ -13,11 +13,12 @@ import java.util.regex.Pattern;
 import com.juniperGMVAD.app.Enum.Country;
 import com.juniperGMVAD.app.Enum.Indicator;
 import com.juniperGMVAD.app.YearValue.YearValue;
+import com.juniperGMVAD.app.Database.*;
 
 public class ReadData
 {
     private Database database;
-    private Database database;
+
 
     public ReadData(Database database)
     {
@@ -27,6 +28,10 @@ public class ReadData
     public void loadAndProcess(String csv_filepath) {
         List<List<String>> tokenized = readAndTokenizeCSV(csv_filepath);
         readMVAIntoDatabase(tokenized);
+    }
+    public void loadAndProcess2(String csv_filepath) {
+        List<List<String>> tokenized = readAndTokenizeCSV(csv_filepath);
+        readNNIIntoDatabase(tokenized);
     }
 
     public void readMVAIntoDatabase(List<List<String>> tokenized) {
@@ -48,8 +53,31 @@ public class ReadData
 
             for (YearValue yearValue : yearValues) {
                 database.setYearValue(country, Indicator.MVA, yearValue.year, yearValue.value);
-            }
+           
+             }
+             }
         }
+        public void readNNIIntoDatabase(List<List<String>> tokenized) {
+            for (List<String> line : tokenized.subList(5, tokenized.size())) {
+                String countryCode = line.get(1);
+    
+                int year = 1960;
+                List<YearValue> yearValues = new ArrayList<YearValue>();
+                for (String value : line.subList(4, line.size())) {
+                    if (!value.isEmpty()) {
+                        yearValues.add(new YearValue(year, Double.parseDouble(value)));
+                    } else {
+                        yearValues.add(new YearValue(year, -1d));
+                    }
+                    year++;
+                }
+    
+                Country country = Country.valueOf(countryCode);
+    
+                for (YearValue yearValue : yearValues) {
+                    database.setYearValue(country, Indicator.MVA, yearValue.year, yearValue.value);
+                }
+            }
     }
 
     /*private void addCountryDataEntry(CountryDataEntry entry) {
