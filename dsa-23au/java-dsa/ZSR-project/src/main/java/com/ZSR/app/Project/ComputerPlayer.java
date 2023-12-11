@@ -11,14 +11,18 @@ public class ComputerPlayer extends Player {
         this.strategies = strategies;
     }
 
-    private String createStrategyKey(List<Card> sortedHand) {
-        Card highestCard = sortedHand.get(sortedHand.size() - 1);
-        Card secondHighestCard = sortedHand.get(sortedHand.size() - 2);
+    public void setHand(List<Card> newHand) {
+        this.hand = newHand;
+    }
+
+    public String createStrategyKey(List<Card> hand) {
+        Card highestCard = this.hand.get(this.hand.size() - 1);
+        Card secondHighestCard = this.hand.get(this.hand.size() - 2);
 
         String L1 = highestCard.getValue().toString();
         String L2 = secondHighestCard.getValue().toString();
     
-        String key = L1.substring(L1.length() - 1) + L2.substring(L2.length() - 1);
+        String key = L1.substring(0, 2) + L2.substring(0, 2); //CSV data sorted by first two characters of rank
     
         if (highestCard.getSuit() == secondHighestCard.getSuit()) {
             key += "s";
@@ -28,8 +32,8 @@ public class ComputerPlayer extends Player {
     }
 
     public int compBet(int chips) {
-        List<Card> sortedHand = sortHand();
-        String strategyKey = createStrategyKey(sortedHand);
+        this.hand = sortHand();
+        String strategyKey = createStrategyKey(this.hand);
         
         int pot = Game.getPot();
         int lastBet = Game.getLastBet();
@@ -50,8 +54,7 @@ public class ComputerPlayer extends Player {
         this.isEarlyPosition = isEarlyPosition;
     }
     
-
-    private String chooseActionBasedOnStrategy(PokerStrategy strategy, String gameState) {
+    public String chooseActionBasedOnStrategy(PokerStrategy strategy, String gameState) {
         String action;
     
         if (isEarlyPosition) {
@@ -89,22 +92,20 @@ public class ComputerPlayer extends Player {
         return action;
     }
     
-    
-
     private int determineBetAmount(String action, int chips) {
         switch (action) {
             case "Fold":
-                return 10; 
+                return 0; 
             case "Call":
                 return Game.getLastBet();
             case "Raise":
                 return Game.getLastBet() + 10; 
             default:
-                return 20; 
+                return 0; 
         }
     }
 
-    private String determineGameState(int pot, int lastBet, int bet) {
+    public String determineGameState(int pot, int lastBet, int bet) {
         if (pot == 0) {
             return "UnopenedPot";
         } else if (lastBet > bet) {
@@ -115,6 +116,18 @@ public class ComputerPlayer extends Player {
             return ""; 
         }
     }
+
+    public void redraw(Deck deck) {
+        if (Rank.evaluateHand(this.getHand()) == Rank.HandType.HIGH_CARD) {
+            for(int i = 0; i < 3; i++)
+            this.hand.remove(0);   
+        } 
+        while(this.hand.size() < 5) {
+            this.hand.add(deck.deal());
+        }
+        this.hand = sortHand();
+    }
+
 
 
 }
