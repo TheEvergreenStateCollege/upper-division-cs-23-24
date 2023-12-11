@@ -160,3 +160,7 @@ To run the tests, set your terminal path to be `upper-division-cs/dsa-23au/java-
 ## **Demo:**
 
 A demonstration video of the main functionality of the project can be found here: https://youtu.be/tIQU3vuzreA
+
+## **Project Report**
+
+The report written about this project can be viewed here https://docs.google.com/document/d/1IypZSBBza4pVe6HGDHbhqerwBE_LCPpwXVLu0LDPxTQ/edit?usp=sharing
