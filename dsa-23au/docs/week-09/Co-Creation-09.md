@@ -303,3 +303,53 @@ Uuuhhh... I'm slightly confused on if we (as students) are supposed to answer th
 
     This one is predictable from my past answers but I’d love to see a hardware specialist come and teach a full programme.
     I don’t believe I can think of any other questions at this time. This survey was relatively comprehensive. 
+
+**Jonah Eadie Week 9**
+
+- A function signature defines the return and paramater types of a function.
+- A function declaration adds a function with a given return type and paramter types to the namespace the declaration is made in.
+- A return type is the type of the object or data returned by a method.
+- An array index is a location in an array. Arrays are a segment of memory in which objects of a particularly type are arranged sequentually. An index of an array is the nth object of this type within this segment.
+- A method is a function declared within a class namespace, often implicitly taking a pointer or reference to the class as an implied first paramaters.
+
+
+Question: What does it mean for software to be licensed as open source or closed source?
+
+
+Answer: Open source software is typically free (both "as in beer" and "as in freedom, as is often said in the open source software community), meaning that it is freely available and free of charge. Anyone can access and modify the source code of open source projects, those open source licenses differ on how those modifications may be distributed, most requiring crediting the original authors. Closed sourced software, on the other hand, does not freely distribute its source code or allow users to modify it. Most closed source projects are developed by corporations rather than volunteers, and often (though not always) users are required to buy the software before use.
+
+
+Question: Compare and contrast your favorite open source software and your favorite closed source software.
+
+
+Answer: My favorite open source software is the Emacs text editor, released by the GNU project, while my favorite closed source project is the VMWare virtualization suite. While the two applications are massively different in functionality, they each benefit from their respective licenses. Emacs is highly extensible and modifiable, and its features evolve according to community requests, oftentimes with the community supplying the code to meet these feature requests itself. There have been a large number of forks of the Emacs project, each fulfilling niche use case for different kinds of users. VMWare, on the other hand, does not feature much community involvement as it is a closed source project developed for profit. However, the profit motiviation in this case does come with the benefit that the application is designed to be incredibly simple and straightforward for users to use. While Emacs, as is typical with open source projects, emphasized extensibility and modifiability sometimes to the detriment of easy-use, VMWare tends to "just work" as it was designed to be accessible and to appeal to large number of customers.
+
+
+Question: How are they alike and different?
+
+
+Answer: EMACs and VMWare each have sizable user-bases who are committed to the products. They each do a good job in fulfilling their niches within their respective fields. They are different, however, in that the EMACs user community tends to be much more involved in the development of the project than VMWare's.
+
+
+Question: Why do you like them?
+
+
+Answer: I like EMACs because it gives users tremendous control over their text-editing. It's possible to use EMACs as an IDE, an email client, a web browser, a terminal emulator, et.c. VMWare is very effective at virtualizing a large host of operating systems.
+
+
+Question: Why do you think it was released under its license?
+
+
+Answer: EMACs was released under the GPL to align with the GNU foundation's commitment to free and libre software, allowing users to read, modify, and redistribute modifications to source code. VMWare is closed source as its creators intended to release it as a product for money.
+
+
+Question: How do you think detractors of these pieces of software and the way they are licensed would describe their objections to it?
+
+
+Answer: EMACs detractors would probably argue that its being an open source project often times leads the code base to emphasize features intended for super users to the neglect of ease-of-use for beginners, whereas VMWare detractors would argue that its being closed source prevents users from knowing fully how the software works, what it may be doing on their system, and prevents users from adding or modifying features to meet their use case.
+
+
+Question: How should we license our co-created work in the DSA class, and how do you wish to license your individual project, if at all?
+
+
+Answer: I think that we should license our projects under the GPL, so that they remain publicly accessible (if authors consent) and available to whoever may need to use the material. I'd like to license my project under the same license.
