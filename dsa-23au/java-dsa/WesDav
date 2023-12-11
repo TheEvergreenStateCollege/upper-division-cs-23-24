@@ -1,0 +1,45 @@
+
+// Importing importing necessary dependencies
+
+    /*
+     * Complete the 'getTotalX' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY a
+     *  2. INTEGER_ARRAY b
+     */
+
+
+        // Find the LCM of array a
+      
+        // Find the GCD of array b
+        
+        // Count the multiples of lcmA that evenly divide gcdB
+    
+    // Method to calculate the Least Common Multiple (LCM) of an array
+
+
+    // Method to calculate the Greatest Common Divisor (GCD) of two numbers
+   
+
+
+    // Method to calculate the Greatest Common Divisor (GCD) of an array
+   
+    // method to create buffer output lines
+
+
+// create a string and puts both integers in two different arrays
+
+    
+
+// lists both arrays and maps them to an object
+
+        
+
+// List the total of both arrays as a sum 
+        
+
+// return the buffer writer of the string value total to be printed and the reader to close out when its done 
+     
+
