@@ -1,5 +1,6 @@
 # Economic Indicator Calculator
 Written by Jonah and Juniper
+Brief video demonstration: https://www.youtube.com/watch?v=O4RcfU27PSk
 
 # Inspiration
 Juniper and I were inspired to write a calculator for deriving values for economic indicator because
