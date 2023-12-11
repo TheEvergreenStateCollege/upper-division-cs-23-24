@@ -71,7 +71,7 @@ public class PokerTest {
     @Test
     public void testReadStrategyCSV() {
         StrategyReader strategyReader = new StrategyReader();
-        Map<String, PokerStrategy> strategies = strategyReader.readStrategyCSV("/workspace/upper-division-cs/dsa-23au/java-dsa/MarmotBathTime/src/main/resources/poker_strategy_subset.csv");
+        Map<String, PokerStrategy> strategies = strategyReader.readStrategyCSV("/workspace/upper-division-cs/dsa-23au/java-dsa/ZSR-project/src/main/resources/poker_strategy_subset.csv");
         assertNotNull(strategies);
         assertFalse(strategies.isEmpty()); 
     }

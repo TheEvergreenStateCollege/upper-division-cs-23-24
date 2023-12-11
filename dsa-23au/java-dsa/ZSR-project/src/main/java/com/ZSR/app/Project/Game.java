@@ -19,7 +19,7 @@ public class Game {
         return lastBet;
     }
     public static void main(String[] args) {
-        String filePath = "dsa-23au/java-dsa/MarmotBathTime/src/main/resources/poker_strategy_subset.csv"; 
+        String filePath = "dsa-23au/java-dsa/ZSR-project/src/main/resources/poker_strategy_subset.csv"; 
         StrategyReader strategyReader = new StrategyReader();
         Map<String, PokerStrategy> strategies = strategyReader.readStrategyCSV(filePath);
         Scanner scanner = new Scanner(System.in);
