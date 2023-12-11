@@ -46,3 +46,10 @@ Getting the GitHub repo set up on my personal machine with VSCode is an absolute
 Somehow programming languages don’t feel intuitive to learn for me. I am very good at describing (in English) what I want a simple program to do, but I have trouble remembering how to express my feelings in a programming language; java or otherwise. 
 
 Thats all, just a couple complaints. 
+
+
+**Jonah Eadie**
+
+This week, Juniper and I began to expand the scope of our project and plan out modifications to the codebase to make it better open to new features and modifications. Instead of using data structures (i.e. hashmaps, arrays) as taken from the Java standard library directly in our business code, we've decided to split these structures into their own classes so that we'll be able to modify their representation without needing to make extensive changes to business code as well.
+
+While my Java skills and knowledge have increased using Java in this class, I'm beginning to miss features from other languages. C++ generics feel massively more developed and extensible than generics in Java. Template specialization would have made a certain feature in our project much easier to implement, but because Java doesn't feature template specialization we were forced to use a more OOP solution which was more verbose.
