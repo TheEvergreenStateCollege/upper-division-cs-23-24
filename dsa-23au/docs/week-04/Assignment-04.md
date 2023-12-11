@@ -106,3 +106,14 @@ challenges and participation activities leading up to the labs.
   * 30 points
 * [Lab 8.7 Heaps (Priority Queues)](https://learn.zybooks.com/zybook/EVERGREEN10034PhamWinter2024/chapter/8/section/7)
   * 40 points
+
+
+David Dun Co -Creation 
+1. Upon navigating to this assignment the first initial reading assignment link does not work it returned back to valueCannot find a valid ref in 
+
+learner-array-links/dsa-23au/docs/week-04/Readings-04.md
+
+2. I believe I was able to look for other pull request and write sentences and responses on them I'm hoping that this suffices for a week twos are we for his assignment from here I still have not decided on whether I'm going to be in a group or working for myself
+3. I did a lot of research independently on binary search trees and heaps which are priority cues but I don't know whether my hacker rank will suffice for the laboratory problems
+4. I'm going to try to get on the books tonight but I am currently not in a financial position to purchase that this year
+5. Eventually our final project was chosen and we did create a maven project in the name that is structures 2380 under Java DSA under torsten /David
