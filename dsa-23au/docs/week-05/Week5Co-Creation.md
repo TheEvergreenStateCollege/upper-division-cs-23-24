@@ -98,3 +98,23 @@ The biggest thing that I think is about to maybe shock the industry is the devel
 
 DavidDunston 
 I know a lot about computers but the girl the computer science is ever changing and evolving especially due to the expansion of technology in general what was theory becomes practice and most theories become facts after a short amount of time just because the good or bad data isn't good or bad outcomes does not mean it's not qualitative to the greater theory of the science altogether. As far as AIM goes I am excited to see where it can help people develop their thoughts and concepts into concise ideas and helping the collaborative efforts that while I was to further grow our productivity in every industry and every market I'm not a frayed of disruptive in the current markets hopefully we can put essence. Did you need list greed of capital ism and work more with efforts to bring people into a balance of some kind. I learned a lot through hackathon and mostly just sit being that there's a lot of room for growth and opportunity opportunities and you don't have to start big you can start small one of the things I loved about the hackathon is that we were able to see just how quasi and down to earth a lot of the recruiters and people who work in tech are it's not some big scary place where people don't like to collaborate it's actually the opposite or collaboration is what drives the industry.
+
+**Harlee's Notes**
+<b>AI for Learning</b>
+- How do you think the increasing availability and quality of AI chat and large learning models will affect the software industry in the near future?
+	- I think there is a fear of loss of work with the increase in availability and quality of AI. Why hire someone to code when the AI can do it for you? Some say that AI can be unreliable and needs someone to keep in check, but it could be a matter of time. I wonder if implementing universal rules or guidelines to make sure humans are completely replaced. One day we as humans might not have to depend on working to survive, we can be passionate about things that we like and freely learn and study things we enjoy. The AI can take my job if I didn't have to worry about keeping a roof over my head or food on my plate.
+
+- What philosophy or guidelines can you adopt to make your learning effort on the right level of engagement for a flow state, engagement between boredom and overwhelm?
+	- When I think of AI, I first think about the risks and concerns I have for the art community and I think this can translate into computer science students as well. If handled improperly, AI can be used for immediate satisfaction or solution. The challenge is lost. Asking for assistance or for clarification is understandable and can be a helpful tool in learning, but there is a risk, an easy way out. It takes a bit of integrity to not ask for the solution out right. I personally will find myself looks for immediate answers if I am overwhelmed, I have been trying to get better at asking more open questions, or asking for clarification.
+
+<b>Prepare for the Hackathon</b>
+	- What are you looking forward to, or could you look forward to, in the hackathon?\
+		- I could. This hackathon seemed to focus on job searching, portfolio building, and interview success. Which is good to learn, I am not apposed to that. 
+	- What are some concerns you have or challenges we might encounter in the hackathon?
+		- Time. 
+	- What well-defined, one-weeks' worth of difficulty piece of your final project do you hope to complete for your hackathon submission / entry?
+		- I am hoping to catch one of the data science livestreams. They might be able to walk through some implementations. Maybe show real world applications of some algorithms. From what I saw, I don't know if I'll be able to catch some of those in person, but they should have previous streams saved. 
+	- What resources, work, or tools (software or otherwise) do you think all of us will need to succeed in the hackathon, that we can prepare in advance?
+		- A twitch account for sure. If we want to interact and ask questions during livestreams I think you need an account to comment. It is free so that is no stress. A good internet is another thing. Jupiter, visual studio code, and a nice markdown software wouldn't hurt. 
+	- How will you judge whether the week was a successful experience or not?
+		- I suppose how students feel during and after the hackathon? I am curious to know which streams students were most interested in and if they were able to make those.
