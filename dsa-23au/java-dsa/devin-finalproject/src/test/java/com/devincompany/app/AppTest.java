@@ -28,7 +28,7 @@ public class AppTest
     @Test
     public void addMessageTest() throws FileNotFoundException, IOException, ParseException 
     {
-        String[] args = {"dataoperations","coolmatrix","one"};
+        String[] args = {"dataoperations","notabledays"};
         
         MessagesReader.main(args);
     }

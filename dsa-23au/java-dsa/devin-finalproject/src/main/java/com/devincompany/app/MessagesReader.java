@@ -127,6 +127,10 @@ public class MessagesReader
             {
                 System.out.println(DataOperations.highestMessages(messagesPerDay));
             }
+            if (args[1].equals("notabledays"))
+            {
+                System.out.println(DataOperations.notableDays(messagesPerDay));
+            }
             if (args[1].equals("coolmatrix"))
             {
                 

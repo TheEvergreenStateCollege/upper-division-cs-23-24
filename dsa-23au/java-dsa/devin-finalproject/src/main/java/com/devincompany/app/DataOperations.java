@@ -51,7 +51,7 @@ public class DataOperations
     public static ArrayList<ArrayList<Integer>> notableDays(ArrayList<Integer> messagesPerDay)
     {
         ArrayList<ArrayList<Integer>> notableDays = new ArrayList<ArrayList<Integer>>();
-        for (int i = 0; i < messagesPerDay.size(); i++)
+        for (int i = 1; i < messagesPerDay.size(); i++)
         {
             if (messagesPerDay.get(i)/messagesPerDay.get(i-1) > 0.75)
             {
