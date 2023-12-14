@@ -421,3 +421,65 @@ I would love to invite you on musk to Evergreen to speak to students and faculty
 
 I would ask a question what did you like most about computer science and the electronics education at Evergreen
 And my answer would be that people were very passionate about their projects and where they see themselves in the future in the community. 
+
+
+-------------------------------------------------------Nathan Deanon--------------------------ndeanon25
+
+## Co-Creation Week 9
+
+Open Source is the use of shared sourcecode, and collaboration among software developers and users worldwide to build software, identify and correct errors, and make enhancements. While closed source software focuses on control, proprietary rights, and often a business-centric approach. Both have their places in the software ecosystem, catering to different needs and philosophies. Signal and X are both open-source software I use daily. Signal is used mostly with my unit and X for social media. My favorite closed software is iOS. I am basically embedded in the apple ecosystem. Apple’s iOS is very intuitive and easy to use. X is social media while signal is just an encrypted messaging app. IOS is its own operating system that runs its own softwares. For my project I would put them open source cause it is just a simple hangman game, and I would want other people to put their own spin on it.
+
+### How did you become interested in computer science or electronics?
+
+I was interested in CS when I took my first stats class and we used R. I thought this was actually exciting and modern that we are using computers to figure out our tough problems. I also took a robotics class in high school and this was the introduction into coding and seeing how fun coding is. 
+
+### Day-to-day, what is enjoyable about studying and practicing CS or electronics to you?
+
+I love learning about new ways to figure out problems. There are always going to be a math problem or a dataset that is just overwhelming and with the power of programming, we could try to figure it out.
+
+### What would you like to do with a computer science, electronics engineering, and liberal arts education after graduating from Evergreen?
+
+I would like to work as a Disney Imagineer. I have always been a huge Disney fan and to be able to work on the movies, or the rides would be exciting. I would also love the chance to work on a video game, whether it is just a small indie game or a crazy triple A title. I would love to have that experience.   
+
+### What question, book, article, quote, movie about computation, electronics, and society is interesting to you at the moment?
+
+At the momment, gaming is a big part of my life. My love of video games has always been there. So this could mean anything from a mobile game, to those old flash games on the internet to Call of Duty.  
+
+### What do you wish you had known before beginning your CS or electronics studies at Evergreen, that you can tell incoming students to Computer Science Foundations or Electronics and Music?
+
+Before beginning my CS studies, I would like more critical thinking and math classes. It is hard to wrap my brain around some data structures and I have to really focus on how it is implemented. I would have liked to learn Linux or git since I had no prior understanding of how it works. 
+
+### Name all faculty members that you know of, or can search in the course catalog or faculty directory, who practice and teach computation at Evergreen?
+
+I have only been here for this quarter and I only know the three main ones. 
+
+### What changes would you like to see in the computing or electronics culture (including academic computing support, electronic music programs, clubs, CS programs) at Evergreen if any?
+
+I would like to see more CS classes. CS is just a really broad subject, I would love a game design class, or a robotics class, or Machine Learning. There are so many subjects we could learn and talk about. Some of these classes could be open to other students like artist that would learn more about game design. Something along that line.  
+
+### What independent CS- or electronics- related projects or research would you like to pursue at Evergreen?
+
+I would love time to work on a video game. I would also love time to work on different datasets that could help the general public and share it to the world. 
+
+### What communication do you feel is missing, or could be strengthened, between Evergreen CS / electronics faculty and students?
+
+I feel like we had great communication through our DSA class. While there were times where I felt lost and the repo was confusing to just find my assignments. It was overall great. The only things are the repo is hard to navigate through. We could go over assignments since I spent a lot of time on. The pair programming was great sometimes, but when both the driver and the navigator does not understand the problem, it is hard to get going.
+
+### How can we better market or present our brand as Evergreen CS / electronics to prospective students in the PNW area?
+
+We could have more workshops that are open to not just CS people. We can talk about topics that relate to everybody. 
+
+### What other discipline would you like to see combined with CS / electronics in a multi-disciplinary future program?
+
+I liked that we had a changemakers class, it does seem like an interesting idea but we could work with other sciences like ecology to track birds or other sciences since CS is in everything. 
+
+###What challenges do you see facing the CS / electronics curriculum in the future at Evergreen? How should we meet it?
+
+We should have more math classes in our upper division CS classes. There are some data structure and algorithms that I could not wrap my brain around.
+
+### Who in the tech field would you like to invite to teach at Evergreen? It can be an example or archetypal person, or someone with influential work that you've read about.
+
+Square workers. I heard they love their job, and also someone from Seattle like from Microsoft or Tmobile would be nice to listen and learn from. 
+    
+-----------------------------------------------------------------------------------
+   
