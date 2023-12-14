@@ -28,8 +28,8 @@ public class AppTest
     @Test
     public void addMessageTest() throws FileNotFoundException, IOException, ParseException 
     {
-        String[] args = {"addmessages","7","6/6/6"};
+        String[] args = {"dataoperations","coolmatrix","one"};
         
-        //assertEquals(7,MessagesReader.addMessages(args));
+        MessagesReader.main(args);
     }
 }
