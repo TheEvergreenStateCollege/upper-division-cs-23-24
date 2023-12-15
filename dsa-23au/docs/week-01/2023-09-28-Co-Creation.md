@@ -150,4 +150,8 @@ Juniper - Lucretian
 -I was excited about the idea of pairprogramming and working with others over shared code while still doing independent development. 
 -Learning gitpod was extremely clumsy. 
 
-
+///riparian///
+Looking back on the first weeks of DSA, I would say the most important thing you can do to 'get ahead' is to
+become extremely familiar with all of the gitpod and web based github interfaces.  Even if you don't like using them,
+and prefer CLI.  I also would advise trying to find someone to work with early on, because it will not be possible
+to do all of the assignments as required for the points if you have to rely on spontaneous collaboration.
