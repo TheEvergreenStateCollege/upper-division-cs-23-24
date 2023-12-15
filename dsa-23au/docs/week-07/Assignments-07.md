@@ -1,5 +1,7 @@
 # Assignment 07
 
+(100 points total)
+
 Read the [Readings-07](Readings-07.md) and write your responses
 to any prompts in  [Co-Creation-07](Co-Creation-07.md)
 
