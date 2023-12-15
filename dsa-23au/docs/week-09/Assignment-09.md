@@ -1,14 +1,31 @@
 # Assignment Week 9
 
+(100 points total)
+
 For all work on your final project below, commit these code changes to your project directory in
 `java-dsa` or `python-dsa`, depending on which language you are using.
 
-## 1. Readings
+This assignment is mirrored in the following locations. They are identical, and you can read either of them to get complete information for completing the assignment.
+
+[Link to public course website.](https://theevergreenstatecollege.github.io/upper-division-cs/dsa-23au/week-09/Assignment-09/)
+
+[Link to GitHub markdown file.](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/dsa-23au/docs/week-09/Assignment-09.md)
+
+[Link to Canvas assignment (mirror)](https://canvas.evergreen.edu/courses/5926/assignments/110976).
+
+This assignment can be completed either using [Traditional Textbook Readings / GitHub Pull Requests](#path-1-traditional-textbook-readings-and-github-pull-requests), or using [zyBooks](#path-2-zybooks). You only have to choose one path.
+
+## Path 1: Traditional Textbook Readings and GitHub Pull Requests
+
+This week's reading and co-creation assignment has five parts, with point values for each part listed after each heading. They total up to 70 points.
+
+
+### 1. Readings
 (20 points)
 
 Complete [Readings-09.md](Readings-09.md) and add your responses to [Co-Creation-09.md](Co-Creation-09.md).
 
-## 2. Final Project Documentation
+### 2. Final Project Documentation
 (10 points)
 
 Create a README.md in your project directory describing your project and how to demo it, so that
@@ -36,7 +53,7 @@ What's next for the project next quarter (as an app engineered for the web)
 
 ```
 
-## 3. Final Project Software Design Diagram
+### 3. Final Project Software Design Diagram
 (10 points)
 
 Create a mermaid class diagram showing how three of your Java classes relate to one another, and their fields.
@@ -44,7 +61,7 @@ Create a mermaid class diagram showing how three of your Java classes relate to 
 [The Mermaid tutorial on class diagrams provides a short background on Unified Modeling Language (UML)](https://mermaid.js.org/syntax/classDiagram.html)
 and how to use them to represent how your Java classes (and their members and methods) relate to one another.
 
-### Example
+#### Example
 
 Here's an example of a diagram you would place into your README.md, created in the previous problem, at the appropriate section.
 Create one similar to it, both a Mermaid diagram, and a text description describing how the classes relate to one another.
@@ -87,7 +104,7 @@ event loop that checks the time regularly, and when an appointment time
 comes, it pre-empts the `Clerk` with the shortest queue to take that
 driver.
 
-### Some Ways To Think of Design Diagrams
+#### Some Ways To Think of Design Diagrams
 
 You can think of UML as a "visual pseudocode", and another method for two humans
 to communicate on what code to write to solve a problem, or how code works that
@@ -106,7 +123,7 @@ I don't know of a widely-used (or even infrequently-used) equivalent for
 functional programs, and welcome contributions and co-creations in this
 regard.
 
-## 4. Final Project Dataset Operations
+### 4. Final Project Dataset Operations
 (20 points)
 
 Based on your work in Week 08, you defined two operations you'd like to perform on your dataset,
@@ -130,13 +147,13 @@ If you create a custom algorithm to calculate the average of a particular column
 Examine your classmates' [pull requests](https://github.com/TheEvergreenStateCollege/upper-division-cs/pulls), both closed and open, to see examples of how they chose
 their method names and how they have implemented them.
 
-## 5. Final Project Time and Space Analysis
+### 5. Final Project Time and Space Analysis
 (5 points)
 
 Analyze your two operations above. What is their complexity in Big-Oh notation, for both running time (CPU) and space (memory)?
 Justify your answer by referring to specific lines of code.
 
-## 6. Final Project Unit Test
+### 6. Final Project Unit Test
 (20 points)
 
 Write at least two of your unit tests, one to exercise each of your two dataset operations above,
@@ -151,7 +168,7 @@ mvn test
 
 (You will need to create 3 more unit tests, for a total of five, before you submit your final project).
 
-## 7. Complete Prim's algorithm for minimum spanning trees
+### 7. Complete Prim's algorithm for minimum spanning trees
 (20 points)
 
 In Week 9, we began designing a representation for nodes and edges for a Graph data structure.
@@ -169,3 +186,20 @@ Commit these files into your `java-dsa` or `python-dsa` personal projects on a b
 push to github, and create a pull request using our normal workflow.
 
 [GitHub Pull Request Workflow](https://github.com/TheEvergreenStateCollege/upper-division-cs/issues/60)
+
+## Path 2: zyBooks
+
+(70 points)
+
+You may complete the following chapter in the zyBook for DSA to receive credit for this assignment, doing all the challenges and participation activities leading up to the labs. These will give you all the background concepts to complete the labs.
+
+[Chapter 2: Algorithm Analysis and Big-Oh Notation](https://learn.zybooks.com/zybook/EVERGREEN10034PhamWinter2024/chapter/2/section/1)
+
+(this was assigned in a previous assignment, you only have to read it if you haven't done all previous assignments, or you need a review of Big-Oh notation)
+
+[Chapter 10: Graphs](https://learn.zybooks.com/zybook/EVERGREEN10034PhamWinter2024/chapter/10/section/1)
+
+No AI chat is allowed, but you may collaborate with classmates or TAs. After doing the readings of the chapters above, complete the labs at the following zyBook links.
+
+- [Lab 10.14 Graph representations](https://learn.zybooks.com/zybook/EVERGREEN10034PhamWinter2024/chapter/10/section/14)
+
