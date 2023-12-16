@@ -16,6 +16,7 @@ public class Runtime {
                 System.out.println("Press 3 to find the the day with the lowest sound level");
                 System.out.println("Press 4 to show credits for this project");
                 System.out.println("Press 5 to show Average Daily Step Count for this project");
+                System.out.println("Type 'add data' to add more data to CSV file");
 
                 System.out.println("Press Q to Quit");
 
@@ -63,7 +64,43 @@ public class Runtime {
                         double averageSteps = app.watchData.AverageDailyStepCount(); 
                         System.out.printf("Averge Daily Step Count: %5.2f \n" , averageSteps);
                         break;
-                
+
+                    case "add data":
+                    System.out.println("Enter Date:");
+                    String date = kb.nextLine();
+        
+                    // Collect steps
+                    System.out.println("Enter Steps:");
+                    int steps = Integer.parseInt(kb.nextLine());
+        
+                    // Collect distance
+                    System.out.println("Enter Distance:");
+                    double distance = Double.parseDouble(kb.nextLine());
+
+                    // Collect flgihts
+                    System.out.println("Enter Flgihts climbed:");
+                    int flights = Integer.parseInt(kb.nextLine());
+
+                    // Collect active energy 
+                    System.out.println("Enter active energy:");
+                    double calories = Double.parseDouble(kb.nextLine());
+
+                    // Collect handwashing
+                    System.out.println("Enter handwashing:");
+                    double handWashing = Double.parseDouble(kb.nextLine());
+
+                    // Collect resting energy 
+                    System.out.println("Enter resting energy:");
+                    double restingEnergy = Double.parseDouble(kb.nextLine());
+
+                    // Collect sound level
+                    System.out.println("Enter sound level:");
+                    double soundLevel = Double.parseDouble(kb.nextLine());
+        
+                    // Call the method in AppleWatchDataApp to append new data
+                    app.appendToCSV(date, steps, distance, flights, calories, handWashing, restingEnergy, soundLevel);
+                    System.out.println("Data added to CSV!");
+                        break;
 
                     case "Q":
                         running = false;

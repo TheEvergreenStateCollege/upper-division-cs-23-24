@@ -2,6 +2,8 @@ package com.ActivityTor.app;
 
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -71,8 +73,23 @@ public class AppleWatchDataApp
     public void showAllData(){
         watchData.printAllData(); // Print processed data
     }
-    
-}
 
-    
+    //Method to add data to csv
+    public void appendToCSV(String date, int steps, double distance, int flights, double calories, double handWashing, double restingEnergy, double soundLevel) 
+    {
+        String filePath = "resources/AppleWatchData_myData.csv";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            // Append new data in CSV format
+            String newData = date + "," + steps + "," + distance + "," + flights + "," + calories + "," 
+            + handWashing + "," + restingEnergy + "," + soundLevel;
+            writer.write(newData);
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+}   
 
