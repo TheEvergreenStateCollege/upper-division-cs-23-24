@@ -77,7 +77,7 @@ public class AppleWatchDataApp
     //Method to add data to csv
     public void appendToCSV(String date, int steps, double distance, int flights, double calories, double handWashing, double restingEnergy, double soundLevel) 
     {
-        String filePath = "resources/AppleWatchData_myData.csv";
+        String filePath = "AppleWatchData_myData.csv";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             // Append new data in CSV format
