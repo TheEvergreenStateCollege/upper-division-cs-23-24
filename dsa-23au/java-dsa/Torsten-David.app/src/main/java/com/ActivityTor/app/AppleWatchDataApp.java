@@ -101,47 +101,5 @@ public class AppleWatchDataApp
 
     } //AppendCSV()
 
-    public void saveData(){
-
-        String data = "This is a demo of the flush method";
-
-    try {
-
-      // Creates a FileWriter
-      FileWriter file = new FileWriter(" flush.txt");
-
-      // Creates a BufferedWriter
-      BufferedWriter output = new BufferedWriter(file);
-
-      // Writes data to the file
-      output.write(data);
-
-      // Flushes data to the destination
-      output.flush();
-      System.out.println("Data is flushed to the file.");
-
-      output.close();
-    }
-
-    catch(Exception e) 
-    {
-      e.getStackTrace();
-    }
-
-    }
-    public void printKeyLines()
-    {
-        Set<String> keySet = watchData.stepCounts.keySet();
-
-        // Displaying the set of keys
-        for (String key : keySet) 
-        {
-            System.out.print(key);
-            //System.out.print(watchData.stepCounts.values());
-            System.out.print(watchData.distances);
-            System.out.println();
-            
-        }
-    }
 } //class applWatchDataApp   
 
