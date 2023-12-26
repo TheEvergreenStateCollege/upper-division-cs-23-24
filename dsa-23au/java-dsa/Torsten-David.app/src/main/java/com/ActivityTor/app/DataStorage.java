@@ -2,6 +2,7 @@ package com.ActivityTor.app;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -21,8 +22,9 @@ public class DataStorage {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     // add public getters and setters for BST
-    public void addToSoundTree(double soundLevel, String date){
-        soundLevelTree.insert(soundLevel, date);
+    public void addToSoundTree(String date, double soundLevel)
+    {
+        soundLevelTree.insert(date, soundLevel);
     }
 
     public void addStepCount(String date, int stepCount) {
