@@ -33,7 +33,8 @@ public class BST < T extends Comparable<? super T>>{
         
     }
 
-    public void insert (T x, String date) {
+    public void insert (String date, T x) 
+    {
         root = insert(x, date, root);
     }
 

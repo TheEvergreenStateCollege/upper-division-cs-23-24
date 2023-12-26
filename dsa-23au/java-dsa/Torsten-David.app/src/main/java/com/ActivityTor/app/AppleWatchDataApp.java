@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Set;
 
 public class AppleWatchDataApp 
 {    
@@ -20,24 +21,30 @@ public class AppleWatchDataApp
     
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
             String line;
-            int i = 0;
-
-
+            
             boolean isHeaderSkipped = false;
-            //DataStorage watchData = new DataStorage(); // Initialize DataStorage
-    
-            while ((line = br.readLine()) != null) {
+
+            while ((line = br.readLine()) != null) 
+            {
                 String[] tokens = line.split(",");
-                if (tokens.length == 0 || line.length() == 0) {
+
+                //skip any 0 length lines
+                if (tokens.length == 0 || line.length() == 0) 
+                {
                     continue;
                 }
 
-                if (!isHeaderSkipped) {
+                //skip first line that is coluoum headers
+                if (!isHeaderSkipped) 
+                {
                     isHeaderSkipped = true;
-                    continue; // Skip the header line
+                    continue; 
                 }
     
-                try {
+                // try to scan one line and add to the data structure 
+                try 
+                {
+                    // assume formating is correct 
                     String date = tokens[0];
                     int steps = Integer.parseInt(tokens[1]);
                     double distance = Double.parseDouble(tokens[2]);
@@ -57,39 +64,84 @@ public class AppleWatchDataApp
                     watchData.addHandWashingSeconds(date, handWashingSeconds);
                     watchData.addRestingEnergy(date, restingEnergy);
                     watchData.addSoundLevels(date, soundLevels);
-                    watchData.addToSoundTree(soundLevels, date);
-    
-                } catch (IndexOutOfBoundsException | NumberFormatException e) {
+                    watchData.addToSoundTree(date, soundLevels);
+                    
+                    br.close();
+
+                } catch (IndexOutOfBoundsException | NumberFormatException e) 
+                {
                     System.out.println("Error parsing line: " + line);
                     e.printStackTrace();
                 }
-            }
+            } // while()
     
-        } catch (IOException ioe) {
+        } catch (IOException ioe) 
+        {
             System.err.println(ioe.toString());
         }
-    }
+    } // loadData()
 
     public void showAllData(){
         watchData.printAllData(); // Print processed data
     }
 
     //Method to add data to csv
-    public void appendToCSV(String date, int steps, double distance, int flights, double calories, double handWashing, double restingEnergy, double soundLevel) 
+    public void appendToCSV(String date, int steps, double distance, int flightsClimbed, double activeEnergy, double handWashingSeconds, double restingEnergy, double soundLevels) 
     {
-        String filePath = "AppleWatchData_myData.csv";
+        watchData.addStepCount(date, steps);
+        watchData.addDistance(date, distance);
+        watchData.addFlightsClimbed(date, flightsClimbed);
+        watchData.addCalories(date, activeEnergy);
+        watchData.addHandWashingSeconds(date, handWashingSeconds);
+        watchData.addRestingEnergy(date, restingEnergy);
+        watchData.addSoundLevels(date, soundLevels);
+        watchData.addToSoundTree(date, soundLevels);
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-            // Append new data in CSV format
-            String newData = date + "," + steps + "," + distance + "," + flights + "," + calories + "," 
-            + handWashing + "," + restingEnergy + "," + soundLevel;
-            writer.write(newData);
-            writer.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+       
 
+    } //AppendCSV()
+
+    public void saveData(){
+
+        String data = "This is a demo of the flush method";
+
+    try {
+
+      // Creates a FileWriter
+      FileWriter file = new FileWriter(" flush.txt");
+
+      // Creates a BufferedWriter
+      BufferedWriter output = new BufferedWriter(file);
+
+      // Writes data to the file
+      output.write(data);
+
+      // Flushes data to the destination
+      output.flush();
+      System.out.println("Data is flushed to the file.");
+
+      output.close();
     }
 
-}   
+    catch(Exception e) 
+    {
+      e.getStackTrace();
+    }
+
+    }
+    public void printKeyLines()
+    {
+        Set<String> keySet = watchData.stepCounts.keySet();
+
+        // Displaying the set of keys
+        for (String key : keySet) 
+        {
+            System.out.print(key);
+            //System.out.print(watchData.stepCounts.values());
+            System.out.print(watchData.distances);
+            System.out.println();
+            
+        }
+    }
+} //class applWatchDataApp   
 

@@ -17,6 +17,7 @@ public class Runtime {
                 System.out.println("Press 4 to show credits for this project");
                 System.out.println("Press 5 to show Average Daily Step Count for this project");
                 System.out.println("Type 'add data' to add more data to CSV file");
+                System.out.println("Type S to save");
 
                 System.out.println("Press Q to Quit");
 
@@ -100,6 +101,14 @@ public class Runtime {
                     // Call the method in AppleWatchDataApp to append new data
                     app.appendToCSV(date, steps, distance, flights, calories, handWashing, restingEnergy, soundLevel);
                     System.out.println("Data added to CSV!");
+                        break;
+
+                        case "S":
+                        app.saveData();
+                        break;
+
+                        case "T":
+                        app.printKeyLines();
                         break;
 
                     case "Q":
