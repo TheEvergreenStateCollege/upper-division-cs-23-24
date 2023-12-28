@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course identifier="gf4063113f500c743f80fd2580aa5ee4e" xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+  <title>Data Structures and Algorithms Fall 23 </title>
+  <course_code>Data Structures and Algorithms  </course_code>
+  <start_at/>
+  <conclude_at/>
+  <tab_configuration>[{"id":0},{"id":1},{"id":14},{"id":10},{"id":8},{"id":3},{"id":"context_external_tool_g80cba8263a3ebd5d243402b09ea793d5"},{"id":5},{"id":"context_external_tool_gf4e891104e29fa2c941b09838aabf9ed"},{"id":"context_external_tool_gf1e7df1d3b2151d768e722b390215e01"},{"id":"context_external_tool_gdf9104ca11fab8ea22a456f98531e55f"},{"id":"context_external_tool_gbf870bfff8e874ce9e151d0faba712b0"},{"id":"context_external_tool_g3fd8216cf121f9becbcbda9dc7cb9c1b"},{"id":"context_external_tool_g8483fee97a8433b92fb134494791ac32"},{"id":6,"hidden":true},{"id":2,"hidden":true},{"id":11,"hidden":true},{"id":"context_external_tool_g30922caec83dba7d1ea0e33bbda8ba59","hidden":true},{"id":16,"hidden":true},{"id":4,"hidden":true},{"id":"context_external_tool_g88c4db84b6456527e2a257d85619c71e","hidden":true},{"id":"context_external_tool_g819a6fa6c19335689e82c4a3677514d5","hidden":true},{"id":15,"hidden":true},{"id":18,"hidden":true},{"id":"context_external_tool_gbf0d2b48177a8ae389f32ffb87594284","hidden":true},{"id":12,"hidden":true},{"id":"context_external_tool_g23ca99d46b6791591059c0331304f9d8","hidden":true},{"id":"context_external_tool_gdbddc9b9c833330868b79628d696ae83","hidden":true}]</tab_configuration>
+  <is_public>false</is_public>
+  <is_public_to_auth_users>false</is_public_to_auth_users>
+  <allow_student_wiki_edits>false</allow_student_wiki_edits>
+  <syllabus_course_summary>false</syllabus_course_summary>
+  <allow_student_forum_attachments>true</allow_student_forum_attachments>
+  <lock_all_announcements>false</lock_all_announcements>
+  <default_wiki_editing_roles>teachers</default_wiki_editing_roles>
+  <allow_student_organized_groups>true</allow_student_organized_groups>
+  <default_view>wiki</default_view>
+  <open_enrollment>false</open_enrollment>
+  <filter_speed_grader_by_student_group>false</filter_speed_grader_by_student_group>
+  <self_enrollment>false</self_enrollment>
+  <license>private</license>
+  <indexed>false</indexed>
+  <hide_final_grade>false</hide_final_grade>
+  <hide_distribution_graphs>false</hide_distribution_graphs>
+  <allow_student_discussion_topics>true</allow_student_discussion_topics>
+  <allow_student_discussion_editing>true</allow_student_discussion_editing>
+  <organize_epub_by_content_type>false</organize_epub_by_content_type>
+  <show_announcements_on_home_page>true</show_announcements_on_home_page>
+  <home_page_announcement_limit>3</home_page_announcement_limit>
+  <usage_rights_required>false</usage_rights_required>
+  <restrict_student_future_view>false</restrict_student_future_view>
+  <restrict_student_past_view>false</restrict_student_past_view>
+  <restrict_enrollments_to_course_dates>false</restrict_enrollments_to_course_dates>
+  <homeroom_course>false</homeroom_course>
+  <grading_standard_enabled>false</grading_standard_enabled>
+  <storage_quota>1048576000</storage_quota>
+  <overridden_course_visibility/>
+  <root_account_uuid>xFVbLn6jPHy2pGxTTjoNcqVO3PgwAJS4k9Ib6lnF</root_account_uuid>
+  <default_post_policy>
+    <post_manually>false</post_manually>
+  </default_post_policy>
+</course>
