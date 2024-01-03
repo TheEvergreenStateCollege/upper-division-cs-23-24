@@ -18,39 +18,62 @@ public class DataStorage {
     HashMap<String, Double> handWashingSeconds = new HashMap<>();
    
     BST<Double> soundLevelTree = new BST<Double>();
+    BST<Double> maxDistanceTree = new BST<Double>();
+    BST<Double>activeEnergyTree = new BST<Double>();
+    BST<Double> handWashingDurationTree = new BST<Double>();
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-    // add public getters and setters for BST
+    // methods for BST
     public void addToSoundTree(String date, double soundLevel)
     {
         soundLevelTree.insert(date, soundLevel);
     }
 
-    public void addStepCount(String date, int stepCount) {
+    public void addToDistanceTree(String date, double distance){
+        maxDistanceTree.insert(date, distance);
+    }
+
+    public void addToActiveEnergyTree(String date, double activeEnergy)
+    {
+        activeEnergyTree.insert(date, activeEnergy);
+    }
+
+    public void addToHandWashingDurationTree(String date, double duration) {
+        handWashingDurationTree.insert(date, duration);
+    }
+    //methods for hashmaps
+    public void addStepCount(String date, int stepCount) 
+    {
         stepCounts.put(date, stepCount);
     }
 
-    public void addDistance(String date, double distance) {
+    public void addDistance(String date, double distance) 
+    {
         distances.put(date, distance);
     }
 
-    public void addCalories(String date, Double calorie) {
+    public void addCalories(String date, Double calorie) 
+    {
         calories.put(date, calorie);
     }
 
-    public void addRestingEnergy(String date, double energy) {
+    public void addRestingEnergy(String date, double energy) 
+    {
         restingEnergy.put(date, energy);
     }
-    public void addSoundLevels(String date, double level) {
+    public void addSoundLevels(String date, double level) 
+    {
         soundLevels.put(date, level);
     }
 
-    public void addFlightsClimbed(String date, int flights) {
+    public void addFlightsClimbed(String date, int flights) 
+    {
         flightsClimbed.put(date, flights);
     }
 
-    public void addHandWashingSeconds(String date, double seconds) {
+    public void addHandWashingSeconds(String date, double seconds) 
+    {
         handWashingSeconds.put(date, seconds);
     }
 
@@ -159,4 +182,15 @@ public class DataStorage {
             return (double) totalSteps / totalDays; 
     }
 
+    // Method for calculating average active energy burn
+    public double averageDailyActiveEnergyBurn() 
+    {
+        double totalEnergy = 0;
+        for (double energy : calories.values()) 
+        {
+        totalEnergy += energy;
+        }
+             return totalEnergy / calories.size();
+}
+    
 }
