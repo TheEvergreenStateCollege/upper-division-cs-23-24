@@ -65,8 +65,10 @@ public class AppleWatchDataApp
                     watchData.addRestingEnergy(date, restingEnergy);
                     watchData.addSoundLevels(date, soundLevels);
                     watchData.addToSoundTree(date, soundLevels);
-                    
-                    br.close();
+                    watchData.addToDistanceTree(date, distance);
+                    watchData.addToActiveEnergyTree(date, activeEnergy);
+                    watchData.addToHandWashingDurationTree(date, handWashingSeconds); 
+                
 
                 } catch (IndexOutOfBoundsException | NumberFormatException e) 
                 {
@@ -85,21 +87,6 @@ public class AppleWatchDataApp
         watchData.printAllData(); // Print processed data
     }
 
-    //Method to add data to csv
-    public void appendToCSV(String date, int steps, double distance, int flightsClimbed, double activeEnergy, double handWashingSeconds, double restingEnergy, double soundLevels) 
-    {
-        watchData.addStepCount(date, steps);
-        watchData.addDistance(date, distance);
-        watchData.addFlightsClimbed(date, flightsClimbed);
-        watchData.addCalories(date, activeEnergy);
-        watchData.addHandWashingSeconds(date, handWashingSeconds);
-        watchData.addRestingEnergy(date, restingEnergy);
-        watchData.addSoundLevels(date, soundLevels);
-        watchData.addToSoundTree(date, soundLevels);
-
-       
-
-    } //AppendCSV()
-
+    
 } //class applWatchDataApp   
 
