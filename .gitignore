@@ -36,3 +36,5 @@ Scratch/
 
 *.pyc
 **/__pycache__
+
+**/*.obsidian
