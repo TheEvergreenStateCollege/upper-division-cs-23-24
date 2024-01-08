@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="gd475871a16988f9b16299606ce4b7f3f" xmlns="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1" xmlns:lom="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource" xmlns:lomimscc="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/manifest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1 http://www.imsglobal.org/profile/cc/ccv1p1/ccv1p1_imscp_v1p2_v1p0.xsd http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource http://www.imsglobal.org/profile/cc/ccv1p1/LOM/ccv1p1_lomresource_v1p0.xsd http://ltsc.ieee.org/xsd/imsccv1p1/LOM/manifest http://www.imsglobal.org/profile/cc/ccv1p1/LOM/ccv1p1_lommanifest_v1p0.xsd">
+  <metadata>
+    <schema>IMS Common Cartridge</schema>
+    <schemaversion>1.1.0</schemaversion>
+    <lomimscc:lom>
+      <lomimscc:general>
+        <lomimscc:title>
+          <lomimscc:string>Student-Originated Software - Winter 2024 </lomimscc:string>
+        </lomimscc:title>
+      </lomimscc:general>
+      <lomimscc:lifeCycle>
+        <lomimscc:contribute>
+          <lomimscc:date>
+            <lomimscc:dateTime>2023-12-28</lomimscc:dateTime>
+          </lomimscc:date>
+        </lomimscc:contribute>
+      </lomimscc:lifeCycle>
+      <lomimscc:rights>
+        <lomimscc:copyrightAndOtherRestrictions>
+          <lomimscc:value>yes</lomimscc:value>
+        </lomimscc:copyrightAndOtherRestrictions>
+        <lomimscc:description>
+          <lomimscc:string>Private (Copyrighted) - http://en.wikipedia.org/wiki/Copyright</lomimscc:string>
+        </lomimscc:description>
+      </lomimscc:rights>
+    </lomimscc:lom>
+  </metadata>
+  <organizations>
+    <organization identifier="org_1" structure="rooted-hierarchy">
+      <item identifier="LearningModules">
+        <item identifier="gffe444210a0eef0c9bdb04e928d867e9">
+          <title>Week 1 (Jan 8 - Jan 14)</title>
+        </item>
+        <item identifier="g960b66d611b0e68a2b12322cfe0bfba3">
+          <title>Week 2 (Jan 15 - Jan 21)</title>
+        </item>
+        <item identifier="g77e322f124ce1218a3a8021111945fe3">
+          <title>Week 3 (Jan 22 - Jan 28)</title>
+        </item>
+        <item identifier="g99c8834598104e886c102e2381bc61d9">
+          <title>Week 4 (Jan 29 - Feb 4)</title>
+        </item>
+        <item identifier="gb0c7c5f484c03dafb7fd6fa658b1bdcc">
+          <title>Week 5 (Feb 5 - Feb 11)</title>
+        </item>
+        <item identifier="gbbd15089f45c197268f809e3657ebd1c">
+          <title>Week 6 (Feb 12 - Feb 18)</title>
+        </item>
+        <item identifier="gc4d1d830125f064051d2686fdadc8ba7">
+          <title>Week 7 (Feb 19 - Feb 25)</title>
+        </item>
+        <item identifier="g5e6e307bd2c5eb4948039ed4d176f008">
+          <title>Week 8 (Feb 26 - Mar 3)</title>
+        </item>
+        <item identifier="g321fb7842fd57b676bc657dda7374803">
+          <title>Week 9 (Mar 4 - Mar 11)</title>
+        </item>
+        <item identifier="g41da21e872e83f5817a6d2913c91b674">
+          <title>Week 10 (Mar 11 - Mar 17)</title>
+        </item>
+        <item identifier="g58e97fb5cc6bddada4d4ba26a0693298">
+          <title>Week 11 (Mar 18 - Mar 24)</title>
+        </item>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="ge0865747772f28020300c62dba68b0d3_syllabus" type="associatedcontent/imscc_xmlv1p1/learning-application-resource" href="course_settings/syllabus.html" intendeduse="syllabus">
+      <file href="course_settings/syllabus.html"/>
+    </resource>
+    <resource identifier="ge0865747772f28020300c62dba68b0d3" type="associatedcontent/imscc_xmlv1p1/learning-application-resource" href="course_settings/canvas_export.txt">
+      <file href="course_settings/course_settings.xml"/>
+      <file href="course_settings/module_meta.xml"/>
+      <file href="course_settings/assignment_groups.xml"/>
+      <file href="course_settings/files_meta.xml"/>
+      <file href="course_settings/late_policy.xml"/>
+      <file href="course_settings/context.xml"/>
+      <file href="course_settings/media_tracks.xml"/>
+      <file href="course_settings/canvas_export.txt"/>
+    </resource>
+    <resource identifier="g32b80ff7af4b76c6767ed1ee1de310db" type="webcontent" href="wiki_content/front-page.html">
+      <file href="wiki_content/front-page.html"/>
+    </resource>
+    <resource identifier="g55b8f1f74a14c168a52312d8da905baf" type="associatedcontent/imscc_xmlv1p1/learning-application-resource" href="g55b8f1f74a14c168a52312d8da905baf/networking-lab-1.html">
+      <file href="g55b8f1f74a14c168a52312d8da905baf/networking-lab-1.html"/>
+      <file href="g55b8f1f74a14c168a52312d8da905baf/assignment_settings.xml"/>
+    </resource>
+    <resource identifier="g59392eaa6c26fbf21a59034b36704155" type="associatedcontent/imscc_xmlv1p1/learning-application-resource" href="g59392eaa6c26fbf21a59034b36704155/networking-reading-01.html">
+      <file href="g59392eaa6c26fbf21a59034b36704155/networking-reading-01.html"/>
+      <file href="g59392eaa6c26fbf21a59034b36704155/assignment_settings.xml"/>
+    </resource>
+  </resources>
+</manifest>

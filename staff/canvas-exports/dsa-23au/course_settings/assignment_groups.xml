@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assignmentGroups xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+  <assignmentGroup identifier="g0ac8404e2cf0b92f8aca00c193ccfffd">
+    <title>DS &amp; A</title>
+    <position>1</position>
+    <group_weight>0.0</group_weight>
+  </assignmentGroup>
+  <assignmentGroup identifier="g184cb505819ef3b8e542e0bfbf566259">
+    <title>PDC</title>
+    <position>2</position>
+    <group_weight>0.0</group_weight>
+  </assignmentGroup>
+  <assignmentGroup identifier="gb9984146d70de3dc04d2eee484537631">
+    <title>ILCs</title>
+    <position>3</position>
+    <group_weight>0.0</group_weight>
+  </assignmentGroup>
+  <assignmentGroup identifier="gdb3b16857de3b6dfd5a2ae6da892ae72">
+    <title>ChangeMaker</title>
+    <position>4</position>
+    <group_weight>0.0</group_weight>
+  </assignmentGroup>
+  <assignmentGroup identifier="gd4332046bd627275fd317c8bb4de1dff">
+    <title>Reflection and Co-creation</title>
+    <position>5</position>
+    <group_weight>0.0</group_weight>
+  </assignmentGroup>
+  <assignmentGroup identifier="g21b1e9e808f1b398afbb4962dfe753de">
+    <title>Technical Software Interview Skills</title>
+    <position>6</position>
+    <group_weight>0.0</group_weight>
+  </assignmentGroup>
+  <assignmentGroup identifier="gc3d434c6e29c3ac466dd88afba533e4b">
+    <title>Both ILC and DSA</title>
+    <position>7</position>
+    <group_weight>0.0</group_weight>
+  </assignmentGroup>
+</assignmentGroups>
