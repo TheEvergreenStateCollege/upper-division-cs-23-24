@@ -29,15 +29,43 @@ For the whole project:
 * 500 lines of original code, newly written or refactored while maintaining existing functionality, written this quarter
 * 5 tests showing how to run your code and demonstrating 5 different modes of operation or functionality.
   * These can be unit tests written in code, integration tests written as a script, screenrecording videos, screenshots
-* 800 word or longer README.md in your GitHub repo following this template
-  * 
+* 800 word or longer README.md in your GitHub repo following [this template](https://theevergreenstatecollege.github.io/upper-division-cs/dsa-23au/week-09/Assignment-09/).
 
 You can incorporate some or all of the above sections into your required Evergreen self evaluation.
 
-For example: if you have two members of your team, you'll each need to contribute 500 lines of code or code changes.
+For example: if you have two members of your team, you'll need to contribute 500 lines total of new original code, or code changes
+and refactorings if you are continuing an existing project.
+
+## Final Project Rubric
+
+Both project partners will receive the same credit for the project.
+
+The relative importance of various parts of your project are ([from this rubric for 200 total points](https://canvas.evergreen.edu/courses/5926/assignments/110956)):
+
+* (20 pts = 5 pts x 4) Use and combine at least four data structures (beyond an array or a linked list) or algorithms.
+* (10 pts) Describe one invariant of your code, in both plain English and in math or code. This invariant is true of your data structures at every step along the way from input to output, and your algorithms should preserve it.
+  * Example: if you are inserting new data items into a min-heap call x by a date field, you can use the invariant of the heap to say that the top of x is always the earliest date of all your datapoints.
+* (20 pts = 4 pts x 5) Contains at least 5 unit tests that verify your solution works as intended.
+* (50 pts) Contain at least 500 lines of code (total, not per partner) that compiles, runs, and passes your tests.
+* (20 pts) Contain at least 100 data items, either real or mocked, in your CSV / JSON / other data file.
+* (40 pts) Have a 800 word README.md file describing your project, including a link to your video.
+    * The README.md file should follow [the rubric in Assignment 09](https://theevergreenstatecollege.github.io/upper-division-cs/dsa-23au/week-09/Assignment-09/).
+* (40 pts) A screenrecording video showing you demonstrating all uses of your program
+  * If you use asciinema, Paul will record your voice narration to play accompanying the screencast.
+
+These numbers of lines of code is scaled for 10 credits of Data Structures & Algorithms, and 2 credits of Technical Software Interview Skills (Cracking the Coding Interview), for 12 credits total.
+
+If you are working towards less (for example, 8 credits of DSA), you will need to write the proportional amount of code and tests (for example, 66% of the code and unit tests, or 333 lines of code and 3 unit tests).
+
+If you don't complete as many tests or lines of code, you will still receive partial credit for the tests and lines of code you do complete. For example, if you have 3 unit tests out of 5 required, and 300 lines of code instead of 500, you would receive 60% (3/5ths) of the credit for those items.
 
 ## Credits and Team 
 
+For ILC students:
+Your entire credit for the quarter will be based on your Week 5 presentations
+and your final project submission.
+
+For DSA students:
 One-third of your credits and evaluation this quarter will be based on your final project,
 which will be done as a team that you choose among classmates in both the
 Data Structures and Algorithms program and the Changemakers business program. Teams may be 
