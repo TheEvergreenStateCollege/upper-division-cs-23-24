@@ -1,6 +1,0 @@
-{
-	"dependencies": {
-		"g": "^2.0.1",
-		"express-generator": "^4.16.1"
-	}
-}
