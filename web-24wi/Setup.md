@@ -1,14 +1,24 @@
-# Software Setup
+# Setup
 
-We will be following curricula from the Front End Masters website,
-focusing on Typescript, React, NextJS
-with some later topics on 3D programming.
+To access the necessary resources for this class, you'll need to set up the following online accounts. In addition, you have several choices to set up development environments, depending on your preferences and what machines you have available to you.
+
 
 We will continue to use the same GitPod workspace that you've 
 become familiar with in the previous quarter.
 
+## Development Environments
+
+### GitHub Workspaces
+
+### GitPod
+You can use the GitPod cloud development environment from last quarter in DSA. Be sure to create a new workspace from the `upper-division-cs` monorepo to pick up the latest GitPod Dockerfile. You can delete any old workspaces if there are no unsaved changes.
+
 ## Enable and Register Accounts
 
+We will be following curricula from the Front End Masters website,
+focusing on Typescript, React, NextJS with some later topics on 3D programming.
+
+These accounts are needed for both the Web Front-End and Web Infrastructure tracks.
 ### GitHub Student Developer Pack
 You will have 6 months free access to Front End Masters as part of
 the GitHub Student Developer Pack. If you haven't already enabled 
