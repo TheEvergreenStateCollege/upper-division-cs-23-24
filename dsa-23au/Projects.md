@@ -1,0 +1,11 @@
+
+* [Winston Shine - Binary exploitation (C++)](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/c%2B%2B-dsa/WinstonShine-project)
+* [Torsten Spieler, David Dunston - Apple Watch fitness (Java)](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/Torsten-David.app)
+* [Trinity Hyre - Tarot reader (Python)](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/Trinity-app/src/main/java/dev/Hiraeth_awaits)
+* [Zach Robinson - Five-card draw poker (Java) ](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/ZSR-project)
+* [Devin Eason - Discord server events (Java)](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/devin-finalproject/src/main/java/com/devincompany/app)
+* [Dante Faulk, Dawson White - Spotify music listening (Python)](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/faulkdfdawsonwhi-app)
+* [Harlee Hair - Meteorite Data Analyzer](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/harlee-app)
+* [Juniper Campbell, Jonah Edie - Economic Indicator Calculator](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/juniper-app)
+* [Nathan Deanon - Impossible hangman (Java)](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/ndeanon25)
+* [Paul Swisher, Nathan McLaughlin - Drive time analyzer (Java, Python)](https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/dsa-23au/java-dsa/pswish-natmcl)

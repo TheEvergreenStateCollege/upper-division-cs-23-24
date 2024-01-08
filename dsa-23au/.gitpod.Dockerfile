@@ -37,6 +37,7 @@ RUN apt-get install -yqq zlib1g-dev
 RUN apt-get install -yqq htop
 RUN apt-get install -yqq asciinema
 RUN apt-get install -yqq python3-pip
+RUN apt-get install -yqq yggdrasil
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -57,13 +58,6 @@ RUN wget "https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9
 RUN tar -xzvf apache-maven-3.9.4-bin.tar.gz && rm apache-maven-3.9.4-bin.tar.gz
 # add java and maven to path
 ENV PATH=/opt/apache-maven-3.9.4/bin:/opt/graalvm-community-openjdk-20.0.2+9.1/bin:${PATH}
-
-# Rust tools for Infrastructure Lap 2
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# NVM, node v20, pnpm (parallel Node Package Manager)
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN nvm install v20
 
 RUN mkdir ~/src
 RUN cd ~/src; git clone https://github.com/TheEvergreenStateCollege/upper-division-cs
