@@ -6,26 +6,38 @@ Winter 2024
 * To practice technical interview skills through weekly mock interviews of submitted code and work.
 * To complete a web application of at least 500 lines of code in teams.
 
-![[Pasted image 20240108092619.png]]
+![[./images/web-architecture.png]]
 
 ## Tracks and Laps
 
 Web Engineering has two tracks. Within each track, students who are taking it the first time should take Lap 1. Students taking it for the second time should take Lap 2.
 
+The main video courses and texts for each section are shown below.
+
 ### Track: Web Infrastructure
 #### Lap 1: Cloud, Back-end
+* [Fullstack for Front-End Engineers](https://frontendmasters.com/courses/fullstack-v3/)
+* 
 
 #### Lap 2: Rust
+* For first-time Rust programmers, we will be following this interactive book
+	* https://rust-book.cs.brown.edu/
+* For additional explanations
+	* [The Rust Programming Language](https://frontendmasters.com/courses/rust/)
 
 ### Track: Web Front-End
 #### Lap 1: Static Websites (HTML, CSS, JavaScript)
 * [Complete Intro to Web Development v3]()
 
 #### Lap 2: React + Typescript
-* Intermediate React
+* For students who have already taken Lap 1 or know how to make a static site.
+* [React + Typescript](https://frontendmasters.com/courses/react-typescript-v2/)
+	* For Lap 2 students, all work will be done with Typescript in SOS
+* [Intermediate React](https://frontendmasters.com/courses/intermediate-react-v5/)
 
 #### Lap 3: Independent Topics
 * For students who already have taken or know material in Lap 2 and Lap 1.
+* You can choose
 * React Native (2 weeks)
 * Creative Coding (Canvas, WebGL, ThreeJS)
 	* https://frontendmasters.com/courses/canvas-webgl/
