@@ -6,7 +6,7 @@ Autumn 2023
 | Main Link | Canvas Link |
 | --------- | ----------- |
 | [Reading Assignment 1](ReadingAssignment1.md) | [Canvas Link](https://canvas.evergreen.edu/courses/5926/assignments/109087) |
-| [Software Setup](SoftwareSetup.md) | [Canvas Link](https://canvas.evergreen.edu/courses/5926/assignments/109087) |
+| [Software Setup](dsa-23au/SoftwareSetup.md) | [Canvas Link](https://canvas.evergreen.edu/courses/5926/assignments/109087) |
 
 ## Background Resources
 

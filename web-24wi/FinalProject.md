@@ -12,8 +12,7 @@ problem that is personally interesting to you. It may be to make progress on a p
 you have previously started. Your goal during this quarter is to show software engineering
 judgment for *time estimation* and your *circle of competence*.
 
-That is, it's an attempt to carve out
-a smaller piece of a possibly bigger project or life goal and make a commitment to another person
+That is, it's an attempt to carve out a smaller piece of a possibly bigger project or life goal and make a commitment to another person
 (a faculty member, and optionally a classmate that you exchange your contract with).
 It requires knowledge of yourself and your current capabilities, as well as the desire to steer
 where you want to go.
@@ -29,25 +28,11 @@ For the whole project:
 * 500 lines of original code, newly written or refactored while maintaining existing functionality, written this quarter
 * 5 tests showing how to run your code and demonstrating 5 different modes of operation or functionality.
   * These can be unit tests written in code, integration tests written as a script, screenrecording videos, screenshots
-* 800 word or longer README.md in your GitHub repo following this template
-  * 
+* 800 word or longer README.md in your GitHub repo
 
 You can incorporate some or all of the above sections into your required Evergreen self evaluation.
 
 For example: if you have two members of your team, you'll each need to contribute 500 lines of code or code changes.
-
-## Credits and Team 
-
-One-third of your credits and evaluation this quarter will be based on your final project,
-which will be done as a team that you choose among classmates in both the
-Data Structures and Algorithms program and the Changemakers business program. Teams may be 
-solo (one person) or up to 20 people. You will have to do some legwork and talk to your
-classmates to learn what teams may be forming and how you can contribute!
-
-We recommend and will support you in pushing outside your comfort zone. If you normally 
-prefer to work alone, we suggest finding teammates, and if you normally like to work with 
-teammates, we suggest going it alone. But no matter what, the teaching staff and your classmates
-will be here to talk and go through the experience with you.
 
 ## Progression Through 10 Weeks 
 

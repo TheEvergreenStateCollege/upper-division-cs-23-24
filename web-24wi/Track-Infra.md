@@ -14,7 +14,7 @@ LIB 2619
 
 This track is not compatible with the Changemakers Lab afternoon sessions.
 If you are in Changemakers, you should take the Web Front End track 
-## Lap 1: (Self) Cloud
+## Lap 1: Cloud
 
 We use Amazon Web Services (AWS) as the primariy cloud service provider in this class, and invite all students to join our AWS Organization to avoid having to set up billing, credit card details, etc. We also will spend some time studying self-hosting, and we encourage students in the Web Infrastructure track to host their own services on their own hardware, either at home, in the Physical Computing Center (PCC), or even on Raspberry Pi's and single-board computers that they bring to class and plug in each time. We especially encourage students to use their knowledge of cybersecurity to install firewalls and implement best practices to secure networked-machines against attackers.
 

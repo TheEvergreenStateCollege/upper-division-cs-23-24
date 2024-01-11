@@ -15,6 +15,7 @@ Watch the first 3 sections of [Full Stack for Front-End Engineers](https://front
 * Command-line
 * Server
 	* for the last section, do not buy a VPS from Digital Ocean as the video says. Instead, follow the [AWS EC2 Setup here](../AWS-EC2-Setup)
+<<<<<<< HEAD
 
 ### AWS Account
 
@@ -27,6 +28,17 @@ https://www.twitch.tv/videos/2024814402?filter=all&sort=time
 
 #### 2. Clone Locally
 Clone the class mono-repo 
+=======
+Watch the first hour of this intro to Git video with Cecilia from Major League Hacking
+https://www.twitch.tv/videos/2024814402?filter=all&sort=time
+
+### AWS Account
+```
+```
+
+### Git Review
+
+>>>>>>> 67f423f (Updated Web Engineering syllabus.)
 
 ## Lap 2: Rust
 
@@ -46,4 +58,16 @@ Alternatives to have a Rust development environment:
 
 [Rust Book: Chapter 03 - Concepts](https://rust-book.cs.brown.edu/ch03-00-common-programming-concepts.html)
 
+<<<<<<< HEAD
 [Rust Book: Chapter 04 - Ownership](https://rust-book.cs.brown.edu/ch04-00-understanding-ownership.html)
+=======
+[Rust Book: Chapter 04 - Ownership](https://rust-book.cs.brown.edu/ch04-00-understanding-ownership.html)
+
+### Code Interview
+Create a directory in your personal assignment directory in the monorepo and commit your Rust guessing game there.
+
+```
+web-24wi/assignments/rust
+```
+During your code interview, show your interviewer.
+>>>>>>> 67f423f (Updated Web Engineering syllabus.)
