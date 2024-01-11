@@ -1,0 +1,162 @@
+    1  softwareupdate --install-rosetta
+    2  rm -fr /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin
+    3  rm -fr /Library/PreferencePanes/JavaControlPanel.prefpane
+    4  ^[[200~rm -fr /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin~
+    5  rm -fr /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin
+    6  zsh
+    7  sudo apt-get install fonts-powerline
+    8  sude apt-get install fonts-powerline
+    9  sudo apt-get install fonts-powerline
+   10  git clone https://github.com/dylanaraps/neofetch
+   11  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   12  zsh
+   13  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"\n📋
+   14  brew install neofetch
+   15  neofetch
+   16  zsh
+   17  neofetch
+   18  exit
+   19  neofetch
+   20  brew install neofetch
+   21  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"\n📋
+   22  brew analytics off
+   23  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"\n📋
+   24  brew help
+   25  $brew help
+   26  brew help
+   27  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/groovycove/.zprofile
+   28  eval "$(/opt/homebrew/bin/brew shellenv)"
+   29  brew analytics off
+   30  brew install neofetch
+   31  brew analytics off
+   32  neofetch
+   33  exit
+   34  neofetch
+   35  sudo nano . zshrc
+   36  exit
+   37  sudo nano .zsh
+   38  exit
+   39  sudo nano .bashrc
+   40  exit
+   41  zsh
+   42  sudo nano .zshrc
+   43  zsh
+   44  sudo nano zshrc
+   45  zsh
+   46  sudo nano .zsh
+   47  zshrc
+   48  zsh
+   49  exit
+   50  zsh
+   51  sudo nano .zshrc
+   52  exit
+   53  1
+   54  brew install --cask emacs
+   55  $ brew install git
+   56  brew install git
+   57  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+   58  rm /Users/groovycove/.emacs.d
+   59  rm emacs.d
+   60  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+   61  ls
+   62  fatal: destination path '/Users/groovycove/.emacs.d' already exists and is not an empty directogit clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+   63  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+   64  Open 
+   65  rm -rf ~/.emacs.d
+   66  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+   67  3
+   68  :q
+   69  % brew install vim
+   70  brew install vim
+   71  touch .vimrc
+   72  open vim
+   73  vim
+   74  /usr/bin/env /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java -XX:+ShowCodeDetailsInExceptionMessages -cp /private/var/folders/t0/fjk59wtd40767qvj29562xfc0000gn/T/vscodesws_87c6b/jdt_ws/jdt.ls-java-project/bin MediaPlayer 
+   75  /usr/bin/env /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java -XX:+ShowCodeDetailsInExceptionMessages -cp /Users/groovycove/Desktop/VS\ Code\ Projects/MediaPlayer/bin MediaPlayer 
+   76  Users/groovycove/Downloads/git-2.40.1/configure ; exit;
+   77  config --global user.name "Groovy Cove"
+   78  git config --global user.name "Groovy Cove"
+   79  git config --global user.email "taylorwolffprofessional@proton.me"
+   80  pwd
+   81  ls
+   82  cd
+   83  $gcc -o adder adder.c
+   84  pwd
+   85  nano
+   86  -gcc -S adder2.c -o adder2.s
+   87  /usr/bin/env /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java -XX:+ShowCodeDetailsInExceptionMessages -cp /Users/groovycove/Library/Application\ Support/Code/User/workspaceStorage/395e290d712da26d359278812fb3abce/redhat.java/jdt_ws/jdt.ls-java-project/bin samsim 
+   88  /usr/bin/env /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java -XX:+ShowCodeDetailsInExceptionMessages -cp /private/var/folders/t0/fjk59wtd40767qvj29562xfc0000gn/T/vscodesws_e9b8c/jdt_ws/jdt.ls-java-project/bin samsim 
+   89  sumtotal.sam
+   90  nc -l
+   91  nc -l 80
+   92  nc -l
+   93  nc -l 80
+   94  chmod
+   95  chmod 600 Desktop/AWS/KeyPair
+   96  chmod 600 Desktop/AWS/KeyPair.pem
+   97  ssh -i Desktop/AWS/KeyPair.pem ubuntu@35.90.241.228
+   98  ssh -i ~/path/to/your/KeyPair.pem ubuntu@44.224.5.57
+   99  ssh -i ~/Desktop/AWS/KeyPair.pem ubuntu@44.224.5.57
+  100  ssh -i Desktop/AWS/KeyPair.pem ubuntu@35.90.241.228
+  101  ssh-keygen -t ecdsa
+  102  cat ~/.ssh/id_ecdsa.pub
+  103  git clone git@github.com:TheEvergreenStateCollege/upper-division-cs.git
+  104  mkdir -p <repo_root>/web-24wi/assignments/taylorsauros/Infra
+  105  ssh -i Desktop/AWS/KeyPair.pem ubuntu@35.90.241.228
+  106  mkdir -p web-24wi/assignments/taylorsauros
+  107  mkdir -p web-24wi/assignments/taylorsauros/infra
+  108  ssh -i Desktop/AWS/KeyPair.pem ubuntu@35.90.241.228
+  109  mkdir -p upper-division-cs/web-24wi/assigments/taylorsauros/infra
+  110  cd upper-division-cs/web-24wi/assignments/taylorsauros/infra
+  111  mkdir -p upper-division-cs/web-24wi/assignment/taylorsauros/infra
+  112  cd upper-division-cs/web-24wi/assignments/taylorsauros/infra
+  113  mkdir -p /web-24wi/assignment/taylorsauros/infra
+  114  cd /web-24wi/assignments/taylorsauros/infra
+  115  mkdir -p /web-24wi/assignment/taylorsauros/infra
+  116  ls
+  117  mkdir -p ~/src
+  118  cd ~/src
+  119  git clone git@github.com:TheEvergreenStateCollege/upper-division-cs.git
+  120  cd upper-division-cs/web-24wi/assignments
+  121  ls
+  122  mkdir -p
+  123  taylorsauros/infra
+  124  mkdir -p taylorsauros/infra
+  125  ls
+  126  git checkout -b taylorsauros-week1
+  127  git push -u origin taylorsauros-week1
+  128  ls
+  129  ssh -i Desktop/AWS/KeyPair.pem ubuntu@35.90.241.228
+  130  ls
+  131  cd ~/src/upper-division-cs/web-24wi/assignments/taylorsauros
+  132  /week1
+  133  /week-1
+  134  cd ~/src/upper-division-cs/web-24wi/assignments/taylorsauros/week-1
+  135  cd ~/src/upper-division-cs/web-24wi/assignments/taylorsauros/week1
+  136  mkdir infra
+  137  ls
+  138  history >> infra/history.txt
+  139  cat infra/history.txt
+  140  git add infra
+  141  git status
+  142  git commit -m "add shell history"
+  143  git status
+  144  git push -u origin taylorsauros/week1
+  145  git branch
+  146  git push
+  147  ssh -i Desktop/AWS/KeyPair.pem ubuntu@35.90.241.228
+  148  cd upper-division-cs/web-24wi/assignments/taylorsaurus
+  149  mkdir -p upper-division-cs/web-24wi/assignments
+  150  mkdir -p upper-division-cs/web-24wi/assignments/taylorsaurus/infra
+  151  cd upper-division-cs/web-24wi/assignments/taylorsaurus
+  152  git checkout -b taylorsaurus-week1
+  153  git push -u origin taylorsauros/week1
+  154  git push -u origin taylorsaurus/week1
+  155  git push -u origin taylorsaurus-week1
+  156  cat ~/.bash_history
+  157  exit
+  158  history
+  159  git push -u origin taylorsaurus-week1
+  160  cd upper-division-cs/web-24wi/assignments/taylorsaurus
+  161  mkdir infra
+  162  ls
