@@ -1,0 +1,15 @@
+    1  cd ~/src
+    2  mkdir -p ~/src
+    3  cd ~/src
+    4  git clone git@github.com:TheEvergreenStateCollege/upper-division-cs.git
+    5  git clone git@https://github.com/TheEvergreenStateCollege/upper-division-cs.git
+    6  git clone https://github.com/TheEvergreenStateCollege/upper-division-cs
+    7  mkdir -p upper-division-cs/web-24wi/assignments/de02E/infra
+    8  cd upper-division-cs/web-24wi/assignments/de02E/infra
+    9  git checkout -b de02E-week1
+   10  git push -u origin de02E-week1
+   11  cd upper-division-cs/web-24wi/assignments/de02E/infra
+   12  cd ~/src
+   13  cd upper-division-cs/web-24wi/assignments/de02E/infra
+   14  history
+   15  history >> ./history.txt
