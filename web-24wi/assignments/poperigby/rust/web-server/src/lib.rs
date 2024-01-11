@@ -1,4 +1,3 @@
-use rand::random;
 use std::thread;
 
 pub struct ThreadPool {
@@ -18,9 +17,7 @@ impl ThreadPool {
 
         let mut threads = Vec::with_capacity(size);
 
-        for _ in 0..size {
-            let id = random::<usize>();
-
+        for id in 0..size {
             threads.push(Worker::new(id));
         }
 
@@ -36,14 +33,14 @@ impl ThreadPool {
 
 struct Worker {
     id: usize,
-    handle: thread::JoinHandle<()>,
+    thread: thread::JoinHandle<()>,
 }
 
 impl Worker {
     fn new(id: usize) -> Worker {
         Worker {
             id,
-            handle: thread::spawn(|| ()),
+            thread: thread::spawn(|| {}),
         }
     }
 }
