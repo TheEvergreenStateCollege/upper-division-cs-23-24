@@ -42,8 +42,8 @@ RUN apt-get install -yqq tcpdump
 RUN apt-get install -yqq netcat
 RUN apt-get install -yqq telnet
 RUN apt-get install -yqq net-tools
-RUN apt-get install nodejs
-RUN apt-get install npm
+RUN apt-get install -yqq nodejs
+RUN apt-get install -yqq npm
 
 # install rust toolchain
 RUN curl https://sh.rustup.rs -sSf >> rustup.sh
