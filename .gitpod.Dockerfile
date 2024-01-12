@@ -60,10 +60,10 @@ ENV PATH=/root/.cargo/bin:$PATH
 RUN rm rustup.sh
 
 # install tcpdump, netcat, telnet, net-tools
-RUN apt-get install tcpdump
-RUN apt-get install netcat
-RUN apt-get install telent
-RUN apt-get install net-tools
+RUN apt-get install -yqq tcpdump
+RUN apt-get install -yqq netcat
+RUN apt-get install -yqq telent
+RUN apt-get install -yqq net-tools
 
 # Download and install maven
 WORKDIR /opt
