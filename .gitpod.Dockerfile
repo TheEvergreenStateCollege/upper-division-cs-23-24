@@ -59,13 +59,6 @@ RUN tar -xzvf apache-maven-3.9.4-bin.tar.gz && rm apache-maven-3.9.4-bin.tar.gz
 # add java and maven to path
 ENV PATH=/opt/apache-maven-3.9.4/bin:/opt/graalvm-community-openjdk-20.0.2+9.1/bin:${PATH}
 
-# Rust tools for Infrastructure Lap 2
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# NVM, node v20, pnpm (parallel Node Package Manager)
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN /bin/bash -c "source ~/.nvm/nvm.sh; nvm install v20"
-
 RUN mkdir ~/src
 RUN cd ~/src; git clone https://github.com/TheEvergreenStateCollege/upper-division-cs
 
