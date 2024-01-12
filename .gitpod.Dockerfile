@@ -43,6 +43,14 @@ RUN apt-get install -yqq netcat
 RUN apt-get install -yqq telnet
 RUN apt-get install -yqq net-tools
 RUN apt-get install -yqq nodejs
+RUN apt-get install -yqq npm
+
+# install rust toolchain
+RUN curl https://sh.rustup.rs -sSf >> rustup.sh
+RUN chmod 700 rustup.sh
+RUN ./rustup.sh --default-toolchain stable -y
+ENV PATH=/root/.cargo/bin:$PATH
+RUN rm rustup.sh
 
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -57,14 +65,6 @@ RUN ssh-keyscan github.com
 RUN . /root/scripts/dl-graalvm.sh
 RUN . /root/.shrc; gu install nodejs
 RUN . /root/.shrc; gu install python
-
-# install rust toolchain
-RUN curl https://sh.rustup.rs -sSf >> rustup.sh
-RUN chmod 700 rustup.sh
-RUN ./rustup.sh --default-toolchain stable -y
-ENV PATH=/root/.cargo/bin:$PATH
-RUN rm rustup.sh
-
 
 # Download and install maven
 WORKDIR /opt
