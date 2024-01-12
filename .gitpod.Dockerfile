@@ -46,12 +46,13 @@ RUN apt-get install -yqq nodejs
 RUN apt-get install -yqq npm
 
 # install rust toolchain
+RUN su gitpod
 RUN curl https://sh.rustup.rs -sSf >> rustup.sh
 RUN chmod 700 rustup.sh
 RUN ./rustup.sh --default-toolchain stable -y
-ENV PATH=/root/.cargo/bin:$PATH
+#ENV PATH=/root/.cargo/bin:$PATH
 RUN rm rustup.sh
-
+RUN sudo su
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
