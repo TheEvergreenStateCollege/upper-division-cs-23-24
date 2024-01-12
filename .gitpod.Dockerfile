@@ -53,8 +53,8 @@ RUN . /root/.shrc; gu install nodejs
 RUN . /root/.shrc; gu install python
 
 # install rust toolchain
-RUN curl https://sh.rustup.rs -sSf | \
-RUN sh -s -- --default-toolchain stable -y
+RUN curl https://sh.rustup.rs -sSf >> rustup.sh
+RUN ./rustup.sh --default-toolchain stable -y
 ENV PATH=/root/.cargo/bin:$PATH
 
 # install tcpdump, netcat, telnet, net-tools
