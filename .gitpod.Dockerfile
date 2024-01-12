@@ -38,6 +38,11 @@ RUN apt-get install -yqq htop
 RUN apt-get install -yqq asciinema
 RUN apt-get install -yqq python3-pip
 RUN apt-get install -yqq curl
+RUN apt-get install -yqq tcpdump
+RUN apt-get install -yqq netcat
+RUN apt-get install -yqq telent
+RUN apt-get install -yqq net-tools
+
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -59,11 +64,6 @@ RUN ./rustup.sh --default-toolchain stable -y
 ENV PATH=/root/.cargo/bin:$PATH
 RUN rm rustup.sh
 
-# install tcpdump, netcat, telnet, net-tools
-# RUN apt-get install -yqq tcpdump
-RUN apt-get install -yqq netcat
-RUN apt-get install -yqq telent
-RUN apt-get install -yqq net-tools
 
 # Download and install maven
 WORKDIR /opt
