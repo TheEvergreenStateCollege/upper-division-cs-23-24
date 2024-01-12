@@ -54,8 +54,10 @@ RUN . /root/.shrc; gu install python
 
 # install rust toolchain
 RUN curl https://sh.rustup.rs -sSf >> rustup.sh
+RUN chmod 700 rustup.sh
 RUN ./rustup.sh --default-toolchain stable -y
 ENV PATH=/root/.cargo/bin:$PATH
+RUN rm rustup.sh
 
 # install tcpdump, netcat, telnet, net-tools
 RUN apt-get install tcpdump
