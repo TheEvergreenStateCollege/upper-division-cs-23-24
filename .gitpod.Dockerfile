@@ -52,6 +52,17 @@ RUN . /root/scripts/dl-graalvm.sh
 RUN . /root/.shrc; gu install nodejs
 RUN . /root/.shrc; gu install python
 
+# install rust toolchain
+RUN curl https://sh.rustup.rs -sSf | \
+RUN sh -s -- --default-toolchain stable -y
+ENV PATH=/root/.cargo/bin:$PATH
+
+# install tcpdump, netcat, telnet, net-tools
+RUN apt-get install tcpdump
+RUN apt-get install netcat
+RUN apt-get install telent
+RUN apt-get install net-tools
+
 # Download and install maven
 WORKDIR /opt
 RUN wget "https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz"
