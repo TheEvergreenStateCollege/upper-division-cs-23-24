@@ -40,8 +40,9 @@ RUN apt-get install -yqq python3-pip
 RUN apt-get install -yqq curl
 RUN apt-get install -yqq tcpdump
 RUN apt-get install -yqq netcat
-RUN apt-get install -yqq telent
+RUN apt-get install -yqq telnet
 RUN apt-get install -yqq net-tools
+RUN apt-get install -yqq nodejs
 
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
