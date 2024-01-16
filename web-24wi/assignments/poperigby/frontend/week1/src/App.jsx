@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client";
 import Pet from "./Pet";
+import SearchParams from "./SearchParams";
 
 const App = () => {
     return (
@@ -11,6 +12,7 @@ const App = () => {
             <Pet name="Ruby" animal="Ferret" breed="Cinnamon" />
             <Pet name="Pauley" animal="Cat" breed="Black" />
             <Pet name="Opah" animal="Cat" breed="Orange Tabby" />
+            <SearchParams />
         </div >
     );
 };
