@@ -97,6 +97,7 @@ body {
 .item-title {
   grid-area: title;
   font-weight: bold;
+  padding-left: 15px
 }
 
 .item-price {
@@ -169,6 +170,16 @@ body {
 
 .final-totals {
   font-weight: bold;
+}
+
+.totalbutt {
+  background-color: #aea9a3;
+  border: none;
+  padding: 10px 30px;
+  width: 100%;
+  border-radius: 100px;
+  font-size: 16px;
+
 }
 
 .checkout {
