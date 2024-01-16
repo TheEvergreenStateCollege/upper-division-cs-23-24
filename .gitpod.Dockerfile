@@ -49,30 +49,18 @@ RUN apt-get install -yqq npm
 RUN curl https://sh.rustup.rs -sSf >> rustup.sh
 RUN chmod 700 rustup.sh
 RUN ./rustup.sh --default-toolchain stable -y
-ENV PATH=/root/.cargo/bin:$PATH
+ENV PATH=${HOME}/.cargo/bin:$PATH
 RUN rm rustup.sh
+
+# install node version manager
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN . ${HOME}/.nvm/nvm.sh; nvm install v20
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir ~/scripts
-COPY ./scripts/dl-graalvm.sh /root/scripts/dl-graalvm.sh
 COPY ./scripts/.shrc /root/.shrc
 
 RUN ssh-keyscan github.com
-
-# Download the right GraalVM for the given architecture
-RUN . /root/scripts/dl-graalvm.sh
-RUN . /root/.shrc; gu install nodejs
-RUN . /root/.shrc; gu install python
-
-# Download and install maven
-WORKDIR /opt
-RUN wget "https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz"
-RUN tar -xzvf apache-maven-3.9.4-bin.tar.gz && rm apache-maven-3.9.4-bin.tar.gz
-# add java and maven to path
-ENV PATH=/opt/apache-maven-3.9.4/bin:/opt/graalvm-community-openjdk-20.0.2+9.1/bin:${PATH}
-
-RUN mkdir ~/src
-RUN cd ~/src; git clone https://github.com/TheEvergreenStateCollege/upper-division-cs
 
 WORKDIR "${HOME}"
