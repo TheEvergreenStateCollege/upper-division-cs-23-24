@@ -57,7 +57,7 @@ impl Drop for ThreadPool {
         drop(self.sender.take());
 
         for worker in &mut self.workers {
-            println!("Shutting down worker: {}", worker.id);
+            println!("Shutting down worker {}", worker.id);
 
             // Replace threads that were cleaning up with None
             if let Some(thread) = worker.thread.take() {
@@ -90,7 +90,10 @@ impl Worker {
 
                         job();
                     }
-                    Err(_) => println!("Worker {id} disconnected; shutting down."),
+                    Err(_) => {
+                        println!("Worker {id} disconnected; shutting down.");
+                        break;
+                    }
                 }
             })),
         }
