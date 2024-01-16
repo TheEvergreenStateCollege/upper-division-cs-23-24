@@ -7,6 +7,13 @@
     height: 5rem;
 }
 
+.left-column{
+    border-radius: 5px;
+}
+.name-block, .payment {
+    border-radius: 5px;
+}
+
 .logo-wrapper img {
     height: 2rem;
 }
