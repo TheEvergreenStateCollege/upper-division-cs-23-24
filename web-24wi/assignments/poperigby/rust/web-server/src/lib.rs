@@ -5,7 +5,7 @@ use std::{
 
 pub struct ThreadPool {
     workers: Vec<Worker>,
-    sender: mpsc::Sender<Job>,
+    sender: Option<mpsc::Sender<Job>>,
 }
 
 type Job = Box<dyn FnOnce() + Send + 'static>;
@@ -33,7 +33,10 @@ impl ThreadPool {
             workers.push(Worker::new(id, Arc::clone(&receiver)));
         }
 
-        ThreadPool { workers, sender }
+        ThreadPool {
+            workers,
+            sender: Some(sender),
+        }
     }
 
     pub fn execute<F>(&self, f: F)
@@ -44,12 +47,15 @@ impl ThreadPool {
         let job = Box::new(f);
 
         // Send the job down the channel to be picked up by a worker
-        self.sender.send(job).unwrap();
+        self.sender.as_ref().unwrap().send(job).unwrap();
     }
 }
 
 impl Drop for ThreadPool {
     fn drop(&mut self) {
+        // Close the channel
+        drop(self.sender.take());
+
         for worker in &mut self.workers {
             println!("Shutting down worker: {}", worker.id);
 
@@ -73,15 +79,19 @@ impl Worker {
             thread: Some(thread::spawn(move || loop {
                 //  The Worker's thread loops forever, operating on any Jobs that get sent down the
                 //  channel.
-                let job = receiver
+                let message = receiver
                     .lock()
                     .expect("Another Worker thread panicked while holding the lock, instead or releasing it.")
-                    .recv()
-                    .expect("The thread holding the receiver has shut down.");
+                    .recv();
 
-                println!("Worker {id} got a job; executing.");
+                match message {
+                    Ok(job) => {
+                        println!("Worker {id} got a job; executing.");
 
-                job();
+                        job();
+                    }
+                    Err(_) => println!("Worker {id} disconnected; shutting down."),
+                }
             })),
         }
     }
