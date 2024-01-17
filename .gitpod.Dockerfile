@@ -46,10 +46,12 @@ RUN apt-get install -yqq nodejs
 RUN apt-get install -yqq npm
 
 # install rust toolchain
+ENV RUSTUP_HOME=/opt/.rustup
+ENV CARGO_HOME=/opt/.cargo
 RUN curl https://sh.rustup.rs -sSf >> rustup.sh
 RUN chmod 700 rustup.sh
 RUN ./rustup.sh --default-toolchain stable -y
-ENV PATH=${HOME}/.cargo/bin:$PATH
+ENV PATH=/opt/.cargo/bin:$PATH
 RUN rm rustup.sh
 
 # install node version manager
