@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+.topbar{
+    background-color: #43281c;
+    display: flex;
+    justify-content: center;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 5%;
+    background-color: red;
+  }
+
+.user-info-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.pretty-box{
+    background-color: #ede0d4;
+    padding: 5px;
+    margin: 2%;
+}
