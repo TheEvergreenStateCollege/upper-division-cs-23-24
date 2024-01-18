@@ -32,8 +32,12 @@ If you are doing Lap 2, you should still complete the Lap 1 project (Web Calcula
 
 ### Readings and Watchings
 
+Read Section 4
+
 Watch Section 4 of [Complete Intro to React](https://frontendmasters.com/courses/complete-react-v8/)  
 * React Capabilities
+
+
 
 ### Write Code
 Write and commit to the class monorepo, in your personal `assignments` directory.
