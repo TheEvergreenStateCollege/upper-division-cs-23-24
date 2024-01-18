@@ -7,13 +7,6 @@
     height: 5rem;
 }
 
-.left-column{
-    border-radius: 5px;
-}
-.name-block, .payment {
-    border-radius: 5px;
-}
-
 .logo-wrapper img {
     height: 2rem;
 }
@@ -33,6 +26,10 @@
 
 .column-card {
     background-color: rgb(235,225,214);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    box-shadow: 2px 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .column-wrapper {
@@ -56,18 +53,21 @@
 
 .name-input-group {
     position: relative;
-    display: inline-block;
+    margin: 20px;
+    border-bottom: 20px;
 }
 
-.name-input {
-    border-color: crimson;
+.input-text {
+    background-color: rgb(235,225,214);
+    border:2px rgb(125,85,46) solid;
     padding: 8px;
-    border-radius: 5px;
+    border-radius: 100px;
+    width: 90%;
 }
 
 .input-label {
-    background-color: white;
-    color: crimson;
+    background-color: rgb(235,225,214);
+    color: rgb(125,85,46);
     font-size: 11px;
     position: absolute;
     left: 25px;
