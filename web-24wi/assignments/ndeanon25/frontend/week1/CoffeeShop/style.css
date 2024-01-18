@@ -1,0 +1,47 @@
+*{
+    box-sizing:border-box
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #885a2d6b;
+    font-family: fantasy;
+}
+
+.page {
+    display: grid;
+    row-gap: 10px;
+    column-gap: 10px;
+    width: 100%;
+    padding: 30px;
+    margin: auto;
+    grid-template-columns: 1fr 1fr;;
+}
+
+/* This is the top part of the page*/
+.main-nav{
+    background-color: #3d1e00;
+    color:#fefefe;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.logo{
+    height: 25px;
+    position: relative;
+    top: 5px;
+}
+
+/* This is the box that is used for orders,name, and payment */
+.box{
+    background-color: #a2c6a1;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+}
