@@ -14,7 +14,7 @@ FUNCTION divisibleSubsetSize(k, s):
         result += Maximum of remainderCount[i] and remainderCount[k - i]
 
 
-    // Step 5: Return the result
+    // Step 5: Return the result //change 
     RETURN result
 
 FUNCTION main():
