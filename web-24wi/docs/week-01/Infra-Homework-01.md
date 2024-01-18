@@ -70,4 +70,3 @@ Create a directory in your personal assignment directory in the monorepo and com
 web-24wi/assignments/rust
 ```
 During your code interview, show your interviewer.
->>>>>>> 67f423f (Updated Web Engineering syllabus.)

@@ -17,28 +17,23 @@ That is, it's an attempt to carve out a smaller piece of a possibly bigger proje
 It requires knowledge of yourself and your current capabilities, as well as the desire to steer
 where you want to go.
 
-## Deliverables for All Projects (DSA and Independent)
-
+## Deliverables for Each Team
 You can apply the criteria below, or present a case in your proposal for alternative
 criteria that meets the intent of showing substantial effort for upper division computer science credit.
 
-Per team member:
-
 For the whole project:
 * 500 lines of original code, newly written or refactored while maintaining existing functionality, written this quarter
+* 
 * 5 tests showing how to run your code and demonstrating 5 different modes of operation or functionality.
   * These can be unit tests written in code, integration tests written as a script, screenrecording videos, screenshots
 * 800 word or longer README.md in your GitHub repo
 
-You can incorporate some or all of the above sections into your required Evergreen self evaluation.
 
-For example: if you have two members of your team, you'll each need to contribute 500 lines of code or code changes.
 
 ## Progression Through 10 Weeks 
 
-While each week we will introduce new concepts, data structures, and algorithms, and 
-self-contained homework exercises to help you learn, you will be progressively synthesizing these 
-learnings, adding them to your final project.
+Each week we will introduce new concepts, web engineering tools and techniques, 
+self-contained homework exercises to help you learn and ideate. You will be progressively synthesizing these learnings, adding them to your final project.
 
 At the end, you will have the following deliverables to submit to instructors as well as a 
 portfolio piece that you can display on your Git profiles, your websites and social media,
