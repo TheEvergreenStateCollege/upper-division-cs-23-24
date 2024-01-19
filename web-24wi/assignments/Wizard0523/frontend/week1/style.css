@@ -1,0 +1,110 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleBox {
+  border: 1px solid;
+  width: 100%;
+  text-align: center;
+  background-color: #180905;
+  color: white;
+}
+
+.secondRow {
+  display: flex;
+  justify-content: center;
+}
+
+.itemsBox {
+  margin: 40px;
+  width: 40%;
+  background-color: #F9E0CC;
+  display: grid;
+  grid-template-rows: 1/2fr 1fr 1fr 1fr;
+  box-shadow: 0px 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.itemsHeader {
+  
+}
+
+.item {
+  list-style-type: none;
+  border-bottom: 1px solid;
+  display: flex;
+}
+.item:last-child {
+  border-bottom: none;
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.quantity {
+  margin: 15px;
+}
+
+.extras {
+  list-style-type: none;
+}
+
+.price {
+  justify-content:right;
+  text-align: right;
+}
+
+.secondRowColumn {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 40px;
+  gap: 30px;
+  
+}
+
+.nameBox {
+  background-color: #F9E0CC;
+  position: relative;
+  box-shadow: 0px 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
+.paymentBox {
+  background-color: #F9E0CC;
+  box-shadow: 0px 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
+.checkoutBox {
+  display: flex;
+  justify-content: center;
+}
+
+.input{
+  border-radius: 100px;
+  left: 10px;
+  bottom: 10px;
+  width: 90%;
+  position: relative;
+}
+
+.totalsTable td:last-child{
+  text-align: right;
+}
+
+.roundButton {
+  border-radius: 100px;
+  background-color: tan;
+  border: none;
+  height: 40px;
+  width: 95%;
+}
+@Wizard0523
+Comment
