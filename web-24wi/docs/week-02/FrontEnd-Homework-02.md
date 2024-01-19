@@ -27,10 +27,10 @@ https://btholt.github.io/complete-intro-to-web-dev-v3/lessons/putting-it-all-tog
 
 ### Lap 2: React + Typescript
 
-If you are doing Lap 2, you should still complete the Lap 1 project (Web Calculator) but with React components, in addition to the React project below.
 
 
 ### Readings and Watchings
+
 
 Read Section 4
 
@@ -55,7 +55,7 @@ This is also a place where teaching staff and classmates can give you help and f
 ```  
 git add .  
 git commit -m "<describe your change>"  
-git push -u origin <github_username>-week1  
+git push -u origin <github_username>-week2  
 ```  
 ### Preparation for Code Interview  
 You will receive your feedback and evaluation for this assignment next week by Canvas and a 1:1 in-person in-person code interview with teaching staff. Don't worry, do your best.
@@ -63,7 +63,8 @@ You will receive your feedback and evaluation for this assignment next week by C
 You can practice a mock interview with your classmates by following this script (as the interview)  
 * Interviewer: Tell me about your code  
     * Interviewee: (if you don't know where to start, divide your code up into 4-5 sections, and describe their purpose in order)  
-* Interviewer: (removes one random line of code without showing interviewee)  
-    * Interviewee: (given time to re-run the code, understand what has happened, add it back, explain the purpose of that line, and how they came to that conclusion)
+* Interviewer: (removes three random lines of code without showing interviewee)
+	* Interviewers will give hints and narrow down the range of where the change happened.
+	* Interviewee: (given time to re-run the code, understand what has happened, add it back, explain the purpose of that line, and how they came to that conclusion)
 
 At any time, it is okay for the interviewee to say "I'm stuck, but here is what I am thinking. Can I have a hint?"
