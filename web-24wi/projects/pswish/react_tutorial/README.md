@@ -19,8 +19,8 @@ Follow these steps to get the project up and running:
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/your-react-program.git
-   cd your-react-program
+   git clone https://github.com/TheEvergreenStateCollege/upper-division-cs/tree/main/web-24wi/projects/pswish/react_tutorial.git or use the ssh method in the browser of github.com
+   cd react_tutorial
    ```
 
 2. **Install Dependencies:**
