@@ -29,3 +29,28 @@ ndeanon25 - Nathan Deanon
 4) The reason we should code review is that it transfers knowledge from one person to another, and it helps to see someone's process to incorporate it into your own process.
 5) I am still getting the hang of the GitPod so the steps are to make a new branch, write/modify code, commit, push a request, get a code review, and then delete the branch once reviewed and merged.
    ==================================================================
+
+1. Take note of all the interview questions if you have many steps of the flowchart to interview day already complete.
+2. Some interesting info on how to tackle a problem and how to solve it with an algorithm. Looks like a guide on how to practice the much dreaded code whiteboard interview, which I have never done.
+3. I spent a few hours searching about stack overflow issues a few days ago. Page 91 provides all the information I needed in a non-comment format. Just the facts.
+4. Much of the reading is heavy in the weeds and worth a re-read or three.
+5. A linked list is a data structure that represents a sequence of nodes. An array provides constant read access to an index where a linked list does not which I found like a key tidbit to determine the difference
+a7a6362... Uploading co-creation notes for wk2-wk3
+
+faulkdf:
+
+Looking back through my notes. Ah what fun!
+
+1. CRUD was a very important idea this week. I like how its a simply acronym to remember, while also having a funny name
+2. Being proactive seems to be important in the job market. Especially the programmer job market. 
+2. I like how many of the basic data strucures have a name that visually describes them A stack is like a *stack* of playing cards. An organised pile. Queues are like a reverse stack, and fucntion, well... like a queue. Heaps are a pile etc etc. 
+4. the flowchart in Cracking the Coding Interview was fun. I like explanations that include a visual aid. 
+5. Specifically, the point on the map "Be confident (not cocky)" is such an important point. lots of people may have extraordinary skills, but if they are fundamentally difficult to be around, they arent usefull in a team setting. 
+
+
+david Dunston 
+1. I this week was a very important week for me I learned a lot about Hash Mabs and a raise while in class I was still trying to figure out just the process of how to do the homework
+2. There's a lot of things on my mind all week to you about the class is a Coke creation and I'm not sure if the part that I'm doing in class actually contributed
+3. What I can understand the link this is pretty much a list that is categorized and sorted through by the algorithm and keep track of by every cell in a consecutive order
+4. At this point I do remember feeling overwhelmed and that I've put myself into too much of a task and so I looked into dropping out of this course
+5. Overall I'm very grateful I did not come out of the course I ended up going to the library and getting the big red book and doing YouTube's of what Java code was all about
