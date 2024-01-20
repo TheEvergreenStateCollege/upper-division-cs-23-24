@@ -24,7 +24,7 @@
             </h1>
         </nav>
         <div class="page">
-        <section class="order-box">
+        <section class="order-box box">
             <h2 class="box-title"> ITEMS </h2>
             <ul class="items">
                 <li class="theItem">
@@ -54,27 +54,48 @@
                 </li>
             </ul>
         </section>
-        <section class="payment">
-            <div class="name-box">
+        <section class="payment-section ">
+            <div class="name-box box">
                 <h2 class="box-title"> NAME</h2>
                 <div class="input-group">
-                    <label class="user-input" for="name"> Name for the Order</label>
-                    <input type="text" class="input" id="name" />
+                    <label class="user-input-label" for="name"> Name for the Order</label>
+                    <input type="text" class="user-input" id="name" />
                 </div>
             </div>  
-                <div class="cc-box">
+                <div class="cc-box box">
                     <h2 class="box-title"> Payment</h2>
                     <div class="input-group">
-                        <label class="user-input" for="cc"> Card Number </label>
-                        <input type="text" class="input" id="cc" />
+                        <label class="user-input-label" for="cc"> Card Number </label>
+                        <input type="text" class="user-input" id="cc" />
                     </div>
                     <div class="input-group">
-                        <label class="user-input" for="cvc"> CCV Number</label>
-                        <input type="text" class="input" id="ccv" />
+                        <label class="user-input-label" for="cvc"> CCV Number</label>
+                        <input type="text" class="user-input short-input" id="ccv" />
                     </div>
                 </div>  
         </section>
-        <section class="total">
+        <section class="total-section">
+            <div class="name-box">
+                <h2 class="box-title"> APPLY FOR A COFFEE MONSTERS CREDIT CARD!</h2>
+                <div class="input-group">
+                    <label class="user-input-label" for="name"> Full Name</label>
+                    <input type="text" class="user-input" id="name" />
+                </div>
+            </div>  
+                <div class="cc-box">
+                    <h2 class="box-title"> Contact Information</h2>
+                    <div class="input-group">
+                        <label class="user-input-label" for="cc"> Email Address </label>
+                        <input type="text" class="user-input" id="cc" />
+                    </div>
+                    <div class="input-group">
+                        <label class="user-input-label" for="cvc"> Phone Number</label>
+                        <input type="text" class="user-input short-input" id="ccv" />
+                    </div>
+            <button class="checkout" type="button">Save 10% today!</button>
+        </section>
+          
+          <section class="total-section">
             <table class="total-table">
                 <tbody>
                     <tr>
@@ -85,15 +106,16 @@
                        <td>Taxes:</td>
                        <td>4.14</td>
                     </tr>
-                    <tr>
+                    <tr class='final-total'>
                         <td>Total:</td>
                         <td>$45.58</td>
                     </tr>
                 </tbody>
             </table>
-            <button class="checkout" type="button">Place Order</button>
-            <button class="ApplePay" type="button">Pay with Apple Pay</button>
+            <button class="checkout" type="button">Place Order &#x2615;</button>
+            <button class="ApplePay" type="button">Pay with &#x1F34E; Pay</button>
         </section>
+          
         </section>
         </div>    
     </body>
