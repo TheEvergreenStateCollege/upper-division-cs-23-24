@@ -1,0 +1,123 @@
+    1  quit
+    2  exit
+    3  cd src/upper-division-cs/web-24wi/assignments/AkinaSS/infra/
+    4  git status
+    5  ls
+    6  git status main
+    7  git add bashHistory.txt 
+    8  git status
+    9  git commit
+   10  git add bashHistory.txt 
+   11  git commit
+   12  git commit -m "bash history"
+   13  git branch
+   14  git switch main
+   15  git switch AkinaSS_week1
+   16  git branch
+   17  git status
+   18  git switch AkinaSS_week1
+   19  cd ..
+   20  cd 
+   21  src
+   22  cd src
+   23  ls
+   24  cd upper-division-cs/
+   25  git status
+   26  git branch
+   27  git switch AkinaSS-week1
+   28  git status
+   29  cd web-24wi/assignments/AkinaSS/infra
+   30  ls
+   31  git status
+   32  git add bas
+   33  git add bashHistory.txt 
+   34  git status
+   35  ls -l
+   36  cat bashHistory.txt 
+   37  git log
+   38  git status
+   39  git branch
+   40  git push
+   41  git push --set-upstream origin AkinaSS-week1
+   42  cd
+   43  ssh-keygen -t ecdsa
+   44  cat .ssh/id_ecdsa.pub
+   45  cat ~/.ssh/id_ecdsa.pub
+   46  cd web-24wi/assignments/AkinaSS/infra
+   47  cd src/upper-division-cs/web-24wi/assignments/AkinaSS/infra
+   48  git push --set-upstream origin AkinaSS-week1
+   49  exit
+   50  cd src
+   51  cd upper-division-cs/web-24wi/assignments/AkinaSS/infra/
+   52  cd
+   53  git remote set-url origin git@github.com:TheEvergreenStateCollege/upper-division-cs.git
+   54  cd src
+   55  cd upper-division-cs/
+   56  git remote set-url origin git@github.com:TheEvergreenStateCollege/upper-division-cs.git
+   57  git push --set-upstream origin AkinaSS-week1
+   58  git branch
+   59  git switch main
+   60  git switch AkinaSS-week1
+   61  ls
+   62  cd web-24wi/assignments/AkinaSS/
+   63  ls
+   64  mkdir frontend
+   65  ls
+   66  cd frontend/
+   67  mkdir week1
+   68  cd week1
+   69  touch index.html
+   70  ls
+   71  cat index.html
+   72  cd ..
+   73  cd infra
+   74  ls
+   75  mkdir week1
+   76  cd week1
+   77  mv --help
+   78  ls
+   79  cd ..
+   80  ls
+   81  mv bashHistory.txt /week1
+   82  chmod 666 bashHistory.txt
+   83  mv bashHistory.txt /week1
+   84  chmod 600 bashHistory.txt
+   85  mv bashHistory.txt ~/week1
+   86  ls
+   87  cd week1
+   88  ls
+   89  cd ..
+   90  ls
+   91  cd ..
+   92  ls
+   93  infra
+   94  sudo
+   95  git revert
+   96  find ~/AkinaSS -type f -name bashHistory
+   97  find AkinaSS -type f -name bashHistory
+   98  find /AkinaSS -type f -name bashHistory
+   99  find . -type f -name bashHistory
+  100  git undo
+  101  git revert
+  102  git revert --continue
+  103  whoami
+  104  pwn
+  105  pwd
+  106  cd 
+  107  cd src/upper-division-cs/web-24wi/assignments/AkinaSS/frontend/week1/
+  108  history >> bashHistory.txt
+  109  ;s
+  110  ls
+  111  rm bashHistory
+  112  rm bashHistory.txt
+  113  ls
+  114  cd ..
+  115  ls
+  116  cd ..
+  117  ls
+  118  ls infra
+  119  cd week1
+  120  cd infra
+  121  ls
+  122  cd week1
+  123  history >> bashHistory.txt
