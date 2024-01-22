@@ -78,10 +78,20 @@ You can adjust your answers to suit your preferences, it won't affect your devel
 
 <img width="625" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/9dbdf8bb-0bc8-4cba-8543-25af7edea404">
 
-### 4. Open a Workspace
+### 4. Create a Workspace
 
 Since this is probably your first time using GitPod for this class,
 click on "New workspace" and copy and paste the private repo you created above.
+
+Occasionally, when the Dockerfile has been changed,
+GitPod will need to build the image from the last layer changed.
+
+This may take up to a few minutes the first time, in which case you will see
+an image like the following. It will be near instance to start a new
+workspace thereafter.
+
+<img width="966" alt="image" src="https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/148553/ac68ebea-23bc-4a59-a3c6-a35e1f9abaf4">
+
 
 ### 5. Open GitPod in Your Browser
 

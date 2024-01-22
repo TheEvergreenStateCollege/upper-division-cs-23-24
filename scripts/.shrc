@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
-export PATH=/opt/graalvm-community-openjdk-20.0.2+9.1/bin:/workspace/upper-division-cs/scripts:${PATH}
-export PATH=/home/gitpod/.local/bin:${PATH}
+export PATH=/workspace/upper-division-cs/scripts:${PATH}
+export PATH=${HOME}/.cargo/bin:${HOME}/.local/bin:$(npm get prefix)/bin:${PATH}
