@@ -14,3 +14,4 @@ https://blog.logrocket.com/implement-webassembly-webgl-viewer-using-rust
 
 * CORS was blocked when serving my `index.html` from a file, so I had to launch a web server
 * It appears I forgot to add the `pkg` dependency, which seems to have been important
+* I misspelled "coordinates" as "cordinates" and the whole thing failed with the least useful error message possible :/
