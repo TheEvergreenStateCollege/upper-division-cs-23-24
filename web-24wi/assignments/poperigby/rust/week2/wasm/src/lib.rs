@@ -151,13 +151,13 @@ pub fn setup_vertices(
     // vertex data
     let coordinates_location = rendering_context.get_attrib_location(shader_program, "coordinates");
 
-    // rendering_context.bind_buffer(WebGlRenderingContext::ARRAY_BUFFER, Some(&vertex_buffer));
     // Tell WebGL how to read the vertex data from the buffer:
     //   * Store them in the coordinates array attribute
     //   * A vertex is made up of three values (x, y, z)
     //   * Each coordinates is a float
     //   * They're normalized
     //   * They're tightly packed
+    // FIXME: rendering_context.bind_buffer(WebGlRenderingContext::ARRAY_BUFFER, Some(&vertex_buffer));
     rendering_context.vertex_attrib_pointer_with_i32(
         coordinates_location as u32,
         3,
@@ -167,4 +167,36 @@ pub fn setup_vertices(
         0,
     );
     rendering_context.enable_vertex_attrib_array(coordinates_location as u32);
+}
+
+#[wasm_bindgen]
+pub fn draw_triangle(
+    canvas_id: &str,
+    color: Option<Vec<f32>>,
+) -> Result<WebGlRenderingContext, JsValue> {
+    let rendering_context = init_webgl_context(canvas_id).unwrap();
+    let shader_program = setup_shaders(&rendering_context).unwrap();
+
+    let vertices = [
+        0.0, 1.0, 0.0, // top
+        -1.0, -1.0, 0.0, // bottom left
+        1.0, -1.0, 0.0, // bottom right
+    ];
+    setup_vertices(&rendering_context, &vertices, &shader_program);
+
+    // Create a color and assign it to the fragColor variable in our shader program
+    let color = color.unwrap_or(vec![1.0, 0.0, 0.0, 1.0]);
+    let color_location = rendering_context
+        .get_uniform_location(&shader_program, "fragColor")
+        .unwrap();
+    rendering_context.uniform4fv_with_f32_array(Some(&color_location), &color);
+
+    // Draw a triangle using our vertices
+    rendering_context.draw_arrays(
+        WebGlRenderingContext::TRIANGLES,
+        0,
+        (vertices.len() / 3) as i32,
+    );
+
+    Ok(rendering_context)
 }
