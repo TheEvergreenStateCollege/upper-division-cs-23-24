@@ -157,7 +157,7 @@ pub fn setup_vertices(
     //   * Each coordinates is a float
     //   * They're normalized
     //   * They're tightly packed
-    // FIXME: rendering_context.bind_buffer(WebGlRenderingContext::ARRAY_BUFFER, Some(&vertex_buffer));
+    // rendering_context.bind_buffer(WebGlRenderingContext::ARRAY_BUFFER, Some(&vertex_buffer));
     rendering_context.vertex_attrib_pointer_with_i32(
         coordinates_location as u32,
         3,
