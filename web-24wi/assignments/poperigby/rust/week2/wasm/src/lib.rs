@@ -68,7 +68,7 @@ pub fn create_shader(
 pub fn setup_shaders(rendering_context: &WebGlRenderingContext) -> Result<WebGlProgram, JsValue> {
     // Create a vertex shader
     let vertex_shader_source = "
-        attribute vec3 cordinates;
+        attribute vec3 coordinates;
 
         void main(void) {
             gl_Position = vec4(coordinates, 1.0);
