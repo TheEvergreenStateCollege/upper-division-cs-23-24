@@ -8,9 +8,13 @@ app.use(express.static("static"));
 /**
  * app.[method]([route], [route handler])
  */
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
     // sending back an HTML file that a browser can render on the screen.
     res.sendFile(path.resolve("pages/index.html"));
+});
+
+app.get("/search-hit/:hit", (req, res) => {
+    res.sendFile(path.resolve(`pages/search-${req.params.hit}.html`));
 });
 
 // creates and starts a server for our API on a defined port
