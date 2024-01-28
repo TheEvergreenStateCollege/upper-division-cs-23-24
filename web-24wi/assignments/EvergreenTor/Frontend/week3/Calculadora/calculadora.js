@@ -24,8 +24,37 @@ function handleNumber(number){
     }
 }
 
+function handleMath(value){
+    if(buffer === 0 ){
+        //do nothing
+        return;
+    }
+
+    
+}
+
 function handleSymbol(symbol){
-    console.log(symbol);
+    switch (symbol){
+        case 'c':
+            buffer = '0';
+            break;
+        case '=':
+            break;
+        case '←':
+            if(buffer.length === 1){
+                buffer = '0';
+            } else {
+                buffer = buffer.substring(0, buffer.length - 1);
+            }
+            
+            break;
+        case '+':
+        case '-':
+        case '÷':
+        case '×':
+            handleMath(symbol);
+            break
+    }
 }
 
 
