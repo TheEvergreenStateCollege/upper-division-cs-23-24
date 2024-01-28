@@ -91,3 +91,27 @@ Finally for Part C) you will assign this pull request to a classmate as a review
 
 Submit all your writing [in this one single Markdown file on the GitHub website](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/web-24wi/docs/week-02/Co-Creation-02.md)
 To edit it from the website, click on the pencil icon in the upper-right corner. When it comes time to commit your changes, choose "Propose changes on a new branch" and then create a pull request with your changes. Request as a Reviewer one of your classmates. You can ask them in-person, or in Discord as well, if it's okay to request a review from them.
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________
+
+##### Dee Dee
+##### A) Three examples of data visualizations that you choose from the reading
+###### Scatter plot/Bubble Graph
+- Not to be boring but I love a good scatter plot, which wasn't represented in the reading other than as an example for outliers. Part of the reason I like them is exactly for that reason. Bubble graphs are also handy. Here's an example of a bubble graph data visualization representation: (https://informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/)[https://informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/]. I chose the informationisbeautiful site because the graphics are clean and modern. I think this particular data set will be useful for cybersecurity research and classes.
+
+###### Choropleth Maps:
+- The map of the count of galaxies is impressive and really drives home that we are a tiny blip of self importance. Here is a link to Warsaws 3D representation of the Milky Way and their findings: (https://www.space.com/milky-way-3d-map-warped-shape.html)[https://www.space.com/milky-way-3d-map-warped-shape.html]. I chose this website and example because I think it's a really cool example of how awesome graphically representing data is. Beyond the implications for science and understanding it's just an awesome project.
+
+###### Before/After Time Series
+- The before and after time series is also very effective in that without the intermediate data you see the starkness of the change. Here is an interesting example that tracks ocean plastic from space (watch the video if you want but there is  a two date comparison beneath it): (https://www.earthdata.nasa.gov/learn/articles/ocean-plastic)[https://www.earthdata.nasa.gov/learn/articles/ocean-plastic]. I chose this graphic data set because it applies both the subject mater over time and the  before and after data. I think this is impactful when you are trying to convey  that something is potentially getting worse or causing problems.
+
+#### B) Three web interactions that you remember, adapt, or develop _offline_ (do not do this with a computer yet)
+
+###### Community knowledge sharing
+This interaction is appealing to me because it allows people to teach each other things and specifically, for communities, to utilize the specializations of its members to share information. It isn't always perfect but it almost is: (https://www.wikipedia.org/)[https://www.wikipedia.org/]. Wikipedia is usually my first stop for information gathering. I like it because for the amount of information, internal links, and external references. I also find opensource projects appealling. 
+
+###### Collaborative work
+I think real learning happens when people come together to solve problems and produce solutions. Being able to communicate effectively and keep track of threads, events, and assignments is an important and necessary workflow. A perfect site doesn't exist yet but the one I've seen used the most is: (https://slack.com/)[https://slack.com/]. I chose slack because I like it better than discord. It also has features like automating workflows and security.
+
+###### Story telling
+Who doesn't love a good story? There are many ways to convey a story and being able to do it visually on the web by immersing the user in your interface is an incredible. An example of a website that tells a visual story is: (https://uneminiaventure.fr/en#chap-01)[https://uneminiaventure.fr/en#chap-01]. I chose this site because it's purely entertaining and visually inspiring with no reason to experience it than to have a moment of thinking about websites differently. 
