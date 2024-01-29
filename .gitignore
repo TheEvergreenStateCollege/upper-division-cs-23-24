@@ -40,4 +40,4 @@ Scratch/
 **/*.obsidian
 
 # Dioxus
-dist
+dist/
