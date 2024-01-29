@@ -13,7 +13,7 @@ datasource db {
 model Post {
     // id field that is a number and automatically increments after its used
     id        Int      @id @default(autoincrement())
-    // timestamps
+    // time stamps
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     // limit to 255 for indexing UTF-8
@@ -23,7 +23,7 @@ model Post {
     published Boolean  @default(false)
     // relation to another model
     author    User     @relation(fields: [authorId], references: [id])
-    authorId  Int
+    authorId  String
 }
 
 model User {
