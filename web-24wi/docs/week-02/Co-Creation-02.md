@@ -89,7 +89,8 @@ and create a Pull Request to add these 6 paragraphs to the monorepo.
 
 Finally for Part C) you will assign this pull request to a classmate as a reviewer, to request a review.
 
-Submit all your writing [in this one single Markdown file on the GitHub website](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/web-24wi/docs/week-02/Co-Creation-02.md) To edit it from the website, click on the pencil icon in the upper-right corner. When it comes time to commit your changes, choose "Propose changes on a new branch" and then create a pull request with your changes. Request as a Reviewer one of your classmates. You can ask them in-person, or in Discord as well, if it's okay to request a review from them.
+Submit all your writing [in this one single Markdown file on the GitHub website](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/web-24wi/docs/week-02/Co-Creation-02.md)
+To edit it from the website, click on the pencil icon in the upper-right corner. When it comes time to commit your changes, choose "Propose changes on a new branch" and then create a pull request with your changes. Request as a Reviewer one of your classmates. You can ask them in-person, or in Discord as well, if it's okay to request a review from them.
 
 ### Cassidy
 
