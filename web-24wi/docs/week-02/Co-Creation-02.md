@@ -111,6 +111,6 @@ Hey, that actually [exists](https://engineeringdiscoveries.com/leaning-tower-of-
 
 ## Part B
 
-1.
-2.
-3.
+1. I like it when there's a central search bar for finding everything you need, especially when it's for documentation. It's nice to be able to find things without using an external search engine. Bonus points for having a keyboard shortcut. Example: https://dioxuslabs.com/learn/
+2. Whenever a website has code snippets, I love when they have a convenient copy button, so I don't have to select-copy-paste manually. Another neat thing with code snippets on some websites, having a button to take me to a playground where I can compile the snippet. The Rust book website does both: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html 
+3. Something I love on some websites is minimalism. A lot of modern websites have way to much crap going on, and too much iconography so I can't quite easily figure everything out. Some websites try to go in the opposite direction: https://tildes.net/
