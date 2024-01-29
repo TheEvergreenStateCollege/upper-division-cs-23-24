@@ -90,4 +90,27 @@ and create a Pull Request to add these 6 paragraphs to the monorepo.
 Finally for Part C) you will assign this pull request to a classmate as a reviewer, to request a review.
 
 Submit all your writing [in this one single Markdown file on the GitHub website](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/web-24wi/docs/week-02/Co-Creation-02.md)
+
 To edit it from the website, click on the pencil icon in the upper-right corner. When it comes time to commit your changes, choose "Propose changes on a new branch" and then create a pull request with your changes. Request as a Reviewer one of your classmates. You can ask them in-person, or in Discord as well, if it's okay to request a review from them.
+
+### Cassidy
+
+## Part A
+
+1. I like the visualization of cancer rates across the US (that sounds pretty dark ) on pages 17-19, as well as the other data maps. It seems to be a very effective way of visualizing data based on region because it's directly on a map of all the regions. A bar graph would have been able to show the same data, but have been much harder to understand without the surrounding context.
+
+I think [this](https://ourworldindata.org/energy) page from Our World in Data is pretty cool. Could you imagine how horrific this would be with a bar graph?
+
+2. The "before and after the collapse of a bridge on the Rhône in 1840" on page 36 is super cool. I would never think to graph the movement of a building. I would like to see a graph like this with something besides two data points. Maybe the Leaning Tower of Pisa?
+
+Hey, that actually [exists](https://engineeringdiscoveries.com/leaning-tower-of-pisa/)! Well not quite, but this is also interesting. For the top graph, it's basically a bar graph representing the tower's height, but represented as the actual tower instead of a bar, which also increases the level of detail on display.
+
+3. The "The life cycle of the Japanese beetle" graph on page 43 is by far my favorite. It's awesome because it manages to make it look like it's an instantaneous snapshot, even though it's over time.
+
+[This](https://www.researchgate.net/figure/The-emergence-of-life-on-earth-during-geological-time-scales-along-with-temperature_fig1_337154054) site is somewhat similar, in that it shows the timescale in an almost instantaneous way.
+
+## Part B
+
+1. I like it when there's a central search bar for finding everything you need, especially when it's for documentation. It's nice to be able to find things without using an external search engine. Bonus points for having a keyboard shortcut. Example: https://dioxuslabs.com/learn/
+2. Whenever a website has code snippets, I love when they have a convenient copy button, so I don't have to select-copy-paste manually. Another neat thing with code snippets on some websites, having a button to take me to a playground where I can compile the snippet. The Rust book website does both: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html 
+3. Something I love on some websites is minimalism. A lot of modern websites have way to much crap going on, and too much iconography so I can't quite easily figure everything out. Some websites try to go in the opposite direction: https://tildes.net/
