@@ -24,8 +24,8 @@ pub fn StoryListing(cx: Scope, story: StoryItem) -> Element {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 /// Represents a Hacker News story page
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StoryPageData {
     #[serde(flatten)]
     pub item: StoryItem,
