@@ -90,4 +90,14 @@ and create a Pull Request to add these 6 paragraphs to the monorepo.
 Finally for Part C) you will assign this pull request to a classmate as a reviewer, to request a review.
 
 Submit all your writing [in this one single Markdown file on the GitHub website](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/web-24wi/docs/week-02/Co-Creation-02.md)
-To edit it from the website, click on the pencil icon in the upper-right corner. When it comes time to commit your changes, choose "Propose changes on a new branch" and then create a pull request with your changes. Request as a Reviewer one of your classmates. You can ask them in-person, or in Discord as well, if it's okay to request a review from them.
+To edit it from the website, click on the pencil icon in the upper-right corner. When it comes time to commit your changes, choose "Propose changes on a new branch" and then create a pull request with your changes. Request as a Reviewer one of your classmates. You can ask them in-person, or in Discord as well, if it's okay to request a review from them.44
+
+
+RESPONSE:
+
+Part A:
+	The first data type I chose was a map (pg 17-18) - a map shows relationship to the environment, or it can represent the impact of geophysical space between data points on their outcomes. The example I chose for simplicity was this 2021 map of COVID data, found in this article: https://www.nytimes.com/interactive/2021/us/covid-cases.html. The article display multiple maps of the U.S., illustrating (by county) hospitalizations, vaccinations, cases, and deaths per capita. By including each of these in visually close proximity, the relationship between them is evidenced, 
+
+  	The second data type I selected was the before-after time series, shown on page 39. I chose this one because I thought it was a unique perspective to select a single event to split the time series on, as opposed to time series that show continual trends. In the following example, the audience can see a significant spike in children's anxiety due to the onset of a pandemic: https://www.nature.com/articles/s41598-022-22694-z/figures/1.
+
+   	The third data type is the bar graph, especially the "bad bar graph" on page 33. The author notes that bar graphs should not be used for noncomparative data, but bar graphs are used so frequently and I'm so trained to read them, that it's easy to oversee when they're a bad data representation choice. I think the first graph would have been better represented as a double line graph of dropouts/enrollment, or a single line graph visualizing the percentage of dropouts per class. The second graph might have been better suited in the form of a pie graph.https://www.nature.com/articles/s41599-023-01588-z/figures/2
