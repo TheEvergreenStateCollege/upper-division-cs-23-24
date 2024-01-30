@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <body id="body">
+    <h1>Enter your info to get a custom valentine!</h1>
+     <div class="input-field">
+      <label for="first_name"> First Name: <label>
+      <input type="text" id="first_name" required minlength="1" maxlength="12" size="13" value="Test"/>
+     </div>
+     <div class="input-field">
+      <label for="last_name">Last Name: <label>
+      <input type="text" id="last_name" required minlength="1" maxlength="12" size="13" pattern="[A-Za-z]" value="User"/>
+     </div>
+     <div class="input-field">
+      <label for="age"> Age: <label>
+      <input type="text" id="age" required minlength="1" maxlength="4" size="6" pattern="[0-9]" value="24"/>
+     </div>
+     <div class="input-field">
+      <label for="age"> Submit: <label>
+      <input type="button" id="submit" value="Get your valentine!"/>
+     </div>
+     <br>
+     <img id="card_img" src="http://robobuttlove.com/imgs/robolovetestuser24.png">
+  </body>
+  <script>
+
+async function get_booty(url1="",url2="", body={}){
+  let response = await fetch(url1, {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+  let ret_res = await response.json();
+  console.log(ret_res);
+  ret_res.image_selection = "10,10,robolove"
+  let img_url = await fetch(url2, {
+    method:"POST",
+    body: JSON.stringify(ret_res),
+    headers:{
+      "Content-type": "application/json"
+    }
+  })
+  let url_json = await img_url.json()
+  return url_json
+}
+
+async function fetch_card(name,age){
+  const user_info = {"name":name, "age":age,}
+  const text_url = "http://robobuttlove.com:455/returnass" 
+  const img_url = "http://robobuttlove.com:4555/stampimage"
+  const text_booty = await get_booty(text_url, img_url, user_info);
+  let cur_img  = document.getElementById("card_img")
+  let img = document.createElement('img')
+  img.src = (text_booty["url"])
+  cur_img.src=img.src
+  return "Ok"
+}
+
+async function collect_input() {
+  
+  let first_name =  document.getElementById("first_name").value 
+  let last_name = document.getElementById("last_name").value
+  let name = first_name+" "+last_name
+  let age = document.getElementById("age").value
+  if (parseInt(age)<19) {
+    // Simulate a mouse click:
+    alert("Uhhh, no.")
+    window.location.href = "http://www.google.com/search?q=help";
+  }
+  console.log(name)
+  console.log(age)
+  fetch_card(name,age)
+}
+
+async function run() {
+  console.log(status)
+  let submit_button = document.getElementById('submit')
+  submit_button.addEventListener("click", collect_input)
+  collect_input()
+}
+
+run()
+  </script>
+  
+</html>
+
