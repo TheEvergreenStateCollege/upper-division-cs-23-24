@@ -1,7 +1,7 @@
 [application]
 
 # App name
-name = "project_name"
+name = "Pet Adoption"
 
 # The Dioxus platform to default to
 default_platform = "web"
@@ -15,14 +15,14 @@ asset_dir = "public"
 [web.app]
 
 # HTML title tag content
-title = "project_name"
+title = "Pet Adoption"
 
 [web.watcher]
 
 # When watcher is triggered, regenerate the `index.html`
 reload_html = true
 
-# Which files or dirs will be monitored
+# Which files or directories will be monitored
 watch_path = ["src", "public"]
 
 # Include style or script assets
@@ -31,7 +31,7 @@ watch_path = ["src", "public"]
 # CSS style file
 style = []
 
-# Javascript code file
+# JavaScript code file
 script = []
 
 [web.resource.dev]
@@ -39,7 +39,7 @@ script = []
 # Same as [web.resource], but for development servers
 
 # CSS style file
-style = ["style.css"]
+style = ["/style.css"]
 
 # JavaScript files
 script = []
