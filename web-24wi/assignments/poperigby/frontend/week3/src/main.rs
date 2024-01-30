@@ -1,9 +1,9 @@
 #![allow(non_snake_case)]
 
-mod search_params;
+mod search;
 
 use dioxus::prelude::*;
-use search_params::SearchParams;
+use search::SearchParams;
 
 fn main() {
     dioxus_logger::init(log::LevelFilter::Info).unwrap();

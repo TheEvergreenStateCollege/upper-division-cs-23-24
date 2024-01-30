@@ -5,7 +5,7 @@ static ANIMALS: &[&str] = &["Bird", "Cat", "Dog", "Rabbit", "Reptile"];
 
 #[component]
 pub fn SearchParams(cx: Scope) -> Element {
-    // let pets = use_state(cx, || []);
+    let pets: &UseState<Vec<PetItem>> = use_state(cx, || vec![]);
     let location = use_state(cx, || "".to_string());
     let animal = use_state(cx, || "".to_string());
     let breed = use_state(cx, || "".to_string());
