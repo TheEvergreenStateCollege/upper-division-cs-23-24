@@ -2,6 +2,8 @@
 
 use dioxus::prelude::*;
 
+static ANIMALS: &[&str] = &["Bird", "Cat", "Dog", "Rabbit", "Reptile"];
+
 fn main() {
     dioxus_logger::init(log::LevelFilter::Info).unwrap();
     dioxus_web::launch(App);
@@ -35,8 +37,8 @@ fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
 
 #[component]
 fn SearchParams(cx: Scope) -> Element {
-    // Setup location state with a default value of an empty string
     let location = use_state(cx, || "".to_string());
+    let animal = use_state(cx, || "".to_string());
 
     cx.render(rsx! {
         div {
@@ -52,6 +54,22 @@ fn SearchParams(cx: Scope) -> Element {
                         onchange: move |event| location.set(event.value.clone())
                     },
                 },
+                label {
+                    r#for: "animal",
+                    "Animal ",
+                    select {
+                        id: "animal",
+                        value: "{animal}",
+                        onchange: |event| animal.set(event.value.clone()),
+                        // onblur: |event| animal.set(event.value.clone()),
+                        for animal in ANIMALS {
+                            option {
+                                value: "{animal}",
+                                "{animal}"
+                            }
+                        },
+                    }
+                }
                 button { "Submit" },
             }
         }
