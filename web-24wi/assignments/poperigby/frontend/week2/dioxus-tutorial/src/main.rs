@@ -1,9 +1,7 @@
 #![allow(non_snake_case)]
 
-mod story_listing;
-
 use dioxus::prelude::*;
-use story_listing::{StoryItem, StoryListing};
+use dioxus_tutorial::{StoryItem, StoryListing};
 
 fn main() {
     dioxus_web::launch(App);
