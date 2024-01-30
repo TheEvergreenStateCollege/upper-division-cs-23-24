@@ -10,4 +10,5 @@ dioxus = "0.4.3"
 dioxus-logger = "0.4.1"
 dioxus-web = "0.4.3"
 log = "0.4.20"
+reqwest = { version = "0.11.23", features = ["json"] }
 serde = "1.0.196"
