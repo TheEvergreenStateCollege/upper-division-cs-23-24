@@ -1,3 +1,5 @@
+mod hacker_news;
+
 use chrono::{DateTime, Utc};
 use dioxus::prelude::*;
 use serde::{Deserialize, Serialize};
