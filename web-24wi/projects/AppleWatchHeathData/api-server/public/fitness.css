@@ -12,12 +12,27 @@ font-size: 35px;
    
     padding: 0px;
     margin: 300px; 
-    width: 100%px; 
+    width: 100%; 
     text-align: center;
     
 
 }
 
+video{
+    width: 100%;
+}
+
+video::-webkit-media-controls {
+    display:none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+    display:none !important;
+}
+
+video::-webkit-media-controls-panel {
+    display:none !important;
+}
 
 
 body{
