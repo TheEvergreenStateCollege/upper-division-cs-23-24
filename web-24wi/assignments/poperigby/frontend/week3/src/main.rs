@@ -48,7 +48,7 @@ fn SearchParams(cx: Scope) -> Element {
             form {
                 label {
                     r#for: "location",
-                    "Location ",
+                    "Location",
                     input {
                         id: "location",
                         value: "{location}",
@@ -58,7 +58,7 @@ fn SearchParams(cx: Scope) -> Element {
                 },
                 label {
                     r#for: "animal",
-                    "Animal ",
+                    "Animal",
                     select {
                         id: "animal",
                         value: "{animal}",
@@ -76,7 +76,7 @@ fn SearchParams(cx: Scope) -> Element {
                 },
                 label {
                     r#for: "breed",
-                    "Breed ",
+                    "Breed",
                     select {
                         id: "breed",
                         disabled: !breeds.len() as i64,
