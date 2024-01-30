@@ -2,7 +2,7 @@ mod hacker_news;
 
 use chrono::{DateTime, Utc};
 use dioxus::prelude::*;
-use hacker_news::get_stories;
+use hacker_news::{get_stories, get_story};
 use serde::{Deserialize, Serialize};
 
 #[component]
@@ -110,6 +110,8 @@ fn StoryListing(cx: Scope, story: StoryItem) -> Element {
         ..
     } = story;
 
+    let full_story = use_ref(cx, || None);
+
     let url = url.as_deref().unwrap_or_default();
     let hostname = url
         .trim_start_matches("https://")
@@ -132,22 +134,14 @@ fn StoryListing(cx: Scope, story: StoryItem) -> Element {
             padding: "0.5rem",
             position: "relative",
             onmouseenter: move |_| {
-                // Set the preview_state to this story
-                *preview_state.write() = PreviewState::Loaded(StoryPageData {
-                    item: story.clone(),
-                    comments: vec![]
-                })
+                resolve_story(full_story.clone(), preview_state.clone(), *id)
             },
             div {
                 font_size: "1.5rem",
                 a {
                     href: url,
                     onfocus: move |_event| {
-                    // Set the preview_state to this story
-                        *preview_state.write() = PreviewState::Loaded(StoryPageData {
-                            item: story.clone(),
-                            comments: vec![]
-                        })
+                        resolve_story(full_story.clone(), preview_state.clone(), *id)
                     },
                     "{title}"
                 }
@@ -224,4 +218,20 @@ struct Comment {
     #[serde(default)]
     sub_comments: Vec<Comment>,
     r#type: String,
+}
+
+async fn resolve_story(
+    full_story: UseRef<Option<StoryPageData>>,
+    preview_state: UseSharedState<PreviewState>,
+    story_id: i64,
+) {
+    if let Some(cached) = &*full_story.read() {
+        *preview_state.write() = PreviewState::Loaded(cached.clone());
+    }
+
+    *preview_state.write() = PreviewState::Loading;
+    if let Ok(story) = get_story(story_id).await {
+        *preview_state.write() = PreviewState::Loaded(story.clone());
+        *full_story.write() = Some(story);
+    }
 }
