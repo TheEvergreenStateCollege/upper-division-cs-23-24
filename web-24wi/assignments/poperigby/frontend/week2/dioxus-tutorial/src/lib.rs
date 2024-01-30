@@ -24,9 +24,9 @@ pub fn Stories(cx: Scope) -> Element {
 
 #[component]
 pub fn Preview(cx: Scope) -> Element {
-    let preview_state = PreviewState::Unset;
+    let preview_state = use_shared_state::<PreviewState>(cx)?;
 
-    match preview_state {
+    match &*preview_state.read() {
         PreviewState::Unset => render! {
             "Hover over a story to preview it here"
         },
@@ -61,7 +61,7 @@ pub fn Preview(cx: Scope) -> Element {
 }
 
 #[derive(Clone, Debug)]
-enum PreviewState {
+pub enum PreviewState {
     Unset,
     Loading,
     Loaded(StoryPageData),
@@ -88,6 +88,8 @@ fn Comment(cx: Scope, comment: Comment) -> Element<'a> {
 
 #[component]
 fn StoryListing(cx: Scope, story: StoryItem) -> Element {
+    let preview_state = use_shared_state::<PreviewState>(cx).unwrap();
+
     let StoryItem {
         title,
         url,
@@ -121,14 +123,22 @@ fn StoryListing(cx: Scope, story: StoryItem) -> Element {
             padding: "0.5rem",
             position: "relative",
             onmouseenter: move |_| {
-                // NEW
+                // Set the preview_state to this story
+                *preview_state.write() = PreviewState::Loaded(StoryPageData {
+                    item: story.clone(),
+                    comments: vec![]
+                })
             },
             div {
                 font_size: "1.5rem",
                 a {
                     href: url,
                     onfocus: move |_event| {
-                        // NEW
+                    // Set the preview_state to this story
+                        *preview_state.write() = PreviewState::Loaded(StoryPageData {
+                            item: story.clone(),
+                            comments: vec![]
+                        })
                     },
                     "{title}"
                 }
