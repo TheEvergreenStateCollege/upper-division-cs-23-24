@@ -2,26 +2,33 @@ mod hacker_news;
 
 use chrono::{DateTime, Utc};
 use dioxus::prelude::*;
+use hacker_news::get_stories;
 use serde::{Deserialize, Serialize};
 
 #[component]
 pub fn Stories(cx: Scope) -> Element {
-    cx.render(rsx! {
-        StoryListing {
-            story: StoryItem {
-                id: 0,
-                title: "Hello, Hacker News!".to_string(),
-                url: None,
-                text: None,
-                by: "Cassidy".to_string(),
-                score: 0,
-                descendants: 0,
-                time: chrono::Utc::now(),
-                kids: vec![],
-                r#type: "".to_string(),
+    let stories = use_future(cx, (), |_| get_stories(10));
+
+    // Check if the future is resolved
+    match stories.value() {
+        Some(Ok(list)) => {
+            // If it is, render the stories
+            render! {
+                div {
+                    for story in list {
+                        StoryListing { story: story.clone() }
+                    }
+                }
             }
         }
-    })
+        Some(Err(err)) => {
+            render! { "An error occurred while fetching stories: {err}" }
+        }
+        None => {
+            // If a future is yet to resolve, render a loading page
+            render! { "Loading items..." }
+        }
+    }
 }
 
 #[component]
