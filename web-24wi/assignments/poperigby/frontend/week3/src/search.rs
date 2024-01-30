@@ -66,6 +66,36 @@ pub fn SearchParams(cx: Scope) -> Element {
                 button { "Submit" },
             }
         }
+        match pets.value() {
+            Some(Ok(list)) => {
+                rsx! { h1 { "HELLO" } }
+            },
+            Some(Err(err)) => {
+                rsx! { "An error occurred while fetching pets: {err}" }
+            },
+            None => {
+                rsx! { "Loading pets..." }
+            }
+        }
+    })
+}
+
+#[derive(PartialEq, Props)]
+struct PetProps<'a> {
+    // The 'a specifies that every str will live as long as the PetProps struct
+    name: &'a str,
+    animal: &'a str,
+    breed: &'a str,
+}
+
+#[component]
+fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
+    cx.render(rsx! {
+        div {
+            h1 { "{cx.props.name}" }
+            h2 { "{cx.props.animal}" }
+            h2 { "{cx.props.breed}" }
+        }
     })
 }
 
