@@ -1,6 +1,5 @@
 {
-
-  "name": "week3",
+  "name": "hello-prisma",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,8 +9,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-
+  "devDependencies": {
+    "@types/node": "^20.11.10",
+    "prisma": "^5.8.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
   "dependencies": {
-    "express": "^4.18.2"
+    "@prisma/client": "^5.8.1"
   }
 }
