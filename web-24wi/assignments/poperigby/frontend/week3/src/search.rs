@@ -11,7 +11,9 @@ pub fn SearchParams(cx: Scope) -> Element {
 
     let breeds = ["Mutt"];
 
-    let pets = use_future(cx, (), |_| request_pets(animal, location, breed));
+    let pets = use_future(cx, (), |_| {
+        request_pets(animal.to_string(), location.to_string(), breed.to_string())
+    });
 
     cx.render(rsx! {
         div {
@@ -68,9 +70,9 @@ pub fn SearchParams(cx: Scope) -> Element {
 }
 
 async fn request_pets(
-    animal: &str,
-    location: &str,
-    breed: &str,
+    animal: String,
+    location: String,
+    breed: String,
 ) -> Result<PetItem, reqwest::Error> {
     let url = format!(
         "http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}"
