@@ -1,0 +1,56 @@
+    1  exit
+    2  sudo apt update
+    3  sudo apt install git
+    4  git clone git@github.com:TheEvergreenStateCollege/upper-division-cs.git
+    5  ssh-keygen -t ecdsa
+    6  cat ~/.ssh/id_ecdsa.pub
+    7  git clone git@github.com:TheEvergreenStateCollege/upper-division-cs.git
+    8  cd
+    9  cd upper-division-cs/
+   10  cd web-24wi/
+   11  cd assignments
+   12  cd ndeanon25
+   13  cd frontend/
+   14  cd ..
+   15  git checkout-b ndeanonWEBIn-week1
+   16  git checkout -b ndeanonWEBIn-week1
+   17  webpage.html
+   18  history
+   19  git add ndeanonwebPAGE.html
+   20  curl -X GET --user infra@arcology.builders:web-infra https://mail.arcology.builders/admin/dns/custom/x.arcology.builders
+   21  curl -X POST --user -d 54.191.72.204 infra@arcology.builders:web-infra https://mail.arcology.builders/admin/dns/custom/x.arcology.builders
+   22  curl -X POST -d 54.191.72.204 --user infra@arcology.builders:web-infra https://mail.arcology.builders/admin/dns/custom/x.arcology.builders
+   23  curl api.myip.com
+   24  curl -X PUT --user infra@arcology.builders:web-infra https://mail.arcology.builders/admin/dns/custom/x.arcology.builders
+   25  curl api.54.191.72.204.com
+   26  sudo python3 -m http.server 80
+   27  ls
+   28  upper-division-cs
+   29  cd upper-division-cs
+   30  ls
+   31  web-24wi
+   32  cd web-24wi
+   33  ls
+   34  cd web-24wi/assignments
+   35  cd assignments
+   36  ls
+   37  cd..
+   38  cd ..
+   39  cat /home/ubuntu/.ssh/id_ecdsa
+   40  ssh keygen -t ecdsa
+   41  ssh-keygen -t ecdsa
+   42  cat /home/ubuntu/.ssh/id_ecdsa
+   43  cat ~/.ssh/id_ecdsa.pub
+   44  mkdir -p ~/src
+   45  cd ~/src
+   46  git clone git@github.com:TheEvergreenStateCollege/upper-division-cs.git
+   47  mkdir -p <repo-root>/web-24wi/assignments/ndeanon25/infra
+   48  mkdir -p upper-division-cs/web-24wi/assignments/ndeanon25/infra
+   49  cd -p upper-division-cs/web-24wi/assignments/ndeanon25/infra
+   50  cd upper-division-cs/web-24wi/assignments/ndeanon25/infra
+   51  touch bashCommandHistory
+   52  ls
+   53  git checkout -b ndeanon-week1
+   54  git push -u origin ndeanon-week1
+   55  history
+   56  history>>history.txt
