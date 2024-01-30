@@ -1,0 +1,10 @@
+.box {
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem;
+    background-color: darkgray;
+}
+  
+.guess {
+    display: flex;
+}
