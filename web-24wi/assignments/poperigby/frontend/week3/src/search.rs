@@ -105,7 +105,7 @@ async fn request_pets(
     breed: String,
 ) -> Result<Vec<PetItem>, reqwest::Error> {
     let url = format!(
-        "http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}"
+        "http://pets-v2.dev-apis.com/pets?animal={animal}&location={location}&breed={breed}"
     );
 
     Ok(reqwest::get(url).await?.json::<PetsData>().await?.pets)
@@ -124,7 +124,7 @@ struct PetsData {
 struct PetItem {
     id: i64,
     name: String,
-    animail: String,
+    animal: String,
     city: String,
     description: String,
     breed: String,
