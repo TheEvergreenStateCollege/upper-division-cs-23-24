@@ -103,14 +103,12 @@ async fn request_pets(
     animal: String,
     location: String,
     breed: String,
-) -> Result<PetsData, reqwest::Error> {
+) -> Result<Vec<PetItem>, reqwest::Error> {
     let url = format!(
         "http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}"
     );
-    let response_body = reqwest::get(&url).await.unwrap().text().await.unwrap();
-    log::info!("{response_body}");
 
-    reqwest::get(url).await?.json().await
+    Ok(reqwest::get(url).await?.json::<PetsData>().await?.pets)
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
