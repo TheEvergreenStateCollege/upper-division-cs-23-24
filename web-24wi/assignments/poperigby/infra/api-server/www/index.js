@@ -1,8 +1,6 @@
-const submit = document.getElementById("button-submit");
+const submitButton = document.getElementById("button-submit");
 
-submit.addEventListener("click", async (event) => {
-    console.log("yo mama");
-
+submitButton.addEventListener("click", async (event) => {
     event.preventDefault();
 
     const body = {
