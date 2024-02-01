@@ -3,6 +3,7 @@ const app = express();
 const port = 5000;
 const path = require("path");
 
+app.use(express.json());
 app.use(express.static("static"));
 
 /**
@@ -14,11 +15,15 @@ app.get("/", (req, res) => {
 });
 
 // return search hit given :hit URL route paramets
-apt.get("/search-hit/:hit", (req, res) => {
+app.get("/search-hit/:hit", (req, res) => {
 	// sending back an HTML files that a browser can redner on the screen
 	res.sendFile(path.resolve('pages/serch-hit-${req.params.hit}.html'));
 });
 
+app.post("/login", (req,res) => {
+	console.log(req.body);
+	res.json(req.bodyJSON);
+});
 
 // creates and starts a server for our API on a defined port
 app.listen(port, () => {
