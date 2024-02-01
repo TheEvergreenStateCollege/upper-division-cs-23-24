@@ -11,11 +11,11 @@ app.use(express.static("static"));
  */
 app.get("/", (_req, res) => {
     // Send index.html when browser requests /
-    res.sendFile(path.resolve("pages/index.html"));
+    res.sendFile(path.resolve("www/index.html"));
 });
 
 app.get("/search-hit/:hit", (req, res) => {
-    res.sendFile(path.resolve(`pages/search-${req.params.hit}.html`));
+    res.sendFile(path.resolve(`www/search-${req.params.hit}.html`));
 });
 
 // Create and start a server for our API on a defined port
