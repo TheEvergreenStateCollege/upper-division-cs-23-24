@@ -21,7 +21,7 @@ async fn get_request(url: &str) -> Result<(), reqwest::Error> {
 
     Ok(())
 }
-#[derive(Debug)]
+
 struct Options {
     start_url: String,
     search_term: String,
@@ -43,6 +43,6 @@ async fn main() {
         }
         _ => panic!("Not enough arguments"),
     }
-    println!("{:#?}", options);
+    println!("{ :#? }", options);
     let _ = get_request("https://www.w3schools.com/").await;
 }
