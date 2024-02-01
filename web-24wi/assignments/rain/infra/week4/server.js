@@ -4,7 +4,7 @@ const port = 5000;
 const path = require("path");
 
 app.use(express.static("static"));
-
+app.use(express.json());
 /**
  * app.[method]([route], [route handler])
  */
@@ -24,3 +24,11 @@ app.get("/search-hit/:hit", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+app.post("/login", (req, res) => {
+	console.log(` ${req.body}`);
+	res.json(req.body);
+
+});
+
+
