@@ -4,6 +4,8 @@ const path = require("path");
 const app = express();
 const port = 80;
 
+app.use(express.json());
+
 app.use(express.static("static"));
 
 /**
