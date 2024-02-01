@@ -3,8 +3,8 @@ const username = document.getElementById("input-username");
 const password = document.getElementById("input-password");
 
 button.addEventListener("click", async (event) => {
-  event.preventDefauly();
-  const response = await fetch("http://localhost:5000",{
+  event.preventDefault();
+  const response = await fetch("http://localhost:5500",{
     "method": "post",
     "body": {username, password}
   });
