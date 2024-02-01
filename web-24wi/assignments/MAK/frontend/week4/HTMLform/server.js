@@ -16,4 +16,4 @@ app.post("/login", (req, res) => {
   console.log(` ${req.body}`);
   const bodyJSON = JSON.parse(req.body);
   res.json(bodyJSON);
-})
+});
