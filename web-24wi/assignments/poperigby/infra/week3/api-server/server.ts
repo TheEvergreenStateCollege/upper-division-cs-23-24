@@ -1,7 +1,8 @@
 const express = require("express");
+const path = require("path");
+
 const app = express();
 const port = 5000;
-const path = require("path");
 
 app.use(express.static("static"));
 
@@ -9,7 +10,7 @@ app.use(express.static("static"));
  * app.[method]([route], [route handler])
  */
 app.get("/", (_req, res) => {
-    // sending back an HTML file that a browser can render on the screen.
+    // Send index.html when browser requests /
     res.sendFile(path.resolve("pages/index.html"));
 });
 
@@ -17,7 +18,9 @@ app.get("/search-hit/:hit", (req, res) => {
     res.sendFile(path.resolve(`pages/search-${req.params.hit}.html`));
 });
 
-// creates and starts a server for our API on a defined port
+// Create and start a server for our API on a defined port
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
+
+
