@@ -1,15 +1,18 @@
-const name_input = document.getElementById("input-name");
-const password_input = document.getElementById("input-password");
-const submit_button = document.getElementById("button-submit");
+const submit = document.getElementById("button-submit");
 
-submit_button.addEventListener("click", async (event) => {
+submit.addEventListener("click", async (event) => {
+    event.ignoreDefault();
+
+    const username = document.getElementById("input-name").value;
+    const password = document.getElementById("input-password").value;
+
     fetch(
         "http://cassidy.arcology.builders:5000/login",
         {
             "method": "post",
             "body": {
-                username,
-                password
+                "username": username,
+                "password": password,
             }
         }
     );
