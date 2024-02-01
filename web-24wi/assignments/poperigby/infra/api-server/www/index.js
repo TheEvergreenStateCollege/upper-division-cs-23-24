@@ -5,17 +5,16 @@ submit.addEventListener("click", async (event) => {
 
     event.preventDefault();
 
-    const username = document.getElementById("input-name").value;
-    const password = document.getElementById("input-password").value;
+    const body = {
+        "username": document.getElementById("input-name").value,
+        "password": document.getElementById("input-password").value,
+    }
 
     fetch(
         "http://cassidy.arcology.builders:5000/login",
         {
             "method": "post",
-            "body": {
-                "username": username,
-                "password": password,
-            }
+            "body": JSON.stringify(body)
         }
     );
     console.log("I've been clicked 😳")
