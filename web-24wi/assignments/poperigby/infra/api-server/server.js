@@ -5,7 +5,6 @@ const app = express();
 const port = 80;
 
 app.use(express.json());
-
 app.use(express.static("static"));
 
 /**
@@ -25,6 +24,7 @@ app.get("/search-hit/:hit", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
+    console.log(`${req}`);
     console.log(`${req.body}`);
     const bodyJson = JSON.parse(req.body);
     res.json(bodyJson);
