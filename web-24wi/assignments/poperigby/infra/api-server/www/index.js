@@ -3,7 +3,7 @@ const submit = document.getElementById("button-submit");
 submit.addEventListener("click", async (event) => {
     console.log("yo mama");
 
-    event.ignoreDefault();
+    event.preventDefault();
 
     const username = document.getElementById("input-name").value;
     const password = document.getElementById("input-password").value;
