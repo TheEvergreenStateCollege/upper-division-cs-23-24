@@ -1,22 +1,33 @@
 header{
 background-color: black;
 color: white;
-height:60px;
+height:80px;
 text-align: center;
 font-size: 35px;
 
 }
 
-
-.getting-started-button{
-   
-    padding: 0px;
-    margin: 300px; 
-    width: 100%; 
-    text-align: center;
-    
-
+.getting-started-button {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
+
+button {
+    padding: 10px 20px;
+    font-size: 25px;
+    background-color: greenyellow;
+    border: solid;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Lighten the button on hover */
+}
+
 
 video{
     width: 100%;
