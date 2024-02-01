@@ -74,7 +74,7 @@ just find it interesting, type it into the [class discord channel](https://disco
 </html>
 </body>
 ```
-* What does the <a> tag mean?
+* What does the `<a>` tag mean?
 * What are some attributes in the following?
 ```
 <div style="foo"></div>
