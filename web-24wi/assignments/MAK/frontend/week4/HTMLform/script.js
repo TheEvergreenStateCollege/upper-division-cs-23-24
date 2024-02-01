@@ -10,3 +10,10 @@ button.addEventListener("click", async (event) => {
   });
   console.log("I've been clicked.")
 });
+
+app.post("/login", (req, res) => {
+  //semding back an HTML file that a browser can render on the screen.
+  console.log(` ${req.body}`);
+  const bodyJSON = JSON.parse(req.body);
+  res.json(bodyJSON);
+})
