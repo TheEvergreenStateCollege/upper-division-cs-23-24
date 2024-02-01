@@ -24,7 +24,7 @@ app.get("/search-hit/:hit", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-    console.log(`${req}`);
+    console.log(`${JSON.stringify(req)}`);
     console.log(`${req.body}`);
     const bodyJson = JSON.parse(req.body);
     res.json(bodyJson);
