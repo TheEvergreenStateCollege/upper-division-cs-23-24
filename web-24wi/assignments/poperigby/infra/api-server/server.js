@@ -24,10 +24,8 @@ app.get("/search-hit/:hit", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-    console.log(`${JSON.stringify(req)}`);
-    console.log(`${req.body}`);
-    const bodyJson = JSON.parse(req.body);
-    res.json(bodyJson);
+    console.log(`${JSON.stringify(req.body)}`);
+    res.json(req.body);
 })
 
 // Create and start a server for our API on a defined port

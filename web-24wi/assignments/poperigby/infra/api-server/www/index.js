@@ -12,6 +12,9 @@ submitButton.addEventListener("click", async (event) => {
         "http://cassidy.arcology.builders/login",
         {
             "method": "post",
+	    "headers": {
+	        "Content-Type": "application/json",
+	    },
             "body": JSON.stringify(body)
         }
     );
