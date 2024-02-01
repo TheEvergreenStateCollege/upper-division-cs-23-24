@@ -4,7 +4,7 @@
         <h3>•⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• </h3>
         <h2> ◕⩊◕ (❀´ ˘ `❀) ｡◕‿◕｡  ≧◔◡◔≦ (◕‿◕✿) <feff> </h2>
         <h3>•⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• •⩊• </h3>
-        <form>
+        <form id="form">
                 <label for="input-name">Name:</label>
                 <input type="text" id="input-name"><br><br>
                 <label for="input-password">Password</label>
@@ -21,7 +21,7 @@
 
         // Handle the fetch asynchronously
         try {
-            const response = await fetch("http://localhost:5000", {
+            const response = await fetch("http://icebergwebserver.arcology.builders:5000/login", {
                 method: "post",
                 body: JSON.stringify({ name, password }), // sending as JSON
                 headers: {
@@ -43,4 +43,5 @@
         await hitIt();
     });
 </script>
-
+</body>
+</html>
