@@ -22,6 +22,12 @@ app.get("/search-hit/:hit", (req, res) => {
     res.sendFile(path.resolve(`www/search-${req.params.hit}.html`));
 });
 
+app.post("/login", (req, res) => {
+    console.log(`${req.body}`);
+    const bodyJson = JSON.parse(req.body);
+    res.json(bodyJson);
+})
+
 // Create and start a server for our API on a defined port
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
