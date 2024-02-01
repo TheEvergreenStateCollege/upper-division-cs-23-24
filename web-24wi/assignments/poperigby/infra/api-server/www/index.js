@@ -1,6 +1,8 @@
 const submit = document.getElementById("button-submit");
 
 submit.addEventListener("click", async (event) => {
+    console.log("yo mama");
+
     event.ignoreDefault();
 
     const username = document.getElementById("input-name").value;
