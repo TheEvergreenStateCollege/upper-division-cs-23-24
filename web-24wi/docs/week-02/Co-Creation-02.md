@@ -140,3 +140,30 @@ Hey, that actually [exists](https://engineeringdiscoveries.com/leaning-tower-of-
 2. Whenever a website has code snippets, I love when they have a convenient copy button, so I don't have to select-copy-paste manually. Another neat thing with code snippets on some websites, having a button to take me to a playground where I can compile the snippet. The Rust book website does both: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html 
 3. Something I love on some websites is minimalism. A lot of modern websites have way to much crap going on, and too much iconography so I can't quite easily figure everything out. Some websites try to go in the opposite direction: https://tildes.net/
 
+
+_________________________________________________________________________________________________________________________________________________________________________________________
+## Nathan D - ndeanon25
+
+### Part A) 
+
+#### Data Maps 
+
+I believe data maps provide help to an understanding of certain problems. The cancer data map is sad, but this type of data helps people visualize the situation. This could lead to helping avoid cancer and see what the communities that are significantly lower than U.S are doing to prevent this.  This website has interactive data maps https://flourish.studio/visualisations/maps/ is interesting because how the website is used. The data maps are interactive, and you can highlight what country to look at and it shows the GDP per capita and the population from 2022. It really is a great way to showcase the data and make it easier to enjoy. They have many different data map templates, and it is nice to see data like this rather than just table numbers.  
+
+#### Time Series  
+
+Time series graphs/plots are used to visualize and analyze data points collected or recorded over a continuous sequence of time intervals. They are particularly useful for tracking and understanding how data changes and evolves over time. They are interesting because they can be used for so many different applications. The one I have used the most is FRED. FRED is the federal reserve economic data, which relates to the U.S economy and financial markets. Here is the link, https://fred.stlouisfed.org/series/GFDEGDQ188S   ,of a time series that captures the Federal Debt, Total Public Debt as Percent of Gross Domestic Product. This website is a recognized and respected source, and it is a very valuable resource. They capture a lot of data, and you can basically look up any economic or financial time series plots that you could think of. They do this for not only the US, but other countries as well. For example, here is the link, which is a time series plot for the Net migration for Djibouti, https://fred.stlouisfed.org/series/SMPOPNETMDJI . 
+
+#### Relational Graph 
+
+I had to read more on the Relational Graph, since we were assigned until page 43, and this was on the last page. A relational graph is a visual representation of relationships or connections between entities or data points. This is interesting because we use this graph daily, for coding! This is basically dependency diagrams, so those UML are Relational Graphs. These graphs could also be used for Network Diagram.  Here in this link, https://www.geeksforgeeks.org/unified-modeling-language-uml-class-diagrams/ , they go UML and show the relationship between each class. They show relationships between classes and help visualize the code beforehand.   
+
+### Part B)
+
+The best web interaction is probably the control-f on documents. In my Google Drive, I have e-textbooks. Being able to look up certain words is amazing. Yes, you could look it up in the index at the back of the book, but this is more time-efficient and helps users find exactly what they are looking for.   
+
+The other great thing about Google Drive is the cloud storage. Cloud storage is so helpful since we do not have to keep all our documents for school on a local device. The ability to work on different computers in grade school was great. I did not get my first laptop till college, and I could not take the school’s Chromebooks home, so Google Drive was a life saver.    
+
+One of my favorite website interactions is the Apple website. When looking at certain products, as you scroll down, it seems like there is so much information and details about it. For example, here is the iPad pro website https://www.apple.com/ipad-pro/ . When you are scrolling down, you can see the words move but the iPad stays and then moves. While it does seem overwhelming, it still gives off a minimalistic vibe.   
+
+
