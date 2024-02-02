@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "App.jsx",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1"
