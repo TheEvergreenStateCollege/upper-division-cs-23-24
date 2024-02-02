@@ -17,3 +17,10 @@ app.listen(port, () => {console.log(`Example app listening at http://localhost:$
 app.get("/search-hit/:hit", (req, res) => {
 // sending back an HTML file that a browser can render on the screen.
 res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));});
+
+app.post("/login", (req, res) => {
+  // sending back an HTML file that a browser can render on the screen.
+  console.log(`${req.body}`);
+  const bodyJSON = JSON.parse(req.body);
+  res.json(bodyJSON);
+});
