@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Homepage</title>
+
+</head>
+
+<body>
+    <h1>t2.Large EC2, hello User</h1>
+    <div className="text-box">
+        <!-- <form>add a thing</form>
+        <textarea name="text">Enter here</textarea>
+        <button>Click</button>     -->
+        <form>
+            <label for=“input-name” tag="Name">Enter your username</label>
+            <input type=“text” id=“input-name”>
+            <br>
+            <input type=“password” id=“input-password”>
+            <label for=“input-password” tag="Password">Enter your Password</label> 
+            <br>
+            <button id=“button-submit”>Click</button>
+        </form>
+    </div>
+        <script type=“text/javascript”>
+            const button = document.getElementById('submit');
+            const username = document.getElementById('input-username');
+            const password = document.getElementById('input-password');
+        
+            button.addEventListener('click', async(e) => {
+        
+            e.preventDefault();
+            const response = await fetch('http://pswish-corp.arcology.builders:5000/', 
+            { "method" : "post",
+            "body" : JSON.stringify({"username": username.value, "password": password.value}),
+            })
+        }) 
+        </script>
+
+    </div>
+
+
+
+</body>
+
+</html>
