@@ -12,11 +12,17 @@ app.get("/", (req, res) => {
   // sending back an HTML file that a browser can render on the screen.
   res.sendFile(path.resolve("pages/index.html"));
 });
+app.get("/index.js", (req, res) => {
+  // sending back an HTML file that a browser can render on the screen.
+  res.sendFile(path.resolve("pages/index.js"));
+});
 
 app.get("/search-hit/:hit", (req, res) => {
   // sending back an HTML file that a browser can render on the screen.
 res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));
 });
+
+app.post("/lo
 
 // creates and starts a server for our API on a defined port
 app.listen(port, () => {
