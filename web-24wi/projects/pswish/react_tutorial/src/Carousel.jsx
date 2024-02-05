@@ -20,7 +20,7 @@ class Carousel extends Component {
     const { images } = this.props;
 
     return (
-      <div className="carousel">
+      <div className="flex center h-20 mt-2 ">
         <img src={images[active]} alt="anmial hero" />
         <div className="carousel-smaller">
           {images.map((photo, index) => (
