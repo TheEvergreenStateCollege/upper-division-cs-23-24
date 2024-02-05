@@ -56,17 +56,29 @@ pub fn SearchParams(cx: Scope) -> Element {
                         id: "breed",
                         match breeds.value() {
                             Some(Ok(list)) => {
-                                for breed in list {
-                                    rsx! {
+                                rsx! {
+                                    for breed in list {
                                         option {
                                             value: "{breed}",
                                             "{breed}"
                                         }
-                                    };
+                                    }
                                 }
                             },
-                            Some(Err(err)) => {},
-                            None => {},
+                            Some(Err(err)) => {
+                                rsx! {
+                                    option {
+                                        "Error rendering options: {err}"
+                                    }
+                                }
+                            },
+                            None => {
+                                rsx! {
+                                    option {
+                                        "HI"
+                                    }
+                                }
+                            },
                         },
                         // disabled: !breeds.len() as i64,
                         // value: "{breed}",
