@@ -140,3 +140,48 @@ Hey, that actually [exists](https://engineeringdiscoveries.com/leaning-tower-of-
 2. Whenever a website has code snippets, I love when they have a convenient copy button, so I don't have to select-copy-paste manually. Another neat thing with code snippets on some websites, having a button to take me to a playground where I can compile the snippet. The Rust book website does both: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html 
 3. Something I love on some websites is minimalism. A lot of modern websites have way to much crap going on, and too much iconography so I can't quite easily figure everything out. Some websites try to go in the opposite direction: https://tildes.net/
 
+
+_________________________________________________________________________________________________________________________________________________________________________________________
+## Nathan D - ndeanon25
+
+### Part A) 
+
+#### Data Maps 
+
+I believe data maps provide help to an understanding of certain problems. The cancer data map is sad, but this type of data helps people visualize the situation. This could lead to helping avoid cancer and see what the communities that are significantly lower than U.S are doing to prevent this.  This website has interactive data maps https://flourish.studio/visualisations/maps/ is interesting because how the website is used. The data maps are interactive, and you can highlight what country to look at and it shows the GDP per capita and the population from 2022. It really is a great way to showcase the data and make it easier to enjoy. They have many different data map templates, and it is nice to see data like this rather than just table numbers.  
+
+#### Time Series  
+
+Time series graphs/plots are used to visualize and analyze data points collected or recorded over a continuous sequence of time intervals. They are particularly useful for tracking and understanding how data changes and evolves over time. They are interesting because they can be used for so many different applications. The one I have used the most is FRED. FRED is the federal reserve economic data, which relates to the U.S economy and financial markets. Here is the link, https://fred.stlouisfed.org/series/GFDEGDQ188S   ,of a time series that captures the Federal Debt, Total Public Debt as Percent of Gross Domestic Product. This website is a recognized and respected source, and it is a very valuable resource. They capture a lot of data, and you can basically look up any economic or financial time series plots that you could think of. They do this for not only the US, but other countries as well. For example, here is the link, which is a time series plot for the Net migration for Djibouti, https://fred.stlouisfed.org/series/SMPOPNETMDJI . 
+
+#### Relational Graph 
+
+I had to read more on the Relational Graph, since we were assigned until page 43, and this was on the last page. A relational graph is a visual representation of relationships or connections between entities or data points. This is interesting because we use this graph daily, for coding! This is basically dependency diagrams, so those UML are Relational Graphs. These graphs could also be used for Network Diagram.  Here in this link, https://www.geeksforgeeks.org/unified-modeling-language-uml-class-diagrams/ , they go UML and show the relationship between each class. They show relationships between classes and help visualize the code beforehand.   
+
+### Part B)
+
+The best web interaction is probably the control-f on documents. In my Google Drive, I have e-textbooks. Being able to look up certain words is amazing. Yes, you could look it up in the index at the back of the book, but this is more time-efficient and helps users find exactly what they are looking for.   
+
+The other great thing about Google Drive is the cloud storage. Cloud storage is so helpful since we do not have to keep all our documents for school on a local device. The ability to work on different computers in grade school was great. I did not get my first laptop till college, and I could not take the school’s Chromebooks home, so Google Drive was a life saver.    
+
+One of my favorite website interactions is the Apple website. When looking at certain products, as you scroll down, it seems like there is so much information and details about it. For example, here is the iPad pro website https://www.apple.com/ipad-pro/ . When you are scrolling down, you can see the words move but the iPad stays and then moves. While it does seem overwhelming, it still gives off a minimalistic vibe.   
+
+
+_________________________________________________________________________________________________________________________________________________________________________________________
+Riley (rilesbe)
+
+PART A
+The first visualization that caught my interest was the datamap of galaxies on page 26 and 27. Another resource that resembled this visualization, at least in my perspective, was this gmod map that came out recently called 2048 (https://steamcommunity.com/sharedfiles/filedetails/?id=3132262723). I find these different methods of data visualization to be interesting because of the sheer size of the data. The size is so big that it is incomprehensible to visualize, and besides acting as a representation of immense scale, offers no other metric in comparison.
+
+The second visualization I took note of was the New York city weather time series on page 30. I found a few data maps on climate.gov (https://www.climate.gov/news-features/understanding-climate/us-climate-outlook-february-2024) that display weather data at a larger scale than just New York city. The visualizations I was able to find display data a bit differently, but are still informative in their own way. I appreciate the way the time-series displays the temperature not just as numbers but as a curve, showing how the weather changes every month. In comparison, the specific graphics I found on climate.gov gave information at a larger scale, the entire US. In addition, the data-map I found gave outlooks of whether specific regions of the US would see higher or lower temperatures than historic averages.
+
+The last visualization I thought was worth noting was the time-series of Napoleon's army and their journey to Moscow on page 41. A visualization that had similar aspects that interested me was a graphic of the change in trade routes before and after the Panama Canal was created (https://www.researchgate.net/figure/Shortest-trade-route-provided-by-the-Panama-Canal-Adapted-from-Council-for-Economic_fig1_224208970). What I like about both of these graphics is the way it tells a detailed story in a purely visual way. It’s like an alternative way to learn about historical events. I do believe that the visualization from the Tufte reading does a better job at telling a story, but I do appreciate what both offer in terms of story-telling.
+
+PART B
+A web interaction that came to mind was my cousin’s earring business’s website: Hoops and Holes (https://hoopsandholes.com/). I was pretty interested when he showed it to me, the concept is that there are no clickable links that lead you to anything, just an endless repeating grid of his earrings. All of the earring images are actually gifs that rotate, and you can zoom in and out of the page. When I saw this, I first thought that he had somehow created a fractal, that if you zoomed in enough then you would be able to see a smaller earring and then another earring. I realize that this would probably be computationally impossible, but I do really enjoy this idea of displaying items on a webpage.
+
+Another interaction that came to mind was using puzzles in some way to navigate the website. This of course wouldn’t be practical or the most user-friendly, but I imagine a similar interaction to this one I Spy computer game I would play as a kid (Link to YouTube longplay I watch for nostalgia: https://www.youtube.com/watch?v=peWemzv18JA&t=530s). You would navigate through a spooky mansion through clicking on objects, and would piece together hidden objects to get out of the mansion. I don’t really know of a website that has this functionality, as it kind of goes against a lot of what is usually wanted in user experience design.
+	
+Lastly, an interaction I think would be interesting was being able to move buttons/navigation around for the benefit of the user. Adding personal customization to a website isn’t really possible directly in the website itself, so giving the user more power in that way could lead to some cool creations. The only real customization I can think about that is built into websites now is the ability to change the theme, most commonly between dark and light mode.
+
+

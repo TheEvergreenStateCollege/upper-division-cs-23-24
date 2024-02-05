@@ -26,20 +26,23 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
-    <div className="details">
+    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 relative-block mx-auto">
       <Carousel images={pet.images} />
       <div>
-        <h1>{pet.name}</h1>
+        <h1 className="bold">{pet.name}</h1>
         <h2>
           {pet.animal} - {pet.breed} - {pet.city} - {pet.state}
-          <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
           <p>{pet.description}</p>
+          <button 
+          className="rounded px-6 py-2 text-white border-none bg-orange-500 hover:opacity-50 bottom"
+          onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
           {showModal ? (
             <Modal>
               <div>
                 <h1>Would you like to adopt {pet.name}?</h1>
-                <div className="buttons">
+                <div>
                   <button
+                  className="rounded px-6 py-2 text-white border-none bg-orange-500 hover:opacity-50"
                     onClick={() => {
                       setAdoptedPet(pet);
                       navigate("/");
@@ -67,3 +70,7 @@ function DetailsErrorBoundary(props) {
 }
 
 export default DetailsErrorBoundary;
+
+
+
+<button class="rounded px-6 py-2 text-white border-none bg-orange-500 hover:opacity-50">Submit</button>

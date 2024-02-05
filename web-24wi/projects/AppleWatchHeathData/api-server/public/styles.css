@@ -1,0 +1,53 @@
+header{
+background-color: black;
+color: white;
+height:80px;
+text-align: center;
+font-size: 35px;
+
+}
+
+.getting-started-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 25px;
+    background-color: greenyellow;
+    border: solid;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Lighten the button on hover */
+}
+
+
+video{
+    width: 100%;
+}
+
+video::-webkit-media-controls {
+    display:none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+    display:none !important;
+}
+
+video::-webkit-media-controls-panel {
+    display:none !important;
+}
+
+
+body{
+    background-color:rgb(237, 237, 237)
+
+}
+
