@@ -1,18 +1,26 @@
 {
   "name": "week4",
   "version": "1.0.0",
-  "description": "",
+  "description": "For our in-class activity, you're going to implement an API server in your own assignments directory following the [Frontend Masters Course on NodeJS API Design](https://frontendmasters.com/courses/api-design-nodejs-v4/).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "nodemon": "^3.0.3",
     "prisma": "^5.9.0"
   },
   "dependencies": {
-    "@prisma/client": "^5.9.0"
+    "@prisma/client": "^5.9.0",
+    "@simplewebauthn/server": "^9.0.1",
+    "base64url": "^3.0.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "jwt-js-decode": "^1.8.2"
   }
 }
