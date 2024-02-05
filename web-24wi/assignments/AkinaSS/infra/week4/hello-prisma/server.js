@@ -1,10 +1,8 @@
-import { PrismaClient } from '@prisma/client'
-
 const express = require("express");
 const app = express();
 const port = 5000;
 const path = require("path");
-const Prisma = require('@prisma/client');
+const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
 
 app.use(express.static("static"));
