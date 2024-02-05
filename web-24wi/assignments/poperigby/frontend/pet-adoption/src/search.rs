@@ -1,5 +1,5 @@
+use crate::pet::{request_pets, Pet};
 use dioxus::prelude::*;
-use serde::{Deserialize, Serialize};
 
 static ANIMALS: &[&str] = &["Bird", "Cat", "Dog", "Rabbit", "Reptile"];
 
@@ -82,55 +82,4 @@ pub fn SearchParams(cx: Scope) -> Element {
             }
         }
     })
-}
-
-#[derive(PartialEq, Props)]
-struct PetProps<'a> {
-    // The 'a specifies that every str will live as long as the PetProps struct
-    name: &'a str,
-    animal: &'a str,
-    breed: &'a str,
-}
-
-#[component]
-fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
-    cx.render(rsx! {
-        div {
-            h1 { "{cx.props.name}" }
-            h2 { "{cx.props.animal}" }
-            h2 { "{cx.props.breed}" }
-        }
-    })
-}
-
-async fn request_pets(
-    animal: String,
-    location: String,
-    breed: String,
-) -> Result<Vec<PetItem>, reqwest::Error> {
-    let url = format!(
-        "http://pets-v2.dev-apis.com/pets?animal={animal}&location={location}&breed={breed}"
-    );
-
-    Ok(reqwest::get(url).await?.json::<PetsData>().await?.pets)
-}
-
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-struct PetsData {
-    numberOfResults: i64,
-    startIndex: i64,
-    endIndex: i64,
-    hasNext: bool,
-    pets: Vec<PetItem>,
-}
-
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-struct PetItem {
-    id: i64,
-    name: String,
-    animal: String,
-    city: String,
-    description: String,
-    breed: String,
-    images: Vec<String>,
 }

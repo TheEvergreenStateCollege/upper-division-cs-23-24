@@ -1,5 +1,6 @@
 #![allow(non_snake_case)]
 
+mod pet;
 mod search;
 
 use dioxus::prelude::*;
