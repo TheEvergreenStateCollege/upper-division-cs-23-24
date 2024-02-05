@@ -1,5 +1,6 @@
 use crate::breed::request_breed_list;
 use crate::pet::{request_pets, Pet};
+use crate::results::Results;
 use dioxus::prelude::*;
 
 static ANIMALS: &[&str] = &["Bird", "Cat", "Dog", "Rabbit", "Reptile"];
@@ -96,9 +97,7 @@ pub fn SearchParams(cx: Scope) -> Element {
             match pets.value() {
                 Some(Ok(list)) => {
                     rsx! {
-                        for pet in list {
-                            Pet { name: &pet.name, animal: &pet.animal, breed: &pet.breed  }
-                        }
+                        Results { pets: list }
                     }
                 },
                 Some(Err(err)) => {
