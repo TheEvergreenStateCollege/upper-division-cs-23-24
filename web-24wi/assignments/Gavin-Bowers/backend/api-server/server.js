@@ -6,10 +6,24 @@ const path = require("path");
 
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-	res.sendFile(path.resolve("../../frontend/week4/wordle/index.html"));
+const { PrismaClient } = require('@prisma/client');
+const { parsed } = require('dotenv').config();
+
+console.log(parsed['DATABASE_URL']);
+console.log(process.env['DATABASE_URL']);
+const prisma = new PrismaClient();
+
+app.get("/users", async (req, res) => {
+	const allUsers = await prisma.user.findMany();
+	res.json(allUsers);
 });
 
-app.listen(port, () => {
-	  console.log(`Example app listening at http://localhost:${port}`);
+app.post("/user", async (req, res) => {
+	const newUser = await prisma.user.create({
+		data: {
+			username: req.body.username,
+			password: '',
+		},
+	});
+	console.log("created new user");
 });
