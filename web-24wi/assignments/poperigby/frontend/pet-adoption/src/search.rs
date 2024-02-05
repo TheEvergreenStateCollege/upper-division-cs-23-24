@@ -9,7 +9,7 @@ pub fn SearchParams(cx: Scope) -> Element {
     let location = use_state(cx, || "".to_string());
     let breed = use_state(cx, || "".to_string());
 
-    let breeds = ["Mutt"];
+    let breeds: &[&str] = &[];
 
     let pets = use_future(cx, (), |_| {
         request_pets(animal.to_string(), location.to_string(), breed.to_string())
@@ -65,16 +65,20 @@ pub fn SearchParams(cx: Scope) -> Element {
                 }
                 button { "Submit" },
             }
-        }
-        match pets.value() {
-            Some(Ok(list)) => {
-                rsx! { h1 { "HELLO" } }
-            },
-            Some(Err(err)) => {
-                rsx! { "An error occurred while fetching pets: {err}" }
-            },
-            None => {
-                rsx! { "Loading pets..." }
+            match pets.value() {
+                Some(Ok(list)) => {
+                    rsx! {
+                        for pet in list {
+                            Pet { name: &pet.name, animal: &pet.animal, breed: &pet.breed  }
+                        }
+                    }
+                },
+                Some(Err(err)) => {
+                    rsx! { "An error occurred while fetching pets: {err}" }
+                },
+                None => {
+                    rsx! { "Loading pets..." }
+                }
             }
         }
     })
