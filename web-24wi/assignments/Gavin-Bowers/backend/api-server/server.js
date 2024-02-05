@@ -4,7 +4,8 @@ const app = express();
 const port = 5000;
 const path = require("path");
 
-app.use(express.static("public"));
+app.use(express.static("static"));
+app.use(express.json());
 
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
@@ -26,4 +27,8 @@ app.post("/user", async (req, res) => {
 		},
 	});
 	console.log("created new user");
+});
+
+app.listen(port, () => {
+	console.log("example app listening at port ?");
 });
