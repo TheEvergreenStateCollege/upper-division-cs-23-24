@@ -1,5 +1,6 @@
 #![allow(non_snake_case)]
 
+mod breed;
 mod pet;
 mod search;
 

@@ -1,3 +1,4 @@
+use crate::breed::request_breed_list;
 use crate::pet::{request_pets, Pet};
 use dioxus::prelude::*;
 
@@ -9,10 +10,11 @@ pub fn SearchParams(cx: Scope) -> Element {
     let location = use_state(cx, || "".to_string());
     let breed = use_state(cx, || "".to_string());
 
-    let breeds: &[&str] = &[];
-
     let pets = use_future(cx, (), |_| {
         request_pets(animal.to_string(), location.to_string(), breed.to_string())
+    });
+    let breeds = use_future(cx, (animal,), |(animal,)| {
+        request_breed_list(animal.to_string())
     });
 
     cx.render(rsx! {
@@ -52,15 +54,29 @@ pub fn SearchParams(cx: Scope) -> Element {
                     "Breed",
                     select {
                         id: "breed",
-                        disabled: !breeds.len() as i64,
-                        value: "{breed}",
-                        onchange: |event| breed.set(event.value.clone()),
-                        for breed in breeds {
-                            option {
-                                value: "{breed}",
-                                "{breed}"
-                            }
-                        }
+                        match breeds.value() {
+                            Some(Ok(list)) => {
+                                for breed in list {
+                                    rsx! {
+                                        option {
+                                            value: "{breed}",
+                                            "{breed}"
+                                        }
+                                    };
+                                }
+                            },
+                            Some(Err(err)) => {},
+                            None => {},
+                        },
+                        // disabled: !breeds.len() as i64,
+                        // value: "{breed}",
+                        // onchange: |event| breed.set(event.value.clone()),
+                        // for breed in breeds {
+                        //     option {
+                        //         value: "{breed}",
+                        //         "{breed}"
+                        //     }
+                        // }
                     }
                 }
                 button { "Submit" },
