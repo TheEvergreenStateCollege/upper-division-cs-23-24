@@ -14,7 +14,7 @@ pub fn SearchParams(cx: Scope) -> Element {
         request_pets(animal.to_string(), location.to_string(), breed.to_string())
     });
     let breeds = use_future(cx, (animal,), |(animal,)| {
-        request_breed_list(animal.to_string())
+        request_breed_list(animal.to_string().to_lowercase())
     });
 
     cx.render(rsx! {
