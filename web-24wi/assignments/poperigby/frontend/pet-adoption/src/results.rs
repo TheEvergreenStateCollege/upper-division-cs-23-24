@@ -19,7 +19,16 @@ pub fn Results<'a>(cx: Scope<'a, ResultsProps<'a>>) -> Element {
             } else {
                 rsx! {
                     for pet in cx.props.pets {
-                        Pet { name: &pet.name, animal: &pet.animal, breed: &pet.breed  }
+                        Pet {
+                            id: pet.id,
+                            name: &pet.name,
+                            animal: &pet.animal,
+                            city: &pet.city,
+                            state: &pet.state,
+                            description: &pet.description,
+                            breed: &pet.breed,
+                            images: pet.images.clone(),
+                        }
                     }
                 }
             }
