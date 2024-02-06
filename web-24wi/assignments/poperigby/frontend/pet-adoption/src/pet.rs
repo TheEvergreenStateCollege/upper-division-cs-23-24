@@ -23,7 +23,7 @@ pub fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
         hero = &cx.props.images[0];
     }
 
-    let animal = capitalize_first(cx.props.animal);
+    let animal = capitalize_first_letter(cx.props.animal);
     let location = format!("{}, {}", cx.props.city, cx.props.state);
 
     cx.render(rsx! {
@@ -52,7 +52,7 @@ pub fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
     })
 }
 
-fn capitalize_first(word: &str) -> String {
+fn capitalize_first_letter(word: &str) -> String {
     if word.is_empty() {
         return String::new();
     }
