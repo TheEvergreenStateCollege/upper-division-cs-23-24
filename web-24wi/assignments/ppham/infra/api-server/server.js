@@ -1,11 +1,22 @@
 const express = require("express");
+const url = require('url');
+const { bcrypt } = require('bcryptjs');
+const jwtJsDecode = require('jwt-js-decode');
+const { base64url } = require('base64url');
+
 const app = express();
 const port = 5000;
 const path = require("path");
-const { PrismaClient } = require('@prisma/client/edge');
+
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
-app.use(express.static("static"));
+
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}))
 
 /**
  * app.[method]([route], [route handler])
@@ -28,7 +39,14 @@ app.get("/search-hit/:hit", (req, res) => {
 
 // http://sub.arcology.builders:5000 
 
-// creates and starts a server for our API on a defined port
+const rpID = "localhost";
+const protocol = "http";
+const expectedOrigin = `${protocol}://${rpID}:${port}`;
+
+app.use(express.static('public'));
+app.use(express.json());
+// const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening on port ${port}`);
 });
