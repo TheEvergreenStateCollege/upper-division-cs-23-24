@@ -1,17 +1,31 @@
-const express = require("express");
+import express from "express";
+import router from "./router.js";
+import path from "path";
+
 const app = express();
 const port = 5000;
-const path = require("path");
 
-
+app.use("/api", router);
 app.use(express.static("static"));
 
 app.get("/", (req, res) => {
     res.sendFile(path.resolve("pages/index.html"));
 });
 
-app.post("/login", (req, res) => {
-    console.log(req);
+app.get("/user/:id", (req, res) => {
+    console.log(req.body);
+});
+
+app.post("/user", (req, res) => {
+    console.log(req.body);
+});
+
+app.put("/user/:id", (req, res) => {
+
+});
+
+app.delete("/product/id", (req, res) => {
+
 });
 
 app.listen(port, () => {
