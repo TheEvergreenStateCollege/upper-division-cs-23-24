@@ -13,7 +13,11 @@ pub fn SearchParams(cx: Scope) -> Element {
     let breed = use_state(cx, || "".to_string());
 
     let pets = use_future(cx, (), |_| {
-        request_pets(animal.to_string(), location.to_string(), breed.to_string())
+        request_pets(
+            animal.to_string().to_lowercase(),
+            location.to_string().to_lowercase(),
+            breed.to_string().to_lowercase(),
+        )
     });
     let breeds = use_future(cx, (animal,), |(animal,)| {
         request_breed_list(animal.to_string().to_lowercase())
@@ -23,6 +27,10 @@ pub fn SearchParams(cx: Scope) -> Element {
         div {
             class: "search-params",
             form {
+                // Check the API for new pets when we press submit in the search form
+                onsubmit: |_| {
+                    pets.restart();
+                },
                 label {
                     r#for: "location",
                     "Location",
@@ -68,29 +76,25 @@ pub fn SearchParams(cx: Scope) -> Element {
                                 }
                             },
                             Some(Err(err)) => {
+                                // TODO: Handle case where animal is empty. Don't log an error in
+                                // that case.
+                                log::error!("Error loading breeds: {err}");
                                 rsx! {
                                     option {
-                                        "Error rendering options: {err}"
+                                        ""
                                     }
                                 }
                             },
                             None => {
+                                // TODO: Disabled it in this case
                                 rsx! {
                                     option {
-                                        "HI"
+                                        ""
                                     }
                                 }
                             },
                         },
                         // disabled: !breeds.len() as i64,
-                        // value: "{breed}",
-                        // onchange: |event| breed.set(event.value.clone()),
-                        // for breed in breeds {
-                        //     option {
-                        //         value: "{breed}",
-                        //         "{breed}"
-                        //     }
-                        // }
                     }
                 }
                 button { "Submit" },
@@ -102,7 +106,6 @@ pub fn SearchParams(cx: Scope) -> Element {
                     }
                 },
                 Some(Err(err)) => {
-
                     rsx! {
                         h1 {
                             "An error occurred while fetching pets: {err}"
