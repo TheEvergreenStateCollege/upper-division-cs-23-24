@@ -6,9 +6,10 @@ pub async fn request_pets(
     breed: String,
 ) -> Result<Vec<PetItem>, reqwest::Error> {
     let (animal, location, breed) = (
-        animal.to_lowercase(),
-        location.to_lowercase(),
-        breed.to_lowercase(),
+        animal.to_lowercase().replace(' ', "_"),
+        location.to_lowercase().replace(' ', "_"),
+        // I guess breed is uppercase and has spaces :\
+        breed,
     );
 
     let url = format!(
