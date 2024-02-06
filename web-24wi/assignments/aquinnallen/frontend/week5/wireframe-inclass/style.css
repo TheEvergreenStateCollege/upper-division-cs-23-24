@@ -1,0 +1,24 @@
+head{
+  display:flex;
+  justify-content:flex-start;
+  padding-left:40%;
+}
+
+head.street-address{
+
+}
+
+body {
+  display:grid;
+  grid-template-columns:30rem, 1fr;
+  grid-template-area:
+  "left-col main-block"
+}
+
+body.left-col {
+  grid-area:left-col;
+}
+
+body.main-block {
+  grid-area:main-block;
+}

@@ -38,3 +38,9 @@ Scratch/
 **/__pycache__
 
 **/*.obsidian
+
+# Dioxus
+dist/
+
+# Prisma
+.env
