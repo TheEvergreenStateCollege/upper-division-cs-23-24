@@ -1,4 +1,7 @@
-const express = require("express");
+import express from "express";
+
+//Testing ts files
+//const express = require("express");
 const app = express();
 const port = 5000;
 const path = require("path");
