@@ -10,8 +10,24 @@ app.get("/", (req, res) => {
     res.sendFile(path.resolve("pages/index.html"));
 });
 
-app.post("/login", (req, res) => {
-    console.log(req);
+// not implemenented
+app.get("/user/:id", (req, res) => {
+    console.log(req.body);
+});
+
+// not implemenented
+app.get("/users", (req, res) => {
+    console.log(req.body);
+});
+
+// not implemenented
+app.post("/user", (req, res) => {
+    console.log(req.body);
+});
+
+// not implemented
+app.put("/user/:id", (req, res) => {
+    console.log(req.body);
 });
 
 app.listen(port, () => {
