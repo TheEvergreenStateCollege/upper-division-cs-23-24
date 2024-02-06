@@ -17,16 +17,16 @@ Click on "Create a new Account"
 ### 2. Search for EC2 Service
 There are many services at AWS. You can search at the top for "EC2", or click the button which looks like a grid of 9 squares, choosing "EC2" from the list.
 
-![[Pasted image 20240108041959.png]]
+![[../../images/Pasted image 20240108041959.png]]
 ### 3. Launch a New Instance
 Click the yellow "Launch Instance" button below.
 
-![[Pasted image 20240108041757.png]]
+![[../../images/Pasted image 20240108041757.png]]
 
 ### 4. Choose Ubuntu
 In this class, we'll be using the Ubuntu distribution of Linux, version 22.04 with Long-Term Support (LTS). Name your instance something easy-to-remember. This is something only you and your team members see in the AWS console.
 
-![[Pasted image 20240108042344.png]]
+![[../../images/Pasted image 20240108042344.png]]
 
 ### 5. Read Your System Stats
 Scroll down and accept the default of x86 64-bit achitecture.
@@ -39,7 +39,7 @@ However, a `t2.micro` is more than enough for hosting the web demos in this clas
 
 Don't worry about the costs listed for "on-demand" pricing based on different operating systems. These are the charges when you run out of your 750 free hours over the first 12 months of your account, and we'll cancel and close this account by the end of spring quarter.
 
-![[Pasted image 20240108042603.png]]
+![[../../images/Pasted image 20240108042603.png]]
 
 ### 6. Create a new KeyPair
 
@@ -51,15 +51,15 @@ It's the main way you'll remotely login to this server, so don't lose it. It's a
 
 If you do lose it, you'll still be able to login into AWS console and switch to a different keypair for this instance, but it will take a few extra steps and can be avoided.
 
-![[Pasted image 20240108045403.png]]
-![[Pasted image 20240108050652.png]]
+![[../../images/Pasted image 20240108045403.png]]
+![[../../images/Pasted image 20240108050652.png]]
 Choose the ED25519 cryptosystem, which is a more compact elliptic curve cryptosystem that guarantees equivalent security with a much shorter key length than the older RSA cryptosystem based on factoring large integers.
 
 If you know that you will primarily be logging into this server from a Windows machine, choose `.ppk` as the format to use with the popular PuTTY terminal software on Windows.
 
 Note where your keyfile is downloaded.
 On a school computer, you can move this to your OneDrive directory so you can access it from home as well, instead of leaving it behind on that particular computer, and readable by anyone with Administrator permissions.
-![[Pasted image 20240108050929.png]]
+![[../../images/Pasted image 20240108050929.png]]
 ### 7.  Create a new security group
 
 
@@ -70,22 +70,22 @@ Check the three checkboxes for the common services we will be using:
 * HTTP, for insecure web access (we'll need this at first to get a certificate)
 * HTTPS, for secure web access with a TLS certificate
 
-![[Pasted image 20240108045732.png]]
+![[../../images/Pasted image 20240108045732.png]]
 
 ### 8. Choose 30 GB storage
 
 Increase your storage to 30 GB, as 8 GB will run out too quickly, especially when installing web server software and even moderate-sized datasets.
 
-![[Pasted image 20240108050326.png]]
+![[../../images/Pasted image 20240108050326.png]]
 
 ### 9. Launch the Instance
 
 Now you can click the orange "Launch instance" button on the bottom right.
 
-![[Pasted image 20240108051304.png]]
+![[../../images/Pasted image 20240108051304.png]]
 
 ### 10. Click to view 
-![../images/Pasted image 20240108051409.png]
+![[../../images/Pasted image 20240108051409.png]]
 
 ### 11. Copy its public IPv4 address
 
@@ -373,3 +373,19 @@ Type "help" for help.
 
 postgres=#
 ```
+
+You can type the `\d` Postgres command to show all existing tables. There won't be any to start with.
+
+
+## Week 5
+
+This week, we will build on our empty database by building our ORM (Object Relational Mapping) with Prisma. The ORM includes the following parts
+* A schema, or model, of what the data looks like.
+	* This is the `M` in the MVC paradigm, and are the column names in our CSV.
+	* It's the fields, their names and types, that every row or datapoint or record in our dataset will have.
+	* This will rule out a whole class of errors and messy data as soon as possible. The database, and the ORM, will help us by doing this "typechecking" every time we enter in new data, to make sure our dataset begins and stays in a valid state.
+* A client
+	* This is tailored to our database type (Postgres) and our programming language of choice (Javascript).
+* Migrations
+	* Starting with Ruby on Rails in the 2000s, web startups discovered that a key part of keeping consistent data and making reliable web apps was, counter-intuitively, keeping track of all changes to the schema over time.
+	* This may seem weird, 
