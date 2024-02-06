@@ -1,4 +1,5 @@
 Assigment partner: Cassidy
+Cassidy worked on the html and css for the wireframe diagram we recieved.
 
 Questions for Deedee
 1. What the heck is "intlinks"?
