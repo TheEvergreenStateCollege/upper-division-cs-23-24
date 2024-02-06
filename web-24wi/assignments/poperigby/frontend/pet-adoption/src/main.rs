@@ -9,7 +9,6 @@ mod search;
 use details::Details;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
-use log::LevelFilter;
 use search::SearchParams;
 
 fn main() {
@@ -26,8 +25,6 @@ pub enum Route {
 }
 
 fn App(cx: Scope) -> Element {
-    dioxus_logger::init(LevelFilter::Info).expect("Failed to initialize logger");
-
     cx.render(rsx! {
         h1 { "Adopt me!" },
         Router::<Route> { }
