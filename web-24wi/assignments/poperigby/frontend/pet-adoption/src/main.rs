@@ -17,7 +17,7 @@ fn main() {
 }
 
 #[derive(Routable, PartialEq, Debug, Clone)]
-enum Route {
+pub enum Route {
     #[route("/")]
     SearchParams {},
     #[route("/details:id")]

@@ -1,4 +1,6 @@
+use super::Route;
 use dioxus::prelude::*;
+use dioxus_router::prelude::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(PartialEq, Props)]
@@ -25,8 +27,9 @@ pub fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
     let location = format!("{}, {}", cx.props.city, cx.props.state);
 
     cx.render(rsx! {
-        a {
-            href: "details/{cx.props.id}",
+        Link {
+            // Link this Pet component to its appropriate details page
+            to: Route::Details { id: cx.props.id },
             class: "pet",
             div {
                 class: "image-container",

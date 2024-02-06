@@ -8,7 +8,7 @@ pub struct DetailsProps {
 pub fn Details(cx: Scope<DetailsProps>) -> Element {
     cx.render(rsx! {
         h2 {
-            "Hi!"
+            cx.props.id.to_string()
         }
     })
 }
