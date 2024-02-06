@@ -101,10 +101,18 @@ pub fn SearchParams(cx: Scope) -> Element {
                     }
                 },
                 Some(Err(err)) => {
-                    rsx! { "An error occurred while fetching pets: {err}" }
+                    rsx! {
+                        h1 {
+                            "An error occurred while fetching pets: {err}"
+                        }
+                    }
                 },
                 None => {
-                    rsx! { "Loading pets..." }
+                    rsx! {
+                        h1 {
+                            "Loading pets..."
+                        }
+                    }
                 }
             }
         }
