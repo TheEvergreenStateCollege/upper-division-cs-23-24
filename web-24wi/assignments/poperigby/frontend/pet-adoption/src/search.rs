@@ -64,6 +64,9 @@ pub fn SearchParams(cx: Scope) -> Element {
                     "Breed",
                     select {
                         id: "breed",
+                        onchange: |event| {
+                            breed.set(event.value.clone());
+                        },
                         match breeds.value() {
                             Some(Ok(list)) => {
                                 rsx! {
