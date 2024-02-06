@@ -33,15 +33,24 @@ console.log(process.env['DATABASE_URL']);
 const prisma = new PrismaClient();
 
 app.get("/users", async (req, res) => {
+	req.addListener("resume");	//Random function, has no purpose other than fill in the users req void
 	const allUsers = await prisma.user.findMany();
 	res.json(allUsers);
 });
 
 app.post("/user", async (req, res) => {
-	const newUser = await prisma.user.create({
+	try {
+	  const newUser = await prisma.user.create({
 		data: {
-			username: req.body.username,
-			password: '',},
-	});
-console.log("created");
-});
+		  username: req.body.username,
+		  password: '',
+		},
+	  });
+	  console.log("User created:", newUser);
+	  res.status(201).json({ message: "User created successfully", user: newUser });
+	} catch (error) {
+	  console.error("Error creating user:", error);
+	  res.status(500).json({ message: "Failed to create user" });
+	}
+  });
+  
