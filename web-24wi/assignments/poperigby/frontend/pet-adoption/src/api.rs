@@ -5,9 +5,16 @@ pub async fn request_pets(
     location: String,
     breed: String,
 ) -> Result<Vec<PetItem>, reqwest::Error> {
+    let (animal, location, breed) = (
+        animal.to_lowercase(),
+        location.to_lowercase(),
+        breed.to_lowercase(),
+    );
+
     let url = format!(
         "http://pets-v2.dev-apis.com/pets?animal={animal}&location={location}&breed={breed}"
     );
+    log::info!("{}", url);
 
     Ok(reqwest::get(url).await?.json::<PetsData>().await?.pets)
 }
