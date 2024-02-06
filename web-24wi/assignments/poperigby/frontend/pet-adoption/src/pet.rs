@@ -1,7 +1,7 @@
 use super::Route;
+use cruet::Inflector;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
-use inflector::Inflector;
 
 #[derive(PartialEq, Props)]
 pub struct PetProps<'a> {
