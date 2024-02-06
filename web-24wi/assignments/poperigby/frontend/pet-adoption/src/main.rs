@@ -20,7 +20,7 @@ fn main() {
 pub enum Route {
     #[route("/")]
     SearchParams {},
-    #[route("/details:id")]
+    #[route("/details/:id")]
     Details { id: i64 },
 }
 

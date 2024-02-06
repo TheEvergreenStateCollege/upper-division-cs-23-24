@@ -27,7 +27,8 @@ pub fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
 
     cx.render(rsx! {
         Link {
-            // Link this Pet component to its appropriate details page
+            // Link this Pet component to its appropriate details page, using
+            // the current Pet's `id` as the page Details page `id`.
             to: Route::Details { id: cx.props.id },
             class: "pet",
             div {
