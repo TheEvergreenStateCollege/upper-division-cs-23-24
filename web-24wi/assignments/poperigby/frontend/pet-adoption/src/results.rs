@@ -1,4 +1,4 @@
-use crate::pet::{Pet, PetItem};
+use crate::{api::PetItem, pet::Pet};
 use dioxus::prelude::*;
 
 #[derive(PartialEq, Props)]

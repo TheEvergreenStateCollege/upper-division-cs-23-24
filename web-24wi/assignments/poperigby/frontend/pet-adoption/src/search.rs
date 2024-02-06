@@ -1,6 +1,7 @@
-use crate::breed::request_breed_list;
-use crate::pet::{request_pets, Pet};
-use crate::results::Results;
+use crate::{
+    api::{request_breed_list, request_pets},
+    results::Results,
+};
 use dioxus::prelude::*;
 
 static ANIMALS: &[&str] = &["Bird", "Cat", "Dog", "Rabbit", "Reptile"];

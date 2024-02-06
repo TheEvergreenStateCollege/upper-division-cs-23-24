@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-mod breed;
+mod api;
 mod details;
 mod pet;
 mod results;
