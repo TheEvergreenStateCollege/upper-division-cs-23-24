@@ -10,8 +10,8 @@ app.get("/", (req, res) => {
     res.sendFile(path.resolve("pages/index.html"));
 });
 
-app.get("/login", (req, res) => {
-    res.sendFile(path.resolve("pages/login.html"));
+app.post("/login", (req, res) => {
+    console.log(req);
 });
 
 app.listen(port, () => {
