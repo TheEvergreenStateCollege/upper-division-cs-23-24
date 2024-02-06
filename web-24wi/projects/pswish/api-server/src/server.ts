@@ -5,6 +5,8 @@ import path from "path";
 import cors from "cors";
 
 const app = express();
+import { PrismaClient } from "@prisma/client";
+const { parsed } = require("dotenv").config();
 
 const customLogger = (message) => (req, res, next) => {
   console.log(`Hello from ${message}`);
@@ -34,6 +36,32 @@ app.post("/login", (req, res) => {
   console.log(req.body);
   // res.json(req.body);
 });
+
+console.log(parsed['DATABASE_URL']);
+console.log(process.env['DATABASE_URL']);
+const prisma = new PrismaClient();
+
+app.get("/users", async (req, res) => {
+const allUsers = await prisma.user.findMany();
+res.json(allUsers);
+});
+
+app.post("/user", async (req, res) => {
+  try {
+    const newUser = await prisma.user.create({
+      data: {
+        username: req.body.username,
+        password: '',
+      },
+    });
+    console.log("User created:", newUser);
+    res.status(201).json({ message: "User created successfully", user: newUser });
+  } catch (error) {
+    console.error("Error creating user:", error);
+    res.status(500).json({ message: "Failed to create user" });
+  }
+});
+
 
 app.use('/api', router);
 
