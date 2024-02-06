@@ -17,3 +17,22 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+const {PrismaClient} = require('@prisma/client');
+const {parsed} = require('dotenv').config();
+
+console.log(parsed['DATABASE_URL']);
+const prisma = PrismaClient();
+app.get("/user",async (req, res) => {
+	const allusers = await prisma.user.findMany();
+	res.json(allUsers);
+});
+
+app.post ("/user", async (req, res) => {
+	const newUser = await prisma.user.creat({
+		data:{
+			username: reqbody.username,
+			password: '',
+		},
+	});
+});
+	
