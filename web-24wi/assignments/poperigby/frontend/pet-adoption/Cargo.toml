@@ -6,6 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+Inflector = "0.11.4"
 dioxus = "0.4.3"
 dioxus-logger = "0.4.1"
 dioxus-query = "0.4.0"

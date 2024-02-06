@@ -1,6 +1,7 @@
 use super::Route;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
+use inflector::Inflector;
 
 #[derive(PartialEq, Props)]
 pub struct PetProps<'a> {
@@ -23,7 +24,7 @@ pub fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
         hero = &cx.props.images[0];
     }
 
-    let animal = capitalize_first_letter(cx.props.animal);
+    let animal = cx.props.animal.to_sentence_case();
     let location = format!("{}, {}", cx.props.city, cx.props.state);
 
     cx.render(rsx! {
@@ -50,17 +51,4 @@ pub fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
             }
         }
     })
-}
-
-fn capitalize_first_letter(word: &str) -> String {
-    if word.is_empty() {
-        return String::new();
-    }
-
-    let mut chars = word.chars();
-    let first_char = chars.next().unwrap().to_uppercase().to_string();
-
-    let capitalized_word = format!("{}{}", first_char, chars.as_str());
-
-    capitalized_word
 }
