@@ -65,6 +65,7 @@ pub fn SearchParams(cx: Scope) -> Element {
                         },
                         match breeds.value() {
                             Some(Ok(list)) => {
+                                log::info!("{:?}", list.get(0));
                                 rsx! {
                                     for breed in list {
                                         option {
