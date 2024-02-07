@@ -1,0 +1,22 @@
+site_name: My MkDocs Site
+site_description: A brief description of my site
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Contact: contact.md
+
+theme:
+  name: material
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - toc:
+      permalink: true
+
+site_dir: site
