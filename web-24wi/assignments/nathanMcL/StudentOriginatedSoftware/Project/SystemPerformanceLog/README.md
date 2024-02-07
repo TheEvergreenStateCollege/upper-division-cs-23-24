@@ -61,7 +61,7 @@ Moving this project ahead for next quarter (8Jan2024). I am looking forward to i
 Raspberry Health
 ---
 
-![Screenshot (417)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/85158741-4005-4810-83e1-528724b2d002)
+![Screenshot (420)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/ff0a8428-c43c-433a-93a4-c4697b373c3c)
 
 
 
