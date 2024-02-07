@@ -29,7 +29,7 @@ watch_path = ["src", "public"]
 [web.resource]
 
 # CSS style file
-style = ["/style.css"]
+style = ["/tailwind.css"]
 
 # JavaScript code file
 script = []
@@ -39,7 +39,7 @@ script = []
 # Same as [web.resource], but for development servers
 
 # CSS style file
-style = ["/style.css"]
+style = []
 
 # JavaScript files
 script = []
