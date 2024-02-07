@@ -2,12 +2,18 @@
 
 ## Lap 1: Cloud
 
-TBD
+Prepare
+
+### No Code Interviews This Week
+There are Week 5 demo day rehearsals.
+
+All student teams will have a publicly hosted demo on their AWS servers, with a registered domain name.
+
 
 ## Lap 2: Rust
 
 ### Reading
 
-[Rust Book: Chapter 13 - Functionals, Iterators, Closures](https://rust-book.cs.brown.edu/ch13-00-functional-features.html)
+[Rust Book: Chapter 11 - Testing](https://rust-book.cs.brown.edu/ch11-00-testing.html)
 
-[Rust Book: Chapter 14 - Cargo and Crates.io](https://rust-book.cs.brown.edu/ch14-00-more-about-cargo.html)
+[Rust Book: Chapter 12 - I/O Project](https://rust-book.cs.brown.edu/ch12-00-an-io-project.html)
