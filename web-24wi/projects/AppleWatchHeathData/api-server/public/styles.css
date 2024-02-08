@@ -18,14 +18,15 @@ font-size: 35px;
 button {
     padding: 10px 20px;
     font-size: 25px;
-    background-color: greenyellow;
+    background-color: rgba(255, 255, 255, 0.8); /* Lighten the button on hover */
     border: solid;
     border-radius: 20px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: rgba(255, 255, 255, 0.8); /* Lighten the button on hover */
+    
+    background-color: greenyellow;
 }
 
 
