@@ -6,7 +6,7 @@ use dioxus_router::prelude::*;
 #[derive(PartialEq, Props)]
 pub struct PetProps<'a> {
     // The 'a specifies that every str will live as long as the PetProps struct
-    pub id: i64,
+    pub id: usize,
     pub name: &'a str,
     pub animal: &'a str,
     pub city: &'a str,

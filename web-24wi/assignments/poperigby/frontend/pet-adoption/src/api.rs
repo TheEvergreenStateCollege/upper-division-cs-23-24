@@ -2,18 +2,18 @@ use dioxus_query::prelude::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
-enum QueryKeys {
+pub enum QueryKeys {
     Pet(usize),
 }
 
 #[derive(Clone, PartialEq, Eq, Hash, Debug)]
-enum QueryError {
+pub enum QueryError {
     PetNotFound(usize),
     Unknown,
 }
 
 #[derive(Clone, PartialEq, Eq, Hash, Debug)]
-enum QueryValue {
+pub enum QueryValue {
     PetItem(PetItem),
 }
 
@@ -68,7 +68,7 @@ struct PetsData {
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize, Hash, Eq)]
 pub struct PetItem {
-    pub id: i64,
+    pub id: usize,
     pub name: String,
     pub animal: String,
     pub city: String,

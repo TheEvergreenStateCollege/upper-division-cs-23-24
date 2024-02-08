@@ -6,6 +6,8 @@ mod pet;
 mod results;
 mod search;
 
+use crate::api::{QueryValue, QueryError, QueryKeys};
+use dioxus_query::prelude::use_query_client;
 use details::Details;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
@@ -21,10 +23,12 @@ pub enum Route {
     #[route("/")]
     SearchParams {},
     #[route("/details/:id")]
-    Details { id: i64 },
+    Details { id: usize },
 }
 
 fn App(cx: Scope) -> Element {
+    let client = use_query_client::<QueryValue, QueryError, QueryKeys>(cx);
+
     cx.render(rsx! {
         div {
             class: "p-0 m-0",
