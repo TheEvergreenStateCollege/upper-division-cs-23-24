@@ -32,7 +32,7 @@ pub fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
             // Link this Pet component to its appropriate details page, using
             // the current Pet's `id` as the page Details page `id`.
             to: Route::Details { id: cx.props.id },
-            class: "pet",
+            class: "relative block",
             div {
                 class: "image-container",
                 img {
@@ -41,7 +41,7 @@ pub fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
                 }
             },
             div {
-                class: "info",
+                class: "absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2",
                 h1 {
                     cx.props.name
                 },
