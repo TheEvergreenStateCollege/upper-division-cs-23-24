@@ -19,4 +19,4 @@ plugins:
   - toc:
       permalink: true
 
-site_dir: site
+site_dir: https://github.com/TheEvergreenStateCollege/upper-division-cs
