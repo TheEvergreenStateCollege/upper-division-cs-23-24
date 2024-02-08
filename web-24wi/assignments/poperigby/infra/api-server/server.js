@@ -1,17 +1,18 @@
 const express = require("express");
 const path = require("path");
-const PrismaClient = require("@prisma/client");
-const parsed = require("dotenv");
+const { PrismaClient } = require("@prisma/client");
+const { parsed } = require("dotenv");
+
+const prisma = new PrismaClient();
 
 const app = express();
 const port = 5000;
 
-console.log(parsed["DATABASE_URL"]);
-console.log(process.env["DATABASE_URL"]);
-const prisma = new PrismaClient();
-
 app.use(express.json());
 app.use(express.static("static"));
+
+//console.log(parsed["DATABASE_URL"]);
+//console.log(process.env["DATABASE_URL"]);
 
 /**
  * app.[method]([route], [route handler])
