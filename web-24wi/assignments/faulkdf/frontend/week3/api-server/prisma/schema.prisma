@@ -1,21 +1,21 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-/* model Post {
-  // id field that is a number and automatically increments after its used
-  id        Int      @id @default(autoincrement())
-  // timestamps
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  // limit to 255 for indexing UTF-8
-  title     String   @db.VarChar(255)
-  // optional
-  content   String?
-  published Boolean  @default(false)
-  // relation to another model
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
-}*/
+// model Post {
+//   // id field that is a number and automatically increments after its used
+//   id        Int      @id @default(autoincrement())
+//   // timestamps
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   // limit to 255 for indexing UTF-8
+//   title     String   @db.VarChar(255)
+//   // optional
+//   content   String?
+//   published Boolean  @default(false)
+//   // relation to another model
+//   author    User     @relation(fields: [authorId], references: [id])
+//   authorId  Int
+// }
 
 model User {
   id        String    @id @default(uuid())
