@@ -26,7 +26,19 @@ pub enum Route {
 
 fn App(cx: Scope) -> Element {
     cx.render(rsx! {
-        h1 { "Adopt me!" },
-        Router::<Route> { }
+        div {
+            class: "p-0 m-0",
+            background: "url(http://pets-images.dev-apis.com/pets/wallpaperA.jpg)",
+            header {
+                class: "w-full mb-10 text-center p-7 bg-gradient-to-b from-yellow-400 via-orange-500 to-red-500",
+                h1 { 
+                    class: "text-6xl text-white hover:text-gray-200",
+                    "Adopt me!"
+                },
+            },
+            main {
+                Router::<Route> { }
+            },
+        }
     })
 }
