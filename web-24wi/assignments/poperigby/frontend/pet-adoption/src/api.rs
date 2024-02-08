@@ -1,3 +1,4 @@
+use dioxus_query::prelude::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -15,6 +16,8 @@ enum QueryError {
 enum QueryValue {
     PetItem(PetItem),
 }
+
+pub async fn fetch_pet(keys: Vec<QueryKeys>) -> QueryResult<QueryValue, QueryError> {}
 
 pub async fn request_pets(
     animal: String,
