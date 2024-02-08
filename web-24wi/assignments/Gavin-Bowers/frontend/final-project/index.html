@@ -5,17 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Ambience Music Player</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');</style>
 </head>
 <body>
     <div id="content-container">
         <div id="top-row">
             <div class="controls" id="ambience-controls">
-                <button id="coffeeshop-ambience">Coffeeshop</button>
-                <button id="rain-ambience">Rain</button>
-                <button id="ocean-ambience">Ocean</button>
+                <button id="coffeeshop-ambience">
+                    <span class="material-symbols-outlined" id="cafe-icon">
+                        local_cafe
+                    </span>
+                </button>
+                <button id="rain-ambience">
+                    <span class="material-symbols-outlined" id="rain-icon">
+                        rainy
+                    </span>
+                </button>
+                <button id="ocean-ambience">
+                    <span class="material-symbols-outlined" id="wave-icon">
+                        waves
+                    </span>
+                </button>
             </div>
             <div class="auth-dropdown">
-                <button class="dropbtn">Login</button>
+                <button class="dropbtn">
+                    <span class="material-symbols-outlined" id="account-icon">
+                        account_circle
+                    </span>
+                </button>
                 <div class="dropdown-content">
                   <a href="#">Register</a>
                   <a href="#">Login</a>
@@ -34,16 +52,46 @@
 
             </div>
         </div>
-        <div id="music-player">
-            <div class="controls"  id="playback-controls">
-
+        <div id="music-player-container">
+            <div id="music-info-container">
+                <p class="music-info" id="current-author">Author</p>
+                <span class="music-info material-symbols-outlined" id="music-info-separator">
+                    remove
+                </span>
+                <p class="music-info" id="current-song">Currently Playing Song</p>
             </div>
-            <div id="music-info">
-                <p id="current-song">Currently Playing Song</p>
-                <p id="current-author">Author</p>
+            <div id="playback-controls">
+                <button class="playback-button" aria-label="loop song">
+                    <span class="material-symbols-outlined" id="loop-icon">
+                        repeat
+                    </span>
+                </button>
+                <button class="playback-button" aria-label="previous song">
+                    <span class="material-symbols-outlined" id="back-icon">
+                        skip_previous
+                    </span>
+                </button>
+                <button class="playback-button" aria-label="play">
+                    <span class="material-symbols-outlined" id="play-icon">
+                        play_arrow
+                    </span>
+                </button>
+                <button class="playback-button" aria-label="next song">
+                    <span class="material-symbols-outlined" id="next-icon">
+                        skip_next
+                    </span>
+                </button>
+                <button class="playback-button" aria-label="shuffle">
+                    <span class="material-symbols-outlined" id="shuffle-icon">
+                        shuffle
+                    </span>
+                </button>
             </div>
-            <div id="music-tracker">
-
+            <div id="music-tracker-container">
+                <input type="range" class="music-tracker" max="100" value="0">
+                <audio id="current-audio" width="320">
+                    <source src="C:\Users\super\Music\artists\Small Artists\Venjent\Venjent - Eye to I.mp3" type="audio/mp3">
+                </audio>
             </div>
         </div>
     </div>

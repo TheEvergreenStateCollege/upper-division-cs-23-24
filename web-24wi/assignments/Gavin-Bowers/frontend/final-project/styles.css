@@ -1,59 +1,264 @@
+
+#ambience-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+#ambience-controls > * {
+    margin-right: 10px;
+}
+
+.auth-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-family: 'Nunito Sans', sans-serif;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {background-color: #ddd;}
+.auth-dropdown:hover .dropdown-content {display: block;}
+.auth-dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+
+button {
+    background-color: #05935f;
+    color: white;
+    padding: 8px 12px 8px 12px;
+    border: none;
+    border-radius: 4px;
+    position: relative;
+    display: inline-block;
+}
+
+body {
+margin:0;
+background-color: #000000;
+}
+
 #content-container {
     position:relative;
 }
 
-#music-player {
+#top-row {
+    display:flex;
+    background-color: #141414;
+    padding: 10px;
+}
+
+#music-player-container {
     position:fixed;
     bottom: 0;
+    padding-bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: left;
+    background-color: #141414;
+}
+
+#music-info-container {
+    display: flex;
+    align-items: center;
+    color:#f1f1f1;
+    width: 20%;
+}
+
+.music-info {
+    font-family: 'Nunito Sans', sans-serif;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+#playback-controls {
+    display: flex;
+    width:min-content;
+    margin-right: 40px;
+}
+
+.playback-button {
+    margin-right: 10px;
+}
+
+#play-icon,
+#back-icon,
+#next-icon,
+#loop-icon,
+#shuffle-icon {
+    font-size: 28px;
+}
+
+/*Google Material Icons*/
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
 }
 
 
-/* Dropdown Button */
-button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .auth-dropdown {
+
+
+/*Range Hell -------------------*/
+
+:root {
+    --tracker-width: 100%;
+}
+
+#music-tracker-container {
+    width: 60%;
+}
+
+/*for chromium browsers: */
+input[type="range"] {
     position: relative;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: 15px;
-    width: 60px;
+    appearance: none;
+    -webkit-appearance: none;
+    width: var(--tracker-width);
+    margin: 0;
+    padding: 0;
+    height: 4px;
+    margin: 20px 0px 20px 0px;
+    float: left;
+    outline: none;
+    background-color: #525252;
   }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+  }
+  input[type="range"]::before {
     position: absolute;
-    width: 70px;
-    background-color: #f1f1f1;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    content: "";
+    top: 8px;
+    left: 0;
+    width: var(--seek-before-width);
+    height: 3px;
+    background-color: #007db5;
+    cursor: pointer;
   }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+    -webkit-appearance: none;
+    box-sizing: content-box;
+    border: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #05935f;
+    cursor: pointer;
+    margin: -6px 0 0 0;
   }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  /* Show the dropdown menu on hover */
-  .auth-dropdown:hover .dropdown-content {display: block;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .auth-dropdown:hover .dropbtn {background-color: #3e8e41;}
+  input[type="range"]:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background: #06b977;
+  }
+
+/*for firefox: */
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+  }
+  input[type="range"]::-moz-range-progress {
+    background-color: #007db5;
+  }
+  input[type="range"]::-moz-focus-outer {
+    border: 0;
+  }
+  input[type="range"]::-moz-range-thumb {
+    box-sizing: content-box;
+    border: 1px solid #007db5;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  input[type="range"]:active::-moz-range-thumb {
+    transform: scale(1.2);
+    background: #007db5;
+  }
+
+  /*for edge: */
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: transparent;
+    border: solid transparent;
+    color: transparent;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background-color: #007db5;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+  }
+  input[type="range"]::-ms-thumb {
+    box-sizing: content-box;
+    border: 1px solid #007db5;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  input[type="range"]:active::-ms-thumb {
+    transform: scale(1.2);
+    background: #007db5;
+  }
 
 
-#top-row {
-    display:flex;
+/*Responsive web design - applies if on mobile*/
+
+@media (max-width: 600px) {
+    #music-player {
+        flex-direction: column;
+    }
+    #music-info-container {
+        font-size: 1.2rem;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: min-content;
+    }
+    #playback-controls {
+        display: flex;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+    }
+    #music-tracker-container {
+        width: 75%;
+    }
+    #music-player-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
