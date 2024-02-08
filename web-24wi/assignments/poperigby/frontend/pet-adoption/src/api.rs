@@ -17,7 +17,25 @@ enum QueryValue {
     PetItem(PetItem),
 }
 
-pub async fn fetch_pet(keys: Vec<QueryKeys>) -> QueryResult<QueryValue, QueryError> {}
+pub async fn fetch_pet(keys: Vec<QueryKeys>) -> QueryResult<QueryValue, QueryError> {
+    if let Some(QueryKeys::Pet(id)) = keys.first() {
+        let url = format!("http://pets-v2.dev-apis.com/pets?id={id}");
+        let pet = reqwest::get(url)
+            .await
+            .unwrap()
+            .json::<PetsData>()
+            .await
+            .unwrap()
+            .pets
+            .first()
+            .unwrap()
+            .clone();
+
+        QueryResult::Ok(QueryValue::PetItem(pet))
+    } else {
+        QueryResult::Err(QueryError::Unknown)
+    }
+}
 
 pub async fn request_pets(
     animal: String,
