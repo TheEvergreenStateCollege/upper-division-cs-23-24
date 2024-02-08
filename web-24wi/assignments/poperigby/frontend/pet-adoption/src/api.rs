@@ -1,5 +1,21 @@
 use serde::{Deserialize, Serialize};
 
+#[derive(Clone, PartialEq, Eq, Hash)]
+enum QueryKeys {
+    Pet(usize),
+}
+
+#[derive(Clone, PartialEq, Eq, Hash, Debug)]
+enum QueryError {
+    PetNotFound(usize),
+    Unknown,
+}
+
+#[derive(Clone, PartialEq, Eq, Hash, Debug)]
+enum QueryValue {
+    PetItem(PetItem),
+}
+
 pub async fn request_pets(
     animal: String,
     location: String,
@@ -29,7 +45,7 @@ struct PetsData {
     pets: Vec<PetItem>,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, Hash, Eq)]
 pub struct PetItem {
     pub id: i64,
     pub name: String,
