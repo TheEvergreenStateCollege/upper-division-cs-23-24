@@ -6,6 +6,10 @@ const parsed = require("dotenv");
 const app = express();
 const port = 80;
 
+console.log(parsed["DATABASE_URL"]);
+console.log(process.env["DATABASE_URL"]);
+const prisma = new PrismaClient();
+
 app.use(express.json());
 app.use(express.static("static"));
 
@@ -35,4 +39,20 @@ app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
 
+// PostgreSQL
+app.get("/users", async (req, res) => {
+    const allUsers = await prisma.user.findMany();
+    res.json(allUsers);
+});
+
+app.post("/user", async (req, res) => {
+    const newUser = await prisma.user.create({
+        data: {
+            username: req.body.username,
+	    password: '',
+	},
+    })
+
+    console.log("Created a user!")
+});
 
