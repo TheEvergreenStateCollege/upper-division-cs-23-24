@@ -4,7 +4,7 @@ const PrismaClient = require("@prisma/client");
 const parsed = require("dotenv");
 
 const app = express();
-const port = 80;
+const port = 5000;
 
 console.log(parsed["DATABASE_URL"]);
 console.log(process.env["DATABASE_URL"]);
