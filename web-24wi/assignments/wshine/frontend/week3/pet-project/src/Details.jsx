@@ -28,17 +28,22 @@ const Details = () => {
         <div className="details">
             <Carousel images={pet.images} />
             <div>
-                <h1>{pet.name}</h1>
-                <h2>{`${pet.animal} - ${pet.breed} - ${pet.city}, - ${pet.state}`}</h2>
-                <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
-                <p>{pet.description}</p>
+                <h1 className="text-center text-[#333] text-6xl mx-0 my-[5px]">{pet.name}</h1>
+                <h2 className="text-center mt-[5px] mb-5 mx-0">{`${pet.animal} - ${pet.breed} - ${pet.city}, - ${pet.state}`}</h2>
+                <button 
+                    className="bg-[#ad343e] text-[white] text-lg block cursor-pointer mx-auto my-0 px-[25px] py-[5px] rounded-[5px] border-[#333] border-[solid]"
+                    onClick={() => setShowModal(true)}>
+                    Adopt {pet.name}
+                </button>
+                <p className="leading-normal px-[15px] py-0">{pet.description}</p>
                 {
                     showModal ? (
                         <Modal>
-                            <div>
-                                <h1>Would you like to adopt {pet.name}?</h1>
-                                <div className="buttons">
+                            <div className="bg-[white] max-w-[500px] text-center p-[15px] rounded-[30px]">
+                                <h1 className="text-center text-[#333] text-6xl mx-0 my-[5px]">Would you like to adopt {pet.name}?</h1>
+                                <div className="">
                                     <button
+                                        className="bg-[#ad343e] text-[white] text-lg block cursor-pointer mx-auto my-0 px-[25px] py-[5px] rounded-[5px] border-[#333] border-[solid]"
                                         onClick={() => {
                                             setAdoptedPet(pet);
                                             navigate("/");
@@ -46,7 +51,7 @@ const Details = () => {
                                     >
                                         Yes
                                     </button>
-                                    <button onClick={() => setShowModal(false)}>No</button>
+                                    <button className="bg-[#ad343e] text-[white] text-lg block cursor-pointer mx-auto my-0 px-[25px] py-[5px] rounded-[5px] border-[#333] border-[solid]" onClick={() => setShowModal(false)}>No</button>
                                 </div>
                             </div>
                         </Modal>

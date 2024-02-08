@@ -13,7 +13,7 @@ const Modal = ({ children }) => {
         return () => modalRoot.removeChild(elRef.current);
     }, []);
 
-    return createPortal(<div>{children}</div>, elRef.current);
+    return createPortal(<div className="bg-[rgba(0,0,0,0.9)] fixed z-10 flex justify-center items-center inset-0 empty:hidden">{children}</div>, elRef.current);
 };
 
 export default Modal;
