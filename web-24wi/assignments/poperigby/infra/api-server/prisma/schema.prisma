@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
     provider = "postgresql"
-    url      = "postgresql://postgres:postgres@localhost:5432/dev?schema=sample"
+    url      = env("DATABASE_URL")
 }
 
 model Post {

@@ -1,5 +1,7 @@
 const express = require("express");
 const path = require("path");
+const PrismaClient = require("@prisma/client");
+const parsed = require("dotenv");
 
 const app = express();
 const port = 80;
