@@ -3,13 +3,11 @@ import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import SearchIcon from "@mui/icons-material/LightModeOutlined";
-
-
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import SearchIcon from "@mui/icons-material/SearchOutlined";
 
 const Topbar = () => {
     const theme = useTheme();
@@ -30,14 +28,14 @@ const Topbar = () => {
         </Box>
         
         {/* Right handside Icons */}
-        <Box display="flex">
-        <IconButton onClick={colorMode.toggleColormode}>
-            {theme.palette.mode == "dark"? (
+        <Box display = "flex">
+
+        <IconButton onClick = {colorMode.toggleColorMode}>
+            {theme.palette.mode === 'dark' ? (
                 <DarkModeOutlinedIcon />
             ) : (
                 <LightModeOutlinedIcon />
             )}
-            <LightModeOutlinedIcon />
         </IconButton>
         <IconButton>
             <NotificationsOutlinedIcon />
