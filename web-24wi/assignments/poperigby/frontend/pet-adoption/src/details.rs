@@ -14,6 +14,7 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
         log::info!("{:?}", p);
         cx.render(rsx! {
             div {
+                class: "details",
                 h1 {
                     p.name.clone()
                 },
@@ -24,6 +25,9 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
                     class: "rounded px-6 py-2 text-white hover:opacity-50 border-none bg-orange-500",
                     "Adopt {p.name}"
                 },
+                p {
+                    "{p.description}"
+                }
             }
         })
     } else {
