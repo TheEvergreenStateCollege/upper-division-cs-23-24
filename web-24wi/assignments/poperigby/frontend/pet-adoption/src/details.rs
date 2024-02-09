@@ -1,4 +1,5 @@
 use crate::api::{fetch_pet, QueryKeys, QueryValue};
+use cruet::Inflector;
 use dioxus::prelude::*;
 use dioxus_query::prelude::*;
 use gloo_dialogs::confirm;
@@ -20,7 +21,7 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
                     p.name.clone()
                 },
                 h2 {
-                    "{p.animal} — {p.breed} — {p.city}, {p.state}"
+                    "{p.animal.to_sentence_case()} — {p.breed} — {p.city}, {p.state}"
                 },
                 button {
                     class: "rounded px-6 py-2 text-white hover:opacity-50 border-none bg-orange-500",
