@@ -39,7 +39,7 @@ script = []
 # Same as [web.resource], but for development servers
 
 # CSS style file
-style = ["/style.css"]
+style = []
 
 # JavaScript files
 script = []

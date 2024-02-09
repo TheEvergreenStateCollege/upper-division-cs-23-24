@@ -6,7 +6,7 @@ use dioxus_router::prelude::*;
 #[derive(PartialEq, Props)]
 pub struct PetProps<'a> {
     // The 'a specifies that every str will live as long as the PetProps struct
-    pub id: i64,
+    pub id: usize,
     pub name: &'a str,
     pub animal: &'a str,
     pub city: &'a str,
@@ -29,10 +29,10 @@ pub fn Pet<'a>(cx: Scope<'a, PetProps<'a>>) -> Element {
 
     cx.render(rsx! {
         Link {
+            class: "pet",
             // Link this Pet component to its appropriate details page, using
             // the current Pet's `id` as the page Details page `id`.
             to: Route::Details { id: cx.props.id },
-            class: "pet",
             div {
                 class: "image-container",
                 img {
