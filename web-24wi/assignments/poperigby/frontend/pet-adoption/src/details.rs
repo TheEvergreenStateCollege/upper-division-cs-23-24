@@ -17,6 +17,9 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
         cx.render(rsx! {
             div {
                 class: "details",
+                ImageCarousel {
+                    images: p.images.clone()
+                }
                 h1 {
                     p.name.clone()
                 },
@@ -24,8 +27,7 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
                     "{p.animal.to_sentence_case()} — {p.breed} — {p.city}, {p.state}"
                 },
                 button {
-                    class: "rounded px-6 py-2 text-white hover:opacity-50 border-none bg-orange-500",
-                    onclick: |_| { 
+                    onclick: |_| {
                         confirm("Are you sure you want to adopt?");
                     },
                     "Adopt {p.name}"
@@ -44,4 +46,32 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
     };
 
     render
+}
+
+#[derive(PartialEq, Props)]
+pub struct ImageCarouselProps {
+    #[props(default = vec!["http://pets-images.dev-apis.com/pets/none.jpg".to_string()])]
+    images: Vec<String>,
+}
+
+fn ImageCarousel(cx: Scope<ImageCarouselProps>) -> Element {
+    let active = use_state(cx, || 0);
+
+    cx.render(rsx! {
+        div {
+            class: "carousel",
+            img {
+                src: cx.props.images.get(*active.get()).unwrap().as_str(),
+                alt: "Animal",
+            },
+            div {
+                class: "carousel-smaller",
+                for photo in &cx.props.images {
+                    img {
+                        src: "{photo}"
+                    }
+                }
+            }
+        }
+    })
 }
