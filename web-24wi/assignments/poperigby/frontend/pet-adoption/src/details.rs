@@ -1,6 +1,7 @@
 use crate::api::{fetch_pet, QueryKeys, QueryValue};
 use dioxus::prelude::*;
 use dioxus_query::prelude::*;
+use gloo_dialogs::confirm;
 
 #[derive(PartialEq, Props)]
 pub struct DetailsProps {
@@ -23,6 +24,9 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
                 },
                 button {
                     class: "rounded px-6 py-2 text-white hover:opacity-50 border-none bg-orange-500",
+                    onclick: |_| { 
+                        confirm("Are you sure you want to adopt?");
+                    },
                     "Adopt {p.name}"
                 },
                 p {
