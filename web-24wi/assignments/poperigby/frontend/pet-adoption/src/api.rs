@@ -1,4 +1,41 @@
+use dioxus_query::prelude::*;
 use serde::{Deserialize, Serialize};
+
+#[derive(Clone, PartialEq, Eq, Hash)]
+pub enum QueryKeys {
+    Pet(usize),
+}
+
+#[derive(Clone, PartialEq, Eq, Hash, Debug)]
+pub enum QueryError {
+    PetNotFound(usize),
+    Unknown,
+}
+
+#[derive(Clone, PartialEq, Eq, Hash, Debug)]
+pub enum QueryValue {
+    PetItem(PetItem),
+}
+
+pub async fn fetch_pet(keys: Vec<QueryKeys>) -> QueryResult<QueryValue, QueryError> {
+    if let Some(QueryKeys::Pet(id)) = keys.first() {
+        let url = format!("http://pets-v2.dev-apis.com/pets?id={id}");
+        let pet = reqwest::get(url)
+            .await
+            .expect("Failed to make request")
+            .json::<PetsData>()
+            .await
+            .expect("Failed to deserialize")
+            .pets
+            .first()
+            .expect("Failed to get first element")
+            .clone();
+
+        QueryResult::Ok(QueryValue::PetItem(pet))
+    } else {
+        QueryResult::Err(QueryError::Unknown)
+    }
+}
 
 pub async fn request_pets(
     animal: String,
@@ -29,9 +66,9 @@ struct PetsData {
     pets: Vec<PetItem>,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, Hash, Eq)]
 pub struct PetItem {
-    pub id: i64,
+    pub id: usize,
     pub name: String,
     pub animal: String,
     pub city: String,
