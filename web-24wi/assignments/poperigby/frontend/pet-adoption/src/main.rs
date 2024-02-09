@@ -6,10 +6,10 @@ mod pet;
 mod results;
 mod search;
 
-use crate::api::{QueryValue, QueryError, QueryKeys};
-use dioxus_query::prelude::*;
+use crate::api::{QueryError, QueryKeys, QueryValue};
 use details::Details;
 use dioxus::prelude::*;
+use dioxus_query::prelude::*;
 use dioxus_router::prelude::*;
 use search::SearchParams;
 
@@ -32,12 +32,8 @@ fn App(cx: Scope) -> Element {
 
     cx.render(rsx! {
         div {
-            class: "p-0 m-0",
-            background: "url(http://pets-images.dev-apis.com/pets/wallpaperA.jpg)",
             header {
-                class: "w-full mb-10 text-center p-7 bg-gradient-to-b from-yellow-400 via-orange-500 to-red-500",
-                h1 { 
-                    class: "text-6xl text-white hover:text-gray-200",
+                h1 {
                     "Adopt me!"
                 },
             },

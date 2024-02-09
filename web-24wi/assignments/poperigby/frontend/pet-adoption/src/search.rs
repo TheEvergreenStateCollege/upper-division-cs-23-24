@@ -21,9 +21,8 @@ pub fn SearchParams(cx: Scope) -> Element {
 
     cx.render(rsx! {
         div {
-            class: "my-0 mx-auto w-11/12",
+            class: "search-params",
             form {
-                class: "p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center",
                 // Check the API for new pets when we press submit in the search form
                 onsubmit: |_| {
                     pets.restart();
@@ -33,7 +32,6 @@ pub fn SearchParams(cx: Scope) -> Element {
                     "Location: ",
                     input {
                         id: "location",
-                        class: "search-input",
                         r#type: "text",
                         value: "{location}",
                         placeholder: "Location",
@@ -45,7 +43,6 @@ pub fn SearchParams(cx: Scope) -> Element {
                     "Animal: ",
                     select {
                         id: "animal",
-                        class: "search-input",
                         value: "{animal}",
                         onchange: |event| {
                             animal.set(event.value.clone());
@@ -63,7 +60,6 @@ pub fn SearchParams(cx: Scope) -> Element {
                     r#for: "breed",
                     "Breed: ",
                     select {
-                        class: "search-input grayed-out-disabled",
                         id: "breed",
                         onchange: |event| {
                             breed.set(event.value.clone());
@@ -102,8 +98,7 @@ pub fn SearchParams(cx: Scope) -> Element {
                         // disabled: !breeds.len() as i64,
                     }
                 }
-                button { 
-                    class: "rounded px-6 py-2 text-white hover:opacity-50 border-none bg-orange-500",
+                button {
                     "Submit"
                 },
             }
