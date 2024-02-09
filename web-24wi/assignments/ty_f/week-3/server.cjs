@@ -33,7 +33,6 @@ console.log(process.env['DATABASE_URL']);
 const prisma = new PrismaClient();
 
 app.get("/users", async (req, res) => {
-	req.addListener("resume");	//Random function, has no purpose other than fill in the users req void
 	const allUsers = await prisma.user.findMany();
 	res.json(allUsers);
 });
