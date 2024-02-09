@@ -22,13 +22,13 @@ pub async fn fetch_pet(keys: Vec<QueryKeys>) -> QueryResult<QueryValue, QueryErr
         let url = format!("http://pets-v2.dev-apis.com/pets?id={id}");
         let pet = reqwest::get(url)
             .await
-            .unwrap()
+            .expect("Failed to make request")
             .json::<PetsData>()
             .await
-            .unwrap()
+            .expect("Failed to deserialize")
             .pets
             .first()
-            .unwrap()
+            .expect("Failed to get first element")
             .clone();
 
         QueryResult::Ok(QueryValue::PetItem(pet))
