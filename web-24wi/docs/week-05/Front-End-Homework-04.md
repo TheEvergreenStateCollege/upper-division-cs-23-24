@@ -6,11 +6,18 @@ Continue working on getting access to FrontEndMasters via the GitHub Student Dev
   
 [Web Engineering Setup](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/web-24wi/Setup.md)
 
-Studying and Practice
-A [sermon on the /mnt to exhort you](../I-Heal-When-Put-My-Mind-To-Something.md)
+## Develop Locally, Deploy Globally
+
+For this assignment, and all future work, we recommend that you do all development work locally on your laptop, or on GitPod or GitHub Codespaces, and set up an SSH tunnel to your AWS server to access its database.
+
 ## Your Final Project
 
-[Final Project](../../FinalProject)
+If you have a final project idea that you are excited about, create a project directory as follows with your team and start applying this assignment to it by adding login and database functionality to it.
+
+```
+cd <
+```
+[Final Project Details (work-in-progress)](../../FinalProject)
 
 ### Lap 1: Plain HTML / CSS / JS
 
@@ -20,7 +27,7 @@ Our goal in this assignment is to combine our existing knowledge from previous h
 * JS
 * the browser's `fetch` functionality
 * an HTTP POST request to a backend API server
-and we will now add to it a web `<form>` that lets us register a username and password with a backend server, which will let us login to *authenticate* ourself and *authorize* reading private data.
+and we will now add to it a web `<form>` that lets us register a username and password with our backend server, which will let us login to *authenticate* ourself and *authorize* reading private data.
 
 We will enhance our guessing game "WordMasters" to save words that we guessed correctly, as well as to create a leaderboard of high scores.
 #### Readings and Watchings
