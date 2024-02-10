@@ -55,4 +55,18 @@ Running the program in Pycharm, and Running the program with VS Code, is not Git
 What's next for the project next quarter (as an app engineered for the web):
 ---
 
-Moving this project ahead for next quarter (8Jan2024). I am looking forward to improving the programs functions. I am working on incorporating another CSV file of data from a Raspberry pi Zero. I am excited to learn how I could better describe the data with visual depictions.
+Moving this project ahead for next quarter (8Jan2024). I am looking forward to improving the programs functions. I am working on incorporating another CSV file of data from a Raspberry pi Zero. I am excited to learn how I could better describe the data.
+
+---
+Raspberry Health
+---
+
+![Screenshot (420)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/ff0a8428-c43c-433a-93a4-c4697b373c3c)
+
+
+
+---
+Raspberry Health WireFrame
+---
+![RaspberryHealthImgView](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/b560bf8a-3e4e-4cd0-b7c9-bdcdb473f1a2)
+

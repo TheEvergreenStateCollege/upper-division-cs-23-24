@@ -1,7 +1,8 @@
-// import express from 'express'
+//This is for reference only and is not used after changeing to typescript
+// Can be run to test a basic server.js 
 const express = require("express");
 const app = express();
-const port = 5000;
+const port = 5001;
 const path = require("path");
 
 app.use(express.static("static"));

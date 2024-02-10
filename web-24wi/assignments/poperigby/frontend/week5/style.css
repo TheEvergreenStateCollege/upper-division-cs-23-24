@@ -1,0 +1,20 @@
+header {
+    display: flex;
+    align-items: center;
+}
+
+img[name="dioxus-logo"] {
+    height: 40px;
+    width: auto;
+}
+
+.search-container {
+    flex: 1;
+    text-align: center;
+}
+
+input[name="search-box"] {
+    text-align: center;
+    width: 600px;
+    height: 40px;
+}

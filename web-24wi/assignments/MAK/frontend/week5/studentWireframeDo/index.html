@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <section id="pages">
+        <section class ="page" id ="login-page">
+          <p>login</p>
+          <label for="input-username">username</label>
+              <input type="text" id="input-username">
+          <label for="input-password">Password</label>
+              <input type="password" id="input-password">
+          <button onclick="home()"> login </button>
+      
+        </section>
+      
+        <section class ="page"  id ="home-page">
+          <p>home</p>
+          <button onclick="search()"> search </button>
+      
+        </section>
+      
+        <section class ="page"  id ="search-page">
+          <p>search</p>
+          <button onclick="home()"> home </button>
+      
+        </section>
+      </section>   
+      <script src="script.js"></script>    
+</body>
+</html>
