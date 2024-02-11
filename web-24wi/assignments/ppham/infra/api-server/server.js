@@ -48,19 +48,6 @@ app.post("/login", (req, res) => {
   res.json(req.body);
 });
 
-
-// creates and starts a server for our API on a defined port
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
-
-app.post("/login", (req, res) => {
-  // sending back an HTML file that a browser can render on the screen.
-  console.log(JSON.stringify(req.body));
-  res.json(req.body);
-});
-
-
 // Create a bare HTTP server so we can register custom error handlers
 // for things like duplicate listening ports
 const http = require('http');
