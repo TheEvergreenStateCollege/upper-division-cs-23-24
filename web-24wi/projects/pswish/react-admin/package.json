@@ -7,14 +7,19 @@
     "@emotion/styled": "^11.11.0",
     "@fullcalendar/core": "^6.1.10",
     "@fullcalendar/daygrid": "^6.1.10",
+    "@fullcalendar/interaction": "^6.1.10",
     "@fullcalendar/list": "^6.1.10",
+    "@fullcalendar/react": "^6.1.10",
     "@fullcalendar/timegrid": "^6.1.10",
     "@mui/icons-material": "^5.15.8",
     "@mui/material": "^5.15.7",
+    "@mui/x-charts": "^6.19.4",
     "@mui/x-data-grid": "^6.19.3",
     "@nivo/bar": "^0.55.0",
     "@nivo/core": "^0.84.0",
+    "@nivo/geo": "^0.84.0",
     "@nivo/line": "^0.84.0",
+    "@nivo/marimekko": "^0.84.0",
     "@nivo/pie": "^0.84.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -33,7 +38,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write 'src/**/*.{js,jsx}'"
   },
   "eslintConfig": {
     "extends": [
@@ -52,5 +58,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
