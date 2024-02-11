@@ -76,6 +76,7 @@ model UpdatePoint {
   createdAt DateTime @default(now())
   updatedAt DateTime
 
+  loofah      Int	@default(42)
   name        String @db.VarChar(255)
   description String
 
