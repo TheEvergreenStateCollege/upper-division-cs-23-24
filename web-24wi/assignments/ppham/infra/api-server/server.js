@@ -42,6 +42,12 @@ app.get("/search-hit/:hit", (req, res) => {
 });
 
 // http://sub.arcology.builders:5000 
+app.post("/login", (req, res) => {
+  // sending back an HTML file that a browser can render on the screen.
+  console.log(JSON.stringify(req.body));
+  res.json(req.body);
+});
+
 
 // creates and starts a server for our API on a defined port
 app.listen(port, () => {
