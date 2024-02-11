@@ -20,81 +20,81 @@ const Team = () => {
       cellClassName: "name-column--cell",
     },
     {
-    field: "age",
-    headerName: "Age",
-    type: "number",
-    headerAling: "left",
-    align: "left",
+      field: "age",
+      headerName: "Age",
+      type: "number",
+      headerAling: "left",
+      align: "left",
     },
     {
-    field: "phone",
-    headerName: "Phone Number",
-    flex: 1,
+      field: "phone",
+      headerName: "Phone Number",
+      flex: 1,
     },
     {
-    field: "email",
-    headerName: "Email",
-    flex: 1,
+      field: "email",
+      headerName: "Email",
+      flex: 1,
     },
     {
-    field: "access",
-    headerName: "Access Level",
-    flex: 1,
-    renderCell: ({row: {access}}) => {
+      field: "access",
+      headerName: "Access Level",
+      flex: 1,
+      renderCell: ({ row: { access } }) => {
         return (
-            <Box
+          <Box
             width="60%"
             m="0 auto"
             p="5px"
             display="flex"
             justifyContent="center"
             backgroundColor={
-                access === "admin"
+              access === "admin"
                 ? colors.greenAccent[600]
                 : colors.greenAccent[700]
             }
             borderRadius="4px"
-            >
-                {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-                {access === "manager" && <SecurityOutlinedIcon />}
-                {access === "user" && <LockOpenOutlinedIcon />}
-                <Typography color={colors.grey[100]} sx={{ml: "5px"}}>
-                    {access}
-                </Typography>
-                </Box>
-        )
-    }
-    },    
+          >
+            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
+            {access === "manager" && <SecurityOutlinedIcon />}
+            {access === "user" && <LockOpenOutlinedIcon />}
+            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
+              {access}
+            </Typography>
+          </Box>
+        );
+      },
+    },
   ];
 
   return (
     <Box m="20px">
       <Header title="TEAM" subtitle="Managing the Team Members" />
       <Box
-      m="40px 0 0 0"
-      height="75vh"
-      sx = {{
-        "& .MuiDataGrid-root": {
+        m="40px 0 0 0"
+        height="75vh"
+        sx={{
+          "& .MuiDataGrid-root": {
             border: "none",
-        },
-        "& .MuiDatagrid-cell": {
-            borderBottom: "none"
-        },
-        "& .name-column--cell": {
-            color: colors.greenAccent[300]
-        },
-        "& .MuiDataGrid-columnHeaders": {
+          },
+          "& .MuiDatagrid-cell": {
+            borderBottom: "none",
+          },
+          "& .name-column--cell": {
+            color: colors.greenAccent[300],
+          },
+          "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
-            brderBottom: "none"
-        },
-        "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400]
-        },
-        "& .MuiDataGrid-footerContainer": {
+            brderBottom: "none",
+          },
+          "& .MuiDataGrid-virtualScroller": {
+            backgroundColor: colors.primary[400],
+          },
+          "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
-            backgroundColor: colors.blueAccent[700]
-        },
-      }}
+            backgroundColor: colors.blueAccent[700],
+          },
+        }}
       >
         <DataGrid rows={mockDataTeam} columns={columns} />
       </Box>
@@ -102,4 +102,4 @@ const Team = () => {
   );
 };
 
-export default Team
+export default Team;
