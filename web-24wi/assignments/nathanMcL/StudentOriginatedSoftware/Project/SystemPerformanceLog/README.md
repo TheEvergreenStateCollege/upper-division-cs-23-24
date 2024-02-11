@@ -69,5 +69,5 @@ Raspberry Health
 ---
 Raspberry Health WireFrame
 ---
-![RaspberryHealthImgView](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/b560bf8a-3e4e-4cd0-b7c9-bdcdb473f1a2)
+![RaspberryHealthwire_WireFrameLucid](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/ca32992d-41a2-4129-a7c5-4f0d0a0d8371)
 
