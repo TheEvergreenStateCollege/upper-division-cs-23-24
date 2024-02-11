@@ -21,13 +21,13 @@ Customers, please fill out this form while talking to the presenter.
 If the Project doesn't have a name yet, just give a three or four word description.
 
 ```
-&nbsp;
+
 ```
 
 ## 2. Who is the Presenter?
 
 ```
-&nbsp;
+
 ```
 
 ## 3. What are the different page types?
@@ -37,25 +37,25 @@ As a user, imagine that you arrive at the landing page in your web browser
 What are the different page types and how are they related to each other
 
 ```
-&nbsp;
+
 ```
 
 ## 4. What are the strengths of the Presentation?
 
 ```
-&nbsp;
+
 ```
 
 ## 5. What are the strengths of the Project Idea?
 
 ```
-&nbsp;
+
 ```
 
 ## 6. As a user, what feature or change would you like to see in order to make this website more appealing to you?
 
 ```
-&nbsp;
+
 ```
 
 ## 7. Is the Presenter looking for a teammate?
