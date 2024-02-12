@@ -70,7 +70,11 @@ fn ImageCarousel(cx: Scope<ImageCarouselProps>) -> Element {
                     img {
                         class: if *active.get() == index { "active" } else { "" },
                         key: "{photo}",
-                        src: "{photo}"
+                        src: "{photo}",
+                        alt: "Animal Thumbnail",
+                        onclick: move |_| {
+                            active.set(index);
+                        },
                     }
                 }
             }
