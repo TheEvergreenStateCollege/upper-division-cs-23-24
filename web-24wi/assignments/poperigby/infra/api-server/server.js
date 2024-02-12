@@ -41,6 +41,7 @@ app.get("/search-hit/:hit", (req, res) => {
 });
 
 // API
+
 app.get("/api/users", async (req, res) => {
     const allUsers = await prisma.user.findMany();
     res.json(allUsers);
@@ -51,7 +52,7 @@ app.post("/api/user", async (req, res) => {
         const newUser = await prisma.user.create({
             data: {
                 username: req.body.username,
-                password: '',
+                password: req.body.password,
             },
         })
 
