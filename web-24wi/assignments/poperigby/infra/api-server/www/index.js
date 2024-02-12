@@ -9,7 +9,7 @@ submitButton.addEventListener("click", async (event) => {
     }
 
     fetch(
-        "https://cassidy.arcology.builders/login",
+        "https://cassidy.arcology.builders/api/user",
         {
             "method": "post",
 	    "headers": {

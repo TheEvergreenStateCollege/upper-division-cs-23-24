@@ -41,12 +41,12 @@ app.listen(port, () => {
 });
 
 // PostgreSQL
-app.get("/users", async (req, res) => {
+app.get("/api/users", async (req, res) => {
     const allUsers = await prisma.user.findMany();
     res.json(allUsers);
 });
 
-app.post("/user", async (req, res) => {
+app.post("/api/user", async (req, res) => {
     const newUser = await prisma.user.create({
         data: {
             username: req.body.username,
