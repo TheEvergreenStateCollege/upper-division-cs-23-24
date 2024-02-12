@@ -61,13 +61,15 @@ fn ImageCarousel(cx: Scope<ImageCarouselProps>) -> Element {
         div {
             class: "carousel",
             img {
-                src: cx.props.images.get(*active.get()).unwrap().as_str(),
+                src: "{cx.props.images.get(*active.get()).unwrap()}",
                 alt: "Animal",
             },
             div {
                 class: "carousel-smaller",
-                for photo in &cx.props.images {
+                for (index, photo) in cx.props.images.iter().enumerate() {
                     img {
+                        class: if *active.get() == index { "active" } else { "" },
+                        key: "{photo}",
                         src: "{photo}"
                     }
                 }
