@@ -1,0 +1,22 @@
+<!--loginPage.html-->
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <title>Login Page</title>
+                <link rel="stylesheet" href="css/loginPageStyles.css">
+        </head>
+        <body>
+                <!-- This section is for the textbox that prompts the user to enter a username (as new usernames are generated each time they login in). -->
+                <section="textBoxFormForUserToCreateNewUsername"> 
+                        <input type="text" id="textBoxFormForUserToCreateNewUsername" placeholder="username?" autocomplete="off" /> 
+                </section>
+
+                <!--    After the user enters a username they can press the OK button that calls the storeFromValueIntoUsername method which stores the value of the form into the "var username" (see loginPage.js, line 4),
+                        the function then callsback to loadHomePage which opens loginPage.html to allow seamless transition to the home page. -->
+                <section="okButton">
+                        <img src="img/buttons/okButtonDark.png" width="80" height="50" onclick="storeFormValueIntoUsername(loadHomePage)" />
+                </section>
+
+                <script src="js/loginPage.js"></script>
+        </body>
+</html>

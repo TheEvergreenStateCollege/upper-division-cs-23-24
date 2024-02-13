@@ -1,0 +1,42 @@
+/* loginPageStyles.css */
+
+/* Adding custom font for style */
+@font-face {
+    font-family: '3D Isometric Black';
+    src: url('/fonts/3DIsometric-YzLLy.ttf');
+}
+
+
+main {
+    display: grid;
+  }
+
+  
+  body {
+    background-image: url(/img/backgrounds/lightBackground.png);
+    margin:  0; 
+    min-height:  100vh; 
+    display: grid;
+    justify-content: center;  
+    align-items: center;
+
+  }
+
+  input[type="text"],
+  textarea {
+   
+    width: 600px; 
+    height: 100px; 
+    background-color: #332c2e;
+    border: 2px solid black;
+    outline: none;
+
+    
+    padding: 25px; 
+    font-size: 80px; 
+    color: #d5d2c1;
+    caret-color: white;
+    font-family: '3D Isometric Black';
+  
+      
+  }
