@@ -1,9 +1,27 @@
-## Web Engineering (SOS) Tentative Syllabus
+## Web Engineering Syllabus
 Winter 2024
+
+```mermaid
+mindmap
+  root((Student Originated Software))
+    Web Engineering
+      Web Front End
+        Lap 1: Static Websites with HTML, CSS, Javascript
+        Lap 2: React + Typescript
+      Web Infrastructure
+        Lap 1: AWS
+        Lap 2: Rust
+    Networking
+    Technical Interview Practice / Seminar
+    Hackathon Projects
+```
 
 ## Learning Goals
 * To understand the full stack of web applications, including front-end components and infrastructure.
-* To practice technical interview skills through weekly mock interviews of submitted code and work.
+* To become fluent in managing, navigating, and thinking about code as source files in a nested directory tree.
+* To become fluent in tracking, versioning, and collaborating on software with Git and GitHub.
+* To become fluent in HTML, CSS, and Javascript (in Lap 1) and 
+* To practice technical interview skills and communicating about code to other humans through weekly mock interviews of submitted code and work.
 * To complete a web application of at least 500 lines of code in teams.
 
 ![[./images/web-architecture.png]]
@@ -17,7 +35,7 @@ The main video courses and texts for each section are shown below.
 ### Track: Web Infrastructure
 #### Lap 1: Cloud, Back-end
 * [Fullstack for Front-End Engineers](https://frontendmasters.com/courses/fullstack-v3/)
-* 
+* [NodeJS and API Design](https://frontendmasters.com/courses/api-design-nodejs-v4/)
 
 #### Lap 2: Rust
 * For first-time Rust programmers, we will be following this interactive book
@@ -34,35 +52,74 @@ The main video courses and texts for each section are shown below.
 * [React + Typescript](https://frontendmasters.com/courses/react-typescript-v2/)
 	* For Lap 2 students, all work will be done with Typescript in SOS
 * [Intermediate React](https://frontendmasters.com/courses/intermediate-react-v5/)
+* [React Performance (React)]()
 
 #### Lap 3: Independent Topics
-* For students who already have taken or know material in Lap 2 and Lap 1.
+* By permission of instructor: for students who already have taken or know material in Lap 2 and Lap 1.
 * You can choose
-* React Native (2 weeks)
+* React Native
+	* https://frontendmasters.com/courses/react-native-v2/
 * Creative Coding (Canvas, WebGL, ThreeJS)
 	* https://frontendmasters.com/courses/canvas-webgl/
 
+
+## Attendance and Zoom Policy
+In Web Front-End and Web Infrastructure, attendance is required in-person. A Zoom option will be provided for students in-person who wish to ask questions by text. The primary means of submitting work is through Github into the class monorepo, and the primary means of evaluation will be 1:1 code interviews with the instructor or a TA. A big use of our classtime will be practicing this interview format with pair programming partners.
+
+We are committed to supporting an accessible learning environment for all students.
+  
+
+Students will be asked not to use AI for this class. They are asked to type character-by-character every line of code that they submit under their own name as their own work in github (no copy and paste), and certify that they can communicate and teach in English to another human A) how to come up each line of code, B) what it does, and C) how it contributes to the desired solution.
+
+##   
+
+
 ## Assessments and Evaluations
-Students will be  asked to submit work to be evaluated in three categories
-* 1/3 credit:
-	* Weekly code interviews by TAs and instructor
-	* Pass 5 out of 8 interviews for full credit
-	* First interview is just demonstrating your AWS instance
-* 1/3 credit:
-	* Co-creation: add 5 sentences reflecting on your learning experience that week, and that of your pair programming partner.
-* 1/3 credit:
-	* Final project, 500 lines of code.
+
+### Code Interview
+You do not have to have completed that week's assignment to do the code interview, as long as you have spent about 6 hours total thinking, reading, and coding.
+
+If you are still learning to commit and push to GitHub with branches and pull requests, bring your laptop or be prepared to log into the cloud development environment where you have your work (GitPod or GitHub Codespaces).
+
+If you are able to commit and push to GitHub, commit and push your changes to a branch and add to a pull request as a work-in-progress (WIP).
+
+The format of the weekly 1:1 code interview is, within a 10 minute interview each week:
+
+- Tell the interviewer about your code.
+	- A guideline to get started: divide up your code into 3 to 5 major pieces,
+	- then summarize them in order
+
+- Interviewer will
+	- remove x lines of code from your submitted work at random
+		- In week 2 we will remove 2 lines of code.
+		- In each successive week, the interviewer will remove one more line of code until Week 10, when 10 lines of code will be removed.
+	- ask you to talk through your process of how would you determine what the change was
+	- ask you to add back the removed lines of code to restore functionality
+
+
+  
+
+Students who pass at least 5 out of 8 code interviews, add to at least 5 out of 8 co-creation files each week, and complete a final project meeting at least 5/8 of each requirment will receive full credit.
 
 ## Anticipated Credits
 
+The main three tracks of SOS worth 12 credits (most students will be taking this version).
+
 | Credits | Description |
 | ---- | ---- |
-| 2* | Technical Interview Skills |
-| 2* | Software Projects |
-| 4* | Software Infrastructure for Web Engineering |
-| 4* | Front End Software for Web Engineering |
+| 4* | Infrastructure Software Engineering for the Web |
+| 4* | Front End Software Engineering for the Web |
 | 4* | Computer Networking |
 
+Optional tracks, meeting on
+* Monday afternoon (Technical Software Interview Skills includes Seminar)
+* Friday morning (Hackathon Projects)
+
+| Credits | Description |
+| ---- | ---- |
+| 2* | Technical Software Interview Skills |
+| 2* | Hackathon Projects |
+|  |  |
 ## Interactions Between Tracks
 Students may be enrolled in one, two, or all three of the Front End, Infrastructure, and Networking tracks, and will be working in teams across all three tracks on their DSA final projects from fall quarter, or a new project that evolves over winter quarter.
 
@@ -96,12 +153,12 @@ TAs will receive used desk copies or PDFs of the readings, see Paul at beginning
 |  |  |  |  |  |  |
 |  |  |  |  |  |  |
 ## Topic List
-These are subject to slight modification.
+These are subject to change as the quarter progresses.
 
-| Week | Front End | Infrastructure |
+| Week | Web Front End | Web Infrastructure |
 | ---- | ---- | ---- |
-| 1 | git review, HTML, CSS | AWS instances |
-| 2 | Layout and Box Model | <br>unix review, telnet, curl, nc, netstat, GitHub Pages |
+| 1 | git review, HTML, CSS | AWS instances, DNS |
+| 2 | Layout and Box Model | <br>unix review, telnet, curl, nc, netstat, GitHub Pages, cron |
 | 3 | Buttons and Forms | Databases |
 | 4 | CSS / SVG animations | Continuous Integration |
 | 5 | APIs, Auth secrets | Testing |

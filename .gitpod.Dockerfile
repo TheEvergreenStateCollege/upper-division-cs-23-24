@@ -37,15 +37,38 @@ RUN apt-get install -yqq zlib1g-dev
 RUN apt-get install -yqq htop
 RUN apt-get install -yqq asciinema
 RUN apt-get install -yqq python3-pip
+<<<<<<< HEAD
+=======
+RUN apt-get install -yqq curl
+RUN apt-get install -yqq tcpdump
+RUN apt-get install -yqq netcat
+RUN apt-get install -yqq telnet
+RUN apt-get install -yqq net-tools
+RUN apt-get install -yqq nodejs
+RUN apt-get install -yqq npm
+
+# install rust toolchain
+ENV RUSTUP_HOME=/opt/.rustup
+ENV CARGO_HOME=/opt/.cargo
+RUN curl https://sh.rustup.rs -sSf >> rustup.sh
+RUN chmod 700 rustup.sh
+RUN ./rustup.sh --default-toolchain stable -y
+ENV PATH=/opt/.cargo/bin:$PATH
+RUN rm rustup.sh
+>>>>>>> main
+
+# install node version manager
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN . ${HOME}/.nvm/nvm.sh; nvm install v20
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir ~/scripts
-COPY ./scripts/dl-graalvm.sh /root/scripts/dl-graalvm.sh
 COPY ./scripts/.shrc /root/.shrc
 
 RUN ssh-keyscan github.com
 
+<<<<<<< HEAD
 # Download the right GraalVM for the given architecture
 RUN . /root/scripts/dl-graalvm.sh
 RUN . /root/.shrc; gu install nodejs
@@ -68,4 +91,6 @@ RUN nvm install v20
 RUN mkdir ~/src
 RUN cd ~/src; git clone https://github.com/TheEvergreenStateCollege/upper-division-cs
 
+=======
+>>>>>>> main
 WORKDIR "${HOME}"

@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    color: #dbab1a;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url('Q5.jpeg');
+    background-size: cover; /* Adjust the sizing as needed (cover, contain, etc.) */
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-color: rgb(48, 47, 47);
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    text-decoration: underline;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.134);
+}
+
+h1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.grid-item {
+    padding: 10px;
+    text-align: center;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.grid-item:hover {
+    background-color: #2980b9;
+}
+
+footer {
+    background-color: #3333331e;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

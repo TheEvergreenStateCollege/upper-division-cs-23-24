@@ -8,7 +8,6 @@ TBD
 
 ### Reading
 
-[Rust Book: Chapter 17 - Object-Oriented Programming](https://rust-book.cs.brown.edu/ch17-00-oop.html)
+[Rust Book: Chapter 15 - Smart Pointers](https://rust-book.cs.brown.edu/ch15-00-smart-pointers.html)
 
-[Rust Book: Chapter 18 - Patterns and Matching](https://rust-book.cs.brown.edu/ch18-00-patterns.html)
-
+[Rust Book: Chapter 16 - Fearless Concurency](https://rust-book.cs.brown.edu/ch16-00-concurrency.html)

@@ -1,0 +1,57 @@
+    1  ll
+    2  cd ..
+    3  ll
+    4  cd ubuntu/
+    5  ll
+    6  exit
+    7  cd workspace/
+    8  ll
+    9  git pull
+   10  cd upper-division-cs/
+   11  git pull
+   12  git checkout wshine-week1 
+   13  ll
+   14  cd web-24wi/
+   15  ll
+   16  cd assignments/
+   17  ll
+   18  cd wshine/
+   19  ll
+   20  mkdir infra
+   21  ll
+   22  cd infra/
+   23  ll
+   24  history
+   25  mkdir week1
+   26  cd week1/
+   27  ll
+   28  ll ..
+   29  history >> bash_history.txt
+   30  vim bash_history.txt 
+   31  git status
+   32  git status -u
+   33  git add .
+   34  git commit
+   35  ll
+   36  mv bash_history.txt ..
+   37  ll
+   38  cd ..
+   39  rmdir week1
+   40  ll
+   41  git status
+   42  git add .
+   43  git status -u
+   44  git config
+   45  git log
+   46  git config user.name "WinstonShine"
+   47  git config user.email 114693487+WinstonShine@users.noreply.github.com
+   48  git config -l
+   49  git config --global core.editor vim
+   50  git status -u
+   51  git add .
+   52  git commit
+   53  git reset HEAD~1
+   54  git log
+   55  git status -u
+   56  ll
+   57  history > bash_history.txt

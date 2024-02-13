@@ -1,0 +1,64 @@
+body{
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, lightblue, grey, black);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.calculator{
+    background-color: hsl(0, 0%, 8%);
+    border-radius: 10px;
+    max-width: 1000px;
+    overflow: hidden;
+  
+}
+
+
+.display{
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    padding: 20px;
+    font-size: 7rem;
+    text-align: left;
+    border: none;
+    background-color: lightskyblue;
+}
+
+
+.buttonsOnCalc{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+  
+}
+
+button{
+    font-family: 'Courier New', Courier, monospace;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    border: none;
+    background-color: hsl(0, 0%, 30%);
+    color:white;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+button:hover{
+    background-color:lightblue;
+}
+
+button:active{
+    background-color: white;
+}
+
+.triple {
+  width: 340%;
+}

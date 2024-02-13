@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Blasters</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="main-nav">
+      <h1 class="brand">
+        <img
+          src="https://btholt.github.io/complete-intro-to-web-dev-v3/images/coffee_masters_logo.png"
+          alt="coffee blasters logo"
+          class="logo"
+        />
+        Coffee Blasters
+      </h1>
+    </nav>
+    <div class="page">
+      <section class="order box">
+        <h2 class="box-title">SELECTIONS</h2>
+        <ul class="items">
+          <li class="item">
+            <div  class="item-quantity">
+              <input id="qant1" type="number" min="0" max="100" value="3">
+            </div>
+            <div class="item-title">Blasted Bevvy</div>
+            <div id="pri1" class="item-price">$6.66</div>
+            <ul class="item-options-list">
+              <li class="item-option">Light Foam</li>
+            </ul>
+          </li>
+          <li class="item">
+            <div class="item-quantity">
+              <input id="qant2"  type="number" min="0" max="100" value="1">
+            </div>
+            <div class="item-title">Coffee Blast Supreme</div>
+            <div id="pri2" class="item-price">$7.77</div>
+            <ul class="item-options-list">
+              <li class="item-option">Ghost Milk</li>
+              <li class="item-option">XXXTRA BLASTED</li>
+            </ul>
+          </li>
+          <li class="item">
+            <div class="item-quantity">
+              <input id="qant3" type="number" min="0" max="100" value="3">
+            </div>
+            <div class="item-title">Bougie Bread</div>
+            <div id="pri3" class="item-price">$55.55</div>
+            <ul class="item-options-list">
+              <li class="item-option">Butter me up, butler!</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section class="payment">
+        <div class="name-box box">
+          <h2 class="box-title">CALLSIGN</h2>
+          <div class="input-group">
+            <label class="user-input-label" for="name">Name for order</label>
+            <input type="text" class="user-input" id="name" />
+          </div>
+          <div class="input-group">
+            <label class="user-input-label" for="phone">Phone (Landline Only!)</label>
+            <input type="text" class="user-input" id="phone" />
+          </div>
+        </div>
+        <div class="cc-box box">
+          <h2 class="box-title">BITCOIN WALLET INFO</h2>
+          <div class="input-group">
+            <label class="user-input-label" for="priv_key">Private Key</label>
+            <input type="text" class="user-input" id="priv_key" />
+          </div>
+          <div class="input-group">
+            <label class="user-input-label" for="bitcoin_add">Wallet Address</label>
+            <label class="user-input-label-2" for="mmn">Mother's Maiden Name</label>
+            <input type="text" class="user-input short-input" id="bitcoin_add" />
+            <input type="text" class="user-input short-input" id="mmn" />
+          </div>
+        </div>
+      </section>
+      <section class="total">
+        <table class="totals-table">
+          <tbody>
+            <tr>
+              <td>Subtotal:</td>
+              <td id="subtot">$(null)</td>
+            </tr>
+            <tr>
+              <td>Tax:</td>
+              <td id="tax">$(null)</td>
+            </tr>
+            <tr class="final-totals">
+              <td>Total:</td>
+              <td id="totot">$(null)</td>
+            </tr>
+          </tbody>
+        </table>
+        <button onclick="totalit()" class="totalbutt" type="button">CLICK HERE FOR ORDER TOTAL</button>
+        <button class="checkout" type="button">SUBMIT ORDER</button>
+      </section>
+
+    </div>
+
+  </body>
+      <script>
+        const tunes = new Audio('http://23skidoo.arcology.builders/tunes/secret-tunes/charlie-parker-groovin-high.mp3').play();
+        function totalit() {
+        let price1 = parseFloat((parseFloat(document.getElementById("pri1").innerHTML.slice(1,100)) * parseFloat(document.getElementById("qant1").value)).toFixed(2).toString())
+        let price2 = parseFloat((parseFloat(document.getElementById("pri2").innerHTML.slice(1,100)) * parseFloat(document.getElementById("qant2").value)).toFixed(2).toString())
+        let price3 = parseFloat((parseFloat(document.getElementById("pri3").innerHTML.slice(1,100)) * parseFloat(document.getElementById("qant3").value)).toFixed(2).toString())
+	let subtot0 = price1+price2+price3
+        document.getElementById("subtot").innerHTML = "$" + subtot0.toFixed(2)
+	let tax = subtot0 * .07
+	let totot = subtot0 + tax
+        tax= tax.toFixed(2)
+        totot= totot.toFixed(2)
+        document.getElementById("tax").innerHTML = "$" + tax
+        document.getElementById("totot").innerHTML = "$" + totot
+        }
+        totalit();
+      </script>
+</html>

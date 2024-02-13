@@ -1,0 +1,97 @@
+/*TODO:
+    - @media sections for large screens - hone in the images sizes
+*/
+html * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    font-size: 100%;
+    line-height: 1.35rem;
+    margin: 0;
+    width: 100%;
+}
+
+header {
+    align-items: center;
+}
+
+main {
+    margin: 0;
+    padding: 2em;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    padding: 0;
+}
+
+/* Individual dropdown items */
+li {
+    font-size: 1.25em;
+    margin: 0 1em; /* Adjust the spacing between menu items */
+    padding: .75em 1em;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for items (except current page) */
+li:hover:not(.thispage) {
+    background-color: #678359;
+}
+
+/* links styles */
+a {
+    color: #1b360d;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+}
+
+/* Disable pointer events for current page */
+.thispage a {
+    pointer-events: none;
+}
+
+/*/* @media ____________________________________________________________________________________*/
+
+/* larger screens */
+@media (min-width: 1061px) {
+
+    section {
+        padding-top: 2em;
+    }
+
+    img {
+        max-width: 15%; /* image size for larger screens */
+        float: left; /* Float images to the left */
+        margin-right: 1em; /* space between images and text */
+    }
+
+    /* clear the float to prevent layout issues */
+    .clear {
+        clear: both;
+    }
+}
+
+/* smaller screens */
+@media (max-width: 1060px) {
+    img {
+        max-width: 100%; /* images fill their container on smaller screens */
+        display: block; /* center images within their container */
+        margin: 0 auto; /* center images horizontally */
+    }
+}
+
+/* footer --------------------------------------------------------------------------*/
+
+footer {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
