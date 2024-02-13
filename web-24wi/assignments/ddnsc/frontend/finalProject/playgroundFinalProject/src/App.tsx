@@ -16,7 +16,7 @@ function App() {
       onClick: () => handleSelectItem("cancel"),
       children: "Button 2",
     },
-    // Add more buttons as needed
+    // add more buttons as needed
   ];
 
   return (
