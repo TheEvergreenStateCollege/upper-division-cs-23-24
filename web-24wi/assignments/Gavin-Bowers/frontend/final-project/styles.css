@@ -182,7 +182,7 @@ input[type="range"] {
     margin: 20px 0px 20px 0px;
     float: left;
     outline: none;
-    background-color: #eaeaea;
+    background-color: #d6d5d1;
   }
   input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
@@ -208,13 +208,12 @@ input[type="range"] {
     height: 25px;
     width: 10px;
     border-radius: 0%;
-    background-color: #f7f7f7;
+    background-color: #e5e5e5;
     cursor: pointer;
     margin: -11px 0 0 0;
   }
   input[type="range"]:active::-webkit-slider-thumb {
     transform: scale(1.2);
-    background: #06b977;
   }
 
 /*for firefox: */
