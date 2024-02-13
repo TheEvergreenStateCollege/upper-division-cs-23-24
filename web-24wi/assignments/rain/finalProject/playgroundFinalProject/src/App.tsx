@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./components/Button";
 import { ButtonProps } from "./components/Button";
+import { Link } from 'react-router-dom'
 
 
 
@@ -14,6 +15,8 @@ function App() {
   const canc = () => {
       handleSelectItem("cancel")
   }
+
+
 
   const buttons: ButtonProps[] = [
     {
@@ -55,13 +58,17 @@ function App() {
       </div>
       
       <nav className="fixed bottom-0 bg-gray-400 flex flex-wrap items-center justify-between w-full h-10 text-lg border-t-2 border-opacity-75">
-        <button className="mx-2 px-2 shadow-lg border-t-2 border-l-2 border-opacity-75" >
+       <a href="blueScreen.html">
+        <button  className="mx-2 px-2 shadow-lg border-t-2 border-l-2 border-opacity-75" >
           <div className="flex flex-row">
           <img src="/static/win.png"/>
           <span className="text-sm px-2">Start</span>
           </div>
+          
 
         </button>
+        </a>
+        
  </nav>
     </div>
     
