@@ -21,7 +21,7 @@
             console.log(password);
             button.addEventListener("click", async (event) => {
                 event.preventDefault();
-                const response = await fetch("localhost:5000/api/user/1", {
+                const response = await fetch("localhost:5000/api/user", {
                     "headers": {
                         "Content-Type": "application/json",
                     },
