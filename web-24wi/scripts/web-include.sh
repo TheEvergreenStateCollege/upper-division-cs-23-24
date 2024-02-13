@@ -45,7 +45,7 @@ fi
 
 prisma_and_nodemon() {
  
-  export PATH=${PATH}:(pnpm bin)
+  export PATH=${PATH}:$(pnpm bin)
   pnpm i 
   PRISMA=$(which prisma)
   if [[ -z "${PRISMA}" ]]; then
