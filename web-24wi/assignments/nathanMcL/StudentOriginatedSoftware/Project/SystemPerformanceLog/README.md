@@ -19,10 +19,10 @@ Work in progress :)
 ---
 How to run our tests and what they mean:
 ---
-Utilzing and implementing SystemLog.sh bash script found in the SystemLogResources folder to collect the data(you may need to change the bash script associated network).
-once the csv has been generated you will have a collection of data with headers:
-Operating System Name, Date and Time, CPU Temperature, Wi-Fi strength measured by 
--dBm, Memory Usage, Disk Usage, Network Traffic Rx/Tx.
+Utilzing and implementing SystemLog.sh bash script found in the SystemLogResources folder to collect the data(you may need to change the bash script associated network).<br>
+once the csv has been generated you will have a collection of data with headers: <br>
+Operating System Name, Date and Time, CPU Temperature, Wi-Fi strength measured by <br>
+-dBm, Memory Usage, Disk Usage, Network Traffic Rx/Tx. <br>
 
 
 ---
@@ -55,18 +55,20 @@ Running the program in Pycharm, and Running the program with VS Code, is not Git
 What's next for the project next quarter (as an app engineered for the web):
 ---
 
-Moving this project ahead for next quarter (8Jan2024). I am looking forward to improving the programs functions. I am working on incorporating another CSV file of data from a Raspberry pi Zero. I am excited to learn how I could better describe the data.
+Moving this project ahead for next quarter (8Jan2024). I am looking forward to improving the programs functions.<br> 
+I am working on incorporating another CSV file of data from a Raspberry pi Zero.<br> 
+I am excited to learn how I could better describe the data using HTML, CSS & JS.
 
 ---
 Raspberry Health
 ---
 
-![Screenshot (420)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/ff0a8428-c43c-433a-93a4-c4697b373c3c)
+![Screenshot (427)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/3fd5bf64-c90a-41c4-92ac-112b439c22e1)
 
 
 
 ---
 Raspberry Health WireFrame
 ---
-![RaspberryHealthImgView](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/b560bf8a-3e4e-4cd0-b7c9-bdcdb473f1a2)
+![RaspberryHealthwire_WireFrameLucid](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/ca32992d-41a2-4129-a7c5-4f0d0a0d8371)
 

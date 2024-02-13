@@ -707,7 +707,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "28999cda5ef6916ffd33fb4a7b87e1de633c47c0dc6d97905fee1cdaa142b94d"
 dependencies = [
  "gloo-console",
- "gloo-dialogs",
+ "gloo-dialogs 0.1.1",
  "gloo-events",
  "gloo-file",
  "gloo-history",
@@ -737,6 +737,16 @@ name = "gloo-dialogs"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "67062364ac72d27f08445a46cab428188e2e224ec9e37efdba48ae8c289002e6"
+dependencies = [
+ "wasm-bindgen",
+ "web-sys",
+]
+
+[[package]]
+name = "gloo-dialogs"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bf4748e10122b01435750ff530095b1217cf6546173459448b83913ebe7815df"
 dependencies = [
  "wasm-bindgen",
  "web-sys",
@@ -1265,6 +1275,7 @@ dependencies = [
  "dioxus-query",
  "dioxus-router",
  "dioxus-web",
+ "gloo-dialogs 0.2.0",
  "log",
  "reqwest",
  "serde",

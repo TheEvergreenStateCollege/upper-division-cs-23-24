@@ -29,9 +29,10 @@ pub fn SearchParams(cx: Scope) -> Element {
                 },
                 label {
                     r#for: "location",
-                    "Location",
+                    "Location: ",
                     input {
                         id: "location",
+                        r#type: "text",
                         value: "{location}",
                         placeholder: "Location",
                         onchange: |event| location.set(event.value.clone())
@@ -39,7 +40,7 @@ pub fn SearchParams(cx: Scope) -> Element {
                 },
                 label {
                     r#for: "animal",
-                    "Animal",
+                    "Animal: ",
                     select {
                         id: "animal",
                         value: "{animal}",
@@ -57,7 +58,7 @@ pub fn SearchParams(cx: Scope) -> Element {
                 },
                 label {
                     r#for: "breed",
-                    "Breed",
+                    "Breed: ",
                     select {
                         id: "breed",
                         onchange: |event| {
@@ -65,7 +66,7 @@ pub fn SearchParams(cx: Scope) -> Element {
                         },
                         match breeds.value() {
                             Some(Ok(list)) => {
-                                log::info!("{:?}", list.get(0));
+                                log::info!("{:?}", list.first());
                                 rsx! {
                                     for breed in list {
                                         option {
@@ -97,7 +98,9 @@ pub fn SearchParams(cx: Scope) -> Element {
                         // disabled: !breeds.len() as i64,
                     }
                 }
-                button { "Submit" },
+                button {
+                    "Submit"
+                },
             }
             match pets.value() {
                 Some(Ok(list)) => {

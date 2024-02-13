@@ -42,7 +42,7 @@ app.listen(port, () => {
 });
 
 const { PrismaClient } = require('@prisma/client');
-const{ parsed } = require('dotenv').cofig();
+const{ parsed } = require('dotenv').config();
 
 console.log(parsed['DATABASE_URL']);
 console.log(process.env['DATABASE_URL']);

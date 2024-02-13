@@ -19,6 +19,12 @@
   },
   "dependencies": {
     "@prisma/client": "^5.9.1",
+    "@prisma/extension-accelerate": "^0.6.3",
+    "@types/cors": "^2.8.17",
+    "@types/morgan": "^1.9.9",
+    "balanced-match": "^3.0.1",
+    "basic-auth": "^2.0.1",
+    "binary-extensions": "^2.2.0",
     "dotenv": "^16.4.1",
     "express": "^4.18.2"
   }
