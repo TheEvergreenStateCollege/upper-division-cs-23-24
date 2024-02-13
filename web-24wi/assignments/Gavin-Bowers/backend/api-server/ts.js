@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.get("/", function(req, res) {
         res.sendFile("/home/ubuntu/src/upper-division-cs/web-24wi/assignments/Gavin-Bowers/backend/api-server/index.html");
-});
+}); /*you could replace this with a relative path using a function*/
 
 app.listen(port, () => {
         console.log("example app listening at port ?");
