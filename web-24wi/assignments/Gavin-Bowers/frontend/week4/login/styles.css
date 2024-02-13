@@ -1,0 +1,43 @@
+.login-form-container {
+    width: 500px;
+    height: 200px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(249, 249, 249);
+    border: 1px solid black;
+}
+
+h2 {
+    text-align: center;
+    font-family: Verdana;
+    margin-bottom: 5px;
+}
+
+h4 {
+    font-family: Verdana;
+}
+
+.login-fields {
+    display:flex;
+    width:min-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user-group, .pass-group {
+    width:auto;
+    text-align: center;
+}
+
+.login-input {
+    width: auto;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+body {
+    background-color: rgb(232, 232, 232);
+}
