@@ -388,4 +388,5 @@ This week, we will build on our empty database by building our ORM (Object Relat
 	* This is tailored to our database type (Postgres) and our programming language of choice (Javascript).
 * Migrations
 	* Starting with Ruby on Rails in the 2000s, web startups discovered that a key part of keeping consistent data and making reliable web apps was, counter-intuitively, keeping track of all changes to the schema over time.
-	* This may seem weird, 
+	* This may seem weird,
+ 	* RoR and its author introduced the idea of versioning and focusing on migrations as a key need, to be versioned in your repository alongside code. * Rails includes its own ORM, but we use Prisma to bring the benefits of ORM to other non-rails languages and ecosystems, such as Python, Rust, and NodeJS.
