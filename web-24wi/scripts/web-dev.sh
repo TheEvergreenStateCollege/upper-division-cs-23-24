@@ -43,8 +43,8 @@ if [ -z "${NODE_ENV}" ]; then
   export NODE_ENV=development 
 fi 
 
-if [[ "$#" -lt "2" ]]; then
-  echo "Usage: $0 <path_to_server> <hostname>"
+if [[ "$#" -lt "3" ]]; then
+  echo "Usage: $0 <path_to_server> <hostname> <path_to_pem>"
   exit 1
 fi 
 
@@ -53,9 +53,10 @@ fi
 source ${SCRIPT_DIR}/web-include.sh $1 $SCRIPT_DIR
 
 HOST=$2 
+PEM_PATH=$3
 
 # Start port forwarding for Postgres
-ssh -o ControlMaster=auto -o ControlPath=/tmp/mysshcontrolpath -fNT -L 5432:localhost:5432 -i ~/Downloads/web-infra.pem ubuntu@${HOST}
+ssh -o ControlMaster=auto -o ControlPath=/tmp/mysshcontrolpath -fNT -L 5432:localhost:5432 -i ${PEM_PATH} ubuntu@${HOST}
 echo "...SSH tunnel to ${HOST}:5432 established"
 # . ~/.nvm/nvm.sh
 # nvm use v20
@@ -63,5 +64,5 @@ echo "...SSH tunnel to ${HOST}:5432 established"
 prisma_and_nodemon
 
 # If we receive a kill signal, cancel our port forwarding
-ssh -O exit -o ControlMaster=auto -o ControlPath=/tmp/mysshcontrolpath -fNT -L 5432:localhost:5432 -i ~/Downloads/web-infra.pem ubuntu@${HOST}
+ssh -O exit -o ControlMaster=auto -o ControlPath=/tmp/mysshcontrolpath -fNT -L 5432:localhost:5432 -i ${PEM_PATH} ubuntu@${HOST}
 echo "...SSH tunnel to ${HOST}:5432 exited"
