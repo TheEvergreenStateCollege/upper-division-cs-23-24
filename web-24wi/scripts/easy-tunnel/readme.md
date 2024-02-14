@@ -1,7 +1,7 @@
 <h2>Easy Tunnel, a persistent tunnel solution</h2>
 
 In response to the ample trouble we seemed to have today with the ssh tunnel script I have created a more simple solution.
-To use this script you will need to make it executable with chmod 777 easy-tunnel.sh
+To use this script you will need to make it executable with ```chmod 777 easy-tunnel.sh```
 This script takes two command line arguments, for your server's domain name and the path to your pem file.
 
 You can execute it as follows:
