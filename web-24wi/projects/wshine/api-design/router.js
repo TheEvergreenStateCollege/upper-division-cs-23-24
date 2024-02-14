@@ -6,11 +6,12 @@ const prisma = new PrismaClient();
 
 router.get("/users", async (req, res) => {
     const allUsers = await prisma.users.findMany();
+    console.log(req.body);
     res.json(allUsers);
 });
 
 router.get("/user/:id", (req, res) => {
-    console.log(req.body);
+    console.log(req);
     console.log("GET");
 });
 
@@ -20,7 +21,7 @@ router.post("/user", async (req, res) => {
 
     const newUser = await prisma.users.create({
         data: {
-            username:req.body.username,
+            username: req.body.username,
             password: '',
         }
     })
