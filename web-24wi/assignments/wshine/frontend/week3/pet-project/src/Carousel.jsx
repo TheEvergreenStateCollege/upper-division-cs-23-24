@@ -19,9 +19,9 @@ class Carousel extends Component {
         const { active } = this.state;
         const { images } = this.props;
         return (
-            <div className="flex justify-around items-center h-[400px] mt-2">
-                <img className="max-w-[45%] max-h-[400px]" src={images[active]} alt="animal" />
-                <div className="w-6/12">
+            <div className="carousel">
+                <img src={images[active]} alt="animal" />
+                <div className="carousel-smaller">
                     {images.map((photo, index) => (
                         // eslint-disable-next-line
                         <img
