@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import express from "express";
 import router from "./router.js";
 import path from "path";
