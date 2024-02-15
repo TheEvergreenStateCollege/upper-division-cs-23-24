@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Graph Activity</h1>
+        <div id="myplot"></div>
+        <script type="module">
+            import  * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+            const data = await fetch("http://localhost:5000/randomGraph");
+            const json = await data.json();
+            const plot = Plot.barY(json.results, {x:"day",y:"stepCount"}).plot();
+            const div = document.querySelector("#myplot");
+            div.append(plot);
+        </script>
+    </body>
+</html>
