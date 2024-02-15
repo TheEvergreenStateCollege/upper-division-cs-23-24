@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 
 app.get("/randomGraph", async (req, res) => {
     let results = [];
-    for (let i = 0; i < 1000; i += 1) {
+    for (let i = 0; i < 10; i += 1) {
       results.push({ "day": i, "stepCount": Math.round(Math.random() * 1000) });
     }
     res.json({ results });
