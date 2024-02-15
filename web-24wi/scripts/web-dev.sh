@@ -57,7 +57,7 @@ PEM_PATH=$3
 
 # Start port forwarding for Postgres
 ssh -o ControlMaster=auto -o ControlPath=/tmp/mysshcontrolpath -fNT -L 127.0.0.1:5431:localhost:5432 -i ${PEM_PATH} ubuntu@${HOST}
-echo "...SSH tunnel to ${HOST}:5431 established"
+echo "...SSH tunnel to ${HOST}:5432 established"
 # . ~/.nvm/nvm.sh
 # nvm use v20
 

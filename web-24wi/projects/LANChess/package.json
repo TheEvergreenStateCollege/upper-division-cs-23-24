@@ -1,0 +1,17 @@
+{
+  "name": "lanchess",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "./server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.9.1",
+    "express": "^4.18.2"
+  }
+}

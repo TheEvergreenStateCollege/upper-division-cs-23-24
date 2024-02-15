@@ -1,0 +1,42 @@
+/* homePageStyles.css */
+
+@font-face {
+    font-family: '3D Isometric Black';
+    src: url('/fonts/3DIsometric-YzLLy.ttf');
+}
+
+
+main {
+    display: grid;
+  }
+
+  
+  body {
+    background-image: url(/img/backgrounds/darkBackground.png);
+    margin:  0; 
+    min-height:  100vh; 
+    display: grid;
+    justify-content: center;  
+    align-items: center;
+
+  }
+
+  input[type="text"],
+  textarea {
+    
+    width: 400px; 
+    height: 75px; 
+    background-color: #d5d2c1;
+    border: 2px solid #332c2e;
+    outline: none;
+  
+
+
+    padding: 25px; 
+    font-size: 60px; 
+    color: #332c2e;
+    caret-color: white;
+    font-family: '3D Isometric Black';
+  
+      
+  }
