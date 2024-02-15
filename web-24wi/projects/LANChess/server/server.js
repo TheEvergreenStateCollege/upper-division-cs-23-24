@@ -4,7 +4,7 @@ import router from "./router.js";
 
 const app = express();
 const port = 5000;
-
+app.use(express.json());
 app.use("/api", router);
 app.use(express.static(path.join(process.cwd())));
 
