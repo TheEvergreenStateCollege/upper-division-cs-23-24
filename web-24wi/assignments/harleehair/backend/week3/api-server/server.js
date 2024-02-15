@@ -78,6 +78,14 @@ const serverFunc = () => {
   });
 };
 
+app.get("/randomGraph", async (req, res) => {
+  let results = [];
+  for (let i = 0; i < 10; i += 1) {
+    results.push({ "day": i, "stepCount": Math.round(Math.random() * 1000) });
+  }
+  res.json({ results });
+});
+
 server.on('error', (error) => {
   if (error.code === 'EADDRINUSE') {
     console.error(`Port ${port} is already in use. Trying the next port number.`);
