@@ -65,7 +65,7 @@ app.get('/audio/:fileName', (req, res) => {
 			const headers = {
 				"Content-Type": "audio/mpeg",
 				"Content-Length": end - start + 1,
-				"Content-Range": 'bytes ${start}-${end}/${fileSize}',
+				"Content-Range": `bytes ${start}-${end}/${fileSize}`,
 				"Accept-Ranges": "bytes",
 			};
 			res.writeHead(206, headers);

@@ -4,13 +4,7 @@ var musicTracker = document.getElementById('music-tracker');
 var paused = true;
 
 function playAudio() {
-    if (paused) {
-        audio.play();
-        paused = false;
-    } else {
-        //audio.pause();
-        //paused = true;
-    }
+    audio.play();
 }
 
 function seekAudio() {
