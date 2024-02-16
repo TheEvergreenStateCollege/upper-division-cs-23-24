@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const DEFAULT_PORT = process.env.API_PORT || 5000;
 
+
 // Start with default port, some servers may already be listening on port 5000
 // On Mac OS on Sonoma and afterwards, Mac Control Center listens on this
 let port = DEFAULT_PORT;
@@ -84,6 +85,10 @@ app.get("/randomGraph", async (req, res) => {
     results.push({ "day": i, "stepCount": Math.round(Math.random() * 1000) });
   }
   res.json({ results });
+});
+
+app.get("/graph.html", (req, res) => {
+  res.sendFile(path.resolve("pages/graph.html"))
 });
 
 server.on('error', (error) => {
