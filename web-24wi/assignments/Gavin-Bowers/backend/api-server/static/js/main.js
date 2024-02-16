@@ -20,5 +20,5 @@ function seekAudio() {
 
 audio.ontimeupdate = function() {
     var progress = (audio.currentTime / audio.duration) * 100;
-    seekSlider.value = progress;
+    musicTracker.value = progress;
 };
