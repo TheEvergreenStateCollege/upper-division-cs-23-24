@@ -1,15 +1,10 @@
 const express = require("express");
 const app = express();
 const port = 5000;
-const path = require("path");
-
 app.use(express.static("static"));
 app.use(express.json());
-
 const http = require('http');
 const fs = require('fs');
-const ffmpeg = require('fluent-ffmpeg');
-
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
 
@@ -46,6 +41,36 @@ app.get("/", function(req, res) {
 const musicServer = http.createServer((req, res) => {
 	//handle requests here
 });
+
+musicServer.on('request', (req, res) => {
+	const filePath = '/home/ubuntu/src/media/test.mp4';
+	fs.stat(filePath, (err, stats) => {
+		if (err) {
+			console.error(err);
+			res.writeHead(404, {'Context-Type': 'text/plain'});
+			res.end('File not found');
+			return;
+		}
+	const range = req.headers.range;
+	const fileSize = stats.size;
+	const chunkSize = 1024 * 1024;
+	const start = Number(range.replace(/\D/g, ""));
+	const end = Math.min(start + chunkSize, fileSize - 1);
+
+	const headers = {
+		"Content-Type": "audio/mpeg",
+		"Content-Length": end - start,
+		"Content-Range": "bytes " + start + "-" + end + "/" + fileSize,
+		"Accept-Ranges": "bytes",
+	};
+
+	res.writeHead(206, headers);
+	const audioStream = fs.createReadStream(filePath, { start, end });
+	audioStream.pipe(res);
+	});
+});
+	
+	
 
 musicServer.listen(3000, () => {
 	console.log("Music server running on port 3000");
