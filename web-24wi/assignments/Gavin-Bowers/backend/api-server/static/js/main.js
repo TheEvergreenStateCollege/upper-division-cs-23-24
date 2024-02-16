@@ -1,11 +1,24 @@
-import fs from "fs";
 
-window.onload = function() {
-    const dir = "C:/Users/super/Desktop/music_to_add";
-    const extension = ".mp3"
-    const fileNames = fs.readdirSync(dir).filter(fn => fn.endsWith(extension));
+var audio = document.getElementById('current-audio');
+var musicTracker = document.getElementById('music-tracker');
+var paused = true;
 
-    for (let fileName in fileNames) {
-        console.log(fileName);
+function playAudio() {
+    if (paused) {
+        audio.play();
+        paused = false;
+    } else {
+        audio.pause();
+        paused = true;
     }
 }
+
+function seekAudio() {
+    var seekTo = audio.duration * (seekSlider.value / 100);
+    audio.currentTime = seekTo;
+}
+
+audio.ontimeupdate = function() {
+    var progress = (audio.currentTime / audio.duration) * 100;
+    seekSlider.value = progress;
+};

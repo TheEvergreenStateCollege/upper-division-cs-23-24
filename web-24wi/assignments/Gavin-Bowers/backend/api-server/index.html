@@ -75,7 +75,7 @@
                         skip_previous
                     </span>
                 </button>
-                <button class="playback-button" aria-label="play">
+                <button onclick="playAudio()" class="playback-button" aria-label="play">
                     <span class="material-symbols-outlined" id="play-icon">
                         play_arrow
                     </span>
@@ -102,8 +102,8 @@
                 </div>
             </div>
             <div id="music-tracker-container">
-                <input type="range" class="music-tracker" max="100" value="0">
-                <audio id="current-audio" width="320">
+                <input type="range" class="music-tracker" id="music-tracker" onchange="seekAudio()" min="0" max="100" value="0">
+                <audio id="current-audio">
                     <source src="https://gavin-bowers.arcology.builders/audio/'RHODE STRIXMAN - black moon mary & starless anne sky.mp3'" type="audio/mp3">
                 </audio>
             </div>
