@@ -1,4 +1,5 @@
 const express = require("express");
+const { parse, format } = require('date-fns');
 const app = express();
 const port = 5000;
 const path = require("path");
@@ -37,4 +38,47 @@ app.get("/randomGraph", async (req, res) => {
   }
   res.json({ results });
 
+});
+
+const { PrismaClient } = require('@prisma/client');
+const{ parsed } = require('dotenv').config();
+
+console.log(parsed['DATABASE_URL']);
+console.log(process.env['DATABASE_URL']);
+const prisma = new PrismaClient();
+
+app.get("/user", async (req, res ) => {
+  const allUsers = await prisma.user.findmany();
+  res.json(allUsers);
+});
+
+app.post("/user", async (req, res) => {
+  const newUser = await prisma.user.create({
+    data: {
+      userame: req.body.username,
+      password: '',
+    },
+  });
+  console.log("created");
+});
+
+app.post("/daily-watch-data", async ( req, res) => {
+
+  const parsedDate = parse(req.body.date, 'MM/dd/yyyy', new Date());
+  const formattedDate = format(parsedDate, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx");
+  console.log(formattedDate);
+
+  const newData = await prisma.dailyWatchData.create({
+    data: {
+      date: formattedDate,           
+      steps: req.body.steps,              
+      distanceMiles : req.body.distanceMiles ,     
+      flights : req.body.flights,           
+      activeEnergyCals: req.body.activeEnergyCals,  
+      handwashingSeconds: req.body.handwashingSeconds, 
+      restingEnergyCals: req.body.restingEnergyCals,
+      soundLevel: req.body.soundLevel,    
+    },
+  });
+  res.json(req.body);
 });

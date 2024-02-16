@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id
+  createdAt DateTime  @default(now())
+  username  String    @unique
+  password  String
+  Post      Post[]
+  Product   Product[]
+  Update    Update[]
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  title     String   @db.VarChar(255)
+  content   String?
+  published Boolean  @default(false)
+  authorId  String
+  User      User     @relation(fields: [authorId], references: [id])
+}
+
+model Product {
+  id          String   @id
+  createdAt   DateTime @default(now())
+  name        String
+  belongsToId String
+  User        User     @relation(fields: [belongsToId], references: [id])
+  Update      Update[]
+}
+
+model Update {
+  id          String        @id
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime
+  title       String        @db.VarChar(255)
+  body        String
+  status      UPDATE_STATUS @default(IN_PROGRESS)
+  version     String?
+  asset       String
+  productId   String
+  userId      String?
+  Product     Product       @relation(fields: [productId], references: [id])
+  User        User?         @relation(fields: [userId], references: [id])
+  UpdatePoint UpdatePoint[]
+}
+
+model UpdatePoint {
+  id          String   @id
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  name        String   @db.VarChar(255)
+  description String
+  updateId    String
+  Update      Update   @relation(fields: [updateId], references: [id])
+}
+
+enum UPDATE_STATUS {
+  IN_PROGRESS
+  LIVE
+  DEPRECATED
+  ARCHIVED
+}
