@@ -27,3 +27,14 @@ app.get("/search-hit/:hit", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+//Sevres a loist of data to a static page in final project directory
+
+app.get("/randomGraph", async (req, res) => {
+  let results = [];
+  for (let i= 0; i < 10; i++) {
+    results.push({"day": i, "stepcount": Math.round(Math.random() * 100) });
+  }
+  res.json({ results });
+
+});
