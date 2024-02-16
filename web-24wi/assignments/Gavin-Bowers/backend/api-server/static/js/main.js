@@ -8,13 +8,13 @@ function playAudio() {
         audio.play();
         paused = false;
     } else {
-        audio.pause();
-        paused = true;
+        //audio.pause();
+        //paused = true;
     }
 }
 
 function seekAudio() {
-    var seekTo = audio.duration * (seekSlider.value / 100);
+    var seekTo = audio.duration * (musicTracker.value / 100);
     audio.currentTime = seekTo;
 }
 
