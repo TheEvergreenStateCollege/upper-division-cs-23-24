@@ -1,0 +1,20 @@
+logo {
+    text-align: left;
+    margin: auto;
+    padding: 20px;
+    font-size: 60px;
+    }
+    
+ .square {
+    height: 200px;
+    width: 200px;
+    border: 3px solid black;
+    display: flex;
+    align-items: flex-end;
+    }
+    
+.course {
+    color: blue;
+    font-size: 30px;
+    
+    }

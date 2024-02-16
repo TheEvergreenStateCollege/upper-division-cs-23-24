@@ -2,7 +2,9 @@
 
 ## Lap 1: Cloud
 
-TBD
+For Lap 1 this week in Web Infrastructure, we have two goals
+* allow users to authenticate to our API with JSON Web Tokens (JWTs) or passwords, and learn best practices for both
+
 
 ## Lap 2: Rust
 

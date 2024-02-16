@@ -1,0 +1,26 @@
+docker pull - to download new images
+docker run - to start a container from a downloaded image
+docker exec - run a process on an already running container
+docker kill - stop a running container
+
+docker pull postgres:14 or any image
+docker run -e POSTGRES_PASSWORD=lol --name=pg --rm -d -p 5432:5432 postgres:14
+docker exec -u postgres -it pg psql
+docker kill pg
+
+npm i typescript ts-node @types/node prisma --save-dev
+tsconfig.json 
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
+    "lib": ["esnext"],
+    "esModuleInterop": true
+  }
+}
+npx prisma init
+npx prisma format
+npx prisma generate --save-dev
+npm i @prisma/client --save
+npx prisma migrate dev --name init

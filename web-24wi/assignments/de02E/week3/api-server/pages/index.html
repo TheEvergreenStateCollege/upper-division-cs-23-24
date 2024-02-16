@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device.width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<script type="text/javascript" src="./server.js"></script>
+	<body>
+		<div class="container">
+		<form action="put" target="http://localhost:5000/login">
+			<input type="text" id="input-name"></text>
+			<label for="input-name">Name</label>
+			<input type="password" id="input-password"></type>
+			<label for="input-password">Password</label>
+			<button id="button-submit">Hit It!</button>
+		</form>
+		</div>
+		 <script type="text/javascript">
+                                const iName = document.getElementById("input-name");
+const iPass = document.getElementById("input-password");
+const ButtonSubmit = document.getElementById("button-submit");
+
+buttonSubmit.addEventListener("click", async (event) => {
+        event.preventDefault();
+        const response = await fetch("http://localhost:5000/login", {
+                        "method":" post",
+                        "body": {iName, IPass}
+        });
+        console.log("I've been clicked.");
+});
+app.post("/login", (req, res) => {
+        console.log(` $(req.body)`);
+        const bodyJSON = JSON.parse(req.body);
+        res.json(bodyJSON);
+});
+                        </script>
+	</body>
+</html>
+

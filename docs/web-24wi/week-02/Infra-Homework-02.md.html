@@ -1,0 +1,72 @@
+<h1 id="webinfrastructurehomework02">Web Infrastructure - Homework 02</h1>
+<p>All students are asked to do Lap 1 in order to set up and make progress on your AWS server and infrastructure for their final project.</p>
+<p>Students interested in Rust may do Lap 2 or Lap 3 (or both).</p>
+<p>Our goal in this homework is</p>
+<ul>
+<li>For Lap 1:<ul>
+<li>To begin to complement our front-end work by creating our own API (Application Programming Interface), a series of REST endpoints that we can call to transfer data, starting with the GET method.</li>
+<li>To learn about databases, and how they can make data available to front ends, as an alternative to the CSV files that you may have gathered and processed in Data Structures &amp; Algorithms last quarter.</li></ul></li>
+<li>For Lap 2:<ul>
+<li>To learn how structs, pattern matching, and enum help Rust group data together, and also response to, and parse, typed data in an elegant way borrowed from functional programming.</li>
+<li>To solidify that understanding, along with ownership and string slices, through a small project to implement a bounded-depth HTTP crawler.</li></ul></li>
+<li>For Lap 3:<ul>
+<li>To begin exploring WebAssembly and Rust by making a web app that allows native performance by using HTML/CSS/JS to load wasm into a user's browser, seamlessly and with no technical knowledge.</li></ul></li>
+</ul>
+<h2 id="lap1cloud">Lap 1: Cloud</h2>
+<h4 id="readings">Readings</h4>
+<p>Read and/or watch the first two sections of API design with NodeJS and Express</p>
+<p>Some short notes
+https://hendrixer.github.io/API-design-v4/</p>
+<p>Video Accompanying the Above with More Details
+https://frontendmasters.com/courses/api-design-nodejs-v4/</p>
+<p>Read and/or watch the first two sections of "Introduction to SQL and Postgres"
+https://frontendmasters.com/courses/sql/</p>
+<p>Watch Sections 4 and 5 of <a href="https://frontendmasters.com/courses/fullstack-v3/">Full Stack for Front-End Engineers</a>:</p>
+<ul>
+<li>Operating Systems</li>
+<li>How The Internet Works
+Ignore the section in "Operating Systems" where it discusses adding your SSH key to a Digital Ocean droplet. We've already added an SSH key to our AWS EC2 instance.</li>
+</ul>
+<p>From these readings, we will learn the P, the E, and the N, of the so-called PERN stack. Lap 2 students of the Front-End track are learning the R (React), but React is not necessary for the PEN part of the stack to serve dynamic web apps. In fact, before React came along, all stacks were like the PEN stack, and various rendering libraries tried to solve different pieces of the web component problem to various degrees of success.</p>
+<h3 id="tasks">Tasks</h3>
+<p>Create a subdirectory in the assignments directory on your AWS server to hold your </p>
+<p>As guided through your readings, you will be running two minimal backend components:</p>
+<ul>
+<li>a REST server with Express (written in Javascript, that you've been learning in Front-End)</li>
+<li>a Database (Postgres) inside a Docker container</li>
+</ul>
+<p>These will remain separate during this assignment.</p>
+<pre><code class="mermaid language-mermaid">flowchart LR
+  Express
+  Postgres
+</code></pre>
+<p>In the next assignment, we will connect from the Express REST server to Postgres in the Docker container, using an Object Relational Mapping (ORM) library called Prisma. It will then look something like</p>
+<pre><code class="mermaid language-mermaid">flowchart LR
+  Express--Prisma--&gt;Postgres
+</code></pre>
+<p>You can read ahead to Section 3 of the Node API course if you are interested.</p>
+<p>In the future, the Node API course may refer to a Postgres database hosted at Render.com. For your own reference, we will instead be using a Postgres database that we host ourselves on our AWS server. This will save on creating a new account, give us greater data capacity and privacy, and teach other valuable skills such as backing up and restoring our own databases as needed.</p>
+<h2 id="lap2rust">Lap 2: Rust</h2>
+<h3 id="reading">Reading</h3>
+<p><a href="https://rust-book.cs.brown.edu/ch05-00-structs.html">Rust Book: Chapter 05 - Structs</a></p>
+<p><a href="https://rust-book.cs.brown.edu/ch06-00-enums.html">Rust Book: Chapter 06 - Enums, Pattern Matching</a></p>
+<p>In your personal assignments directory, you will write a program that acts as a simple web crawler plus indexer and add and commit it there. Create a cargo project there</p>
+<pre><code>cd &lt;repo_root&gt;/web-24wi/assignments/&lt;github_username&gt;/rust
+cargo new week2
+</code></pre>
+<p>The program should take a start URL, a search term, and a maximum depth to crawl. In your Cargo project, it should be possible to run it in the following way, after building it with <code>cargo run</code></p>
+<pre><code>./target/debug/&lt;binary_name&gt; &lt;start_url&gt; &lt;search_term&gt; &lt;max_depth&gt;
+</code></pre>
+<p>add and commit a program that makes an HTTP get command to a URL of your choice. The program should store the responses of each crawl in a Struct including
+    * HTTP response headers
+    * HTTP response code
+    * a response body
+    * a <code>Vec</code> of outgoing URLs to crawl next</p>
+<p>It will be necessary to parse the HTTP response to populate this <code>Struct</code>. You may use the <a href="https://docs.rs/http/latest/http/"><code>http</code></a> crate or any other library of your choice. Crawling starting with the <code>start_url</code> counts as depth 1, and outgoing URLs from this page count as crawling depth 2, and so on. You are asked to crawl up to <em>and including</em> the max_depth. You're promised that the <code>max_depth</code> will always be a positive integer.</p>
+<p>Don't worry about cycles / loops. The <code>max_depth</code> will prevent crawling infinitely.</p>
+<p>Include a short discussion in a README.md file about your design choices, challenges faced, and how you applied your learning on Ownership, Structs, Enums, and Pattern Matching from this week's reading and last week.</p>
+<p>Don't worry if you don't finish. Timebox your efforts at 6 hours, commit what you have, and describe your work-in-progress and what steps you would take next if you were to spend more time on it.</p>
+<h3 id="lab3rustwebassembly">Lab 3: Rust + WebAssembly</h3>
+<p>If you have already completed the Rust book and the two projects within it (command-line grep tool and multithreaded web server), you are invited to deploy a web app compiled from Rust into WebAssembly, of your own choice.</p>
+<p>One suggestion is to consider a WebGL app for rendering simple graphics. Deploy a demo to your AWS server, and commit the source code into the monorepo under a <code>week2</code> directory. The goal is to use Javascript / HTML / CSS as a shim to load your wasm app.</p>
+<p>Include a README.md file describing what you learned, any tutorials that you followed, key snippets of code, challenges you encountered, and design / implementation choices that you made.</p>

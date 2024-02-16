@@ -1,0 +1,78 @@
+<html lang="en">
+  <head>
+    <title>REST - REpresentational State Transfer</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.6.1/dist/reveal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.6.1/dist/theme/solarized.css" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.6.1/plugin/highlight/zenburn.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>REST - Representational State Transfer</h1>
+          <ul>
+            <li>URL based resources</li>
+            <li>Hierarchy</li>
+            <li>Methods analogous to CRUD</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Anatomy of a URL</h1>
+          <p>&lt;scheme&gt;://&lt;hostname&gt;/&lt;subroute&gt;/&lt;subsubroute&gt;</p>
+          <p>http://www.ers.usda.gov/data-products/organic-prices/</p>
+        </section> 
+        <section>
+          <h1>A Remote HashMap</h1>
+          <ul>
+            <li>Hierarchical keys</li>
+            <li>Keys / values usually stored in a database</li>
+            <li>Values are usually JSON but can be any MIME type</li>
+            <li>Adding a previously existing key overwrites it with a new value</li>
+          </ul>
+        </section>
+        <section>
+          <h1>HTTP and HashMap Methods</h1>
+          <ul>
+            <li>GET method is like `.get()` in Java</li>
+            <li>POST method is like `.put()` in Java</li>
+          </ul>
+        </section>
+        <section>
+          <h1>curl command</h1>
+          <p>Lets you send HTTP requests from command-line and displays response</p>
+          <p>To GET a current binding</p>
+          <p>The following is an example specific to Mail-in-a-box installations, like ours</p>
+          <pre>curl -X GET --user &lt;email@domain.com&gt;<br/> https://mail.domain.com/admin/dns/custom/sub.domain.com </pre>
+          <img src="curl-dns.png" />
+        </section>
+        <section>
+          <h1>curl command</h1>
+          <pre>curl -X GET --user &lt;email@domain.com&gt;<br/> https://mail.domain.com/admin/dns/custom/sub.domain.com </pre>
+          <img src="curl-dns.png" />
+          <p>For the POST command to update the DNS binding, make the following changes to the GET version above</p>
+          <ul>
+            <li><pre>-X POST</pre> instead of <pre>-X GET</pre></li>
+            <li>Add an additional option <pre>-d 1.2.3.4</pre></li>
+          </ul>
+          <p>What to do after a POST to verify that the new DNS binding is effective?</p>
+        </section>
+        <section>
+          <h1>In-Class Activity: Finish Dynamic DNS Setup</h1>
+          <ul>
+            <li>Where does Linux (Ubuntu) run scripts on startup?</li>
+            <li>How to get the current IP address on the public network interface?</li>
+            <li>Combine them: on startup, run the POST command with the correct arguments</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <script src="https://unpkg.com/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        plugins: [ RevealHighlight ]
+      });
+
+    </script>
+  </body>
+</html>

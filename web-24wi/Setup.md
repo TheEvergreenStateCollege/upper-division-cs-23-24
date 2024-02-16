@@ -8,7 +8,9 @@ become familiar with in the previous quarter.
 
 ## Development Environments
 
-### GitHub Workspaces
+### GitHub Codespaces
+
+Follow the setup in.
 
 ### GitPod
 You can use the GitPod cloud development environment from last quarter in DSA. Be sure to create a new workspace from the `upper-division-cs` monorepo to pick up the latest GitPod Dockerfile. You can delete any old workspaces if there are no unsaved changes.
