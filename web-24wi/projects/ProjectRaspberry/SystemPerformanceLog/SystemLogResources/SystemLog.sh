@@ -27,7 +27,13 @@ CPU_TEMP=$(echo "scale=2; $CPU_TEMP / 1000" | bc)
 # WI-FI signal strength
 WIFI_DBM=$(iwconfig wlan0 | grep 'Signal level' | awk -F '=' '{print $3}' | awk '{print $1}')
 
-# CPU usage
+# CPU Usage Calculation
+# This script reads the first line from /proc/stat to obtain time spent by the CPU in different modes: user, nice, system, and idle.
+# 'user' time is CPU time spent on user processes.
+# 'nice' time is CPU time spent on low-priority user processes.
+# 'system' time is CPU time spent on system/kernel processes.
+# 'idle' time is when the CPU was not in use.
+# It then calculates CPU usage as the percentage of time the CPU was active (user, nice, system) out of the total time (including idle).
 read cpu a b c idle rest < /proc/stat
 CPU_USAGE=$(awk "BEGIN {print ($a+$b+$c) / ($a+$b+$c+$idle) * 100}")
 
