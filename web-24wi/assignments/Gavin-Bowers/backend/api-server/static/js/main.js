@@ -22,3 +22,7 @@ audio.ontimeupdate = function() {
     var progress = (audio.currentTime / audio.duration) * 100;
     musicTracker.value = progress;
 };
+
+audio.onloadedmetadata = function() {
+    console.log("music metadata loaded");
+};
