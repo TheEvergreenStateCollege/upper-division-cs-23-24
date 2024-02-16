@@ -22,8 +22,6 @@ app.get("/search-hit/:hit", (req, res) => {
 res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));
 });
 
-app.post("/lo
-
 // creates and starts a server for our API on a defined port
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
