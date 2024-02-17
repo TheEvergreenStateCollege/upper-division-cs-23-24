@@ -1,10 +1,21 @@
 
-var audio = document.getElementById('current-audio');
-var musicTracker = document.getElementById('music-tracker');
+const audio = document.getElementById('current-audio');
+const musicTracker = document.getElementById('music-tracker');
+const volumeSlider = document.getElementById('volume-slider');
 var paused = true;
 
 function playAudio() {
-    audio.play();
+    if (paused) {
+        audio.play();
+        paused = false;
+    } else {
+        audio.pause();
+    }
+}
+
+//This handles manual pausing as well as pausing at end of song
+audio.onpause = (event) => {
+    paused = true;
 }
 
 function seekAudio() {
@@ -22,3 +33,8 @@ window.onload = (event) => {
     currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/test.mp3';
     currentAudio.load();
 };
+
+volumeSlider.addEventListener('input', (event) => {
+    const value = event.target.value;
+    audio.volume = value / 100;
+});
