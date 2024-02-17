@@ -32,9 +32,10 @@ window.onload = (event) => {
     let currentAudio = document.getElementById('current-audio');
     currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/test.mp3';
     currentAudio.load();
+    musicTracker.value = 0;
 };
 
 volumeSlider.addEventListener('input', (event) => {
     const value = event.target.value;
-    audio.volume = value / 100;
+    audio.volume = value / 200; //Volume is half at max volume, since max volume is really loud for some reason
 });
