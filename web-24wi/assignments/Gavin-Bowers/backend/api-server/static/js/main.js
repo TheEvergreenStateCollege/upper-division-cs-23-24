@@ -24,6 +24,9 @@ function seekAudio() {
 }
 
 audio.ontimeupdate = function() {
+    if (isNaN(audio.duration) || audio.duration === 0) {
+        return;
+    }
     var progress = (audio.currentTime / audio.duration) * 100;
     musicTracker.value = progress;
 };
@@ -32,7 +35,6 @@ window.onload = (event) => {
     let currentAudio = document.getElementById('current-audio');
     currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/test.mp3';
     currentAudio.load();
-    musicTracker.value = 0;
 };
 
 volumeSlider.addEventListener('input', (event) => {
