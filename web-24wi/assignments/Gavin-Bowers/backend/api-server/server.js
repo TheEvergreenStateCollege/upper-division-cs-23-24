@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require('fs');
 const path = require('path');
+const musicMetadata = require('music-metadata');
 
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
@@ -39,9 +40,20 @@ app.get("/", function(req, res) {
         res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/audio/:fileName', (req, res) => {
+app.get('/audio/:fileName', async (req, res) => {
 	const fileName = req.params.fileName;
 	const filePath = path.join('/home/ubuntu/src/media/', fileName);
+	let title = "error: no title";
+	let artist = "error: no artist";
+
+	try {
+		const metadata = await musicMetadata.parseFile(filePath);
+		title = metadata.common.title;
+		artist = metadata.common.artist;
+
+	} catch (error) {
+		console.error('Error parsing metadata', error);
+	}
 
 	if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
 		fs.stat(filePath, (err, stats) => {
@@ -68,6 +80,8 @@ app.get('/audio/:fileName', (req, res) => {
 				"Content-Range": `bytes ${start}-${end}/${fileSize}`,
 				"Accept-Ranges": "bytes",
 			};
+			res.set('X-Audio-Title', title);
+			res.set('X-Audio-Artist', artist);
 			res.writeHead(206, headers);
 			const audioStream = fs.createReadStream(filePath, { start, end });
 			audioStream.pipe(res);

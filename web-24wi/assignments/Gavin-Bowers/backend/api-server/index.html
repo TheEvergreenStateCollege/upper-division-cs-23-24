@@ -58,7 +58,7 @@
         </div>
         <div id="music-player-container">
             <div id="music-info-container">
-                <p class="music-info" id="current-author">Author</p>
+                <p class="music-info" id="current-artist">Artist</p>
                 <span class="music-info material-symbols-outlined" id="music-info-separator">
                     remove
                 </span>
@@ -104,7 +104,7 @@
             <div id="music-tracker-container">
                 <input type="range" class="music-tracker" id="music-tracker" oninput="seekAudio()" min="0" max="100" value="0">
                 <audio id="current-audio">
-                    <source src="https://gavin-bowers.arcology.builders/audio/test.mp3" type="audio/mp3">
+                    <source id="audio-source" type="audio/mp3">
                 </audio>
             </div>
         </div>
