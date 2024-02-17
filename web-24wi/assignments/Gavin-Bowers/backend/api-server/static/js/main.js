@@ -5,17 +5,20 @@ const volumeSlider = document.getElementById('volume-slider');
 var paused = true;
 
 function playAudio() {
+    let playIcon = document.getElementById('play-icon');
     if (paused) {
         audio.play();
+        playIcon.innerHTML = 'pause';
         paused = false;
     } else {
         audio.pause();
     }
 }
-
 //This handles manual pausing as well as pausing at end of song
 audio.onpause = (event) => {
     paused = true;
+    let playIcon = document.getElementById('play-icon');
+    playIcon.innerHTML = 'play_arrow';
 }
 
 function seekAudio() {
