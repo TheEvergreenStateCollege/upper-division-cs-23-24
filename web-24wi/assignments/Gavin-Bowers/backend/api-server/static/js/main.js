@@ -18,5 +18,7 @@ audio.ontimeupdate = function() {
 };
 
 window.onload = (event) => {
-    document.getElementById('audio-source').src = 'https://gavin-bowers.arcology.builders/audio/test.mp3';
+    let currentAudio = document.getElementById('current-audio');
+    currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/test.mp3';
+    currentAudio.load();
 };
