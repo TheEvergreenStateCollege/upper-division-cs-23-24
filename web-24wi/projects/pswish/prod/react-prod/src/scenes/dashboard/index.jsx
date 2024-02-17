@@ -3,16 +3,16 @@ import { tokens } from "../../theme";
 import Header from "../../components/Header";
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import DriveEtaOutlinedIcon from '@mui/icons-material/DriveEtaOutlined';
 import TrafficIcon from "@mui/icons-material/Traffic";
 import LineChart from "../../components/LineChart";
-// import BarChart from "../../components/BarChart";
 import PieChart from "../../components/PieChart";
 import GeographyChart from "../../components/GeographyChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import Trip from "../trip";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -22,7 +22,7 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to the DrvierData DashBoard" />
+        <Header title="DASHBOARD" subtitle="Welcome to the DriverData DashBoard" />
 
         <Box>
           <Button
@@ -55,16 +55,15 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,361" //random value
-            subtitle="Total Miles"
-            progress="0.75"
-            increase="+14%"
+            title= "onData:"
+            subtitle=<Trip />
+            progress="1"
             icon={
-              <EmailIcon
+              <DriveEtaOutlinedIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
-            }
-          />
+            }>
+          </StatBox>
         </Box>
         <Box
           gridColumn="span 3"
