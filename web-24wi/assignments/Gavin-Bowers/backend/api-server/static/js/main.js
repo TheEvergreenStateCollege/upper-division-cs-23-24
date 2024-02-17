@@ -39,5 +39,7 @@ window.onload = (event) => {
 
 volumeSlider.addEventListener('input', (event) => {
     const value = event.target.value;
-    audio.volume = value / 200; //Volume is half at max volume, since max volume is really loud for some reason
+    let volumeFraction = value / 100;
+    let logVolume = Math.pow(volumeFraction, 2);
+    audio.volume = logVolume;
 });
