@@ -2,32 +2,35 @@
 const audio = document.getElementById('current-audio');
 const musicTracker = document.getElementById('music-tracker');
 const volumeSlider = document.getElementById('volume-slider');
+const playIcon = document.getElementById('play-icon');
 var paused = true;
 
 function playAudio() {
-    let playIcon = document.getElementById('play-icon');
     if (paused) {
         audio.play();
-        playIcon.innerHTML = 'pause';
-        paused = false;
     } else {
         audio.pause();
     }
 }
-//This handles manual pausing as well as pausing at end of song
+
+audio.onplay = (event) => {
+    paused = false;
+    playIcon.innerHTML = 'pause';
+}
+
 audio.onpause = (event) => {
     paused = true;
-    let playIcon = document.getElementById('play-icon');
     playIcon.innerHTML = 'play_arrow';
 }
 
 function seekAudio() {
     var seekTo = audio.duration * (musicTracker.value / 100);
     audio.currentTime = seekTo;
+    audio.play();
 }
 
 audio.ontimeupdate = function() {
-    if (isNaN(audio.duration) || audio.duration === 0) {
+    if (isNaN(audio.duration) || audio.duration === 0) { //prevents invalid values from making the range become the default value (50)
         return;
     }
     var progress = (audio.currentTime / audio.duration) * 100;
