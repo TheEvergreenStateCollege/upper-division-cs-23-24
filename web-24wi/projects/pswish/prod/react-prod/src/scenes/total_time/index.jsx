@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Typography } from "@mui/material";
 
-const Trip = () => {
+const Time = () => {
   const [tripData, setTripData] = useState([]);
 
   // Async function to fecth the trip data from the postgresql server
@@ -26,7 +26,7 @@ const Trip = () => {
     if (!isNaN(numericValue)) {
       return numericValue; // Not used in current data but might be in the near future
     } else {
-      const match = str.match(/(\d+(\.\d+)?)/);
+      const match = str.match(/\d+(\.\d+)?/);
       if (match) {
         return parseFloat(match[0]);
       } else {
@@ -35,27 +35,28 @@ const Trip = () => {
     }
   };
 
-  // Calculate total distance
-  const calculateTotalDistance = () => {
-    let totalDistance = 0;
+  // Calculate total time
+  const calcTotalTime = () => {
+    let totalTime = 0;
     tripData.forEach(trip => {
-      const distance = trip[8]; // Can't use -1 in js so this might be wrong eventually
-      const numericDistance = extractNumbers(distance);
+      const time = trip[3]; // Can't use -1 in js so this might be wrong eventually
+      const numericTime = extractNumbers(time);
+
 
       // Iterate through the converted string
-      if (!isNaN(numericDistance)) {
-        totalDistance += numericDistance;
+      if (!isNaN(numericTime)) {
+        totalTime += numericTime;
       }
     });
-    return totalDistance;
+    return totalTime;
   };
 
-  // Render total distance
+  // Render total time
   return (
     <div>
-      <Typography>Total Distance: {calculateTotalDistance()} miles</Typography>
+      <Typography>Total Time: {calcTotalTime()} mins</Typography>
     </div>
   );
 };
 
-export default Trip;
+export default Time;

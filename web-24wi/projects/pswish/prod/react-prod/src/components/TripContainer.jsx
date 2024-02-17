@@ -4,8 +4,9 @@ import Trip from '../scenes/trip';
 import Triplog from '../scenes/invoices';
 
 const TripContainer = () => {
+  
   const [tripData, setTripData] = useState([]);
-  console.log("Trip data from the Trip Container:", tripData);
+  // console.log("Trip data from the Trip Container:", tripData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,12 +20,12 @@ const TripContainer = () => {
     fetchData();
   }, [axios]);
 
-  return (
+  return tripData ? (
     <>
       <Trip tripData={tripData} setTripData={setTripData} />
       <Triplog tripData={tripData} />
     </>
-  );
+  ): null ;
 };
 
 export default TripContainer;

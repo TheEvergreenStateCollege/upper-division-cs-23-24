@@ -3,16 +3,17 @@ import { tokens } from "../../theme";
 import Header from "../../components/Header";
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
 import DriveEtaOutlinedIcon from '@mui/icons-material/DriveEtaOutlined';
-import TrafficIcon from "@mui/icons-material/Traffic";
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import LineChart from "../../components/LineChart";
 import PieChart from "../../components/PieChart";
 import GeographyChart from "../../components/GeographyChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import Trip from "../trip";
+import Time from "../total_time";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -55,8 +56,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title= "onData:"
-            subtitle=<Trip />
+            title= "onMiles:"
+            subtitle = <Trip />
             progress="1"
             icon={
               <DriveEtaOutlinedIcon
@@ -73,12 +74,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="44,997" //random value
-            subtitle="Total Time"
+            title="OnTime" //random value
+            subtitle = <Time />
             progress="0.50"
             increase="+21%"
             icon={
-              <PointOfSaleIcon
+              <AccessTimeOutlinedIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -92,12 +93,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="33,877" //random value
-            subtitle="Total Cost"
+            title="onCost" //random value
+            subtitle= <div> Total Cost ${2232 * 0.14}</div>
             progress="0.4"
             increase="+5%"
             icon={
-              <PersonAddIcon
+              <PaidOutlinedIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -111,12 +112,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="$.14" //random value
+            title="$.15" //random value
             subtitle="Cost per mile"
             progress="0.80"
             increase="+43%"
             icon={
-              <TrafficIcon
+              <AttachMoneyOutlinedIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
