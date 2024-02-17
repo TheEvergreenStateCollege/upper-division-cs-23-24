@@ -16,26 +16,52 @@ fn identify_link(line: &str) -> Option<String> {
 
     if link.starts_with("/") {
         //println!("{:?}", link);
-        return Some(link.to_string());
+        Some(link.to_string())
     } else {
-        return None;
+        None
+    }
+}
+
+fn identify_svg(line: &str) -> Option<String> {
+    let mut svg_link = line
+        .split_once("src=")
+        .unwrap()
+        .1
+        .split_whitespace()
+        .collect::<Vec<&str>>()[0];
+
+    if svg_link.len() > 1 {
+        svg_link = &svg_link[1..svg_link.len() - 1];
+    }
+    if svg_link.ends_with(".svg") {
+        Some(svg_link.to_string())
+    } else {
+        None
     }
 }
 
 fn find_term(line: &str, search_term: &str) -> Option<String> {
     // todo: some how extract 5 word context around search term
     if line.contains(search_term) {
-        return Some(line.to_string());
+        Some(line.to_string())
     } else {
-        return None;
+        None
     }
 }
 
-async fn crawl(
-    url: &str,
-    search_term: &str,
-) -> Result<(Vec<String>, Vec<String>), reqwest::Error> {
+async fn crawl(url: &str, search_term: &str) -> Result<(Vec<String>, Vec<String>), reqwest::Error> {
     let response = reqwest::get(url).await?;
+
+    // store errors in separte list
+    // problem I'm seeing is that alot of requests on this page will return 404
+    // but still display a page, I am able to replicate this in the browser as
+    // well. for Example https://en.wikipedia.org/wiki/Sankey_diagram/wiki/Help:Contents
+    // properly displays a web page but returns a 404 status code on the get request
+    // I think this is handled by using an early return with
+    // reqwest::get(url).await?
+    // and only proceeding if return from this function is Ok, otherwise add the 
+    // error to a vec<reqwest::Error>
+    
     let status_code = response.status();
     let body_text = response.text().await?;
     let mut next_links: Vec<String> = Vec::new();
@@ -44,6 +70,11 @@ async fn crawl(
     for line in body_text.lines() {
         if line.contains("<a href=") {
             let link = identify_link(line);
+            if link.is_some() {
+                next_links.push(link.unwrap());
+            }
+        } else if line.contains("<img ") {
+            let link = identify_svg(line);
             if link.is_some() {
                 next_links.push(link.unwrap());
             }
@@ -87,14 +118,15 @@ async fn main() {
         _ => {
             println!("Using default options.\n");
             options = Options {
-                start_url: String::from("https://www.w3schools.com"),
-                search_term: String::from("Python"),
+                start_url: String::from("https://en.wikipedia.org/wiki/Sankey_diagram"),
+                search_term: String::from("albedo"),
                 max_depth: 3,
             }
         }
     }
 
     let mut crawl_results: Vec<SearchHits> = Vec::new();
+    let mut crawl_errors: Vec<reqwest::Error> = Vec::new();
     let mut crawl_next: Vec<String> = Vec::new();
     let mut visited: HashSet<String> = HashSet::new();
     let mut depth = 1;
@@ -115,7 +147,8 @@ async fn main() {
             if res.is_ok() {
                 (hits, links) = res.unwrap();
             } else {
-                eprint!("request Error: {}", res.err().unwrap());
+                eprint!("request Error: {}", res.as_ref().err().unwrap());
+                crawl_errors.push(res.err().unwrap());
                 continue;
             }
 
@@ -144,5 +177,5 @@ async fn main() {
     }
     println!("Number of urls visited: {}", visited.len());
     println!("Number of hits: {}", crawl_results.len());
-
+    println!("Number of errors: {}", crawl_errors.len());
 }
