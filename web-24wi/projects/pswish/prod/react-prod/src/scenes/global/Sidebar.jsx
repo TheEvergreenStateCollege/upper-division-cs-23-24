@@ -80,7 +80,7 @@ const Sidebar = () => {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  ADMINIS
+                  DEV1
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -135,21 +135,21 @@ const Sidebar = () => {
               Data
             </Typography>
             <Item
-              title="Manage Team"
+              title="Manage Team*"
               to="/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Contacts Information"
+              title="Contacts Information*"
               to="/contacts"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Invoices Balances"
+              title="Trip Log"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
@@ -163,7 +163,7 @@ const Sidebar = () => {
               Pages
             </Typography>
             <Item
-              title="Profile Form"
+              title="Profile Form*"
               to="/form"
               icon={<PersonOutlinedIcon />}
               selected={selected}
@@ -198,21 +198,21 @@ const Sidebar = () => {
               setSelected={setSelected}
             /> */}
             <Item
-              title="Pie Chart"
+              title="Pie Chart*"
               to="/pie"
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Line Chart"
+              title="Line Chart*"
               to="/line"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Geography Chart"
+              title="Geography Chart*"
               to="/geography"
               icon={<MapOutlinedIcon />}
               selected={selected}

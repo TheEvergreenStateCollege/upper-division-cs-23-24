@@ -1,67 +1,50 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Box, useTheme, CircularProgress } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-// import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../components/Header";
-// import { Trip, tripData } from "../../scenes/trip/";
+// import { Trip, tripData } from "../../scenes/trip/"; Not working yet
 
-const TripLog = ( {tripData }) => {
+const TripLog = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  // const { tripData } = Trip();
-  console.log('Triplog data:', tripData);
-  
-  const [isLoading, setIsLoading] = useState(true);
+  const [tripData, setTripData] = useState([]);
 
+  // Async function to fecth the trip data from the postgresql server
   useEffect(() => {
-    if (tripData.length > 0) {
-      setIsLoading(false);
-    }
-  }, [tripData]);
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://www.pswish-corp.arcology.builders/trip",
+        );
+        const data = await response.json();
+        console.log("Fetched trip data:", data); // Log the fetched data
+        setTripData(data);
+      } catch (error) {
+        console.error("Error fetching trip data:", error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array to make sure this effect runs only once
 
   const columns = [
-    { field: "id", headerName: "ID"},
-    { field: "date", headerName: "Date", flex: 1},
-    { field: "duration", headerName: "Duration", flex: 1},
-    { field: "distance", headerName: "Distance", flex: 1},
-    { field: "orig", headerName: "Origination", flex: 1},
-    { field: "dest", headerName: "Destination", flex: 1}
+    { field: "id", headerName: "ID" },
+    { field: "date", headerName: "Date", flex: 1 },
+    { field: "duration", headerName: "Duration", flex: 1 },
+    { field: "distance", headerName: "Distance", flex: 1 },
+    { field: "orig", headerName: "Origination", flex: 1 },
+    { field: "dest", headerName: "Destination", flex: 1 },
   ];
-  // const Orincolumns = [
-  //   { field: "id", headerName: "ID" },
-  //   {
-  //     field: "name",
-  //     headerName: "Name",
-  //     flex: 1,
-  //     cellClassName: "name-column--cell",
-  //   },
-  //   {
-  //     field: "phone",
-  //     headerName: "Phone Number",
-  //     flex: 1,
-  //   },
-  //   {
-  //     field: "email",
-  //     headerName: "Email",
-  //     flex: 1,
-  //   },
-  //   {
-  //     field: "cost",
-  //     headerName: "Cost",
-  //     flex: 1,
-  //     renderCell: (params) => (
-  //       <Typography color={colors.greenAccent[500]}>
-  //         ${params.row.cost}
-  //       </Typography>
-  //     ),
-  //   },
-  //   {
-  //     field: "date",
-  //     headerName: "Date",
-  //     flex: 1,
-  //   },
-  // ];
+
+  const formattedTripData = tripData.map((row) => ({
+    id: row[0],
+    date: row[2],
+    duration: row[3],
+    distance: row[8],
+    orig: row[4],
+    dest: row[5],
+  }));
 
   return (
     <Box m="20px">
@@ -94,13 +77,12 @@ const TripLog = ( {tripData }) => {
             color: `${colors.greenAccent[200]} !important`,
           },
         }}
-      >{isLoading ? (
-        <Box display="flex" justifyContent="center" alignItems="center" height="100%">
-        <CircularProgress />
-        </Box>
-        ) : (
-        <DataGrid checkboxSelection rows={tripData} columns={columns} />
-        )}
+      >
+        <DataGrid
+          checkboxSelection
+          rows={formattedTripData}
+          columns={columns}
+        />
       </Box>
     </Box>
   );
