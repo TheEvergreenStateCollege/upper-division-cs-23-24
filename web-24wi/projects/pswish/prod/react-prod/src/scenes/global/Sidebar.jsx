@@ -80,7 +80,7 @@ const Sidebar = () => {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  DEV1
+                  DHARMA INITIATIVE
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -97,7 +97,7 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../logo512.png`}
+                  src={`../../Helium1.png`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>

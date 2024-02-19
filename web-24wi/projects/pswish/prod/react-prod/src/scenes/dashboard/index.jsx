@@ -245,7 +245,7 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $435.01 dollars saved
+              The truth is out there
             </Typography>
             <Typography>Includes 100% tracking</Typography>
           </Box>
