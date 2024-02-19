@@ -81,6 +81,13 @@ app.get('/audio/:fileName', (req, res) => {
 
 /* Make a list of available music when server starts*/
 const mediaDir = "/home/ubuntu/src/media"
+var musicList = [];
+const songPrototype = {
+	title: "song title",
+	artist: "song artist(s)",
+	filename: "song filename"
+}
+
 async function indexMusic() {
 	try {
 		const files = await fs.promises.readdir(mediaDir);
@@ -88,9 +95,22 @@ async function indexMusic() {
 			const filePath = path.join( mediaDir, file)
 			const stat = await fs.promises.stat(filePath);
 			if (stat.isFile()) {
-				console.log(file);
-			} else if (stat.isDirectory()) {
+				let title = "error: no title";
+				let artist = "error: no artist";
+				try {
+					const metadata = await musicMetadata.parseFile(filePath);
+					title = metadata.common.title;
+					artist = metadata.common.artist;
+				} catch (error) {
+					console.error('Error parsing metadata', error);
+				}
+				let song = Object.create(songPrototype);
+				song.title = title;
+				song.artist = artist;
+				song.filename = file;
 
+				console.log(JSON.stringify(song));
+				musicList.push(song);
 			}
 		}
 	} catch (error) {
