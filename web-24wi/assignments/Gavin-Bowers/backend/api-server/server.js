@@ -78,6 +78,26 @@ app.get('/audio/:fileName', (req, res) => {
 		res.end('File not found');
 	}
 });
+
+/* Make a list of available music when server starts*/
+const mediaDir = "/home/ubuntu/src/media"
+async function indexMusic() {
+	try {
+		const files = await fs.promises.readdir(mediaDir);
+		for (const file of files) {
+			const filePath = path.join( mediaDir, file)
+			const stat = await fs.promises.stat(filePath);
+			if (stat.isFile()) {
+				console.log(file);
+			} else if (stat.isDirectory()) {
+
+			}
+		}
+	} catch (error) {
+		console.error("media file error: ", e);
+	}
+}
+indexMusic();
 	
 app.listen(port, () => {
 	console.log("Web app listening at port 5000");
