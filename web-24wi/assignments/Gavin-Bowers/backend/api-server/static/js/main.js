@@ -4,6 +4,7 @@ const musicTracker = document.getElementById('music-tracker');
 const volumeSlider = document.getElementById('volume-slider');
 const playIcon = document.getElementById('play-icon');
 var paused = true;
+var musicList = [];
 
 function playAudio() {
     if (paused) {
@@ -41,6 +42,11 @@ window.onload = (event) => {
     let currentAudio = document.getElementById('current-audio');
     currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/test.mp3';
     currentAudio.load();
+
+    musicList = 'https://gavin-bowers.arcology.builders/musicdata';
+    for (song in musicList) {
+        console.log(song);
+    }
 };
 
 volumeSlider.addEventListener('input', (event) => {

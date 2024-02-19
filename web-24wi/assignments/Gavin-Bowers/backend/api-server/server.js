@@ -82,6 +82,7 @@ app.get('/audio/:fileName', (req, res) => {
 /* Make a list of available music when server starts*/
 const mediaDir = "/home/ubuntu/src/media"
 var musicList = [];
+
 const songPrototype = {
 	title: "song title",
 	artist: "song artist(s)",
@@ -117,7 +118,12 @@ async function indexMusic() {
 		console.error("media file error: ", e);
 	}
 }
+
 indexMusic();
+
+app.get("/musicdata", function(req, res) {
+	res.json(musicList);
+});
 	
 app.listen(port, () => {
 	console.log("Web app listening at port 5000");
