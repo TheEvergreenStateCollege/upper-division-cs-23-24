@@ -44,9 +44,7 @@ window.onload = (event) => {
     currentAudio.load();
 
     musicList = 'https://gavin-bowers.arcology.builders/musicdata';
-    for (song in musicList) {
-        console.log(song);
-    }
+    console.log(musicList);
 };
 
 volumeSlider.addEventListener('input', (event) => {
