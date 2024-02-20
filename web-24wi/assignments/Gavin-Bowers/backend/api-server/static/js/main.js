@@ -64,6 +64,7 @@ async function getMusicData() {
     for (let song of musiclist) {
         playlist.push(song);
     }
+    console.log(playlist);
     let index = 0;
     for (let song of playlist) {
         let playlistElement = document.createElement('li');
@@ -72,7 +73,7 @@ async function getMusicData() {
         songButton.innerHTML = song.title;
         playlistElement.append(songButton);
         playlistTag.append(playlistElement);
-        index += 1;
+        index++;
     }
 }
 
