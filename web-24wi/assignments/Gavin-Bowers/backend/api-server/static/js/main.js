@@ -43,7 +43,9 @@ window.onload = (event) => {
     currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/test.mp3';
     currentAudio.load();
 
-    musicList = 'https://gavin-bowers.arcology.builders/musicdata';
+    fetch('https://gavin-bowers.arcology.builders/musicdata')
+        .then((res) => res.json())
+        .then((json) => musicList = json);
     console.log(musicList);
 };
 
