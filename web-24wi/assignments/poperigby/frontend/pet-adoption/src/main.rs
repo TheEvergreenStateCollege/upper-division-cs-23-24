@@ -2,6 +2,7 @@
 
 mod api;
 mod details;
+mod modal;
 mod pet;
 mod results;
 mod search;

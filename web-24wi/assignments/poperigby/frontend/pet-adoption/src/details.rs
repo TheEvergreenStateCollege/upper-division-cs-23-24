@@ -1,4 +1,7 @@
-use crate::api::{fetch_pet, QueryKeys, QueryValue};
+use crate::{
+    api::{fetch_pet, QueryKeys, QueryValue},
+    modal::Modal,
+};
 use cruet::Inflector;
 use dioxus::prelude::*;
 use dioxus_query::prelude::*;
@@ -77,7 +80,8 @@ fn ImageCarousel(cx: Scope<ImageCarouselProps>) -> Element {
                         },
                     }
                 }
-            }
+            },
+            Modal {}
         }
     })
 }
