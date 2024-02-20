@@ -32,7 +32,8 @@ audio.onpause = (event) => {
 
 audio.onended = (event) => {
     if (playlistIndex < playlist.length - 1) {
-        playSong(playlist[playlistIndex + 1] ,playlistIndex + 1);
+        playlistIndex++;
+        playSong();
     }
 }
 
@@ -60,12 +61,14 @@ audio.ontimeupdate = function() {
 async function getMusicData() {
     const res = await fetch('/musicdata');
     musiclist = await res.json();
-    let index = 0;
     for (let song of musiclist) {
         playlist.push(song);
+    }
+    let index = 0;
+    for (let song of playlist) {
         let playlistElement = document.createElement('li');
         let songButton = document.createElement('button');
-        songButton.onclick = function() {playSong(song, index);};
+        songButton.onclick = function() {playlistIndex = index; playSong();};
         songButton.innerHTML = song.title;
         playlistElement.append(songButton);
         playlistTag.append(playlistElement);
@@ -73,8 +76,8 @@ async function getMusicData() {
     }
 }
 
-async function playSong(song, index) {
-    playlistIndex = index;
+async function playSong() {
+    let song = playlist[playlistIndex];
     currentAudio.src = '/audio/' + song.filename;
     currentArtist.innerHTML = song.artist;
     currentTitle.innerHTML = song.title;
