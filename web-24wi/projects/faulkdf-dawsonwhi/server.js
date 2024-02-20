@@ -31,3 +31,11 @@ app.post("/login", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+app.get("/randomGraph", async (req, res) => {
+  let results = [];
+  for (let i = 0; i < 10; 1 += 1) {
+    results.push({ "day": i, "stepCount": Math.round(Math.random() * 1000)});
+    }
+    res.json({ results });
+});
