@@ -178,6 +178,7 @@ li {
 #music-tracker-container {
     width: 33%;
     margin-left: auto;
+    margin-right: 15px;
 }
 
 /*for chromium browsers: (also opera and safari) */
