@@ -4,6 +4,8 @@ const musicTracker = document.getElementById('music-tracker');
 const volumeSlider = document.getElementById('volume-slider');
 const playIcon = document.getElementById('play-icon');
 const currentAudio = document.getElementById('current-audio');
+const currentTitle = document.getElementById('current-title');
+const currentArtist = document.getElementById('current-artist');
 var paused = true;
 var musicList = [];
 
@@ -53,17 +55,19 @@ async function getMusicData() {
     for (let song of musicList) {
         let playlistElement = document.createElement('li');
         let songButton = document.createElement('button');
-        songButton.onclick = function() {playSong(song.filename); };
+        songButton.onclick = function() {playSong(song);};
         songButton.innerHTML = song.title;
         playlistElement.append(songButton);
         playlist.append(playlistElement);
     }
 }
 
-function playSong(filename) {
-    currentAudio.src = '/audio/' + filename;
+async function playSong(song) {
+    currentAudio.src = '/audio/' + song.filename;
+    currentArtist.innerHTML = song.artist;
+    currentTitle.innerHTML = song.title;
     currentAudio.load();
-    audio.play();
+    await audio.play();
 }
 
 window.onload = (event) => {
