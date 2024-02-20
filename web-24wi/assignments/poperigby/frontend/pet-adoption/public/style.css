@@ -384,10 +384,21 @@ form .pet {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-    display: flex;
+    position: relative;
 }
 
+.modal-dialog p {
+    position: absolute;
+    top: 20px;
+    margin: 0;
+}
 
-.modal-dialog button {
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.modal-buttons button {
     margin: 0 10px;
 }

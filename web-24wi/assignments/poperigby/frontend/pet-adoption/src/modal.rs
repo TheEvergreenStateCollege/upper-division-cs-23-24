@@ -6,11 +6,17 @@ pub fn Modal(cx: Scope) -> Element {
             class: "modal-background",
             div {
                 class: "modal-dialog",
-                button {
-                    "Cancel",
+                p {
+                    "Are you sure you want to adopt this pet?",
                 },
-                button {
-                    "Okay"
+                div {
+                    class: "modal-buttons",
+                    button {
+                        "Cancel",
+                    },
+                    button {
+                        "Okay"
+                    }
                 }
             }
         }
