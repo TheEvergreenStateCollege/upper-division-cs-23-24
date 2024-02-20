@@ -1,26 +1,40 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = require("express");
-var router = (0, express_1.Router)();
-// Product
-router.get("/product", function (req, res) {
-    res.json({ message: 'Hello' });
+import { Router } from "express";
+import { PrismaClient } from "@prisma/client";
+
+const router = Router();
+const prisma = new PrismaClient();
+
+router.get("/users", async (req, res) => {
+    const allUsers = await prisma.users.findMany();
+    console.log(req.body);
+    res.json(allUsers);
 });
-router.get("/product/:id", function (req, res) { });
-router.put("/product/:id", function (req, res) { });
-router.post("/product", function (req, res) { });
-router.delete("/product/:id", function (req, res) { });
-// Update
-router.get("/update", function (req, res) { });
-router.get("/update/:id", function (req, res) { });
-router.put("/update/:id", function (req, res) { });
-router.post("/update", function (req, res) { });
-router.delete("/update/:id", function (req, res) { });
-// UpdatePoint
-router.get("/updatePoint", function (req, res) { });
-router.get("/updatePoint/:id", function (req, res) { });
-router.put("/updatePoint/:id", function (req, res) { });
-router.post("/updatePoint", function (req, res) { });
-router.delete("/updatePoint/:id", function (req, res) { });
-exports.default = router;
-//# sourceMappingURL=router.js.map
+
+router.get("/user/:id", (req, res) => {
+    console.log(req);
+    console.log("GET");
+});
+
+router.post("/user", async (req, res) => {
+    console.log(req.body);
+    console.log("POST");
+
+    const newUser = await prisma.users.create({
+        data: {
+            username: req.body.username,
+            password: '',
+        }
+    })
+});
+
+router.put("/user/:id", (req, res) => {
+    console.log(req.body);
+    console.log("PUT");
+});
+
+router.delete("/user/:id", (req, res) => {
+    console.log(req.body);
+    console.log("DELETE");
+});
+
+export default router;
