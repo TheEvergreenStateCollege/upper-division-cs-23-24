@@ -24,6 +24,13 @@ audio.onpause = (event) => {
     playIcon.innerHTML = 'play_arrow';
 }
 
+volumeSlider.addEventListener('input', (event) => {
+    const value = event.target.value;
+    let volumeFraction = value / 100;
+    let logVolume = Math.pow(volumeFraction, 2);
+    audio.volume = logVolume;
+});
+
 function seekAudio() {
     var seekTo = audio.duration * (musicTracker.value / 100);
     audio.currentTime = seekTo;
@@ -38,20 +45,15 @@ audio.ontimeupdate = function() {
     musicTracker.value = progress;
 };
 
+async function getMusicData() {
+    const res = await fetch('https://gavin-bowers.arcology.builders/musicdata');
+    musicList = await res.json();
+    console.log(musicList);
+}
+
 window.onload = (event) => {
     let currentAudio = document.getElementById('current-audio');
     currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/test.mp3';
     currentAudio.load();
-
-    fetch('https://gavin-bowers.arcology.builders/musicdata')
-        .then((res) => res.json())
-        .then((json) => musicList = json);
-    console.log(musicList);
+    getMusicData();
 };
-
-volumeSlider.addEventListener('input', (event) => {
-    const value = event.target.value;
-    let volumeFraction = value / 100;
-    let logVolume = Math.pow(volumeFraction, 2);
-    audio.volume = logVolume;
-});
