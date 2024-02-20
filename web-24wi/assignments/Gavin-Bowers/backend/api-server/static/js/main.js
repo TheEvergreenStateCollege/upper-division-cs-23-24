@@ -60,9 +60,6 @@ audio.ontimeupdate = function() {
 async function getMusicData() {
     const res = await fetch('/musicdata');
     musiclist = await res.json();
-}
-
-function populatePlaylist() {
     let index = 0;
     for (let song of musiclist) {
         let playlistElement = document.createElement('li');
@@ -71,7 +68,7 @@ function populatePlaylist() {
         songButton.innerHTML = song.title;
         playlistElement.append(songButton);
         playlistTag.append(playlistElement);
-        index++;
+        index += 1;
     }
 }
 
@@ -85,5 +82,5 @@ async function playSong(song, index) {
 }
 
 window.onload = (event) => {
-    getMusicData().then(populatePlaylist());
+    getMusicData();
 };
