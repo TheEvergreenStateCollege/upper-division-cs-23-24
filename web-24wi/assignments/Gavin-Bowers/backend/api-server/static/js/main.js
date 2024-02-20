@@ -64,7 +64,6 @@ async function getMusicData() {
     for (let song of musiclist) {
         playlist.push(song);
     }
-    console.log(playlist);
     let index = 0;
     for (let song of playlist) {
         let playlistElement = document.createElement('li');
@@ -79,6 +78,8 @@ async function getMusicData() {
 
 async function playSong() {
     let song = playlist[playlistIndex];
+    console.log(playlistIndex);
+    console.log(song);
     currentAudio.src = '/audio/' + song.filename;
     currentArtist.innerHTML = song.artist;
     currentTitle.innerHTML = song.title;
