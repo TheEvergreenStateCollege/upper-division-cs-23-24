@@ -75,7 +75,10 @@ function assignWBStringForColorOfPiecesForUserFromBool() {
 //Calling method right away for assignment so it can be used in config.
 assignWBStringForColorOfPiecesForUserFromBool(); 
 
+
+
 //Here I render the board, still need to implement board rendering as a function so it can rerender the board after each move. Not too far yet.
+async function renderBoard(){
 var config = {
     //Static configurations
     showNotation: false,
@@ -88,9 +91,10 @@ var config = {
     position: boardStateCache, //This is the board state the user should always be seeing.
     orientation: colorOfPiecesForUser //This should change dynamically depending on what side the player is playing as represented by the colorOfPiecesForUser as a string of either "White" or "Black".
 };
-
-var boardPosition = Chessboard('board', config);
-    
+boardPosition = Chessboard('board', config);
+return boardPosition;
+}
+renderBoard();
 
 //This function generates and store the FEN representation of the board as a string to var FENsent to be posted.
 function confirmMoveBtn() {
@@ -105,4 +109,8 @@ function confirmMoveBtn() {
         boardPosition = boardStateCache; //Resets the board position to the cache, since obviously changes can just be made outside of the proper turn.
     }
 }
+
+
+
+
 
