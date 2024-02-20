@@ -188,8 +188,7 @@ header {
 }
 
 .search-params button,
-#modal button,
-#modal a,
+.modal-buttons button,
 .details button {
     background-color: #ad343e;
     padding: 5px 25px;
