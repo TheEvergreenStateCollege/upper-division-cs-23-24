@@ -4,14 +4,15 @@ Git Diagram
 ---
 
 gitGraph
-    commit
-    commit
+    commit id:"123"
+    commit id:"456"
     branch develop
     checkout develop
-    commit
-    commit
+    commit id:"789"
+    commit id:"abc"
     checkout main
     merge develop
-    commit
-    commit
+    commit id:"def"
+    commit id:"ghi"
+
     
