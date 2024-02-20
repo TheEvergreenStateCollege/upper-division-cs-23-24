@@ -6,8 +6,11 @@ const playIcon = document.getElementById('play-icon');
 const currentAudio = document.getElementById('current-audio');
 const currentTitle = document.getElementById('current-title');
 const currentArtist = document.getElementById('current-artist');
+const playlistTag = document.getElementById('playlist');
 var paused = true;
-var musicList = [];
+var musiclist = [];
+var playlist = [];
+var playlistIndex = 0;
 
 function playAudio() {
     if (paused) {
@@ -25,6 +28,12 @@ audio.onplay = (event) => {
 audio.onpause = (event) => {
     paused = true;
     playIcon.innerHTML = 'play_arrow';
+}
+
+audio.onended = (event) => {
+    if (playlistIndex < playlist.length - 1) {
+        playSong(playlist[playlistIndex + 1] ,playlistIndex + 1);
+    }
 }
 
 volumeSlider.addEventListener('input', (event) => {
@@ -50,19 +59,24 @@ audio.ontimeupdate = function() {
 
 async function getMusicData() {
     const res = await fetch('/musicdata');
-    musicList = await res.json();
-    const playlist = document.getElementById('playlist');
-    for (let song of musicList) {
+    musiclist = await res.json();
+}
+
+function populatePlaylist() {
+    let index = 0;
+    for (let song of musiclist) {
         let playlistElement = document.createElement('li');
         let songButton = document.createElement('button');
-        songButton.onclick = function() {playSong(song);};
+        songButton.onclick = function() {playSong(song, index);};
         songButton.innerHTML = song.title;
         playlistElement.append(songButton);
-        playlist.append(playlistElement);
+        playlistTag.append(playlistElement);
+        index++;
     }
 }
 
-async function playSong(song) {
+async function playSong(song, index) {
+    playlistIndex = index;
     currentAudio.src = '/audio/' + song.filename;
     currentArtist.innerHTML = song.artist;
     currentTitle.innerHTML = song.title;
@@ -71,5 +85,5 @@ async function playSong(song) {
 }
 
 window.onload = (event) => {
-    getMusicData();
+    getMusicData().then(populatePlaylist());
 };
