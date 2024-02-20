@@ -1,4 +1,4 @@
-'''mermaid
+```mermaid
 ---
 title: Local Repo for user 1 on your laptop
 ---
@@ -9,4 +9,4 @@ gitGraph
   checkout develop
   commit id:"789"
   commit id:"abc"
-'''
+```
