@@ -1,19 +1,41 @@
-<!--homePage.html-->
+
+<!--gamePage.html-->
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Game Page</title>
-            <link rel="stylesheet" href="css/homePageStyles.css">
-    </head>
-    <body>
-        <section="siteTitle">
-            <img src="img/siteTitles/siteTitleBeigeBackground.png" width=960px height="420px" alt="titleWordmarkOfPage">
-        </section>
-        <section="textBoxForUserToChooseUsername">
-            <input type="text" id="findOpponentByUsernameForm" placeholder="Opponent?" autocomplete="off" /> 
-        </section>
+<html>
+  <head>
+    <title>Game Page</title>
+    <link rel="stylesheet" href="css/gamePageStyles.css"> 
+    <!-- Importing jquery in order to use chessboard.js library. -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- Importing chessboard.js for chessboard functionality and rendering.-->
+    <script src="js/chessboard-1.0.0.min.js"></script>  
+  </head>
 
+  <body>
+    
+    <section="siteTitle">
+      <img src="img/siteTitles/siteTitleBeigeBackground.png" width=960px height="420px" alt="titleWordmarkOfPage">
+    </section>
 
-        <script src="js/homePage.js"></script>
-    </body>
+    <!-- This section holds the top HUD for the game, the asset when added will display with an overlay of player and opponent information such as which side's turn it is to play. -->
+    <section="gamePageTopHUD">
+      <img src="img/" width=1px height="1px""gamePageTopHUD"> <!-- My game page's HUD -->  <!-- Setting up chessboard "board" and linking it to the external .js file which controls board state -->
+    </section>
+
+    <!-- This section holds the chessboard imported from the chessboard.js with the "board" keyword. -->
+    <section="chessboard">
+      <div id="board" style="width:  700px"></div>
+    </section>
+    
+    <!-- This section holds the button for confirming the player's move, which once clicked will call the clickShowPositionBtn() function 
+          that uses the chessboard.js library's board objects to FEN string function to store the position of the player into the 
+          "FENforBoardAfterPlayerConfirmedMove" var to be POSTED to the server for the opponent to call so the other player's game can rerender the FEN string.-->
+    <section="confirmMoveButton">
+      <div class="confirmMoveButton">
+        <img src="img/buttons/confirmMoveButton.png" width="300" height="100" onclick="confirmMoveBtn();"/> 
+      </div>
+    </section>
+    <!-- Importing the boardState.js script to use for managing the board state. -->
+    <script src="js/boardState.js"></script> 
+  </body>
 </html>
