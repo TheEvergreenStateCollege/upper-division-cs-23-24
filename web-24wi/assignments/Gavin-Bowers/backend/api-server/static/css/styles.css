@@ -264,17 +264,17 @@ input[type="range"] {
         display: flex;
         margin-left: auto;
         margin-right: auto;
-        min-width: min-content;
+        width:33%;
     }
     #playback-controls {
         display: flex;
         justify-content: space-between;
         margin-left: auto;
         margin-right: auto;
-        width: 75%;
+        width: 33%;
     }
     #music-tracker-container {
-        width: 75%;
+        width: 33%;
     }
     #music-player-container {
         flex-direction: column;
