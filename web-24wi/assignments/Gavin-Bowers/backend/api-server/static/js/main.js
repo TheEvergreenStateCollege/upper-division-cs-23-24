@@ -61,9 +61,9 @@ async function getMusicData() {
 }
 
 function playSong(filename) {
-    audio.pause();
     currentAudio.src = '/audio/' + filename;
     currentAudio.load();
+    audio.play();
 }
 
 window.onload = (event) => {
