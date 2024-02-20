@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--Initial Title: W3.CSS Template-->
+  <title>The Chainsmokers</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body onload="getTime()">
+
+<!--id for wrapping all content-->
+<div id="container">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Navigation -->
+      <nav>
+        <ul class="navbar">
+          <!--I don't know what this is so I leave this here-->
+          <!--<i class="fa fa-caret-down"></i>-->
+          <li><a href="index.html#">HOME</a></li>
+          <li><a href="#band">BAND</a></li>
+          <li><a href="#tour">TOUR</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+          <li class="dropbtn">
+            <a href="#"><i class="fa fa-caret-down"></i>MORE</a>
+            <ul class="dropdown_list">
+              <li><a href="merchandise.html">Merchandise</a></li>
+              <li><a href="#">Extras</a></li>
+              <li><a href="#">Media</a></li>
+            </ul>
+          </li>
+          <li><p id="time"></p></li>
+        </ul>
+      </nav>
+
+      <!-- Display Clock -->
+      <!--<p id="time"></p>-->
+    
+    </header>
+    
+
+  <!-- Page content -->
+  <main>
+
+    <!-- The Merchandise Section -->
+    <section id="merchandise">
+      <h2>THE CHAINSMOKERS'S MERCHANDISE</h2>
+      <p>Our Best Sellers</p>
+
+      <ul id="products">
+        <!--These will be generate by script down below-->
+      </ul>
+
+      <!-- Assignment 5 -->
+      <div id="info_box">
+        <div id="info_num"></div>
+        <div id="info_price"></div>
+        <button id="addBtn"></button>
+        <p id="closeInfo"></p>
+      </div>
+      <!-- End Assignment 5 -->
+    </section>
+
+    <!-- End Page Content -->
+  </main>
+
+  <!-- Footer -->
+    <footer>
+      <a href="https://www.facebook.com/thechainsmokers">
+        <button>
+          <i class="fa fa-facebook-official fa-lg"></i>
+        </button>
+      </a>
+      <a href="https://www.instagram.com/thechainsmokers/">
+        <button>
+          <i class="fa fa-instagram fa-lg"></i>
+        </button>
+      </a>
+      <a href="https://www.snapchat.com/add/thechainsmokers">
+        <button>
+          <i class="fa fa-snapchat fa-lg"></i>
+        </button>
+      </a>
+      <a href="https://www.reddit.com/r/The_Chainsmokers/?rdt=47015">
+        <button>
+          <i class="fa fa-reddit fa-lg"></i>
+        </button>
+      </a>
+      <a href="https://twitter.com/thechainsmokers">
+        <button>
+          <i class="fa fa-twitter fa-lg"></i>
+        </button>
+      </a>
+      <a href="https://open.spotify.com/artist/69GGBxA162lTqCwzJG5jLp">
+        <button>
+          <i class="fa fa-spotify fa-lg"></i>
+        </button>
+      </a>
+
+      <p>&copy; Creative Commons licenses</p>
+    </footer>
+
+    <!-- Clock -->
+    <script src="JavaScript/timeClock.js"></script>
+
+    <!-- Merchandise -->
+    <script src="JavaScript/merchandiseStyle.js"></script>
+</div>
+</body>
+</html>

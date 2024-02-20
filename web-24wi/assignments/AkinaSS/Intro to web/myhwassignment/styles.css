@@ -2,6 +2,7 @@
 body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #818589;
+    margin: 0;
 }
 
 /* Navigation Bar */
@@ -55,6 +56,18 @@ nav li a:hover {
 }
 nav li a:active {
     color:#6082B6;
+}
+
+/* TIME */
+header p#time {
+    float: right;
+    margin-left: auto;
+    margin-right: 100px;
+    margin-bottom: auto;
+    margin-top: -5px;
+    padding: 3px;
+    border: solid 1px #C0C0C0;
+    color: #C0C0C0;
 }
 
 /* PAGE CONTENT */
@@ -222,23 +235,20 @@ main section#contact .contactform {
     text-align: left;
     padding:0;
 }
-main section#contact .contactform input {
+/*main section#contact .contactform input {
     margin-bottom: 10px;
-}
-main section#contact .contactform input:nth-child(1) {
-    width: 46%;
+}*/
+main section#contact .contactform input#Name {
+    width: 95%;
     height: 35px;
-    float:left;
 }
-main section#contact .contactform input:nth-child(2) {
-    width: 46%;
+main section#contact .contactform input#Email {
+    width: 95%;
     height: 35px;
-    float:right;
 }
-main section#contact .contactform input:nth-child(3) {
-    display:block;
-    width: 98%;
-    height: 35px;
+main section#contact .contactform textarea#Message {
+    display: block;
+    width: 97.5%;
 }
 main section#contact .contactform button { /* TASK 10 complete*/
    background-color: rgb(0, 0, 0);
@@ -248,8 +258,67 @@ main section#contact .contactform button { /* TASK 10 complete*/
    margin-top: 10px;
 }
 
+main section#contact .contactform .inputs {
+    float: left;
+    width: 50%;
+}
+
+main section#contact .contactform p {
+    color: red;
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 0;
+    display: block;
+}
+
 main #map img {
     max-width: 100%;
+}
+
+/* Main Merchandise */
+main section#merchandise {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
+
+main #merchandise #products {
+    display: flex;
+    flex-wrap: wrap;    /*wrap items within window width*/
+}
+
+main #merchandise #products li {
+    list-style-type: none;
+    flex-basis: 33%;    /*For 3 items in a row*/
+}
+
+main #merchandise #products li img {
+    border: solid 1px rgb(218, 221, 221);
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+main #merchandise #info_box {
+    width: 20%;
+    min-height: 60px;
+    padding: 20px 25px;
+    color: #ffffff;
+    font-size: 1.1em;
+    border-radius: 1em;
+    background-color: #36454FCC;
+    visibility: hidden;
+    position: absolute;
+}
+
+main #merchandise #info_box #info_num, 
+main #merchandise #info_box #info_price {
+    margin-bottom: 5px;
+}
+
+main #merchandise #info_box #closeInfo:hover {
+    cursor: pointer;
+    color: lightgray;
 }
 
 /* Footer */

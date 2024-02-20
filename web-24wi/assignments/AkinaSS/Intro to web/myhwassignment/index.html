@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body onload="getTime()">
 
 <!--id for wrapping all content-->
 <div id="container">
@@ -30,15 +30,20 @@
           <li class="dropbtn">
             <a href="#"><i class="fa fa-caret-down"></i>MORE</a>
             <ul class="dropdown_list">
-              <li><a href="#">Merchandise</a></li>
+              <li><a href="merchandise.html">Merchandise</a></li>
               <li><a href="#">Extras</a></li>
               <li><a href="#">Media</a></li>
             </ul>
           </li>
+          <li><p id="time"></p></li>
         </ul>
       </nav>
+
+      <!-- Display Clock -->
+      <!--<p id="time"></p>-->
     
     </header>
+    
 
   <!-- Page content -->
   <main>
@@ -197,11 +202,17 @@
           <li class="fa fa-envelope"> </i>Email: alexpall@thechainsmokers.com
         </ul>
         <div class="contactform">
-          <form action="/action_page.php" target="_blank">
+          <form action="/action_page.php" target="_blank" id="contactForm">
             <div style="margin:0 -16px 8px -16px">
-              <input type="text" placeholder="Name" required name="Name">
-              <input type="text" placeholder="Email" required name="Email">
-              <input type="text" placeholder="Message" required name="Message">
+              <div class="inputs">
+                <input type="text" placeholder="Name" required name="Name" id="Name">
+                <p id="errorName"></p>
+              </div>
+              <div class="inputs">
+                <input type="text" placeholder="Email" required name="Email" id="Email">
+                <p id="errorEmail"></p>
+              </div>
+              <textarea type="text" placeholder="Message" required name="Message" id="Message"></textarea>
             </div>
             <button type="submit">SEND</button>
           </form>
@@ -251,7 +262,12 @@
 
       <p>&copy; Creative Commons licenses</p>
     </footer>
-</div>
 
+    <!-- Clock -->
+    <script src="JavaScript/timeClock.js"></script>
+
+    <!-- Form Validation -->
+    <script src="JavaScript/formValidation.js"></script>
+</div>
 </body>
 </html>
