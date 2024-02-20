@@ -23,3 +23,11 @@ app.get("/search-hit/:hit", (req, res) => {
 // sending back an HTML file that a browser can render on the screen.
   res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));
 });
+
+app.get("/randomGraph", async(req, res) => {
+	let results = []
+	for (let i = 0; i <10; i++) {
+		results.push({"day": i, "stepCount": Math.round(Math.random() * 1000) });
+	}
+	res.json({ results });
+});
