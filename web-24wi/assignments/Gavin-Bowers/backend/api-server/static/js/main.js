@@ -68,7 +68,8 @@ async function getMusicData() {
     for (let song of playlist) {
         let playlistElement = document.createElement('li');
         let songButton = document.createElement('button');
-        songButton.onclick = function() {playlistIndex = index; playSong();};
+        let closureIndex = index;
+        songButton.onclick = function() {playlistIndex = closureIndex; playSong();};
         songButton.innerHTML = song.title;
         playlistElement.append(songButton);
         playlistTag.append(playlistElement);
