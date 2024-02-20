@@ -1,3 +1,4 @@
+```mermaid
 ---
 Git Diagram
 ---
