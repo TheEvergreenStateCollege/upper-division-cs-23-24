@@ -32,8 +32,8 @@ audio.onpause = (event) => {
 
 audio.onended = (event) => {
     if (playlistIndex < playlist.length - 1) {
-        //playlistIndex++;
-        //playSong();
+        playlistIndex++;
+        playSong();
     }
 }
 
@@ -68,7 +68,7 @@ async function getMusicData() {
     for (let song of playlist) {
         let playlistElement = document.createElement('li');
         let songButton = document.createElement('button');
-        let closureIndex = index;
+        let closureIndex = index; //Copies the index value for the following closure
         songButton.onclick = function() {playlistIndex = closureIndex; playSong();};
         songButton.innerHTML = song.title;
         playlistElement.append(songButton);
