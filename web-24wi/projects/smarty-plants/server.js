@@ -6,10 +6,13 @@ const DEFAULT_PORT = process.env.API_PORT || 5000;
 // On Mac OS on Sonoma and afterwards, Mac Control Center listens on this
 let port = DEFAULT_PORT;
 const path = require("path");
-const { PrismaClient } = require('@prisma/client/edge');
+
+const { PrismaClient } = require('@prisma/client');
+const { parsed } = require('dotenv').config();
 
 const prisma = new PrismaClient();
-app.use(express.static("static"));
+app.use(express.static("pages"));
+app.use(express.json());
 
 /**
  * app.[method]([route], [route handler])
@@ -19,9 +22,27 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("pages/index.html"));
 });
 
-app.get("/users", async () => {
+app.get("/randomGraph", async (req, res) => {
+    let results = [];
+    for (let i = 0; i < 10; i += 1) {
+      results.push({ "day": i, "stepCount": Math.round(Math.random() * 1000) });
+    }
+    res.json({ results });
+});
+
+app.get("/users", async (req, res) => {
     const allUsers = await prisma.user.findMany();
     res.json(allUsers);
+});
+
+app.post("/user", async (req, res) => {
+  const newUser = await prisma.user.create({
+    data: {
+      username: req.body.username,
+      password: req.body.password,
+    }
+  });
+  res.json({...req.body});
 });
 
 // Return search hit given :hit  URL route parameters
