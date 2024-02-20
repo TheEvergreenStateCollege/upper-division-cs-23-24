@@ -56,4 +56,10 @@ window.onload = (event) => {
     currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/test.mp3';
     currentAudio.load();
     getMusicData();
+    const playlist = document.getElementById('playlist');
+    for (song in musicList) {
+        let playlistElement = createElement('li');
+        playlistElement.innerHTML = song.title;
+        playlist.append(playlistElement);
+    }
 };
