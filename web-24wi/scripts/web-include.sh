@@ -44,12 +44,17 @@ if ! [ -f "./.env" ]; then
 fi 
 
 prisma_and_nodemon() {
- 
+  pnpm setup
+  source ~/.bashrc
   export PATH=${PATH}:$(pnpm bin)
   pnpm i 
   PRISMA=$(which prisma)
   if [[ -z "${PRISMA}" ]]; then
     pnpm i -g prisma 
+  fi
+  NODEMON=$(which nodemon)
+  if [[ -z "${NODEMON}" ]]; then
+    pnpm i -g nodemon
   fi
   prisma generate >> dev.log 2>&1 
   prisma format
