@@ -46,20 +46,19 @@ audio.ontimeupdate = function() {
 };
 
 async function getMusicData() {
-    const res = await fetch('https://gavin-bowers.arcology.builders/musicdata');
+    const res = await fetch('/musicdata');
     musicList = await res.json();
-    console.log(musicList);
-}
-
-window.onload = (event) => {
-    let currentAudio = document.getElementById('current-audio');
-    currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/test.mp3';
-    currentAudio.load();
-    getMusicData();
     const playlist = document.getElementById('playlist');
-    for (song in musicList) {
-        let playlistElement = createElement('li');
+    for (let song of musicList) {
+        let playlistElement = document.createElement('li');
         playlistElement.innerHTML = song.title;
         playlist.append(playlistElement);
     }
+}
+
+window.onload = (event) => {
+    getMusicData();
+    let currentAudio = document.getElementById('current-audio');
+    currentAudio.src = '/audio/test.mp3';
+    currentAudio.load();
 };
