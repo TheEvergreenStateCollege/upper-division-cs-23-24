@@ -3,6 +3,7 @@ const audio = document.getElementById('current-audio');
 const musicTracker = document.getElementById('music-tracker');
 const volumeSlider = document.getElementById('volume-slider');
 const playIcon = document.getElementById('play-icon');
+const currentAudio = document.getElementById('current-audio');
 var paused = true;
 var musicList = [];
 
@@ -51,14 +52,19 @@ async function getMusicData() {
     const playlist = document.getElementById('playlist');
     for (let song of musicList) {
         let playlistElement = document.createElement('li');
-        playlistElement.innerHTML = song.title;
+        let songButton = document.createElement('button');
+        songButton.onclick = function() {playSong(song.filename); };
+        songButton.innerHTML = song.title;
+        playlistElement.append(songButton);
         playlist.append(playlistElement);
     }
 }
 
+function playSong(filename) {
+    currentAudio.src = '/audio/' + filename;
+    currentAudio.load();
+}
+
 window.onload = (event) => {
     getMusicData();
-    let currentAudio = document.getElementById('current-audio');
-    currentAudio.src = '/audio/test.mp3';
-    currentAudio.load();
 };
