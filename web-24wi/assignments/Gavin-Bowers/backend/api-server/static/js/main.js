@@ -32,8 +32,8 @@ audio.onpause = (event) => {
 
 audio.onended = (event) => {
     if (playlistIndex < playlist.length - 1) {
-        playlistIndex++;
-        playSong();
+        //playlistIndex++;
+        //playSong();
     }
 }
 
