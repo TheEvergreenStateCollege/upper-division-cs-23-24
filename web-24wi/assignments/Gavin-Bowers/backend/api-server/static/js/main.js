@@ -62,6 +62,7 @@ async function getMusicData() {
     musiclist = await res.json();
     let index = 0;
     for (let song of musiclist) {
+        playlist.push(song);
         let playlistElement = document.createElement('li');
         let songButton = document.createElement('button');
         songButton.onclick = function() {playSong(song, index);};
