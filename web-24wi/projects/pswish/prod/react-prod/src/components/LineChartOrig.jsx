@@ -1,72 +1,15 @@
-import React, { useEffect, useState } from "react";
 import { ResponsiveLine } from "@nivo/line";
+import { mockLineData as data } from "../data/mockData";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
-import fetchTrip from "../components/fetchTrip";
 
 const LineChart = ({ isDashboard = false }) => {
-  const [chartData, setChartData] = useState([]);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchTrip();
-        if (Array.isArray(data)) {
-          const sortedData = data.sort(
-            (a, b) => new Date(a[2]) - new Date(b[2]),
-          );
-
-          let currentDate = null;
-          let sumMiles = 0;
-          const aggregatedData = [];
-
-          sortedData.forEach((item) => {
-            const date = new Date(item[2]);
-            const miles = parseInt(item[8]);
-
-            if (
-              currentDate === null ||
-              (date - currentDate) / (1000 * 3600 * 24) >= 7
-            ) {
-              if (currentDate !== null) {
-                aggregatedData.push({
-                  x: currentDate.toDateString(),
-                  y: sumMiles,
-                });
-              }
-              currentDate = date;
-              sumMiles = 0;
-            }
-
-            sumMiles += miles;
-          });
-
-          if (currentDate !== null) {
-            aggregatedData.push({ x: currentDate.toDateString(), y: sumMiles });
-          }
-          setChartData([{ id: "Miles Traveled", data: aggregatedData }]);
-        } else {
-          console.error(
-            "Invalid data received from fectTrip, it is not an array",
-            data,
-          );
-        }
-      } catch (error) {
-        console.error("Error fetching trip data:", error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  if (chartData.length === 0) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <ResponsiveLine
-      data={chartData}
+      data={data}
       theme={{
         axis: {
           domain: {
@@ -100,7 +43,7 @@ const LineChart = ({ isDashboard = false }) => {
           },
         },
       }}
-      colors={{ scheme: "nivo" }}
+      colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }}
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
       xScale={{ type: "point" }}
       yScale={{

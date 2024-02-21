@@ -37,5 +37,11 @@ body,
   /* Adjustment font size for smaller screens, ie my macbook air */
   body {
     font-size: 14px;
+    color: red !important;
   }
 }
+
+/* body {
+  font-size: 14px;
+  color: black !important;
+} */

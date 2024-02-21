@@ -59,6 +59,9 @@ const Sidebar = () => {
         "& .pro-menu-item.active": {
           color: "#6870fa !important",
         },
+        "& .pro-sidebar-layout":{
+          disply: "flex"
+        }
       }}
     >
       <ProSidebar collapsed={isCollapsed}>
@@ -101,7 +104,6 @@ const Sidebar = () => {
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
-
               <Box textAlign="center">
                 <Typography
                   variant="h2"
@@ -155,6 +157,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -183,6 +186,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -218,6 +222,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <></>
           </Box>
         </Menu>
       </ProSidebar>
