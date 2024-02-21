@@ -1,3 +1,5 @@
+
+const router = require("./router");
 const express = require("express");
 const app = express();
 const port = 5000;
@@ -8,6 +10,7 @@ const { parsed } = require('dotenv').config();
 console.log(parsed['DATABASE_URL']);
 console.log(process.env['DATABASE_URL']);
 const prisma = new PrismaClient();
+
 
 app.use(express.static("static"));
 app.use(express.json());
@@ -54,3 +57,6 @@ app.get("/users", async (req, res) => {
 	res.json(allUsers);
 });
 
+app.use("/api", protect, router);
+
+export default app
