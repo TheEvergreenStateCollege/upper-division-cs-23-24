@@ -90,4 +90,5 @@ async function playSong() {
 
 window.onload = (event) => {
     getMusicData();
+    audio.volume = Math.pow(0.5, 2);
 };
