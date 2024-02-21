@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, send_from_directory, jsonify
 import psycopg2
 from flask_cors import CORS
+import _config
 
 # DriverData specifics
 # from Average import averager
@@ -35,11 +36,11 @@ def serve_manifest(filename):
 
 
 # PostgreSQL connection configuration (suspect)
-DB_HOST = '0.0.0.0' 
-DB_PORT = '5432'
-DB_NAME = 'mydb'
-DB_USER = 'postgres'
-DB_PASSWORD = 'passphrase'
+DB_HOST = _config.DB_HOST
+DB_PORT = _config.DB_PORT
+DB_NAME = _config.DB_NAME 
+DB_USER = _config.DB_USER
+DB_PASSWORD = _config.DB_PASSWORD
 
 # Connect to PostgreSQL database
 def connect_to_db():
