@@ -29,7 +29,7 @@ pub enum Route {
 
 fn App(cx: Scope) -> Element {
     use_init_query_client::<QueryValue, QueryError, QueryKeys>(cx);
-    let client = use_query_client::<QueryValue, QueryError, QueryKeys>(cx);
+    use_query_client::<QueryValue, QueryError, QueryKeys>(cx);
 
     cx.render(rsx! {
         div {
