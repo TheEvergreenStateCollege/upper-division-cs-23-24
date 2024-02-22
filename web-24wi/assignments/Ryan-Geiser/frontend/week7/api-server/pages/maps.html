@@ -34,12 +34,12 @@
             .data(topojson.feature(us, us.objects.states).features)
             .join("path")
             .attr("d", path);
-            
+
             return svg.node()
     }
 
 const main = async() => {
-    const response = await fetch("/us.json");
+    const response = await fetch("https://indira.arcology.builders/us.json");
     const us = await response.json();
     const svgNode = getSVGNode(us);
     const mapDiv = document.getElementById("map");
