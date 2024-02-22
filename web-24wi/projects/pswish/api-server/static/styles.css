@@ -103,3 +103,9 @@ header{
   --tw-gradient-to: #b4abab;
 */
 }
+.react-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 15px
+}

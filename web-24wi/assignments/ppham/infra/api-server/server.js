@@ -6,7 +6,8 @@ const DEFAULT_PORT = process.env.API_PORT || 5000;
 // On Mac OS on Sonoma and afterwards, Mac Control Center listens on this
 let port = DEFAULT_PORT;
 const path = require("path");
-const { PrismaClient } = require('@prisma/client/edge');
+const { parsed } = require("dotenv").config();
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 app.use(express.static("static"));

@@ -6,7 +6,7 @@ settings:
 
 dependencies:
   '@prisma/client':
-    specifier: 5.9.1
+    specifier: ^5.9.1
     version: 5.9.1(prisma@5.9.1)
   dotenv:
     specifier: ^16.4.1
