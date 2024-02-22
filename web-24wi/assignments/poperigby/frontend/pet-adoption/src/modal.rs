@@ -1,11 +1,12 @@
 use dioxus::prelude::*;
 
 #[derive(PartialEq, Props)]
-pub struct ModalProps {
+pub struct ModalProps<'a> {
     pet_name: String,
+    modal_active: &'a UseState<bool>,
 }
 
-pub fn Modal(cx: Scope<ModalProps>) -> Element {
+pub fn Modal<'a>(cx: Scope<'a, ModalProps<'a>>) -> Element {
     cx.render(rsx! {
         div {
             class: "modal-background",
@@ -17,10 +18,12 @@ pub fn Modal(cx: Scope<ModalProps>) -> Element {
                 div {
                     class: "modal-buttons",
                     button {
-                        "Cancel",
+                        onclick: |_| cx.props.modal_active.set(false),
+                        "No",
                     },
                     button {
-                        "Okay"
+                        onclick: |_| cx.props.modal_active.set(false),
+                        "Yes"
                     }
                 }
             }

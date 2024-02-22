@@ -41,7 +41,8 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
                 if **modal_active {
                     rsx! {
                         Modal {
-                            pet_name: p.name.clone()
+                            pet_name: p.name.clone(),
+                            modal_active: modal_active,
                         }
                     }
                 }
