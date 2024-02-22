@@ -14,7 +14,7 @@ gitGraph
     merge develop
     commit id:"def"
     commit id:"ghi"
-
+```
     
 ```mermaid
 ---
