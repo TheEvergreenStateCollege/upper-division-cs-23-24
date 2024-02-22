@@ -24,6 +24,7 @@ app.get("/users", async () => {
     res.json(allUsers);
 });
 
+//--------------------------graph-----------------------------------
 //UPDATE FOR MY WEBSITE
 app.get("/randomGraph", async (req, res) => {
   let results = [];
@@ -32,6 +33,7 @@ app.get("/randomGraph", async (req, res) => {
   }
   res.json({ results });
 });
+//-------------------------------------------------------------
 
 // Return search hit given :hit  URL route parameters
 app.get("/search-hit/:hit", (req, res) => {
@@ -84,3 +86,50 @@ server.on('error', (error) => {
 });
 // Kick off the chain of server listen retries with the original port
 serverFunc();
+
+//------------------------Registration---------------------------------
+import bcrypt from 'bcryptjs';
+
+function findUser(email) {
+  const results = db.data.users.filter(u=>u.email==email);
+  if (results.length==0) return undefined;
+  return results[0];
+}
+
+app.post("/auth/register", (req, res) => {
+  var salt = bcrypt.genSaltSync(10);
+  var hash = bcrypt.hashSync(req.body.password, salt);
+
+  const user = {
+      name: req.body.name,
+      email: req.body.email,
+      password: hash
+  };
+  const userFound = findUser(req.body.email);
+
+  if (userFound) {
+      // User already registered
+      res.send({ok: false, message: 'User already exists'});
+  } else {
+      // New User
+      db.data.users.push(user);
+      db.write();
+      res.send({ok: true});
+  }
+});
+
+//------------------------login---------------------------------
+app.post("/auth/login", (req, res) => {
+  const user = findUser(req.body.email);
+  if (user) {
+      // user found, check password
+      if (bcrypt.compareSync(req.body.password, user.password)) {
+          res.send({ok: true, email: user.email, name: user.name});
+      } else {
+          res.send({ok: false, message: 'Data is invalid'});            
+      }
+  } else {
+      // User not found
+      res.send({ok: false, message: 'Data is invalid'});
+  }
+});
