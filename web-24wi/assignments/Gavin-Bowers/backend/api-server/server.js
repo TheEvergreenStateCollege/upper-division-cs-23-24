@@ -40,6 +40,10 @@ app.get("/", function(req, res) {
         res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get("/map", function(req, res) {
+	res.sendFile(path.join(__dirname, '/static/pages/maps.html'));
+});
+
 app.get('/audio/:fileName', (req, res) => {
 	const fileName = req.params.fileName;
 	const filePath = path.join('/home/ubuntu/src/media/', fileName);
