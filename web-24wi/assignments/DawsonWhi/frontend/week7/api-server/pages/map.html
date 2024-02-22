@@ -37,6 +37,15 @@
 
             return svg.node();
         }
+
+        const main = async () => {
+            const response = await fetch("web-24wi/assignments/faulkdf/frontend/week3/api-server");
+            const us = await response.json();
+            const svgNode = getSVGNode(us);
+            const mapDiv = document.getElementById("map");
+            mapDiv.appendChild(svgNode);
+        }
+        main();
     </script>
 </body>
 </html>
