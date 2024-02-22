@@ -10,7 +10,7 @@ var coinFlip = Math.random();
 //Game initialize settings
 var gameActive; //This boolean represents whether or not a game is active or complete.
 var isGameRematch; //A boolean to represent if the current game is a rematch.
-var userPlayedWhiteLastBuffer = true; //A boolean to represent if the user played white last game.
+var userPlayedWhiteLastBuffer = true; //A GET from server //A boolean to represent if the user played white last game.
 var colorOfPiecesForUserIsWhite = initialOperationToFindIfUserPlaysWhite(); //A boolean, if true then the user is playing the white pieces and plays first, if false playing black. This is found out by the listed method which checks all possible reasons why they would or wouldn't play white.
 var colorOfPiecesForUser; //A string conversion (kinda) of colorOfPiecesForUserIsWhite, useful for config settings.
 
@@ -21,7 +21,7 @@ var isItUsersTurn = turnDecider(); //A boolean that stores whether or not it's t
 //Turn FEN data management
 var FENsent = ''; //This is the fen string the player will POST to the server. This means the user played their turn.
 var FENrecieved = ''; //This is the fen string the player will GET from the server. This means the player is playing their turn.
-var boardStateCache = 'start'; //This what should be displayed on the user's screen at all times, it's initialized as the keyword 'start' and will be changed as this will be the value called with renderBoard().
+var boardStateCache = 'start'; //Will be a GET from the server so the default position is what the servers says it should be. //This what should be displayed on the user's screen at all times, it's initialized as the keyword 'start' and will be changed as this will be the value called with renderBoard().
 ////////////////////////////////////////////////////////////////////////////////////
 
 //This function decides who's turn it is.
@@ -75,7 +75,10 @@ function assignWBStringForColorOfPiecesForUserFromBool() {
 //Calling method right away for assignment so it can be used in config.
 assignWBStringForColorOfPiecesForUserFromBool(); 
 
+
+
 //Here I render the board, still need to implement board rendering as a function so it can rerender the board after each move. Not too far yet.
+async function renderBoard(){
 var config = {
     //Static configurations
     showNotation: false,
@@ -88,21 +91,31 @@ var config = {
     position: boardStateCache, //This is the board state the user should always be seeing.
     orientation: colorOfPiecesForUser //This should change dynamically depending on what side the player is playing as represented by the colorOfPiecesForUser as a string of either "White" or "Black".
 };
-
-var boardPosition = Chessboard('board', config);
-    
+boardPosition = Chessboard('board', config);
+console.log(isItUsersTurn);
+return boardPosition;
+}
+//renderDefaultBoard
+renderBoard();
 
 //This function generates and store the FEN representation of the board as a string to var FENsent to be posted.
 function confirmMoveBtn() {
     if (isItUsersTurn === true) {
     console.log('Current position as a FEN string:'); 
     FENsent = boardPosition.fen(); //Setting the initialized var to the FEN string of the board with the library's .fen() method.
-    turnCounter++;
-    console.log(FENsent); //Test case of FEN string
+    console.log(FENsent); //Test case of FEN string //Will create POST for serverBoardStateCache.
+    
+    console.log(isItUsersTurn); 
+    boardStateCache = FENsent; //Will be a GET from the server to update board to serverBoardStateCache//Updates boardStateCache to confirmed move sent.
+    turnCounter++; //Will be a POST to the serverside TurnCounter. //Increments the turn counter to ensure correct side is playing.
+    renderBoard();
+    
+
     }
     else {
         window.alert("Nice try, it's not your turn.");
         boardPosition = boardStateCache; //Resets the board position to the cache, since obviously changes can just be made outside of the proper turn.
+        renderBoard();
     }
 }
 
