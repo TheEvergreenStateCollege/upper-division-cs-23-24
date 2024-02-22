@@ -3,16 +3,17 @@ import { tokens } from "../../theme";
 import Header from "../../components/Header";
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import DriveEtaOutlinedIcon from '@mui/icons-material/DriveEtaOutlined';
-import TrafficIcon from "@mui/icons-material/Traffic";
+import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
+import DriveEtaOutlinedIcon from "@mui/icons-material/DriveEtaOutlined";
+import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
+import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import LineChart from "../../components/LineChart";
 import PieChart from "../../components/PieChart";
 import GeographyChart from "../../components/GeographyChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import Trip from "../trip";
+import Time from "../total_time";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -22,7 +23,10 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to the DriverData DashBoard" />
+        <Header
+          title="DASHBOARD"
+          subtitle="Welcome to the DriverData DashBoard"
+        />
 
         <Box>
           <Button
@@ -55,15 +59,15 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title= "onData:"
+            title="onMiles:"
             subtitle=<Trip />
             progress="1"
             icon={
               <DriveEtaOutlinedIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
-            }>
-          </StatBox>
+            }
+          ></StatBox>
         </Box>
         <Box
           gridColumn="span 3"
@@ -73,12 +77,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="44,997" //random value
-            subtitle="Total Time"
+            title="onTime" //random value
+            subtitle=<Time />
             progress="0.50"
             increase="+21%"
             icon={
-              <PointOfSaleIcon
+              <AccessTimeOutlinedIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -92,12 +96,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="33,877" //random value
-            subtitle="Total Cost"
+            title="onCost" //random value
+            subtitle=<div> Total Cost ${2232 * 0.14}</div>
             progress="0.4"
             increase="+5%"
             icon={
-              <PersonAddIcon
+              <PaidOutlinedIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -111,12 +115,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="$.14" //random value
+            title="$.15" //random value
             subtitle="Cost per mile"
             progress="0.80"
             increase="+43%"
             icon={
-              <TrafficIcon
+              <AttachMoneyOutlinedIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -142,14 +146,14 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Revenue Generated
+                Miles Breakdown*
               </Typography>
               <Typography
                 variant="h3"
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $59,333,977
+                <Trip />
               </Typography>
             </Box>
             <Box>
@@ -181,7 +185,7 @@ const Dashboard = () => {
             p="15px"
           >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Trips
+              Recent Trips*
             </Typography>
           </Box>
           {mockTransactions.map((transaction, i) => (
@@ -227,7 +231,7 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Money saved during the Quarter
+            Money saved during the Quarter*
           </Typography>
           <Box
             display="flex"
@@ -241,7 +245,7 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $435.01 dollars saved
+              The truth is out there
             </Typography>
             <Typography>Includes 100% tracking</Typography>
           </Box>
@@ -258,7 +262,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            24 Hour Budget
+            24 Hour Budget*
           </Typography>
           <Box height="250px" mt="-20px">
             <PieChart isDashboard={true} />
@@ -276,7 +280,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ marginBottom: "15px" }}
           >
-            Driving routes
+            Driving routes*
           </Typography>
           <Box height="200px">
             <GeographyChart isDashboard={true} />

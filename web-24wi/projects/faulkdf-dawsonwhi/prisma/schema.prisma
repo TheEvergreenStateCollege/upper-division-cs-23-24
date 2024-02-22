@@ -1,44 +1,38 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// model Post {
-//   // id field that is a number and automatically increments after its used
-//   id        Int      @id @default(autoincrement())
-//   // timestamps
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
-//   // limit to 255 for indexing UTF-8
-//   title     String   @db.VarChar(255)
-//   // optional
-//   content   String?
-//   published Boolean  @default(false)
-//   // relation to another model
-//   author    User     @relation(fields: [authorId], references: [id])
-//   authorId  Int
-// }
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 
 model User {
   id        String    @id @default(uuid())
   createdAt DateTime  @default(now())
   username  String    @unique
   password  String
-  updates     Update[]
+  Product   Product[]
 }
 
 model Product {
-  id          String   @id @default(uuid())
-  createdAt   DateTime @default(now())
-  name        String
-  belongsTo   User     @relation(fields: [belongsToId], references: [id])
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+
+  name        String   @db.VarChar(255)
   belongsToId String
-  updates     Update[]
+  belongsTo   User     @relation(fields: [belongsToId], references: [id])
+  Update      Update[]
 }
 
 enum UPDATE_STATUS {
   IN_PROGRESS
-  LIVE
+  SHIPPED
   DEPRECATED
-  ARCHIVED
+  DISCONTINUED
 }
 
 model Update {
@@ -46,21 +40,21 @@ model Update {
   createdAt DateTime @default(now())
   updatedAt DateTime
 
-  title   String        @db.VarChar(255)
+  title   String
   body    String
   status  UPDATE_STATUS @default(IN_PROGRESS)
   version String?
-  asset   String
+  asset   String?
 
-  productId    String
-  product      Product       @relation(fields: [productId], references: [id])
-  updatePoints UpdatePoint[]
+  productID   String
+  product     Product       @relation(fields: [productID], references: [id])
+  updatePoint UpdatePoint[]
 }
 
 model UpdatePoint {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  username  String   @unique
 
   name        String @db.VarChar(255)
   description String

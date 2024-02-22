@@ -63,3 +63,4 @@ model UpdatePoint {
   updateId String
   update   Update @relation(fields: [updateId], references: [id])
 }
+
