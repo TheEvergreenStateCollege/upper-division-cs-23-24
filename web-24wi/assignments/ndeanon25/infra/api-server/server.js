@@ -1,5 +1,5 @@
-const express = require("express");
-const app = express();
+let express = require("express");
+let app = express();
 const port = 5000;
 const path = require("path");
 
@@ -25,5 +25,13 @@ app.get("/", (req, res) => {
           // sending back an HTML file that a browser can render on the screen.
               res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));
               });
+
+			  app.get("/randomGraph", async(req,res) =>{
+				let results = [];
+				for (let i = 0; i < 10; i += 1){
+					results.push({"day": i,"stepCount": Math.round(Math.random() * 1000) });
+				}
+				res.json({ results });
+			  });
 
 
