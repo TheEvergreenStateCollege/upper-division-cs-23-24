@@ -1,52 +1,26 @@
-import { PrismaClient } from "@prisma/client";
 import { Router } from "express";
+import { body, validationResult } from "express-validator";
+import { handleInputErrors } from "./modules/middleware.js";
+import { getOneUser, getUsers, updateUser, deleteUser } from "./handlers/user.js";
 const router = Router();
-const prisma = new PrismaClient();
 
 // user api
-router.get("/users", async (req, res) => {
-    const allUsers = await prisma.user.findMany();
-    res.json({ message: allUsers });
-})
-
-router.get("/user/:id", (req, res) => {
-    console.log(`GET user ${req.params.id}`);
-})
-
-router.put("/user/:id", (req, res) => {
-    console.log(`PUT user ${req.params.id}`);
-    console.log(req.body);
-})
-
-router.delete("/user/:id", (req, res) => {
-    console.log(`DELETE user ${req.params.id}`);
-    console.log(req.body);
-})
-
+router.get("/users", getUsers);
+router.get("/user/:id", getOneUser);
+router.put("/user/:id", body("username").isString(), handleInputErrors, updateUser);
+router.delete("/user/:id", deleteUser);
 
 // game api
-// do i need to delete individual games?
 router.get("/game/:id", (req, res) => {
     console.log(`GET game ${req.params.id}`);
 })
-
 router.get("/games", (req, res) => {
     console.log("GET games");
     console.log(req.body);
 })
 
-router.post("/game", (req, res) => {
-    console.log("POST game");
-    console.log(req.body);
-})
-
-router.put("/game/:id", (req, res) => {
-    console.log(`PUT game ${req.params.id}`);
-    console.log(req.body);
-})
-
 // moves api
-router.post("/moves", (req, res) => {
+router.post("/moves", body("fen_string"), handleInputErrors, (req, res) => {
     console.log("POST move");
     console.log(req.body);
 })

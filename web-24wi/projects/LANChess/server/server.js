@@ -13,7 +13,6 @@ const port = 5000;
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
-app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(process.cwd())));
 
 app.get("/", (req, res) => {
