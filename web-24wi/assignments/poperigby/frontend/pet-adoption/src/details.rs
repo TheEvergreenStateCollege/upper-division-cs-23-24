@@ -5,7 +5,6 @@ use crate::{
 use cruet::Inflector;
 use dioxus::prelude::*;
 use dioxus_query::prelude::*;
-use gloo_dialogs::confirm;
 
 #[derive(PartialEq, Props)]
 pub struct DetailsProps {
@@ -32,7 +31,7 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
                 },
                 button {
                     onclick: |_| {
-                        confirm("Are you sure you want to adopt?");
+                        modal_active.set(true)
                     },
                     "Adopt {p.name}"
                 },
@@ -41,7 +40,9 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
                 },
                 if **modal_active {
                     rsx! {
-                        Modal {}
+                        Modal {
+                            pet_name: p.name.clone()
+                        }
                     }
                 }
             }
