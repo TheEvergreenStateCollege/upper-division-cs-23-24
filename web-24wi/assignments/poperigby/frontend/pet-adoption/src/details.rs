@@ -14,6 +14,7 @@ pub struct DetailsProps {
 
 pub fn Details(cx: Scope<DetailsProps>) -> Element {
     let pet = use_query(cx, || vec![QueryKeys::Pet(cx.props.id)], fetch_pet);
+    let modal_active = use_state(cx, || false);
 
     let render = if let QueryResult::Ok(QueryValue::PetItem(p)) = pet.result().value() {
         log::info!("{:?}", p);
@@ -37,6 +38,11 @@ pub fn Details(cx: Scope<DetailsProps>) -> Element {
                 },
                 p {
                     "{p.description}"
+                },
+                if **modal_active {
+                    rsx! {
+                        Modal {}
+                    }
                 }
             }
         })
@@ -80,8 +86,7 @@ fn ImageCarousel(cx: Scope<ImageCarouselProps>) -> Element {
                         },
                     }
                 }
-            },
-            Modal {}
+            }
         }
     })
 }
