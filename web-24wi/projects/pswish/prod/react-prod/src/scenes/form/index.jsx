@@ -1,8 +1,10 @@
-import { Box, Button, TextField } from "@mui/material";
+import { useState } from "react";
+import { Box, Button, TextField, Alert } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
+import axios from "axios";
 
 const initialValues = {
   firstName: "",
@@ -29,18 +31,36 @@ const userSchema = yup.object().shape({
 });
 
 const Form = () => {
-  const isNonMobile = useMediaQuery("(min-width:600px)");
   // Handles css for mobile vs nonmobile
+  const isNonMobile = useMediaQuery("(min-width:600px)");
+  // monitoring state for successfull user creation
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const handleFormSubmit = (values) => {
-    // no handle form implemented yet
-    console.log(values);
+  const handleFormSubmit = async (values) => {
+    // New method for handling the form, added BM03
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/submit-form",
+        values,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+      console.log(response.data);
+      setSubmitSuccess(true);
+    } catch (error) {
+      console.error("Error submitting form object to server", error);
+    }
   };
 
   return (
     <Box m="20px">
       <Header title="CREATE USER" subtitle="Create a New Users Profile" />
-
+      {submitSuccess && ( // Display success message if submitSuccess is true
+        <Alert severity="success">User created successfully!</Alert>
+      )}
       <Formik
         onSubmit={handleFormSubmit}
         initialValues={initialValues}
