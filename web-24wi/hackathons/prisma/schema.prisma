@@ -14,14 +14,17 @@ datasource db {
 }
 
 model Server {
-  id        Int      @id @default(autoincrement())
-  discordID String   @unique
-  name      String  
-} 
+  id         Int          @id @default(autoincrement())
+  discordID  String       @unique
+  name       String
+  NotableDay NotableDay[]
+}
 
 model NotableDay {
-  id            Int      @id @default(autoincrement())
-  date          DateTime @unique  
-  messageCount  Int      
-  messageDelta  Int  
+  id           Int      @id @default(autoincrement())
+  date         DateTime @unique
+  messageCount Int
+  messageDelta Int
+  server       Server   @relation(fields: [serverId], references: [id])
+  serverId     Int
 }
