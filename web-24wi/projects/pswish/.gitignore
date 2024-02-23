@@ -3,3 +3,5 @@ venv
 .venv
 build/
 _config.py
+dev/
+sqldb.db
