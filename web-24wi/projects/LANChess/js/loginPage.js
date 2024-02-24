@@ -22,7 +22,7 @@ function checkIfInitUsernameIsValid(){
     }
 }
 
-function okButton(){
+function okButtonForUsernameTextbox(){
     getInitUsername();
     checkIfInitUsernameIsValid();
     console.log('The final value of checkedUsername that was POSTED to the server was ' + '[' + checkedUsername + ']');

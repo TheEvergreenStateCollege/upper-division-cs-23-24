@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: '3D Isometric Black';
-    src: url('/fonts/3DIsometric-YzLLy.ttf');
+    src: url('/web-24wi/projects/LANChess/fonts/3DIsometric-YzLLy.ttf');
 }
 
 
@@ -12,7 +12,7 @@ main {
 
   
   body {
-    background-image: url(/img/backgrounds/darkBackground.png);
+    background-image: url(/web-24wi/projects/LANChess/img/backgrounds/darkBackground.png);
     margin:  0; 
     min-height:  100vh; 
     display: grid;
