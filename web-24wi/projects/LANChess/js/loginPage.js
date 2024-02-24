@@ -12,7 +12,9 @@ function getInitUsername(){
 function checkIfUsernameIsValid(){
     if(initUsername.length <= 10){
         console.log('username length is valid');
-        checkedUsername = initUsername; //Here will be the POST of checkedUsername to the server.
+        checkedUsername = initUsername; 
+        //Make POST to server with checkedUsername.
+        //Make GET to server to load homePage for user.
     } else {
         console.log('Username length is invalid, please try again');
         window.alert("Username is invalid, must be 10 charachters or less, please try again.");
@@ -20,12 +22,10 @@ function checkIfUsernameIsValid(){
     }
 }
 
-
-function okButtonCall(){
+function okButton(){
     getInitUsername();
     checkIfUsernameIsValid();
     console.log(checkedUsername);
-    //Make POST to server with valid username
 }
 
 
