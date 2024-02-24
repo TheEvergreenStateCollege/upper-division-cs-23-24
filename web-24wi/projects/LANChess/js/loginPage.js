@@ -1,54 +1,32 @@
 //loginPage.js
-var username;
 const baseURL = 'http://localhost:5000';
-var isUsernameEntryIsValid;
+var initUsername
+var checkedUsername;
 
-//This function stores the value of the login page's "username" textbox form into the initialized "var username" and then uses a callback to ensure order of operations with the next task of calling loadHomePage().
-function initUsernameEntryBuffer(callback) {
-            username = document.getElementById('textBoxFormForUserToCreateNewUsername').value;
-            
-            callback(); //Callback for order of operations with loadHomePage().
+//This function stores the value of the login page's "username" textbox form into the initial initUsername
+function getInitUsername(){
+    initUsername = document.getElementById('textBoxFormForUserToCreateNewUsername').value;
 }
 
-
-async function checkIfUsernameIsValid() {
-    if (username.length <= 10) {
-        console.log('valid username');
+//This function checks if the initUsername is valid (ie. less than 10 charachters and whatever we specify)
+function checkIfUsernameIsValid(){
+    if(initUsername.length <= 10){
+        console.log('username length is valid');
+        checkedUsername = initUsername; //Here will be the POST of checkedUsername to the server.
     } else {
-        console.log('invalid username');
+        console.log('Username length is invalid, please try again');
+        window.alert("Username is invalid, must be 10 charachters or less, please try again.");
+        location.reload();
     }
 }
 
 
-
-
-
-
-const usernamePOST = {
-    username: username,
-
-
-    
+function okButtonCall(){
+    getInitUsername();
+    checkIfUsernameIsValid();
+    console.log(checkedUsername);
+    //Make POST to server with valid username
 }
-
-
-
-
-
-////////////////////////////////////
-//This function loads the replace
-function loadHomePage() {
-    console.log(username); //Test case of username to console.
-    window.location.replace("homePage.html"); //Replacing current page with homePage.html
-}
-
-
-
-
-
-
- 
-
 
 
 
