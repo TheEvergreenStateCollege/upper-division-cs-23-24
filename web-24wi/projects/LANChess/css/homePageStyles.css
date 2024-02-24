@@ -12,7 +12,8 @@ main {
 
   
   body {
-    background-image: url(/web-24wi/projects/LANChess/img/backgrounds/darkBackground.png);
+    background-color: black;
+    background-size: cover;
     margin:  0; 
     min-height:  100vh; 
     display: grid;
@@ -20,12 +21,17 @@ main {
     align-items: center;
 
   }
+ #siteTitle {
+  max-width: 20%;
+  height: auto;
+ }
+  
 
   input[type="text"],
   textarea {
     
-    width: 400px; 
-    height: 75px; 
+    width: 40%; 
+    height: 10%; 
     background-color: #d5d2c1;
     border: 2px solid #332c2e;
     outline: none;
