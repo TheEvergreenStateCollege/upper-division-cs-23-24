@@ -1,6 +1,6 @@
 //homePage.js
 const baseURL = 'http://localhost:5000'
-var initOpponentUsername = '';
+var initOpponentUsername;
 
 function createNewGame(){
     //Will make POST to server to generate a new game. 
