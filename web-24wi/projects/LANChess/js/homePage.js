@@ -1,5 +1,5 @@
 //homePage.js
-
+const baseURL = 'http://localhost:5000'
 var opponentUsername = '';
 
 

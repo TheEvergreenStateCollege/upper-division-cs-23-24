@@ -16,7 +16,7 @@ router.get("/games/:id", getOneGame);
 router.get("/games", getGames);
 router.post("/games", postGame);
 router.put("/games/:id", updateGame);
-router.delete("/users/:id", deleteGame);
+router.delete("/games/:id", deleteGame);
 
 // moves api
 router.post("/moves", body("fen_string"), handleInputErrors, (req, res) => {

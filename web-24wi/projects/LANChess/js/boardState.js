@@ -1,9 +1,5 @@
 //boardState.js
-
-
-
-////////////////////////////////////////////////////////////////////////////////////
-
+const baseURL = 'http://localhost:5000'
 //Initial value assignment.
 var coinFlip = Math.random();
 
@@ -82,7 +78,7 @@ async function renderBoard(){
 var config = {
     //Static configurations
     showNotation: false,
-    draggable: true,
+    draggable: isItUsersTurn,
     moveSpeed: 'slow',
     snapbackSpeed: 1000,
     snapSpeed: 200,
@@ -95,8 +91,16 @@ boardPosition = Chessboard('board', config);
 console.log(isItUsersTurn);
 return boardPosition;
 }
+
+
+
 //renderDefaultBoard
-renderBoard();
+async function updateClient(){
+    //boardStateCache = result of GET for trueBoardState,
+    renderBoard();
+}
+
+
 
 //This function generates and store the FEN representation of the board as a string to var FENsent to be posted.
 function confirmMoveBtn() {
@@ -107,14 +111,17 @@ function confirmMoveBtn() {
     
     console.log(isItUsersTurn); 
     boardStateCache = FENsent; //Will be a GET from the server to update board to serverBoardStateCache//Updates boardStateCache to confirmed move sent.
+    
     turnCounter++; //Will be a POST to the serverside TurnCounter. //Increments the turn counter to ensure correct side is playing.
     renderBoard();
     
 
     }
     else {
-        window.alert("Nice try, it's not your turn.");
+        window.alert("It is not your turn.");
         boardPosition = boardStateCache; //Resets the board position to the cache, since obviously changes can just be made outside of the proper turn.
         renderBoard();
     }
 }
+
+updateClient();
