@@ -13,9 +13,9 @@ main {
 
   
   body {
-    background-image: url(/web-24wi/projects/LANChess/img/backgrounds/lightBackground.png);
+    background-image: url(/web-24wi/projects/LANChess/img/backgrounds/LoginPageBackground.png);
     margin:  0; 
-    min-height:  100vh; 
+    min-height:  105vh; 
     display: grid;
     justify-content: center;  
     align-items: center;
@@ -26,9 +26,9 @@ main {
   textarea {
    
     width: 600px; 
-    height: 100px; 
-    background-color: #332c2e;
-    border: 2px solid black;
+    height: 50px; 
+    background-color: black;
+    border: 7px solid #cee6f0;
     outline: none;
 
     
