@@ -24,20 +24,20 @@ main {
 
   #okButton{
     position: absolute;
-    top: 350px;
-    left: 875px;
+    top: 360px;
+    left: 1100px;
     transition-duration: 0.25s;
   }
 
   #okButton:hover {
     cursor: pointer;
-    transform: translate(0px, -20px)rotate(-0.05turn) scale(1.2);
+    transform: translate(0px, -20px)rotate(-0.03turn) scale(1.4);
   }
 
   #textBoxFormForUserToCreateNewUsername{
     position: absolute;
     top: 350px;
-    left: 200px;
+    left: 420px;
     width: 600px; 
     height: 50px; 
     background-color: black;

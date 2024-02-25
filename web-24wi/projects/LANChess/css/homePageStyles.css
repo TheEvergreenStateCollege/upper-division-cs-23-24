@@ -43,7 +43,7 @@ main {
 
 #findOpponentByUsernameForm {
   position:  absolute;
-  top: 200px;
+  top: 240px;
   left: 450px;
   width: 500px; 
   height: auto; 
@@ -62,7 +62,7 @@ main {
   position: absolute;
   width: 100px;
   height: 100px;
-  top: 200px;
+  top: 233px;
   left: 990px;
   transition-duration: 0.25s;
 }
@@ -90,20 +90,20 @@ main {
 
 #okButton:hover {
   cursor: pointer;
-  transform: translate(0px, -20px)rotate(-0.05turn) scale(1.2);
+  transform: translate(0px, -20px)rotate(-0.03turn) scale(1.4);
 }
 
 #createNewGameButton:hover {
   cursor: pointer;
-  transform: translate(15px, -10px) scale(1.05);
+  transform: translate(15px, -10px) scale(1.10);
 }
 
 #leaderboardsButton:hover {
   cursor: pointer;
-  transform: translate(15px, -10px) scale(1.05);
+  transform: translate(15px, -10px) scale(1.10);
 }
 
 #myGamesButton:hover {
   cursor: pointer;
-  transform: translate(15px, -10px) scale(1.05);
+  transform: translate(15px, -10px) scale(1.10);
 }
