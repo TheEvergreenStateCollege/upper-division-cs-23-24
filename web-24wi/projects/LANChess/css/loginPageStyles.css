@@ -26,6 +26,12 @@ main {
     position: absolute;
     top: 350px;
     left: 1200px;
+    transition-duration: 0.25s;
+  }
+
+  #okButton:hover {
+    cursor: pointer;
+    transform: translate(0px, -20px)rotate(-0.05turn) scale(1.2);
   }
 
   #textBoxFormForUserToCreateNewUsername{
