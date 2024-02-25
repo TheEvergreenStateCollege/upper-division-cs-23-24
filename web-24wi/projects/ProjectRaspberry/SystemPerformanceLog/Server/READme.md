@@ -23,7 +23,7 @@ I needed a break from stress. lol :P
 Main Menu or Landing page
 ---
 
-![MacNserver_2 24 (3)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/0a96810e-944c-4a6d-8a59-c397ed1614b0)
+![Screenshot (457)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/46e5bdb2-9e86-4123-977f-650f69a24db2)
 
 The symbols on the left of the image from the top are:<br>
 House = the Home button<br>
@@ -36,6 +36,15 @@ About page
 ---
 
 ![MacNserver_2 24 (4)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/d4a598e8-78ff-4edb-beaa-d02130fac409)
+
+
+---
+Contact me page
+---
+![Screenshot (458)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/632d1585-6b89-4d3b-8233-8ea1b5f87468)
+
+
+
 
 Currently (2.24.24) I care more about the function of everthing. The color scheme feels too bland,<br> 
 and I'm not sure I like the verticle footer, maybe make it thinner... or not have a verticle footer... 
