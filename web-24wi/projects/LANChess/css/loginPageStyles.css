@@ -34,10 +34,39 @@ body {
   transform: translate(0px, -20px)rotate(-0.03turn) scale(1.4);
 }
 
+
+#loginButton {
+  position: absolute;
+  width: 220px; 
+  height: auto;
+  top: 350px;
+  left: 1000px;
+  transition-duration: 0.25s;
+}
+
+#loginButton:hover{
+  cursor: pointer;
+  transform: translate(0px, -20px)rotate(-0.01turn) scale(1.4);
+}
+
+#registerButton {
+  position: absolute;
+  width: 220px; 
+  height: auto;
+  top: 350px;
+  left: 1230px;
+  transition-duration: 0.25s;
+}
+
+#registerButton:hover{
+  cursor: pointer;
+  transform: translate(0px, -20px)rotate(0.01turn) scale(1.4);
+}
+
 #textBoxFormForUserToCreateNewUsername{
   position: absolute;
   top: 350px;
-  left: 420px;
+  left: 300px;
   width: 600px; 
   height: 50px; 
   background-color: black;
@@ -54,7 +83,7 @@ body {
 #textBoxFormForUserToCreateNewPassword{
   position: absolute;
   top: 480px;
-  left: 420px;
+  left: 300px;
   width: 600px; 
   height: 50px; 
   background-color: black;
