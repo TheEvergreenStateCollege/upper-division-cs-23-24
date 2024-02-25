@@ -2,53 +2,68 @@
 
 /* Adding custom font for style */
 @font-face {
-    font-family: '3D Isometric Black';
-    src: url('/web-24wi/projects/LANChess/fonts/3DIsometric-YzLLy.ttf');
+  font-family: '3D Isometric Black';
+  src: url('/web-24wi/projects/LANChess/fonts/3DIsometric-YzLLy.ttf');
 }
 
 
 main {
-    display: grid;
-  }
+  display: grid;
+}
 
-  
-  body {
-    background-color: black;
-    background-size: 500px;
-    margin:  0; 
-    min-height:  50vh; 
-    display: grid;
-    justify-content: center;  
-    align-items: center;
-  }
 
-  #okButton{
-    position: absolute;
-    top: 360px;
-    left: 1100px;
-    transition-duration: 0.25s;
-  }
+body {
+  background-color: black;
+  background-size: 500px;
+  margin:  0; 
+  min-height:  50vh; 
+  display: grid;
+  justify-content: center;  
+  align-items: center;
+}
 
-  #okButton:hover {
-    cursor: pointer;
-    transform: translate(0px, -20px)rotate(-0.03turn) scale(1.4);
-  }
+#okButton{
+  position: absolute;
+  top: 630px;
+  left: 700px;
+  transition-duration: 0.25s;
+}
 
-  #textBoxFormForUserToCreateNewUsername{
-    position: absolute;
-    top: 350px;
-    left: 420px;
-    width: 600px; 
-    height: 50px; 
-    background-color: black;
-    border: 7px solid #cee6f0;
-    border-radius: 10px;
-    outline: none;
-    padding: 25px; 
-    font-size: 80px; 
-    color: #f3e8dc;
-    caret-color: white;
-    font-family: '3D Isometric Black';
-  
-      
-  }
+#okButton:hover {
+  cursor: pointer;
+  transform: translate(0px, -20px)rotate(-0.03turn) scale(1.4);
+}
+
+#textBoxFormForUserToCreateNewUsername{
+  position: absolute;
+  top: 350px;
+  left: 420px;
+  width: 600px; 
+  height: 50px; 
+  background-color: black;
+  border: 7px solid #f3e8dc;
+  border-radius: 10px;
+  outline: none;
+  padding: 25px; 
+  font-size: 80px; 
+  color: #f3e8dc;
+  caret-color: white;
+  font-family: '3D Isometric Black';
+}
+
+#textBoxFormForUserToCreateNewPassword{
+  position: absolute;
+  top: 480px;
+  left: 420px;
+  width: 600px; 
+  height: 50px; 
+  background-color: black;
+  border: 7px solid #cee6f0;
+  border-radius: 10px;
+  outline: none;
+  padding: 25px; 
+  font-size: 80px; 
+  color: #f3e8dc;
+  caret-color: white;
+  font-family: '3D Isometric Black';
+}
