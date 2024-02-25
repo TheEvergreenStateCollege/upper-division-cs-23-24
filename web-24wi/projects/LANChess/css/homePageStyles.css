@@ -22,25 +22,28 @@ main {
 
   }
  #siteTitle {
-  max-width: 20%;
+  position: absolute;
+  top:10px;
+  left:800px;
+  max-width: 30%;
   height: auto;
  }
   
 
-  input[type="text"],
-  textarea {
-    
-    width: 40%; 
-    height: 10%; 
-    background-color: #d5d2c1;
-    border: 2px solid #332c2e;
+  #findOpponentByUsernameForm {
+    position:  absolute;
+    top: 150px;
+    left: 800px;
+    width: 20%; 
+    height: auto; 
+    background-color: black;
+    border: 7px solid #cee6f0;
     outline: none;
-  
 
-
-    padding: 25px; 
-    font-size: 60px; 
-    color: #332c2e;
+    
+    padding: 10px; 
+    font-size: 30px; 
+    color: #f3e8dc;
     caret-color: white;
     font-family: '3D Isometric Black';
   
