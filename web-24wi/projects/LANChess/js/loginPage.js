@@ -17,27 +17,27 @@ function getInitPassword(){
 
 //This function checks if the initUsername is valid (ie. less than 10 charachters and whatever we specify)
 function checkIfInitUsernameIsValid(){
-    if(initUsername.length <= 10){
+    if(initUsername.length <= 10 && initUsername.length !=0){
         console.log('initUsername length is valid');
         checkedInitUsername = initUsername; 
         //Make POST to server with checkedUsername.
         //Make GET to server to load homePage for user.
     } else {
-        console.log('Username is invalid, must be 10 charachters or less, please try again.');
-        window.alert("Username is invalid, must be 10 charachters or less, please try again.");
+        console.log('Username is invalid, must be between 2-10 charachters long, please try again..');
+        window.alert('Username is invalid, must be between 2-10 charachters long, please try again..');
         location.reload();
     }
 }
 
 function checkIfInitPasswordIsValid(){
-    if(initUsername.length <= 10){
+    if(initPassword.length <= 10 && initPassword.length != 0){
         console.log('initPassword length is valid');
         checkedInitPassword = initPassword; 
         //Make POST to server with checkedUsername.
         //Make GET to server to load homePage for user.
     } else {
-        console.log('Username is invalid, must be 10 charachters or less, please try again.');
-        window.alert("Username is invalid, must be 10 charachters or less, please try again.");
+        console.log('Password is invalid, must be between 2-10 charachters long, please try again.');
+        window.alert('Password is invalid, must be between 2-10 charachters long, please try again..');
         location.reload();
     }
 }
