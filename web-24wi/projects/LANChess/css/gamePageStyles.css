@@ -15,9 +15,10 @@ body {
 
 #siteTitle {
   position: absolute;
-  top:20px;
-  left:450px;
-  width: 800px;
+  top: 10%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  width: 400px;
   height: auto;
 }
 
@@ -43,13 +44,19 @@ body {
 
 
 /* CHESSBOARD STYLING */
-
+#board{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
 .clearfix-7da63 {
   clear: both;
 }
 
 .board-b72b1 {
-  border: 15px solid #d4d2c1;
+  /* border: 15px solid #f3e8dc; */
   box-sizing: content-box;
 }
 
@@ -73,7 +80,7 @@ body {
 }
 
 .black-3c85d {
-  background-color: black;
+  background-color:transparent;
   color: none;
 }
 
