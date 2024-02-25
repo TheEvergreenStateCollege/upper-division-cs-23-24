@@ -392,3 +392,18 @@ nav ul li:hover:after {
 .vertical-footer .logout-button:hover {
     background-color: #077187;
 }
+
+/* Instructions for Calculator_app */
+/* These instructions down-size the image used,
+   and place the image in a desired location on the verticle footer. */
+.calculator-app-link {
+    display: block;
+    margin-top: 20px; /* adjust this for spacing */
+}
+
+.calculator-icon {
+    width: 60px;  /* adjust this to fit on verticle footer */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}

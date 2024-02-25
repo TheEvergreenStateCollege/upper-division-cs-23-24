@@ -28,6 +28,9 @@ app.use(helmet.xssFilter());
 // Path to the pages directory
 const pagesPath = path.join(__dirname, 'pages');
 const resourcesPath = path.join(__dirname, 'Resources', 'profileCreation.csv');
+const contactFormPath = path.join(__dirname, 'Resources', 'contactForm.csv');
+
+
 
 // Middleware to parse incoming requests with JSON payloads
 app.use(express.json());
@@ -40,9 +43,13 @@ app.use(express.static(pagesPath));
 
 // Sanitize input function
 function sanitizedInput(input) {
+    if (typeof input !== 'string') {
+        return ''; // Fallback to an empty string if input is not a string
+    }
     const pattern = /<.*?>|script/gi; // Regular expression to match unwanted characters or sequences
     return input.replace(pattern, ''); // Replace unwanted sequences with an empty string
 }
+
 
 // Middleware to sanitize all incoming query and body parameters
 app.use((req, res, next) => {
@@ -74,6 +81,10 @@ app.use((req, res, next) => {
 
 // Tell the server that this directory can be used to server static images
 app.use('/Resources', express.static('Resources'));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/Calculator_app', express.static(path.join(__dirname, 'Calculator_app')));
+
+
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(pagesPath, 'index.html'));
@@ -157,6 +168,7 @@ app.post("/login", async (req, res) => {
         // Assuming I store hashed passwords in another file or method to retrieve it
         // For this example, we're just checking if a user exists, and I'm not sure...lawd
         const hashedPassword = user[3]; // Placeholder for where you'd get the actual hashed password
+        // the '3' represents what column the hP is located.
 
         const passwordMatch = await bcrypt.compare(password, hashedPassword);
         if (passwordMatch) {
@@ -168,6 +180,40 @@ app.post("/login", async (req, res) => {
         }
     });
 });
+
+// Submit a message Via contact me page
+app.post("/submit-contact", async (req, res) => {
+    const name= req.body.name || ''; // Fallback to empty string if underfined
+    const email = req.body.email || '';
+    const message = req.body.message || '';
+    const timestamp = new Date().toISOString(); // Time stamp for submissions
+    console.log(req.body); // Add this line to debug the received data
+    // Sanitize inputs
+    const sanitizedData = {
+        name: sanitizedInput(name),
+        email: sanitizedInput(email),
+        message: sanitizedInput(message)
+    
+    };
+
+    try {
+        // Ensure the Resoruces directory exists
+        await fsPromises.mkdir(path.dirname(contactFormPath), { recursive: true });
+
+        //Format the CSV
+        const csvLine = `"${sanitizedData.name}","${sanitizedData.email}","${sanitizedData.message.replace(/"/g, '""')}", "${timestamp}"\n`;
+
+        await fsPromises.appendFile(contactFormPath, csvLine);
+
+        console.log("Contact form submitted:" , csvLine);
+        // todo: Redirect pop up that disapears in like 2 seconds...
+        res.json({ success: true, message: "Thank you for contacting me!" });
+    } catch (error) {
+        console.error("Error handling contact form submission:", error);
+        res.status(500).send("Server error");
+    }
+});
+
 
 // Create and Start the server for the API on the defined port
 app.listen(port, () => {
