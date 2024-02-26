@@ -21,42 +21,50 @@ body {
 	background-color: rgb(163, 133, 133);
 	background-image: url(../images/stars.jpeg);
 	background-size: 20%;
-	animation: moveIt 15s linear infinite;
+	animation: moveIt 15s ease-in-out infinite;
 }
 .floatingstar1 {
 	position: absolute;
 	width: 150px;
 	left: 20%;
-	top: 75%;
-	animation: rotateIt1 8s linear infinite;
+	top: 70%;
+	animation: rotateIt1 8s ease-in-out infinite;
 }
 .floatingstar2 {
 	position: absolute;
 	width: 150px;
 	left: 60%;
 	top: 55%;
-	animation: rotateIt1 14s linear infinite;
+	animation: rotateIt1 14s ease-in-out infinite;
 }
 .floatingstar3 {
 	position: absolute;
 	width: 150px;
 	left: 80%;
 	top: 25%;
-	animation: rotateIt2 9s linear infinite;
+	animation: rotateIt2 9s ease-in-out infinite;
 }
 .floatingstar4 {
 	position: absolute;
 	width: 150px;
 	left: 20%;
 	top: 25%;
-	animation: rotateIt1 12s linear infinite;
+	animation: rotateIt1 12s ease-in-out infinite;
 }
 .floatingstar5 {
 	position: absolute;
 	width: 150px;
 	left: 60%;
 	top: 15%;
-	animation: rotateIt2 7s linear infinite;
+	animation: rotateIt2 7s ease-in-out infinite;
+}
+@font-face {
+	font-family: 'TrattatelloManual';
+	src: url('../fonts/Trattatello/Trattatello.eot');
+	src: url('../fonts/Trattatello/Trattatello.eot') format('embedded-opentype'), 
+		 url('../fonts/Trattatello/Trattatello.woff') format('woff'),
+		 url('../fonts/Trattatello/Trattatello.ttf') format('truetype'),
+		 url('../fonts/Trattatello/Trattatello.svg') format('svg');
 }
 
 .text1 {
@@ -75,13 +83,13 @@ body {
 	text-align: center;
 	width: 80%;
 	left: 8.5%;
-	top: 10%;
+	top: 5%;
 	position: absolute;
 	font-size: 120px;
 	line-height: 115px;
 	font-style: italic;
-	font-family: "Trattatello", fantasy;
-	animation: moveIt2 5s linear infinite;
+	font-family: "TrattatelloManual", fantasy;
+	animation: moveIt2 5s ease-in-out infinite;
 }
 .text2 {
 	font-size: 50px;

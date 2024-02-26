@@ -70,3 +70,21 @@ model UpdatePoint {
   updateId	String
   update	Update		@relation(fields: [updateId], references: [id])
 }
+
+model User {
+  id    Int     @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  username  String    @unique
+  password  String
+  USCity    USCity[]
+}
+
+model USCity {
+  id    Int     @id @default(autoincrement())
+  name		String		@db.VarChar(255)
+  createdAt DateTime  @default(now())
+  latitude  Float
+  longitude Float
+  authorId  Int
+  User      User    @relation(fields: [authorId], references: [id])
+}
