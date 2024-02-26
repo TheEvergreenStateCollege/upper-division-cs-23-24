@@ -59,7 +59,7 @@ prisma_and_nodemon() {
   prisma generate >> dev.log 2>&1 
   prisma format
   # Pull the current database schema before we attempt to migrate any changes 
-  prisma db pull
+  # prisma db pull
   prisma migrate dev --name init
   nodemon server.js
 }
