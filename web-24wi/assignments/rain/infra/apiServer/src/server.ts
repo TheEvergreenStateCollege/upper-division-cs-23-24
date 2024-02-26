@@ -5,6 +5,9 @@ import path from 'path'
 import { protect } from './modules/auth'
 import { createNewUser, signin } from './handlers/user'
 
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 const app = express()
 // const path = require("path")
 
@@ -21,5 +24,10 @@ app.use('/api', protect, router)
 
 app.post('/user', createNewUser)
 app.post('/signin', signin)
+
+app.get("/users", async (req, res) => {
+        const allUsers = await prisma.user.findMany();
+        res.json(allUsers);
+});
 
 export default app
