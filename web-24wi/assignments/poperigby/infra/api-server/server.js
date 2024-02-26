@@ -28,16 +28,16 @@ app.listen(port, () => {
 // Main page
 app.get("/", (_req, res) => {
     // Send index.html when browser requests /
-    res.sendFile(path.resolve("www/index.html"));
+    res.sendFile(path.resolve("public/index.html"));
 });
 app.get("/index.js", (_req, res) => {
     // Send index.html when browser requests /
-    res.sendFile(path.resolve("www/index.js"));
+    res.sendFile(path.resolve("public/index.js"));
 });
 
 // Search hits
 app.get("/search-hit/:hit", (req, res) => {
-    res.sendFile(path.resolve(`www/search-${req.params.hit}.html`));
+    res.sendFile(path.resolve(`public/search-${req.params.hit}.html`));
 });
 
 // API
