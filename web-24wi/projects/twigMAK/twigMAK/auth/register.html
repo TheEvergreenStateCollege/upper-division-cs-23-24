@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <form id="formRegister" onsubmit="Auth.register(event)">
+        <fieldset>
+            <label for="register_name">Name</label>
+            <input placeholder="Name" id="register_name"
+                    required autocomplete="name">
+            <label for="register_email">E-mail (your username)</label>
+            <input placeholder="Email" id="register_email" 
+                    required type="email" autocomplete="username">
+            
+            <label for="register_password">Your Password</label>
+            <input type="password" id="register_password"
+                    required autocomplete="new-password">
+        </fieldset>
+    
+        <button>Register Account</button>
+    </form>
+</body>
+</html>
