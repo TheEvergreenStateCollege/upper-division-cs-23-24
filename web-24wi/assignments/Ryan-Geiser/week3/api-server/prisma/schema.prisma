@@ -10,12 +10,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Post {
+  // id field that is a number and automatically increments
+  id        Int      @id @default(autoincrement())
+  // timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // limit to 255 for indexing UTF-8
+  title     String   @db.VarChar(255)
+  // optional
+  content   String?
+  published Boolean  @default(false)
+  // relation to another model
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+}
+
 model User {
+  // id field that is a string and uuids
   id        String    @id @default(uuid())
   createdAt DateTime  @default(now())
-  username  String    @unique
+  username  String    @unique()
   password  String
   updates   Update[]
+  Post      Post[]
   Product   Product[]
 }
 
@@ -44,7 +62,7 @@ model Update {
   body    String
   status  UPDATE_STATUS @default(IN_PROGRESS)
   version String?
-  asset   String
+  assets  String
 
   productId    String
   product      Product       @relation(fields: [productId], references: [id])
