@@ -8,8 +8,14 @@ export const getOneGame = async (req, res) => {
     });
     res.json({ data: game });
 }
+
+// get games filtered by status
 export const getGames = async (req, res) => {
-    const users = await prisma.game.findMany();
+    const users = await prisma.game.findMany({
+        where: {
+            status: req.body.status,
+        }
+    });
     res.json({ data: users });
 }
 
@@ -20,5 +26,17 @@ export const postGame = async (req, res) => {
     });
     res.json({ game });
 }
-export const updateGame = async (req, res) => { }
-export const deleteGame = async (req, res) => { }
+
+//updates status of a game stats: enum { COMPLETED, WAITING, ONGOING }
+export const updateGame = async (req, res) => {
+    const result = await prisma.game.update({
+        where: {
+            id: req.params.id,
+        },
+        data: {
+            status: req.body.status,
+        }
+    });
+    res.json({ data: result });
+}
+export const deleteGame = async (req, res) => {}

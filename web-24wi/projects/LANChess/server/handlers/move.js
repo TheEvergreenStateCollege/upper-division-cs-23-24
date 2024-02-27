@@ -1,5 +1,25 @@
 import prisma from "../db.js";
 
-export const createMove = async (req, res) => {}
-export const getOneMove = async (req, res) => {}
-export const getMoves = async (req, res) => {}
+export const createMove = async (req, res) => {
+    const result = await prisma.move.create({
+        data: {
+            fen_string: req.body.fenString,
+            user_id: req.body.userId,
+            game_id: req.body.gameId,
+        }
+    });
+
+    res.json({ data: result })
+}
+export const getOneMove = async (req, res) => { }
+
+//get all moves for a given game
+export const getMoves = async (req, res) => {
+    const result = await prisma.move.findMany({
+        where: {
+            game_id: req.body.gameId,
+        }
+    });
+
+    res.json({ data: result });
+}

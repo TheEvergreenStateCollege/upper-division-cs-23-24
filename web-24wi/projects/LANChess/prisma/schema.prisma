@@ -22,10 +22,16 @@ model user {
   @@map("users")
 }
 
+enum Status {
+    COMPLETE
+    WAITNG
+    ONGOING
+}
 model game {
   id    String    @id @default(uuid())
   start DateTime  @default(now())
   end   DateTime?
+  status Status @default(WAITNG) 
 
   user_games game_participant[]
   move       move[]
@@ -47,7 +53,7 @@ model game_participant {
 model move {
   id         String   @id @default(uuid())
   fen_string String
-  timestamp  DateTime
+  timestamp  DateTime @default(now())
   user_id    String
   game_id    String
 

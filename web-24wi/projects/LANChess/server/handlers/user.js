@@ -11,7 +11,6 @@ export const createNewUser = async (req, res) => {
         }
 
     })
-
     const token = createJWT(user);
     res.json({ token });
 }
@@ -22,7 +21,6 @@ export const signin = async (req, res) => {
             username: req.body.username,
         }
     })
-
     const isValid = await comparePasswords(req.body.password, user.password);
     if (!isValid) {
         res.status(401);
