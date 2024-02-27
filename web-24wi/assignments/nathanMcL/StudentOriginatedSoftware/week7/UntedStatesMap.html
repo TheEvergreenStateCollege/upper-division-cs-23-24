@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+   
 </head>
 <body>
     
-    <div id="map"></div>
+    <div id="map">USA</div>
 
 <script src="https://unpkg.com/topojson@3"></script>
 <script defer type="module">
@@ -32,9 +30,13 @@
             .attr("fill", "#444")
             .attr("cursor", "pointer")
             .selectAll("path")
-            .data(topojson.feature(us, us.object.states).features)
+            .data(topojson.feature(us, us.objects.states).features)
             .join("path")
-            .attr("d", path);
+            .attr("d", path)
+            
+        //Add title for each state
+        states.append("title")
+            .text(d => d.properties.name);
 
         return svg.node();
     }
@@ -48,9 +50,6 @@
     }
     main();
 </script>
-
-
-
 
 </body>
 </html>
