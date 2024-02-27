@@ -35,6 +35,10 @@ app.get("/index.js", (_req, res) => {
     res.sendFile(path.resolve("public/index.js"));
 });
 
+app.get("/map.html", (_req, res) => {
+    res.sendFile(path.resolve("public/map.html"));
+});
+
 // Search hits
 app.get("/search-hit/:hit", (req, res) => {
     res.sendFile(path.resolve(`public/search-${req.params.hit}.html`));
@@ -58,7 +62,7 @@ app.post("/api/user", async (req, res) => {
 
         console.log("Created a user!")
     } catch (error) {
-	console.log(error);
+        console.log(error);
     }
 });
 
