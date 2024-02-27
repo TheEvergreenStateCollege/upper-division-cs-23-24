@@ -19,7 +19,10 @@ function getSVGNode(us) {
         .selectAll("path")
         .data(topojson.feature(us, us.objects.states).features)
         .join("path")
-        .attr("d", path);
+        .attr("d", path)
+        .append("title")
+        .text(d => d.properties.name);
+
     return svg.node();
 }
 
