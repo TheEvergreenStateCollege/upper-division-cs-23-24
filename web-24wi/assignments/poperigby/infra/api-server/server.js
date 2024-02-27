@@ -38,6 +38,9 @@ app.get("/index.js", (_req, res) => {
 app.get("/map", (_req, res) => {
     res.sendFile(path.resolve("public/map.html"));
 });
+app.get("/map.js", (_req, res) => {
+    res.sendFile(path.resolve("public/map.js"));
+});
 
 // Search hits
 app.get("/search-hit/:hit", (req, res) => {
