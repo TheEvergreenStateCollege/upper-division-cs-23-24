@@ -59,6 +59,13 @@ app.post("/user", async (req, res) => {
   console.log("created");
 });
 
+app.get("/daily-watch-data", async (req, res) => {
+
+const allData = await prisma.dailyWatchData.findMany();
+res.json(allData);
+
+});
+
 app.post("/daily-watch-data", async ( req, res) => {
 
   const parsedDate = parse(req.body.date, 'MM/dd/yyyy', new Date());
