@@ -11,6 +11,8 @@ read -p "Are you ready to push changes to main branch? (y/n): " ready_to_push
 
 if [[ $ready_to_push == "y" ]]; then
     # Push changes to main branch
+    git pull orign main
+    sleep 3
     git push -u origin main
 elif [[ $ready_to_push == "n" ]]; then
     # Display git status
