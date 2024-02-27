@@ -45,6 +45,7 @@ app.get("/map", function(req, res) {
 });
 
 app.get('/audio/:fileName', (req, res) => {
+	res.set('Access-Control-Allow-Origin', '*'); //Allows for local testing
 	const fileName = req.params.fileName;
 	const filePath = path.join('/home/ubuntu/src/media/', fileName);
 
@@ -126,7 +127,7 @@ async function indexMusic() {
 indexMusic();
 
 app.get("/musicdata", function(req, res) {
-	res.set('Access-Control-Allow-Origin', '*');
+	res.set('Access-Control-Allow-Origin', '*'); //Allows for local testing
 	res.json(musicList);
 });
 	

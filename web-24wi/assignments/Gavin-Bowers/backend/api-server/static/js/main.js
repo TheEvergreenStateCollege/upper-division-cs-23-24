@@ -81,7 +81,7 @@ async function playSong() {
     let song = playlist[playlistIndex];
     console.log(playlistIndex);
     console.log(song);
-    currentAudio.src = '/audio/' + song.filename;
+    currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/' + song.filename;
     currentArtist.innerHTML = song.artist;
     currentTitle.innerHTML = song.title;
     currentAudio.load();
