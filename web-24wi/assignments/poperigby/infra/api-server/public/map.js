@@ -11,9 +11,9 @@ function getSVGNode(us) {
         .attr("style", "max-width: 100%; height: auto;");
 
     const path = d3.geoPath();
-    const g = svg.append("g");
 
-    const states = g.append("g")
+    // States
+    svg.append("g")
         .attr("fill", "#444")
         .attr("cursor", "pointer")
         .selectAll("path")
@@ -22,6 +22,9 @@ function getSVGNode(us) {
         .attr("d", path)
         .append("title")
         .text(d => d.properties.name);
+
+    // Capitols
+    svg.append("g")
 
     return svg.node();
 }
