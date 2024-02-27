@@ -1,6 +1,37 @@
 ---
 MacN server
 ---
+The MacN server was designed with application security in mind.<br>
+I wanted to try and create a server that would be able to sanitaize or guard against code injections.<br> Using the Express framework and various middleware for enhanced security, data handling, and static file serving. It's designed to serve web pages, handle user registrations, logins, and contact form submissions with an emphasis on security and data integrity.
+
+## How it works
+1. Security First: Utilizing Helmet middleware, the server enforces strict Content Security Policies (CSP), XSS protection, and sniffing prevention, making it resilient against common web vulnerabilities.<br>
+
+2. Data Handling: Through express.json and express.urlencoded, it adeptly processes JSON and URL-encoded payloads, ensuring smooth form submissions.<br>
+
+3. Static File Serving: Serves static files from designated directories, providing a structured approach to resource management.<br>
+
+4. Input Sanitization: Implements custom middleware for sanitizing incoming query and body parameters to prevent injection attacks.<br>
+
+5. Password Handling: Uses bcryptjs for secure password hashing, ensuring user credentials are stored safely.<br>
+
+6. Dynamic Resource Management: Dynamically handles user registrations and contact form submissions, storing data in CSV format after thorough validation and sanitization.<br>
+
+## Strengths
+- Enhanced Security: The use of Helmet and custom sanitization middleware significantly elevates the server's defense mechanisms against web-based attacks.<br>
+
+- Modular Design: The clear separation of functionalities (user authentication, static file serving) facilitates easy maintenance and scalability.<br>
+
+- Comprehensive Data Handling: By supporting both JSON and URL-encoded data, the server caters to a wide range of client-side interactions.<br>
+
+## Areas for Improvement
+- Database Integration: Transitioning from CSV files to a database system could enhance data management, scalability, and performance.
+- Asynchronous Error Handling: Implementing more robust error handling for asynchronous operations could improve reliability and user experience.
+- API Documentation: Developing comprehensive API documentation would aid developers in integrating with the server or extending its capabilities.
+- User Session Management: Introducing session management and token-based authentication (e.g., JWT) could offer improved security and user experience for session control.
+
+
+
 
 ---
 Index page
