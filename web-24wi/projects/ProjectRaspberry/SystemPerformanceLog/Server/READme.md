@@ -23,13 +23,17 @@ I needed a break from stress. lol :P
 Main Menu or Landing page
 ---
 
-![Screenshot (457)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/46e5bdb2-9e86-4123-977f-650f69a24db2)
+![mainmenu](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/3c9fdbda-c4f7-450c-9893-69c2e09aaa31)
+
 
 The symbols on the left of the image from the top are:<br>
 House = the Home button<br>
 Smiley Face = The About page<br>
 Paper with lines = Link to GitHub profile<br>
 Main Icon = Contact me page with link to my LinkdenIn profile<br>
+
+The little raspberry-humanoid image is a link to my RaspberryHealth project.<br>
+The calculator image is a link to a basic calculator...
 
 ---
 About page
