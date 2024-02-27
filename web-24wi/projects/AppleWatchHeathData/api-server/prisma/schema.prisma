@@ -1,3 +1,7 @@
+// Data from my csv file from the java version of the project
+//Date,Steps ,Distance ,flgihts climbed ,Active Energy , Handwashing ,Resting Energy ,Enviomental Sound Levels
+//10/5/2023,11968,6.3,0,640,15,1683,79
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -7,65 +11,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model DailyWatchData {
+  // id field that is a number and automatically increments after its used
+  id                 Int      @id @default(autoincrement())
+  // timestamps
+  createdAt          DateTime @default(now())
+  date               DateTime @default(now())
+  steps              Int      @default(0)
+  distanceMiles      Float    @default(0.0)
+  flights            Int      @default(0)
+  activeEnergyCals   Float    @default(0.0)
+  handwashingSeconds Int      @default(0)
+  restingEnergyCals  Int      @default(0)
+  soundLevel         Int      @default(0)
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+}
+
 model User {
-  id        String    @id
-  createdAt DateTime  @default(now())
-  username  String    @unique
-  password  String
-  Post      Post[]
-  Product   Product[]
-  Update    Update[]
-}
+  id           Int     @id @default(autoincrement())
+  username     String  @unique
+  passwordHash String  @db.VarChar(64)
+  name         String?
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
-  User      User     @relation(fields: [authorId], references: [id])
-}
-
-model Product {
-  id          String   @id
-  createdAt   DateTime @default(now())
-  name        String
-  belongsToId String
-  User        User     @relation(fields: [belongsToId], references: [id])
-  Update      Update[]
-}
-
-model Update {
-  id          String        @id
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime
-  title       String        @db.VarChar(255)
-  body        String
-  status      UPDATE_STATUS @default(IN_PROGRESS)
-  version     String?
-  asset       String
-  productId   String
-  userId      String?
-  Product     Product       @relation(fields: [productId], references: [id])
-  User        User?         @relation(fields: [userId], references: [id])
-  UpdatePoint UpdatePoint[]
-}
-
-model UpdatePoint {
-  id          String   @id
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime
-  name        String   @db.VarChar(255)
-  description String
-  updateId    String
-  Update      Update   @relation(fields: [updateId], references: [id])
-}
-
-enum UPDATE_STATUS {
-  IN_PROGRESS
-  LIVE
-  DEPRECATED
-  ARCHIVED
+  DailyWatchData DailyWatchData[]
 }
