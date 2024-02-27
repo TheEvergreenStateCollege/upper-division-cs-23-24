@@ -9,7 +9,7 @@ const app = express();
 const port = 5000;
 
 app.use(express.json());
-app.use(express.static("static"));
+app.use(express.static("public"));
 
 // Create and start a server for our API on a defined port
 app.listen(port, () => {
@@ -30,16 +30,9 @@ app.get("/", (_req, res) => {
     // Send index.html when browser requests /
     res.sendFile(path.resolve("public/index.html"));
 });
-app.get("/index.js", (_req, res) => {
-    // Send index.html when browser requests /
-    res.sendFile(path.resolve("public/index.js"));
-});
 
 app.get("/map", (_req, res) => {
     res.sendFile(path.resolve("public/map.html"));
-});
-app.get("/map.js", (_req, res) => {
-    res.sendFile(path.resolve("public/map.js"));
 });
 
 // Search hits
