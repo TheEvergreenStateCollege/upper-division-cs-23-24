@@ -17,6 +17,7 @@ function getInitUsernameValueEntered(){
 function getInitPasswordValueEntered(){
     initPasswordValueEntered = document.getElementById('textBoxFormForUserToCreateNewPassword').value;
     initPasswordValueEnteredLen = initPasswordValueEntered.length;
+    
 }
 
 //This function checks if the initUsername is valid (ie. less than 10 charachters and whatever we specify)
@@ -52,7 +53,7 @@ async function initialCheckIfUsernameAndPasswordSyntaxIsValidForRegistration() {
     console.log('The username entered which passed check for valid syntax was' + '[' + initUsernameForRegistrationWithValidSyntax + ']');
     
     getInitPasswordValueEntered();
-    checkIfInitUsernameSyntaxIsValidForRegistration();
+    checkIfInitPasswordSyntaxIsValidForRegistration();
     console.log('The password entered which passed check for valid syntax was ' + '[' + initPasswordForRegistrationWithValidSyntax+ ']');
 }
 
