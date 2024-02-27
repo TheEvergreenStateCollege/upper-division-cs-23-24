@@ -16,7 +16,7 @@ app.use(morgan("dev"));
 app.use(express.static(path.join(process.cwd())));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("loginPage.html"));
+    res.sendFile(path.resolve("userRegisterAndLoginPage.html"));
 });
 
 app.get("/home", (req, res) => {
