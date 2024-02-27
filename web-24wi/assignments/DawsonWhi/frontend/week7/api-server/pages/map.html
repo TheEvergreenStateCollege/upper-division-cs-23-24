@@ -21,7 +21,7 @@
                 .attr("viewBox", [0, 0, width, height])
                 .attr("width", width)
                 .attr("height", height)
-                .attr("style", "max-width: 100%; height: auto;")
+                .attr("style", "max-width: 100%; height: auto;");
             
             const path = d3.geoPath();
 
@@ -35,11 +35,14 @@
                 .join("path")
                 .attr("d", path);
 
+            const cities = g.append("g")
+                
+                
             return svg.node();
         }
 
         const main = async () => {
-            const response = await fetch("web-24wi/assignments/faulkdf/frontend/week3/api-server");
+            const response = await fetch("web-24wi/assignments/DawsonWhi/frontend/week7/api-server");
             const us = await response.json();
             const svgNode = getSVGNode(us);
             const mapDiv = document.getElementById("map");
