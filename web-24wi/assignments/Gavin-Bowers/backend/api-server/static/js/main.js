@@ -59,7 +59,7 @@ audio.ontimeupdate = function() {
 };
 
 async function getMusicData() {
-    const res = await fetch('/musicdata');
+    const res = await fetch('https://gavin-bowers.arcology.builders/musicdata');
     musiclist = await res.json();
     for (let song of musiclist) {
         playlist.push(song);

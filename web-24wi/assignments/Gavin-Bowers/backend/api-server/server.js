@@ -126,6 +126,7 @@ async function indexMusic() {
 indexMusic();
 
 app.get("/musicdata", function(req, res) {
+	res.set('Access-Control-Allow-Origin', '*');
 	res.json(musicList);
 });
 	
