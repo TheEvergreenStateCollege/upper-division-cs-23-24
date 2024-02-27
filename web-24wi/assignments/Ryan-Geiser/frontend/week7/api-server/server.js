@@ -10,7 +10,8 @@ const { parsed } = require("dotenv").config();
 const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
-app.use(express.static("static"));
+app.use(express.static("pages"));
+app.use(express.json());
 
 /**
  * app.[method]([route], [route handler])
@@ -20,9 +21,38 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("pages/index.html"));
 });
 
-app.get("/users", async () => {
+app.get("/users", async (req, res) => {
     const allUsers = await prisma.user.findMany();
     res.json(allUsers);
+});
+
+app.post("/user", async (req, res) => {
+    const result = await prisma.user.create({
+      data: {
+        username: req.body.username,
+        password: req.body.password,
+      }
+    });
+    res.json(result);
+});
+
+app.get("/cities", async (req, res) => {
+    const allCities = await prisma.uSCity.findMany();
+    res.json(allCities);
+});
+
+console.log(Object.keys(prisma));
+
+app.post("/city", async (req, res) => {
+    const result = await prisma.uSCity.create({
+      data: {
+        name: req.body.cityName,
+        longitude: Number(req.body.longitude),
+        latitude: Number(req.body.latitude),
+        authorId: Number(req.body.authorId),
+      }
+    });
+    res.json(result);
 });
 
 // Return search hit given :hit  URL route parameters
