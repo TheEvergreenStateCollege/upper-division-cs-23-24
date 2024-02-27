@@ -35,7 +35,7 @@ app.get("/index.js", (_req, res) => {
     res.sendFile(path.resolve("public/index.js"));
 });
 
-app.get("/map.html", (_req, res) => {
+app.get("/map", (_req, res) => {
     res.sendFile(path.resolve("public/map.html"));
 });
 
@@ -46,12 +46,12 @@ app.get("/search-hit/:hit", (req, res) => {
 
 // API
 
-app.get("/api/users", async (req, res) => {
+app.get("/api/users", async (_req, res) => {
     const allUsers = await prisma.user.findMany();
     res.json(allUsers);
 });
 
-app.post("/api/user", async (req, res) => {
+app.post("/api/user", async (req, _res) => {
     try {
         const newUser = await prisma.user.create({
             data: {
