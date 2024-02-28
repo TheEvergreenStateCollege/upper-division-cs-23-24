@@ -3,6 +3,9 @@ import { body, validationResult } from "express-validator";
 import { handleInputErrors } from "./modules/middleware.js";
 import { getOneUser, getUsers, updateUser, deleteUser, createNewUser } from "./handlers/user.js";
 import { deleteGame, getGames, getOneGame, postGame, updateGame } from "./handlers/game.js";
+import { createMove, getMoves } from "./handlers/move.js";
+import { createGameParticipant } from "./handlers/game_participants.js";
+
 const router = Router();
 
 // user api
@@ -20,9 +23,10 @@ router.put("/games/:id", updateGame);
 router.delete("/games/:id", deleteGame);
 
 // moves api
-router.post("/moves", body("fen_string"), handleInputErrors, (req, res) => {
-    console.log("POST move");
-    console.log(req.body);
-})
+router.post("/moves", body("fenString").isString(), handleInputErrors, createMove);
+router.get("/moves", body("gameId").isString(), handleInputErrors, getMoves);
+
+// games participant api
+router.post("/gameParticipant", body("gameId", "userId").isString(), handleInputErrors, createGameParticipant);
 
 export default router;

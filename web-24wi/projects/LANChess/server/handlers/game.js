@@ -1,3 +1,4 @@
+import { Status } from "@prisma/client";
 import prisma from "../db.js";
 
 export const getOneGame = async (req, res) => {
@@ -27,16 +28,40 @@ export const postGame = async (req, res) => {
     res.json({ game });
 }
 
-//updates status of a game stats: enum { COMPLETED, WAITING, ONGOING }
+//updates status of a game stats: enum { COMPLETE, WAITING, ONGOING }
 export const updateGame = async (req, res) => {
+    var status;
+    console.log(req.body.status)
+    switch (req.body.status) {
+        case "COMPLETE":
+            status = Status.COMPLETE;
+            break;
+        case "WAITING":
+            status = Status.WAITNG;
+            break;
+        case "ONGOING":
+            status = Status.ONGOING;
+            break;
+        default:
+            res.json({ error: "invalid status" });
+            return;
+    }
+
     const result = await prisma.game.update({
         where: {
             id: req.params.id,
         },
         data: {
-            status: req.body.status,
+            status: status,
         }
     });
     res.json({ data: result });
 }
-export const deleteGame = async (req, res) => {}
+export const deleteGame = async (req, res) => {
+    const result = await prisma.game.delete({
+        where: {
+            id: req.params.id,
+        }
+    });
+    res.json({ data: result });
+}

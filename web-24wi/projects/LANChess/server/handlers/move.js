@@ -1,6 +1,8 @@
 import prisma from "../db.js";
 
 export const createMove = async (req, res) => {
+    console.log(req.body.userId);
+    console.log(req.body.gameId);
     const result = await prisma.move.create({
         data: {
             fen_string: req.body.fenString,
