@@ -3,7 +3,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 //import { protect } from './modules/auth';
-//import { createNewUser, signin } from './handlers/user' 
+import { createNewUser, signin } from './handlers/users' 
 import * as path from 'path';
 
 const app = express();
@@ -22,5 +22,8 @@ app.use(async (err: any, req: Request, res: Response, next: NextFunction) => {
   console.log(err);
   res.json({message: `had an error: ${err.message}`});
 });
+
+app.post('/signup', createNewUser);
+app.post('/signin', signin);
 
 export default app;
