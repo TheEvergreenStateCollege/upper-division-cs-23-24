@@ -102,26 +102,19 @@ async function makePostRequest(user, method) {
             body: user,
         });
         const result = await res.json();
-        return result;
+        console.log(method + ": " + result.ok);
     } catch (error) {
         console.error("Error:", error);
     }
 }
 
-async function register(user) {
-    const res =  await makePostRequest(user, "register");
-    const json = await res.json();
-    if (json) {
-        console.log("register: " + json.ok);
+async function handleAuthForm(event, method) {
+    event.preventDefault();
+    const user = {
+        email: document.getElementById("login-email").value,
+        password: document.getElementById("login-password").value,
     }
-}
-
-async function login(user) {
-    const res = await makePostRequest(user, "login");
-    const json = await res.json();
-    if (json) {
-        console.log("login: " + json.ok);
-    }
+    makePostRequest(user, method);
 }
 
 window.onload = (event) => {

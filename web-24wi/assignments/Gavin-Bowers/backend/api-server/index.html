@@ -53,7 +53,7 @@
 
             </div>
             <div id="auth-window">
-                <form id="loginForm" onsubmit="login(event)">
+                <form id="loginForm" onsubmit="handleLoginForm(event, 'login')">
                     <fieldset>
                         <label for="login-email">E-mail</label>
                         <input placeholder="email" id="login-email" required autocomplete="username">
@@ -64,7 +64,7 @@
                     </fieldset>
                     <button>Login</button>
                 </form>
-                <form hidden id="registerForm" onsubmit="register(event)">
+                <form hidden id="registerForm" onsubmit="handleRegisterForm(event, 'register')">
                     <fieldset>
                         <label for="register-email">E-mail</label>
                         <input placeholder="email" id="register-email" required type="email" autocomplete="username">
