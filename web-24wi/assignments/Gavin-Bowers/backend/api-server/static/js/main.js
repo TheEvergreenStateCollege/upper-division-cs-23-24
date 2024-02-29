@@ -109,11 +109,19 @@ async function makePostRequest(user, method) {
 }
 
 async function register(user) {
-    makePostRequest(user, "register");
+    const res =  await makePostRequest(user, "register");
+    const json = await res.json();
+    if (json) {
+        console.log("register: " + json.ok);
+    }
 }
 
 async function login(user) {
-    makePostRequest(user, "login");
+    const res = await makePostRequest(user, "login");
+    const json = await res.json();
+    if (json) {
+        console.log("login: " + json.ok);
+    }
 }
 
 window.onload = (event) => {

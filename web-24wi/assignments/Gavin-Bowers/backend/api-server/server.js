@@ -50,26 +50,32 @@ app.post("/auth/login", (req, res) => {
 });
 
 function findUser(email) {
-	const results = prisma.data.user.filter(u=>u.email==email);
-	if (results.length==0) return undefined;
-	return results[0];
+	const matchingUsers = prisma.user.findMany({
+		where: {
+			email: {
+				equals: email,
+			},
+		}
+	});
+	if (matchingUsers.length == 0) {
+		return undefined;
+	} else {
+		return matchingUsers[0];
+	}
 }
 
 app.post("/auth/register", (req, res) => {
 	var salt = bcrypt.genSaltSync(10);
 	var hash = bcrypt.hashSync(req.body.password, salt);
-
 	const user = {
 		email: req.body.email,
 		password: hash
 	};
 	const userFound = findUser(req.body.email);
-
 	if (userFound) {
 		res.send({ok:false, message: 'User already exists'});
 	} else {
-		prisma.data.user.push(user);
-		prisma.write();
+		prisma.user.create({data: user});
 		res.send({ok:true});
 	}
 });
