@@ -106,10 +106,19 @@ async function makePostRequest(user, method) {
 }
 
 async function handleAuthForm(event, method) {
-    event.preventDefault();
+    let emailInput;
+    let passwordInput;
+    switch (method) {
+        case 'login':
+            emailInput = document.getElementById("login-email").value;
+            passwordInput = document.getElementById("login-password").value;
+        case 'register':
+            emailInput = document.getElementById("register-email").value;
+            passwordInput = document.getElementById("register-password").value;
+    }
     const user = {
-        email: document.getElementById("login-email").value,
-        password: document.getElementById("login-password").value,
+        email: emailInput,
+        password: passwordInput,
     }
     makePostRequest(user, method);
 }
