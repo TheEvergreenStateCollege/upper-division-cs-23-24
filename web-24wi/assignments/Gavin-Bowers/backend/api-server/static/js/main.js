@@ -95,11 +95,8 @@ async function playSong() {
 async function makePostRequest(user, method) {
     try {
         const res = await fetch(endpoint + 'auth/' + method, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: user,
+            'method': 'POST',
+            'body': user,
         });
         const result = await res.json();
         console.log(method + ": " + result.ok);
