@@ -5,6 +5,7 @@ import path from 'path'
 import { protect } from './modules/auth'
 import { createNewUser, signin } from './handlers/user'
 import cors from 'cors'
+import bycrypt from 'bcrypt'
 // import fetch from 'node-fetch'
 
 const app = express()
@@ -27,6 +28,16 @@ app.get('/entry', (req,res) => {
     res.sendFile(path.resolve("../client/dist/nested/index.html"))
 })
 
+app.post('auth/register', (req,res) => {
+    var salt = bycrypt.genSaltSync(10);
+    var hash = bycrypt.hashSync(req.body.password, salt);
+
+    const user = {
+        username: req.body.username,
+        password: hash
+    };
+    
+})
 
 // app.get('/', (req,res) => {
 //     res.status(200)
