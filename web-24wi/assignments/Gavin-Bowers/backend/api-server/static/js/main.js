@@ -7,6 +7,9 @@ const currentAudio = document.getElementById('current-audio');
 const currentTitle = document.getElementById('current-title');
 const currentArtist = document.getElementById('current-artist');
 const playlistTag = document.getElementById('playlist');
+
+const endpoint = "https://gavin-bowers.arcology.builders/"
+
 var paused = true;
 var musiclist = [];
 var playlist = [];
@@ -59,7 +62,7 @@ audio.ontimeupdate = function() {
 };
 
 async function getMusicData() {
-    const res = await fetch('https://gavin-bowers.arcology.builders/musicdata');
+    const res = await fetch(endpoint + 'musicdata');
     musiclist = await res.json();
     for (let song of musiclist) {
         playlist.push(song);
@@ -81,11 +84,36 @@ async function playSong() {
     let song = playlist[playlistIndex];
     console.log(playlistIndex);
     console.log(song);
-    currentAudio.src = 'https://gavin-bowers.arcology.builders/audio/' + song.filename;
+    currentAudio.src = endpoint + 'audio/' + song.filename;
     currentArtist.innerHTML = song.artist;
     currentTitle.innerHTML = song.title;
     currentAudio.load();
     await audio.play();
+}
+
+//Authentication
+async function makePostRequest(user, method) {
+    try {
+        const res = await fetch(endpoint + 'auth/' + method, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: user,
+        });
+        const result = await res.json();
+        return result;
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+async function register(user) {
+    makePostRequest(user, "register");
+}
+
+async function login(user) {
+    makePostRequest(user, "login");
 }
 
 window.onload = (event) => {

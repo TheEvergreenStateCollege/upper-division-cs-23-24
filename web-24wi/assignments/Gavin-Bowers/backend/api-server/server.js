@@ -1,7 +1,8 @@
-const express = require("express");
+const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const musicMetadata = require('music-metadata');
+const bcrypt = require('bcrypt');
 
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
@@ -19,20 +20,60 @@ const prisma = new PrismaClient();
 
 /* API SERVER - Handles authentication*/
 
-app.get("/users", async (req, res) => {
-	const allUsers = await prisma.user.findMany();
-	res.json(allUsers);
+// app.get("/users", async (req, res) => {
+// 	const allUsers = await prisma.user.findMany();
+// 	res.json(allUsers);
+// });
+
+// app.post("/user", async (req, res) => {
+// 	const newUser = await prisma.user.create({
+// 		data: {
+// 			username: req.body.username,
+// 			password: '',
+// 		},
+// 	});
+// 	console.log("created new user");
+// });
+
+//New authentication system
+app.post("/auth/login", (req, res) => {
+	const user = findUser(req.body.email);
+	if (user) {
+		if (bcrypt.compareSync(req.body.password, user.password)) {
+			res.send({ok: true, email: user.email});
+		} else {
+			res.send({ok: false, message: 'Data is invalid'});
+		}
+	} else {
+		res.send({ok: false, message: 'User does not exist'});
+	}
 });
 
-app.post("/user", async (req, res) => {
-	const newUser = await prisma.user.create({
-		data: {
-			username: req.body.username,
-			password: '',
-		},
-	});
-	console.log("created new user");
+function findUser(email) {
+	const results = prisma.data.user.filter(u=>u.email==email);
+	if (results.length==0) return undefined;
+	return results[0];
+}
+
+app.post("/auth/register", (req, res) => {
+	var salt = bcrypt.genSaltSync(10);
+	var hash = bcrypt.hashSync(req.body.password, salt);
+
+	const user = {
+		email: req.body.email,
+		password: hash
+	};
+	const userFound = findUser(req.body.email);
+
+	if (userFound) {
+		res.send({ok:false, message: 'User already exists'});
+	} else {
+		prisma.data.user.push(user);
+		prisma.write();
+		res.send({ok:true});
+	}
 });
+
 
 /*Static website and music streaming*/
 
