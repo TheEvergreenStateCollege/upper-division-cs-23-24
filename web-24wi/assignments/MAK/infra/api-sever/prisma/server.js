@@ -35,9 +35,27 @@ app.post("/users", async (req, res) =>{
 	const newUser = await prisma.user.create({
 		data:{
 			username: req.body.username,
-			password: '',
+			password: req.body.password,
 		},
 	});
-	console.log("created");
+	
 	res.json(req.body);
 });
+
+app.get("/cities", async (req, res) => {
+    const allCities = await prisma.uSCity.findMany();
+    res.json(allCities);
+});
+
+app.post("/city", async (req, res) => {
+    const result = await prisma.uSCity.create({
+        data: {
+            name: req.body.cityName,
+            longitude: Number(req.body.longitude),
+            latitude: Number(req.body.latitude),
+            authorId: Number(req.body.authorId),
+        }
+    });
+    res.json(result);
+});
+

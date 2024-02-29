@@ -1,8 +1,8 @@
 {
-	  "compilerOptions": {
-		      "sourceMap": true,
-		          "outDir": "dist",
-			          "lib": ["esnext"],
-				      "esModuleInterop": true
-				        }
+    "compilerOptions": {
+	    "sourceMap": true,
+	    "outDir": "dist",
+	    "lib": ["esnext"],
+	    "esModuleInterop": true
+    }
 }
