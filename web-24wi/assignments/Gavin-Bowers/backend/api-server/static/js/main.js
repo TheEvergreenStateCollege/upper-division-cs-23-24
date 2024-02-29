@@ -106,7 +106,7 @@ async function makePostRequest(user, method) {
 }
 
 async function handleAuthForm(event, method) {
-    event.preventDefault();
+    event.preventDefault()
     let emailInput;
     let passwordInput;
     switch (method) {

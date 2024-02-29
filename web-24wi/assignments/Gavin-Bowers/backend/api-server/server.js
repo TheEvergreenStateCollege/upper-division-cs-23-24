@@ -37,6 +37,7 @@ const prisma = new PrismaClient();
 
 //New authentication system
 app.post("/auth/login", (req, res) => {
+	console.log(req.body);
 	const user = findUser(req.body.email);
 	if (user) {
 		if (bcrypt.compareSync(req.body.password, user.password)) {
@@ -51,24 +52,8 @@ app.post("/auth/login", (req, res) => {
 		res.send({ok: false, message: 'User does not exist'});
 	}
 });
-
-function findUser(email) {
-	const matchingUsers = prisma.user.findMany({
-		where: {
-			email: {
-				equals: email,
-			},
-		}
-	});
-	if (matchingUsers.length == 0) {
-		return undefined;
-	} else {
-		return matchingUsers[0];
-	}
-}
-
 app.post("/auth/register", (req, res) => {
-	console.log(req);
+	console.log(req.body);
 	const salt = bcrypt.genSaltSync(10);
 	const hash = bcrypt.hashSync(req.body.password, salt);
 	const user = {
@@ -85,8 +70,20 @@ app.post("/auth/register", (req, res) => {
 		res.send({ok:true});
 	}
 });
-
-
+function findUser(email) {
+	const matchingUsers = prisma.user.findMany({
+		where: {
+			email: {
+				equals: email,
+			},
+		}
+	});
+	if (matchingUsers.length == 0) {
+		return undefined;
+	} else {
+		return matchingUsers[0];
+	}
+}
 /*Static website and music streaming*/
 
 app.get("/", function(req, res) {
