@@ -37,6 +37,7 @@ const prisma = new PrismaClient();
 
 //New authentication system
 app.post("/auth/login", (req, res) => {
+	console.log("we got one");
 	const user = findUser(req.body.email);
 	if (user) {
 		if (bcrypt.compareSync(req.body.password, user.password)) {
