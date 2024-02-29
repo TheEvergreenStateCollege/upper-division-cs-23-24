@@ -37,15 +37,17 @@ const prisma = new PrismaClient();
 
 //New authentication system
 app.post("/auth/login", (req, res) => {
-	console.log("we got one");
 	const user = findUser(req.body.email);
 	if (user) {
 		if (bcrypt.compareSync(req.body.password, user.password)) {
+			console.log("login: success");
 			res.send({ok: true, email: user.email});
 		} else {
+			console.log("login: invalid password");
 			res.send({ok: false, message: 'Data is invalid'});
 		}
 	} else {
+		console.log("login: user doesn't exist");
 		res.send({ok: false, message: 'User does not exist'});
 	}
 });
@@ -74,8 +76,10 @@ app.post("/auth/register", (req, res) => {
 	};
 	const userFound = findUser(req.body.email);
 	if (userFound) {
+		console.log("register: user already exists");
 		res.send({ok:false, message: 'User already exists'});
 	} else {
+		console.log("register: success");
 		prisma.user.create({data: user});
 		res.send({ok:true});
 	}
