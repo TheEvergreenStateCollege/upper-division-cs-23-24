@@ -96,7 +96,10 @@ async function makePostRequest(user, method) {
     try {
         const res = await fetch(endpoint + 'auth/' + method, {
             'method': 'POST',
-            'body': user,
+            'headers': {
+                'Content-Type': 'application/json',
+            },
+            'body': JSON.stringify(user),
         });
         const result = await res.json();
         console.log(method + ": " + result.ok);
@@ -113,9 +116,11 @@ async function handleAuthForm(event, method) {
         case 'login':
             emailInput = document.getElementById("login-email").value;
             passwordInput = document.getElementById("login-password").value;
+            break;
         case 'register':
             emailInput = document.getElementById("register-email").value;
             passwordInput = document.getElementById("register-password").value;
+            break;
     }
     const user = {
         email: emailInput,
