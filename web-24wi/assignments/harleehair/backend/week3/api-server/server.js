@@ -91,20 +91,6 @@ app.get("/graph.html", (req, res) => {
   res.sendFile(path.resolve("pages/graph.html"))
 });
 
-app.get("/fetchUSData", async (req, res) => {
-  try {
-    const response = await fetch("https://indira.arcology.builders/us.json");
-    if (!response.ok) {
-      throw new Error("Failed to fetch US data");
-    }
-    const usData = await response.json();
-    res.json(usData);
-  } catch (error) {
-    console.error("Error fetching US data:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
 server.on('error', (error) => {
   if (error.code === 'EADDRINUSE') {
     console.error(`Port ${port} is already in use. Trying the next port number.`);
