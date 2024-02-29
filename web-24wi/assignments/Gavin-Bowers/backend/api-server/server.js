@@ -37,6 +37,7 @@ const prisma = new PrismaClient();
 
 //New authentication system
 app.post("/auth/login", (req, res) => {
+	res.set('Access-Control-Allow-Origin', '*'); //Allows for local testing
 	console.log("we got one");
 	const user = findUser(req.body.email);
 	if (user) {
