@@ -68,6 +68,7 @@ function findUser(email) {
 }
 
 app.post("/auth/register", (req, res) => {
+	console.log(req);
 	const salt = bcrypt.genSaltSync(10);
 	const hash = bcrypt.hashSync(req.body.password, salt);
 	const user = {
