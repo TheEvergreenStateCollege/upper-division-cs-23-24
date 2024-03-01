@@ -1,0 +1,38 @@
+Front End HMWK Week 1
+Watch the first three sections of [Complete Intro to React](https://frontendmasters.com/courses/complete-react-v8/)
+* Introduction
+* Setup & Tooling
+* Core React Concepts
+
+Complete the Pet Component project in your assignments directory.
+```
+cd <repo_dir>/web-24wi/assignments/<github_username>/frontend/week1
+
+```
+
+When you are done, or at regular intervals, commit and push to GitHub.
+The first time, create a Pull Request.
+This is also a place where teaching staff and classmates can give you help and feedback.
+```
+git add .
+git commit -m "<describe your change>"
+git push -u origin <github_username>-week1
+```
+
+
+Frontend Homework Week 2
+
+Write and commit to the class monorepo, in your personal assignments directory.
+
+Complete the Pet Photo Carousel project in your assignments directory, first creating this directory if necessary.
+
+cd <repo_dir>/web-24wi/assignments/<github_username>/frontend/week2
+
+When you are done, or at regular intervals, commit and push to GitHub.
+The first time, create a Pull Request.
+This is also a place where teaching staff and classmates can give you help and feedback.
+
+git checkout -b <github_username>-week2
+git add .  
+git commit -m "<describe your change>"  
+git push -u origin <github_username>-week2  

@@ -1,0 +1,30 @@
+What particular classes, experience, or skills are recommended? 
+        - 2-5 years of experience for
+        - Skills: git, familiarity with IDEs (VSCode), Applications (.NET), 
+
+Do you have to be a U.S. citizen?
+        - Yes
+
+Do you have to return to being a full-time student after the summer?
+        - Not necesarily, Duc isn't expective to graduate for another two years. 
+
+What are the company's values, or how does it present itself to customers?
+        - Collaborative
+        - Company that values training its employees
+        - A company thats innovative and a fun place to work
+    
+What areas of technology does this person enjoy or find meaningful?
+        - Duc is interested in robotics. He engaged with robotics (lego mindstorm) in high school. He enjoys robotics automation.  He believes that robotics
+        have potential to help us in the future and aid in space exploration.
+        - Duc enjoys frontend webdesign
+        - Duc enjoys coding in Java - it has an easier ruleset to follow then C, and feels familiarity
+        - Duc values Python's brevity. 
+        - Duc prefers machine learning to reinforcement learning
+    
+What areas of technology does this person not enjoy or find distasteful?
+        - Duc doesn't like C
+        - Duc doesn't enjoy reinforcement learning (yet)
+        - Duc distates Application Secuity
+    
+What size company?
+        - Medium size, so it's relatively collaboritive

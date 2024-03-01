@@ -1,0 +1,171 @@
+diff -r --color src/Carousel.jsx ../../.react_coursework/citr-v8-project/12-error-boundaries/src/Carousel.jsx
+1c1
+< import { Component } from 'react';
+---
+> import { Component } from "react";
+4,6c4,6
+<     state = {
+<         active: 0, 
+<     }
+---
+>   state = {
+>     active: 0,
+>   };
+8,10c8,10
+<     static defaultProps = {
+<         images: ["http://pets-images.dev-apis.com/pets/none.jpg"]
+<     }
+---
+>   static defaultProps = {
+>     images: ["http://pets-images.dev-apis.com/pets/none.jpg"],
+>   };
+12,18c12,16
+<     // = () => ... : Arrow Function/Event Listener doesn't create new scope, instead its scope is Carousel
+<     // () { ...         : New Function : (this keyword is undefined)
+<     handleIndexClick = (event) => {
+<         this.setState({
+<           active: +event.target.dataset.index,
+<         });
+<       };
+---
+>   handleIndexClick = (event) => {
+>     this.setState({
+>       active: +event.target.dataset.index,
+>     });
+>   };
+20,46c18,39
+<     render () {
+<         // ErrorBoundaryTesting
+<         // throw new Error("lol error");
+<         
+<         const { active} = this.state
+<         const { images } = this.props
+< 
+<         return (
+<             <div className='carousel'>
+<                 <img src={images[active]} alt="animal hero" />
+<                 <p>ACTIVE: {active}</p>
+<                 <div className='carousel-smaller'>
+<                     {images.map((photo, index) => (
+<                         <img
+<                             onClick={this.handleIndexClick}
+<                             key={index}
+<                             src={photo}
+<                             className={index === active ? 'active' : ''}
+<                             alt="animal thumbnail"
+<                             data-index={index}
+<                         />
+<                     )
+<                 )}
+<                 </div>
+<             </div>
+<         )
+<     }
+---
+>   render() {
+>     const { active } = this.state;
+>     const { images } = this.props;
+>     return (
+>       <div className="carousel">
+>         <img src={images[active]} alt="animal" />
+>         <div className="carousel-smaller">
+>           {images.map((photo, index) => (
+>             // eslint-disable-next-line
+>             <img
+>               key={photo}
+>               src={photo}
+>               className={index === active ? "active" : ""}
+>               alt="animal thumbnail"
+>               onClick={this.handleIndexClick}
+>               data-index={index}
+>             />
+>           ))}
+>         </div>
+>       </div>
+>     );
+>   }
+diff -r --color src/Details.jsx ../../.react_coursework/citr-v8-project/12-error-boundaries/src/Details.jsx
+1d0
+< import { useState } from 'react';
+4,5c3
+< import ErrorBoundary from "./ErrorBoundary.jsx"
+< import Carousel from "./Carousel.jsx";
+---
+> import ErrorBoundary from "./ErrorBoundary";
+6a5
+> import Carousel from "./Carousel";
+9d7
+<   const [showModal, setShowModal] = useState(false);
+29c27
+<         <button onClick={setShowModal(true)}>Adopt {pet.name}</button>
+---
+>         <button>Adopt {pet.name}</button>
+31,43d28
+<         {
+<           showModal ?
+<           (
+<             <div>
+<               <h1>Would you like to adopt {pet.name}?</h1>
+<                 <div className="buttons">
+<                   <button>Yes</button>
+<                   <button onClick={() => setShowModal(false)}>No</button>
+<                 </div>
+<               
+<             </div>
+<           ) : null
+<         }
+55c40
+< }
+\ No newline at end of file
+---
+> }
+diff -r --color src/ErrorBoundary.jsx ../../.react_coursework/citr-v8-project/12-error-boundaries/src/ErrorBoundary.jsx
+0a1
+> // mostly code from reactjs.org/docs/error-boundaries.html
+5,9c6,20
+<     state = { hasError: false }
+<     
+<     // Static methods are called on the class instead of instances of the class
+<     static getDerivedStateFromError() {
+<         return { hasError: true };
+---
+>   state = { hasError: false };
+>   static getDerivedStateFromError() {
+>     return { hasError: true };
+>   }
+>   componentDidCatch(error, info) {
+>     console.error("ErrorBoundary caught an error", error, info);
+>   }
+>   render() {
+>     if (this.state.hasError) {
+>       return (
+>         <h2>
+>           There was an error with this listing. <Link to="/">Click here</Link>{" "}
+>           to back to the home page.
+>         </h2>
+>       );
+12,26c23,24
+<     componentDidCatch(error, info) {
+<         // Log this to TrackJS, NewRelic, or equivalent
+<         console.error("ErrorBoundary caught an error", error, info);
+<     }
+< 
+<     render() {
+<         if (this.state.hasError) {
+<         return  (
+<                  <h2>
+<                     There was an error with this listing. <Link to="/">Click here</Link>{" "} back to the home page.
+<                 </h2>
+<             );
+<         } 
+<         return this.props.children;
+<     }
+---
+>     return this.props.children;
+>   }
+29c27
+< export default ErrorBoundary;
+\ No newline at end of file
+---
+> export default ErrorBoundary;
+Only in src: Modal.jsx

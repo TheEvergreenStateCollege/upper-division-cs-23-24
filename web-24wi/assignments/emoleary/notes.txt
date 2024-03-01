@@ -1,0 +1,9 @@
+January 22nd, 2023  "REST - Representational State Tranfer" 
+   Has CRUD Operations
+    
+    _________________
+    Create      +1
+    Read         =   
+    Update     = 
+Delete -1
+
