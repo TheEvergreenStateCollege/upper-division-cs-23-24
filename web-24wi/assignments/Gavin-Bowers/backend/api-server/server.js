@@ -71,6 +71,7 @@ app.post("/auth/register", (req, res) => {
 	}
 });
 function findUser(email) {
+	console.log(prisma.user.findFirst());
 	const matchingUsers = prisma.user.findMany({
 		where: {
 			email: {
