@@ -21,6 +21,12 @@ export const signin = async (req, res) => {
             username: req.body.username,
         }
     })
+    console.log();
+    if (user == null) {
+        res.status(401);
+        res.json("incorrect username");
+        return;
+    }
     const isValid = await comparePasswords(req.body.password, user.password);
     if (!isValid) {
         res.status(401);

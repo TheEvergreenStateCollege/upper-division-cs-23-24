@@ -26,7 +26,9 @@ app.get("/home", (req, res) => {
 app.get("/game", (req, res) => {
     res.sendFile(path.resolve("gamePage.html"));
 });
-
+app.get("/example", (req, res) => {
+    res.sendFile(path.resolve("example.html"));
+});
 // proctected api, user has to already be authenticated
 app.use("/api", protect, router);
 
