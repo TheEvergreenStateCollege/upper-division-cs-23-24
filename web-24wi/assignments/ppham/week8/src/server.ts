@@ -1,8 +1,8 @@
 import express, { Request, Response, NextFunction } from 'express';
-// import route from './router';
+import router from './router';
 import morgan from 'morgan';
 import cors from 'cors';
-//import { protect } from './modules/auth';
+import { protect } from './modules/auth';
 import { createNewUser, signin } from './handlers/users' 
 import * as path from 'path';
 
@@ -17,6 +17,8 @@ app.use(express.urlencoded({extended: true}));
 app.get('/', async (req: Request, res: Response, next: NextFunction) => {
   res.sendFile(path.resolve("public/index.html"));
 });
+
+app.use('/api', protect, router);
 
 app.use(async (err: any, req: Request, res: Response, next: NextFunction) => {
   console.log(err);

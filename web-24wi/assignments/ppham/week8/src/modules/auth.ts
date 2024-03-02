@@ -1,10 +1,8 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
-import { Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { User } from '@prisma/client';
-
-import { ApiRequest } from '../types';
 
 export const comparePasswords = async (password: string, hash: string): Promise<boolean> => {
   return await bcrypt.compare(password, hash);
@@ -24,7 +22,7 @@ export const createJWT = (user: User ) => {
   return token;
 }
 
-export const protect = ( req: ApiRequest, res: Response, next: NextFunction ) => {
+export const protect = ( req: Request, res: Response, next: NextFunction ) => {
   const bearer = req.headers.authorization;
 
   if (!bearer) {
@@ -42,8 +40,12 @@ export const protect = ( req: ApiRequest, res: Response, next: NextFunction ) =>
   }
 
   try {
-    const verifiedUser: string | JwtPayload = jwt.verify(token, process.env.JWT_SECRET!);
-    req.verifiedUser = verifiedUser;
+    const authenticationToken: string | JwtPayload = jwt.verify(token, process.env.JWT_SECRET!);
+    if (!req.user) {
+      req.user = { authenticationToken };
+    } else {
+      req.user.authenticationToken = authenticationToken;
+    }
     next();
   } catch (e) {
     console.error(e);
