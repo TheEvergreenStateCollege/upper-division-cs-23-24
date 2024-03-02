@@ -1,6 +1,7 @@
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["multiSchema"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -18,7 +19,6 @@ model Post {
   published Boolean  @default(false)
   authorId  String
   author    User     @relation(fields: [authorId], references: [id])
-
   @@schema("changelog")
 }
 
@@ -30,7 +30,6 @@ model User {
   Post      Post[]
   Product   Product[]
   updates   Update[]
-
   @@schema("changelog")
 }
 
@@ -41,7 +40,6 @@ model Product {
   belongsToId String
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
   updates     Update[]
-
   @@schema("changelog")
 }
 
@@ -59,7 +57,6 @@ model Update {
   product      Product       @relation(fields: [productId], references: [id])
   User         User?         @relation(fields: [userId], references: [id])
   updatePoints UpdatePoint[]
-
   @@schema("changelog")
 }
 
@@ -72,7 +69,6 @@ model UpdatePoint {
   updateId    String
   loofah      Int      @default(42)
   update      Update   @relation(fields: [updateId], references: [id])
-
   @@schema("changelog")
 }
 
@@ -81,6 +77,5 @@ enum UPDATE_STATUS {
   LIVE
   DEPRECATED
   ARCHIVED
-
   @@schema("changelog")
 }

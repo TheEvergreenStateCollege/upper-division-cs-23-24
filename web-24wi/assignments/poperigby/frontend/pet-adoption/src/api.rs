@@ -20,7 +20,7 @@ pub enum QueryValue {
 pub async fn fetch_pet(keys: Vec<QueryKeys>) -> QueryResult<QueryValue, QueryError> {
     if let Some(QueryKeys::Pet(id)) = keys.first() {
         let url = format!("http://pets-v2.dev-apis.com/pets?id={id}");
-        let pet = reqwest::get(url)
+        if let Some(pet) = reqwest::get(url)
             .await
             .expect("Failed to make request")
             .json::<PetsData>()
@@ -28,10 +28,11 @@ pub async fn fetch_pet(keys: Vec<QueryKeys>) -> QueryResult<QueryValue, QueryErr
             .expect("Failed to deserialize")
             .pets
             .first()
-            .expect("Failed to get first element")
-            .clone();
-
-        QueryResult::Ok(QueryValue::PetItem(pet))
+        {
+            QueryResult::Ok(QueryValue::PetItem(pet.clone()))
+        } else {
+            QueryResult::Err(QueryError::PetNotFound(*id))
+        }
     } else {
         QueryResult::Err(QueryError::Unknown)
     }

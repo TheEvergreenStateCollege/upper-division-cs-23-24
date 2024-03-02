@@ -27,6 +27,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(customLogger('user_computer'));
+app.use(express.static('public'));
 
 app.get("/", (req, res) => {
   res.sendFile(path.resolve("pages/index.html"));

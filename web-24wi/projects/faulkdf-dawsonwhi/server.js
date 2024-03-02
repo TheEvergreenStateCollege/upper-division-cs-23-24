@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 5000;
+const port = 5001;
 const path = require("path");
 
 app.use(express.static("static"));
@@ -30,4 +30,12 @@ app.post("/login", (req, res) => {
 // creates and starts a server for our API on a defined port
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
+});
+
+app.get("/randomGraph", async (req, res) => {
+  let results = [];
+  for (let i = 0; i < 10; i += 1) {
+    results.push({ "day": i, "stepCount": Math.round(Math.random() * 1000)});
+    }
+    res.json({ results });
 });

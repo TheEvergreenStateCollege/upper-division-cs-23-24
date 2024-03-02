@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
+import os
 
 from Average import averager
 from DriverData2 import DriverToDriveData
@@ -17,13 +18,28 @@ try:
 except Exception as e:
     print(e)
 
+@app.route('/')
+def serve_react_app():
+    return send_from_directory('../react-admin/build', 'index.html')
+
+@app.route('/static/js/<path:path>')
+def serve_static_js(path):
+    return send_from_directory('../react-admin/build/static/js', path)
+
+@app.route('/static/css/<path:path>')
+def serve_static_css(path):
+    return send_from_directory('../react-admin/build/static/css', path)
+
+@app.route('/<path:filename>')
+def serve_manifest(filename):
+    return send_from_directory('../react-admin/build', filename)
+
+# end atttempting to run from the react-app
+# older routes
+
 @app.route('/menu',)
 def index():
     return render_template("menu.html")
-
-@app.route('/')
-def hello():
-    return 'Hello, This messages shows you the server is live. Click <a href="/menu">here</a> the link to review the final project page. You can view the api-server <a href="http://pswish-corp.arcology.builders:5000/">Here</a>. '
 
 @app.route('/menu/<int:selection>', methods=['POST'])
 def handle_menu_selection(selection):
@@ -51,4 +67,4 @@ def process_selection(selection):
         return "Invalid selection"
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    app.run(port=5173, debug=True, use_reloader=True)
