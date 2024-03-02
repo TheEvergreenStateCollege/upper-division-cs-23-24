@@ -52,6 +52,7 @@ prisma_and_nodemon() {
   if [[ -z "${PRISMA}" ]]; then
     pnpm i -g prisma 
   fi
+  prisma validate
   NODEMON=$(which nodemon)
   if [[ -z "${NODEMON}" ]]; then
     pnpm i -g nodemon
