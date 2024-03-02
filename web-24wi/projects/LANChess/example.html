@@ -11,6 +11,17 @@
     </form>
 </div>
 <script>
+    const proto = window.location.protocol === "https:" ? "wss" : "ws";
+    const ws = new WebSocket(`${proto}://${window.location.host}`);
+    ws.onopen = (event) => {
+        ws.send("hello world");
+    }
+    ws.onerror = (event) => {
+        console.error;
+    }
+    ws.onmessage = (event) => {
+        event.data.text().then(txt=>console.log(txt));
+    }
     const button = document.getElementById("submit");
     const username = document.getElementById("input-username");
     const password = document.getElementById("input-password");
