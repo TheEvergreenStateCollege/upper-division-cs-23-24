@@ -31,7 +31,7 @@
 # Uncomment the line below to debug the script and see every command that is run, with variable substitutions.
 # This is very verbose.
 #
-set -x
+# set -x
 
 # From https://stackoverflow.com/a/246128
 # An explanation from Google Bard https://g.co/gemini/share/085bc9bc961d

@@ -1,9 +1,12 @@
-header{
+h1 {
 background-color: black;
 color: white;
 height:80px;
 text-align: center;
 font-size: 35px;
+line-height: 80px;
+margin: 0;
+padding: 0;
 
 }
 

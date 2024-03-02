@@ -11,7 +11,7 @@ PORT=5000
 if ! lsof -i :$PORT > /dev/null
 then
   echo "Port $PORT is not in use. Starting the application..."
-  cd ~/src/upper-division-cs/web-24wi/assignments/ppham/infra/api-server
+  cd ~/src/upper-division-cs/web-24wi/projects/Duck
   git checkout main
   git pull
   /home/ubuntu/.nvm/versions/node/v20.11.0/bin/node server.js

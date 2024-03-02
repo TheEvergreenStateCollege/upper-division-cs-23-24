@@ -4,7 +4,15 @@ const app = express();
 const port = 5000;
 const path = require("path");
 
+const { PrismaClient } = require('@prisma/client');
+const{ parsed } = require('dotenv').config();
+
+console.log(parsed['DATABASE_URL']);
+console.log(process.env['DATABASE_URL']);
+const prisma = new PrismaClient();
+
 app.use(express.static("public"));
+app.use(express.json());
 
 /**
  * app.[method]([route], [route handler])
@@ -24,11 +32,6 @@ app.get("/search-hit/:hit", (req, res) => {
 
 // http://tor.arcology.builders:5000
 
-// creates and starts a server for our API on a defined port
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
-
 //Sevres a loist of data to a static page in final project directory
 
 app.get("/randomGraph", async (req, res) => {
@@ -40,12 +43,6 @@ app.get("/randomGraph", async (req, res) => {
 
 });
 
-const { PrismaClient } = require('@prisma/client');
-const{ parsed } = require('dotenv').config();
-
-console.log(parsed['DATABASE_URL']);
-console.log(process.env['DATABASE_URL']);
-const prisma = new PrismaClient();
 
 app.get("/user", async (req, res ) => {
   const allUsers = await prisma.user.findmany();
@@ -60,6 +57,13 @@ app.post("/user", async (req, res) => {
     },
   });
   console.log("created");
+});
+
+app.get("/daily-watch-data", async (req, res) => {
+
+const allData = await prisma.dailyWatchData.findMany();
+res.json(allData);
+
 });
 
 app.post("/daily-watch-data", async ( req, res) => {
@@ -77,8 +81,14 @@ app.post("/daily-watch-data", async ( req, res) => {
       activeEnergyCals: req.body.activeEnergyCals,  
       handwashingSeconds: req.body.handwashingSeconds, 
       restingEnergyCals: req.body.restingEnergyCals,
-      soundLevel: req.body.soundLevel,    
+      soundLevel: req.body.soundLevel,  
+      userId: Number(req.body.userId),  
     },
   });
   res.json(req.body);
+});
+
+// creates and starts a server for our API on a defined port
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });

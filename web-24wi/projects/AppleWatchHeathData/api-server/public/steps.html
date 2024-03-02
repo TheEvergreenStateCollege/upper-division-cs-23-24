@@ -7,18 +7,36 @@
 </head>
 <body>
     <h1>Daily Step Count </h1>
-    <div id="myPlot"></div>
-    <script type="module">
-
-    import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
-
-    const data = await fetch("https://congenial-goggles-69gq9jr46grjh5q6p-5000.app.github.dev/randomGraph");
-    const json = await data.json();
-    console.log(JSON.stringify(json));
-    const plot = Plot.barY(json.results, {x: "day", y: "stepcount"}).plot();
-    const div = document.querySelector("#myPlot");
-    div.append(plot)
-
-    </script>
+    <p>
+    This graph displays the daily step count on a specific day.
+    </p>
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
 </body>
 </html>

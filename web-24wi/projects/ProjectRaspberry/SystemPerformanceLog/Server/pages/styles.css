@@ -222,3 +222,83 @@ form button:hover {
 .vertical-footer .logout-button:hover {
     background-color: #077187;
 }
+
+/* Instructions for the Contact page */
+.vertical-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 200px;
+    background-color: #50a3a2;
+    color: whitesmoke;
+    text-align: center;
+    height: 100%;
+    padding: 20px 10px;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Instructions for the Contact page */
+.vertical-footer .home-button,
+.vertical-footer .logout-button {
+    margin: 25;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .vertical-footer{
+        width: 100px;
+        padding: 10px 5px;
+    }
+}
+
+/* Instructions for the Contact page */
+/* The 'Contact Form' Styling */
+form#contactForm {
+    margin-top: 20px;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button[type="submit"] {
+    width: 100%;
+    max-width: 500px;
+    background-color: #50a3a2;
+    color: whitesmoke;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+button[type="submit"]:hover {
+    background-color: #077187;
+}

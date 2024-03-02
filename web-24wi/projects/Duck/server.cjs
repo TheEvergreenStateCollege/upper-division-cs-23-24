@@ -51,5 +51,12 @@ app.post("/user", async (req, res) => {
 	  console.error("Error creating user:", error);
 	  res.status(500).json({ message: "Failed to create user" });
 	}
-  });
-  
+});
+
+app.get("/randomGraph", async (req, res) => {
+	let results = [];
+	for (let i = 0; i < 10; i++) {
+		results.push({"day": i, "stepCount": Math.round(Math.random() * 1000)});
+	}
+	res.json({ results });
+});
