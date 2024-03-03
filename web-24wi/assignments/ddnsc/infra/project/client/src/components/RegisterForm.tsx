@@ -44,8 +44,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ showPassword, togglePasswor
                     id="register_username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    required
-                    autoComplete="username"
+                    required autoComplete="username"
                 />
 
                 <label htmlFor="register_password">Password</label>
@@ -54,8 +53,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ showPassword, togglePasswor
                     id="register_password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required
-                    autoComplete="new-password"
+                    required autoComplete="new-password"
                 />
                 <label>
                     <input

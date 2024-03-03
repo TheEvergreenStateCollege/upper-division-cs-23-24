@@ -1,4 +1,4 @@
-import prisma  from "../db"
+import prisma  from "../db/db"
 
 export const getOneUpdate = async (req, res) => {
     const update = await prisma.update.findUnique({

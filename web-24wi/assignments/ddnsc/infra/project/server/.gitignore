@@ -39,9 +39,9 @@ node_modules
 # .idea/artifacts
 # .idea/compiler.xml
 # .idea/jarRepositories.xml
-# .idea/modules.xml
+# .idea/auth.xml
 # .idea/*.iml
-# .idea/modules
+# .idea/auth
 # *.iml
 # *.ipr
 
