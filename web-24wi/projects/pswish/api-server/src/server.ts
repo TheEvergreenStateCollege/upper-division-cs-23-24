@@ -47,4 +47,14 @@ app.get("/maps", (req, res) => {
   res.sendFile(path.resolve("pages/maps.html"));
 });
 
+// custom error handling
+app.use((err, req, res, next) => {
+  if (err.type === 'auth') {
+    res.status(401).json({message:'Authentication failed'})
+  } else if (err.type === 'input')  {
+    res.status(400).json({message: 'Invalid input'})
+  } else {
+    res.status(500).json({message: 'Internal server error, check with system administrator for stack trace'})
+      }})
+
 export default app;
