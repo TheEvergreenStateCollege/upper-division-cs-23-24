@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
+import axios, { AxiosError } from 'axios';
 
 interface LoginFormProps {
     showPassword: boolean;
@@ -10,9 +11,25 @@ const LoginForm: React.FC<LoginFormProps> = ({ showPassword, togglePasswordVisib
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = (event: FormEvent) => {
+    const handleLogin = async (event: FormEvent) => {
         event.preventDefault();
-        // Login logic
+
+        try {
+            const response = await axios.post('http://localhost:5000/login', {
+                username,
+                password,
+            });
+
+            // Handle successful login
+            console.log('Login successful:', response.data);
+        } catch (error: unknown) {
+            // Explicitly type the error as AxiosError
+            if (axios.isAxiosError(error)) {
+                console.error('Login error:', error.response?.data);
+            } else {
+                console.error('An unknown error occurred:', error);
+            }
+        }
     };
 
     const handleWebAuthnLogin = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
