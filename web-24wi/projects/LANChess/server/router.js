@@ -2,7 +2,7 @@ import { Router } from "express";
 import { body, validationResult } from "express-validator";
 import { handleInputErrors } from "./modules/middleware.js";
 import { getOneUser, getUsers, updateUser, deleteUser, createNewUser } from "./handlers/user.js";
-import { deleteGame, getGames, getOneGame, postGame, updateGame } from "./handlers/game.js";
+import { deleteGame, getGames, getGameHistory, getOneGame, postGame, updateGame } from "./handlers/game.js";
 import { createMove, getMoves } from "./handlers/move.js";
 import { createGameParticipant } from "./handlers/game_participants.js";
 
