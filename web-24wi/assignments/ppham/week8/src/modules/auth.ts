@@ -40,10 +40,17 @@ export const protect = ( req: Request, res: Response, next: NextFunction ) => {
     return;
   }
 
+  interface TokenPayload {
+    id: Number,
+    username: string,
+    iat: number,
+  }
   try {
     const authenticationToken: string | JwtPayload = jwt.verify(token, process.env.JWT_SECRET!);
+    const payload = jwt.decode(token, { json: true });
+
     if (!req.user) {
-      req.user = { authenticationToken };
+      req.user = { authenticationToken, id: payload!.id };
     } else {
       req.user.authenticationToken = authenticationToken;
     }

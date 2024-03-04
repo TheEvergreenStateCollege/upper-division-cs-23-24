@@ -2,7 +2,7 @@
 
 if [ -z "$(which autossh)" ]; then 
   sudo apt update
-  sudo apt install -y autossh 
+  sudo apt install -y autossh jq
 fi
 
 TOKEN=$(cat .env | grep "TOKEN" | cut -d "'" -f 2)
