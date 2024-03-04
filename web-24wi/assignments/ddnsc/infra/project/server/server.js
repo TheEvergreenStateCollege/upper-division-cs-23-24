@@ -1,26 +1,22 @@
 const express = require("express");
 const app = express();
-const port = 5000;
+const cors = require("cors");
 const path = require("path");
 
-app.use(express.static("static"));
+const port = process.env.PORT || 5000;
+const buildPath = path.join(__dirname, "../client/build");
 
-/**
- * app.[method]([route], [route handler])
- */
-app.get("/", (req, res) => {
-  // sending back an HTML file that a browser can render on the screen.
-  res.sendFile(path.resolve("pages/index.html"));
+app.use(cors());
+
+// Serve static files from the 'build' directory
+app.use(express.static(buildPath));
+
+// Handle React routing, return all requests to React app
+app.get("*", (req, res) => {
+  res.sendFile(path.join(buildPath, "index.html"));
 });
 
-
-// Return search hit given :hit  URL route parameters
-app.get("/search-hit/:hit", (req, res) => {
-  // sending back an HTML file that a browser can render on the screen.
-  res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));
-});
-
-// creates and starts a server for our API on a defined port
+// Start the server
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Server is running on port ${port}`);
 });
