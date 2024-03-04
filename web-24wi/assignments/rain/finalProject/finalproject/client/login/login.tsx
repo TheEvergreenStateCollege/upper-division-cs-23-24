@@ -4,7 +4,7 @@ import React from "react";
 
 const Login = () => {
     return(
-    <Browser content= {<Form message={"Login"} urlTo={"signin"}></Form>}></Browser>
+    <Browser content= {<Form message={"Login"} urlTo={"/signin"}></Form>}></Browser>
     // <Browser content="test"></Browser>
     )
 }

@@ -1,14 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import Browser from "./browser"
-import "./styles.css";
+import Post from "../src/components/Post"
+import "../src/styles.css";
 import axios from 'axios';
-import Browser from "./components/browser";
-import Register from "./components/landForm";
-import Profile from "./components/profile";
-import Desktop from "./Desktop";
-import Post from "./components/Post"
-import Menu from "./components/menu";
 
 
 // const apiCall = () => {
@@ -22,7 +16,7 @@ import Menu from "./components/menu";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Desktop/>
+    <Post />
   </React.StrictMode>,
 );
 

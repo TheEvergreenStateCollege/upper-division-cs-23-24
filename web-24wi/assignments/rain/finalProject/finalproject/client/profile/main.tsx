@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Browser from "./browser";
-import "./styles.css";
+import Profile from "../src/components/profile"
+import "../src/styles.css";
 import axios from 'axios';
 
 
@@ -16,7 +16,7 @@ import axios from 'axios';
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Browser />
+    <Profile />
   </React.StrictMode>,
 );
 
