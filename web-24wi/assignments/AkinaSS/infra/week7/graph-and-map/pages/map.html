@@ -13,6 +13,7 @@
     <script defer type="module">
         //From https://observablehq.com/@d3/zoom-to-bounding-box?intent=fork
         import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+        import * as USmap from "https://indira.arcology.builders/us.json";
 
         function getSVGNode(us) {
             const width = 975;
@@ -46,11 +47,11 @@
         }
 
         const main = async () => {
-            const response = await fetch("/us.json");
+            const response = await fetch("https://indira.arcology.builders/us.json");
             const us = await response.json();
             const svgNode = getSVGNode(us);
             const mapDiv = document.getElementById("map");
-            mapDiv.appendChild(svgNode)
+            mapDiv.appendChild(svgNode);
         }
         main();
     </script>

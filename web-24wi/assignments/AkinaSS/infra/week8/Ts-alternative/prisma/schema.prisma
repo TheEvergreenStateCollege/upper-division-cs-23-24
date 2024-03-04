@@ -11,21 +11,11 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
+  id        Int    @id @default(autoincrement())
   createdAt DateTime  @default(now())
   username  String    @unique
   password  String
-  Product   Product[]
-}
-
-model Product {
-  id          String   @id @default(uuid())
-  createdAt   DateTime @default(now())
-  name        String   @db.VarChar(255)
-  belongsTo   User     @relation(fields: [belongsToId], references: [id])
-  belongsToId String
-  updates     Update[]
-  @@unique([id, belongsToId])
+  uscity    uscity[]
 }
 
 enum UPDATE_STATUS {
@@ -33,33 +23,42 @@ enum UPDATE_STATUS {
   LIVE
   DEPRECATED
   ARCHIVED
-  SHIPPED
 }
 
 model Update {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime
 
   title   String        @db.VarChar(255)
   body    String
   status  UPDATE_STATUS @default(IN_PROGRESS)
   version String?
-  asset   String?
+  asset   String
 
   productId    String
-  product      Product       @relation(fields: [productId], references: [id])
   updatePoints UpdatePoint[]
+  userId       String?
 }
 
 model UpdatePoint {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime
 
   name        String @db.VarChar(255)
   description String
 
   updateId String
   update   Update @relation(fields: [updateId], references: [id])
+}
+
+model uscity {
+  id    Int     @id @default(autoincrement())
+  name  String    @db.VarChar(255)
+  createdAt   DateTime    @default(now())
+  latitude    Float
+  longtitude  Float
+  authorId    Int
+  User    User    @relation(fields: [authorId], references: [id])
 }

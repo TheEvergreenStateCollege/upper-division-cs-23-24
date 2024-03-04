@@ -11,8 +11,13 @@ app.use(express.json());
 /* app.[method]([route], [route handler]) */
 app.get("/", (req, res) => {
   // sending back an HTML file that a browser can render on the screen.
-  res.sendFile(path.resolve("pages/index.html"));
+  res.sendFile(path.resolve("pages/graph.html"));
 });
+
+app.get("/maps", (req, res) => {
+	// sending back an HTML file that a browser can render on the screen.
+	res.sendFile(path.resolve("pages/maps.html"));
+  });
 
 // creates and starts a server for our API on a defined port
 app.listen(port, () => {console.log(`Example app listening at http://localhost:${port}`);});
@@ -53,18 +58,12 @@ app.post("/user", async (req, res) => {
 	}
 });
 
-/*app.get("/randomGraph", async (req, res) => {
+app.get("/randomGraph", async (req, res) => {
 	let results = [];
 	for (let i = 0; i < 10; i++) {
 		results.push({"day": i, "stepCount": Math.round(Math.random() * 1000)});
 	}
 	res.json({ results });
-	res.sendFile(path.resolve("pages/graph.html"));
-});*/
-
-app.get("/maps", (req, res) => {
-	// sending back an HTML file that a browser can render on the screen.
-	res.sendFile(path.resolve("pages/maps.html"));
 });
 
 console.log(Object.keys(prisma));
@@ -73,7 +72,7 @@ app.get("/users", async (req, res) => {
 	const allUsers = await prisma.user.findMany();
 	res.json(allUsers);
 });
-  
+
 app.post("/user", async (req, res) => {
 	const result = await prisma.user.create({
 		data: {
@@ -83,12 +82,12 @@ app.post("/user", async (req, res) => {
 	});
 	res.json(result)
 });
-  
+
 app.get("/cities", async (req, res) => {
 	const allCities = await prisma.uscity.findMany();
 	res.json(allCities);
 });
-  
+
 app.post("/city", async (req, res) => {
 	const result = await prisma.uscity.create({
 		data: {

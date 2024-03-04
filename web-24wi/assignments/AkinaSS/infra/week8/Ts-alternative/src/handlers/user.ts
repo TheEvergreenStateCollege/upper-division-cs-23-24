@@ -1,7 +1,7 @@
+import prisma from "../db";
 import { createJWT, hashPassword, comparePasswords } from "../modules/auth";
-import { PrismaClient } from "@prisma/client";
+import { Prisma, User } from "@prisma/client";
 
-const prisma = new PrismaClient()
 export const createNewUser = async (req, res) => {
   const hash = await hashPassword(req.body.password);
 
@@ -16,10 +16,21 @@ export const createNewUser = async (req, res) => {
   res.json({ token });
 };
 
+export const getAllUsers = async (req, res) => {
+  const allUsers: User[] = await prisma.user.findMany();
+  res.json(allUsers);
+};
+
 export const signin = async (req, res) => {
     const user = await prisma.user.findUnique({
       where: { username: req.body.username },
     });
+
+    if (!user) {
+      res.status(401);
+      res.send("Invalid username or password");
+      return;
+    }
   
     const isValid = await comparePasswords(req.body.password, user.password);
   
