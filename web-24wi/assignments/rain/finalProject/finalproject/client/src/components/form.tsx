@@ -1,12 +1,17 @@
 //import { Button } from "./components/Button"
 import React from "react"
+interface FormProps {
+    message: string;
+    urlTo: string
+}
+
 const Form = ({message, urlTo}: {message:any, urlTo:any}) => {
 //const message = props
 //change button class to custom
 
 
 return (
-    <form action={urlTo} method="post">
+    <form className="text-black" action={urlTo} method="post">
         <label htmlFor="uname">User Name:</label>
         <input className=" mx-2 mt-20 px-2 border border-cus min-w-40" type="text" autoComplete="username" name="Username" id="uname"/><br></br>
         <label htmlFor="pword">Password:</label>

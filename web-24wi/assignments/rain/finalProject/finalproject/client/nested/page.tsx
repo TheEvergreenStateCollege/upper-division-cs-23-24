@@ -4,7 +4,7 @@ import React from "react";
 
 const Register = () => {
     return(
-    <Browser content= {<Form message={"Register"} urlTo={"user"}></Form>}></Browser>
+    <Browser content= {<Form message={"Register"} urlTo={"/user"}></Form>}></Browser>
     // <Browser content="test"></Browser>
     )
 }

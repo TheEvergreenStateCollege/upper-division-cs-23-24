@@ -27,6 +27,7 @@ app.get('/', (req,res) => {
     //     res.redirect("/api/profile")
     // }
     // else{
+        console.log("test")
         res.sendFile(path.resolve("../client/dist/index.html"))
     
     // fetch('http://localhost:5173')

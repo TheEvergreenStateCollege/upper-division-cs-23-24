@@ -6,7 +6,12 @@ module.exports = {
     extend: {
       colors: {
         bargray: '#808080',
-        panelgray: '#c0c0c0'
+        invbar:  '#7f7f7f',
+        panelgray: '#c0c0c0',
+        invpan: '#3f3f3f',
+        backblue: '#008080',
+        invert: '#ff7f7f'
+
 
       }
     
