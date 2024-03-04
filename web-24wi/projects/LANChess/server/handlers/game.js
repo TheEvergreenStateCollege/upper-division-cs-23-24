@@ -2,30 +2,39 @@ import { Status } from "@prisma/client";
 import prisma from "../db.js";
 
 export const getOneGame = async (req, res) => {
-    const game = await prisma.game.findFirst({
+    const result = await prisma.game.findFirst({
         where: {
             id: req.params.id,
         }
     });
-    res.json({ data: game });
+    res.json({ data: result });
 }
 
 // get games filtered by status
 export const getGames = async (req, res) => {
-    const users = await prisma.game.findMany({
+    const result = await prisma.game.findMany({
         where: {
             status: req.body.status,
         }
     });
-    res.json({ data: users });
+    res.json({ data: result });
 }
 
+export const getGameHistory = async (req, res) => {
+    const result = await prisma.user.findUnique({
+        where: {
+            id: req.body.id,
+        }
+    }).games()
+
+    res.json({ data: result })
+}
 // does this need to be api or just a function of the server?
 export const postGame = async (req, res) => {
-    const game = await prisma.game.create({
+    const result = await prisma.game.create({
         data: {}
     });
-    res.json({ game });
+    res.json({ data: result });
 }
 
 //updates status of a game stats: enum { COMPLETE, WAITING, ONGOING }

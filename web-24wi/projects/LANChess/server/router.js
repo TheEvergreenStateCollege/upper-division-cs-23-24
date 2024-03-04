@@ -17,7 +17,8 @@ router.post("/users", createNewUser); //Didn't see this here yet, figured I'd ad
 
 // game api
 router.get("/games/:id", getOneGame);
-router.get("/games", getGames);
+router.get("/games", body("status").isString(), handleInputErrors, getGames);
+router.get("/game-history", body("userid").isString(), handleInputErrors, getGameHistory);
 router.post("/games", postGame);
 router.put("/games/:id", updateGame);
 router.delete("/games/:id", deleteGame);

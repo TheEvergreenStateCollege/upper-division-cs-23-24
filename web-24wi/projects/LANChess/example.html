@@ -10,7 +10,16 @@
         <button id="submit">Submit</button>
     </form>
 </div>
+<div id="game-selection" class="container" style="display: none;">
+    <select id="game-history" Name="Game History" Size=10> 
+    </select>
+</div>
 <script>
+    // after succesful login activate game form and fetch data
+    function activateGameForm() {
+        document.getElementById("game-selection").style.display = "flex";
+    };
+
     const proto = window.location.protocol === "https:" ? "wss" : "ws";
     const ws = new WebSocket(`${proto}://${window.location.host}`);
     ws.onopen = (event) => {
@@ -20,27 +29,27 @@
         console.error;
     }
     ws.onmessage = (event) => {
-        event.data.text().then(txt=>console.log(txt));
+        console.log(event.data);
     }
-    const button = document.getElementById("submit");
+    const login_button = document.getElementById("submit");
     const username = document.getElementById("input-username");
     const password = document.getElementById("input-password");
-    button.addEventListener("click", async (event) => {
+    login_button.addEventListener("click", async (event) => {
         event.preventDefault();
         console.log(username.value);
         console.log(password.value);
-        const res = await fetch("http://localhost:5000/login", {
+        const res = await fetch("login", {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json",
             },
             "body": JSON.stringify({"username": username.value, "password": password.value}),
         });
-        console.log(JSON.stringify(res))
-        const jsonBody = res.json();
-        console.log(`Response ${JSON.stringify(jsonBody)}`);
+        const result = await res.json();
+        const token = result["token"];
+        localStorage.setItem("token", token);    
+        activateGameForm();
     });
-
 
 </script>
 
