@@ -69,8 +69,8 @@ app.post("/auth/register", async (req, res) => {
 		//prisma.user.create({data: user});
 		const newUser = await prisma.user.create({
 			data: {
-				username: req.body.username,
 				password: hash,
+				username: req.body.username,
 			},
 		});
 		res.send({ok:true});
@@ -170,8 +170,6 @@ async function indexMusic() {
 				song.title = title;
 				song.artist = artist;
 				song.filename = file;
-
-				console.log(JSON.stringify(song));
 				musicList.push(song);
 			}
 		}

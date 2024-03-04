@@ -55,8 +55,8 @@
             <div id="auth-window">
                 <form id="loginForm" onsubmit="handleAuthForm(event, 'login')">
                     <fieldset>
-                        <label for="login-email">E-mail</label>
-                        <input placeholder="email" id="login-email" required autocomplete="username">
+                        <label for="login-username">Username</label>
+                        <input placeholder="username" id="login-username" required autocomplete="username">
                         <section id="login-password-section">
                             <label for="login-password">Password</label>
                             <input type="password" id="login-password" autocomplete="webauthn current-password">
@@ -66,8 +66,8 @@
                 </form>
                 <form id="registerForm" onsubmit="handleAuthForm(event, 'register')">
                     <fieldset>
-                        <label for="register-email">E-mail</label>
-                        <input placeholder="email" id="register-email" required type="email" autocomplete="username">
+                        <label for="register-username">Username</label>
+                        <input placeholder="username" id="register-username" required type="username" autocomplete="username">
                         <section id="register-password-section">
                             <label for="register-password">Password</label>
                             <input type="password" id="register-password">
