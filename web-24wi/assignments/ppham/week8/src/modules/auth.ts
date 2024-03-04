@@ -1,7 +1,8 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
-import { Request, Response, NextFunction } from 'express';
+import { Response, NextFunction } from 'express';
+import { Request } from '../types/express';
 import { User } from '@prisma/client';
 
 export const comparePasswords = async (password: string, hash: string): Promise<boolean> => {

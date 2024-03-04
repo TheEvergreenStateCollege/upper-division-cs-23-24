@@ -17,7 +17,7 @@ export const createNewUser = async ( req: Request, res: Response ) => {
   
   } catch(e) {
     res.status(401);
-    res.json({ message: `username ${req.body.username} not found` });
+    res.json({ message: `username ${req.body.username} already exists. Try logging in.` });
   }
 }
 

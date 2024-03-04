@@ -1,7 +1,5 @@
 import { User } from "../custom";
-
-// to make the file a module and avoid the TypeScript error
-export {}
+import { Request } from "express";
 
 declare global {
   namespace Express {
@@ -9,4 +7,9 @@ declare global {
       user?: User;
     }
   }
+}
+
+// to make the file a module and avoid the TypeScript error
+export {
+  Request
 }
