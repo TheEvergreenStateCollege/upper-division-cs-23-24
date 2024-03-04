@@ -36,7 +36,7 @@ const prisma = new PrismaClient();
 // });
 
 //New authentication system
-app.post("/auth/login", (req, res) => {
+app.post("/auth/login", async (req, res) => {
 	console.log(req.body);
 	const user = findUser(req.body.email);
 	if (user) {
@@ -52,26 +52,31 @@ app.post("/auth/login", (req, res) => {
 		res.send({ok: false, message: 'User does not exist'});
 	}
 });
-app.post("/auth/register", (req, res) => {
+app.post("/auth/register", async (req, res) => {
 	console.log(req.body);
 	const salt = bcrypt.genSaltSync(10);
 	const hash = bcrypt.hashSync(req.body.password, salt);
-	const user = {
-		email: req.body.email,
-		password: hash
-	};
+	// const user = {
+	// 	email: req.body.email,
+	// 	password: hash
+	// };
 	const userFound = findUser(req.body.email);
 	if (userFound) {
 		console.log("register: user already exists");
 		res.send({ok:false, message: 'User already exists'});
 	} else {
 		console.log("register: success");
-		prisma.user.create({data: user});
+		//prisma.user.create({data: user});
+		const newUser = await prisma.user.create({
+			data: {
+				email: req.body.email,
+				password: hash,
+			},
+		});
 		res.send({ok:true});
 	}
 });
 function findUser(email) {
-	console.log(prisma.user.findFirst());
 	const matchingUsers = prisma.user.findMany({
 		where: {
 			email: {
