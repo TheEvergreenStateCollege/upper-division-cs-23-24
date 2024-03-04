@@ -3,9 +3,11 @@ import router from './router'
 import morgan from 'morgan'
 import path from 'path'
 import { protect } from './modules/auth'
-import { createNewUser, signin } from './handlers/user'
+import { createNewUser, signin, deletUser, updateUser, updatePass } from './handlers/user'
 import cors from 'cors'
 import bycrypt from 'bcrypt'
+import  cookieParser from 'cookie-parser'
+
 // import fetch from 'node-fetch'
 
 const app = express()
@@ -15,44 +17,44 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('../client/dist'))
+app.use (cookieParser())
 
 app.get('/', (req,res) => {
-    res.status(200)
+    // console.log(req.cookies['user'])
+    // console.log("test")
+    // if(req.cookies['user']){
+    //     console.log("already signed in")
+    //     res.redirect("/api/profile")
+    // }
+    // else{
+        res.sendFile(path.resolve("../client/dist/index.html"))
+    
     // fetch('http://localhost:5173')
-    res.sendFile(path.resolve("../client/dist/index.html"))
+    
 })
 
 app.get('/entry', (req,res) => {
-    res.status(200)
+
+        res.sendFile(path.resolve("../client/dist/nested/index.html"))
+    
     // fetch('http://localhost:5173')
-    res.sendFile(path.resolve("../client/dist/nested/index.html"))
+    
 })
 
 app.get('/landing', (req,res) => {
-    res.status(200)
+
+        res.sendFile(path.resolve("../client/dist/landing/index.html"))
+   
     // fetch('http://localhost:5173')
-    res.sendFile(path.resolve("../client/dist/landing/index.html"))
+   
 })
 
-// app.post('auth/register', (req,res) => {
-//     var salt = bycrypt.genSaltSync(10);
-//     var hash = bycrypt.hashSync(req.body.password, salt);
-
-//     const user = {
-//         username: req.body.username,
-//         password: hash
-//     };
-    
-// })
-
-// app.get('/', (req,res) => {
-//     res.status(200)
-//     res.send('Hello from our server!')
-// })
-
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'privacy.html'))
-// })
+app.get('/post', (req,res) => {
+    res.sendFile(path.resolve("../client/dist/post/index.html"))
+    res.status(200)
+    // fetch('http://localhost:5173')
+   
+})
 
 
 app.get('/bluescreen', (req,res) => {
@@ -61,13 +63,20 @@ app.get('/bluescreen', (req,res) => {
 })
 
 app.get('/login', (req,res) => {
-    res.status(200)
-    res.sendFile(path.resolve("../client/dist/login/index.html"))
+
+        res.sendFile(path.resolve("../client/dist/login/index.html"))
+    
+    
 })
+
+
 
 app.use('/api', protect, router)
 
 app.post('/user', createNewUser) 
 app.post('/signin', signin)
+
+
+
 
 export default app

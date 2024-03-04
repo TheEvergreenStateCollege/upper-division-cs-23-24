@@ -20,14 +20,15 @@ export const createJWT = (user) => {
 }
 
 export const protect = (req, res, next) => {
-    const bearer = req.headers.authorization
+    const bearer = req.cookies['token']
     if(!bearer) {
         res.status(401)
         res.json({message: 'not authorized'})
         return
     }
 
-    const [, token] = bearer.split(' ');
+    const [token] = bearer.split(' ');
+
     if (!token) {
         res.status(401);
         res.json({message: 'invalid token'});

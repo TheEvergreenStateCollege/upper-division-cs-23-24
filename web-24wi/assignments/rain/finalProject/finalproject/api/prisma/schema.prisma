@@ -11,18 +11,19 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
-  createdAt DateTime  @default(now())
-  username  String    @unique
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  username  String   @unique
   password  String
-  products  Product[]
+  posts     Post[]
 }
 
-model Product {
+model Post {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
 
   name        String   @db.VarChar(255)
+  body        String   @db.VarChar(1024)
   belongsToId String
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
   updates     Update[]
@@ -47,8 +48,8 @@ model Update {
   version String?
   asset   String?
 
-  productId    String
-  product      Product       @relation(fields: [productId], references: [id])
+  postId       String
+  post         Post          @relation(fields: [postId], references: [id])
   updatePoints UpdatePoint[]
 }
 
@@ -63,4 +64,3 @@ model UpdatePoint {
   updateId String
   update   Update @relation(fields: [updateId], references: [id])
 }
-
