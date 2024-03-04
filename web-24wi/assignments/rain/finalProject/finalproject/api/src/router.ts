@@ -1,19 +1,37 @@
 import {Router} from 'express'
 import { body, oneOf, validationResult } from 'express-validator'
 import { handleInputErrors } from './modules/middleware'
-import { createProduct, getProduct, getProducts } from './handlers/products'
+import { createPost, getPost, getPosts, updatePost, deletPost } from './handlers/posts'
+import { createNewUser, signin, deletUser, updateUser, updatePass } from './handlers/user'
+import path from 'path'
 
 const router = Router()
+//user
 
-//product
-router.get('/product', getProducts)
 
-router.get('/product/:id', () => {})
-router.put('/product/:id', body('name'),handleInputErrors, (req, res) => {
+router.get('/profile', (req,res) => {
+    res.status(200)
+    res.sendFile(path.resolve("../client/dist/profile/index.html"))
+})
+
+router.post('/delete', deletUser)
+
+router.post('/updateUser', updateUser)
+
+router.post('/updatePass', updatePass)
+
+router.post('/post', createPost)
+
+router.get('/posts', getPosts)
+
+router.get('/post', getPosts)
+
+router.get('/post/:id', () => {})
+router.put('/post/:id', body('name'),handleInputErrors, (req, res) => {
     
 })
-router.post('/product',body('name').isString(), handleInputErrors,createProduct)
-router.delete('/product/:id', () => {})
+router.post('/post',body('name').isString(), handleInputErrors,createPost)
+router.delete('/post/:id', () => {})
 
 //update
 router.get('/update', () => {})
@@ -28,7 +46,7 @@ router.put('/update/:id',
 router.post('/update', 
     body('title').exists().isString(),
     body('body').exists().isString(),
-    body('productId').exists().isString(),
+    body('postId').exists().isString(),
   )
 router.delete('/update/:id', () => {})
 
