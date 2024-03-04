@@ -108,23 +108,12 @@ async function makePostRequest(user, method) {
     }
 }
 
+ //This handles loggin in and registering by getting from the correct inputs
 async function handleAuthForm(event, method) {
     event.preventDefault()
-    let usernameInput;
-    let passwordInput;
-    switch (method) {
-        case 'login':
-            usernameInput = document.getElementById("login-username").value;
-            passwordInput = document.getElementById("login-password").value;
-            break;
-        case 'register':
-            usernameInput = document.getElementById("register-username").value;
-            passwordInput = document.getElementById("register-password").value;
-            break;
-    }
     const user = {
-        username: usernameInput,
-        password: passwordInput,
+        username: document.getElementById(method + "-username").value,
+        password: document.getElementById(method + "-password").value,
     }
     makePostRequest(user, method);
 }
