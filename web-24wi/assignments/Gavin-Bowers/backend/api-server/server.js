@@ -38,11 +38,11 @@ const prisma = new PrismaClient();
 //New authentication system
 app.post("/auth/login", async (req, res) => {
 	console.log(req.body);
-	const user = findUser(req.body.email);
+	const user = findUser(req.body.username);
 	if (user) {
 		if (bcrypt.compareSync(req.body.password, user.password)) {
 			console.log("login: success");
-			res.send({ok: true, email: user.email});
+			res.send({ok: true, username: user.username});
 		} else {
 			console.log("login: invalid password");
 			res.send({ok: false, message: 'Data is invalid'});
@@ -57,10 +57,10 @@ app.post("/auth/register", async (req, res) => {
 	const salt = bcrypt.genSaltSync(10);
 	const hash = bcrypt.hashSync(req.body.password, salt);
 	// const user = {
-	// 	email: req.body.email,
+	// 	username: req.body.username,
 	// 	password: hash
 	// };
-	const userFound = findUser(req.body.email);
+	const userFound = findUser(req.body.username);
 	if (userFound) {
 		console.log("register: user already exists");
 		res.send({ok:false, message: 'User already exists'});
@@ -69,19 +69,18 @@ app.post("/auth/register", async (req, res) => {
 		//prisma.user.create({data: user});
 		const newUser = await prisma.user.create({
 			data: {
-				email: req.body.email,
-				username: req.body.email,
+				username: req.body.username,
 				password: hash,
 			},
 		});
 		res.send({ok:true});
 	}
 });
-function findUser(email) {
+function findUser(username) {
 	const matchingUsers = prisma.user.findMany({
 		where: {
-			email: {
-				equals: email,
+			username: {
+				equals: username,
 			},
 		}
 	});
