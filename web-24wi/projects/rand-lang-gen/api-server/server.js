@@ -17,7 +17,7 @@ app.use(express.static("static"));
  */
 app.get("/", (req, res) => {
   // sending back an HTML file that a browser can render on the screen.
-  res.sendFile(path.resolve("pages/graph.html"));
+  res.sendFile(path.resolve("pages/index.html"));
 });
 app.get("/randomGraph", async (req, res) => {
 	let results = [];

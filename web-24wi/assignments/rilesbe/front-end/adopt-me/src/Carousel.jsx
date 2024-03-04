@@ -16,6 +16,7 @@ class Carousel extends Component {
   };
 
   render() {
+    throw new Error("roflcopter error");
     const { active } = this.state;
     const { images } = this.props;
     return (

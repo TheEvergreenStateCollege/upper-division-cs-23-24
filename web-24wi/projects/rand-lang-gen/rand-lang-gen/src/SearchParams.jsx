@@ -1,0 +1,1 @@
+//create interface for home screen, be able to select a language from dropdown, if not selected randomly select one, 
