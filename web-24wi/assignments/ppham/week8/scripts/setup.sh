@@ -1,5 +1,7 @@
 #/usr/bin/env bash 
 
+set -x
+
 if [ -z "$(which autossh)" ]; then 
   sudo apt update
   sudo apt install -y autossh jq
@@ -17,7 +19,7 @@ fi
 if [ -e "./id_ecdsa.pub" ]; then 
   echo "You've already retrieved a public key."
 else
-  curl -s -X GET http://localhost:5000/api/ssh-key \
+  curl -s -X GET https://indira.arcology.builders/api/ssh-key \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${TOKEN}" \
     -o id_ecdsa.pub
@@ -28,9 +30,9 @@ fi
 # Get an SSH keypair after logging in 
 autossh -M 30001 -o ControlMaster=auto -o ControlPath=/tmp/mysshcontrolpath -fNT -L 5432:localhost:5432 -i ./id_ecdsa ubuntu@indira.arcology.builders 
 
+npm i -g pnpm
 pnpm setup
-source ~/.bashrc
-pnpm i -g ts-node
+source ~/.bashrc; pnpm i -g ts-node
 pnpm i
 
 ts-node src/index.ts

@@ -28,7 +28,7 @@ export const protect = ( req: Request, res: Response, next: NextFunction ) => {
 
   if (!bearer) {
     res.status(401);
-    res.json({ message: "not authorized" });
+    res.json({ message: "not authorized; Authorization header missing" });
     return;
   }
 
@@ -36,7 +36,7 @@ export const protect = ( req: Request, res: Response, next: NextFunction ) => {
 
   if (!token) {
     res.status(401);
-    res.json({ message: "not valid token" });
+    res.json({ message: "not valid token; token in header was missing" });
     return;
   }
 
