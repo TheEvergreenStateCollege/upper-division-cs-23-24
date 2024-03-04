@@ -69,3 +69,22 @@ enum UPDATE_STATUS {
   DEPRECATED
   ARCHIVED
 }
+
+model User {
+  id      Int       @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  username  String  @unique
+  password  String
+  UsCity    UsCity[]
+}
+
+model USCity{
+  id    Int   @id @default(autoincrement())
+  name  String  @db.VarChar(255)
+  createdAt DateTime  @default(now())
+  latitude   Float
+  longitude  Float
+  autorId   Int
+  User  User  @relation(fields: [authorId], references: [id])
+
+}

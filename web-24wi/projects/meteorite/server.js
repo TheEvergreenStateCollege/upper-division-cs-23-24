@@ -33,11 +33,12 @@ app.post("/user", async (req, res) => {
 	const newUser = await prisma.user.create({
 		data: {
 			username: req.body.username,
-			password: '',
+			password: req.body.passwrord,
 },
 });
 
-console.log("created"); 
+res.json(result);
+//console.log("created"); 
 });
 
 // Return search hit given :hit  URL route parameters
@@ -103,6 +104,22 @@ app.get("/fetchUSData", async (req, res) => {
     console.error("Error fetching US data:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
+});
+
+app.get("/cities", async (req, res) => {
+    const allCities = await prisma.uSCity.findMany();
+    res.json(allCities);
+});
+
+app.post("/city", async (req, res) => {
+    const result = await prisma.uSCity.create({
+        data: {
+          longitude: Number(req.body.longitude),
+          latitude: Number(req.body.latitude),
+          authorId: Number(req.body.authorId),
+        }
+    });
+    res.json(result);
 });
 
 server.on('error', (error) => {
