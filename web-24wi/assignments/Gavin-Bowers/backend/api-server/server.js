@@ -37,6 +37,7 @@ const prisma = new PrismaClient();
 
 //New authentication system
 app.post("/auth/login", async (req, res) => {
+	res.set('Access-Control-Allow-Origin', '*');
 	console.log(req.body);
 	const user = findUser(req.body.username);
 	if (user) {
@@ -53,6 +54,7 @@ app.post("/auth/login", async (req, res) => {
 	}
 });
 app.post("/auth/register", async (req, res) => {
+	res.set('Access-Control-Allow-Origin', '*');
 	console.log(req.body);
 	const salt = bcrypt.genSaltSync(10);
 	const hash = bcrypt.hashSync(req.body.password, salt);
