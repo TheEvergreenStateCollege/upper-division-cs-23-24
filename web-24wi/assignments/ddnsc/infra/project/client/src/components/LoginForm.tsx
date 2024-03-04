@@ -22,12 +22,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ showPassword, togglePasswordVisib
 
             // Handle successful login
             console.log('Login successful:', response.data);
-        } catch (error: unknown) {
-            // Explicitly type the error as AxiosError
-            if (axios.isAxiosError(error)) {
-                console.error('Login error:', error.response?.data);
+        } catch (error) {
+            // Check if the error is an AxiosError and if it has a response
+            if (axios.isAxiosError(error) && error.response) {
+                // Handle login error
+                console.error('Login error:', error.response.data);
             } else {
-                console.error('An unknown error occurred:', error);
+                // Handle other types of errors
+                console.error('Unexpected error:', error);
             }
         }
     };

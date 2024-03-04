@@ -1,4 +1,5 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState, FormEvent } from 'react';
+import axios from 'axios';
 
 interface RegisterFormProps {
     showPassword: boolean;
@@ -10,17 +11,26 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ showPassword, togglePasswor
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleRegister = (event: FormEvent) => {
+    const handleRegister = async (event: FormEvent) => {
         event.preventDefault();
 
-        console.log('Email:', email);
-        console.log('Username:', username);
-        console.log('Password:', password);
+        try {
+            const response = await axios.post('http://localhost:5000/register', {
+                email,
+                username,
+                password,
+            });
 
-        // Reset form fields after registration
-        setEmail('');
-        setUsername('');
-        setPassword('');
+            // Handle successful registration
+            console.log('Registration successful:', response.data);
+        } catch (error: any) {
+            // Handle registration error
+            if (error.response && error.response.data) {
+                console.error('Registration error:', error.response.data);
+            } else {
+                console.error('Unexpected error:', error.message);
+            }
+        }
     };
 
     return (
@@ -29,7 +39,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ showPassword, togglePasswor
                 <label htmlFor="register_email">Email</label>
                 <input
                     type="email"
-                    placeholder="email"
+                    placeholder="Email"
                     id="register_email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -40,11 +50,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ showPassword, togglePasswor
                 <label htmlFor="register_username">Username</label>
                 <input
                     type="text"
-                    placeholder="username"
+                    placeholder="Username"
                     id="register_username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    required autoComplete="username"
+                    required
+                    autoComplete="username"
                 />
 
                 <label htmlFor="register_password">Password</label>
@@ -53,16 +64,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ showPassword, togglePasswor
                     id="register_password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required autoComplete="new-password"
+                    required
+                    autoComplete="new-password"
                 />
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={showPassword}
-                        onChange={togglePasswordVisibility}
-                    />
-                    Show Password
-                </label>
             </fieldset>
 
             <button type="submit">Register Account</button>
