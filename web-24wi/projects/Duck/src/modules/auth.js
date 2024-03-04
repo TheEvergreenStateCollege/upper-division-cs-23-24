@@ -1,6 +1,14 @@
 import jwt from "jsonwebtoken";
 import * as bcrypt from "bcrypt";
 
+export const comparePasswords = (password, hash) => {
+  return bcrypt.compare(password, hash);
+};
+
+export const hashPassword = (password) => {
+  return bcrypt.hash(password, 5);
+};
+
 export const createJWT = (user) => {
   const token = jwt.sign(
     { id: user.id, username: user.username },
@@ -38,12 +46,4 @@ export const protect = (req, res, next) => {
     res.send("Not authorized");
     return;
   }
-};
-
-export const comparePasswords = (password, hash) => {
-  return bcrypt.compare(password, hash);
-};
-
-export const hashPassword = (password) => {
-  return bcrypt.hash(password, 5);
 };

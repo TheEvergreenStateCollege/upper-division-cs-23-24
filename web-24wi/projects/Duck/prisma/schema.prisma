@@ -15,17 +15,17 @@ model User {
   createdAt DateTime  @default(now())
   username  String    @unique
   password  String
-  updates   Update[]
   Product   Product[]
 }
 
 model Product {
   id          String   @id @default(uuid())
   createdAt   DateTime @default(now())
-  name        String
+  name        String   @db.VarChar(255)
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
   belongsToId String
   updates     Update[]
+  @@unique([id, belongsToId])
 }
 
 enum UPDATE_STATUS {
@@ -33,30 +33,29 @@ enum UPDATE_STATUS {
   LIVE
   DEPRECATED
   ARCHIVED
+  SHIPPED
 }
 
 model Update {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updatedAt
 
   title   String        @db.VarChar(255)
   body    String
   status  UPDATE_STATUS @default(IN_PROGRESS)
   version String?
-  asset   String
+  asset   String?
 
   productId    String
   product      Product       @relation(fields: [productId], references: [id])
   updatePoints UpdatePoint[]
-  User         User?         @relation(fields: [userId], references: [id])
-  userId       String?
 }
 
 model UpdatePoint {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updatedAt
 
   name        String @db.VarChar(255)
   description String
