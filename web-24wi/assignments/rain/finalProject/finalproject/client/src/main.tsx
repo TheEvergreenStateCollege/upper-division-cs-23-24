@@ -25,7 +25,7 @@ import Filled from "./components/test";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Desktop/>
+    <Browser/>
   </React.StrictMode>,
 );
 

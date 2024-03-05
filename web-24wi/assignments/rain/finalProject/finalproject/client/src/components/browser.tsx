@@ -5,7 +5,7 @@ import Landing from "./landing"
 import WindowButtons from "./WindowButtons";
 
 
-function Browser ({content}: {content:any}) {
+function Browser ({content}: {content?:any}) {
   
   
  
@@ -64,7 +64,7 @@ function Browser ({content}: {content:any}) {
                 Discover
                 </button></div>
         </div>
-        <div className={` flex justify-stretch flex-col  ${panl} ${margb} ${margt} ${margr}  w-full border border-cus `}>
+        <div className={` flex justify-stretch flex-col  ${panl} ${margb} ${margr} ${margt} w-full border border-cus `}>
           <div className={`flex flex-row bg-bargray border-b  mx-1`}>
             
             <img className="object-contain" src="/static/inet.png"/>
