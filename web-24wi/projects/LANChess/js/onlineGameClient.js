@@ -21,14 +21,14 @@ var orientationBufferOnline;
 //Determine if it's user's turn to play?//
 function checkIfUsersTurnOnline() {
     if (userColorOnline === 'white') {
-        (turnCounterOnline % 2)=== 0 ? isItUsersTurnOnline = true : isItUsersTurnOnline = false;
-        
+        (turnCounterOnline % 1 == 0) ? isItUsersTurnOnline = true : isItUsersTurnOnline = false;
+        console.log(isItUsersTurnOnline);
     } else {
-        (turnCounterOnline % 1)=== 0 ? isItUsersTurnOnline = true : isItUsersTurnOnline = false;
-        
+        (turnCounterOnline % 1 == 0) ? isItUsersTurnOnline = true : isItUsersTurnOnline = false;
+        console.log(isItUsersTurnOnline);
     }
 
-console.log(isItUsersTurnOnline);
+    console.log(isItUsersTurnOnline);
 }
 
 //Render the board for an online game//
@@ -62,21 +62,15 @@ async function updateClientOnline(){
 //This function generates and store the FEN representation of the board as a string to be sent on the websocket.
 async function confirmMoveOnlineBtn() {
     if (isItUsersTurnOnline === true) {
-       
-        console.log('sending ' + onlineBoardCache); 
-    }
-    else {
+        console.log('sending ' + onlineBoardCache);
+        turnCounterOnline++;
+        console.log(turnCounterOnline);
+    } else {
         window.alert("It is not your turn.");
     }
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-//CALLS///////////////////////////////
-/////////////////////////////////////
-
+//CALLS//
 updateClientOnline();
 
