@@ -27,7 +27,7 @@ app.get("/home", (req, res) => {
 });
 
 app.get("/game", (req, res) => {
-    res.sendFile(path.resolve("gamePage.html"));
+    res.sendFile(path.resolve("onlineGamePage.html"));
 });
 app.get("/example", (req, res) => {
     res.sendFile(path.resolve("example.html"));
