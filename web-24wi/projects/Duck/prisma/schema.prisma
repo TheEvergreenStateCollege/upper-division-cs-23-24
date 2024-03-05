@@ -25,6 +25,7 @@ model Product {
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
   belongsToId String
   updates     Update[]
+
   @@unique([id, belongsToId])
 }
 
