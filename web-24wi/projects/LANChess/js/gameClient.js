@@ -1,43 +1,69 @@
 //gameClient.js
+const baseURL = 'http://localhost:5000';
+var defaultFEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const baseURL = 'http://localhost:5000';
-var draggable;
-var defaultFEN = 'start';
+//OFFLINE GAMES///////////////////////
+/////////////////////////////////////
 
-//Is the game active?//
+//SETTINGS//
 var gameActiveLocal = true; //This boolean represents whether or not a game is active or complete.
-var gameActiveOnline = true; //This boolean represents whether or not a game is active or complete.
-
-//What color is the user playing?//
-var userColorOnline = 'white';
-
-//Which color to play?//
-var colorToPlayLocal;
-var colorToPlayOnline = 'white';
-
-//Keeping track of turns//
-var turnCounterOnline = 0;
 var turnCounterLocal = 0;
+var colorToPlayLocal;
+var orientationBufferLocal;
 
-//FEN sent to opponent via websocket after confirming//
-var FENsentOnline = ''; 
+//FUNCTIONS//
 
-//FEN recieved from opponent via websocket to be rendered//
-var FENrecievedOnline = ''; 
+//Render the board for a local game//
+async function renderLocalBoard(boardCacheLocal, turnCounterLocal){
+    (turnCounterLocal % 2)=== 0 ? orientationBufferLocal = 'white' : orientationBufferLocal = 'black';
+    var config = {
+        //Static configurations
+        showNotation: false,
+        draggable: true,
+        moveSpeed: 'slow',
+        snapbackSpeed: 1000,
+        snapSpeed: 200,
+        dropOffBoard: 'snapback',
+        position: FEN, //This is the board state the user should always be seeing.
+        orientation: orientationBufferLocal //This should change dynamically depending on what side the player is playing as represented by the colorOfPiecesForUser as a string of either "White" or "Black".
+    };
+    boardCacheLocal = Chessboard('board', config);
+    return boardCacheLocal
+}
 
-//This is the state of the board at all times//
-var onlineBoardCache = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R';
+//Update the client in a local game//
+async function updateClientLocal(){
+    renderLocalBoard(boardCacheLocal, turnCounterLocal);
+}
+
+async function confirmMoveLocalBtn() {
+    turnCounterLocal++;
+    renderLocalBoard(); 
+}
+
+
+
+
+//ONLINE GAMES////////////////////////
+/////////////////////////////////////
+
+//SETTINGS//
+var gameActiveOnline = true; //This boolean represents whether or not a game is active or complete.
+var turnCounterOnline = 0; //Keeps track of number of turns in game.
+var isItUsersTurnOnline;
+
+var userColorOnline = 'white'; //Defines what color the user is playing.
+var colorToPlayOnline = 'white'; //Determines who's color it is to play.
+
+
+var onlineBoardCache = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
 var onlineBoardCacheFEN;
 
-//This is used to change the board orientation when needed//
-var orientationBufferLocal;
 var orientationBufferOnline;
 
-var isItUsersTurnOnline;
-var draggable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FUNCTIONS//
 
 //Determine if it's user's turn to play?//
 function checkIfUsersTurnOnline() {
@@ -50,11 +76,6 @@ function checkIfUsersTurnOnline() {
     }
 console.log(isItUsersTurnOnline);
 }
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Render the board for an online game//
 async function renderOnlineBoard(onlineBoardCache, userColorOnline, isItUsersTurn){
@@ -77,29 +98,6 @@ async function renderOnlineBoard(onlineBoardCache, userColorOnline, isItUsersTur
     
 }
 
-//Render the board for a local game//
-async function renderLocalBoard(boardCacheLocal, turnCounterLocal){
-
-    (turnCounterLocal % 2)=== 0 ? orientationBufferLocal = 'white' : orientationBufferLocal = 'black';
-    
-    var config = {
-        //Static configurations
-        showNotation: false,
-        draggable: true,
-        moveSpeed: 'slow',
-        snapbackSpeed: 1000,
-        snapSpeed: 200,
-        dropOffBoard: 'snapback',
-        position: FEN, //This is the board state the user should always be seeing.
-        orientation: orientationBuffer //This should change dynamically depending on what side the player is playing as represented by the colorOfPiecesForUser as a string of either "White" or "Black".
-    };
-
-    boardCacheLocal = Chessboard('board', config);
-    return boardCacheLocal
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 //Update the client in an online game//
 async function updateClientOnline(){
     checkIfUsersTurnOnline();
@@ -112,14 +110,6 @@ async function updateClientLocal(){
 }
 
 
-updateClientOnline();
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //This function generates and store the FEN representation of the board as a string to be posted.
@@ -133,5 +123,7 @@ async function confirmMoveOnlineBtn() {
     }
 }
 
+//Calls
+
+updateClientOnline();
 confirmMoveOnlineBtn();
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
