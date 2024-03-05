@@ -40,7 +40,7 @@ const prisma = new PrismaClient();
 //New authentication system
 app.post("/auth/login", async (req, res) => {
 	console.log(req.body);
-	const user = findUser(req.body.username);
+	const user = await findUser(req.body.username);
 	if (user) {
 		if (bcrypt.compareSync(req.body.password, user.password)) {
 			console.log("login: success");
@@ -62,7 +62,7 @@ app.post("/auth/register", async (req, res) => {
 	// 	username: req.body.username,
 	// 	password: hash
 	// };
-	const userFound = findUser(req.body.username);
+	const userFound = await findUser(req.body.username);
 	if (userFound) {
 		console.log("register: user already exists");
 		res.send({ok:false, message: 'User already exists'});
@@ -75,11 +75,11 @@ app.post("/auth/register", async (req, res) => {
 				username: req.body.username,
 			},
 		});
-		res.send({ok:true});
+		res.send({ok:true, message: "User created"});
 	}
 });
-function findUser(username) {
-	const matchingUsers = prisma.user.findMany({
+async function findUser(username) {
+	const matchingUsers = await prisma.user.findMany({
 		where: {
 			username: {
 				equals: username,
