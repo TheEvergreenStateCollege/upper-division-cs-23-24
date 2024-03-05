@@ -2,6 +2,8 @@
 const baseURL = 'http://localhost:5000';
 var defaultFEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //OFFLINE GAMES///////////////////////
 /////////////////////////////////////
@@ -11,12 +13,16 @@ var gameActiveLocal = true; //This boolean represents whether or not a game is a
 var turnCounterLocal = 0;
 var colorToPlayLocal;
 var orientationBufferLocal;
+var localBoardCache = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
+var localBoardCacheFEN;
+
 
 //FUNCTIONS//
 
 //Render the board for a local game//
-async function renderLocalBoard(boardCacheLocal, turnCounterLocal){
+async function renderLocalBoard(localBoardCache, turnCounterLocal){
     (turnCounterLocal % 2)=== 0 ? orientationBufferLocal = 'white' : orientationBufferLocal = 'black';
+
     var config = {
         //Static configurations
         showNotation: false,
@@ -25,24 +31,30 @@ async function renderLocalBoard(boardCacheLocal, turnCounterLocal){
         snapbackSpeed: 1000,
         snapSpeed: 200,
         dropOffBoard: 'snapback',
-        position: FEN, //This is the board state the user should always be seeing.
+        position: localBoardCache, //This is the board state the user should always be seeing.
         orientation: orientationBufferLocal //This should change dynamically depending on what side the player is playing as represented by the colorOfPiecesForUser as a string of either "White" or "Black".
     };
-    boardCacheLocal = Chessboard('board', config);
-    return boardCacheLocal
+
+    localBoard = Chessboard('board', config);
+    localBoardCacheFEN = localBoard.fen();
+    localBoardCache = localBoardCacheFEN;
+  
 }
 
 //Update the client in a local game//
 async function updateClientLocal(){
-    renderLocalBoard(boardCacheLocal, turnCounterLocal);
+    renderLocalBoard(localBoardCache, turnCounterLocal);
 }
 
 async function confirmMoveLocalBtn() {
     turnCounterLocal++;
-    renderLocalBoard(); 
+    updateClientLocal();
 }
 
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //ONLINE GAMES////////////////////////
@@ -74,6 +86,7 @@ function checkIfUsersTurnOnline() {
         (turnCounterOnline % 1)=== 0 ? isItUsersTurnOnline = true : isItUsersTurnOnline = false;
         
     }
+
 console.log(isItUsersTurnOnline);
 }
 
@@ -104,13 +117,6 @@ async function updateClientOnline(){
     renderOnlineBoard(onlineBoardCache, userColorOnline, isItUsersTurnOnline);
 }
 
-//Update the client in a local game//
-async function updateClientLocal(){
-    renderLocalBoard(boardCacheLocal, turnCounterLocal);
-}
-
-
-
 
 //This function generates and store the FEN representation of the board as a string to be posted.
 async function confirmMoveOnlineBtn() {
@@ -123,7 +129,13 @@ async function confirmMoveOnlineBtn() {
     }
 }
 
-//Calls
 
-updateClientOnline();
-confirmMoveOnlineBtn();
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//CALLS///////////////////////////////
+/////////////////////////////////////
+
+updateClientLocal();
+
