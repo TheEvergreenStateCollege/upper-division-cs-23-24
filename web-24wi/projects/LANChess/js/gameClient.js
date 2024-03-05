@@ -1,6 +1,6 @@
 //gameClient.js
 const baseURL = 'http://localhost:5000';
-var defaultFEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -13,11 +13,12 @@ var gameActiveLocal = true; //This boolean represents whether or not a game is a
 var turnCounterLocal = 0;
 var colorToPlayLocal;
 var orientationBufferLocal;
-var localBoardCache = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
-var localBoardCacheFEN;
+let localBoardCache = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
+
 
 
 //FUNCTIONS//
+
 
 //Render the board for a local game//
 async function renderLocalBoard(localBoardCache, turnCounterLocal){
@@ -36,17 +37,18 @@ async function renderLocalBoard(localBoardCache, turnCounterLocal){
     };
 
     localBoard = Chessboard('board', config);
-    localBoardCacheFEN = localBoard.fen();
-    localBoardCache = localBoardCacheFEN;
-  
+    localBoardCache = localBoard.fen();
+    
 }
 
 //Update the client in a local game//
 async function updateClientLocal(){
     renderLocalBoard(localBoardCache, turnCounterLocal);
+    console.log(localBoardCache);
 }
 
 async function confirmMoveLocalBtn() {
+    localBoardCache = localBoard.fen();
     turnCounterLocal++;
     updateClientLocal();
 }
@@ -70,7 +72,6 @@ var colorToPlayOnline = 'white'; //Determines who's color it is to play.
 
 
 var onlineBoardCache = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
-var onlineBoardCacheFEN;
 
 var orientationBufferOnline;
 
@@ -106,8 +107,8 @@ async function renderOnlineBoard(onlineBoardCache, userColorOnline, isItUsersTur
     };
 
     onlineBoard = Chessboard('board', config);
-    onlineBoardCacheFEN = onlineBoard.fen();
-    onlineBoardCache = onlineBoardCacheFEN;
+    onlineBoardCache = onlineBoard.fen();
+   
     
 }
 
@@ -118,11 +119,11 @@ async function updateClientOnline(){
 }
 
 
-//This function generates and store the FEN representation of the board as a string to be posted.
+//This function generates and store the FEN representation of the board as a string to be sent on the websocket.
 async function confirmMoveOnlineBtn() {
     if (isItUsersTurnOnline === true) {
        
-        console.log(onlineBoardCache); //Test case of FEN string //Will create POST for serverBoardStateCache.
+        console.log('sending ' + onlineBoardCache); 
     }
     else {
         window.alert("It is not your turn.");
@@ -137,5 +138,7 @@ async function confirmMoveOnlineBtn() {
 //CALLS///////////////////////////////
 /////////////////////////////////////
 
-updateClientLocal();
+
+updateClientOnline();
+
 
