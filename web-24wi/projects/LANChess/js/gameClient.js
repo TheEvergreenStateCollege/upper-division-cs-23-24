@@ -4,24 +4,32 @@
 const baseURL = 'http://localhost:5000';
 var draggable;
 var defaultFEN = 'start';
+
 //Is the game active?//
 var gameActiveLocal = true; //This boolean represents whether or not a game is active or complete.
 var gameActiveOnline = true; //This boolean represents whether or not a game is active or complete.
+
 //What color is the user playing?//
 var userColorOnline = 'white';
+
 //Which color to play?//
 var colorToPlayLocal;
 var colorToPlayOnline = 'white';
+
 //Keeping track of turns//
 var turnCounterOnline = 0;
 var turnCounterLocal = 0;
+
 //FEN sent to opponent via websocket after confirming//
 var FENsentOnline = ''; 
+
 //FEN recieved from opponent via websocket to be rendered//
 var FENrecievedOnline = ''; 
+
 //This is the state of the board at all times//
-var boardCacheOnline = 'start';
-var boardCacheLocal = 'start'; //Will be a GET from the server so the default position is what the servers says it should be. //This what should be displayed on the user's screen at all times, it's initialized as the keyword 'start' and will be changed as this will be the value called with renderBoard().
+var boardCacheOnline = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R';
+var boardCacheLocal = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R'; //Will be a GET from the server so the default position is what the servers says it should be. //This what should be displayed on the user's screen at all times, it's initialized as the keyword 'start' and will be changed as this will be the value called with renderBoard().
+
 //This is used to change the board orientation when needed//
 var orientationBufferLocal;
 var orientationBufferOnline;
@@ -31,20 +39,19 @@ var draggable;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Determine if it's user's turn to play?//
-function determineTurn() {
+function checkIfUsersTurnOnline() {
     if (userColorOnline === 'white') {
         (turnCounterOnline % 2)=== 0 ? isItUsersTurnOnline = true : isItUsersTurnOnline = false;
-        return isItUsersTurnOnline;
+        
     } else {
         (turnCounterOnline % 1)=== 0 ? isItUsersTurnOnline = true : isItUsersTurnOnline = false;
-        return isItUsersTurnOnline;
+        
     }
+console.log(isItUsersTurnOnline);
 }
 
-//Call function to set 'isItUsersTurnOnline' to the result//
-async function checkIfUserTurn(){
-isItUsersTurnOnline = determineTurn();
-}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -92,7 +99,7 @@ async function renderLocalBoard(boardCacheLocal, turnCounterLocal){
 
 //Update the client in an online game//
 async function updateClientOnline(){
-    checkIfUserTurn();
+    checkIfUsersTurnOnline();
     renderOnlineBoard(boardCacheOnline, userColorOnline, isItUsersTurnOnline);
 }
 
@@ -103,7 +110,7 @@ async function updateClientLocal(){
 
 
 updateClientOnline();
-console.log(isItUsersTurnOnline);
+
 
 
 
