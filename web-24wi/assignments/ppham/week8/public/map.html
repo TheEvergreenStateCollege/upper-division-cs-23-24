@@ -47,10 +47,8 @@
        .selectAll("g")
        .data(usCities)
        .join("g")
-         .attr(translate)
+         .attr("transform", (d) => ` translate(${projection([d.longitude, d.latitude])?.join(",")})`)
          .append("circle")
-         .attr("cx", (d) => d.longitude)
-         .attr("cy", (d) => d.latitude)
          .attr("r", 5)
          .attr("fill", "red")
 

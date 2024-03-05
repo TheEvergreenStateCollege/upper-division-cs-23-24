@@ -16,11 +16,12 @@ model User {
 }
 
 model USCity {
-  id        Int      @id @default(autoincrement())
-  name      String   @db.VarChar(255)
-  createdAt DateTime @default(now())
-  latitude  Float
-  longitude Float
-  authorId  Int
-  User      User     @relation(fields: [authorId], references: [id])
+  id         Int      @id @default(autoincrement())
+  name       String   @db.VarChar(255)
+  createdAt  DateTime @default(now())
+  latitude   Float
+  longitude  Float
+  population Int
+  authorId   Int
+  User       User     @relation(fields: [authorId], references: [id])
 }
