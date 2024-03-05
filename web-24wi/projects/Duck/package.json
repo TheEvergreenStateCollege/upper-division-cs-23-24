@@ -17,6 +17,7 @@
     "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20.11.17",
     "prisma": "^5.10.2",
+    "nodemon": "^3.0.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },

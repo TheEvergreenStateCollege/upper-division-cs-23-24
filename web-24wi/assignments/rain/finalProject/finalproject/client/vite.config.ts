@@ -14,7 +14,6 @@ export default defineConfig({
         landing: resolve(__dirname, 'landing/index.html'),
         profile: resolve(__dirname, 'profile/index.html'),
         post: resolve(__dirname, 'post/index.html'),
-        static: resolve(__dirname, '/static')
       },
     },
   },
