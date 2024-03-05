@@ -1,9 +1,9 @@
 /* gamePageStyles.css */
 
 body {
-  background-image: url(/web-24wi/projects/LANChess/img/backgrounds/HomePageBackground.png);
+  background-image: url(/web-24wi/projects/LANChess/img/backgrounds/waveBackground.jpg);
   min-height:  120vh; 
-
+  margin-top: 50px;
 }
 
 .container-ui{
