@@ -2,18 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Game</title>
-<link rel="stylesheet" href="css/gamePageStyles.css"> 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> <!-- Importing jquery in order to use chessboard.js library. -->
-<script src="js/chessboard-1.0.0.min.js"></script>  <!-- Importing chessboard.js for chessboard functionality and rendering.-->
+    <title>Game</title>
+    <link rel="stylesheet" href="css/gamePageStyles.css"> 
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> <!-- Importing jquery in order to use chessboard.js library. -->
+    <script src="js/chessboard-1.0.0.min.js"></script>  <!-- Importing chessboard.js for chessboard functionality and rendering.-->
 </head>
 <body>
+    <div class="container-board">
+        <div id="board" style="width:  600px"></div> <!-- Set board and pieces.-->
+    </div>
     <div class="container-ui">
         <img id="confirmMoveBtn" src="img/buttons/OkButton.png" width="" height="100" onclick="confirmMoveLocalBtn();"/>
     </div>
-    <div class="container-board"></div>
-        <div id="board" style="width:  700px"> <!-- Set board and pieces.-->
-    </div>
+   
 <script src="js/gameClient.js"></script> <!-- Importing the boardState.js script to use for managing the board state. -->
 </body>
 </html>
