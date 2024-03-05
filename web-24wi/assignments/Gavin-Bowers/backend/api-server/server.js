@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const musicMetadata = require('music-metadata');
 const bcrypt = require('bcrypt');
+const cors = require('cors');
 
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
@@ -10,6 +11,7 @@ const { parsed } = require('dotenv').config();
 const app = express();
 app.use(express.static("static"));
 app.use(express.json());
+app.use(cors()); // Use CORS for all routes
 
 const port = 5000;
 
@@ -37,7 +39,6 @@ const prisma = new PrismaClient();
 
 //New authentication system
 app.post("/auth/login", async (req, res) => {
-	res.set('Access-Control-Allow-Origin', '*');
 	console.log(req.body);
 	const user = findUser(req.body.username);
 	if (user) {
@@ -54,7 +55,6 @@ app.post("/auth/login", async (req, res) => {
 	}
 });
 app.post("/auth/register", async (req, res) => {
-	res.set('Access-Control-Allow-Origin', '*');
 	console.log(req.body);
 	const salt = bcrypt.genSaltSync(10);
 	const hash = bcrypt.hashSync(req.body.password, salt);
@@ -103,7 +103,6 @@ app.get("/map", function(req, res) {
 });
 
 app.get('/audio/:fileName', (req, res) => {
-	res.set('Access-Control-Allow-Origin', '*'); //Allows for local testing
 	const fileName = req.params.fileName;
 	const filePath = path.join('/home/ubuntu/src/media/', fileName);
 
@@ -183,7 +182,6 @@ async function indexMusic() {
 indexMusic();
 
 app.get("/musicdata", function(req, res) {
-	res.set('Access-Control-Allow-Origin', '*'); //Allows for local testing
 	res.json(musicList);
 });
 	
