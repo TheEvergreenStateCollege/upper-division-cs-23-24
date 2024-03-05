@@ -27,12 +27,13 @@ var FENsentOnline = '';
 var FENrecievedOnline = ''; 
 
 //This is the state of the board at all times//
-var boardCacheOnline = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R';
-var boardCacheLocal = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R'; //Will be a GET from the server so the default position is what the servers says it should be. //This what should be displayed on the user's screen at all times, it's initialized as the keyword 'start' and will be changed as this will be the value called with renderBoard().
+var onlineBoardCache = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R';
+var onlineBoardCacheFEN;
 
 //This is used to change the board orientation when needed//
 var orientationBufferLocal;
 var orientationBufferOnline;
+
 var isItUsersTurnOnline;
 var draggable;
 
@@ -56,7 +57,7 @@ console.log(isItUsersTurnOnline);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Render the board for an online game//
-async function renderOnlineBoard(boardCacheOnline, userColorOnline, isItUsersTurn){
+async function renderOnlineBoard(onlineBoardCache, userColorOnline, isItUsersTurn){
 
     var config = {
         //Static configurations
@@ -66,12 +67,14 @@ async function renderOnlineBoard(boardCacheOnline, userColorOnline, isItUsersTur
         snapbackSpeed: 1000,
         snapSpeed: 200,
         dropOffBoard: 'snapback',
-        position: boardCacheOnline, //This is the board state the user should always be seeing.
+        position: onlineBoardCache, //This is the board state the user should always be seeing.
         orientation: userColorOnline //This should change dynamically depending on what side the player is playing as represented by the colorOfPiecesForUser as a string of either "White" or "Black".
     };
 
-    boardCacheOnline = Chessboard('board', config);
-    return boardCacheOnline
+    onlineBoard = Chessboard('board', config);
+    onlineBoardCacheFEN = onlineBoard.fen();
+    onlineBoardCache = onlineBoardCacheFEN;
+    
 }
 
 //Render the board for a local game//
@@ -100,7 +103,7 @@ async function renderLocalBoard(boardCacheLocal, turnCounterLocal){
 //Update the client in an online game//
 async function updateClientOnline(){
     checkIfUsersTurnOnline();
-    renderOnlineBoard(boardCacheOnline, userColorOnline, isItUsersTurnOnline);
+    renderOnlineBoard(onlineBoardCache, userColorOnline, isItUsersTurnOnline);
 }
 
 //Update the client in a local game//
@@ -118,22 +121,17 @@ updateClientOnline();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//This function makes the web socket message to the other client//
-async function sendMoveMadeAsFEN(FEN) {
-    FENsentOnline = JSON.stringify(FEN);
-    console.log(FENsentOnline);
-    //Send via web-socket here.
-}
 
-//This function generates and store the FEN representation of the board as a string to var FENsent to be posted.
+//This function generates and store the FEN representation of the board as a string to be posted.
 async function confirmMoveOnlineBtn() {
     if (isItUsersTurnOnline === true) {
-        sendMoveMadeAsFEN(boardCacheOnline.fen()); //Setting the initialized var to the FEN string of the board with the library's .fen() method.
-        console.log(FENsentOnline); //Test case of FEN string //Will create POST for serverBoardStateCache.
+       
+        console.log(onlineBoardCache); //Test case of FEN string //Will create POST for serverBoardStateCache.
     }
     else {
         window.alert("It is not your turn.");
     }
 }
 
+confirmMoveOnlineBtn();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
