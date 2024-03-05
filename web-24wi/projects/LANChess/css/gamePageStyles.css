@@ -6,51 +6,29 @@ main {
 body {
   background-image: url(/web-24wi/projects/LANChess/img/backgrounds/HomePageBackground.png);
   margin:  0; 
-  min-height:  100vh; 
-  display: grid;
+  min-height:  120vh; 
   justify-content: center;  
   align-items: center; 
 }
 
-
-#siteTitle {
-  position: absolute;
-  top: 10%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: auto;
+.container-ui{
+  display: flex,
 }
 
-.gamePageHUD {
-  align-self: center;
-  padding-right: 0px;
-  cursor: pointer;
-  padding-top: 100px;
-  padding-bottom: 20px;
-
+.container-board{
+  display: flex,
 }
-.confirmMoveButton {
-  align-self: center;
-  padding-left: 200px;
-  padding-top: 50px;
+
+
+
+
+#confirmMoveBtn:hover{
   cursor: pointer;
 }
-
-
-
-
-
 
 
 /* CHESSBOARD STYLING */
-#board{
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-}
+
 .clearfix-7da63 {
   clear: both;
 }

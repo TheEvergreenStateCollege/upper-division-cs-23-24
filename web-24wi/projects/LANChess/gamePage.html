@@ -8,8 +8,14 @@
 <script src="js/chessboard-1.0.0.min.js"></script>  <!-- Importing chessboard.js for chessboard functionality and rendering.-->
 </head>
 <body>
-    <div id="board" style="width:  700px"> <!-- Set board and pieces.-->
-    <!-- <img src="img/buttons/confirmMoveButton.png" width="300" height="100" onclick="confirmMoveBtn();"/> Click to confirm and POST board state if user's turn -->
-    <script src="js/gameClient.js"></script> <!-- Importing the boardState.js script to use for managing the board state. -->
+    <div class="container-ui">
+        <img id="confirmMoveBtn" src="img/buttons/OkButton.png" width="" height="100" onclick="confirmMoveLocalBtn();"/>
+    </div>
+    <div class="container-board"></div>
+        <div id="board" style="width:  700px"> <!-- Set board and pieces.-->
+    </div>
+<script src="js/gameClient.js"></script> <!-- Importing the boardState.js script to use for managing the board state. -->
 </body>
 </html>
+
+
