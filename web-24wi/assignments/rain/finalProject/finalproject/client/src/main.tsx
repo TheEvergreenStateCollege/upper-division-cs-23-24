@@ -9,6 +9,9 @@ import Profile from "./components/profile";
 import Desktop from "./Desktop";
 import Post from "./components/Post"
 import Menu from "./components/menu";
+import CatchAll from "./components/CatchAll";
+import Filled from "./components/test";
+
 
 
 // const apiCall = () => {

@@ -13,7 +13,7 @@ const Contents = () => {
             .then(data => {
                 console.log(data);
                 // Store data in state
-                setJsonData(data.data); // Extract 'data' array from JSON response
+                setJsonData(data.data); 
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
