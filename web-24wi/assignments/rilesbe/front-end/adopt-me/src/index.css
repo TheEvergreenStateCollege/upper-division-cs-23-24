@@ -5,7 +5,7 @@
   
   body {
     background-color: #81a69b;
-    background-image: url(http://pets-images.dev-apis.com/pets/wallpaperB.jpg);
+    background-image: url(https://pets-images.dev-apis.com/pets/wallpaperB.jpg);
     margin: 0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -90,7 +90,7 @@
   header > a,
   #root > div > h1 {
     display: inline-block;
-    background-image: url(http://static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-logo.png);
+    background-image: url(https://static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-logo.png);
     filter: brightness(150%);
     width: 279px;
     height: 76px;

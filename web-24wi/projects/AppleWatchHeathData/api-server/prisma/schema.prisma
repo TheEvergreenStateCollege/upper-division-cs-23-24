@@ -24,14 +24,15 @@ model DailyWatchData {
   handwashingSeconds Int      @default(0)
   restingEnergyCals  Int      @default(0)
   soundLevel         Int      @default(0)
-  user   User @relation(fields: [userId], references: [id])
-  userId Int
+  user               User     @relation(fields: [userId], references: [id])
+  userId             Int
 }
 
 model User {
-  id           Int     @id @default(autoincrement())
-  username     String  @unique
-  passwordHash String  @db.VarChar(64)
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  username     String   @unique
+  passwordHash String   @db.VarChar(64)
   name         String?
 
   DailyWatchData DailyWatchData[]

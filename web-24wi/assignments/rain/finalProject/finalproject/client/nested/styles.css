@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #008080 ;
+}
+
+@layer base{
+html {
+    font-family: "MS"
+}
+}
+
+@font-face {
+    font-family: MS;
+    src: url(../w95fa.woff);
+}
+@layer utilities {
+    .border-cus {
+        border-top-color: white;
+        border-bottom-color: black;
+        border-right-color: black;
+        border-left-color: white;
+    }
+
+    .border-cus2 {
+        border-top-color: black;
+        border-bottom-color: white;
+        border-right-color: white;
+        border-left-color: black;
+    }
+
+}
