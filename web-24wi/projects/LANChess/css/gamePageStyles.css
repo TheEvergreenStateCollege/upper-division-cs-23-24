@@ -1,8 +1,8 @@
 /* gamePageStyles.css */
 
 body {
-  background-image: url(/web-24wi/projects/LANChess/img/backgrounds/waveBackground.jpg);
-  min-height:  120vh; 
+  background-color: black;
+  min-height:  100vh; 
   margin-top: 50px;
 }
 
@@ -10,6 +10,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .container-board{
@@ -20,10 +21,13 @@ body {
 
 
 
-
+#confirmMoveBtn{
+  transition-duration: 0.25s;
+}
 
 #confirmMoveBtn:hover{
   cursor: pointer;
+  transform: scale(1.05)
 }
 
 

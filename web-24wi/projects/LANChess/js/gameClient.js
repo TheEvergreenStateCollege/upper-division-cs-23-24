@@ -139,6 +139,7 @@ async function confirmMoveOnlineBtn() {
 /////////////////////////////////////
 
 
-updateClientOnline();
+updateClientLocal();
+
 
 
