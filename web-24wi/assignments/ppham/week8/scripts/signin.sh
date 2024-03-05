@@ -1,5 +1,7 @@
 #/usr/bin/env bash
 
+set -x
+
 PORT=$(cat port.txt)
 
 # Commands to test your API

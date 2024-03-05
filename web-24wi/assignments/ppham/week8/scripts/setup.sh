@@ -13,7 +13,7 @@ if [ -e "./.env" ]; then
   echo "You've already renamed your .env file."
 else
   echo "Renaming your .env file, be sure to change DATABASE_URL accordingly."
-  mv .env.RENAME_ME .env
+  cp .env.RENAME_ME .env
 fi
 
 if [ -e "./id_ecdsa.pub" ]; then 
