@@ -102,7 +102,7 @@ async function makePostRequest(user, method) {
             'body': JSON.stringify(user),
         });
         const result = await res.json();
-        console.log(method + ": " + result.ok);
+        console.log(method + ": " + result.ok + ": " + result.message);
     } catch (error) {
         console.error("Error:", error);
     }

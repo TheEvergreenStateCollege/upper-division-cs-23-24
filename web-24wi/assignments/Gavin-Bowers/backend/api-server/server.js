@@ -37,6 +37,7 @@ const prisma = new PrismaClient();
 
 //New authentication system
 app.post("/auth/login", async (req, res) => {
+	res.set('Access-Control-Allow-Origin', '*');
 	console.log(req.body);
 	const user = findUser(req.body.username);
 	if (user) {
@@ -49,11 +50,11 @@ app.post("/auth/login", async (req, res) => {
 		}
 	} else {
 		console.log("login: user doesn't exist");
-		res.set('Access-Control-Allow-Origin', '*');
 		res.send({ok: false, message: 'User does not exist'});
 	}
 });
 app.post("/auth/register", async (req, res) => {
+	res.set('Access-Control-Allow-Origin', '*');
 	console.log(req.body);
 	const salt = bcrypt.genSaltSync(10);
 	const hash = bcrypt.hashSync(req.body.password, salt);
@@ -74,7 +75,6 @@ app.post("/auth/register", async (req, res) => {
 				username: req.body.username,
 			},
 		});
-		res.set('Access-Control-Allow-Origin', '*');
 		res.send({ok:true});
 	}
 });
@@ -95,7 +95,7 @@ function findUser(username) {
 /*Static website and music streaming*/
 
 app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get("/map", function(req, res) {
