@@ -6,10 +6,14 @@
 <link rel="stylesheet" href="css/userRegistrationAndLoginPageStyles.css">
 </head>in
 <body>
-        <input type="text" id="textBoxFormForUserToCreateNewUsername" placeholder="username?" autocomplete="off" /> 
-        <input type="text" id="textBoxFormForUserToCreateNewPassword" placeholder="password?" autocomplete="off" /> 
-        <img src="img/buttons/LoginButton.png" id="loginButton" onclick=""/>
-        <img src="img/buttons/RegisterButton.png" id="registerButton" onclick="registerRequest()"/>
+        <div class="container-forms">
+                <input type="text" id="textBoxFormForUserToCreateNewUsername" placeholder="username?" autocomplete="off" /> 
+                <input type="text" id="textBoxFormForUserToCreateNewPassword" placeholder="password?" autocomplete="off" /> 
+        </div>
+        <div class="container-buttons">
+                <img src="img/buttons/user-login-button.png" id="loginButton" onclick=""/>
+                <img src="img/buttons/user-register-button.png" id="registerButton" onclick="registerRequest()"/>
+        </div>
         <script src="js/userRegisterAndLoginPage.js"></script>
 </body>
 </html>

@@ -7,66 +7,39 @@
 }
 
 
-main {
-  display: grid;
-}
-
-
 body {
   background-color: black;
-  background-size: 500px;
-  margin:  0; 
-  min-height:  50vh; 
-  display: grid;
-  justify-content: center;  
-  align-items: center;
+  min-height:  100vh; 
+  margin-top: 50px;
 }
 
-#okButton{
-  position: absolute;
-  top: 630px;
-  left: 700px;
-  transition-duration: 0.25s;
-}
-
-#okButton:hover {
-  cursor: pointer;
-  transform: translate(0px, -20px)rotate(-0.03turn) scale(1.4);
+.container-forms{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ 
 }
 
 
-#loginButton {
-  position: absolute;
-  width: 220px; 
-  height: auto;
-  top: 350px;
-  left: 1000px;
-  transition-duration: 0.25s;
+.container-buttons{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-#loginButton:hover{
-  cursor: pointer;
-  transform: translate(0px, -20px)rotate(-0.01turn) scale(1.4);
+#loginButton{
+  width: 50;
+  height: 50
 }
 
-#registerButton {
-  position: absolute;
-  width: 220px; 
-  height: auto;
-  top: 350px;
-  left: 1230px;
-  transition-duration: 0.25s;
-}
-
-#registerButton:hover{
-  cursor: pointer;
-  transform: translate(0px, -20px)rotate(0.01turn) scale(1.4);
+#registerButton{
+  width: 50;
+  height: 50;
 }
 
 #textBoxFormForUserToCreateNewUsername{
-  position: absolute;
-  top: 350px;
-  left: 300px;
   width: 600px; 
   height: 50px; 
   background-color: black;
@@ -81,9 +54,8 @@ body {
 }
 
 #textBoxFormForUserToCreateNewPassword{
-  position: absolute;
-  top: 480px;
-  left: 300px;
+ 
+
   width: 600px; 
   height: 50px; 
   background-color: black;
