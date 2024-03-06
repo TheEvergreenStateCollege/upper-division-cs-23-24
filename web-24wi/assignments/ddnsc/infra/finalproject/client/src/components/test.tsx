@@ -10,7 +10,7 @@ const Test = () => {
 
 const Filled = () => {
     return (
-        <Browser content={<Test/>}></Browser> 
+        <Browser content={<Test/>}></Browser>
     )
 }
 
