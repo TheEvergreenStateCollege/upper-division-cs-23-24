@@ -13,8 +13,7 @@ html {
 }
 
 #animated {
-    width: 100px;
-  height: 100px;
+
   
   position: relative;
   animation-name: example;
@@ -23,11 +22,11 @@ html {
 }
 
 @keyframes example {
-    0%   { left:0px; top:0px;}
-  25%  { left:200px; top:0px;}
-  50%  {left:200px; top:200px;}
-  75%  {left:0px; top:200px;}
-  100% { left:0px; top:0px;}
+    0%   { right:0px; top:400px; }
+ 25% {right: 600px; top:400px;}
+ 50%{ right: 600px; top:-400px;}
+ 75%{ right:0px; top:-400px;}
+  100% { right:0px; top:400px;}
 }
 
 @font-face {
