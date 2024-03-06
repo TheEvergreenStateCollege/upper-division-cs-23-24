@@ -21,9 +21,6 @@ function Browser ({content}: {content?:any}) {
   const [sizeb,setSizeb] = useState(60);
   const [sizer,setSizer] = useState(6);
   const [sizet,setSizet] = useState(8);
-  const margb= "mb-"+ sizeb;
-  const margr= "mr-"+ sizer;
-  const margt= "mt-"+ sizet;
   const[enlarged,enlarge]= useState(false);
   
   
@@ -44,6 +41,10 @@ function Browser ({content}: {content?:any}) {
     }
     
   }
+
+  console.log("sizeb:", sizeb);
+  console.log("sizer:", sizer);
+  console.log("sizet:", sizet)
   return (
     
     <div className={` ${colo}`}>
@@ -64,7 +65,7 @@ function Browser ({content}: {content?:any}) {
                 Discover
                 </button></div>
         </div>
-        <div className={` flex justify-stretch flex-col  ${panl} ${margb} ${margr} ${margt} w-full border border-cus `}>
+        <div className={` flex justify-stretch flex-col  ${panl} ${enlarged ? 'mb-6 mr-0 mt-0' : 'mb-60 mr-6 mt-8'} w-full border border-cus `}>
           <div className={`flex flex-row bg-bargray border-b  mx-1`}>
             
             <img className="object-contain" src="/static/inet.png"/>
@@ -83,13 +84,11 @@ function Browser ({content}: {content?:any}) {
                 <a>
                 <button onClick={() =>{
                   if (enlarged){
-                    setSizeb(60); setSizer(6); setSizet(8);
                     enlarge(false);
                     
                   }
                   else{
                     enlarge(true);
-                    setSizeb(6); setSizer(0); setSizet(0);
                   }
                   
                   }} 

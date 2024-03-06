@@ -8,7 +8,7 @@ const Contents = () => {
 
     useEffect(() => {
         // Fetch data from your API
-        fetch('http://localhost:3001/api/posts')
+        fetch('/api/posts')
             .then(response => response.json())
             .then(data => {
                 console.log(data);

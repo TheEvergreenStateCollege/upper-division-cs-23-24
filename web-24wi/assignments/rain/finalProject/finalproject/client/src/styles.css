@@ -12,6 +12,24 @@ html {
 }
 }
 
+#animated {
+    width: 100px;
+  height: 100px;
+  
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+    0%   { left:0px; top:0px;}
+  25%  { left:200px; top:0px;}
+  50%  {left:200px; top:200px;}
+  75%  {left:0px; top:200px;}
+  100% { left:0px; top:0px;}
+}
+
 @font-face {
     font-family: MS;
     src: url(../w95fa.woff);
