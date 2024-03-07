@@ -1,0 +1,25 @@
+Random things for me (rain) to do
+[]Add an Abyss icon to desktop
+
+[]Discover needs to route to menu
+
+[X]Register hostile domain
+
+Thursday
+[]Have desktop change when logged in vs not - sign in vs profile button
+[]If you’re not signed in post will redirect to sign in 
+[X]Change bottom left menu link to get all users - need to 
+[X] log off functionality
+[]Assign users a color - add this to database - and their username should be displayed in that color
+[] show username that post belongs to 
+
+Rain:  catch all- redirect to catchall 
+Dee dee: Menu - links
+Ellie: Feed & make handler to get all posts for all users not just logged in one
+
+Wishful Thinking
+React alert emulating win 95 pop up
+Ads
+Ugly background for menu and post?
+Post is a small component that pops up for you to make post and closes when you make it
+Add ability to store images in the database

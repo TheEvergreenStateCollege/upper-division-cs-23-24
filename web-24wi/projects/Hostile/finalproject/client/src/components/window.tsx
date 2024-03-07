@@ -58,7 +58,7 @@ const Window = ({ content }: { content?: any }) => {
             <button
               key={index}
               className="mx-2 mt-8 px-4 text-sm hover:text-white hover:bg-blue-900 hover:bg-opacity-50"
-              onClick={() => console.log(`Button ${index + 1} clicked!`)} // replace with your logic
+              onClick={() => console.log(`Button ${index + 1} clicked!`)} // replace logic
             >
               <a href={button.url}>
                 <img src={button.image} alt={button.label} />

@@ -11,6 +11,7 @@ import Post from "./components/Post"
 import Menu from "./components/menu";
 import CatchAll from "./components/CatchAll";
 import Filled from "./components/test";
+import Window from "./components/window";
 
 
 
@@ -25,7 +26,7 @@ import Filled from "./components/test";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <CatchAll/>
+    <Window content={ <Menu /> } />
   </React.StrictMode>,
 );
 
