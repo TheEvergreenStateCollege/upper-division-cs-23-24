@@ -1,4 +1,3 @@
-// window.tsx
 import React, { useState } from "react";
 
 const Window = ({ content }: { content?: any }) => {
@@ -17,9 +16,9 @@ const Window = ({ content }: { content?: any }) => {
   const [enlarged, setEnlarged] = useState(false);
 
   const windowButtons = [
-    { label: "Sign In", url: "/landing", image: "/public/desktop/sign.png" },
-    { label: "Post", url: "/post", image: "/public/desktop/post.png" },
-    { label: "Discover", url: "", image: "/public/desktop/disc.png" },
+    { label: "Sign In", url: "/landing", image: "/desktop/sign.png" },
+    { label: "Post", url: "/post", image: "/desktop/post.png" },
+    { label: "Discover", url: "", image: "/desktop/disc.png" },
   ];
 
   const windowControlButtons = [
@@ -71,10 +70,10 @@ const Window = ({ content }: { content?: any }) => {
         <div
           className={`flex justify-stretch flex-col ${panl} ${margb} ${margr} ${margt} w-full border border-cus `}
         >
-          <div className={`flex flex-row bg-bargray border-b mx-1`}>
-            <img className="object-contain" src={"/public/desktop/inet.png"} />
-            <p className="w-full px-1 text-sm text-white">
-              Hostile
+          <div className={`flex flex-row bg-blue-900 border-b mx-1`}>
+            <img src="/channels/eolIM.jpeg" className="mx-auto h-8" alt={"alt=\"evergreen online messenger image\""}/>            <p
+            className="w-full px-1 text-lg text-white">
+          Main Menu
             </p>
             <div className="window-buttons top-0 right-0 w-1/2">
               <div className={"flex justify-end p-1 "}>
@@ -106,7 +105,7 @@ const Window = ({ content }: { content?: any }) => {
           </div>
 
           <div className={`flex flex-row ${panl} ${text}  border-b border-black`}>
-            <img className="my-1 px-1 self-center" src={"/public/desktop/inet.png"} alt="Internet Explorer Logo" />
+            <img className="my-1 px-1 self-center" src={"/desktop/inet.png"} alt="Internet Explorer Logo" />
             <p className="text-sm self-center">Done</p>
           </div>
         </div>
@@ -120,7 +119,7 @@ const Window = ({ content }: { content?: any }) => {
           className="mx-2 px-2 shadow-lg border-t-2 border-l-2 border-opacity-75"
         >
           <div className="flex flex-row">
-            <img src={"/public/desktop/win.png"} alt="Windows Logo" />
+            <img src={"/desktop/win.png"} alt="Windows Logo" />
             <span className="text-sm px-2">Start</span>
           </div>
         </button>

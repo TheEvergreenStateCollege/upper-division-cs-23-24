@@ -7,14 +7,14 @@ const Menu = () => {
     { label: "", url: "", image: "games.png" },
     { label: "", url: "", image: "computing.png" },
     { label: "", url: "", image: "research.png" },
-    { label: "", url: "" },
+    { label: "", url: "", image: "connected.png" },
   ];
 
   return (
     <div className="menu">
       <div>
         <h2 className="text-6xl font-bold pb-10 text-center">Discover Channels</h2>
-      </div>
+        </div>
       <div className="flex flex-wrap">
         {menuItems.map((item, index) => (
           <div key={index} className="w-1/2 p-5 relative">
