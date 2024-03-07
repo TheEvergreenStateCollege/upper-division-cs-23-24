@@ -44,27 +44,39 @@ const server = app.listen(port, () => {
     console.log(process.cwd());
 });
 
+
 // chat server
 const wss = new WebSocketServer({ server: server });
 
-// String -> [ WebSockets ]
-const ongoingGames = new Map();
-
-function handleMessage(data) {
-    if (data.jwt) {
-       console.log(data.jwt); 
-    } else if (!data.gameid) {
-        console.log("WEBSOCKET error: missing gameid in message");
-    } else if (!data.message) {
-        console.log("WEBSOCKET error: missing message");
-    }
-}
+// game_id -> [ user_id ]
+const games = new Map();
+// user_id -> WebSockets
+const clients = new Map();
 wss.on("connection", ws => {
+    console.log("client has connected");
     ws.on("error", console.error);
     ws.on("message", data => {
-        console.log("received %s", JSON.parse(data));
-        handleMessage(data);
-        ws.send(data.toString());
+        //update clients map
+        if (!clients.has(data.user_id)) {
+            clients.set(data.user_id, ws);
+        }
+
+        //update games map
+        if (!games.has(data.game_id)) {
+            games.set(data.game_id, new Set([data.user_id]));
+        } else {
+            games.get(data.game_id).add(data.user_id);
+        }
+
+        const players = games.get(data.game_id)
+
+        players.forEach(player_id => {
+            if (!player_id === data.user_id) {
+                clients.get(player_id).send(data.fen_string);
+            } 
+        });
+        console.log(data);
+        console.log(games);
+        console.log(clients);
     });
 });
-

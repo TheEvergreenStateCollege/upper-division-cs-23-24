@@ -1,5 +1,6 @@
-import { Status } from "@prisma/client";
+import pkg from "@prisma/client";
 import prisma from "../db.js";
+const { Status } = pkg;
 
 export const getOneGame = async (req, res) => {
     const result = await prisma.game.findFirst({

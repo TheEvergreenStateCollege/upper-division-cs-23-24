@@ -88,8 +88,9 @@
     const messageButton = document.getElementById("submit-move");
     messageButton.addEventListener("click", (event) => {
         data = {
-            message: document.getElementById("move-input").value,
+            fen_string: document.getElementById("move-input").value,
             game_id: document.getElementById("game-history").value, 
+            user_id: localStorage.getItem("userid"),
         }
         console.log(data);
 
@@ -114,9 +115,9 @@
         console.log(res.status);
         if (res.status === 200) {
             localStorage.setItem("token", data["token"]);
-            localStorage.setItem("id", data["id"])
+            localStorage.setItem("userid", data["id"])
             console.log(localStorage.getItem("token"));
-            console.log(localStorage.getItem("id"));
+            console.log(localStorage.getItem("userid"));
             activateGameForm();
         }
     });
