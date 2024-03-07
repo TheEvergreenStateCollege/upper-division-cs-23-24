@@ -46,8 +46,8 @@ const Contents = () => {
                     <ul>
                         {jsonData.map((item, index) => (
                             <li key={index}>
-                                <strong>Post Name:</strong> {item.name}<br />
-                                <strong>Post Body:</strong> {item.body}
+                                <strong>{item.name}</strong> <br />
+                                {item.body}
                             </li>
                         ))}
                     </ul>

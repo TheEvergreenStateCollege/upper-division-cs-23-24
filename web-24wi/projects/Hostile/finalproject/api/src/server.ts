@@ -50,12 +50,7 @@ app.get('/landing', (req,res) => {
    
 })
 
-app.get('/post', (req,res) => {
-    res.sendFile(path.resolve("../client/dist/post/index.html"))
-    res.status(200)
-    // fetch('http://localhost:5173')
-   
-})
+
 
 
 app.get('/bluescreen', (req,res) => {
