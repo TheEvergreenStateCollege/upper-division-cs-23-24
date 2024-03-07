@@ -9,6 +9,7 @@ import Profile from "./components/profile";
 import Desktop from "./Desktop";
 import Post from "./components/Post"
 import Menu from "./components/menu";
+import Window from "./components/window";
 import CatchAll from "./components/CatchAll";
 import Filled from "./components/test";
 import GetUsers from "./components/users";
@@ -26,7 +27,7 @@ import GetUsers from "./components/users";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <CatchAll/>
+    <Window content={<Menu />}/>
   </React.StrictMode>,
 );
 
