@@ -1,5 +1,8 @@
 # Commands to test your API
-  curl -X GET http://localhost:5001/cities
-  curl -X POST http://localhost:5001/city -H "Content-Type: application/json" -d '{ "cityName": "Olympia", "latitude": "47.0417", "longitude": "-122.8959", "authorId": "1" }'
-  curl -X POST http://localhost:5001/users
-  curl -X GET http://localhost:5001/users
+curl -X GET http://localhost:5001/cities
+curl -X POST http://localhost:5001/city -H "Content-Type: application/json" -d '{ "cityName": "Olympia", "latitude": "47.0417", "longitude": "-122.8959", "authorId": "1" }'
+curl -X POST http://localhost:5001/users
+curl -X GET http://localhost:5001/users
+
+curl -X POST http://localhost:5001/signin -H "Content-Type: application/json" \
+  -d '{ "username": "abc", "password": "123",  }'

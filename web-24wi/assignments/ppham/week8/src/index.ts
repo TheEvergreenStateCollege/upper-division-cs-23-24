@@ -8,13 +8,30 @@ import app from './server';
 const DEFAULT_PORT: number = Number(process.env.API_PORT) || 5000;
 let port = DEFAULT_PORT;
 
+const fs = require('fs');
+
 // Wrap the Express app with an HTTP server manually 
 const server = http.createServer(app);
 const serverFunc = () => {
   server.listen(port, () => {
     console.log(`Server listening on port ${port}`);
+    fs.writeFileSync("port.txt", String(port));
   });
 };
+
+process.on('SIGTERM', () => {
+  console.log('SIGTERM signal received: closing HTTP server')
+  server.close(() => {
+    console.log('HTTP server closed')
+    fs.unlink('./token.txt', (err: String) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log("Removed port.txt successfully.");
+      }
+    })
+  })
+})
 
 server.on('error', (error: NodeJS.ErrnoException) => {
   if (error.code === 'EADDRINUSE') {

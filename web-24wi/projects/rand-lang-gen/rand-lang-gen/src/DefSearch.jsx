@@ -1,12 +1,13 @@
 import WordSearch from "./WordSearch";
 async function DefSearch() {
+const newWord = WordSearch[0];
 console.log(WordSearch);
-const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${WordSearch}`;
+const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${newWord}`);
 
 try {
-	const response = await fetch(url);
-	const result = await response.text();
+	const result = await response.json();
 	console.log(result);
+	return result;
 } catch (error) {
 	console.error(error);
 }
