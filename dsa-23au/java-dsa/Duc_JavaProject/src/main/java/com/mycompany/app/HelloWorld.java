@@ -1,11 +1,6 @@
 package com.mycompany.app;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
+public class HelloWorld {
     public static int fib(int n) {
         if (n == 0) {
             return 1;

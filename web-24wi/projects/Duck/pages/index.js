@@ -2,20 +2,26 @@ const username = document.getElementById("input-name");
 const password = document.getElementById("input-password");
 const button = document.getElementById("button-submit");
 
-button.addEventListener("click", async(Event) => {
-    Event.preventDefault();
-    const response = await fetch("http://AkinaSS.arcology.builders:5000/login", {
-      "method": "post",
-      "headers": {"Content-Type": "application/json"},
-      "body": { username, password }
-    });
-    console.log("I've been clicked.");
-    print(response);
-});
+button.addEventListener("click", async (event) => {
+  event.preventDefault();
 
-app.post("/login", (req, res) => {
-  // sending back an HTML file that a browser can render on the screen.
-  console.log(`${req.body}`);
-  const bodyJSON = JSON.parse(req.body);
-  res.json(bodyJSON);
+  const usernamelog = username.value;
+  const passwordlog = password.value;
+  
+  console.log(`username ${usernamelog}`);
+  console.log(`password ${passwordlog}`);
+
+// add a fetch here
+   const response = await fetch("https://indira.arcology.builders/signin", {
+    "method": "post",
+    "headers": {
+      "Content-Type": "application/json",
+    },
+    "body": JSON.stringify({ username, password })
+  });
+
+// response has a json body
+const jsonBody = await response.json();
+  console.log(`Response ${JSON.stringify(jsonBody)}`);
+  
 });

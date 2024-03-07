@@ -13,8 +13,9 @@ public class AppTest
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue()
+    public void App()
     {
-        assertTrue( true );
+        Plane plane = new Plane();
+        plane.add();
     }
 }
