@@ -17,15 +17,15 @@ import Filled from "./components/test";
 // const apiCall = () => {
 //   axios.get('http://localhost:3001').then((data) => {
 //     //this console.log will be in our frontend console
-    
+
 //     console.log(data)
-    
+
 //   })
 // }
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <CatchAll/>
+    <Browser />
   </React.StrictMode>,
 );
 
