@@ -41,6 +41,7 @@ app.post("/register", createNewUser);
 
 const server = app.listen(port, () => {
     console.log(`Example app listening at localhost:${port}`);
+    console.log("http://localhost:5000");
     console.log(process.cwd());
 });
 

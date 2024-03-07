@@ -75,6 +75,8 @@ async function loginUser(){
                 console.log("Success:", result);
     
                 document.cookie = result
+                const cookieString = document.cookie
+
                 console.log("cookie value: " + document.cookie);
     
             } catch (error) {
