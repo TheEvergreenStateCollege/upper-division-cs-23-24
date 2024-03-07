@@ -6,8 +6,8 @@ var passwordValue;
 var passwordValueLen;
 
 async function credentials() { //This function stores the value of the login page's "username" textbox form into the initial initUsername
-    usernameValue = document.getElementById('usernameForm').value;
-    passwordValue = document.getElementById('passwordForm').value;
+    usernameValue = document.getElementById('textBoxFormForUserToCreateNewUsername').value;
+    passwordValue = document.getElementById('textBoxFormForUserToCreateNewPassword').value;
     usernameValueLen = usernameValue.length;
     passwordValueLen = passwordValue.length;
 }
@@ -25,4 +25,6 @@ async function credentialsSyntaxCheckForRegistration(){
 async function registerNewUser(){
     credentials();
     credentialsSyntaxCheckForRegistration();
+    console.log('username: ' + '[' +  usernameValue + ']');
+    console.log('password: ' + '[' +  passwordValue + ']')
 }
