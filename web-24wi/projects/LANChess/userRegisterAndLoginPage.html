@@ -6,14 +6,21 @@
 <link rel="stylesheet" href="css/userRegistrationAndLoginPageStyles.css">
 </head>in
 <body>
+        <div class="container-title">
+                <img src="img/overlays/LanChessWordmarkLogoWhite.png" id="titleLogo" onclick=""/>
+        </div>
+
         <div class="container-forms">
                 <input type="text" id="textBoxFormForUserToCreateNewUsername" placeholder="username?" autocomplete="off" /> 
                 <input type="text" id="textBoxFormForUserToCreateNewPassword" placeholder="password?" autocomplete="off" /> 
         </div>
+
         <div class="container-buttons">
                 <img src="img/buttons/user-login-button.png" id="loginButton" onclick=""/>
-                <img src="img/buttons/user-register-button.png" id="registerButton" onclick="registerRequest()"/>
+                <img src="img/buttons/user-register-button.png" id="registerButton" onclick="registerNewUser()"/>
+                <img src="img/buttons/user-localgame-button.png" id="startLocalGameButton"  onclick="window.location.href='localGamePage.html'"/>
         </div>
+        
         <script src="js/userRegisterAndLoginPage.js"></script>
 </body>
 </html>

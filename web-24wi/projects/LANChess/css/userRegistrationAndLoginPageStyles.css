@@ -13,58 +13,98 @@ body {
   margin-top: 50px;
 }
 
-.container-forms{
-  
+.container-title{
   display: flex;
   flex-direction: column;
-  justify-content: center;
- 
+  justify-content: space-between;
+}
+
+.container-forms{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
 .container-buttons{
-  margin-top: 50px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#titleLogo{
+  margin: 10px;
+  width: 450px;
+  height: auto;
+  margin-left: 35%;
+  transition-duration: 0.25s;
 }
 
 #loginButton{
-  width: 50;
-  height: 50
+  margin: 10px;
+  width: 112px;
+  height: 50px;
+  margin-left: 35%;
+  transition-duration: 0.25s;
+}
+
+#loginButton:hover {
+  cursor: pointer;
+  transform: scale(1.10)
 }
 
 #registerButton{
-  width: 50;
-  height: 50;
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  margin-left: 35%;
+  transition-duration: 0.25s;
+}
+
+#registerButton:hover {
+  cursor: pointer;
+  transform: scale(1.10)
+}
+
+#startLocalGameButton{
+  margin: 10px;
+  width: 160px;
+  height: 50px;
+  margin-left: 35%;
+  transition-duration: 0.25s;
+}
+
+#startLocalGameButton:hover {
+  cursor: pointer;
+  transform: scale(1.10)
 }
 
 #textBoxFormForUserToCreateNewUsername{
-  width: 600px; 
-  height: 50px; 
+  margin: 10px;
+  width: 500px; 
+  height: 25px; 
   background-color: black;
-  border: 7px solid #f3e8dc;
-  border-radius: 10px;
+  border: 3px solid #f3e8dc;
   outline: none;
   padding: 25px; 
-  font-size: 80px; 
+  font-size: 40px; 
   color: #f3e8dc;
   caret-color: white;
   font-family: '3D Isometric Black';
+  margin-left: 35%;
 }
 
 #textBoxFormForUserToCreateNewPassword{
- 
-
-  width: 600px; 
-  height: 50px; 
+  margin: 10px;
+  width: 500px; 
+  height: 25px; 
   background-color: black;
-  border: 7px solid #cee6f0;
-  border-radius: 10px;
+  border: 3px solid #f3e8dc;
   outline: none;
   padding: 25px; 
-  font-size: 80px; 
+  font-size: 40px; 
   color: #f3e8dc;
   caret-color: white;
   font-family: '3D Isometric Black';
+  margin-left: 35%;
 }
