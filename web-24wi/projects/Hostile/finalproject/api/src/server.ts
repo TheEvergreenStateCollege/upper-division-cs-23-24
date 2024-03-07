@@ -50,7 +50,13 @@ app.get('/landing', (req,res) => {
    
 })
 
+app.get('/error', (req,res) => {
 
+    res.sendFile(path.resolve("../client/dist/catchall/index.html"))
+
+// fetch('http://localhost:5173')
+
+})
 
 
 app.get('/bluescreen', (req,res) => {
