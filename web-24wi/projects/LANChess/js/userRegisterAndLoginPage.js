@@ -16,8 +16,8 @@ async function credentialsSyntaxCheckForRegistration(){
     if ((usernameValueLen && passwordValueLen >=2) && (usernameValueLen && passwordValueLen <=10)) {
         usernameValue = usernameValue;
         passwordValue = passwordValue;
-        console.log("Username: " + "[" + usernameValue + "]");
-        console.log("Password: " + "[" + passwordValue + "]");
+        console.log("Username:" + "[" + usernameValue + "]");
+        console.log("Password:" + "[" + passwordValue + "]");
     } else {
         window.alert('Invalid username or password');
     }
@@ -44,7 +44,40 @@ async function registerNewUser(){
             const result = await response.json();
             console.log("Success:", result);
 
+            document.cookie = result
+            console.log("cookie value: " + document.cookie);
+
+
         } catch (error) {
             console.error("Error:", error);
         }
       }
+
+async function loginUser(){
+    credentials();
+
+        try {
+            const response = await fetch("/login", {
+                method: "POST", 
+                headers: {
+
+                    'Accept': 'application/json',
+                    "Content-Type": "application/json",
+                },
+    
+                body: JSON.stringify({
+                    username: usernameValue,
+                    password: passwordValue
+              })})
+    
+                
+                const result = await response.json();
+                console.log("Success:", result);
+    
+                document.cookie = result
+                console.log("cookie value: " + document.cookie);
+    
+            } catch (error) {
+                console.error("Error:", error);
+            }
+          }
