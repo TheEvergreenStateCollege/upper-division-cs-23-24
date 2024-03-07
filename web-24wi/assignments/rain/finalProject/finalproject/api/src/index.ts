@@ -1,7 +1,7 @@
 import app from './server'
 
 
-app.listen(3001, () => {
+app.listen(5000, () => {
 
     console.log('using http://localhost:3001')
 })

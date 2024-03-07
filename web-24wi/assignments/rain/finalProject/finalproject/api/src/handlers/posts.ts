@@ -35,8 +35,8 @@ export const createPost = async (req, res) => {
             belongsToId: req.user.id
         }
     })
-
-    res.json({data: post})
+    return res.redirect("/api/profile")
+    // res.json({data: post})
 }
 
 //update
