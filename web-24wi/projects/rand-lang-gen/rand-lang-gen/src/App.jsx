@@ -13,6 +13,7 @@ function App() {
     <>
       <div>
       <WordSearch></WordSearch>
+      <DefSearch></DefSearch>
       </div>
     </>
   )
