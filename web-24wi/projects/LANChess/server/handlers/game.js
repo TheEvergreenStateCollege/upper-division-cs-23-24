@@ -21,13 +21,16 @@ export const getGames = async (req, res) => {
 }
 
 export const getGameHistory = async (req, res) => {
-    const result = await prisma.user.findUnique({
+    const result =  await prisma.game.findMany({
         where: {
-            id: req.body.id,
+            user_games: {
+                some: {
+                    user_id: req.user.id,
+                }
+            }
         }
-    }).games()
-
-    res.json({ data: result })
+    })
+res.json({ data: result })
 }
 // does this need to be api or just a function of the server?
 export const postGame = async (req, res) => {

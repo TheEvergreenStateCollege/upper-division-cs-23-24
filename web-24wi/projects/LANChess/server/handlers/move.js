@@ -19,9 +19,17 @@ export const getOneMove = async (req, res) => { }
 export const getMoves = async (req, res) => {
     const result = await prisma.move.findMany({
         where: {
-            game_id: req.body.gameId,
-        }
+            game_id: req.params.gameid,
+        },
+        select: {
+            fen_string: true,
+            timestamp: true,
+            user_fk: {
+                select: { username: true }
+            },
+        },
     });
 
+    console.log(result);
     res.json({ data: result });
 }

@@ -18,16 +18,16 @@ router.post("/users", createNewUser); //Didn't see this here yet, figured I'd ad
 // game api
 router.get("/games/:id", getOneGame);
 router.get("/games", body("status").isString(), handleInputErrors, getGames);
-router.get("/game-history", body("userid").isString(), handleInputErrors, getGameHistory);
+router.get("/game-history", getGameHistory);
 router.post("/games", postGame);
 router.put("/games/:id", updateGame);
 router.delete("/games/:id", deleteGame);
 
 // moves api
 router.post("/moves", body("fenString").isString(), handleInputErrors, createMove);
-router.get("/moves", body("gameId").isString(), handleInputErrors, getMoves);
+router.get("/moves/:gameid", getMoves);
 
 // games participant api
-router.post("/gameParticipant", body("gameId", "userId").isString(), handleInputErrors, createGameParticipant);
+router.post("/gameParticipant", body("gameId").isString(), handleInputErrors, createGameParticipant);
 
 export default router;

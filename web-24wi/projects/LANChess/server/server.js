@@ -49,7 +49,7 @@ const wss = new WebSocketServer({ server: server });
 wss.on("connection", socket => {
     socket.on("error", console.error);
     socket.on("message", data => {
-        console.log("received %s", data);
+        console.log("received %s", JSON.parse(data));
         socket.send(data.toString());
     });
 })
