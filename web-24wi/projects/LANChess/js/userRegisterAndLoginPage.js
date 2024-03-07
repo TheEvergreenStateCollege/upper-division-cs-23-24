@@ -16,8 +16,8 @@ async function credentialsSyntaxCheckForRegistration(){
     if ((usernameValueLen && passwordValueLen >=2) && (usernameValueLen && passwordValueLen <=10)) {
         usernameValue = usernameValue;
         passwordValue = passwordValue;
-        console.log("Username:" + "[" + usernameValue);
-        console.log("Password:" + "[" + passwordValue);
+        console.log("Username:" + "[" + usernameValue + "]");
+        console.log("Password:" + "[" + passwordValue + "]");
     } else {
         window.alert('Invalid username or password');
     }
@@ -26,8 +26,7 @@ async function credentialsSyntaxCheckForRegistration(){
 async function registerNewUser(){
     credentials();
     credentialsSyntaxCheckForRegistration();
-    console.log(usernameValue);
-    console.log(passwordValue);
+    
 
         try {
             const response = await fetch("/register", {
