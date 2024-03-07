@@ -25,6 +25,26 @@ async function credentialsSyntaxCheckForRegistration(){
 async function registerNewUser(){
     credentials();
     credentialsSyntaxCheckForRegistration();
-    console.log('username: ' + '[' +  usernameValue + ']');
-    console.log('password: ' + '[' +  passwordValue + ']')
-}
+    console.log(usernameValue);
+    console.log(passwordValue);
+
+        try {
+            const response = await fetch("/register", {
+                method: "POST", 
+                headers: {
+                    'Accept': 'application/json',
+                    "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify({
+                username: usernameValue,
+                password: passwordValue
+          })})
+          
+            const result = await response.json();
+            console.log("Success:", result);
+
+        } catch (error) {
+            console.error("Error:", error);
+        }
+      }

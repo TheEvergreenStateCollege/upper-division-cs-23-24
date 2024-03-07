@@ -13,8 +13,7 @@ router.get("/users", getUsers);
 router.get("/users/:id", getOneUser);
 router.put("/users/:id", body("username").isString(), handleInputErrors, updateUser);
 router.delete("/users/:id", deleteUser);
-router.post("/users", createNewUser); //Didn't see this here yet, figured I'd add it, feel free to remove it.
-
+ 
 // game api
 router.get("/games/:id", getOneGame);
 router.get("/games", body("status").isString(), handleInputErrors, getGames);
