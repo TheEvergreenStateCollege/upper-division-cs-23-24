@@ -11,6 +11,7 @@ import Post from "./components/Post"
 import Menu from "./components/menu";
 import CatchAll from "./components/CatchAll";
 import Filled from "./components/test";
+import GetUsers from "./components/users";
 
 
 
