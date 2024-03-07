@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Profile from "../src/components/profile"
+import CatchAll from "../src/components/CatchAll"
 import "../src/styles.css";
 import axios from 'axios';
-import CatchAll from "../src/components/CatchAll";
 
 
 // const apiCall = () => {
@@ -17,7 +16,7 @@ import CatchAll from "../src/components/CatchAll";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Profile />
+    <CatchAll />
   </React.StrictMode>,
 );
 
