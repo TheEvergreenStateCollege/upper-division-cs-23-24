@@ -1,0 +1,27 @@
+To do:
+[] 1. Have desktop change when logged in vs not - sign in vs profile button
+[] 2. Assign users a color - add this to database - and their username should be displayed in that color
+[] 3. show username that post belongs to
+
+[] 4. Change bottom left menu link to get all users - need to make link
+[] 5. Add an Abyss icon to desktop
+[] 6. Discover needs to route to menu
+
+Rain: 1,3,
+Dee Dee: 2,
+    create custom colors in tailwind.config.js
+    assign user random custom color at registration
+    update db with OPTIONAL color
+    update connected.jpg with font
+    ## objectfit for menu button jpegs
+    ## work on discover channels text
+    ## add the menu links
+
+Ellie: Feed & make handler to get all posts for all users not just logged in one
+
+Wishful Thinking
+React alert emulating win 95 pop up
+Ads
+Ugly background for menu and post?
+Post is a small component that pops up for you to make post and closes when you make it
+Add ability to store images in the database
