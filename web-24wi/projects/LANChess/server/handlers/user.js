@@ -12,7 +12,7 @@ export const createNewUser = async (req, res) => {
 
     })
     const token = createJWT(user);
-    res.json({ token });
+    res.json({ token, id: user.id });
 }
 
 export const signin = async (req, res) => {
@@ -35,7 +35,7 @@ export const signin = async (req, res) => {
     }
 
     const token = createJWT(user);
-    res.json({ token });
+    res.json({ token, id: user.id });
 }
 
 // api handlers

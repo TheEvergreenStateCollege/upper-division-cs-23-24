@@ -46,11 +46,25 @@ const server = app.listen(port, () => {
 
 // chat server
 const wss = new WebSocketServer({ server: server });
-wss.on("connection", socket => {
-    socket.on("error", console.error);
-    socket.on("message", data => {
+
+// String -> [ WebSockets ]
+const ongoingGames = new Map();
+
+function handleMessage(data) {
+    if (data.jwt) {
+       console.log(data.jwt); 
+    } else if (!data.gameid) {
+        console.log("WEBSOCKET error: missing gameid in message");
+    } else if (!data.message) {
+        console.log("WEBSOCKET error: missing message");
+    }
+}
+wss.on("connection", ws => {
+    ws.on("error", console.error);
+    ws.on("message", data => {
         console.log("received %s", JSON.parse(data));
-        socket.send(data.toString());
+        handleMessage(data);
+        ws.send(data.toString());
     });
-})
+});
 

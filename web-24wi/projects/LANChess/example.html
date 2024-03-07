@@ -111,10 +111,14 @@
             "body": JSON.stringify({"username": username.value, "password": password.value}),
         });
         const data = await res.json();
-        const token = data["token"];
-        console.log(token);
-        localStorage.setItem("token", token);
-        activateGameForm();
+        console.log(res.status);
+        if (res.status === 200) {
+            localStorage.setItem("token", data["token"]);
+            localStorage.setItem("id", data["id"])
+            console.log(localStorage.getItem("token"));
+            console.log(localStorage.getItem("id"));
+            activateGameForm();
+        }
     });
 
 </script>
