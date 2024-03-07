@@ -26,7 +26,7 @@ import GetUsers from "./components/users";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <CatchAll/>
+    <Desktop/>
   </React.StrictMode>,
 );
 
