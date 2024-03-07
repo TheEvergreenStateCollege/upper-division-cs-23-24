@@ -31,6 +31,16 @@ export const createNewUser = async (req,res) => {
     
 }
 
+export const Users = async (req,res)=> {
+    const allUsers = await prisma.user.findMany({
+        select: {
+            username: true
+        }
+});
+	res.json(allUsers);
+
+}
+
 export const signin = async (req, res) => {
     const user = await prisma.user.findUnique({
         where: {
