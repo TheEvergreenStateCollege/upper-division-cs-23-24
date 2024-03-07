@@ -16,8 +16,8 @@ async function credentialsSyntaxCheckForRegistration(){
     if ((usernameValueLen && passwordValueLen >=2) && (usernameValueLen && passwordValueLen <=10)) {
         usernameValue = usernameValue;
         passwordValue = passwordValue;
-        console.log("Username:" + "[" + usernameValue + "]");
-        console.log("Password:" + "[" + passwordValue + "]");
+        console.log("Username: " + "[" + usernameValue + "]");
+        console.log("Password: " + "[" + passwordValue + "]");
     } else {
         window.alert('Invalid username or password');
     }
