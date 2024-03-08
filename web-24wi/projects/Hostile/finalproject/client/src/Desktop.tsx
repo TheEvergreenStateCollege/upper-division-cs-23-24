@@ -1,4 +1,3 @@
-import icon from "../static/win.png"
 import React, { useState } from "react";
 
 
