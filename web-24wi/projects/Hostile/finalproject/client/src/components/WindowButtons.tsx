@@ -16,8 +16,8 @@ const WindowButtons = () => {
 
             <div className={" flex justify-end p-1 "}>
 
-                <a>
-                <button
+                <a href="/bluescreen">
+                <button 
                     className="bg-panelgray text-xs pr-1 pl-2 border border-cus">
                     _
                 </button>

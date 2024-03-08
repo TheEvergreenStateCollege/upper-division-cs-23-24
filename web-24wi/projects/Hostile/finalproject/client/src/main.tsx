@@ -28,7 +28,7 @@ import GetUsers from "./components/users";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
 
-    <Window content={<Menu />}/>
+    <Desktop/>
 
   </React.StrictMode>,
 );

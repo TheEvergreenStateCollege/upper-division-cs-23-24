@@ -16,6 +16,7 @@ export default defineConfig({
         post: resolve(__dirname, 'post/index.html'),
         users: resolve(__dirname, 'users/index.html'),
         catchall: resolve(__dirname, 'catchall/index.html'),
+        menu: resolve(__dirname, 'menu/index.html'),
       },
     },
   },
