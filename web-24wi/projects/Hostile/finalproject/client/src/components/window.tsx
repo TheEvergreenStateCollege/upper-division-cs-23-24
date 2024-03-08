@@ -3,9 +3,9 @@ import WindowButtons from "./WindowButtons";
 
 const Window = ({ content }: { content?: any }) => {
   // states for background colors
-  const [panl, setPanl] = useState("bg-panelgray");
-  const [whi, setWhi] = useState("bg-white");
-  const [text, setText] = useState("text-black");
+  const [panl] = useState("bg-panelgray");
+  const [whi] = useState("bg-white");
+  const [text] = useState("text-black");
   const [changed, setChanged] = useState(false);
 
   // state for button size
@@ -29,7 +29,7 @@ const Window = ({ content }: { content?: any }) => {
         <div
             className={`flex justify-stretch flex-col ${panl} ${margb} ${margr} ${margt} border border-cus md:flex-1`}
         >
-          <div className={`flex flex-row bg-blue-900 border-b mx-1`}>
+          <div className={`flex flex-row bg-blue-900 mx-1`}>
             <img
                 src="/channels/eolIM.jpeg"
                 className="mx-auto h-8"
@@ -39,10 +39,10 @@ const Window = ({ content }: { content?: any }) => {
             <WindowButtons />
           </div>
           <div
-              className={`mr-2 ml-2 mt-1 border-l-2 border-t-2 border-bargray md:flex-1 overflow-y-auto`}
+              className={`mx-2 my-2 border-2 border-bargray md:flex-1 overflow-y-auto`}
           >
             <div
-                className={`flex flex-row ${whi} ${text} border-b border-bargray border-opacity-60 overflow-y-auto`}
+                className={`flex flex-row ${whi} ${text} `}
             >
               {content}
             </div>
