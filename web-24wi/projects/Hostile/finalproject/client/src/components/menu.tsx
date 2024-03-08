@@ -7,7 +7,7 @@ const Menu = () => {
     { label: "", url: "", image: "games.png" },
     { label: "", url: "", image: "computing.png" },
     { label: "", url: "", image: "research.png" },
-    { label: "", url: "", image: "connected.png" },
+    { label: "", url: "/api/allusers", image: "connected.png" },
   ];
 
   return (
