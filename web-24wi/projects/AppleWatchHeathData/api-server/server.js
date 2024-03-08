@@ -7,8 +7,14 @@ const port = 5000;
 const path = require("path");
 const protect = require('../api-server/modules/auth'); // Assuming protect middleware is defined in a separate file
 const { createNewUser, signin } = require('./handlers/user');
+const http= require('http');
+const morgan = require('morgan');
+const cors = require('cors');
 
-
+app.use(cors())
+app.use(morgan('dev'))
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 app.post('/user', createNewUser)
 app.post('/signin', signin)
@@ -86,7 +92,22 @@ app.post("/daily-watch-data", async ( req, res) => {
   res.json(req.body);
 });
 
-// creates and starts a server for our API on a defined port
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+const server = http.createServer(app); // Replace with your Express app creation
+const serverFunc = () => {
+  server.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+  });
+};
+
+server.on('error', (error) => {
+  if (error.code === 'EADDRINUSE') {
+    console.error(`Port ${port} is already in use. Trying the next port number.`);
+    port += 1;
+    setTimeout(serverFunc, 1000);
+  } else {
+    console.error('Error starting server:', error);
+  }
+  // Optional: Perform additional actions like exiting the application
 });
+// Kick off the chain of server listen retries with the original port
+serverFunc();
