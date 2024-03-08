@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHref } from "react-router-dom";
 
 const Window = ({ content }: { content?: any }) => {
   const [colo, setColo] = useState("bg-backblue");
@@ -22,7 +23,7 @@ const Window = ({ content }: { content?: any }) => {
   ];
 
   const windowControlButtons = [
-    { label: "_", onClick: () => console.log("Minimize clicked!") },
+    { label: "_", onClick: () => location.href="/bluescreen" },
     {
       label: "□",
       onClick: () => {
@@ -39,7 +40,7 @@ const Window = ({ content }: { content?: any }) => {
         }
       },
     },
-    { label: "x", onClick: () => console.log("Close clicked!") },
+    { label: "x", onClick: () => location.href="/" },
   ];
 
   const toggleColors = () => {

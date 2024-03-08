@@ -61,8 +61,9 @@ function Browser ({content}: {content?:any}) {
                 Post
                 </button></div>
               <div><button className="mx-2 mt-8 px-4 text-sm hover:text-white hover:bg-blue-900 hover:bg-opacity-50">
+              <a href="/menu">
               <img src="/static/disc.png"/>
-                Discover
+                Discover</a>
                 </button></div>
         </div>
         <div className={` flex justify-stretch flex-col  ${panl} ${enlarged ? 'mb-6 mr-0 mt-0' : 'mb-60 mr-6 mt-8'} w-full border border-cus `}>

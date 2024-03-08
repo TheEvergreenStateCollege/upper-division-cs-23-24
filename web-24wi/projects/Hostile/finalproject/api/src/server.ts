@@ -71,6 +71,13 @@ app.get('/login', (req,res) => {
     
 })
 
+app.get('/menu', (req,res) => {
+
+    res.sendFile(path.resolve("../client/dist/menu/index.html"))
+
+
+})
+
 
 
 app.use('/api', protect, router)

@@ -1,48 +1,51 @@
 <!DOCTYPE html>
-<html  lang="en">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./static/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blue Screen of Death</title>
     <style>
         body, html {
-  height: 100%;
-  margin: 0;
-}
-        .bg{
+            height: 100%;
+            margin: 0;
+        }
+
+        .bg {
             background-image: url("./static/blue.gif");
             background-size: cover;
-            background-position: center ;
+            background-position: center;
             background-attachment: fixed;
             height: 100%;
         }
-        
     </style>
-   
-  </head>
-  <body onload="openFullscreen()">
-    
-  
-    
-    <div class="bg" id="bluesc" ></div>
-    
-    <script>
+</head>
+<body>
 
+<div class="bg" id="bluesc"></div>
 
-        /* Get the documentElement (<html>) to display the page in fullscreen */
-        var elem = document.getElementById("bluesc")
-        
-        /* View in fullscreen */
-        function openFullscreen() {
-          
-            elem.requestFullscreen();
+<script>
+    var keyPressed = false; // Flag to ensure fullscreen is triggered only once
 
-          
+    /* View in fullscreen when a key is pressed */
+    function openFullscreen() {
+        if (!keyPressed) { // Trigger fullscreen only once
+            var elem = document.documentElement; // Get the documentElement (<html>) to display the page in fullscreen
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                elem.msRequestFullscreen();
+            }
+            keyPressed = true; // Set the flag to true
         }
-        
-       
-        </script>
-  </body>
+    }
 
-  </html>
+    /* Add event listener for keydown */
+    document.addEventListener("keydown", openFullscreen);
+</script>
+</body>
+</html>
