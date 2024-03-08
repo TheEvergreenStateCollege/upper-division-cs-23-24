@@ -3,7 +3,7 @@ To do:
 [] 2. Assign users a color - add this to database - and their username should be displayed in that color
 [] 3. show username that post belongs to
 
-[] 4. Change bottom left menu link to get all users - need to make link
+[X] 4. Change bottom left menu link to get all users - need to make link
 [] 5. Add an Abyss icon to desktop
 [] 6. Discover needs to route to menu
 
