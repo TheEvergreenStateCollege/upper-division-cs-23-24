@@ -1,28 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Welcome</title>
-        <script type="text/javascript" src="index.js"></script>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-	    <center>
-            <iframe style="display: block;" width="560" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?si=tWsUk--54AAkeGXY" 
-            title="YouTube video player" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-            </iframe>
-        </center>
-        <div class="container">
-            <form action="put" target="http://AkinaSS.arcology.builders:5000">
-                <label class="login-color" for="input-name">Username:</label>
-                <input type="text" id="input-name" required autocomplete="name"/>
-                <label class="login-color" for="input-password">Password:</label>
-                <input type="password" id="input-password" autocomplete="current-password"/>
-                <button id="button-submit">Submit</button>
-            </form>
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoppy Happy Bunny | Your One-Stop Shop for Hoppiness!</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="image/bunny logo.png" class="logo" alt="Hoppy Happy Bunny Logo">
+    </div>
+
+    <ul>
+        <li><a href="#" style="font-weight: bold;">HOME</a></li>
+        <li><a href="#shop" style="font-weight: bold;">SHOP</a></li>
+        <li><a href="aboutUs.html" style="font-weight: bold;">ABOUT US</a></li>
+        <li><a href="contactUs.html" style="font-weight: bold;">CONTACT</a></li>
+        <li><a href="logIn.html" style="font-weight: bold;">SIGN IN</a></li>
+    </ul>
+
+    <form id="searchForm" action="search.html" method="GET">
+        <input type="text" id="searchInput" class="search-bar" name="query" placeholder="Search...">
+        <button id="searchButton"><i class="uil uil-search"></i></button>
+    </form>
+    
+    <div class="cart">
+        <button><a>Wishlist </a><i class="uil uil-star"></i></button>
+        <p id="cartNum">0</p>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="main">
+        <div class="slider">
+          <a href="#slide-1">1</a>
+          <a href="#slide-2">2</a>
+          <a href="#slide-3">3</a>
+      
+          <div class="slides">
+            <div id="slide-1">
+                <div class="mainText">
+                    <h1>On Sale <br> 23% OFF</h1>
+                    <p>2nd Cut Timothy + Bedding</p>
+                    <button>Shop Now</button>
+                </div>
+                <img src="image/product8.png" alt="Second Cut Timothy + Bedding">
+            </div>
+            <div id="slide-2">
+                <div class="mainText">
+                    <h1>On Sale <br> 23% OFF</h1>
+                    <p>Bunny Bail Sprinkle</p>
+                    <button>Shop Now</button>
+                </div>
+                <img src="image/product13.jpg" alt="Sprinkles Yellow">
+            </div>
+            <div id="slide-3">
+                <div class="mainText">
+                    <h1>On Sale <br> 23% OFF</h1>
+                    <p>Healthy Snacker</p>
+                    <button>Shop Now</button>
+                </div>
+                <img src="image/product1.png" alt="Healthy Snacker">
+            </div>
+          </div>
         </div>
-        
-	</body>
+      </div>
+      
+
+    <section id="shop">
+        <div class="head">
+            <h2>Best Sellers</h2>
+        </div>
+    
+        <div class="grid-container">
+            <div class="products">
+                <img src="image/product1.png" alt="Product 1">
+                <h3>Happy Food</h3>
+                <p>Happy Food by Westen Food Comp</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product2.png" alt="Product 2">
+                <h3>Pet Comb</h3>
+                <p>Pet Comb by Sentinals</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product3.png" alt="Product 3">
+                <h3>Wire Cover</h3>
+                <p>Heavy-Duty cord cover. Protects your cables against pets</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product4.png" alt="Product 4">
+                <h3>Pet Food
+                </h3>
+                <p>Dry nut which contains many nutrients</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product5.png" alt="Product 5">
+                <h3>Matress by hand</h3>
+                <p>Maked manually by hand can can wistand heavy duty</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product6.png" alt="Product 6">
+                <h3>Dry Grass</h3>
+                <p>Food for pets, bunny</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product7.png" alt="Product 7">
+                <h3>Pet bowl</h3>
+                <p>Can use to feed your pet with your food</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product8.png" alt="Product 8">
+                <h3>Timothy Hay</h3>
+                <p>Fresh and good</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="shop">
+        <div class="head">
+            <h2>New Products</h2>
+        </div>
+    
+        <div class="grid-container">
+            <div class="products">
+                <img src="image/product9.jpg" alt="Product 1">
+                <h3>Pet Food</h3>
+                <p>Description of Product 1</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product10.png" alt="Product 2">
+                <h3>Pet Food 2</h3>
+                <p>Description of Product 2</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product11.jpg" alt="Product 3">
+                <h3>Pet Food 3</h3>
+                <p>Description of Product 3</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product12.webp" alt="Product 4">
+                <h3>Pet Food 4</h3>
+                <p>Description of Product 4</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product13.jpg" alt="Product 5">
+                <h3>Pet Food 5</h3>
+                <p>Description of Product 5</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product14.jpg" alt="Product 6">
+                <h3>Pet Food 6</h3>
+                <p>Description of Product 6</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product15.jpg" alt="Product 7">
+                <h3>Pet Food 7</h3>
+                <p>Description of Product 7</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+            
+            <div class="products">
+                <img src="image/product16.jpg" alt="Product 8">
+                <h3>Pet Food 8</h3>
+                <p>Description of Product 8</p>
+                <button>Wishlist <i class="uil uil-star"></i></button>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="newsletter">
+        <div class="newstext">
+            <h2>Sign Up For Newsletters</h2>
+            <p>Get email updates about our latest shop and <span>special offers</span>.</p>
+        </div>
+        <div class="form">
+            <input type="email" placeholder="Your email address">
+            <button>Sign Up</button>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="col">
+        <div class="contact">
+            <h2>Contact</h2>
+            <p>Address: Fern St</p>
+            <p>Phone: (206) 123-4567</p>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="about">
+            <h2>About</h2>
+            <ul>
+                <li><a href="aboutUs.html">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="account">
+            <h2>My Account</h2>
+            <ul>
+                <li><a href="cart.html">View Wishlist</a></li>
+                <li><a href="#">Track My Order</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <ul>
+                <li><a href="contactUs.html">Send us a message!</a>
+        </div>
+    </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
 </html>
