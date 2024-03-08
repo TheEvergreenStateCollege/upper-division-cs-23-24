@@ -39,6 +39,13 @@ function Desktop({content}:{content?:any}) {
                 Discover
                 </a>
                 </button></div>
+
+                <div><button className="mx-2 mt-8 px-4 text-sm hover:text-white hover:bg-blue-900 hover:bg-opacity-50">
+              <a href="/">
+              <img className="object-contain h-14" src="/static/abyss.png"/>
+                Abyss
+                </a>
+                </button></div>
         </div>
 
         

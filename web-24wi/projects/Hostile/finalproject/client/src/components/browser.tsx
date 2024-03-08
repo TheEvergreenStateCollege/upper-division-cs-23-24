@@ -65,6 +65,13 @@ function Browser ({content}: {content?:any}) {
               <img src="/static/disc.png"/>
                 Discover</a>
                 </button></div>
+
+                <div><button className="mx-2 mt-8 px-4 text-sm hover:text-white hover:bg-blue-900 hover:bg-opacity-50">
+              <a href="/">
+              <img className="object-contain h-14" src="/static/abyss.png"/>
+                Abyss
+                </a>
+                </button></div>
         </div>
         <div className={` flex justify-stretch flex-col  ${panl} ${enlarged ? 'mb-6 mr-0 mt-0' : 'mb-60 mr-6 mt-8'} w-full border border-cus `}>
           <div className={`flex flex-row bg-bargray border-b  mx-1`}>
