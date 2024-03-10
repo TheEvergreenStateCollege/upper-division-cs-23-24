@@ -1,4 +1,6 @@
 import React from "react";
+import Window from "./window";
+import Desktop from "../Desktop";
 
 const Menu = () => {
     const menuItems = [
@@ -12,7 +14,7 @@ const Menu = () => {
 
     return (
         <div className="flex" style={{
-            backgroundImage: 'url("/public/channels/subtle-background.jpg")',
+            backgroundImage: 'url("/channels/subtle-background.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -81,3 +83,9 @@ const Menu = () => {
 };
 
 export default Menu;
+
+const FullMenu = () => {
+    return(
+        <Desktop content={ <Window content={<Menu />} /> } />
+    )
+}
