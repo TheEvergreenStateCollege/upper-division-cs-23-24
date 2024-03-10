@@ -71,13 +71,13 @@ async function loginUser(){
               })})
     
                 
-                const result = await response.json();
-                console.log("Success:", result);
-    
-                document.cookie = result
-                const cookieString = document.cookie
-
-                console.log("cookie value: " + document.cookie);
+                const resultObj = await response.json();
+                const userID = resultObj.id;
+                const userToken = resultObj.token;
+                console.log("Success: ");
+                console.log(userID);
+                console.log(userToken);
+                
     
             } catch (error) {
                 console.error("Error:", error);
