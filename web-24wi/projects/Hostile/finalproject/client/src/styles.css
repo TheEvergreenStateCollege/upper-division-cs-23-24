@@ -31,7 +31,7 @@ html {
 
 @font-face {
     font-family: MS;
-    src: url(../w95fa.woff);
+    src: url(../fonts/w95fa.woff);
 }
 @layer utilities {
     .border-cus {

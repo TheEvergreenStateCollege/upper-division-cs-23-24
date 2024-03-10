@@ -1,18 +1,30 @@
 import prisma from "../db"
 
-//get one product
+//this one works, needs interface
 export const getPost = async (req,res) => {
     const id = req.params.id
 
-    const product = await prisma.post.findFirst({
+    const post = await prisma.post.findFirst({
         where: {
             id,
             belongsToId: req.user.id
         }
     })
+    res.json({data: post})
 }
 
-//get all products
+export const Posts = async (req,res)=> {
+    const allPosts = await prisma.post.findMany({
+        select: {
+            name: true,
+            body:true
+        }
+});
+	res.json(allPosts);
+
+}
+
+//ths one works
 export const getPosts = async (req, res) => {
     const user = await prisma.user.findUnique({
         where: {
@@ -26,7 +38,7 @@ export const getPosts = async (req, res) => {
     res.json({data: user.posts})
 }
 
-//create a product
+//this one works
 export const createPost = async (req, res) => {
     const post = await prisma.post.create({
         data: {
@@ -39,7 +51,7 @@ export const createPost = async (req, res) => {
     // res.json({data: post})
 }
 
-//update
+//needs to be tested - needs interface
 export const updatePost = async (req, res) => {
     const updated = await prisma.post.update({
         where: {
@@ -54,7 +66,7 @@ export const updatePost = async (req, res) => {
     res.json({data: updated})
 }
 
-//delete
+//needs to be tested - needs interface
 export const deletPost = async (req, res) => {
     const deleted = await prisma.post.delete({
         where: {

@@ -13,6 +13,24 @@ export const getPost = async (req,res) => {
     res.json({data: post})
 }
 
+export const Posts = async (req,res)=> {
+
+    const allPosts = await prisma.post.findMany({
+        select: {
+            name: true,
+            body:true,
+            belongsTo: {
+                select:{
+                    username: true
+                }
+            }
+        }
+ 
+    })
+	res.json(allPosts);
+
+}
+
 //ths one works
 export const getPosts = async (req, res) => {
     const user = await prisma.user.findUnique({

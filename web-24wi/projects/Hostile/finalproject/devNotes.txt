@@ -1,0 +1,32 @@
+To do:
+[X] 1. Have desktop change when logged in vs not - sign in vs profile button
+[] 2. Assign users a color - add this to database - and their username should be displayed in that color
+[X] 3. show username that post belongs to
+
+[X] 4. Change bottom left menu link to get all users - need to make link
+[X] 5. Add an Abyss icon to desktop
+[X] 6. Discover needs to route to menu
+
+Rain: 1,3,
+Dee Dee: 2,
+    create custom colors in tailwind.config.js
+    assign user random custom color at registration
+    update db with OPTIONAL color
+    update connected.jpg with font
+    
+    ## link desktop icon to menu
+    ## - [x] menu button jpegs need to fit screen changes
+    ## - [x} add background to menu
+    ## - [x] add banner ads
+    ## - [x] add software adds
+    ## - [x] menu component fitting inside window component
+    ## - [ ] add the menu links (done with all but one)
+
+Ellie: Feed & make handler to get all posts for all users not just logged in one
+
+Wishful Thinking
+React alert emulating win 95 pop up
+Ads
+Ugly background for menu and post?
+Post is a small component that pops up for you to make post and closes when you make it
+Add ability to store images in the database

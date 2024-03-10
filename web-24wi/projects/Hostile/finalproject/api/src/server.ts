@@ -50,11 +50,12 @@ app.get('/landing', (req,res) => {
    
 })
 
-app.get('/post', (req,res) => {
-    res.sendFile(path.resolve("../client/dist/post/index.html"))
-    res.status(200)
-    // fetch('http://localhost:5173')
-   
+app.get('/error', (req,res) => {
+
+    res.sendFile(path.resolve("../client/dist/catchall/index.html"))
+
+// fetch('http://localhost:5173')
+
 })
 
 
@@ -68,6 +69,13 @@ app.get('/login', (req,res) => {
         res.sendFile(path.resolve("../client/dist/login/index.html"))
     
     
+})
+
+app.get('/menu', (req,res) => {
+
+    res.sendFile(path.resolve("../client/dist/menu/index.html"))
+
+
 })
 
 

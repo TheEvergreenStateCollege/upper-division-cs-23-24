@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && cp -r static dist",
     "preview": "vite preview",
     "format": "prettier --write 'src/**/*.ts*' 'src/**/*.tsx' 'src/**/*.css'"
   },
@@ -16,6 +16,7 @@
     "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.13",
     "react-native-web": "^0.19.10",
     "react-router-dom": "^6.22.0"
   },

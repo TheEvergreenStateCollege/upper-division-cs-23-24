@@ -17,7 +17,7 @@ import CatchAll from "../src/components/CatchAll";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <CatchAll />
+    <Profile />
   </React.StrictMode>,
 );
 
