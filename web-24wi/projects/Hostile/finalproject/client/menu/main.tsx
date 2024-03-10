@@ -7,6 +7,6 @@ import Window from "../src/components/window";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Window content={<Menu />}/>
+    <Menu/>
   </React.StrictMode>,
 );
