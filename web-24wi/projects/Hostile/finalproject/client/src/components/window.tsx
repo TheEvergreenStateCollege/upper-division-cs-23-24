@@ -24,7 +24,6 @@ const Window = ({ content }: { content?: any }) => {
   const [enlarged, setEnlarged] = useState(false);
 
   return (
-      // window component container
       <div className="flex flex-col">
         <div
             className={`flex justify-stretch flex-col ${panl} ${margb} ${margr} ${margt} border border-cus md:flex-1`}
