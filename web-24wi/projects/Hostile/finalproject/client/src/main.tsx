@@ -14,7 +14,7 @@ import Profile from "./components/profile";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
 
-    <Browser/>
+    <Desktop content={<Window content={<Menu />} /> }/>
 
   </React.StrictMode>,
 );
