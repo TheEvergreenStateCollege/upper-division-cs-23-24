@@ -22,9 +22,9 @@ const Menu = () => {
             <div className="flex-3" style={{ width: '100%' }}>
                 <div className="menu">
                     <div>
-                        <h2 className="text-6xl font-bold py-8 px-36 text-center">Channels</h2>
+                        <h2 className="text-6xl font-bold py-4 px-36 text-center">Channels</h2>
                     </div>
-                    <div className="flex-1 flex justify-center pb-8">
+                    <div className="flex-1 flex justify-center pb-4">
                         <img
                             src="https://www.webdesignmuseum.org/uploaded/exhibitions/web-banners-in-the-90s/at-t-the-first-banner-1994.png"
                             alt="The first web banner AT&amp;T 1994" title="The first web banner AT&amp;T 1994"
@@ -32,7 +32,7 @@ const Menu = () => {
                     </div>
                     <div className="flex flex-wrap items-center">
                         {menuItems.map((item, index) => (
-                            <div key={index} className="w-1/2 pr-8 pb-12 relative">
+                            <div key={index} className="w-1/2 pr-8 pb-8 relative">
                                 <a href={item.url} target="_blank" rel="noopener noreferrer">
                                     <div
                                         className="bg-bargray hover:bg-panelgray border-black border-2 text-white font-bold py-4 m-2 w-full"
@@ -52,7 +52,7 @@ const Menu = () => {
 
                         ))}
                         <div
-                            className="bannerAd flex items-center justify-center w-full h-full pb-8">
+                            className="bannerAd flex items-center justify-center w-full h-full pb-6">
                             <a>
                                 <img className="border border-black"
                                     src="https://www.webdesignmuseum.org/uploaded/exhibitions/web-banners-in-the-90s/macromedia-flash-3-1998.gif"
