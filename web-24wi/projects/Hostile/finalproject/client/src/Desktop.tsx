@@ -1,6 +1,8 @@
+
 import icon from "../static/win.png"
 import React, { useState, useEffect } from "react";
 import Cookies from 'js-cookie';
+
 
 function Desktop({content}:{content?:any}) {
 
