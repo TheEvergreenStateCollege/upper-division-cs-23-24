@@ -19,11 +19,7 @@ router.get('/allUsers', (req,res) => {
     res.sendFile(path.resolve("../client/dist/users/index.html"))
 })
 
-router.get('/post', (req,res) => {
-    res.sendFile(path.resolve("../client/dist/post/index.html"))
-    res.status(200)
-    // fetch('http://localhost:5173')   
-})
+
 
 
 router.get('/allposts', Posts)
