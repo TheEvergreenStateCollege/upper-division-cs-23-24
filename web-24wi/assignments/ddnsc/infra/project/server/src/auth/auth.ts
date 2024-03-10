@@ -1,15 +1,16 @@
 import jwt from 'jsonwebtoken'
 import * as bcrypt from 'bcrypt'
+require('dotenv').config();
 
-export const comparePasswords = (password, hash)=> {
+export const comparePasswords = (password: string | Buffer, hash: string)=> {
     return bcrypt.compare(password, hash);
 };
 
-export const hashPassword = (password) => {
+export const hashPassword = (password: string | Buffer) => {
     return bcrypt.hash(password, 5);
 };
 
-export const createJWT = (user) => {
+export const createJWT = (user: { id: any; createdAt?: Date; username: any; password?: string; }) => {
     return jwt.sign({
             id: user.id,
             username: user.username

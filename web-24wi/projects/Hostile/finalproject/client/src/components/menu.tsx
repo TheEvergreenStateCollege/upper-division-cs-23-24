@@ -1,13 +1,6 @@
 import React from "react";
 
 const Menu = () => {
-    const sidePanelItems = [
-        { label: "", to: "", image: "sign.png" },
-        { label: "", to: "", image: "post.png" },
-        { label: "", to: "", image: "disc.png" },
-        { label: "", to: "", image: "abyss.png" },
-    ];
-
     const menuItems = [
         { label: "", url: "https://gavin-bowers.arcology.builders/", image: "entertainment.png" },
         { label: "", url: "", image: "health.png" }, // ask torsten for url
@@ -18,13 +11,13 @@ const Menu = () => {
     ];
 
     return (
-        <div className="flex" style={{ // Removed the 'px-40' padding
+        <div className="flex" style={{
             backgroundImage: 'url("/public/channels/subtle-background.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
         }}>
-            <div className="flex-3" style={{ width: '100%' }}> {/* Set the width to 100vw */}
+            <div className="flex-3" style={{ width: '100%' }}>
                 <div className="menu">
                     <div>
                         <h2 className="text-6xl font-bold py-8 px-36 text-center">Channels</h2>
@@ -42,7 +35,7 @@ const Menu = () => {
                                     <div
                                         className="bg-bargray hover:bg-panelgray border-black border-2 text-white font-bold py-4 m-2 w-full"
                                         style={{
-                                            height: "50px", // Adjust the height as needed
+                                            height: "50px",
                                             boxShadow: "30px 35px 60px -15px rgba(0, 0, 0, 0.9)",
                                             backgroundImage: `url(/channels/${item.image})`,
                                             backgroundSize: "cover",
@@ -57,7 +50,7 @@ const Menu = () => {
 
                         ))}
                         <div
-                            className="bannerAd flex items-center justify-center w-full h-full pb-8"> {/* Added border style */}
+                            className="bannerAd flex items-center justify-center w-full h-full pb-8">
                             <a>
                                 <img className="border border-black"
                                     src="https://www.webdesignmuseum.org/uploaded/exhibitions/web-banners-in-the-90s/macromedia-flash-3-1998.gif"
