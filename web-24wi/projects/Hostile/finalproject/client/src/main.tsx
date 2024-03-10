@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
 
 
-    <Desktop content={<Window content={<Menu />} /> }/>
+    <Desktop />
 
 
   </React.StrictMode>,
