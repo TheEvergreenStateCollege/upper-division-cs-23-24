@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppRouter from './routes/router';
+import App from './App';
+import { AuthProvider } from './auth/auth';
 
 ReactDOM.render(
     <React.StrictMode>
-        <AppRouter />
+        <AuthProvider>
+            <App />
+        </AuthProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
