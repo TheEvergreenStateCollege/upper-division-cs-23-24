@@ -5,6 +5,13 @@ var usernameValueLen;
 var passwordValue;
 var passwordValueLen;
 
+async function setCookie(name, value, daysToLive) {
+    const date = new Date();
+    date.setTime(date.getTime() + (daysToLive * 24 * 60 * 60 * 1000))
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = '${name}=${value}; ${expires}; path=/';
+}
+
 async function credentials() { //This function stores the value of the login page's "username" textbox form into the initial initUsername
     usernameValue = document.getElementById('textBoxFormForUserToCreateNewUsername').value;
     passwordValue = document.getElementById('textBoxFormForUserToCreateNewPassword').value;
@@ -77,7 +84,12 @@ async function loginUser(){
                 console.log("Success: ");
                 console.log(userID);
                 console.log(userToken);
-                
+
+                setCookie("userID", userID, 1);
+                console.log(document.cookie);
+
+
+
     
             } catch (error) {
                 console.error("Error:", error);
