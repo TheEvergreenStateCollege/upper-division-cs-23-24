@@ -1,5 +1,6 @@
 import React from "react";
 import Window from "./window";
+import Desktop from "../Desktop";
 
 const Menu = () => {
     const menuItems = [
@@ -85,6 +86,6 @@ export default Menu;
 
 const FullMenu = () => {
     return(
-        <Window content={<Menu />} />
+        <Desktop content={ <Window content={<Menu />} /> } />
     )
 }

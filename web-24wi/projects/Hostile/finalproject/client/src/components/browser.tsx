@@ -158,28 +158,9 @@ function Browser ({content}: {content?:any}) {
               
             </div>
             <div className={`flex flex-row  bg-white text-black  border-opacity-60  justify-center w-full h-full`}>
-              
-              
                 {content}
-              
-              
-              {/* <Landing></Landing> */}
-              
-
-              
             </div>
             <div className="flex flex-row w-full justify-center bg-white border-b border-bargray ">
-                        {/* <div className="pr-8">
-                            <img
-                                src="https://www.webdesignmuseum.org/uploaded/exhibitions/web-banners-in-the-90s/internet-explorer-3-0-1996.gif"
-                                alt="Get Flash Player banner 1996" title="Get Flash Player 1996"/>
-                        </div>
-
-                        <div className="pr-8">
-                            <img
-                                src="https://dans-things.com/wp-content/uploads/2018/10/casnet1.gif"
-                                alt="Get Flash Player banner 1996" title="Get Flash Player 1996"/>
-                        </div> */}
                         <ButtonPicker/>
                 </div>
           </div>
