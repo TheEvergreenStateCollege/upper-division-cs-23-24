@@ -1,10 +1,10 @@
 To do:
-[] 1. Have desktop change when logged in vs not - sign in vs profile button
+[X] 1. Have desktop change when logged in vs not - sign in vs profile button
 [] 2. Assign users a color - add this to database - and their username should be displayed in that color
-[] 3. show username that post belongs to
+[X] 3. show username that post belongs to
 
 [X] 4. Change bottom left menu link to get all users - need to make link
-[] 5. Add an Abyss icon to desktop
+[X] 5. Add an Abyss icon to desktop
 [X] 6. Discover needs to route to menu
 
 Rain: 1,3,
