@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="033cc808-6f24-44ce-89f4-d3854f11e9ec" name="Changes" comment="" />
+    <list default="true" id="033cc808-6f24-44ce-89f4-d3854f11e9ec" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +15,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2dNS0Wba9OF7Hym4fQiZAH3Inmd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,10 +25,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/dh/Desktop/Class Workspace/classRepo/src/upper-division-cs/web-24wi/projects/Hostile/finalproject/client/public",
+    "last_opened_file_path": "/home/dh/Desktop/Class Workspace/classRepo/src/upper-division-cs/web-24wi/assignments/ddnsc/infra/project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -38,6 +41,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/finalproject/client/public/channels" />
       <recent name="$PROJECT_DIR$/finalproject/client/public" />
       <recent name="$PROJECT_DIR$/finalproject/client/src/components" />
     </key>
@@ -51,6 +55,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709846819201</updated>
       <workItem from="1709846820247" duration="2282000" />
+      <workItem from="1709943549021" duration="7217000" />
     </task>
     <servers />
   </component>

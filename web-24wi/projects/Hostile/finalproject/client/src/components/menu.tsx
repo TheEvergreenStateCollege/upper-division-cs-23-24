@@ -1,13 +1,6 @@
 import React from "react";
 
 const Menu = () => {
-    const sidePanelItems = [
-        { label: "", to: "", image: "sign.png" },
-        { label: "", to: "", image: "post.png" },
-        { label: "", to: "", image: "disc.png" },
-        { label: "", to: "", image: "abyss.png" },
-    ];
-
     const menuItems = [
         { label: "", url: "https://gavin-bowers.arcology.builders/", image: "entertainment.png" },
         { label: "", url: "", image: "health.png" }, // ask torsten for url

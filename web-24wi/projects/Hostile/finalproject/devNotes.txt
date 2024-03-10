@@ -13,13 +13,14 @@ Dee Dee: 2,
     assign user random custom color at registration
     update db with OPTIONAL color
     update connected.jpg with font
+    
     ## link desktop icon to menu
     ## - [x] menu button jpegs need to fit screen changes
     ## - [x} add background to menu
     ## - [x] add banner ads
     ## - [x] add software adds
     ## - [x] menu component fitting inside window component
-    ## add the menu links (done with all but one)
+    ## - [ ] add the menu links (done with all but one)
 
 Ellie: Feed & make handler to get all posts for all users not just logged in one
 
