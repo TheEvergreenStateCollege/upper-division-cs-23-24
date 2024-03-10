@@ -82,10 +82,12 @@ const Menu = () => {
     );
 };
 
-export default Menu;
+
 
 const FullMenu = () => {
     return(
         <Desktop content={ <Window content={<Menu />} /> } />
     )
 }
+
+export default FullMenu;
