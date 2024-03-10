@@ -13,7 +13,7 @@ Dee Dee: 2,
     assign user random custom color at registration
     update db with OPTIONAL color
     update connected.jpg with font
-    
+
     ## link desktop icon to menu
     ## - [x] menu button jpegs need to fit screen changes
     ## - [x} add background to menu

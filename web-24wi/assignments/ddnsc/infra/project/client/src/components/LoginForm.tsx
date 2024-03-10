@@ -1,6 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-import axios, { AxiosError } from 'axios';
+import fetchInstance from "../services/fetch";
+
 
 interface LoginFormProps {
     showPassword: boolean;
@@ -15,18 +16,18 @@ const LoginForm: React.FC<LoginFormProps> = ({ showPassword, togglePasswordVisib
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5000/login', {
+            const response = await fetchInstance('login', 'POST', {
                 username,
                 password,
             });
 
             // Handle successful login
-            console.log('Login successful:', response.data);
+            console.log('Login successful:', response);
         } catch (error) {
-            // Check if the error is an AxiosError and if it has a response
-            if (axios.isAxiosError(error) && error.response) {
+            // Check if the error is an HTTP error and if it has a response
+            if (error instanceof Error && error.message.startsWith('HTTP error!')) {
                 // Handle login error
-                console.error('Login error:', error.response.data);
+                console.error('Login error:', error.message);
             } else {
                 // Handle other types of errors
                 console.error('Unexpected error:', error);
