@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import Landing from "./landing"
 import WindowButtons from "./WindowButtons";
 import Cookies from 'js-cookie';
+import ButtonPicker from "./ButtonPicker"
 
 function Browser ({content}: {content?:any}) {
   
@@ -134,7 +135,7 @@ function Browser ({content}: {content?:any}) {
                 </button>
                 </a>
                 <a  href="/">
-                <button className={`bg-panelgray text-xs ml-1 pr-2 pl-2  border border-cus`}>
+                <button className={`bg-panelgray text-xs  pr-2 pl-2  border border-cus`}>
                     
                     x
                 </button>
@@ -153,18 +154,36 @@ function Browser ({content}: {content?:any}) {
           </div>
           <div className="flex flex-col h-full  mr-1  ml-1 mt-1 border-l-2 border-r border-t-2 border-bargray  ">
             <div className={`flex flex-row  w-full basis-1/6   bg-white`}>
-              <img className="object-contain h-16 " src="/static/logo2.png"/>
+              <img className="object-contain h-20 " src="/static/logo.png"/>
               
             </div>
-            <div className={`flex flex-row basis-5/6 bg-white text-black border-b border-bargray border-opacity-60  justify-center h-full`}>
+            <div className={`flex flex-row  bg-white text-black  border-opacity-60  justify-center w-full h-full`}>
               
-              {content}
+              
+                {content}
+              
+              
               {/* <Landing></Landing> */}
               
 
               
             </div>
+            <div className="flex flex-row w-full justify-center bg-white border-b border-bargray ">
+                        {/* <div className="pr-8">
+                            <img
+                                src="https://www.webdesignmuseum.org/uploaded/exhibitions/web-banners-in-the-90s/internet-explorer-3-0-1996.gif"
+                                alt="Get Flash Player banner 1996" title="Get Flash Player 1996"/>
+                        </div>
+
+                        <div className="pr-8">
+                            <img
+                                src="https://dans-things.com/wp-content/uploads/2018/10/casnet1.gif"
+                                alt="Get Flash Player banner 1996" title="Get Flash Player 1996"/>
+                        </div> */}
+                        <ButtonPicker/>
+                </div>
           </div>
+          
 
           <div className={`flex flex-row bg-panelgray text-black  border-b border-black`}>
           <img className="my-1 px-1 self-center" src="/static/inet.png"/>
