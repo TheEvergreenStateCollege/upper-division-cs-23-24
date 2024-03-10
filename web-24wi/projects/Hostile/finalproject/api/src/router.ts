@@ -25,6 +25,7 @@ router.get('/post', (req,res) => {
     // fetch('http://localhost:5173')   
 })
 
+
 router.get('/allposts', Posts)
 
 router.post('/delete', deletUser)

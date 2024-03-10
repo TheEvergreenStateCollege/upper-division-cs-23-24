@@ -23,8 +23,8 @@ export const protect = (req, res, next) => {
     const bearer = req.cookies['token']
     if(!bearer) {
         res.status(401)
-        res.json({message: 'not authorized'})
-        return
+        // res.json({message: 'not authorized'})
+        return res.redirect("/landing")
     }
 
     const [token] = bearer.split(' ');

@@ -14,12 +14,19 @@ export const getPost = async (req,res) => {
 }
 
 export const Posts = async (req,res)=> {
+
     const allPosts = await prisma.post.findMany({
         select: {
             name: true,
-            body:true
+            body:true,
+            belongsTo: {
+                select:{
+                    username: true
+                }
+            }
         }
-});
+ 
+    })
 	res.json(allPosts);
 
 }
