@@ -3,19 +3,27 @@ To do:
 - [ ] 2-minute video
 - [ ] 500 line README.MD
 
+Tuesday:
+- [] run unit tests
+- [] complete README.md
+- [] check in about feed
+- [] run through app (see below)
+- [] if unit tests and app runthrough were good make 2 min video
 
 Hostile run through:
-- [x] landing
-- [x] sign in
-- [x] register
-- [x] post
-- [x] discover
-    - [x] entertainment
-    - [x] games
-    - [x] research
+- [] landing
+- [] sign in
+- [] register
+- [] post
+- [] feed
+- [] discover
+    - [] entertainment
+    - [] games
+    - [] research
     - [] health
-    - [x] computing
+    - [] computing
     - [] user list
+    - [] WindowButtons functionality
 
 Rain:
 - [ ] profile.tsx change 'Loading..' to 'No Posts' for new accounts
@@ -23,11 +31,11 @@ Rain:
 - [ ] unit testing
 
 Dee Dee:
-    ## - [ ] unit testing
+    ## - [x] unit testing section
+    ## - [x] import jest, write unit tests for user.ts
     ## - [ ] add the menu links (done with all but one)
-    ## - [ ] make modal for updating profile using form in profile.tsx
-        ## - [ ] comment so rain can style
-
+    ## - [x] make modal for updating profile using form in profile.tsx
+    ## - [x] README.md outline
 
     create custom colors in tailwind.config.js
     assign user random custom color at registration
@@ -40,6 +48,6 @@ Wishful Thinking
 put dial up audio over blue screen of death
 React alert emulating win 95 pop up
 Ads
-Ugly background for menu and post?
+Ugly background for post?
 Post is a small component that pops up for you to make post and closes when you make it
 Add ability to store images in the database
