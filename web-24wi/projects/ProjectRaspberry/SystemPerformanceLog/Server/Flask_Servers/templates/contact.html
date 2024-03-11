@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact 💻 MacN</title>
+    <link rel="StyleSheet" href="/static/css/styles.css">
+</head>
+<body>
+
+    <section class="contact-section">
+        <h1>Contact Me</h1>
+        <p>Hi there! I'm MacN, an inspiring full-stack developer passionate about creating seamless digital experiences.<br> Currently exploring new opportunities and collaborations.<br>Let's connect and make something great together.</p>
+        <a href="https://www.linkedin.com/in/nathan-mclaughlin-942b28126/" target="_blank">
+            <img src="/static/assets/linkedIn.png" alt="LinkedIn" style="width: 40px; height: 40px;">
+            Connect with me on LinkedIn
+        </a>
+        
+        <form id="contactform" action="/submit-contact" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message (200 characters max):</label>
+                <textarea id="message" name="message" rows="4" maxlength="200" required oninput="updateCounter()"></textarea>
+                <p id="charCount">0 / 200</p>
+            </div>
+            <button type="submit">Submit</button>
+        </form>     
+
+    </section>
+    <div class="vertical-footer">
+        <a href="/main-menu.html" class="home-button">Home</a>
+        <a href="index.html" class="logout-button">Log out</a>
+    </div>
+
+    <div id="message-container" style="display: none;">
+        <p id="success-message"></p>
+        <button onclick="hideMessage()">Okay</button>
+    </div>
+
+    <script>
+        document.getElementById("contactform").addEventListener("submit", function(event){
+            event.preventDefault(); // Prevent default form submission
+
+            var formData = new FormData(this);
+
+            fetch("/submit-contact", {
+                method: "POST",
+                body: formData
+            }).then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    // Display the success message
+                    document.getElementById("success-message").textContent = data.message;
+                    document.getElementById("message-container").style.display = "block";
+
+                    // Hide the message after 10 seconds
+                    setTimeout(hideMessage, 10000);
+                } else {
+                    // Handle failure (you might want to show an error message here)
+                    alert(data.message);
+                }
+            }).catch(error => console.error("Error:", error));
+        });
+
+        function hideMessage() {
+            document.getElementById("message-container").style.display = "none";
+        }
+        
+        function updateCounter() {
+            const message = document.getElementById("message");
+            const counter = document.getElementById("charCount");
+            const currentLength = message.value.length;
+            counter.textContent = `${currentLength} / 200`;
+        }
+        // Initialize counter on page load
+        document.addEventListener("DOMContentLoaded", updateCounter);
+    </script>
+
+</body>
+</html>

@@ -13,7 +13,7 @@
     <nav>
         <ul>
             <li>
-                <a href="index.html" class="home-icon-link">
+                <a href="/" class="home-icon-link">
                     <div class="home-icon">
                             <div class="roof">
                                 <div class="roof-edge"></div>
@@ -24,7 +24,7 @@
             </li>
 
             <li>
-                <a href="about.html">
+                <a href="{{ url_for('about') }}">
                     <div class="about-icon">
                         <div class="head">
                             <div class="eyes"></div>
@@ -46,7 +46,7 @@
             </li>
 
             <li>
-                <a href="contact.html"> 
+                <a href="{{ url_for('contact') }}"> 
                     <div class="mail-icon">
                         <div class="mail-base">
                             <div class="mail-top"></div>
@@ -58,16 +58,16 @@
         </ul>
     </nav>
     <div class="vertical-footer">
-        <a href="/RaspberryHealth/landing.html" class="Raspberry_smiling_nobackground.png">
+        <a href="{{ url_for('raspberry_health') }}" class="Raspberry_smiling_nobackground.png">
             <img src="/static/assets/Raspberry_smiling_nobackground.png" alt="Raspberry Health" class="raspberrysmiling-icon">
         </a>
          
         <a href="/Calculator_app/calculator.html" class="calculator-app-link">
-            <img src="/assets/calculator_app.png" alt="Calculator App" class="calculator-icon">
+            <img src="/static/assets/calculator_app.png" alt="Calculator App" class="calculator-icon">
         </a>
 
         <a href="/myGraphs/UnitedStatesMap.html" class="UnitedStatesMap-link">
-            <img src="/assets/USAmap.png" alt="United States Map" class="USAmap-icon">
+            <img src="/static/assets/USAmap.png" alt="United States Map" class="USAmap-icon">
         </a>
 
         <!-- Add more content here as needed -->
