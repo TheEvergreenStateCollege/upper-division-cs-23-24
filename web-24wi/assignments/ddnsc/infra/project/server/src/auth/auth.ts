@@ -19,7 +19,10 @@ export const createJWT = (user: { id: any; createdAt?: Date; username: any; pass
     )
 }
 
-export const protect = (req, res, next) => {
+export const protect = (req: { headers: { authorization: any; }; user: jwt.Jwt & jwt.JwtPayload & void; }, res: {
+    status: (arg0: number) => void;
+    json: (arg0: { message: string; }) => void;
+}, next: () => void) => {
     const bearer = req.headers.authorization
     if(!bearer) {
         res.status(401)
