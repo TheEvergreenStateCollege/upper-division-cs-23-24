@@ -8,14 +8,14 @@ var turnCounterLocal = 0;
 var colorToPlayLocal;
 var orientationBufferLocal;
 let localBoardCache = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
-
+var moves = new Array();
 
 
 //FUNCTIONS//
 
 function createNewLocalGame(){
 
-    var moves =new Array();
+    moves.length = 0;
     moves.push(localBoardCache);
     renderLocalBoard(localBoardCache, turnCounterLocal);
     console.log(moves);
@@ -53,8 +53,14 @@ async function updateClientLocal(){
 
 async function confirmMoveLocalBtn() {
     localBoardCache = localBoard.fen();
+    moves.push(localBoardCache);
     turnCounterLocal++;
     updateClientLocal();
+    console.log(moves);
+}
+
+async function saveGameToFile() {
+    
 }
 
 

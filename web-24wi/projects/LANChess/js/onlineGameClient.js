@@ -14,7 +14,7 @@ var colorToPlayOnline = 'white'; //Determines who's color it is to play.
 var onlineBoardCache = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
 
 var orientationBufferOnline;
-
+var moves = new Array();
 
 //FUNCTIONS//
 
@@ -65,6 +65,7 @@ async function confirmMoveOnlineBtn() {
         console.log('sending ' + onlineBoardCache);
         turnCounterOnline++;
         console.log(turnCounterOnline);
+        moves.push(onlineBoardCache);
     } else {
         window.alert("It is not your turn.");
     }
