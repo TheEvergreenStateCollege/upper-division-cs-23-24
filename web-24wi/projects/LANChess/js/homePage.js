@@ -5,8 +5,7 @@ var initOpponentUsername;
 
 async function createNewOnlineGame(){
 
-
-    console.log("create new online game button works");
+    console.log("Create new game selected");
 
     const ResultObj = localStorage.getItem('resultObj');
     const UserID = localStorage.getItem('userID');
@@ -24,8 +23,17 @@ async function createNewOnlineGame(){
       })
      
     })
-    const gameIDObject = await response.json();
-    console.log(gameIDObject);
+
+    const createdGameDetailsObj = await response.json(); //Returned new game details.
+    const createdGameID = createdGameDetailsObj.id;
+    const createdGameStart = createdGameDetailsObj.start;
+    const createdGameStatus = createdGameDetailsObj.status;
+
+    localStorage.setItem('createdGameID', createdGameID);
+    localStorage.setItem('createdGameStart', createdGameStart);
+    localStorage.setItem('createdGameStatus', createdGameStatus);
+    
+
     
     } catch (error) {
         console.error("Failed to create a game: ", error);
