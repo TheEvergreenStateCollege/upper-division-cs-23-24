@@ -1,27 +1,31 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import WindowButtons from "./WindowButtons";
+import VideoModal from "./VideoModal";
 
 const Window = ({ content }: { content?: any }) => {
-  const [enlarged, setEnlarged] = useState(false);
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const [videoType, setVideoType] = useState("");
 
-  // Callback functions for button actions
   const handleMinimize = () => {
-    // rick roll
+    setVideoType("minimize");
+    setVideoModalOpen(true);
     console.log("Minimize action");
   };
 
   const handleMaximize = () => {
-    // max hedrum gif
+    setVideoType("maximize");
+    setVideoModalOpen(true);
     console.log("Maximize action");
   };
 
   const handleClose = () => {
-    // go to landing page
+    setVideoType("close");
+    setVideoModalOpen(true);
     console.log("Close action");
   };
 
   return (
-      <div className="flex flex-col">
+      <div className="flex flex-col justify-evenly">
         <div
             className={`flex justify-stretch flex-col bg-panelgray 20 border border-cus`}
         >
@@ -48,6 +52,18 @@ const Window = ({ content }: { content?: any }) => {
             </div>
           </div>
         </div>
+        {videoModalOpen && (
+            <VideoModal
+                isOpen={videoModalOpen}
+                onRequestClose={() => setVideoModalOpen(false)}
+                contentLabel="Video Modal"
+                videoId={
+                  videoType === "minimize" ? "dQw4w9WgXcQ" :
+                      videoType === "maximize" ? "TLfZ5Sb1EGw" :
+                          "lAkuJXGldrM"
+                }
+            />
+        )}
       </div>
   );
 };
