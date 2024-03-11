@@ -44,15 +44,15 @@ async function registerNewUser(){
                 password: passwordValue
           })})
 
-            const result = await response.json();
-            console.log("Success:", result);
+                const resultObj = await response.json();
+                const userID = resultObj.id;
+                const userToken = resultObj.token;
 
-            document.cookie = result
-            console.log("cookie value: " + document.cookie);
-
-
+                localStorage.setItem('userID', userID);
+                localStorage.setItem('userToken', userToken);
+                
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Failed registration error:", error);
         }
       }
 
@@ -84,6 +84,6 @@ async function loginUser(){
 
                 
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Failed login error:", error);
         }
 }
