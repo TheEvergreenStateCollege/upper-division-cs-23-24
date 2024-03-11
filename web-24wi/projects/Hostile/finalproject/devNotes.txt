@@ -1,5 +1,5 @@
 To do:
-- [ ] 5 unit tests with jest - dee dee
+- [ ] 5 unit tests with jest - dee dee & rain
 - [ ] 2-minute video
 - [ ] 500 line README.MD
 
@@ -19,12 +19,15 @@ Hostile run through:
 
 Rain:
 - [ ] profile.tsx change 'Loading..' to 'No Posts' for new accounts
+- [ ] feed.tsx
+- [ ] unit testing
 
 Dee Dee:
-    ## link desktop icon to menu
-    ## - [x] window.tsx - delete enlarge variables/hardcode colors and margin
+    ## - [ ] unit testing
     ## - [ ] add the menu links (done with all but one)
-    ## - [x] add WindowButtons functionality
+    ## - [ ] make modal for updating profile using form in profile.tsx
+        ## - [ ] comment so rain can style
+
 
     create custom colors in tailwind.config.js
     assign user random custom color at registration
