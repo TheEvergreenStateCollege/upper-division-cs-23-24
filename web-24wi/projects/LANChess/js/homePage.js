@@ -15,7 +15,7 @@ async function createNewOnlineGame(){
         const response = await fetch("http://localhost:5000/api/games", {
             method: "POST", 
             headers: {
-                'Authorization': 'Bearer ' userToken,
+                'Authorization': 'Bearer ' + UserToken,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
         },
