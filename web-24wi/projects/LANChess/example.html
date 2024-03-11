@@ -74,14 +74,15 @@
 
     const proto = window.location.protocol === "https:" ? "wss" : "ws";
     const ws = new WebSocket(`${proto}://${window.location.host}`);
-    ws.onopen = (event) => {                                                        
-        data = { message: "hello world "};
+    console.log("websocket connection created");
+    ws.onopen = (event) => {
+        data = {message: "hello world "};
         ws.send(JSON.stringify(data));
     }
     ws.onerror = (event) => {
         console.error;
     }
-    ws.onmessage = (event) => { 
+    ws.onmessage = (event) => {
         console.log(event.data);
     }
 
@@ -89,11 +90,12 @@
     messageButton.addEventListener("click", (event) => {
         data = {
             fen_string: document.getElementById("move-input").value,
-            game_id: document.getElementById("game-history").value, 
+            game_id: document.getElementById("game-history").value,
             user_id: localStorage.getItem("userid"),
         }
-        console.log(data);
+        console.log("data:" + JSON.stringify(data));
 
+        console.log("message event:");
         ws.send(JSON.stringify(data));
     });
 
@@ -118,6 +120,8 @@
             localStorage.setItem("userid", data["id"])
             console.log(localStorage.getItem("token"));
             console.log(localStorage.getItem("userid"));
+            ws.user_id = data["id"];
+            console.log(ws.user_id);
             activateGameForm();
         }
     });

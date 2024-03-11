@@ -41,7 +41,6 @@ app.post("/register", createNewUser);
 
 const server = app.listen(port, () => {
     console.log(`Example app listening at localhost:${port}`);
-    console.log("http://localhost:5000");
     console.log(process.cwd());
 });
 
@@ -57,17 +56,6 @@ wss.on("connection", (ws, req) => {
     console.log("client has connected");
     console.log(req.url);
     ws.on("error", console.error);
-    ws.on("close", data => {
-        console.log(JSON.stringify(ws.user_id));
-        console.log(clients);
-        for (let [key, value]  of clients) {
-            if (value === ws) {
-                console.log(key);
-                clients.delete(key);
-            }
-        }
-        console.log(clients);
-    });
     ws.on("message", data => {
         //update clients map
         const message = JSON.parse(data);
@@ -84,6 +72,7 @@ wss.on("connection", (ws, req) => {
             console.log("game already exists");
             games.get(message.game_id).add(message.user_id);
         }
+
 
         const players = games.get(message.game_id)
         players.forEach(player_id => {
