@@ -50,7 +50,9 @@ async function registerNewUser(){
 
                 localStorage.setItem('userID', userID);
                 localStorage.setItem('userToken', userToken);
-                
+                console.log("Credentials stored to local storage successfully");
+
+                window.location.href = "/home"; //Redirect to home page.
         } catch (error) {
             console.error("Failed registration error:", error);
         }
@@ -80,10 +82,13 @@ async function loginUser(){
 
                 localStorage.setItem('userID', userID);
                 localStorage.setItem('userToken', userToken);
+                console.log("Credentials stored to local storage successfully");
 
+                window.location.href = "/home"; //Redirect to home page.
 
                 
         } catch (error) {
             console.error("Failed login error:", error);
         }
+        
 }
