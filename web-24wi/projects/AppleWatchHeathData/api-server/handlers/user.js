@@ -9,7 +9,8 @@ const { createJWT } = require('../modules/auth');
         const user = await prisma.user.create({
             data: {
                 username: req.body.username,
-                passwordHash: await hashPassword(req.body.password)
+                passwordHash: await hashPassword(req.body.password),
+                name: req.body.username
             }
         });
         console.log(user);
@@ -27,6 +28,8 @@ const { createJWT } = require('../modules/auth');
 exports.signin = async function(req, res) {
     try {
 
+        console.log(JSON.stringify(req.body))
+
         const user = await prisma.user.findFirst({
             where: {
                 username: req.body.username,
@@ -39,7 +42,7 @@ exports.signin = async function(req, res) {
             return;
         }
 
-        const isValid = await comparePasswords(req.body.password, user.password);
+        const isValid = await comparePasswords(req.body.password, user.passwordHash);
 
         if (!isValid) {
             res.status(401).json({ message: 'Invalid credentials' });
