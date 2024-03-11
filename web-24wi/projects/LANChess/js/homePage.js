@@ -5,7 +5,7 @@ var initOpponentUsername;
 
 
 
-async function createNewOnlineGame(){
+async function createNewOnlineGameOnServer(){
 
     console.log("Create new game selected");
 
@@ -14,7 +14,7 @@ async function createNewOnlineGame(){
     const UserToken = localStorage.getItem('userToken');
     
     try {
-        const response = await fetch("http://localhost:5000/api/games", {
+        const response = await fetch(baseURL + "/api/games", {
             method: "POST", 
             headers: {
                 'Authorization': 'Bearer ' + UserToken,
@@ -26,45 +26,56 @@ async function createNewOnlineGame(){
      
     })
 
+    //Value fetching.
     const createdGameDetailsObj = await response.json(); //Returned new game details.
-    const createdGameID = createdGameDetailsObj.id;
-    const createdGameStart = createdGameDetailsObj.start;
-    const createdGameStatus = createdGameDetailsObj.status;
+    const gameID = createdGameDetailsObj.id;
+    const gameStart = createdGameDetailsObj.start;
+    const gameStatus = createdGameDetailsObj.status;
 
+    //Value storage.
     localStorage.setItem('createdGameID', createdGameID);
     localStorage.setItem('createdGameStart', createdGameStart);
     localStorage.setItem('createdGameStatus', createdGameStatus);
 
-    window.location.href = "http://localhost:5000/game"; //Redirect to game page
-
-    
     } catch (error) {
         console.error("Failed to create a game: ", error);
     }
 }
 
 async function connectOnlineGameClientToCreatedGame(){
-   
+    
+    const createdGameID = localStorage.getItem('createdGameID');
+    const userToken = localStorage.getItem('userToken');
+    
     try {
-        const response = await fetch("http://localhost:5000/api/games" + createdGameID,  {
+        const response = await fetch(baseURL + "/api/games" + createdGameID,  {
             method: "GET", 
-            headers: {
-                'Authorization': 'Bearer ' + UserToken,
+            headers:{
+                'Authorization': 'Bearer ' + userToken,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-      })
-     
-    })
+            },
+        })
 
-    const responseForConnecting = await response.json();
-    console.log(responseForConnecting);
-    
+        const responseForConnecting = await response.json();
+        console.log(responseForConnecting);
+
+       
+
     } catch (error) {
-        console.error("Failed to fetch game: ", error);
+        console.error("Failed load created game:", error);
     }
 }
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+
+
+
 
 async function getInitOpponentUsername(){
     initOpponentUsername = document.getElementById('textBoxFormForUserToSearchForOpponent').value;
