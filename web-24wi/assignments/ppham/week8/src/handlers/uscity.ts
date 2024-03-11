@@ -27,14 +27,14 @@ export const createCity = async ( req: Request, res: Response ) => {
     res.statusCode = 400;
     res.json({ errors: errors.array() });
   }
-  
+
   const city = await prisma.uSCity.create({
     data: {
       name: req.body.name,
       longitude: Number(req.body.longitude),
       latitude: Number(req.body.latitude),
       population: Number(req.body.population),
-      authorId: Number(req.body.belongsToId),
+      authorId: Number(req.user!.id),
     }
   });
 

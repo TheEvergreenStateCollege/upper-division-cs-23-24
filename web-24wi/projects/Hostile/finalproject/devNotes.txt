@@ -19,10 +19,12 @@ Hostile run through:
 
 Rain:
 - [ ] profile.tsx change 'Loading..' to 'No Posts' for new accounts
+
 Dee Dee:
     ## link desktop icon to menu
-    ## - [ ] window.tsx - delete enlarge variables/hardcode colors and margin
+    ## - [x] window.tsx - delete enlarge variables/hardcode colors and margin
     ## - [ ] add the menu links (done with all but one)
+    ## - [x] add WindowButtons functionality
 
     create custom colors in tailwind.config.js
     assign user random custom color at registration

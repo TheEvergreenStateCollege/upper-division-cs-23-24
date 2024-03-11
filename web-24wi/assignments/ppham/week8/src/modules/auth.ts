@@ -28,7 +28,7 @@ export const protect = ( req: Request, res: Response, next: NextFunction ) => {
 
   if (!bearer) {
     res.status(401);
-    res.json({ message: "not authorized" });
+    res.json({ message: "not authorized; Authorization header missing" });
     return;
   }
 
@@ -36,14 +36,21 @@ export const protect = ( req: Request, res: Response, next: NextFunction ) => {
 
   if (!token) {
     res.status(401);
-    res.json({ message: "not valid token" });
+    res.json({ message: "not valid token; token in header was missing" });
     return;
   }
 
+  interface TokenPayload {
+    id: Number,
+    username: string,
+    iat: number,
+  }
   try {
     const authenticationToken: string | JwtPayload = jwt.verify(token, process.env.JWT_SECRET!);
+    const payload = jwt.decode(token, { json: true });
+
     if (!req.user) {
-      req.user = { authenticationToken };
+      req.user = { authenticationToken, id: payload!.id };
     } else {
       req.user.authenticationToken = authenticationToken;
     }
