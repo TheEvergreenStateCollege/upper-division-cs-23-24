@@ -72,12 +72,18 @@ async function loginUser(){
                     username: usernameValue,
                     password: passwordValue
               })})
-
+    
+                
                 const resultObj = await response.json();
                 const userID = resultObj.id;
                 const userToken = resultObj.token;
 
                 localStorage.setItem('userID', userID);
                 localStorage.setItem('userToken', userToken);
+
+
+                
+        } catch (error) {
+            console.error("Error:", error);
         }
 }
