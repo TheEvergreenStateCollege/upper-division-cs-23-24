@@ -72,34 +72,12 @@ async function loginUser(){
                     username: usernameValue,
                     password: passwordValue
               })})
-    
-                
+
                 const resultObj = await response.json();
                 const userID = resultObj.id;
                 const userToken = resultObj.token;
 
                 localStorage.setItem('userID', userID);
                 localStorage.setItem('userToken', userToken);
-
-
-                try {
-                    const response = await fetch("/login", {
-                        method: "POST", 
-                            headers: {
-                                'Accept': 'application/json',
-                                "Content-Type": "application/json",
-                            },
-            
-                            body: JSON.stringify({
-                                username: usernameValue,
-                                password: passwordValue
-                      })})
-                    
-                } catch (error) {
-                    console.error("Error:", error);
-                }
-                
-            } catch (error) {
-                console.error("Error:", error);
-            }
-          }
+        }
+}
