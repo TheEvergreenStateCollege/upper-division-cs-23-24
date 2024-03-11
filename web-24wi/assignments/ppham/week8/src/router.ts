@@ -20,7 +20,7 @@ const cityValidators = [
  */
 router.get('/uscities', getCities);
 router.get('/uscity/:name', getOneCity);
-router.post('/uscity', cityValidators,
+router.post('/uscity', ...cityValidators,
   createCity,
 );
 
