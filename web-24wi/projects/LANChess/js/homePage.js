@@ -2,12 +2,28 @@
 const baseURL = 'http://localhost:5000'
 var initOpponentUsername;
 
-function createNewGame(){
-    //Will make POST to server to generate a new game. 
+function createNewOnlineGame(){
+
+    try {
+        const response = await fetch("/games", {
+            method: "POST", 
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+           
+      })})
+
+
+    } catch (error) {
+        console.error("Failed to create a game: ", error);
+    }
 }
 
 function initOpponentUsername(){
-    initOpponentUsername = document.getElementById('findOpponentByUsernameForm').value;
+    initOpponentUsername = document.getElementById('textBoxFormForUserToSearchForOpponent').value;
 }
 
 function checkIfOpponentCanBeFound() {
