@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
 
 
-   <Profile />
+   <Menu />
 
 
   </React.StrictMode>,
