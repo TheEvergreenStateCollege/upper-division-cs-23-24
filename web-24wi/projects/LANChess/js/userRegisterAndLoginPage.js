@@ -44,15 +44,14 @@ async function registerNewUser(){
                 password: passwordValue
           })})
 
-                const resultObj = await response.json();
-                const userID = resultObj.id;
-                const userToken = resultObj.token;
+                const tokenObj = await response.json();
 
-                localStorage.setItem('userID', userID);
-                localStorage.setItem('userToken', userToken);
+                localStorage.setItem('tokenObj', tokenObj )
+               
                 console.log("Credentials stored to local storage successfully");
 
                 window.location.href = "/home"; //Redirect to home page.
+
         } catch (error) {
             console.error("Failed registration error:", error);
         }
@@ -65,7 +64,6 @@ async function loginUser(){
             const response = await fetch("/login", {
                 method: "POST", 
                 headers: {
-                    
                     'Accept': 'application/json',
                     "Content-Type": "application/json",
                 },
@@ -76,16 +74,12 @@ async function loginUser(){
               })})
     
                 
-                const resultObj = await response.json();
-                const userID = resultObj.id;
-                const userToken = resultObj.token;
-
-                localStorage.setItem('userID', userID);
-                localStorage.setItem('userToken', userToken);
-                console.log("Credentials stored to local storage successfully");
-
-                window.location.href = "/home"; //Redirect to home page.
-
+            const tokenObj = await response.json();
+            localStorage.setItem('tokenObj', tokenObj)
+            console.log(tokenObj);
+            //   console.log("Credentials stored to local storage successfully");
+           
+            window.location.href = "/home"; //Redirect to home page.
                 
         } catch (error) {
             console.error("Failed login error:", error);
