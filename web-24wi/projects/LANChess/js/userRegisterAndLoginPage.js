@@ -90,5 +90,4 @@ async function loginUser(){
         } catch (error) {
             console.error("Failed login error:", error);
         }
-        
 }

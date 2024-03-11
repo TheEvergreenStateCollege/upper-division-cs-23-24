@@ -1,121 +1,110 @@
 /* homePageStyles.css */
 
+/* Adding custom font for style */
 @font-face {
-    font-family: '3D Isometric Black';
-    src: url('/web-24wi/projects/LANChess/fonts/3DIsometric-YzLLy.ttf');
+  font-family: '3D Isometric Black';
+  src: url('/web-24wi/projects/LANChess/fonts/3DIsometric-YzLLy.ttf');
 }
 
 
-main {
-    display: grid;
-  }
-
-
-  
-  body {
-    background-image: url(/web-24wi/projects/LANChess/img/backgrounds/HomePageBackground.png);
-    background-size: cover;
-    margin:  0; 
-    min-height:  100vh; 
-    display: grid;
-    justify-content: center;  
-    align-items: center;
-  }
-
-
-
-#leftArtBar {
-  position: absolute;
-  top:0px;
-  left:0px;
-  width: 350px;
-  height: 100%;
-}
-
- #siteTitle {
-  position: absolute;
-  top:20px;
-  left:180px;
-  width: 800px;
-  height: auto;
- }
-  
-
-#findOpponentByUsernameForm {
-  position:  absolute;
-  top: 240px;
-  left: 450px;
-  width: 500px; 
-  height: auto; 
+body {
   background-color: black;
-  border: 5px solid #cee6f0;
-  border-radius: 10px;
+  min-height:  100vh; 
+  margin-top: 50px;
+}
+
+.container-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-forms{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.container-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#titleLogo{
+  margin: 10px;
+  width: 450px;
+  height: auto;
+  margin-left: 35%;
+  transition-duration: 0.25s;
+}
+
+#loginButton{
+  margin: 10px;
+  width: 112px;
+  height: 50px;
+  margin-left: 35%;
+  transition-duration: 0.25s;
+}
+
+#loginButton:hover {
+  cursor: pointer;
+  transform: scale(1.10)
+}
+
+#registerButton{
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+  margin-left: 35%;
+  transition-duration: 0.25s;
+}
+
+#registerButton:hover {
+  cursor: pointer;
+  transform: scale(1.10)
+}
+
+#startLocalGameButton{
+  margin: 10px;
+  width: 160px;
+  height: 50px;
+  margin-left: 35%;
+  transition-duration: 0.25s;
+}
+
+#startLocalGameButton:hover {
+  cursor: pointer;
+  transform: scale(1.10)
+}
+
+#textBoxFormForUserToSearchForOpponent{
+  margin: 10px;
+  width: 500px; 
+  height: 25px; 
+  background-color: black;
+  border: 3px solid #f3e8dc;
   outline: none;
-  padding: 10px; 
+  padding: 25px; 
   font-size: 40px; 
   color: #f3e8dc;
   caret-color: white;
   font-family: '3D Isometric Black';
+  margin-left: 35%;
 }
 
-#okButton {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 233px;
-  left: 990px;
-  transition-duration: 0.25s;
-}
-
-#createNewGameButton {
-  position: absolute;
-  top: 350px;
-  left: 450px;
-  transition-duration: 0.25s;
-}
-
-#leaderboardsButton {
-  position: absolute;
-  top: 450px;
-  left: 450px;
-  transition-duration: 0.25s;
-}
-
-#myGamesButton {
-  position: absolute;
-  top: 550px;
-  left: 450px;
-  transition-duration: 0.25s;
-}
-
-#aboutButton {
-  position: absolute;
-  top: 650px;
-  left: 450px;
-  transition-duration: 0.25s;
-}
-
-#okButton:hover {
-  cursor: pointer;
-  transform: translate(0px, -20px)rotate(-0.03turn) scale(1.4);
-}
-
-#createNewGameButton:hover {
-  cursor: pointer;
-  transform: translate(15px, -10px) scale(1.10);
-}
-
-#leaderboardsButton:hover {
-  cursor: pointer;
-  transform: translate(15px, -10px) scale(1.10);
-}
-
-#myGamesButton:hover {
-  cursor: pointer;
-  transform: translate(15px, -10px) scale(1.10);
-}
-
-#aboutButton:hover {
-  cursor: pointer;
-  transform: translate(15px, -10px) scale(1.10);
+#textBoxFormForUserToCreateNewPassword{
+  margin: 10px;
+  width: 500px; 
+  height: 25px; 
+  background-color: black;
+  border: 3px solid #f3e8dc;
+  outline: none;
+  padding: 25px; 
+  font-size: 40px; 
+  color: #f3e8dc;
+  caret-color: white;
+  font-family: '3D Isometric Black';
+  margin-left: 35%;
 }
