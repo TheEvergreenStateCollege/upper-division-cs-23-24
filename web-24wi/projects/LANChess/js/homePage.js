@@ -5,20 +5,17 @@ var initOpponentUsername;
 async function createNewOnlineGame(){
     console.log("create new online game button works");
 
-    const initResultObj = localStorage.getItem('resultObj');
-    const initUserID = localStorage.getItem('userID');
-    const initUserToken = localStorage.getItem('userToken');
+    const ResultObj = localStorage.getItem('resultObj');
+    const UserID = localStorage.getItem('userID');
+    const UserToken = localStorage.getItem('userToken');
     
 
-    const resultObj = JSON.stringify(initResultObj)
-    const userID = JSON.stringify(initUserID)
-    const userToken = JSON.stringify(initUserToken)
     
     try {
         const response = await fetch("http://localhost:5000/api/games", {
             method: "POST", 
             headers: {
-                'Authorization': 'Bearer ' + resultObj,
+                'Authorization': 'Bearer ' userToken,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
         },
