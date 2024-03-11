@@ -32,7 +32,7 @@ async function registerNewUser(){
     
 
         try {
-            const response = await fetch("/register", {
+            const response = await fetch(baseURL + "/register", {
                 method: "POST", 
                 headers: {
                     'Accept': 'application/json',
@@ -44,11 +44,10 @@ async function registerNewUser(){
                 password: passwordValue
           })})
 
-            const resultObj = await response.json();
-            const userID = resultObj.id;
-            const userToken = resultObj.token;
+            const userRegisterResponseObj = await response.json();
+            const userID = userRegisterResponseObj.id;
+            const userToken = userRegisterResponseObj.token;
 
-            localStorage.setItem('resultObj', resultObj)
             localStorage.setItem('userID', userID);
             localStorage.setItem('userToken', userToken);
                
@@ -65,7 +64,7 @@ async function loginUser(){
     credentials();
 
         try {
-            const response = await fetch("/login", {
+            const response = await fetch(baseURL + "/login", {
                 method: "POST", 
                 headers: {
                     'Accept': 'application/json',
@@ -78,17 +77,17 @@ async function loginUser(){
               })})
     
                 
-            const resultObj = await response.json();
-            const userID = resultObj.id;
-            const userToken = resultObj.token;
+                const userLoginResponseObj = await response.json();
+                const userID = userLoginResponseObj.id;
+                const userToken = userLoginResponseObj.token;
 
-            localStorage.setItem('resultObj', resultObj)
-            localStorage.setItem('userID', userID);
-            localStorage.setItem('userToken', userToken);
+            
+                localStorage.setItem('userID', userID);
+                localStorage.setItem('userToken', userToken);
 
-            //   console.log("Credentials stored to local storage successfully");
+                //   console.log("Credentials stored to local storage successfully");
            
-            window.location.href = "/home"; //Redirect to home page.
+                //window.location.href = "/home"; //Redirect to home page.
                 
         } catch (error) {
             console.error("Failed login error:", error);
