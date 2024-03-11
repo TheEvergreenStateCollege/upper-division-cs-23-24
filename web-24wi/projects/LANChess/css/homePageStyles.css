@@ -53,7 +53,7 @@ body {
   transform: scale(1.10)
 }
 
-#createOnlineGameButton{
+#createNewOnlineGameButton{
   margin: 10px;
   width: 150px;
   height: 42px;

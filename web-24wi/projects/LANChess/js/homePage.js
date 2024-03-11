@@ -13,7 +13,7 @@ async function createNewOnlineGame(){
         },
 
         body: JSON.stringify({
-           
+        console.log(response);
       })})
         
 
