@@ -39,7 +39,7 @@ body {
   }
   
   .board-b72b1 {
-    border: 15px solid #f3e8dc;
+    border: 3px solid #f3e8dc;
     box-sizing: content-box;
     border-color: ddd8c0;
     border-radius: 5px;
@@ -60,14 +60,13 @@ body {
   }
   
   .white-1e1d7 {
-    background-color: #9b9b9b;
-    color: none;
+
+    background-color:#898886;
     
   }
   
   .black-3c85d {
-    background-color: #443d3f;
-   
+    background-color: black;
     color: none;
   }
   
