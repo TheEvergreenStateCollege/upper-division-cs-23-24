@@ -40,31 +40,32 @@ body {
   transition-duration: 0.25s;
 }
 
-#loginButton{
-  margin: 10px;
-  width: 112px;
-  height: 50px;
-  margin-left: 35%;
-  transition-duration: 0.25s;
-}
-
-#loginButton:hover {
-  cursor: pointer;
-  transform: scale(1.10)
-}
-
-#registerButton{
+#searchButton{
   margin: 10px;
   width: 150px;
-  height: 50px;
+  height: 45px;
   margin-left: 35%;
   transition-duration: 0.25s;
 }
 
-#registerButton:hover {
+#searchButton:hover {
   cursor: pointer;
   transform: scale(1.10)
 }
+
+#createOnlineGameButton{
+  margin: 10px;
+  width: 150px;
+  height: 42px;
+  margin-left: 35%;
+  transition-duration: 0.25s;
+}
+
+#createOnlineGameButton:hover {
+  cursor: pointer;
+  transform: scale(1.10)
+}
+
 
 #startLocalGameButton{
   margin: 10px;

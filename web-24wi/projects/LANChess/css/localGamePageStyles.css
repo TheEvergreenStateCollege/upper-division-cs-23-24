@@ -1,6 +1,7 @@
 /* localGamePageStyles.css */
 
 body {
+    transition-duration: 0.25s;
     background-color: black;
     min-height:  100vh; 
     margin-top: 50px;
