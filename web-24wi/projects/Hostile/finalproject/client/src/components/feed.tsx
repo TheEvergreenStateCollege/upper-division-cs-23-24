@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Window from './window';
-import Desktop from '../Desktop';
 import Browser from './browser';
 
 function BuildContent() {
   const [jsonData, setJsonData] = useState([]);
 
   useEffect(() => {
-    fetch('/allposts')
+    fetch('http://localhost:5000/allposts')
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -19,27 +17,22 @@ function BuildContent() {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-wrap justify-center ">
       {jsonData.map((post, index) => (
-        <div className="flex-wrap">
-        <div key={index} className=" pr-8 pb-8 relative flex-wrap overflow-auto justify-center">
-          <div
-            className="flex-wrap justify-center bg-bargray hover:bg-panelgray border-black border-2 text-white font-bold px-2 py-4 m-2 w-full"
-          >
-            <h2 className='text-xl'>{post.name} </h2>  <h2>  by {post.belongsTo.username}</h2>
-            <p>{post.body}</p>
+        <div key={index} className="w-1/3 px-2">
+          <div className={`bg-gradient-to-l ${index % 2 === 0 ? 'from-cyan-500 to-blue-500 ' : ' from-purple-500 to-pink-500'} hover:bg-gradient-to-r border-black border-2 text-center text-black font-bold p-4 mb-4`}>
+            <h2 className="text-2xl">{post.name}</h2>
+            <h2 className='text-xs '>by {post.belongsTo.username}</h2>
+            <p className='text-m'>{post.body}</p>
           </div>
-        </div>
         </div>
       ))}
     </div>
   );
 }
+
 const Content = () => {
-  return(
-    <Browser content={<BuildContent />} /> 
-  )
-}
+  return <Browser content={<BuildContent />} />;
+};
 
 export default Content;
-

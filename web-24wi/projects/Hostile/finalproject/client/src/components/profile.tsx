@@ -22,7 +22,7 @@ const Contents = () => {
 
     const Form = () => {
         return (
-            <div >
+            <div className="text-center justify-center">
                 <form action={'/api/updateUser'} method="post">
                     <input className=" mx-2 mt-20 px-2 border border-cus min-w-40"
                            type="text" autoComplete="username"
