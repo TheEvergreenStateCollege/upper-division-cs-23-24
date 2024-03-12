@@ -25,9 +25,9 @@ const Window = ({ content }: { content?: any }) => {
   };
 
   return (
-      <div className="flex flex-col justify-evenly max-h-screen">
+      <div className="flex flex-col justify-evenly w-1/2 h-full mr-6 ">
         <div
-            className={`flex justify-stretch flex-col bg-panelgray 20 border border-cus`}
+            className={`flex justify-stretch flex-col bg-panelgray border border-cus`}
         >
           <div className={`flex flex-row bg-blue-900 mx-1`}>
             <img
@@ -35,7 +35,7 @@ const Window = ({ content }: { content?: any }) => {
                 className="mx-auto h-8"
                 alt={"alt=\"evergreen online messenger image\""}
             />
-            <p className="w-full px-1 text-lg text-white">Main Menu</p>
+            <p className="w-full px-1 text-lg text-white">Feed</p>
             <WindowButtons
                 onMinimize={handleMinimize}
                 onMaximize={handleMaximize}
@@ -43,10 +43,10 @@ const Window = ({ content }: { content?: any }) => {
             />
           </div>
           <div
-              className={`mx-2 my-2 border-2 border-bargray md:flex-1 overflow-y-auto`}
+              className={`mx-2 my-2 border-2 bg-[url('../static/background.jpg')] md:flex-1 overflow-y-auto `}
           >
             <div
-                className={`flex flex-row text-black`}
+                className={`flex flex-row text-black overflow-y-auto max-h-[80vh] justify-center mt-2`}
             >
               {content}
             </div>
