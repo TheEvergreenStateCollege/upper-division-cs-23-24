@@ -35,6 +35,7 @@ Dee Dee:
     ## - [x] import jest, write unit tests for user.ts
     ## - [ ] add the menu links (done with all but one)
     ## - [x] make modal for updating profile using form in profile.tsx
+    ## - [x] make image modal for mugshot easter egg
     ## - [x] README.md outline
 
     create custom colors in tailwind.config.js
