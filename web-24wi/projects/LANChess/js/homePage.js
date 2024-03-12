@@ -52,20 +52,21 @@ async function addSelfAsParticipant(){
     const gameID = localStorage.getItem('gameID');
     
     try {
-        const response = await fetch(baseURL + "/api/gameParticipant", {
+        const response = await fetch("/api/gameParticipant", {
             method: "POST", 
             headers:{
                 'Authorization': 'Bearer ' + userToken,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: {
+            body: JSON.stringify( {
                 'gameID': gameID,
                 'userID': userID
-            }
+            })
         })
 
-        const addSelfAsParticipantRES = await response.json();
+        const initaddSelfAsParticipantRES = await response.json();
+        const 
         console.log("add self response" + addSelfAsParticipantRES);
 
 
