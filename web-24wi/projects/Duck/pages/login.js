@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Event listener for signup form submission
-    signupForm.addEventListener('submit', function(event) {
+    signupForm.addEventListener('submit', async function(event) {
         event.preventDefault();
         const signupEmail = document.getElementById('signupEmail').value;
         const signupPassword = document.getElementById('signupPassword').value;
@@ -70,8 +70,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Retrieve existing user data from Local Storage
-        let userData = localStorage.getItem('userData');
-        userData = userData ? JSON.parse(userData) : {};
+        //let userData = localStorage.getItem('userData');
+        const userData = await fetch('/user', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({"username": signupEmail, "password": signupPassword}),
+        })
+        //userData = userData ? JSON.parse(userData) : {};
 
         // Check if user already exists
         if (userData.hasOwnProperty(signupEmail)) {
@@ -90,13 +97,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Event listener for login form submission
-    loginForm.addEventListener('submit', function(event) {
+    loginForm.addEventListener('submit', async function(event) {
         event.preventDefault();
         const loginEmail = document.getElementById('loginEmail').value;
         const loginPassword = document.getElementById('loginPassword').value;
 
         // Retrieve user data from Local Storage
-        const userData = JSON.parse(localStorage.getItem('userData'));
+        //const userData = JSON.parse(localStorage.getItem('userData'));
+        const userData = await fetch('/signin', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({"username": signupEmail, "password": signupPassword}),
+        })
 
         // Check if user exists and password matches
         if (userData && userData.hasOwnProperty(loginEmail) && userData[loginEmail] === loginPassword) {
@@ -105,6 +119,23 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             alert('Invalid email or password.');
         }
+    });
+
+    // Event listener for login form submission
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const loginEmail = document.getElementById('loginEmail').value;
+        const loginPassword = document.getElementById('loginPassword').value;
+
+        // Make a request to the server to authenticate the user
+        // Assume the server returns a token upon successful authentication
+        const token = 'example_token'; // Replace this with the actual token received from the server
+
+        // Save the token to localStorage
+        saveToken(token);
+
+        alert('Login successful!');
+        // Redirect or perform any other action after successful login
     });
 
     // Event listener for forgot password form submission
