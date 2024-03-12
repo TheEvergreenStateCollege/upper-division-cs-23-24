@@ -96,10 +96,19 @@ app.get("/randomGraph", async (req, res) => {
 	res.json({ results });
 });
 
+
+app.get("/login", async (req, res) => {
+	res.sendFile(path.resolve("../login.html"));
+});
+
+app.get("/register", async (req, res) => {
+	res.sendFile(path.resolve("../register.html"));
+});
+
 app.get("/game", (req, res) => {
 	if (req.session && req.session.loggedIn) {
 		// User is logged in, send the game page
-		res.sendFile(path.resolve("game.html"));
+		res.sendFile(path.resolve("../game.html"));
 	} else {
 		// User is not logged in, redirect to login page
 		res.redirect("/login");
