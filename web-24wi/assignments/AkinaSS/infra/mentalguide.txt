@@ -36,3 +36,21 @@ The database URL should follow the appropriate format for the type of database y
 
 If you're using Prisma with a different configuration or have custom environment variable names, you'll need to look for those specific variables in your .env file. 
 The database URL should be clearly defined and identifiable within the .env file.
+
+$ git commit -m "A test commit message to demonstrate the initial config, your message will be different."
+[pham-week4 7b17c6a9] Added prisma schema from class on 1/29 and fixed up relations with npx prisma format.
+ Committer: Ubuntu <ubuntu@ip-172-31-31-151.us-west-2.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 5 files changed, 221 insertions(+), 18 deletions(-)
+ create mode 100644 web-24wi/assignments/ppham/infra/api-server/README.md

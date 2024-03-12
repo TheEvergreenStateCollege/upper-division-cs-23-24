@@ -11,56 +11,44 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
-  createdAt DateTime  @default(now())
-  username  String    @unique
+  id        String     @id @default(uuid())
+  createdAt DateTime   @default(now())
+  username  String     @unique
   password  String
-  Product   Product[]
+  wishlist  Wishlist[]
 }
 
 model Product {
-  id          String   @id @default(uuid())
-  createdAt   DateTime @default(now())
-  name        String   @db.VarChar(255)
-  belongsTo   User     @relation(fields: [belongsToId], references: [id])
-  belongsToId String
-  updates     Update[]
+  id          String           @id @default(uuid())
+  createdAt   DateTime         @default(now())
+  image       PICTURE_CATEGORY @default(FOOD)
+  name        String           @db.VarChar(255)
+  description String //Description
+  wishlist    Wishlist?        @relation(fields: [id], references: [productId])
 
-  @@unique([id, belongsToId])
+  @@unique([id])
 }
 
-enum UPDATE_STATUS {
-  IN_PROGRESS
-  LIVE
-  DEPRECATED
-  ARCHIVED
-  SHIPPED
+enum PICTURE_CATEGORY {
+  FOOD
+  UTILITIES
+  PET_CARE
+  HABITAT
 }
 
-model Update {
+model Wishlist {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  title   String        @db.VarChar(255)
-  body    String
-  status  UPDATE_STATUS @default(IN_PROGRESS)
-  version String?
-  asset   String?
+  image PICTURE_CATEGORY @default(FOOD)
+  name  String           @db.VarChar(255)
+  body  String
 
-  productId    String
-  product      Product       @relation(fields: [productId], references: [id])
-  updatePoints UpdatePoint[]
-}
+  //wishlist can have multiple product but a product can only belong to 1 wishlist
+  productId String
+  belongsTo User      @relation(fields: [id], references: [id])
+  product   Product[]
 
-model UpdatePoint {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  name        String @db.VarChar(255)
-  description String
-
-  updateId String
-  update   Update @relation(fields: [updateId], references: [id])
+  @@unique([productId])
 }
