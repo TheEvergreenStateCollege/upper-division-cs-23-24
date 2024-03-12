@@ -18,7 +18,6 @@ Brought to you by Linux users.
 - [Contact](#contact)
 - [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
 - [Tests](#tests)
-- [Changelog](#changelog)
 - [Roadmap](#roadmap)
 
 ## Description
@@ -69,10 +68,6 @@ Address common questions or issues that users might encounter.
 
 ## Tests
 Include tests for app and provide examples of how to run them.
-
-## Changelog
-
-Include a list of changes for each version of the project.
 
 ## Roadmap
 

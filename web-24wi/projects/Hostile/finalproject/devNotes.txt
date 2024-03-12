@@ -4,9 +4,9 @@ To do:
 - [ ] 500 line README.MD
 
 Tuesday:
+- [] fix feed front end & sort out window/browser situation
 - [] run unit tests
 - [] complete README.md
-- [] check in about feed
 - [] run through app (see below)
 - [] if unit tests and app run through were good make 2-min video
 
