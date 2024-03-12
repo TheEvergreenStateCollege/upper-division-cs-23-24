@@ -1,18 +1,14 @@
-<script type = >
+<script type = "text/javascript">
 const jsonData = [
  {
       "id": 12357,
-      "name":
-      ""
+      "word": "help",
       "authorId": 1
     },
     {
       "id": 12358,
-      "name": "Avon Lake",
       "createdAt": "2024-03-05T17:56:43.322Z",
-      "latitude": 41.4944,
-      "longitude": -82.0159,
-      "population": 25220,
+      "word": "bag",
       "authorId": 1
     }
   ];
@@ -25,5 +21,18 @@ const jsonData = [
         }
     }
     );
+    const bodyTag = document.getElementByTagName("body")[0];
+
+    for (let i in jsonData) {
+	const wordCard = document.createElement("div");
+	wordCard.classList = ["word-card"];
+	
+	const wordName = document.createElement("header");
+	wordName.textContent = jsonData[i].name;
+	
+	wordCard.appendChild(wordName);
+	bodyTag.appendChild(wordCard);
+
+    }
   const jsonData = await response.json();
 </script>

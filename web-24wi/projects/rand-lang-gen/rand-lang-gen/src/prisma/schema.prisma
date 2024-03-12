@@ -14,9 +14,9 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
-  createdAt DateTime  @default(now())
-  username  String    @unique
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  username  String   @unique
   password  String
   updates   Update[]
   Word      Word[]
@@ -49,7 +49,7 @@ model Update {
   version String?
   asset   String
 
-  WordId       String
+  wordId       String
   word         Word          @relation(fields: [wordId], references: [id])
   updatePoints UpdatePoint[]
   User         User?         @relation(fields: [userId], references: [id])
