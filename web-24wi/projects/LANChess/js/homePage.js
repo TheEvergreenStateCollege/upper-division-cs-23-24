@@ -1,7 +1,6 @@
 //homePage.js
 
 //Constant imports from localstorage.
-const baseURL = 'http://localhost:5000';
 const userID = localStorage.getItem('userID');
 const userToken = localStorage.getItem('userToken');
 
@@ -15,7 +14,7 @@ async function createNewOnlineGameOnServer(){
     
     
     try {
-        const response = await fetch(baseURL + "/api/games", {
+        const response = await fetch("/api/games", {
             method: "POST", 
             headers: {
                 'Authorization': 'Bearer ' + userToken,
@@ -48,24 +47,25 @@ async function createNewOnlineGameOnServer(){
 
 
 async function addSelfAsParticipant(){
-
+    const userID = localStorage.getItem('userID');
     const gameID = localStorage.getItem('gameID');
-    
+    console.log(gameID);
     try {
-        const response = await fetch(baseURL + "/api/gameParticipant", {
+        const response = await fetch("/api/gameParticipant", {
             method: "POST", 
             headers:{
                 'Authorization': 'Bearer ' + userToken,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: {
+            body: JSON.stringify( {
                 'gameID': gameID,
                 'userID': userID
-            }
+            })
         })
 
         const addSelfAsParticipantRES = await response.json();
+        
         console.log("add self response" + addSelfAsParticipantRES);
 
 
@@ -78,8 +78,8 @@ async function addSelfAsParticipant(){
 
 
 async function createNewOnlineGame(){
-    createNewOnlineGameOnServer();
-    addSelfAsParticipant();
+    await createNewOnlineGameOnServer();
+    // addSelfAsParticipant();
 
 }
 
