@@ -1,15 +1,16 @@
 import jwt from 'jsonwebtoken'
 import * as bcrypt from 'bcrypt'
+require('dotenv').config();
 
-export const comparePasswords = (password, hash)=> {
+export const comparePasswords = (password: string | Buffer, hash: string)=> {
     return bcrypt.compare(password, hash);
 };
 
-export const hashPassword = (password) => {
+export const hashPassword = (password: string | Buffer) => {
     return bcrypt.hash(password, 5);
 };
 
-export const createJWT = (user) => {
+export const createJWT = (user: { id: any; createdAt?: Date; username: any; password?: string; }) => {
     return jwt.sign({
             id: user.id,
             username: user.username
@@ -18,7 +19,10 @@ export const createJWT = (user) => {
     )
 }
 
-export const protect = (req, res, next) => {
+export const protect = (req: { headers: { authorization: any; }; user: jwt.Jwt & jwt.JwtPayload & void; }, res: {
+    status: (arg0: number) => void;
+    json: (arg0: { message: string; }) => void;
+}, next: () => void) => {
     const bearer = req.headers.authorization
     if(!bearer) {
         res.status(401)

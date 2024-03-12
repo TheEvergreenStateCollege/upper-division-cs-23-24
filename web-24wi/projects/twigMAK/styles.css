@@ -42,6 +42,9 @@ body{
     margin: 1rem;
     color: black;
   }
+.card:hover{
+    background-color: var(--acsentcolor);
+}
 
 .twigImg{
     width:15rem;
@@ -69,6 +72,8 @@ body{
 
 .infoImg{
     object-fit: contain;
+    background-size: cover;
+    max-height: 50%;
 }
 
 #keyCharacteristics{

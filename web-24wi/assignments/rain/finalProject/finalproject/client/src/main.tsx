@@ -1,11 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 // import Browser from "./browser"
 import "./styles.css";
 import axios from 'axios';
 import Browser from "./components/browser";
 import Register from "./components/landForm";
+import Profile from "./components/profile";
+import Desktop from "./Desktop";
+import Post from "./components/Post"
+import Menu from "./components/menu";
+import CatchAll from "./components/CatchAll";
+import Filled from "./components/test";
+import GetUsers from "./components/users";
+
 
 
 // const apiCall = () => {
@@ -19,7 +26,7 @@ import Register from "./components/landForm";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <Desktop/>
   </React.StrictMode>,
 );
 

@@ -21,6 +21,8 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("pages/index.html"));
 });
 
+console.log(Object.keys(prisma));
+
 app.get("/users", async (req, res) => {
     const allUsers = await prisma.user.findMany();
     res.json(allUsers);
@@ -41,7 +43,12 @@ app.get("/cities", async (req, res) => {
     res.json(allCities);
 });
 
-console.log(Object.keys(prisma));
+app.get("/city/:name", async (req, res) => {
+    const match = await prisma.uSCity.findFirst({
+      name: req.body.name,
+    });
+    res.json(match);
+});
 
 app.post("/city", async (req, res) => {
     const result = await prisma.uSCity.create({

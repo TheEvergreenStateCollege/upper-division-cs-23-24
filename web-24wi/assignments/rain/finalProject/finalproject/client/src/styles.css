@@ -2,14 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
     background-color: #008080 ;
-}
+} */
 
 @layer base{
 html {
     font-family: "MS"
 }
+}
+
+#animated {
+
+  
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+    0%   { right:0px; top:400px; }
+ 25% {right: 600px; top:400px;}
+ 50%{ right: 600px; top:-400px;}
+ 75%{ right:0px; top:-400px;}
+  100% { right:0px; top:400px;}
 }
 
 @font-face {

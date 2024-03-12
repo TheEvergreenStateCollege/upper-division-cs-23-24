@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <link rel="stylesheet" href="/static/CSS/sidebar-styles.css">
+</head>
+
+<body>
+    
+    <!-- Rotating 3D navigation -->
+    <nav>
+        <ul>
+            <li>
+                <a href="/" class="home-icon-link">
+                    <div class="home-icon">
+                            <div class="roof">
+                                <div class="roof-edge"></div>
+                            </div>
+                        <div class="front"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('about') }}">
+                    <div class="about-icon">
+                        <div class="head">
+                            <div class="eyes"></div>
+                            <div class="beard"></div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://github.com/nathanMcL" target="_blank"> <!-- link GitHub profile -->
+                    <div class="github-icon">
+                        <div class="paper"></div>
+                        <div class="lines"></div>
+                        <div class="lines"></div>
+                        <div class="lines"></div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('contact') }}"> 
+                    <div class="mail-icon">
+                        <div class="mail-base">
+                            <div class="mail-top"></div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <!-- Continue with the icons ? what else without making over crowded? -->
+        </ul>
+    </nav>
+    <div class="vertical-footer">
+        <a href="{{ url_for('raspberry_health') }}" class="Raspberry_smiling_nobackground.png">
+            <img src="/static/assets/Raspberry_smiling_nobackground.png" alt="Raspberry Health" class="raspberrysmiling-icon">
+        </a>
+         
+        <a href="/Calculator_app/calculator.html" class="calculator-app-link">
+            <img src="/static/assets/calculator_app.png" alt="Calculator App" class="calculator-icon">
+        </a>
+
+        <a href="/myGraphs/UnitedStatesMap.html" class="UnitedStatesMap-link">
+            <img src="/static/assets/USAmap.png" alt="United States Map" class="USAmap-icon">
+        </a>
+
+        <!-- Add more content here as needed -->
+        <a href="index.html" class="logout-button">Log out</a>
+
+    </div>
+    
+    <section>
+        <h1>💻MacN the Full Stack 📡</h1>
+        <h2>💡</h2>
+    </section>
+</body>
+</html>

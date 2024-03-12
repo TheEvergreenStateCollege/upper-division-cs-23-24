@@ -8,6 +8,13 @@
 
   <div id="map"></div>
 
+  <div class="container"> 
+    <form action="put" target="https://indira.arcology.builders:5000">
+      <label for="findCity">Find a city</label>
+      <input id="city" type="text"> </input>
+      <button id="submit">Submit</button>
+    </form>
+  </div>
 <script src="https://unpkg.com/topojson@3"></script>
 <script defer type="module">
 // From https://observablehq.com/@d3/zoom-to-bounding-box?intent=fork 
@@ -47,10 +54,8 @@
        .selectAll("g")
        .data(usCities)
        .join("g")
-         .attr(translate)
+         .attr("transform", (d) => ` translate(${projection([d.longitude, d.latitude])?.join(",")})`)
          .append("circle")
-         .attr("cx", (d) => d.longitude)
-         .attr("cy", (d) => d.latitude)
          .attr("r", 5)
          .attr("fill", "red")
 
@@ -108,10 +113,45 @@
 
     const svgNode = getSVGNode(us, uscities);
     const mapDiv = document.getElementById("map");
+    // mapDiv.appendChild(svgNode);
+    const button = document.getElementById("submit");
+  const citydiv = document.getElementById("city")
+  
+  button.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const cityName = citydiv.value;
+    console.log(`City: ${cityName}`);
+
+    const response = await fetch(`https://indira.arcology.builders/api/uscity/${cityName}`,
+    {
+      "method" : "GET" , 
+      "headers" : { 
+        "Authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ4eXoiLCJpYXQiOjE3MDk2NjIzMzF9.lIZKwBkNWF5PIaXBTpJVhCRkDC0QDyhIqrX4koMXxLs"
+      }
+    }
+    );
+    const {
+      data : {
+      id,
+      name,
+      createdAt,
+      latitude,
+      longitude,
+      population,
+      authorId}
+    } = await response.json();
+    const svgNode = getSVGNode(us, [{city: name, latitude, longitude}]);
+    console.log(latitude, longitude);
+    const mapDiv = document.getElementById("map");
     mapDiv.appendChild(svgNode);
+  });
   }
   main();
+
+  
 </script>
+
+
 
 </body>
 </html>

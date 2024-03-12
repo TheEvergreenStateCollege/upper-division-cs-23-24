@@ -7,36 +7,77 @@
 </head>
 <body>
     <h1>Daily Step Count </h1>
-    <p>
-    This graph displays the daily step count on a specific day.
-    </p>
+    <p>This graph displays the daily step count on a specific day.</p>
+
+    <p>Enter a stepcount and a date below to add to 
+      your personalized step chart.</p>
+      
     <div>
-        <canvas id="myChart"></canvas>
-      </div>
-      
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      
-      <script>
-        const ctx = document.getElementById('myChart');
-      
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
+        <canvas id="stepChart"></canvas>
+    </div>
+    
+    <!-- Add input fields for step count and date -->
+    <div>
+        <label for="stepInput">Step Count:</label>
+        <input type="number" id="stepInput">
+        
+        <label for="dateInput">Date:</label>
+        <input type="date" id="dateInput">
+        
+        <button onclick="addData()">Add Data</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        // Initialize an empty array to store data
+        let stepData = [];
+        
+        // Function to add new data to the chart
+        function addData() {
+            // Get the entered step count and date
+            const stepCount = document.getElementById('stepInput').value;
+            const date = document.getElementById('dateInput').value;
+            
+            // Add the new data to the data array
+            stepData.push({ date, stepCount });
+            
+            // Update the chart
+            updateChart();
+        }
+        
+        // Function to update the chart with new data
+        function updateChart() {
+            // Get labels and data from the stepData array
+            const labels = stepData.map(entry => entry.date);
+            const data = stepData.map(entry => entry.stepCount);
+            
+            // Update the chart
+            stepChart.data.labels = labels;
+            stepChart.data.datasets[0].data = data;
+            stepChart.update();
+        }
+        
+        // Initialize the chart
+        const ctx = document.getElementById('stepChart').getContext('2d');
+        const stepChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Daily Step Count',
+                    data: [],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
             }
-          }
         });
-      </script>
+    </script>
 </body>
 </html>

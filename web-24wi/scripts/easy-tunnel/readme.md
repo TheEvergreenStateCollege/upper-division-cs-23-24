@@ -15,7 +15,7 @@ Although this may seem annoying or undesirable, it is easy to use an additional 
 
 As an alternative to this script you can just use the ssh command itself to open the tunnel:
 ```
-ssh -o ControlMaster=auto -o ControlPath=/tmp/mysshcontrolpath -fNT -L 5432:localhost:5432 -i {PATH_TO_PEM} ubuntu@{SEVER_LOCATION}
+ssh -fNT -L 5432:localhost:5432 -i {PATH_TO_PEM} ubuntu@{SEVER_LOCATION}
 ```
 If you do this, you will need to manually kill the process.
 

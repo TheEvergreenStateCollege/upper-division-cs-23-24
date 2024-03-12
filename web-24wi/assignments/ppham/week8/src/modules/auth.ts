@@ -2,9 +2,8 @@ import jwt, { JwtPayload } from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 import { Response, NextFunction } from 'express';
+import { Request } from '../types/express';
 import { User } from '@prisma/client';
-
-import { ApiRequest } from '../types';
 
 export const comparePasswords = async (password: string, hash: string): Promise<boolean> => {
   return await bcrypt.compare(password, hash);
@@ -24,12 +23,12 @@ export const createJWT = (user: User ) => {
   return token;
 }
 
-export const protect = ( req: ApiRequest, res: Response, next: NextFunction ) => {
+export const protect = ( req: Request, res: Response, next: NextFunction ) => {
   const bearer = req.headers.authorization;
 
   if (!bearer) {
     res.status(401);
-    res.json({ message: "not authorized" });
+    res.json({ message: "not authorized; Authorization header missing" });
     return;
   }
 
@@ -37,13 +36,24 @@ export const protect = ( req: ApiRequest, res: Response, next: NextFunction ) =>
 
   if (!token) {
     res.status(401);
-    res.json({ message: "not valid token" });
+    res.json({ message: "not valid token; token in header was missing" });
     return;
   }
 
+  interface TokenPayload {
+    id: Number,
+    username: string,
+    iat: number,
+  }
   try {
-    const verifiedUser: string | JwtPayload = jwt.verify(token, process.env.JWT_SECRET!);
-    req.verifiedUser = verifiedUser;
+    const authenticationToken: string | JwtPayload = jwt.verify(token, process.env.JWT_SECRET!);
+    const payload = jwt.decode(token, { json: true });
+
+    if (!req.user) {
+      req.user = { authenticationToken, id: payload!.id };
+    } else {
+      req.user.authenticationToken = authenticationToken;
+    }
     next();
   } catch (e) {
     console.error(e);

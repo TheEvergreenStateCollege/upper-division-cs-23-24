@@ -16,13 +16,14 @@
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20.11.17",
-    "prisma": "^5.9.1",
+    "prisma": "^5.10.2",
+    "nodemon": "^3.0.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@observablehq/plot": "^0.6.13",
-    "@prisma/client": "^5.9.1",
+    "@prisma/client": "^5.10.2",
     "@prisma/extension-accelerate": "^0.6.3",
     "@types/cors": "^2.8.17",
     "@types/morgan": "^1.9.9",
