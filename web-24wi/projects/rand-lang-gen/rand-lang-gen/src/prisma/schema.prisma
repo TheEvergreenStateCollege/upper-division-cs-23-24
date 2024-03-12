@@ -1,6 +1,9 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -16,15 +19,15 @@ model User {
   username  String    @unique
   password  String
   updates   Update[]
-  Words     Words[]
+  Product   Product[]
 }
 
-model Words {
+model Product {
   id          String   @id @default(uuid())
   createdAt   DateTime @default(now())
   name        String
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
-  belongsToId Int
+  belongsToId String
   updates     Update[]
 }
 
@@ -46,8 +49,8 @@ model Update {
   version String?
   asset   String
 
-  wordId    String
-  word      Word       	     @relation(fields: [productId], references: [id])
+  productId    String
+  product      Product       @relation(fields: [productId], references: [id])
   updatePoints UpdatePoint[]
   User         User?         @relation(fields: [userId], references: [id])
   userId       String?
