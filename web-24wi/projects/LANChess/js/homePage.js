@@ -96,14 +96,14 @@ async function addSelfAsParticipant(){
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify( {
-                'gameID': gameID,
-                'userID': userID
+                'gameId': gameID,
+                'userId': userID
             })
         })
 
-        const addSelfAsParticipantRES = await response.json();
-        console.log("add self response" + addSelfAsParticipantRES);
+        const addSelfAsParticipantRES = JSON.stringify(await response.json());
 
+        console.log("Response from server for request to add self as participant" + addSelfAsParticipantRES);
 
     } catch (error) {
         console.error("Failed to add self as participant:", error);
@@ -112,7 +112,6 @@ async function addSelfAsParticipant(){
     console.log("The following values have been POSTED to the /api/gameParticipant route");
     console.log("gameID: " + gameID);
     console.log("userID: " + userID);
-    console.log("Response for addSelfAsParticipant(): " + addSelfAsParticipantRES);
     console.log("---------------------------------------------");
 }
 
@@ -121,6 +120,7 @@ async function createNewOnlineGame(){
     await getUserValuesFromStorage();
     createdGameInfoObj = await createNewOnlineGameOnServer();
     await storeCreatedGameInfo(createdGameInfoObj);
+
     await addSelfAsParticipant();
    }
    catch (error){
