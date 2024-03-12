@@ -5,9 +5,8 @@ import Landing from "./landing"
 import WindowButtons from "./WindowButtons";
 import Cookies from 'js-cookie';
 import ButtonPicker from "./ButtonPicker"
-import Desktop from "../Desktop";
 
-function ParitalBrowser ({content}: {content?:any}) {
+function Browser ({content}: {content?:any}) {
   
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [colo, setColo] = useState("invert-0");  
@@ -85,7 +84,26 @@ function ParitalBrowser ({content}: {content?:any}) {
 
   return (
     
-    <div className={` flex  flex-col  bg-panelgray w-full ${enlarged ? 'mb-6 mr-0 mt-0' : 'mb-60 mr-6 mt-8'} border border-cus overflow-auto  `}>
+    <div className={` ${colo} bg-backblue`}>
+      {/* render a row of buttons using the map function */}
+      <div className="flex flex-row  grow h-full ">
+        <div className=" flex flex-col grow h-full  min-h-screen ">
+          {isSignedIn ?  <Profile/> :  <SignIn/>}
+              <div><button  className="mx-2 mt-8 px-4 text-sm hover:text-white  hover:bg-blue-900 hover:bg-opacity-50">
+              <a href="/post">
+             {post}
+                Post
+                </a>
+                </button></div>
+              <div><button className="mx-2 mt-8 px-4 text-sm hover:text-white hover:bg-blue-900 hover:bg-opacity-50">
+              <a href="/menu">
+              {discover}
+                Discover</a>
+                </button></div>
+                {isSignedIn ?  <Abyss/> : null }
+                
+        </div>
+        <div className={` flex justify-stretch flex-col  bg-panelgray ${enlarged ? 'mb-6 mr-0 mt-0' : 'mb-60 mr-6 mt-8'} w-full border border-cus `}>
           <div className={`flex flex-row bg-bargray border-b  mx-1`}>
             
             <img className="object-contain" src="/static/inet.png"/>
@@ -134,20 +152,19 @@ function ParitalBrowser ({content}: {content?:any}) {
               
             </div>
           </div>
-          <div className="flex flex-col   mr-1  ml-1 mt-1 border-l-2 border-r border-t-2 border-bargray  ">
-              <div className="bg-[url('../static/background.jpg')]">
-                <div className={`flex flex-row  w-full  `}>
+          <div className="flex flex-col h-full  mr-1  ml-1 mt-1 border-l-2 border-r border-t-2  border-bargray  bg-[url('../static/background.jpg')]">
+           
+                <div className={`flex flex-row  w-full basis-1/6   `}>
                   <img className="object-contain h-20 " src="/static/logo.png"/>
                   
                 </div>
-                <div className={`  text-black h-full border-opacity-60 justify-center text-center w-full `}>
+                <div className={`flex flex-row   text-black  border-opacity-60  justify-center w-full h-full`}>
                     {content}
                 </div>
                 <div className="flex flex-row w-full justify-center  border-b border-bargray ">
                             <ButtonPicker/>
-                </div>
-              </div>
-           
+                  </div>
+                
           </div>
           
 
@@ -156,16 +173,24 @@ function ParitalBrowser ({content}: {content?:any}) {
           <p className="text-sm self-center">Done</p>
           </div>
         </div>
+
         
+      </div>
+      
+      <nav className={`fixed bottom-0 bg-panelgray text-black flex flex-row items-center justify-between w-full h-7 text-lg border-t `}>
+       
+       <button onClick={invColors} className="mx-2 px-2 shadow-lg border-t-2 border-l-2 border-opacity-75" >
+          <div className="flex flex-row">
+            <img src="/static/win.png"/>
+            <span className="text-sm px-2">Start</span>
+          </div>
+         </button>
+       
+        
+      </nav>
+    </div>
     
   );
 }
-function Browser({ content }) {
-  return (
-    <Desktop content={<ParitalBrowser content={content} />} />
-  );
-}
 
-export default Browser;
-
-
+export default Browser
