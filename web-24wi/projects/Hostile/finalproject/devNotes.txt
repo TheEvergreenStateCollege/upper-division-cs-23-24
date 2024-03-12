@@ -8,7 +8,7 @@ Tuesday:
 - [] complete README.md
 - [] check in about feed
 - [] run through app (see below)
-- [] if unit tests and app runthrough were good make 2 min video
+- [] if unit tests and app run through were good make 2-min video
 
 Hostile run through:
 - [] landing
@@ -26,7 +26,7 @@ Hostile run through:
     - [] WindowButtons functionality
 
 Rain:
-- [ ] profile.tsx change 'Loading..' to 'No Posts' for new accounts
+- [ ] profile.tsx change 'Loading...' to 'No Posts' for new accounts
 - [ ] feed.tsx
 - [ ] unit testing
 
@@ -35,7 +35,7 @@ Dee Dee:
     ## - [x] import jest, write unit tests for user.ts
     ## - [ ] add the menu links (done with all but one)
     ## - [x] make modal for updating profile using form in profile.tsx
-    ## - [x] make image modal for mugshot easter egg
+    ## - [x] make image modal for mugshot Easter egg
     ## - [x] README.md outline
 
     create custom colors in tailwind.config.js
