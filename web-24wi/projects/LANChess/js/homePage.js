@@ -1,15 +1,18 @@
 //homePage.js
+
+//Constant imports from localstorage.
 const baseURL = 'http://localhost:5000';
+const userID = localStorage.getItem('userID');
+const userToken = localStorage.getItem('userToken');
+
+//Variables
 var initOpponentUsername;
-
-
-
 
 
 async function createNewOnlineGameOnServer(){
 
     console.log("Create new game selected");
-    const userToken = localStorage.getItem('userToken');
+    
     
     try {
         const response = await fetch(baseURL + "/api/games", {
@@ -44,39 +47,39 @@ async function createNewOnlineGameOnServer(){
 }
 
 
+async function addSelfAsParticipant(){
 
-
-
-
-async function connectToOnlineGame(){
-    
     const gameID = localStorage.getItem('gameID');
-    const userToken = localStorage.getItem('userToken');
     
     try {
-        const response = await fetch(baseURL + "/api/games" + gameID,  {
-            method: "GET", 
+        const response = await fetch(baseURL + "/api/gameParticipant", {
+            method: "POST", 
             headers:{
                 'Authorization': 'Bearer ' + userToken,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
+            body: {
+                'gameID': gameID,
+                'userID': userID
+            }
         })
 
-        const responseForConnecting = await response.json();
-        console.log(responseForConnecting);
-        console.log("connectToOnlineGame() executed");
+        const addSelfAsParticipantRES = await response.json();
+        console.log("add self response" + addSelfAsParticipantRES);
+
 
     } catch (error) {
-        console.error("Failed load created game:", error);
+        console.error("Failed to add self as participant:", error);
     }
 }
 
 
 
+
 async function createNewOnlineGame(){
     createNewOnlineGameOnServer();
-    connectToOnlineGame();
+    addSelfAsParticipant();
 
 }
 
