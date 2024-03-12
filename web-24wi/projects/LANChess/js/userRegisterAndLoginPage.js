@@ -32,7 +32,7 @@ async function registerNewUser(){
     
 
         try {
-            const response = await fetch(baseURL + "/register", {
+            const response = await fetch("/register", {
                 method: "POST", 
                 headers: {
                     'Accept': 'application/json',
@@ -64,7 +64,7 @@ async function loginUser(){
     credentials();
 
         try {
-            const response = await fetch(baseURL + "/login", {
+            const response = await fetch("/login", {
                 method: "POST", 
                 headers: {
                     'Accept': 'application/json',
