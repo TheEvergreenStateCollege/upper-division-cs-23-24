@@ -16,6 +16,11 @@ export const getPost = async (req,res) => {
 export const Posts = async (req,res)=> {
 
     const allPosts = await prisma.post.findMany({
+        //without this it puts the oldest posts first which isn't helpful for a feed
+        orderBy: {
+            createdAt: 'desc' 
+        },
+        
         select: {
             name: true,
             body:true,
@@ -54,7 +59,7 @@ export const createPost = async (req, res) => {
             belongsToId: req.user.id
         }
     })
-    return res.redirect("/api/profile")
+    return res.redirect("/feed")
     // res.json({data: post})
 }
 

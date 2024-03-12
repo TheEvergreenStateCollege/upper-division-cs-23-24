@@ -1,31 +1,45 @@
 import React, { useState, useEffect } from 'react';
+import Window from './window';
+import Desktop from '../Desktop';
+import Browser from './browser';
 
-function Content() {
+function BuildContent() {
   const [jsonData, setJsonData] = useState([]);
-  const userIds = [1, 2, 3]; // Example user IDs, adjust as needed
 
   useEffect(() => {
-    // Construct the query parameter for user IDs
-    const userIdsQueryParam = `userIds=${userIds.join(',')}`;
-
-    // Fetch data from your API with user IDs query parameter
-    fetch(`http://localhost:3001/api/posts?${userIdsQueryParam}`)
+    fetch('/allposts')
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        // Store data in state
-        setJsonData(data.data);
+        setJsonData(data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-  }, [userIds]); // Depend on userIds so if they change, re-fetch the data
+  }, []);
 
-  // Render your component with jsonData
   return (
     <div>
-      {/* Render posts or handle jsonData as needed */}
+      {jsonData.map((post, index) => (
+        <div className="flex-wrap">
+        <div key={index} className=" pr-8 pb-8 relative flex-wrap overflow-auto justify-center">
+          <div
+            className="flex-wrap justify-center bg-bargray hover:bg-panelgray border-black border-2 text-white font-bold px-2 py-4 m-2 w-full"
+          >
+            <h2 className='text-xl'>{post.name} </h2>  <h2>  by {post.belongsTo.username}</h2>
+            <p>{post.body}</p>
+          </div>
+        </div>
+        </div>
+      ))}
     </div>
   );
 }
+const Content = () => {
+  return(
+    <Browser content={<BuildContent />} /> 
+  )
+}
+
+export default Content;
 

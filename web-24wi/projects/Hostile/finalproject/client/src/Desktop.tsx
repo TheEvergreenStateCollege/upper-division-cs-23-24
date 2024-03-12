@@ -66,7 +66,7 @@ const Profile = () => {
 const Abyss = () => {
   return (
     <div><button className="mx-2 mt-8 px-4 text-sm hover:text-white hover:bg-blue-900 hover:bg-opacity-50">
-            <a href="/">
+            <a href="/feed">
             <img className="object-contain h-14" src="/static/abyss.png"/>
               Abyss
               </a>
@@ -75,11 +75,11 @@ const Abyss = () => {
 }
   return (
     
-    <div className={`  ${colo} bg-backblue`}>
+    <div className={`  ${colo} bg-backblue `}>
       {/* render a row of buttons using the map function */}
-      <div className="flex flex-row  grow h-full ">
+      <div className="flex flex-row   ">
         <div className="flex flex-col grow h-full  min-h-screen ">
-        {isSignedIn ?  <Profile/> :  <SignIn/>}
+          {isSignedIn ?  <Profile/> :  <SignIn/>}
               
                
               <div><button className="mx-2 mt-8 px-4 text-sm hover:text-white  hover:bg-blue-900 hover:bg-opacity-50">
@@ -97,11 +97,8 @@ const Abyss = () => {
               </button></div>
 
               {isSignedIn ?  <Abyss/> : null }
-        </div>
-
-        
-      
-      {content}
+          </div>
+        {content}
       </div>
       <nav className={`fixed bottom-0 bg-panelgray text-black flex flex-row items-center justify-between w-full h-7 text-lg border-t `}>
        {/* <a href="bluescreen"> */}
