@@ -85,7 +85,7 @@ function ParitalBrowser ({content}: {content?:any}) {
 
   return (
     
-    <div className={` flex  flex-col  bg-panelgray shrink h-5/6  w-full ${enlarged ? 'mb-6 mr-0 mt-0' : 'mb-60 mr-6 mt-8'} border border-cus overflow-auto  `}>
+    <div className={` flex  flex-col  bg-panelgray w-full ${enlarged ? 'mb-6 mr-0 mt-0' : 'mb-60 mr-6 mt-8'} border border-cus overflow-auto  `}>
           <div className={`flex flex-row bg-bargray border-b  mx-1`}>
             
             <img className="object-contain" src="/static/inet.png"/>
@@ -135,18 +135,19 @@ function ParitalBrowser ({content}: {content?:any}) {
             </div>
           </div>
           <div className="flex flex-col   mr-1  ml-1 mt-1 border-l-2 border-r border-t-2 border-bargray  ">
-            <div className="shrink max-h-96 overflow-auto">
-              <div className={`flex flex-row  w-full  bg-white`}>
-                <img className="object-contain h-20 " src="/static/logo.png"/>
-                
+              <div className="bg-[url('../static/background.jpg')]">
+                <div className={`flex flex-row  w-full  `}>
+                  <img className="object-contain h-20 " src="/static/logo.png"/>
+                  
+                </div>
+                <div className={`  text-black h-full border-opacity-60 justify-center text-center w-full `}>
+                    {content}
+                </div>
+                <div className="flex flex-row w-full justify-center  border-b border-bargray ">
+                            <ButtonPicker/>
+                </div>
               </div>
-              <div className={` bg-white text-black  border-opacity-60  justify-center w-full `}>
-                  {content}
-              </div>
-              <div className="flex flex-row w-full justify-center bg-white border-b border-bargray ">
-                          <ButtonPicker/>
-              </div>
-            </div>
+           
           </div>
           
 

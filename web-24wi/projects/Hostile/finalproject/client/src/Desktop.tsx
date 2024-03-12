@@ -98,7 +98,10 @@ const Abyss = () => {
 
               {isSignedIn ?  <Abyss/> : null }
           </div>
-        {content}
+          <div className="h-screen mr-4">
+          {content}
+          </div>
+        
       </div>
       <nav className={`fixed bottom-0 bg-panelgray text-black flex flex-row items-center justify-between w-full h-7 text-lg border-t `}>
        {/* <a href="bluescreen"> */}
