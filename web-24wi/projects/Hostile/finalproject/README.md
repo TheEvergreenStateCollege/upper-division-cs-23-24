@@ -1,6 +1,7 @@
 # Hostile
 
-A hostile user interface for posting chats, inspired by the bloated, retro-ugly Windows 95 aesthetic and vibe. Brought to you by Linux users.
+A hostile user interface for posting chats, inspired by the bloated, retro-ugly Windows 95 aesthetic and vibe. 
+Brought to you by Linux users.
 
 ## Table of Contents
 
@@ -33,7 +34,8 @@ List the main features and functionalities of Hostile.
 
 ## Installation
 
-Provide step-by-step instructions on how to install and set up Hostile. Include any dependencies that need to be installed and how to install them.
+Provide step-by-step instructions on how to install and set up Hostile. Include any dependencies that need to be 
+installed and how to install them.
 
 ## Usage
 
@@ -45,11 +47,13 @@ Link to documentation for Hostile. This could be in the form of a separate docum
 
 ## Contributing
 
-If you want others to contribute to your project, provide guidelines on how they can do so. Include information about how to report issues, submit feature requests, and make pull requests.
+If you want others to contribute to your project, provide guidelines on how they can do so. Include information about 
+how to report issues, submit feature requests, and make pull requests.
 
 ## License
 
-Specify the license under which Hostile is distributed. Include any terms or conditions associated with the use of the code.
+Specify the license under which Hostile is distributed. Include any terms or conditions associated with the use of the 
+code.
 
 ## Acknowledgements
 
