@@ -5,19 +5,17 @@ var initOpponentUsername;
 
 
 
+
 async function createNewOnlineGameOnServer(){
 
     console.log("Create new game selected");
-
-    const ResultObj = localStorage.getItem('resultObj');
-    const UserID = localStorage.getItem('userID');
-    const UserToken = localStorage.getItem('userToken');
+    const userToken = localStorage.getItem('userToken');
     
     try {
         const response = await fetch(baseURL + "/api/games", {
             method: "POST", 
             headers: {
-                'Authorization': 'Bearer ' + UserToken,
+                'Authorization': 'Bearer ' + userToken,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
         },
@@ -31,24 +29,32 @@ async function createNewOnlineGameOnServer(){
     const gameID = createdGameDetailsObj.id;
     const gameStart = createdGameDetailsObj.start;
     const gameStatus = createdGameDetailsObj.status;
+    console.log("Created successfully, the game's meta data: " + gameID, gameStart, gameStatus);
 
     //Value storage.
-    localStorage.setItem('createdGameID', createdGameID);
-    localStorage.setItem('createdGameStart', createdGameStart);
-    localStorage.setItem('createdGameStatus', createdGameStatus);
+    localStorage.setItem('gameID', gameID);
+    localStorage.setItem('gameStart', gameStart);
+    localStorage.setItem('gameStatus', gameStatus);
+    console.log('Meta data stored into local storage successfully.')
+
 
     } catch (error) {
         console.error("Failed to create a game: ", error);
     }
 }
 
-async function connectOnlineGameClientToCreatedGame(){
+
+
+
+
+
+async function connectToOnlineGame(){
     
-    const createdGameID = localStorage.getItem('createdGameID');
+    const gameID = localStorage.getItem('gameID');
     const userToken = localStorage.getItem('userToken');
     
     try {
-        const response = await fetch(baseURL + "/api/games" + createdGameID,  {
+        const response = await fetch(baseURL + "/api/games" + gameID,  {
             method: "GET", 
             headers:{
                 'Authorization': 'Bearer ' + userToken,
@@ -59,8 +65,7 @@ async function connectOnlineGameClientToCreatedGame(){
 
         const responseForConnecting = await response.json();
         console.log(responseForConnecting);
-
-       
+        console.log("connectToOnlineGame() executed");
 
     } catch (error) {
         console.error("Failed load created game:", error);
@@ -68,6 +73,12 @@ async function connectOnlineGameClientToCreatedGame(){
 }
 
 
+
+async function createNewOnlineGame(){
+    createNewOnlineGameOnServer();
+    connectToOnlineGame();
+
+}
 
 
 
@@ -90,8 +101,4 @@ async function okButtonForOpponentSearchTextbox() {
     initOpponentUsername();
     checkIfOpponentCanBeFound();
 }
-
-
-
-
 

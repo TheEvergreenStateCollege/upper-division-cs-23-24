@@ -87,7 +87,7 @@ async function loginUser(){
 
                 //   console.log("Credentials stored to local storage successfully");
            
-                //window.location.href = "/home"; //Redirect to home page.
+                window.location.href = "/home"; //Redirect to home page.
                 
         } catch (error) {
             console.error("Failed login error:", error);
