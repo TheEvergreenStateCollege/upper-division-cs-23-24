@@ -1,6 +1,6 @@
 //import express from 'express'
 //import router from './router'
-dotenv.config();
+//dotenv.config();
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
