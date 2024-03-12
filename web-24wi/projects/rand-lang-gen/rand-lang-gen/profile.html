@@ -1,0 +1,29 @@
+<script type = >
+const jsonData = [
+ {
+      "id": 12357,
+      "name":
+      ""
+      "authorId": 1
+    },
+    {
+      "id": 12358,
+      "name": "Avon Lake",
+      "createdAt": "2024-03-05T17:56:43.322Z",
+      "latitude": 41.4944,
+      "longitude": -82.0159,
+      "population": 25220,
+      "authorId": 1
+    }
+  ];
+
+  const response = await fetch("/api/profile", 
+    {
+        "method": "GET",
+        "headers": {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+    );
+  const jsonData = await response.json();
+</script>
