@@ -9,6 +9,9 @@ console.log(parsed['DATABASE_URL']);
 console.log(process.env['DATABASE_URL']);
 const prisma = new PrismaClient();
 
+const bcrypt = require('bcrypt');
+
+
 
 // app.[method]([route], [route handler])
 app.get("/", (req, res) => {
@@ -58,15 +61,27 @@ app.post("/login", async (req, res) => {
 
 
 app.post("/user", async (req, res) => {
-	const newUser = await prisma.user.create({
+	const { username, password } = req.body;
+  
+	// Implement password hashing using bcrypt before storing
+	const hashedPassword = await bcrypt.hash(password, 10); // Example with cost factor of 10
+  
+	try {
+	  const newUser = await prisma.user.create({
 		data: {
-			username: req.body.username,
-			password: '',
+		  username,
+		  password: hashedPassword, // Use the hashed password
 		},
-	});
-	console.log("created");
+	  });
+	  console.log("User created:", newUser);
+	  res.status(201).send("User created successfully!"); // Success message
+	} catch (error) {
+	  console.error("Error creating user:", error);
+	  res.status(500).send("Error creating user"); // Error message
+	}
+  });
+  
 
-});
 
 app.get("/users", async (req, res) => {
 	const allUsers = await prisma.user.findMany();
