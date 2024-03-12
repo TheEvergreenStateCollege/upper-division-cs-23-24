@@ -7,7 +7,7 @@ import { createNewUser, signin, deletUser, updateUser, updatePass } from './hand
 import cors from 'cors'
 import bycrypt from 'bcrypt'
 import  cookieParser from 'cookie-parser'
-
+import { Posts } from './handlers/posts'
 // import fetch from 'node-fetch'
 
 const app = express()
@@ -78,14 +78,19 @@ app.get('/menu', (req,res) => {
 
 })
 
-
+app.get('/allposts', Posts)
 
 app.use('/api', protect, router)
 
 app.post('/user', createNewUser) 
 app.post('/signin', signin)
 
+app.get('/feed', (req,res) => {
 
+    res.sendFile(path.resolve("../client/dist/feed/index.html"))
+
+
+})
 
 
 export default app

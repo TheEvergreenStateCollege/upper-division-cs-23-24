@@ -5,8 +5,9 @@ import Landing from "./landing"
 import WindowButtons from "./WindowButtons";
 import Cookies from 'js-cookie';
 import ButtonPicker from "./ButtonPicker"
+import Desktop from "../Desktop";
 
-function Browser ({content}: {content?:any}) {
+function ParitalBrowser ({content}: {content?:any}) {
   
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [colo, setColo] = useState("invert-0");  
@@ -84,26 +85,7 @@ function Browser ({content}: {content?:any}) {
 
   return (
     
-    <div className={` ${colo} bg-backblue`}>
-      {/* render a row of buttons using the map function */}
-      <div className="flex flex-row  grow h-full ">
-        <div className=" flex flex-col grow h-full  min-h-screen ">
-          {isSignedIn ?  <Profile/> :  <SignIn/>}
-              <div><button  className="mx-2 mt-8 px-4 text-sm hover:text-white  hover:bg-blue-900 hover:bg-opacity-50">
-              <a href="/post">
-             {post}
-                Post
-                </a>
-                </button></div>
-              <div><button className="mx-2 mt-8 px-4 text-sm hover:text-white hover:bg-blue-900 hover:bg-opacity-50">
-              <a href="/menu">
-              {discover}
-                Discover</a>
-                </button></div>
-                {isSignedIn ?  <Abyss/> : null }
-                
-        </div>
-        <div className={` flex justify-stretch flex-col  bg-panelgray ${enlarged ? 'mb-6 mr-0 mt-0' : 'mb-60 mr-6 mt-8'} w-full border border-cus `}>
+    <div className={` flex  flex-col  bg-panelgray shrink h-5/6  w-full ${enlarged ? 'mb-6 mr-0 mt-0' : 'mb-60 mr-6 mt-8'} border border-cus overflow-auto  `}>
           <div className={`flex flex-row bg-bargray border-b  mx-1`}>
             
             <img className="object-contain" src="/static/inet.png"/>
@@ -152,17 +134,19 @@ function Browser ({content}: {content?:any}) {
               
             </div>
           </div>
-          <div className="flex flex-col h-full  mr-1  ml-1 mt-1 border-l-2 border-r border-t-2 border-bargray  ">
-            <div className={`flex flex-row  w-full basis-1/6   bg-white`}>
-              <img className="object-contain h-20 " src="/static/logo.png"/>
-              
+          <div className="flex flex-col   mr-1  ml-1 mt-1 border-l-2 border-r border-t-2 border-bargray  ">
+            <div className="shrink max-h-96 overflow-auto">
+              <div className={`flex flex-row  w-full  bg-white`}>
+                <img className="object-contain h-20 " src="/static/logo.png"/>
+                
+              </div>
+              <div className={` bg-white text-black  border-opacity-60  justify-center w-full `}>
+                  {content}
+              </div>
+              <div className="flex flex-row w-full justify-center bg-white border-b border-bargray ">
+                          <ButtonPicker/>
+              </div>
             </div>
-            <div className={`flex flex-row  bg-white text-black  border-opacity-60  justify-center w-full h-full`}>
-                {content}
-            </div>
-            <div className="flex flex-row w-full justify-center bg-white border-b border-bargray ">
-                        <ButtonPicker/>
-                </div>
           </div>
           
 
@@ -171,24 +155,16 @@ function Browser ({content}: {content?:any}) {
           <p className="text-sm self-center">Done</p>
           </div>
         </div>
-
         
-      </div>
-      
-      <nav className={`fixed bottom-0 bg-panelgray text-black flex flex-row items-center justify-between w-full h-7 text-lg border-t `}>
-       
-       <button onClick={invColors} className="mx-2 px-2 shadow-lg border-t-2 border-l-2 border-opacity-75" >
-          <div className="flex flex-row">
-            <img src="/static/win.png"/>
-            <span className="text-sm px-2">Start</span>
-          </div>
-         </button>
-       
-        
-      </nav>
-    </div>
     
   );
 }
+function Browser({ content }) {
+  return (
+    <Desktop content={<ParitalBrowser content={content} />} />
+  );
+}
 
-export default Browser
+export default Browser;
+
+

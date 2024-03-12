@@ -17,6 +17,7 @@ export default defineConfig({
         users: resolve(__dirname, 'users/index.html'),
         catchall: resolve(__dirname, 'catchall/index.html'),
         menu: resolve(__dirname, 'menu/index.html'),
+        feed: resolve(__dirname, 'feed/index.html'),
       },
     },
   },
