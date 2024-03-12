@@ -101,9 +101,9 @@ async function addSelfAsParticipant(){
             })
         })
 
-        const addSelfAsParticipantRES = JSON.stringify(await response.json());
-
-        console.log("Response from server for request to add self as participant" + addSelfAsParticipantRES);
+        const addSelfAsParticipantRESObj = await response.json();
+        console.log("addSelfAsParticipantRESObjL:" + addSelfAsParticipantRESObj)
+        return addSelfAsParticipantRESObj;
 
     } catch (error) {
         console.error("Failed to add self as participant:", error);
@@ -115,19 +115,33 @@ async function addSelfAsParticipant(){
     console.log("---------------------------------------------");
 }
 
+async function storeParticipantID(addSelfAsParticipantRESObj){
+    //Console testing to ensure passed values  are defined.
+    console.log("--storeCreatedGameInfo()---------------------");
+    console.log("addSelfAsParticipant() passed the following values");
+    console.log("addSelfAsParticipantRESObj: " + createdGameInfoObj);
+    console.log("JSON addSelfAsPariticpantRESObj: " + JSON.stringify(createdGameInfoObj));
+
+    const participantID = addSelfAsParticipantRESObj.data.id;
+    console.log(participantID);
+}
+
+
+
+
 async function createNewOnlineGame(){
    try {
     await getUserValuesFromStorage();
     createdGameInfoObj = await createNewOnlineGameOnServer();
     await storeCreatedGameInfo(createdGameInfoObj);
-
-    await addSelfAsParticipant();
+    addSelfAsParticipantRESObj = await addSelfAsParticipant();
+    await storeParticipantID(addSelfAsParticipantRESObj);
    }
    catch (error){
     console.error("createNewOnlineGame() failed", error);
    }
-
 }
+
 
 
 
