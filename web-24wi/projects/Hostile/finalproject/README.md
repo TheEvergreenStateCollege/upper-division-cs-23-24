@@ -21,15 +21,13 @@ Brought to you by Linux users.
 - [Roadmap](#roadmap)
 
 ## Description
+Hostile reimagines the social media experience, blending the iconic Windows 95 interface with modern web technologies. It serves as a bridge connecting the simplicity and charm of the past with today's digital capabilities. This platform pioneers a post and feed mechanism, utilizing an array of technologies such as Markdown, HTML, CSS, JavaScript, TypeScript, JSON, Tailwind CSS, React, and Prisma.
 
-Detailed description of Hostile, explaining its purpose, key features, and any other relevant information.
-- What your application does,
-- Why you used the technologies you used,
-- Some of the challenges you faced and features you hope to implement in the future.
-
+Upon accessing Hostile, users are greeted with a straightforward login page, guiding them to their personal profile space. Here, customization is key; users can update their username, password, and even opt to delete their account. Developing Hostile was an adventure in learning and innovation, especially our venture into React and integrating JSON data efficiently. One notable challenge was extracting specific elements from JSON requests using a map function in React, showcasing our tailored approach to data handling.
 ## Features
 
 List the main features and functionalities of Hostile.
+-
 
 ## Installation
 
