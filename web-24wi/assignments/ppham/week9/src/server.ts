@@ -22,7 +22,7 @@ app.use('/api', protect, router);
 
 app.use(async (err: any, req: Request, res: Response, next: NextFunction) => {
   console.log(err);
-  res.json({mess@qage: `had an error: ${err.message}`});
+  res.json({messqage: `had an error: ${err.message}`});
 });
 
 app.post('/signup', createNewUser);
