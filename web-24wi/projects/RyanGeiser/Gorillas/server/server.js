@@ -9,8 +9,6 @@ console.log(parsed['DATABASE_URL']);
 console.log(process.env['DATABASE_URL']);
 const prisma = new PrismaClient();
 
-app.use(express.static("static"));
-app.use(express.json());
 
 // app.[method]([route], [route handler])
 app.get("/", (req, res) => {
@@ -92,3 +90,6 @@ app.get("/game", (req, res) => {
 		res.redirect("/login");
 	}
 });
+
+app.use(express.static("static"));
+app.use(express.json());
