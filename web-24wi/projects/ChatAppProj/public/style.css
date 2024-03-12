@@ -84,7 +84,12 @@ body {
     border-radius: 10px;
 }
 
-.messages li :nth-child(even){
+.messages li:nth-child(even){
+    background-image: linear-gradient(to right, #007bff,#0056b3 );
+    color: #fff;
+}
+
+.messages li:nth-child(odd){
     background-image: linear-gradient(to right, #ffffff,#f0f0f0 );
     color: #000;
 }
