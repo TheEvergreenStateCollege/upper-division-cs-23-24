@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
+    background-color: #008080 ;
+} */
+
+@layer base{
+html {
+    font-family: "MS"
+}
+}
+
+#animated {
+
+  
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+    0%   { right:0px; top:400px; }
+ 25% {right: 600px; top:400px;}
+ 50%{ right: 600px; top:-400px;}
+ 75%{ right:0px; top:-400px;}
+  100% { right:0px; top:400px;}
+}
+
+@font-face {
+    font-family: MS;
+    src: url(../w95fa.woff);
+}
+@layer utilities {
+    .border-cus {
+        border-top-color: white;
+        border-bottom-color: black;
+        border-right-color: black;
+        border-left-color: white;
+    }
+
+    .border-cus2 {
+        border-top-color: black;
+        border-bottom-color: white;
+        border-right-color: white;
+        border-left-color: black;
+    }
+
+}

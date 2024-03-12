@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacN Login</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    
+    <!--<script src="/static/js/formHandler.js"></script>  -->
+</head>
+<body>
+<h2>Login Page</h2>
+<form name="loginForm" action="/form/create-profile" method="post">
+    <input type="text" name="firstName" placeholder="First Name" required autocomplete="name">
+    <input type="text" name="lastName" placeholder="Last Name" required autocomplete="family-name">
+    <input type="email" name="email" placeholder="Email Address" required autocomplete="email">
+    <!-- For registration, assumes this form is primarily for new users creating an account -->
+    <label>
+        <input type="password" name="password" placeholder="Password" required autocomplete="new-password">
+    </label>
+    <button type="submit" id="loginBtn">Login</button>
+    <button type="submit">Create Profile</button>
+</form>
+</body>
+</html>

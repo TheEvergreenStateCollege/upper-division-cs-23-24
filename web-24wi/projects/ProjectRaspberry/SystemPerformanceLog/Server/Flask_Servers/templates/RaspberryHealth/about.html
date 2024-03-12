@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Raspberry Health</title>
+    <link rel="stylesheet" href="/static/CSS/Raspberrystyle.css">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('raspberry_health') }}">
+            <img src="/static/assets/raspberrybunch.png" alt="RaspberryBunch" class="header-logo">
+        </a>
+        <h1>About Raspberry Health</h1>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <h2>Our Mission</h2>
+            <p>Estamos encantados de que hayas pasado por nuestra página web. Aquí nos dedicamos con pasión a monitorear y mejorar el rendimiento de tu Raspberry Pi.</p>
+            
+            <h2>What We Do</h2>
+            <p>Queremos que tu experiencia con la tecnología sea tan dulce como una frambuesa. ¡Únete a nosotros en este viaje frutal de datos y descubrimientos!</p>
+            
+            <h2>Meet the Team</h2>
+            <p>Con cada línea de código, buscamos la manera de hacer que tu Raspberry Pi sea más eficiente, confiable y divertida de usar.</p>
+            
+            <h2>Our Journey</h2>
+            <p>Cada miembro de nuestro equipo es como una frambuesa en una tarta: único, esencial y deliciosamente ingenioso.</p>
+        </section>  
+    </main>
+
+    
+
+    <footer>
+        <div class="footer-content">
+            <a href="{{ url_for('raspberry_health') }}">Home</a>
+            <a href="{{ url_for('raspberry_health_about') }}">About</a>
+            <a href="{{ url_for('raspberry_health_privacy') }}">Privacy Policy</a>
+            <a href="{{ url_for('raspberry_health_terms') }}">Terms of Service</a>
+            
+        </div>
+    </footer>
+</body>
+</html>

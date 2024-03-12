@@ -1,5 +1,5 @@
-const express = require("express");
-const app = express();
+let express = require("express");
+let app = express();
 const port = 5000;
 const path = require("path");
 
@@ -25,5 +25,51 @@ app.get("/", (req, res) => {
           // sending back an HTML file that a browser can render on the screen.
               res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));
               });
+
+			  app.get("/randomGraph", async(req,res) =>{
+				let results = [];
+				for (let i = 0; i < 10; i += 1){
+					results.push({"day": i,"stepCount": Math.round(Math.random() * 1000) });
+				}
+				res.json({ results });
+			  });
+
+
+console.log(Object.keys(prisma));
+
+app.get("/users",async(req,res) => {
+    const allUsers = await prisma.user.findMany();
+    res.json(allUsers);
+});
+
+app.post("/user", async(req,res) => {
+    const result = await prisma.user.create({
+      data:{
+    	username:req.body.username,
+	password: req.body.password,
+	}
+     });
+	res.json(result);
+}); 
+
+
+app.get("/cities", async(req,res) => {
+
+	const allCities = await.prisma.uSCity.findMany();
+	res.json(allCities);
+});
+
+
+app.post("/city", async (req,res) => {
+	const result = await prisma.uSCity.create({
+	   data:{
+		name:req.body.cityName,
+		longitude: Number(req.body.longitude),
+		latitude: Number(req.body.latitude),
+		authorId: Number(req.body.authorId),
+	   }
+	});
+	res.json(result);
+});
 
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Health</title>
+    <link rel="stylesheet" href="/static/CSS/Raspberrystyle.css">
+    
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('raspberry_health') }}">
+            <img src="/static/assets/raspberry.png" alt="Raspberry" class="header-logo">
+        </a>
+        <h1> Raspberry Health Dashboard</h1>
+    </header>
+    <nav id="menu">
+        <!--<button data-target="view all data">View All Data</button>-->
+        <button id="view-all-data" data-target="view all data">View All Data</button>
+        <button data-target="view uinique os names">View Unique OS Names</button>
+        <button data-target="filter by os name.">Filter OS Name</button>
+        <button data-target="filter by date and time.">Filter Date and Time</button>
+        <button data-target="temperature">CPU Temperature</button>
+        <button data-target="wi-fi strength">Wi-Fi Strength</button>
+        <button data-target="wi-fi quality">Wi-Fi Quality</button>
+        <button data-target="cpu">CPU Usage</button>
+        <button data-target="memory">Memory Usage</button>
+        <button data-target="disk">Disk Usage</button>
+        <button data-target="network traffic">Network Traffic Usage</button>
+        <button data-target="print json data">JSON data</button>
+        
+    </nav>
+    <main id="content">
+        <div id="data-container">Loading data...</div>
+    </main>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+    <!-- View All Data -->
+    <script>
+    document.getElementById('view-all-data').addEventListener('click', function() {
+        fetch('/raspberryhealth/view-all-data')
+            .then(response => response.json())
+            .then(data => {
+                // Process and display the data
+                const container = document.getElementById('data-container');
+                container.innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error:', error));
+    });
+    </script>
+        
+
+</body>
+</html>
+

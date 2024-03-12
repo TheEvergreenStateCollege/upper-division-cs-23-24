@@ -44,17 +44,23 @@ if ! [ -f "./.env" ]; then
 fi 
 
 prisma_and_nodemon() {
- 
+  pnpm setup
+  source ~/.bashrc
   export PATH=${PATH}:$(pnpm bin)
   pnpm i 
   PRISMA=$(which prisma)
   if [[ -z "${PRISMA}" ]]; then
     pnpm i -g prisma 
   fi
+  prisma validate
+  NODEMON=$(which nodemon)
+  if [[ -z "${NODEMON}" ]]; then
+    pnpm i -g nodemon
+  fi
   prisma generate >> dev.log 2>&1 
   prisma format
   # Pull the current database schema before we attempt to migrate any changes 
-  prisma db pull
+  # prisma db pull
   prisma migrate dev --name init
   nodemon server.js
 }

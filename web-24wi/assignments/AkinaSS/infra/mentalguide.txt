@@ -24,3 +24,15 @@ npx prisma format
 npx prisma generate --save-dev
 npm i @prisma/client --save
 npx prisma migrate dev --name init
+
+database_url syntax:
+DATABASE_URL="postgresql://username:password@hostname:port/database_name"
+
+To find the database URL in your Prisma .env file, you can open the .env file in your project directory using a text editor or code editor. 
+Look for a variable named DATABASE_URL or something similar, as this is the convention for specifying the database connection URL in Prisma projects.
+
+In this example, replace username, password, hostname, port, and database_name with the actual credentials and connection details for your database. 
+The database URL should follow the appropriate format for the type of database you're using (e.g., PostgreSQL, MySQL, SQLite).
+
+If you're using Prisma with a different configuration or have custom environment variable names, you'll need to look for those specific variables in your .env file. 
+The database URL should be clearly defined and identifiable within the .env file.
