@@ -136,6 +136,7 @@ async function createNewOnlineGame(){
     await storeCreatedGameInfo(createdGameInfoObj);
     addSelfAsParticipantRESObj = await addSelfAsParticipant();
     await storeParticipantID(addSelfAsParticipantRESObj);
+    await window.location.href = "/game"; //Redirect to home page.
    }
    catch (error){
     console.error("createNewOnlineGame() failed", error);
