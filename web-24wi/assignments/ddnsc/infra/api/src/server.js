@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.resolve("pages/index.html"));
 });
 
-const PORT = process.env.SERVER_PORT;
+const PORT = 5000;
 
 
 // creates and starts a server for our API on a defined port

@@ -16,7 +16,7 @@ const server = createServer((req, res) => {
     res.end(JSON.stringify({ message: 'Not Found' }));
 });
 
-const PORT = process.env.API_PORT;
+const PORT = 3000;
 
 server.listen(PORT, () => {
     console.log(`Listening on port ${API_PORT}`);
