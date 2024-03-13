@@ -7,6 +7,7 @@ import {
     logout,
 } from '../user';
 
+
 describe('User handler', () => {
     // syntax:
     // it('should handle a scenario when something happens', async () => {
@@ -89,7 +90,7 @@ describe('User handler', () => {
             send: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
@@ -123,7 +124,7 @@ describe('User handler', () => {
             send: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
@@ -156,7 +157,7 @@ describe('User handler', () => {
             redirect: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
@@ -183,7 +184,7 @@ describe('User handler', () => {
             redirect: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
@@ -212,7 +213,7 @@ describe('User handler', () => {
             redirect: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
@@ -236,7 +237,7 @@ describe('User handler', () => {
             redirect: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
