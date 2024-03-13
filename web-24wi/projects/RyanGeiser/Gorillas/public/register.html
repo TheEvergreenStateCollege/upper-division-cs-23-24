@@ -11,14 +11,14 @@
 <body>
     <div class="wrapper">
         <h1>Register</h1>
-        <form action="/user" method="POST">
+        <form action="/user" method="POST" autocomplete="off">
             <div class="input-box">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" required aria-label="Username">
             </div>
             <div class="input-box">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required aria-label="Password">
             </div>
             <button type="submit" class="btn">Register</button>
         </form>
