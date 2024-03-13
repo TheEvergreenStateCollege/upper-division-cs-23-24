@@ -125,6 +125,7 @@ async function storeParticipantID(addSelfAsParticipantRESObj){
 
     const participantID = addSelfAsParticipantRESObj.data.id;
     console.log(participantID);
+    localStorage.setItem('participantID', participantID);
 }
 
 async function storeUserColorAsWhite(){
@@ -150,7 +151,7 @@ async function createNewOnlineGame(){
     addSelfAsParticipantRESObj = await addSelfAsParticipant();
     await storeParticipantID(addSelfAsParticipantRESObj);
     await storeUserColorAsWhite();
-    //await window.location.href = "/game"; //Redirect to home page.
+    window.location.href = "/game"; //Redirect to home page.
    }
    catch (error){
     console.error("createNewOnlineGame() failed", error);

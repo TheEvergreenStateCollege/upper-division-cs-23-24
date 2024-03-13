@@ -1,77 +1,70 @@
 //onlineGameClient.js
-const baseURL = 'http://localhost:5000';
 
+//Variables
+var boardCache = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
+var userID;
+var userToken;
+var gameID;
+var participantID;
 
-//SETTINGS//
-var gameActiveOnline = true; //This boolean represents whether or not a game is active or complete.
-var turnCounterOnline = 0; //Keeps track of number of turns in game.
-var isItUsersTurnOnline;
+var colorToPlay;
+var moveCounter;
+var isItUsersTurn = true;
 
-var userColorOnline = 'white'; //Defines what color the user is playing.
-var colorToPlayOnline = 'white'; //Determines who's color it is to play.
-
-
-var onlineBoardCache = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
-
-var orientationBufferOnline;
-var moves = new Array();
-
-//FUNCTIONS//
-
-//Determine if it's user's turn to play?//
-function checkIfUsersTurnOnline() {
-    if (userColorOnline === 'white') {
-        (turnCounterOnline % 1 == 0) ? isItUsersTurnOnline = true : isItUsersTurnOnline = false;
-        console.log(isItUsersTurnOnline);
-    } else {
-        (turnCounterOnline % 1 == 0) ? isItUsersTurnOnline = true : isItUsersTurnOnline = false;
-        console.log(isItUsersTurnOnline);
-    }
-
-    console.log(isItUsersTurnOnline);
+//Functions
+async function getUserValuesFromStorage(){
+    userID = localStorage.getItem('userID');
+    userToken = localStorage.getItem('userToken');
+    userColor = localStorage.getItem('userColor');
 }
 
-//Render the board for an online game//
-async function renderOnlineBoard(onlineBoardCache, userColorOnline, isItUsersTurn){
+async function getGameValuesFromStorage(){
+    gameID = localStorage.getItem('userID');
+    participantID = localStorage.getItem('participantID')
+}
 
+async function getCountOfMovesInGame(){
+    try {
+        const apiResponse = await fetch("/api/games/" + gameID, {
+            method: "GET", 
+            headers: {
+                'Authorization': 'Bearer ' + userToken,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+
+        const allMovesObj = await apiResponse.json();
+        console.log("response from server regarding moves: " + JSON.stringify(allMovesObj));
+        return allMovesObj;
+
+    } catch(error) {
+        console.error("Failed to create new game on the server: ", error);
+    } 
+}  
+
+async function renderBoard(boardCache, userColor, isItUsersTurn){
     var config = {
-        //Static configurations
         showNotation: false,
         draggable: isItUsersTurn,
         moveSpeed: 'slow',
         snapbackSpeed: 1000,
         snapSpeed: 200,
         dropOffBoard: 'snapback',
-        position: onlineBoardCache, //This is the board state the user should always be seeing.
-        orientation: userColorOnline //This should change dynamically depending on what side the player is playing as represented by the colorOfPiecesForUser as a string of either "White" or "Black".
+        position: boardCache, 
+        orientation: userColor
     };
-
-    onlineBoard = Chessboard('board', config);
-    onlineBoardCache = onlineBoard.fen();
-   
-    
-}
-
-//Update the client in an online game//
-async function updateClientOnline(){
-    checkIfUsersTurnOnline();
-    renderOnlineBoard(onlineBoardCache, userColorOnline, isItUsersTurnOnline);
+    board = Chessboard('board', config);
 }
 
 
-//This function generates and store the FEN representation of the board as a string to be sent on the websocket.
-async function confirmMoveOnlineBtn() {
-    if (isItUsersTurnOnline === true) {
-        console.log('sending ' + onlineBoardCache);
-        turnCounterOnline++;
-        console.log(turnCounterOnline);
-        moves.push(onlineBoardCache);
-    } else {
-        window.alert("It is not your turn.");
-    }
+async function initializeNewGameOnClient() { 
+    getUserValuesFromStorage(); //Get initial user values.
+    await getGameValuesFromStorage(); //Get game values.
+    await getCountOfMovesInGame(); //Fetches for all moves the server has for the game.
+    await renderBoard(boardCache, userColor, isItUsersTurn); //Render the board.
 }
 
-
-//CALLS//
-updateClientOnline();
+//Calls
+initializeNewGameOnClient();
 
