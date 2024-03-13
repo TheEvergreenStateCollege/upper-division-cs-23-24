@@ -1,15 +1,8 @@
 const express = require("express");
 const app = express();
-const DEFAULT_PORT = process.env.API_PORT || 5000;
+const port = 5000;
 const path = require("path");
 
-
-let port = DEFAULT_PORT;
-const path = require("path");
-const { parsed } = require("dotenv").config();
-const { PrismaClient } = require('@prisma/client');
-
-const prisma = new PrismaClient();
 app.use(express.static("static"));
 
 /**
@@ -20,10 +13,9 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("pages/index.html"));
 });
 
-app.get("/users", async () => {
-  const allUsers = await prisma.user.findMany();
-  res.json(allUsers);
-});
+
+
+// http://sub.arcology.builders:5000 
 
 // creates and starts a server for our API on a defined port
 app.listen(port, () => {
