@@ -1,4 +1,5 @@
 import express from "express";
+import { URL } from "url";
 import path from "path";
 import router from "./router.js";
 import * as dotenv from 'dotenv';
@@ -8,6 +9,8 @@ import config from "../config/index.js";
 import { protect } from "./modules/auth.js";
 import { createNewUser, signin } from "./handlers/user.js";
 import { WebSocketServer } from "ws";
+import { url } from "inspector";
+import { createMove } from "./handlers/move.js";
 
 dotenv.config();
 const app = express();
@@ -50,45 +53,59 @@ const server = app.listen(config.port, () => {
 
 // chat server
 const wss = new WebSocketServer({ server: server });
-
-// game_id -> [ user_id ]
+// game_id -> Set<string>
 const games = new Map();
-// user_id -> WebSockets
+// user_id -> WebSocket
 const clients = new Map();
+
 wss.on("connection", (ws, req) => {
+    const params = new URLSearchParams(req.url.split("?")[1]);
+    const userid = params.get("userid");
+    const gameid = params.get("gameid");
     console.log("client has connected");
-    console.log(req.url);
+    console.log(params);
+
+    clients.set(userid, ws);
+
+    if (games.has(params.get("gameid"))) {
+        games.get(gameid).add(userid);
+        console.log("game existed");
+    } else {
+        games.set(gameid, new Set([userid]));
+    }
+
+    console.log(clients.keys());
+    console.log(games);
+
     ws.on("error", console.error);
-    ws.on("close", data => {
-        console.log(JSON.stringify(ws.user_id));
-        for (let [key, value] of clients) {
-            if (value === ws) {
-                clients.delete(key);
-            }
+
+    // delete users socket
+    // if number of users in game room is 0 remove game as well
+    ws.on("close", () => {
+        clients.delete(userid);
+        const game = games.get(gameid);
+        game.delete(userid);
+
+        if (game.size === 0) {
+            games.delete(gameid);
         }
     });
     ws.on("message", data => {
-        //update clients map
-        const message = JSON.parse(data);
-        console.log(`${message.user_id} ${data}`);
-        if (!clients.has(message.user_id)) {
-            clients.set(message.user_id, ws);
-        }
+        const message = JSON.parse(data).FEN_string;
+        console.log(message);
+        const players = games.get(gameid)
 
-        //update games map
-        if (!games.has(message.game_id)) {
-            games.set(message.game_id, new Set([message.user_id]));
-        } else {
-            games.get(message.game_id).add(message.user_id);
-        }
-
-        const players = games.get(message.game_id)
         players.forEach(player_id => {
-            if (!(player_id === message.user_id)) {
+            if (!(player_id === userid)) {
                 const client = clients.get(player_id);
-                client.send(message.fen_string);
+                client.send({ FEN_string: message });
             }
         });
+        //createMove({
+        //    FEN_string: message,
+        //    userid: userid,
+        //    gameid: gameid,
+        //})
     });
 });
 

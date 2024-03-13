@@ -1,17 +1,14 @@
 import prisma from "../db.js";
-
-export const createMove = async (req, res) => {
-    console.log(req.body.userId);
-    console.log(req.body.gameId);
+// adds a move to db, not used for a route
+export const createMove = async (data) => {
     const result = await prisma.move.create({
         data: {
-            fen_string: req.body.fenString,
-            user_id: req.body.userId,
-            game_id: req.body.gameId,
+            fen_string: data.FEN_string,
+            user_id: data.userid,
+            game_id: data.gameid,
         }
     });
-
-    res.json({ data: result })
+    return ({ data: result });
 }
 export const getOneMove = async (req, res) => { }
 
