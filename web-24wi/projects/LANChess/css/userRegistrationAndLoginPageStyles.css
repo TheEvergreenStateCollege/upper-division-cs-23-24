@@ -11,18 +11,21 @@ body {
   background-color: black;
   min-height:  100vh; 
   margin-top: 50px;
+  cursor: grab;
 }
 
 .container-title{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 24%;
 }
 
 .container-forms{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
 }
 
 
@@ -37,9 +40,8 @@ body {
 
 #titleLogo{
   margin: 10px;
-  width: 450px;
+  width: 800px;
   height: auto;
-  margin-left: 35%;
   transition-duration: 0.25s;
 }
 
