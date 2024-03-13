@@ -39,30 +39,40 @@ Follow this tutorial:
 
 1. clone library
   - `` git clone https://github.com/TheEvergreenStateCollege/upper-division-cs.git ``
-
-
+<p>&nbsp;   </p>
 2. run 'npm i' in finalproject/api and finalproject/client
    
   - navigate to ``/web-24wi/projects/Hostile/finalproject/api`` and run npm i
   - navigate to ``/web-24wi/projects/Hostile/finalproject/client`` and run npm i and npm i react-modal
-
-
-3. Create a .env in /web-24wi/projects/Hostile/finalproject/api and paste the text below into it:
+<p>&nbsp;   </p>
+3. Create a .env in /web-24wi/projects/Hostile/finalproject/api and paste the lines below into it:
 
  - `` DATABASE_URL="postgresql://postgres:lol@localhost:5432/dev"``
  -  ``JWT_SECRET="cookies" ``
-  
+
+   
+ <p>&nbsp;   </p>
+
+ 
 4. migrate prisma
-   Note: Ensure you have a tunnel set up for your database for remote access before running this command
-  ``npx prisma migrate dev --name init``
+   **Note: Ensure you have a tunnel set up for your database for remote access before running this command**
+ - `` npx prisma migrate dev --name init ``
+
+<p>&nbsp;   </p>
+
 5. Push your Database
-   ``npx prisma db push``
+
+ - ``npx prisma db push``
+
+<p>&nbsp;   </p>
+   
+
 
 6. build and run
    - run this command in the /client/ directory to build the components to ../dist/ 
-   ``npm run build``
+     - ``npm run build``
    - run this command in the /api/ directory
-     ``npm run dev``
+     - ``npm run dev``
 
 Provide step-by-step instructions on how to install and set up Hostile. Include any dependencies that need to be 
 installed and how to install them.
