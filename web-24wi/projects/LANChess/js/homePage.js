@@ -52,7 +52,7 @@ async function createNewOnlineGameOnServer() {
 
 }
 
-async function storeCreatedGameInfo(createdGameInfoObj){
+async function storeCreatedGameInfo(gameInfoObject){
 
     //Console testing to ensure passed values  are defined.
     console.log("--storeCreatedGameInfo()---------------------");
@@ -60,9 +60,9 @@ async function storeCreatedGameInfo(createdGameInfoObj){
     console.log("createdGameInfoObj: " + createdGameInfoObj);
     console.log("createGameInfoObjJSON: " + JSON.stringify(createdGameInfoObj));
     
-    const gameID = createdGameInfoObj.data.id;
-    const gameStart = createdGameInfoObj.data.start;
-    const gameStatus = createdGameInfoObj.data.status;
+    const gameID = gameInfoObject.data.id;
+    const gameStart = gameInfoObject.data.start;
+    const gameStatus = gameInfoObject.data.status;
 
     //Console testing to ensure creatGameIfnoObj values are defined.
     console.log("gameID value to be stored: " + gameID);
@@ -120,13 +120,29 @@ async function storeParticipantID(addSelfAsParticipantRESObj){
     //Console testing to ensure passed values  are defined.
     console.log("--storeCreatedGameInfo()---------------------");
     console.log("addSelfAsParticipant() passed the following values");
-    console.log("addSelfAsParticipantRESObj: " + createdGameInfoObj);
+    console.log("addSelfAsParticipantRESObj: " + addSelfAsParticipantRESObj);
     console.log("JSON addSelfAsPariticpantRESObj: " + JSON.stringify(createdGameInfoObj));
 
     const participantID = addSelfAsParticipantRESObj.data.id;
     console.log(participantID);
     localStorage.setItem('participantID', participantID);
 }
+
+async function valueOfFormToFindRoomByID(){
+    try { 
+    const gameID = document.getElementById(textBoxFormForUserToEnterRoomID).value;
+    localStorage.setItem('gameID', gameID);
+    return gameID;
+
+    } catch (error) {
+    console.error("Failed to retrieve gameID from text entry box: ", error);
+    }
+}
+
+
+
+
+
 
 async function storeUserColorAsWhite(){
     const userColor = 'white';
@@ -141,21 +157,34 @@ async function storeUserColorAsBlack(){
 }
 
 
-
+//Call functions
 
 async function createNewOnlineGame(){
    try {
-    await getUserValuesFromStorage();
-    createdGameInfoObj = await createNewOnlineGameOnServer();
-    await storeCreatedGameInfo(createdGameInfoObj);
-    addSelfAsParticipantRESObj = await addSelfAsParticipant();
-    await storeParticipantID(addSelfAsParticipantRESObj);
-    await storeUserColorAsWhite();
-    window.location.href = "/game"; //Redirect to home page.
+        await getUserValuesFromStorage();
+        createdGameInfoObj = await createNewOnlineGameOnServer();
+        await storeCreatedGameInfo(createdGameInfoObj);
+        const addSelfAsParticipantRESObj = await addSelfAsParticipant();
+        await storeParticipantID(addSelfAsParticipantRESObj);
+        await storeUserColorAsWhite();
+        window.location.href = "/game"; //Redirect to home page.
    }
    catch (error){
     console.error("createNewOnlineGame() failed", error);
    }
+}
+
+async function joinOnlineGame(){
+    try {
+        await getUserValuesFromStorage();
+        gameID = valueOfFormToFindRoomByID();
+        const addSelfAsParticipantRESObj = await addSelfAsParticipant(gameID);
+        await storeParticipantID(addSelfAsParticipantRESObj);
+        await storeUserColorAsBlack();
+    }
+    catch(error){
+        console.error("joinOnlineGame() failed", error);
+    }
 }
 
 
