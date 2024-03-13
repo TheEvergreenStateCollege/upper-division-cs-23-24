@@ -1,18 +1,23 @@
 //onlineGameClient.js
 
+
 //Variables
-var boardCache = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
+var gameStatus;
+var boardCache = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
 var userID;
 var userToken;
 var gameID;
 var participantID;
 
-var colorToPlay;
-var moveCounter;
-var isItUsersTurn = true;
 
-//Initial user value functions
+var userColor;
+var turnCounter = 0;
+var isItUsersTurn;
 
+//Determine game status
+
+
+//Initial user value functions and calls
 async function getUserValuesFromStorage(){
     userID = localStorage.getItem('userID');
     userToken = localStorage.getItem('userToken');
@@ -26,29 +31,30 @@ async function getGameValuesFromStorage(){
 }
 getGameValuesFromStorage();
 
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
 
+
+async function determineIsItUsersTurn(){
+    if (userColor === 'white' && turnCounter % 2 === 0 ) {
+        isItUsersTurn = true;
+        // console.log("It is the users turn");
+    } else if (userColor === 'white' && turnCounter % 1 === 0) {
+        isItUsersTurn = false;
+        // console.log("It is not the users turn");
+    } else if (userColor === 'black' && turnCounter % 1 === 0) {
+        isItUsersTurn = true;
+        // console.log("It is the users turn")
+    } else if (userColor === 'black' && turnCounter % 2 === 0) {
+        isItUsersTurn = false;
+        console.log("It is not the users turn");
+    } else {
+        // console.log("Turn counter error");
+    }
+}
 
 //Functions
-
-// async function getCountOfMovesInGame(){
-//     try {
-//         const apiResponse = await fetch("/api/games/" + gameID, {
-//             method: "GET", 
-//             headers: {
-//                 'Authorization': 'Bearer ' + userToken,
-//                 'Accept': 'application/json',
-//                 'Content-Type': 'application/json',
-//             },
-//         })
-
-//         const allMovesObj = await apiResponse.json();
-//         console.log("response from server regarding moves: " + JSON.stringify(allMovesObj));
-//         return allMovesObj;
-
-//     } catch(error) {
-//         console.error("Failed to create new game on the server: ", error);
-//     } 
-// }  
 
 async function renderBoard(boardCache, userColor, isItUsersTurn){
     var config = {
@@ -67,33 +73,42 @@ async function renderBoard(boardCache, userColor, isItUsersTurn){
 
 
 async function initializeNewGameOnClient() { 
-    // getUserValuesFromStorage(); //Get initial user values.
-    // await getGameValuesFromStorage(); //Get game values.
-    // await getCountOfMovesInGame(); //Fetches for all moves the server has for the game.
-    renderBoard(boardCache, userColor, isItUsersTurn); //Render the board.
+    determineIsItUsersTurn();
+    await renderBoard(boardCache, userColor, isItUsersTurn); //Render the board.
 }
 
-async function confirmMove(){
+
+async function confirmMove() {
+
+    determineIsItUsersTurn();
+    // console.log("User clicked confirm move btn, the value of isItUsersTurn is: " + isItUsersTurn)
+
     if(isItUsersTurn === true){
-        boardCache = board.fen()
-        const fenToSend = boardCache;
+        // const boardBuffer = board.fen();
+        boardCache = board.fen();
         const message = {
             FEN_string: boardCache,
         }
 
         ws.send(JSON.stringify(message));
-        console.log("socket message sent" + message);
-        isItUsersTurn = false;
+        // console.log("socket message sent" + JSON.stringify(message));
+        turnCounter++;
+        await determineIsItUsersTurn();
+        
+        await renderBoard(boardCache, userColor, isItUsersTurn); 
+        // console.log("Send test isItUsersTurn" + isItUsersTurn)
 
+    } else if(isItUsersTurn === false){
+        window.alert('Not your turn to play!');
     } else {
-        console.error("Move failed to send, still your turn", error);
+        // console.error("Move failed to send, still your turn", error);
     }
 }
 
-
-
 //Calls
 initializeNewGameOnClient();
+
+
 
 
 //Open web socket
@@ -112,14 +127,16 @@ ws.onerror = (event) => {
 
 ws.onmessage = (event) => {
     const message = JSON.parse(event.data);
+
     if (message.FEN_string) {
-        console.log(message);
-        boardCache = event.data;
-        isItUsersTurn = true;
+        console.log(message.FEN_string);
+        boardCache = message.FEN_string;
+        turnCounter++;
+        // console.log("Game is on move" + turnCounter)
+        determineIsItUsersTurn();
         renderBoard(boardCache, userColor, isItUsersTurn); 
-
     } else {
-        console.log(message);
+        // console.log(message);
+        console.log("FROM SERVER: " + JSON.stringify(message));
     }
-
 }
