@@ -2,7 +2,7 @@
 
 
 //Variables
-var gameStatus;
+var gameStatusONGOING = true;
 var boardCache = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
 var userID;
 var userToken;
@@ -31,6 +31,15 @@ async function getGameValuesFromStorage(){
 }
 getGameValuesFromStorage();
 
+async function gameStartPopupCheck(userColor){
+    if (userColor === 'white') {
+        window.alert('GAME CREATED SUCCESSFULLY, GIVE THIS ROOM ID TO FRIEND' + '[ ' + gameID + ' ]');
+    }
+}
+
+gameStartPopupCheck(userColor);
+
+
 ////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
@@ -54,7 +63,7 @@ async function determineIsItUsersTurn(){
     }
 }
 
-//Functions
+////FUNCTIONS/////////////////////////////////////////////////////////////////////////////////////
 
 async function renderBoard(boardCache, userColor, isItUsersTurn){
     var config = {
@@ -83,7 +92,7 @@ async function confirmMove() {
     determineIsItUsersTurn();
     // console.log("User clicked confirm move btn, the value of isItUsersTurn is: " + isItUsersTurn)
 
-    if(isItUsersTurn === true){
+    if(isItUsersTurn === true && gameStatusONGOING === true){
         // const boardBuffer = board.fen();
         boardCache = board.fen();
         const message = {
@@ -94,14 +103,13 @@ async function confirmMove() {
         // console.log("socket message sent" + JSON.stringify(message));
         turnCounter++;
         await determineIsItUsersTurn();
-        
         await renderBoard(boardCache, userColor, isItUsersTurn); 
-        // console.log("Send test isItUsersTurn" + isItUsersTurn)
+        console.log("Move sent: " + boardCache);
 
     } else if(isItUsersTurn === false){
         window.alert('Not your turn to play!');
     } else {
-        // console.error("Move failed to send, still your turn", error);
+        console.log('else else else case')
     }
 }
 
@@ -111,28 +119,38 @@ initializeNewGameOnClient();
 
 
 
-//Open web socket
+////WEB SOCKET/////////////////////////////////////////////////////////////////////////////////////
+
 
 const proto = window.location.protocol === "https:" ? "wss" : "ws";
 const ws = new WebSocket(`${proto}://${window.location.host}?userid=${userID}&gameid=${gameID}`);
 
 
 ws.onopen = (event) => {
-    data = {message: "hello world "};
+    if (userColor === 'black') {
+    data = {message: "ACK"};
     ws.send(JSON.stringify(data));
+    console.log("You play black");
+    } else {
+        console.log("You play white");
+    }
 }
 ws.onerror = (event) => {
     console.error;
 }
 
 ws.onmessage = (event) => {
-    const message = JSON.parse(event.data);
+    const messageBuffer = JSON.parse(event.data);
+    const message = messageBuffer.FEN_string;
 
-    if (message.FEN_string) {
+
+    if (message === 'ACK') {
+        gameStatusONGOING = true;
+        console.log("ACK recieved")
+    } else if (message.FEN_string) {
         console.log(message.FEN_string);
         boardCache = message.FEN_string;
         turnCounter++;
-        // console.log("Game is on move" + turnCounter)
         determineIsItUsersTurn();
         renderBoard(boardCache, userColor, isItUsersTurn); 
     } else {
@@ -140,3 +158,6 @@ ws.onmessage = (event) => {
         console.log("FROM SERVER: " + JSON.stringify(message));
     }
 }
+
+
+

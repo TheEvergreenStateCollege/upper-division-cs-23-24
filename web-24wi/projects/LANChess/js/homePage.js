@@ -43,8 +43,8 @@ async function createNewOnlineGameOnServer() {
         body: JSON.stringify({})
         })
     
-        const createdGameInfoObj = await apiResponse.json();
-        return createdGameInfoObj;
+        const gameInfoObject = await apiResponse.json();
+        return gameInfoObject;
 
     } catch(error) {
         console.error("Failed to create new game on the server: ", error);
@@ -57,8 +57,8 @@ async function storeCreatedGameInfo(gameInfoObject){
     //Console testing to ensure passed values  are defined.
     console.log("--storeCreatedGameInfo()---------------------");
     console.log("createNewOnlineGameOnServer() passed the following values");
-    console.log("createdGameInfoObj: " + createdGameInfoObj);
-    console.log("createGameInfoObjJSON: " + JSON.stringify(createdGameInfoObj));
+    console.log("gameInfoObj: " + gameInfoObj);
+    console.log("gameInfoObj as JSON: " + JSON.stringify(gameInfoObj));
     
     const gameID = gameInfoObject.data.id;
     const gameStart = gameInfoObject.data.start;
@@ -121,7 +121,7 @@ async function storeParticipantID(addSelfAsParticipantRESObj){
     console.log("--storeCreatedGameInfo()---------------------");
     console.log("addSelfAsParticipant() passed the following values");
     console.log("addSelfAsParticipantRESObj: " + addSelfAsParticipantRESObj);
-    console.log("JSON addSelfAsPariticpantRESObj: " + JSON.stringify(createdGameInfoObj));
+    console.log("JSON addSelfAsPariticpantRESObj: " + JSON.stringify(addSelfAsParticipantRESObj));
 
     const participantID = addSelfAsParticipantRESObj.data.id;
     console.log(participantID);
@@ -162,12 +162,13 @@ async function storeUserColorAsBlack(){
 async function createNewOnlineGame(){
    try {
         await getUserValuesFromStorage();
-        createdGameInfoObj = await createNewOnlineGameOnServer();
-        await storeCreatedGameInfo(createdGameInfoObj);
+        gameInfoObj = await createNewOnlineGameOnServer();
+        await storeCreatedGameInfo(gameInfoObj);
         const addSelfAsParticipantRESObj = await addSelfAsParticipant();
         await storeParticipantID(addSelfAsParticipantRESObj);
         await storeUserColorAsWhite();
         window.location.href = "/game"; //Redirect to home page.
+        
    }
    catch (error){
     console.error("createNewOnlineGame() failed", error);
@@ -181,6 +182,7 @@ async function joinOnlineGame(){
         const addSelfAsParticipantRESObj = await addSelfAsParticipant(gameID);
         await storeParticipantID(addSelfAsParticipantRESObj);
         await storeUserColorAsBlack();
+        window.location.href = "/game"; //Redirect to home page.
     }
     catch(error){
         console.error("joinOnlineGame() failed", error);
