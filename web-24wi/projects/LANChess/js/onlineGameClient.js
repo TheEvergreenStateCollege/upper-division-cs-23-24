@@ -26,7 +26,7 @@ async function getUserValuesFromStorage(){
 getUserValuesFromStorage();
 
 async function getGameValuesFromStorage(){
-    gameID = localStorage.getItem('userID');
+    gameID = localStorage.getItem('gameID');
     participantID = localStorage.getItem('participantID')
 }
 getGameValuesFromStorage();
