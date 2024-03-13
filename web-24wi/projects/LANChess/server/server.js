@@ -4,6 +4,7 @@ import router from "./router.js";
 import * as dotenv from 'dotenv';
 import cors from "cors";
 import morgan from "morgan";
+import config from "../config/index.js";
 import { protect } from "./modules/auth.js";
 import { createNewUser, signin } from "./handlers/user.js";
 import { WebSocketServer } from "ws";
@@ -39,10 +40,11 @@ app.use("/api", protect, router);
 app.post("/login", signin);
 app.post("/register", createNewUser);
 
-const server = app.listen(port, () => {
-    console.log(`Example app listening at localhost:${port}`);
-    console.log("http://localhost:5000");
+const server = app.listen(config.port, () => {
+    console.log(`Example app listening at localhost:${config.port}`);
+    console.log(`http://localhost:${config.port}`);
     console.log(process.cwd());
+    console.log(process.env.DATABASE_URL);
 });
 
 
@@ -90,3 +92,5 @@ wss.on("connection", (ws, req) => {
         });
     });
 });
+
+export default app;
