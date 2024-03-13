@@ -20,8 +20,8 @@ app.use(session({
 	saveUninitialized: false
 }));
 
-app.use(express.static(path.join("public")));
-app.use(express.static(path.join("static")));
+app.use("/public", express.static(path.resolve("../public")));
+app.use("/static", express.static(path.resolve("../static")));
 app.use(express.json());
 
 app.post("/login", async (req, res) => {
@@ -72,18 +72,16 @@ app.post("/user", async (req, res) => {
     }
 });
 
-
+// Redirect root URL to login page
 app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "public", "index.html"));
+	res.redirect("/login");
 });
-
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });
 
 // Removed redundant declaration of 'path' variable
-
 const publicPath = path.join(__dirname, "..", "public");
 
 app.get("/login", async (req, res) => {
@@ -93,7 +91,6 @@ app.get("/login", async (req, res) => {
 app.get("/register", (req, res) => {
     res.sendFile(path.join(publicPath, "register.html"));
 });
-
 
 app.get("/game", (req, res) => {
     res.sendFile(path.join(publicPath, "game.html"));
