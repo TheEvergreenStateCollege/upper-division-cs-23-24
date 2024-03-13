@@ -18,11 +18,13 @@ async function getUserValuesFromStorage(){
     userToken = localStorage.getItem('userToken');
     userColor = localStorage.getItem('userColor');
 }
+getUserValuesFromStorage();
 
 async function getGameValuesFromStorage(){
     gameID = localStorage.getItem('userID');
     participantID = localStorage.getItem('participantID')
 }
+getGameValuesFromStorage();
 
 //Open web socket
 
@@ -85,10 +87,10 @@ async function renderBoard(boardCache, userColor, isItUsersTurn){
 
 
 async function initializeNewGameOnClient() { 
-    getUserValuesFromStorage(); //Get initial user values.
-    await getGameValuesFromStorage(); //Get game values.
-    await getCountOfMovesInGame(); //Fetches for all moves the server has for the game.
-    await renderBoard(boardCache, userColor, isItUsersTurn); //Render the board.
+    // getUserValuesFromStorage(); //Get initial user values.
+    // await getGameValuesFromStorage(); //Get game values.
+    // await getCountOfMovesInGame(); //Fetches for all moves the server has for the game.
+    renderBoard(boardCache, userColor, isItUsersTurn); //Render the board.
 
     
 }
