@@ -8,8 +8,8 @@ app.use(express.static("static"));
  * app.[method]([route], [route handler])
  */
 app.get("/", (req, res) => {
-    // sending back an HTML file that a browser can render on the screen.
-    res.sendFile(path.resolve("pages/index.html"));
+    // Update the path to the correct location of your HTML file
+    res.sendFile(path.resolve(__dirname, 'pages', 'index.html'));
 });
 
 const PORT = 5000;
