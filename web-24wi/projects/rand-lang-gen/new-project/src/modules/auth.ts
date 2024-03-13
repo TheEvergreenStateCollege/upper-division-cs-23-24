@@ -42,7 +42,7 @@ export const protect = (req: Request, res: Response, next: NextFunction) => {
     try {
         // add payload from Paul's auth.ts
         const user = jwt.verify(token, process.env.JWT_SECRET!)
-        req.user = user
+        //req.user = user
         next()
     } catch (e) {
         console.error(e)
