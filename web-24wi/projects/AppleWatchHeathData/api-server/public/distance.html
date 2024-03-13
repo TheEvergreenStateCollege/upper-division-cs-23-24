@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance Page</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>Daily Distance Moved</h1>
+<p>
+    This graph displays the total distance moved weather it's running or walking.
+</p>
+
+<p>Enter a disatnce below follwed by a date to add to your personalized
+    chart. 
+</p>
+
+<div>
+    <canvas id="distanceChart"></canvas>
+</div>
+
+<!-- Add input fields for step count and date -->
+<div>
+    <label for="distanceInput">Distance:</label>
+    <input type="number" id="distanceInput">
+    
+    <label for="dateInput">Date:</label>
+    <input type="date" id="dateInput">
+    
+    <button onclick="addData()">Add Data</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Initialize an empty array to store data
+    let distanceData = [];
+    
+    // Function to add new data to the chart
+    function addData() {
+        // Get the entered distance and date
+        const distanceCount = document.getElementById('distanceInput').value;
+        const date = document.getElementById('dateInput').value;
+        
+        // Add the new data to the data array
+        distanceData.push({ date, distanceCount });
+        
+        // Update the chart
+        updateChart();
+    }
+    
+    // Function to update the chart with new data
+    function updateChart() {
+        // Get labels and data from the distanceData array
+        const labels = distanceData.map(entry => entry.date);
+        const data = distanceData.map(entry => entry.distanceCount);
+        
+        // Update the chart
+        distanceChart.data.labels = labels;
+        distanceChart.data.datasets[0].data = data;
+        distanceChart.update();
+    }
+    
+    // Initialize the chart
+    const ctx = document.getElementById('distanceChart').getContext('2d');
+    const distanceChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Daily distance moved',
+                data: [],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+
+
+
+</body>
+</html>

@@ -4,20 +4,25 @@ const { parse, format } = require('date-fns');
 
 exports.createDailyWatchData = async (req, res) => {
   try {
+    console.log(req.body.date);
     const parsedDate = parse(req.body.date, 'MM/dd/yyyy', new Date());
     const formattedDate = format(parsedDate, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx");
 
     const newData = await prisma.dailyWatchData.create({
       data: {
         date: formattedDate,
-        steps: req.body.steps,
+        steps: Number(req.body.steps),
         distanceMiles: req.body.distanceMiles,
-        flights: req.body.flights,
-        activeEnergyCals: req.body.activeEnergyCals,
-        handwashingSeconds: req.body.handwashingSeconds,
-        restingEnergyCals: req.body.restingEnergyCals,
-        soundLevel: req.body.soundLevel,
-        userId: Number(req.body.userId),
+        flights: Number(req.body.flights),
+        activeEnergyCals: Number(req.body.activeEnergyCals),
+        handwashingSeconds: Number(req.body.handwashingSeconds),
+        restingEnergyCals: Number(req.body.restingEnergyCals),
+        soundLevel: Number(req.body.soundLevel),
+        user:{
+          "connect": {
+            "id":  Number(req.body.userId),
+          }
+        } 
       },
     });
 
