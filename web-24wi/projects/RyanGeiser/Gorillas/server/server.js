@@ -9,8 +9,8 @@ const { parsed } = require('dotenv').config();
 const session = require("express-session");
 const bcrypt = require('bcrypt');
 
-console.log(parsed['DATABASE_URL']);
-console.log(process.env['DATABASE_URL']);
+console.log(process.env.DATABASE_URL);
+
 const prisma = new PrismaClient();
 
 const saltRounds = 10; // Define the number of salt rounds
