@@ -20,9 +20,8 @@ app.use(session({
 	saveUninitialized: false
 }));
 
-
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, "static")));
+app.use(express.static(path.join("public")));
+app.use(express.static(path.join("static")));
 app.use(express.json());
 
 app.post("/login", async (req, res) => {
@@ -46,7 +45,7 @@ app.post("/login", async (req, res) => {
 		// Login successful
 		req.session.loggedIn = true;
 		req.session.username = username;
-		// res.redirect("/game");
+		res.redirect("/game");
 	} catch (error) {
 		console.error(error);
 		res.status(500).send("Internal server error");
@@ -97,11 +96,7 @@ app.get("/register", (req, res) => {
 
 
 app.get("/game", (req, res) => {
-    if (req.session && req.session.loggedIn) {
-        res.sendFile(path.join(publicPath, "game.html"));
-    } else {
-        res.redirect("/login");
-    }
+    res.sendFile(path.join(publicPath, "game.html"));
 });
 
 //please work
