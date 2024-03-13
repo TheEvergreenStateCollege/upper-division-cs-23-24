@@ -68,8 +68,8 @@ wss.on("connection", (ws, req) => {
     ws.on("message", data => {
         //update clients map
         const message = JSON.parse(data);
-        ws.send(`echo: ${JSON.stringify(message)}`)
-        console.log(`${message.user_id} ${message}`);
+        ws.send(JSON.stringify(message));
+        console.log(`${message.user_id} ${data}`);
         if (!clients.has(message.user_id)) {
             clients.set(message.user_id, ws);
         }

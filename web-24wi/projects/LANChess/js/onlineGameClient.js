@@ -26,27 +26,7 @@ async function getGameValuesFromStorage(){
 }
 getGameValuesFromStorage();
 
-//Open web socket
 
-const proto = window.location.protocol === "https:" ? "wss" : "ws";
-const ws = new WebSocket(`${proto}://${window.location.host}?userid=${userID}&gameid=${gameID}`);
-
-
-ws.onopen = (event) => {
-    data = {message: "hello world "};
-    ws.send(JSON.stringify(data));
-}
-ws.onerror = (event) => {
-    console.error;
-}
-
-ws.onmessage = (event) => {
-    console.log(event.data);
-    boardCache = event.data;
-    isItUsersTurn = true;
-    renderBoard(boardCache, userColor, isItUsersTurn);
-
-}
 
 //Functions
 
@@ -91,17 +71,18 @@ async function initializeNewGameOnClient() {
     // await getGameValuesFromStorage(); //Get game values.
     // await getCountOfMovesInGame(); //Fetches for all moves the server has for the game.
     renderBoard(boardCache, userColor, isItUsersTurn); //Render the board.
-
-    
 }
 
 async function confirmMove(){
     if(isItUsersTurn === true){
         boardCache = board.fen()
         const fenToSend = boardCache;
+        const message = {
+            FEN_string: boardCache,
+        }
 
-        ws.send(JSON.stringify(fenToSend));
-        console.log("socket message sent" + fenToSend);
+        ws.send(JSON.stringify(message));
+        console.log("socket message sent" + message);
         isItUsersTurn = false;
 
     } else {
@@ -109,5 +90,36 @@ async function confirmMove(){
     }
 }
 
+
+
 //Calls
 initializeNewGameOnClient();
+
+
+//Open web socket
+
+const proto = window.location.protocol === "https:" ? "wss" : "ws";
+const ws = new WebSocket(`${proto}://${window.location.host}?userid=${userID}&gameid=${gameID}`);
+
+
+ws.onopen = (event) => {
+    data = {message: "hello world "};
+    ws.send(JSON.stringify(data));
+}
+ws.onerror = (event) => {
+    console.error;
+}
+
+ws.onmessage = (event) => {
+    const message = JSON.parse(event.data);
+    if (message.FEN_string) {
+        console.log(message);
+        boardCache = event.data;
+        isItUsersTurn = true;
+        renderBoard(boardCache, userColor, isItUsersTurn); 
+
+    } else {
+        console.log(message);
+    }
+
+}
