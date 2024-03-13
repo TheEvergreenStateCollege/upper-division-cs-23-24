@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const express = require("express");
 const app = express();
 const port = 5000;
@@ -17,13 +15,12 @@ const saltRounds = 10; // Define the number of salt rounds
 
 // Session middleware configuration
 app.use(session({
-    secret: "your-secret-key",
-    resave: false,
-    saveUninitialized: false
+	secret: "your-secret-key",
+	resave: false,
+	saveUninitialized: false
 }));
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
 app.post("/login", async (req, res) => {
@@ -75,26 +72,8 @@ app.post("/user", async (req, res) => {
 });
 
 
-// Serve the index.html file
 app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-// Serve other HTML files directly from the 'public' directory
-app.get("/login", (req, res) => {
-	res.sendFile(path.join(__dirname, "public", "login.html"));
-});
-
-app.get("/register", (req, res) => {
-	res.sendFile(path.join(__dirname, "public", "register.html"));
-});
-
-app.get("/game", (req, res) => {
-	if (req.session && req.session.loggedIn) {
-		res.sendFile(path.join(__dirname, "public", "game.html"));
-	} else {
-		res.redirect("/login");
-	}
 });
 
 app.get("/search-hit/:hit", (req, res) => {
@@ -104,3 +83,26 @@ app.get("/search-hit/:hit", (req, res) => {
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });
+
+// Removed redundant declaration of 'path' variable
+
+const publicPath = path.join(__dirname, "..", "public");
+
+app.get("/login", async (req, res) => {
+    res.sendFile(path.join(publicPath, "login.html"));
+});
+
+app.get("/register", (req, res) => {
+    res.sendFile(path.join(publicPath, "register.html"));
+});
+
+
+app.get("/game", (req, res) => {
+    if (req.session && req.session.loggedIn) {
+        res.sendFile(path.join(publicPath, "game.html"));
+    } else {
+        res.redirect("/login");
+    }
+});
+
+//please work
