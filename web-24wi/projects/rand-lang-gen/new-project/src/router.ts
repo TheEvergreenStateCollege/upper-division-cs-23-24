@@ -1,47 +1,25 @@
 import { Router } from "express";
-
+import { body, validationResult } from "express-validator"
+import { createWord, deleteWord, getOneWord, getWords } from './handlers/words';
+import { getAllUsers } from './handlers/users';
+import { create } from "domain";
+const path = require('path');
 const router = Router();
-/**
- * Product
- */
-router.get("/word", (req, res) => {
-  res.json({ message: "word" });
-});
 
-router.get("/word/:id", (req, res) => {});
 
-router.post("/word", (req, res) => {});
+const wordValidators = [
+  body('name').isString(),
+  body('define').isString(),
+  body('language').isString(),
+  body('authorId').isNumeric(),
+]
 
-router.put("/word/:id", (req, res) => {});
+router.get('/word', getWords);
+router.get('/word/:name', getOneWord);
+router.post('/word', ...wordValidators,
+  createWord
+);
 
-router.delete("/word/:id", (req, res) => {});
-
-/**
- * Update
- */
-
-router.get("/update", (req, res) => {});
-
-router.get("/update/:id", (req, res) => {});
-
-router.post("/update", (req, res) => {});
-
-router.put("/update/:id", (req, res) => {});
-
-router.delete("/update/:id", (req, res) => {});
-
-/**
- * UpdatePoint
- */
-
-router.get("/updatepoint", (req, res) => {});
-
-router.get("/updatepoint/:id", (req, res) => {});
-
-router.post("/updatepoint", (req, res) => {});
-
-router.put("/updatepoint/:id", (req, res) => {});
-
-router.delete("/updatepoint/:id", (req, res) => {});
+router.delete('/word', deleteWord);
 
 export default router;

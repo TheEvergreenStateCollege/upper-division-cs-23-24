@@ -37,6 +37,21 @@ app.post("/user", async (req, res) => {
 	res.json(req.body);
 });
 
+app.get("/words", async (req, res) => {
+	const allWords = await prisma.word.findMany();
+	res.json(allWords);
+});
+
+app.post("/word", async (req, res) => {
+	const result = await prisma.word.create({
+		data: {
+			// name: word name
+			// definition: String(req.body.definition)
+		}
+	});
+	res.json(result);
+});
+
 // creates and starts a server for our API on a defined port
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
