@@ -2,7 +2,7 @@
 MacN server
 ---
 The MacN server was designed with application security in mind.<br>
-I wanted to try and create a server that would be able to sanitaize or guard against code injections.<br> Using the Express framework and various middleware for enhanced security, data handling, and static file serving. It's designed to serve web pages, handle user registrations, logins, and contact form submissions with an emphasis on security and data integrity.
+I wanted to try and create a server that would be able to sanitaize or guard against code injections.<br> Using the Express and then migrating the project to Flask framework and various middleware for enhanced security, data handling, and static file serving. It's designed to serve web pages, handle user registrations, logins, and contact form submissions with an emphasis on security and data integrity.
 
 ## How it works
 1. Security First: Utilizing Helmet middleware, the server enforces strict Content Security Policies (CSP), XSS protection, and sniffing prevention, making it resilient against common web vulnerabilities.<br>
@@ -28,7 +28,6 @@ I wanted to try and create a server that would be able to sanitaize or guard aga
 - Database Integration: Transitioning from CSV files to a database system could enhance data management, scalability, and performance.
 - Asynchronous Error Handling: Implementing more robust error handling for asynchronous operations could improve reliability and user experience.
 - API Documentation: Developing comprehensive API documentation would aid developers in integrating with the server or extending its capabilities.
-- User Session Management: Introducing session management and token-based authentication (e.g., JWT) could offer improved security and user experience for session control.
 
 
 
@@ -49,7 +48,10 @@ Login page
 
 I have the main menu accessible on the index page so that I don't have to log in each time.<br> 
 I have logged in once!!! It was a challange to get the profile creation and then the user login features to function correctly...<br> 
-I needed a break from stress. lol :P
+I needed a break from stress. lol :P<br>
+I was successful at creating a user session token that is used to authenticate and varify the user from the database.<br>
+
+
 ---
 Main Menu or Landing page
 ---
