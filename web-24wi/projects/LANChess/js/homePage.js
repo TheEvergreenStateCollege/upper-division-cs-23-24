@@ -2,6 +2,7 @@
 var userID;
 var userToken;
 
+
 async function getUserValuesFromStorage(){
 
     //Importing userID, userToken values from local storage.
@@ -126,6 +127,18 @@ async function storeParticipantID(addSelfAsParticipantRESObj){
     console.log(participantID);
 }
 
+async function storeUserColorAsWhite(){
+    const userColor = 'white';
+    localStorage.setItem('userColor', userColor);
+    console.log("User color to play stored as white in localStorage");
+}
+
+async function storeUserColorAsBlack(){
+    const userColor = 'black';
+    localStorage.setItem('userColor', userColor);
+    console.log("User color to play stored as white in localStorage");
+}
+
 
 
 
@@ -136,12 +149,18 @@ async function createNewOnlineGame(){
     await storeCreatedGameInfo(createdGameInfoObj);
     addSelfAsParticipantRESObj = await addSelfAsParticipant();
     await storeParticipantID(addSelfAsParticipantRESObj);
-    await window.location.href = "/game"; //Redirect to home page.
+    await storeUserColorAsWhite();
+    //await window.location.href = "/game"; //Redirect to home page.
    }
    catch (error){
     console.error("createNewOnlineGame() failed", error);
    }
 }
+
+
+
+
+
 
 
 
