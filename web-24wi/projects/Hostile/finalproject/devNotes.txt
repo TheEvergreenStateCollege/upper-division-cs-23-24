@@ -4,11 +4,12 @@ To do:
 - [ ] 500 line README.MD
 
 Tuesday:
-- [] fix feed front end & sort out window/browser situation
+- [x] fix feed front end & sort out window/browser situation
+- [x] fix browser sizing
 - [] run unit tests
 - [] complete README.md
 - [] run through app (see below)
-- [] if unit tests and app run through were good make 2-min video
+- [] make 2-min video
 
 Hostile run through:
 - [] landing
@@ -27,7 +28,8 @@ Hostile run through:
 
 Rain:
 - [ ] profile.tsx change 'Loading...' to 'No Posts' for new accounts
-- [ ] feed.tsx
+- [x] feed.tsx
+- [] new tab opens when user selects connected
 - [ ] unit testing
 
 Dee Dee:
@@ -43,7 +45,8 @@ Dee Dee:
     update db with OPTIONAL color
     update connected.jpg with font
 
-Ellie: Feed
+Ellie:
+- [ ] README
 
 Wishful Thinking
 put dial up audio over blue screen of death
