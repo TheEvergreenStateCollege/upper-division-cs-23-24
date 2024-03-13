@@ -101,7 +101,7 @@ export const deletUser = async (req, res) => {
         }
     })
 
-    res.json({data: deleted})
+    // res.json({data: deleted})
     return res.redirect("/")
 }
 
