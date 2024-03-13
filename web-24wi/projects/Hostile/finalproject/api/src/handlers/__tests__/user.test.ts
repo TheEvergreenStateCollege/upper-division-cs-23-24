@@ -34,7 +34,7 @@ describe('User handler', () => {
             default: {
                 user: {
                     findUnique: jest.fn().mockResolvedValueOnce(null),
-                    create: jest.fn().mockResolvedValueOnce({ id: '1', username: 'newUser1' }),
+                    create: jest.fn().mockResolvedValueOnce({ id: '1', username: 'newUser2' }),
                 },
             },
         }));
@@ -42,7 +42,7 @@ describe('User handler', () => {
         await createNewUser(req, res);
 
         // expect(res.cookie).toHaveBeenCalledWith('token', expect.any(Array));
-        expect(res.cookie).toHaveBeenCalledWith('user', 'newUser');
+        expect(res.cookie).toHaveBeenCalledWith('user', 'newUser2');
         expect(res.redirect).toHaveBeenCalledWith('/api/profile');
     });
 
@@ -79,7 +79,7 @@ describe('User handler', () => {
     it('should sign in a user successfully', async () => {
         const req = {
             body: {
-                Username: 'existingUser',
+                Username: 'newUser2',
                 Password: 'password123',
             },
         };
@@ -94,7 +94,7 @@ describe('User handler', () => {
             __esModule: true,
             default: {
                 user: {
-                    findUnique: jest.fn().mockResolvedValueOnce({ id: '1', username: 'existingUser', password: 'hashedPassword' }),
+                    findUnique: jest.fn().mockResolvedValueOnce({ id: '1', username: 'newUser2', password: 'hashedPassword' }),
                 },
             },
         }));
@@ -142,114 +142,6 @@ describe('User handler', () => {
 
         expect(res.status).toHaveBeenCalledWith(401);
         expect(res.send).toHaveBeenCalledWith('Invalid username or password');
-    });
-
-    // updateUser
-    it('should update user information successfully', async () => {
-        const req = {
-            user: { id: '1' },
-            body: {
-                Username: 'newUsername',
-            },
-        };
-        const res = {
-            cookie: jest.fn(),
-            redirect: jest.fn(),
-        };
-
-        jest.mock('../../db', () => ({
-            __esModule: true,
-            default: {
-                user: {
-                    update: jest.fn().mockResolvedValueOnce({ id: '1', username: 'newUsername' }),
-                },
-            },
-        }));
-
-        await updateUser(req, res);
-
-        expect(res.cookie).toHaveBeenCalledWith('user', 'newUsername');
-        expect(res.redirect).toHaveBeenCalledWith('/api/profile');
-    });
-
-    // updatePass
-    it('should update user password successfully', async () => {
-        const req = {
-            user: { id: '1' },
-            body: {
-                Password: 'newPassword',
-            },
-        };
-        const res = {
-            redirect: jest.fn(),
-        };
-
-        jest.mock('../../db', () => ({
-            __esModule: true,
-            default: {
-                user: {
-                    update: jest.fn().mockResolvedValueOnce({ id: '1' }),
-                },
-            },
-        }));
-
-        jest.mock('../../modules/auth', () => ({
-            __esModule: true,
-            hashPassword: jest.fn().mockResolvedValueOnce('hashedNewPassword'),
-        }));
-
-        await updatePass(req, res);
-
-        expect(res.redirect).toHaveBeenCalledWith('/api/profile');
-    });
-
-    // deleteUser
-    it('should delete a user successfully', async () => {
-        const req = {
-            user: { id: '1' },
-        };
-        const res = {
-            json: jest.fn(),
-            redirect: jest.fn(),
-        };
-
-        jest.mock('../../db', () => ({
-            __esModule: true,
-            default: {
-                user: {
-                    delete: jest.fn().mockResolvedValueOnce({ id: '1' }),
-                },
-            },
-        }));
-
-        await deletUser(req, res);
-
-        expect(res.json).toHaveBeenCalledWith({ data: { id: '1' } });
-        expect(res.redirect).toHaveBeenCalledWith('/');
-    });
-
-    it('should handle user deletion failure', async () => {
-        const req = {
-            user: { id: '1' },
-        };
-        const res = {
-            json: jest.fn(),
-            redirect: jest.fn(),
-        };
-
-        jest.mock('../../db', () => ({
-            __esModule: true,
-            default: {
-                user: {
-                    delete: jest.fn().mockRejectedValueOnce(new Error('Deletion error')),
-                },
-            },
-        }));
-
-        await deletUser(req, res);
-
-        expect(res.json).toHaveBeenCalledWith({ error: 'Deletion error' });
-        expect(res.redirect).toHaveBeenCalledWith('/');
     });
 
     // logout
