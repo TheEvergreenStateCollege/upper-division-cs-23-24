@@ -19,7 +19,7 @@ describe('User handler', () => {
     it('should create a new user successfully', async () => {
         const req = {
             body: {
-                Username: 'newUser1',
+                Username: 'newUser2',
                 Password: 'password123',
             },
         };
@@ -80,7 +80,7 @@ describe('User handler', () => {
         const req = {
             body: {
                 Username: 'existingUser',
-                Password: 'correctPassword',
+                Password: 'password123',
             },
         };
         const res = {
