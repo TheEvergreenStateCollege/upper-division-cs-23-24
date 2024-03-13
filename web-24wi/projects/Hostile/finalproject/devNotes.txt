@@ -1,35 +1,20 @@
 To do:
-- [ ] 5 unit tests with jest - dee dee & rain
-- [ ] 2-minute video
+- [x] 5 unit tests with jest - dee dee & rain
+- [] unit test dev diary
+- [x] 2-minute video
 - [ ] 500 line README.MD
 
 Tuesday:
 - [x] fix feed front end & sort out window/browser situation
 - [x] fix browser sizing
-- [] run unit tests
+- [x] run unit tests
 - [] complete README.md
-- [] run through app (see below)
-- [] make 2-min video
-
-Hostile run through:
-- [] landing
-- [] sign in
-- [] register
-- [] post
-- [] feed
-- [] discover
-    - [] entertainment
-    - [] games
-    - [] research
-    - [] health
-    - [] computing
-    - [] user list
-    - [] WindowButtons functionality
+- [x] run through app (see below)
+- [x] make 2-min video
 
 Rain:
 - [ ] profile.tsx change 'Loading...' to 'No Posts' for new accounts
 - [x] feed.tsx
-- [] new tab opens when user selects connected
 - [ ] unit testing
 
 Dee Dee:
