@@ -11,7 +11,8 @@ var colorToPlay;
 var moveCounter;
 var isItUsersTurn = true;
 
-//Functions
+//Initial user value functions
+
 async function getUserValuesFromStorage(){
     userID = localStorage.getItem('userID');
     userToken = localStorage.getItem('userToken');
@@ -23,25 +24,49 @@ async function getGameValuesFromStorage(){
     participantID = localStorage.getItem('participantID')
 }
 
-async function getCountOfMovesInGame(){
-    try {
-        const apiResponse = await fetch("/api/games/" + gameID, {
-            method: "GET", 
-            headers: {
-                'Authorization': 'Bearer ' + userToken,
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-        })
+//Open web socket
 
-        const allMovesObj = await apiResponse.json();
-        console.log("response from server regarding moves: " + JSON.stringify(allMovesObj));
-        return allMovesObj;
+const proto = window.location.protocol === "https:" ? "wss" : "ws";
+const ws = new WebSocket(`${proto}://${window.location.host}?userid=${userID}&gameid=${gameID}`);
 
-    } catch(error) {
-        console.error("Failed to create new game on the server: ", error);
-    } 
-}  
+
+ws.onopen = (event) => {
+    data = {message: "hello world "};
+    ws.send(JSON.stringify(data));
+}
+ws.onerror = (event) => {
+    console.error;
+}
+
+ws.onmessage = (event) => {
+    console.log(event.data);
+    boardCache = event.data;
+    isItUsersTurn = true;
+    renderBoard(boardCache, userColor, isItUsersTurn);
+
+}
+
+//Functions
+
+// async function getCountOfMovesInGame(){
+//     try {
+//         const apiResponse = await fetch("/api/games/" + gameID, {
+//             method: "GET", 
+//             headers: {
+//                 'Authorization': 'Bearer ' + userToken,
+//                 'Accept': 'application/json',
+//                 'Content-Type': 'application/json',
+//             },
+//         })
+
+//         const allMovesObj = await apiResponse.json();
+//         console.log("response from server regarding moves: " + JSON.stringify(allMovesObj));
+//         return allMovesObj;
+
+//     } catch(error) {
+//         console.error("Failed to create new game on the server: ", error);
+//     } 
+// }  
 
 async function renderBoard(boardCache, userColor, isItUsersTurn){
     var config = {
@@ -64,6 +89,8 @@ async function initializeNewGameOnClient() {
     await getGameValuesFromStorage(); //Get game values.
     await getCountOfMovesInGame(); //Fetches for all moves the server has for the game.
     await renderBoard(boardCache, userColor, isItUsersTurn); //Render the board.
+
+    
 }
 
 async function confirmMove(){
@@ -71,31 +98,14 @@ async function confirmMove(){
         boardCache = board.fen()
         const fenToSend = boardCache;
 
-        try {
-            const response = await fetch("/api/moves", {
-                method: "POST", 
-                headers:{
-                    'Authorization': 'Bearer ' + userToken,
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify( {
-                    'fen_string': fenToSend,
-                    'user_id': userID,
-                    'game_id': gameID
-                })
-            })
-    
-            const addMoveResponseObj = await response.json();
-            console.log("addMoveResponseObj:" + JSON.stringify(addMoveResponseObj));
-            return addMoveResponseObj;
-    
-        } catch (error) {
-            console.error("Failed to add self as participant:", error);
-        }
+        ws.send(JSON.stringify(fenToSend));
+        console.log("socket message sent" + fenToSend);
+        isItUsersTurn = false;
+
+    } else {
+        console.error("Move failed to send, still your turn", error);
     }
 }
 
 //Calls
 initializeNewGameOnClient();
-
