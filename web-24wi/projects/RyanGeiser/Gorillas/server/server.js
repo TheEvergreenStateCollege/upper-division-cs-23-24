@@ -20,7 +20,9 @@ app.use(session({
 	saveUninitialized: false
 }));
 
+
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "static")));
 app.use(express.json());
 
 app.post("/login", async (req, res) => {
@@ -44,7 +46,7 @@ app.post("/login", async (req, res) => {
 		// Login successful
 		req.session.loggedIn = true;
 		req.session.username = username;
-		res.redirect("/game");
+		// res.redirect("/game");
 	} catch (error) {
 		console.error(error);
 		res.status(500).send("Internal server error");
@@ -76,9 +78,6 @@ app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.get("/search-hit/:hit", (req, res) => {
-	res.sendFile(path.join(__dirname, "public", `search-hit-${req.params.hit}.html`));
-});
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
