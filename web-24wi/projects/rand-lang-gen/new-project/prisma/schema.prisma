@@ -22,11 +22,11 @@ model User {
 }
 
 model Word {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  name        String   @db.VarChar(255)
-  define      String
-  language    String
-  authorId    Int
-  User        User     @relation(fields: [authorId], references: [id])
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String   @db.VarChar(255)
+  define    String
+  language  String
+  authorId  Int
+  User      User     @relation(fields: [authorId], references: [id])
 }
