@@ -83,3 +83,19 @@ Contact me page
 
 Currently (2.24.24) I care more about the function of everthing. The color scheme feels too bland,<br> 
 and I'm not sure I like the verticle footer, maybe make it thinner... or not have a verticle footer... 
+
+
+---
+CPU Temperature
+---
+
+Building routes within the server to direct the frontend to the backend, so that the data can be rendered.<br>
+Currently I have been able to render up-to the CPU Temperature button. (see screenshot).<br>
+the data rendered is from the CSV of collected data, and the HeatMap is a graph renderd,<br> 
+that currently does not clearly describe the CPU Temperature clearly.
+
+
+![Screenshot (484)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/0fa500c6-98c2-46e6-8934-b5e88ce8d3d1)
+
+
+
