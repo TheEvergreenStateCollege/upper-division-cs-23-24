@@ -31,9 +31,8 @@ Upon accessing Hostile, users are greeted with a straightforward login page, gui
 - A dedicated posting page for sharing thoughts and updates.
 - A dynamic post feed for browsing content from other users.
 - An external links page for easy navigation to other sites
-## Installation
-0. Setup Database by following this tutorial
-  - https://frontendmasters.com/courses/api-design-nodejs-v4/
+Follow this tutorial:
+- [Database Setup Tutorial](https://frontendmasters.com/courses/api-design-nodejs-v4/)
 
 1. clone library
 `` git clone https://github.com/TheEvergreenStateCollege/upper-division-cs.git ``
@@ -64,21 +63,27 @@ installed and how to install them.
 
 ## Usage
 
-Explain how users can use Hostile. Include examples or code snippets to demonstrate typical use cases.
+Hostile is intuitive to use, following the familiar conventions of social media platforms while offering a unique aesthetic experience.
+1. Login:
+2. Post to your feed:
+3. View the feed:
 
 ## Documentation
 
-Link to documentation for Hostile. This could be in the form of a separate document or a wiki.
+Link to video
 
 ## Contributing
+
+
+We welcome contributions to Hostile! If you're interested in improving the platform or adding new features, please check out our contribution guidelines for how to submit issues, feature requests, and pull requests.
+
 
 If you want others to contribute to your project, provide guidelines on how they can do so. Include information about 
 how to report issues, submit feature requests, and make pull requests.
 
 ## License
 
-Specify the license under which Hostile is distributed. Include any terms or conditions associated with the use of the 
-code.
+Hostile is distributed under MIT license, which outlines the terms and conditions for its use, reproduction, and distribution.
 
 ## Acknowledgements
 
