@@ -102,6 +102,8 @@ export const deletUser = async (req, res) => {
     })
 
     // res.json({data: deleted})
+    res.clearCookie('user');
+    res.clearCookie('token');
     return res.redirect("/")
 }
 
