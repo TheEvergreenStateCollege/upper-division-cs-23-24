@@ -55,7 +55,7 @@ Follow this tutorial:
 
  
 4. migrate prisma
-   **Note: Ensure you have a tunnel set up for your database for remote access before running this command**
+ -  **Note: Ensure you have a tunnel set up for your database for remote access before running this command**
  - `` npx prisma migrate dev --name init ``
 
 <p>&nbsp;   </p>
@@ -86,12 +86,14 @@ Hostile is intuitive to use, following the familiar conventions of social media 
 
 ## Documentation
 
-Link to video
+Link to [video](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/web-24wi/projects/Hostile/finalproject/final-project.webm)
+add comments for each component
+add wireframe
 
 ## Contributing
 
 
-We welcome contributions to Hostile! If you're interested in improving the platform or adding new features, please check out our contribution guidelines for how to submit issues, feature requests, and pull requests.
+We do not welcome contributions to Hostile! If you're interested in improving the platform or adding new features, please check out our contribution guidelines for how to submit issues, feature requests, and pull requests.
 
 
 If you want others to contribute to your project, provide guidelines on how they can do so. Include information about 
@@ -99,13 +101,20 @@ how to report issues, submit feature requests, and make pull requests.
 
 ## License
 
+- Our website is VERY hostile please do not alter it, it WILL fight back and we cannot control it.
+- If you find ANY intuitive user design please report immediately to the head contributors
+
 Hostile is distributed under MIT license, which outlines the terms and conditions for its use, reproduction, and distribution.
 
 ## Acknowledgements
 
+
+
 If Hostile includes third-party libraries, tools, or resources, give credit to the respective authors or projects.
 
 ## Contact
+add Rain's discord
+add Paul's discord
 
 Provide contact information for users and contributors to reach out to you or the project team.
 
@@ -118,4 +127,13 @@ Include tests for app and provide examples of how to run them.
 
 ## Roadmap
 
-Outline future plans and features for the project.
+Wishful Thinking
+put dial up audio over blue screen of death
+React alert emulating win 95 pop up
+Ads
+Ugly background for post?
+Post is a small component that pops up for you to make post and closes when you make it
+Add ability to store images in the database
+
+
+// Outline future plans and features for the project.
