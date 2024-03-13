@@ -59,21 +59,18 @@ wss.on("connection", (ws, req) => {
     ws.on("error", console.error);
     ws.on("close", data => {
         console.log(JSON.stringify(ws.user_id));
-        console.log(clients);
-        for (let [key, value]  of clients) {
+        for (let [key, value] of clients) {
             if (value === ws) {
-                console.log(key);
                 clients.delete(key);
             }
         }
-        console.log(clients);
     });
     ws.on("message", data => {
         //update clients map
         const message = JSON.parse(data);
-        console.log(message);
+        ws.send(`echo: ${JSON.stringify(message)}`)
+        console.log(`${message.user_id} ${message}`);
         if (!clients.has(message.user_id)) {
-            console.log(message.user_id);
             clients.set(message.user_id, ws);
         }
 
@@ -81,15 +78,11 @@ wss.on("connection", (ws, req) => {
         if (!games.has(message.game_id)) {
             games.set(message.game_id, new Set([message.user_id]));
         } else {
-            console.log("game already exists");
             games.get(message.game_id).add(message.user_id);
         }
 
         const players = games.get(message.game_id)
         players.forEach(player_id => {
-            console.log(player_id);
-            console.log(message.user_id);
-            console.log(!(player_id === message.user_id));
             if (!(player_id === message.user_id)) {
                 const client = clients.get(player_id);
                 client.send(message.fen_string);
