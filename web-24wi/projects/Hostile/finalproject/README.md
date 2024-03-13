@@ -30,22 +30,28 @@ Upon accessing Hostile, users are greeted with a straightforward login page, gui
 - A user-friendly login interface.
 - A dedicated posting page for sharing thoughts and updates.
 - A dynamic post feed for browsing content from other users.
+
+  ## Installation
 - An external links page for easy navigation to other sites
 Follow this tutorial:
 - [Database Setup Tutorial](https://frontendmasters.com/courses/api-design-nodejs-v4/)
 
+
 1. clone library
-`` git clone https://github.com/TheEvergreenStateCollege/upper-division-cs.git ``
+  - `` git clone https://github.com/TheEvergreenStateCollege/upper-division-cs.git ``
+
 
 2. run 'npm i' in finalproject/api and finalproject/client
+   
   - navigate to ``/web-24wi/projects/Hostile/finalproject/api`` and run npm i
   - navigate to ``/web-24wi/projects/Hostile/finalproject/client`` and run npm i and npm i react-modal
 
-3. Create a .env in /web-24wi/projects/Hostile/finalproject/api and paste the text below into it
-   ``
-   DATABASE_URL="postgresql://postgres:lol@localhost:5432/dev"
-   JWT_SECRET="cookies" 
-  ``
+
+3. Create a .env in /web-24wi/projects/Hostile/finalproject/api and paste the text below into it:
+
+ - `` DATABASE_URL="postgresql://postgres:lol@localhost:5432/dev"``
+ -  ``JWT_SECRET="cookies" ``
+  
 4. migrate prisma
    Note: Ensure you have a tunnel set up for your database for remote access before running this command
   ``npx prisma migrate dev --name init``
