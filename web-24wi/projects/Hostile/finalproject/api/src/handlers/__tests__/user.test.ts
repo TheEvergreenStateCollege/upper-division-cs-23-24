@@ -1,9 +1,6 @@
 import {
     createNewUser,
     signin,
-    updateUser,
-    updatePass,
-    deletUser,
     logout,
 } from '../user';
 
@@ -36,15 +33,15 @@ describe('User handler', () => {
             default: {
                 user: {
                     findUnique: jest.fn().mockResolvedValueOnce(null),
-                    create: jest.fn().mockResolvedValueOnce({ id: '1', username: 'newUser2' }),
+                    create: jest.fn().mockResolvedValueOnce({ id: '1', username: `${newUser}` }),
                 },
             },
         }));
 
         await createNewUser(req, res);
 
-        // expect(res.cookie).toHaveBeenCalledWith('token', expect.any(Array));
-        expect(res.cookie).toHaveBeenCalledWith('user', 'newUser2');
+        expect(res.cookie).toHaveBeenCalledWith('token', expect.any(Array));
+        expect(res.cookie).toHaveBeenCalledWith('user', `${newUser}`);
         expect(res.redirect).toHaveBeenCalledWith('/api/profile');
     });
 
@@ -96,7 +93,7 @@ describe('User handler', () => {
             __esModule: true,
             default: {
                 user: {
-                    findUnique: jest.fn().mockResolvedValueOnce({ id: '1', username: 'newUser2', password: 'hashedPassword' }),
+                    findUnique: jest.fn().mockResolvedValueOnce({ id: '1', username: `${newUser}`, password: 'hashedPassword' }),
                 },
             },
         }));
