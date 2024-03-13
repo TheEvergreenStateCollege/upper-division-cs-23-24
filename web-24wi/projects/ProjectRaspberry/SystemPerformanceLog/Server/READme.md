@@ -98,4 +98,9 @@ that currently does not clearly describe the CPU Temperature clearly.
 ![Screenshot (484)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/0fa500c6-98c2-46e6-8934-b5e88ce8d3d1)
 
 
+---
+Welcome to my Flask server
+---
+[![Watch the video](https://img.youtube.com/vi/Zty0E6f0Os0/maxresdefault.jpg)](https://youtu.be/Zty0E6f0Os0)
+
 
