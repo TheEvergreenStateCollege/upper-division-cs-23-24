@@ -1,16 +1,17 @@
 const express = require("express");
 const app = express();
 const port = 5000;
-const path = require("path"); // Import path module here
+const path = require("path");
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
 const session = require("express-session");
+const bcrypt = require('bcrypt');
 
 console.log(parsed['DATABASE_URL']);
 console.log(process.env['DATABASE_URL']);
 const prisma = new PrismaClient();
 
-const bcrypt = require('bcrypt');
+const saltRounds = 10; // Define the number of salt rounds
 
 // Session middleware configuration
 app.use(session({
@@ -52,25 +53,24 @@ app.post("/login", async (req, res) => {
 
 
 app.post("/user", async (req, res) => {
-	const { username, password } = req.body;
+    const { username, password } = req.body;
 
-	// Implement password hashing using bcrypt before storing
-	const hashedPassword = await bcrypt.hash(password, 10); // Example with cost factor of 10
-
-	try {
-		const newUser = await prisma.user.create({
-			data: {
-				username,
-				password: hashedPassword, // Use the hashed password
-			},
-		});
-		console.log("User created:", newUser);
-		res.status(201).send("User created successfully!"); // Success message
-	} catch (error) {
-		console.error("Error creating user:", error);
-		res.status(500).send("Error creating user"); // Error message
-	}
+    try {
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+        const newUser = await prisma.user.create({
+            data: {
+                username,
+                password: hashedPassword,
+            },
+        });
+        console.log("User created:", newUser);
+        res.status(201).send("User created successfully!");
+    } catch (error) {
+        console.error("Error creating user:", error); // Log the specific error
+        res.status(500).send("Error creating user");
+    }
 });
+
 
 app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "public", "index.html"));
@@ -92,9 +92,10 @@ app.get("/login", async (req, res) => {
     res.sendFile(path.join(publicPath, "login.html"));
 });
 
-app.get("/register", async (req, res) => {
+app.get("/register", (req, res) => {
     res.sendFile(path.join(publicPath, "register.html"));
 });
+
 
 app.get("/game", (req, res) => {
     if (req.session && req.session.loggedIn) {
