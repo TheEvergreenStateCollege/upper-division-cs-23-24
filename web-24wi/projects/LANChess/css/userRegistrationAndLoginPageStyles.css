@@ -27,9 +27,12 @@ body {
 
 
 .container-buttons{
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 40%;
+
 }
 
 #titleLogo{
@@ -42,41 +45,38 @@ body {
 
 #loginButton{
   margin: 10px;
-  width: 112px;
-  height: 50px;
-  margin-left: 35%;
-  transition-duration: 0.25s;
+  width: 140px;
+  height: auto;
+  transition-duration: 0.2s;
 }
 
 #loginButton:hover {
   cursor: pointer;
-  transform: scale(1.10)
+  transform: scale(1.4) rotate(2deg) translate(15px, -15px) 
 }
 
 #registerButton{
   margin: 10px;
-  width: 150px;
-  height: 50px;
-  margin-left: 35%;
-  transition-duration: 0.25s;
+  width: 180px;
+  height: auto;
+  transition-duration: 0.2s;
 }
 
 #registerButton:hover {
   cursor: pointer;
-  transform: scale(1.10)
+  transform: scale(1.4) rotate(-2deg)translate(-15px, -15px);
 }
 
 #startLocalGameButton{
   margin: 10px;
-  width: 160px;
-  height: 50px;
-  margin-left: 35%;
-  transition-duration: 0.25s;
+  width: 1px;
+  height: auto;
+  transition-duration: 0.2s;
 }
 
 #startLocalGameButton:hover {
   cursor: pointer;
-  transform: scale(1.10)
+  transform: scale(1.4) rotate(2deg) translate(15px, -15px) 
 }
 
 #textBoxFormForUserToCreateNewUsername{
