@@ -7,6 +7,8 @@ import {
     logout,
 } from '../user';
 
+const newUser = "newUser3"
+const newPassword = "password123"
 
 describe('User handler', () => {
     // syntax:
@@ -19,8 +21,8 @@ describe('User handler', () => {
     it('should create a new user successfully', async () => {
         const req = {
             body: {
-                Username: 'newUser2',
-                Password: 'password123',
+                Username: `${newUser}`,
+                Password: `${newPassword}`,
             },
         };
         const res = {
@@ -79,8 +81,8 @@ describe('User handler', () => {
     it('should sign in a user successfully', async () => {
         const req = {
             body: {
-                Username: 'newUser2',
-                Password: 'password123',
+                Username: `${newUser}`,
+                Password: `${newPassword}`,
             },
         };
         const res = {
