@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
 const port = 5000;
-const path = require("path");
+const path = require("path"); // Import path module here
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
+const session = require("express-session");
 
 console.log(parsed['DATABASE_URL']);
 console.log(process.env['DATABASE_URL']);
@@ -11,9 +12,15 @@ const prisma = new PrismaClient();
 
 const bcrypt = require('bcrypt');
 
-app.use(express.static("static"));
-app.use(express.json());
+// Session middleware configuration
+app.use(session({
+	secret: "your-secret-key",
+	resave: false,
+	saveUninitialized: false
+}));
 
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
 
 app.post("/login", async (req, res) => {
 	const { username, password } = req.body;
@@ -65,44 +72,34 @@ app.post("/user", async (req, res) => {
 	}
 });
 
-
 app.get("/", (req, res) => {
-	res.sendFile(path.resolve("pages/index.html"));
+	res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.get("/search-hit/:hit", (req, res) => {
-	res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));
+	res.sendFile(path.join(__dirname, "public", `search-hit-${req.params.hit}.html`));
 });
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });
 
-app.get("/users", async (req, res) => {
-	const allUsers = await prisma.user.findMany();
-	res.json(allUsers);
-});
+// Removed redundant declaration of 'path' variable
 
-app.get("/randomGraph", async (req, res) => {
-	let results = [];
-	for (let i = 0; i < 10; i++) {
-		results.push({ "day": i, "stepCount": Math.round(Math.random() * 1000) });
-	}
-	res.json({ results });
-});
+const publicPath = path.join(__dirname, "..", "public");
 
 app.get("/login", async (req, res) => {
-	res.sendFile(path.resolve("../login.html"));
+    res.sendFile(path.join(publicPath, "login.html"));
 });
 
 app.get("/register", async (req, res) => {
-	res.sendFile(path.resolve("../register.html"));
+    res.sendFile(path.join(publicPath, "register.html"));
 });
 
 app.get("/game", (req, res) => {
-	if (req.session && req.session.loggedIn) {
-		res.sendFile(path.resolve("../game.html"));
-	} else {
-		res.redirect("/login");
-	}
+    if (req.session && req.session.loggedIn) {
+        res.sendFile(path.join(publicPath, "game.html"));
+    } else {
+        res.redirect("/login");
+    }
 });
