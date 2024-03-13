@@ -55,6 +55,7 @@ async function renderBoard(boardCache, userColor, isItUsersTurn){
         orientation: userColor
     };
     board = Chessboard('board', config);
+    boardCache = board.fen(); //Ensures the board cache is always the same as the current board state.
 }
 
 
@@ -63,6 +64,36 @@ async function initializeNewGameOnClient() {
     await getGameValuesFromStorage(); //Get game values.
     await getCountOfMovesInGame(); //Fetches for all moves the server has for the game.
     await renderBoard(boardCache, userColor, isItUsersTurn); //Render the board.
+}
+
+async function confirmMove(){
+    if(isItUsersTurn === true){
+        boardCache = board.fen()
+        const fenToSend = boardCache;
+
+        try {
+            const response = await fetch("/api/moves", {
+                method: "POST", 
+                headers:{
+                    'Authorization': 'Bearer ' + userToken,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify( {
+                    'fen_string': fenToSend,
+                    'user_id': userID,
+                    'game_id': gameID
+                })
+            })
+    
+            const addMoveResponseObj = await response.json();
+            console.log("addMoveResponseObj:" + JSON.stringify(addMoveResponseObj));
+            return addMoveResponseObj;
+    
+        } catch (error) {
+            console.error("Failed to add self as participant:", error);
+        }
+    }
 }
 
 //Calls
