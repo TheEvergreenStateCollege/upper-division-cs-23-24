@@ -11,7 +11,9 @@
 </head>
 <body>
     <header>
-        <img src="/static/assets/raspberrybunch.png" alt="RaspberryBunch" class="header-logo">
+        <a href="{{ url_for('main_menu') }}">
+            <img src="/static/assets/raspberrybunch.png" alt="RaspberryBunch" class="header-logo">
+        </a>
         <div class="tagline-container">
             <h1>Welcome to Raspberry Health</h1>
             <p> Your one-stop solution for monitoring your Raspberry Pi's performance.</p>

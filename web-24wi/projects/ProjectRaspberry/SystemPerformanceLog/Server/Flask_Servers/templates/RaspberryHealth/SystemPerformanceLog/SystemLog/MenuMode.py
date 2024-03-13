@@ -174,7 +174,7 @@ class MenuMain:
         print(f"Average CPU Temp: {average_temp:.2f}\n")
 
         # Path to the Heat Map .py script
-        script_path = 'Raspberry_Charts/CPUTempHeatMap.py'
+        script_path = 'CPUTempHeatMap.py'
 
         # Next, call the heatmap script
         try:

@@ -62,8 +62,8 @@
             <img src="/static/assets/Raspberry_smiling_nobackground.png" alt="Raspberry Health" class="raspberrysmiling-icon">
         </a>
          
-        <a href="/Calculator_app/calculator.html" class="calculator-app-link">
-            <img src="/static/assets/calculator_app.png" alt="Calculator App" class="calculator-icon">
+        <a href="{{ url_for('static', filename='Calculator_app/calculator.html') }}" class="calculator-app-link">
+            <img src="{{ url_for('static', filename='assets/calculator_app.png') }}" alt="Calculator App" class="calculator-icon">
         </a>
 
         <a href="/myGraphs/UnitedStatesMap.html" class="UnitedStatesMap-link">
@@ -71,7 +71,7 @@
         </a>
 
         <!-- Add more content here as needed -->
-        <a href="index.html" class="logout-button">Log out</a>
+        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
 
     </div>
     
