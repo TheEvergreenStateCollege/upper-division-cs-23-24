@@ -7,6 +7,7 @@ import {
     logout,
 } from '../user';
 
+
 describe('User handler', () => {
     // syntax:
     // it('should handle a scenario when something happens', async () => {
@@ -33,7 +34,7 @@ describe('User handler', () => {
             default: {
                 user: {
                     findUnique: jest.fn().mockResolvedValueOnce(null),
-                    create: jest.fn().mockResolvedValueOnce({ id: 1, username: 'newUser' }),
+                    create: jest.fn().mockResolvedValueOnce({ id: '1', username: 'newUser' }),
                 },
             },
         }));
@@ -62,7 +63,7 @@ describe('User handler', () => {
             __esModule: true,
             default: {
                 user: {
-                    findUnique: jest.fn().mockResolvedValueOnce({ id: 1, username: 'existingUser' }),
+                    findUnique: jest.fn().mockResolvedValueOnce({ id: '1', username: 'existingUser' }),
                 },
             },
         }));
@@ -89,16 +90,16 @@ describe('User handler', () => {
             send: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
-                    findUnique: jest.fn().mockResolvedValueOnce({ id: 1, username: 'existingUser', password: 'hashedPassword' }),
+                    findUnique: jest.fn().mockResolvedValueOnce({ id: '1', username: 'existingUser', password: 'hashedPassword' }),
                 },
             },
         }));
 
-        jest.mock('../modules/auth', () => ({
+        jest.mock('../../modules/auth', () => ({
             __esModule: true,
             comparePasswords: jest.fn().mockResolvedValueOnce(true),
             createJWT: jest.fn().mockReturnValueOnce('mockedJWT'),
@@ -123,16 +124,16 @@ describe('User handler', () => {
             send: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
-                    findUnique: jest.fn().mockResolvedValueOnce({ id: 1, username: 'existingUser', password: 'hashedPassword' }),
+                    findUnique: jest.fn().mockResolvedValueOnce({ id: '1', username: 'existingUser', password: 'hashedPassword' }),
                 },
             },
         }));
 
-        jest.mock('../modules/auth', () => ({
+        jest.mock('../../modules/auth', () => ({
             __esModule: true,
             comparePasswords: jest.fn().mockResolvedValueOnce(false),
         }));
@@ -146,7 +147,7 @@ describe('User handler', () => {
     // updateUser
     it('should update user information successfully', async () => {
         const req = {
-            user: { id: 1 },
+            user: { id: '1' },
             body: {
                 Username: 'newUsername',
             },
@@ -156,11 +157,11 @@ describe('User handler', () => {
             redirect: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
-                    update: jest.fn().mockResolvedValueOnce({ id: 1, username: 'newUsername' }),
+                    update: jest.fn().mockResolvedValueOnce({ id: '1', username: 'newUsername' }),
                 },
             },
         }));
@@ -174,7 +175,7 @@ describe('User handler', () => {
     // updatePass
     it('should update user password successfully', async () => {
         const req = {
-            user: { id: 1 },
+            user: { id: '1' },
             body: {
                 Password: 'newPassword',
             },
@@ -183,16 +184,16 @@ describe('User handler', () => {
             redirect: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
-                    update: jest.fn().mockResolvedValueOnce({ id: 1 }),
+                    update: jest.fn().mockResolvedValueOnce({ id: '1' }),
                 },
             },
         }));
 
-        jest.mock('../modules/auth', () => ({
+        jest.mock('../../modules/auth', () => ({
             __esModule: true,
             hashPassword: jest.fn().mockResolvedValueOnce('hashedNewPassword'),
         }));
@@ -205,38 +206,38 @@ describe('User handler', () => {
     // deleteUser
     it('should delete a user successfully', async () => {
         const req = {
-            user: { id: 1 },
+            user: { id: '1' },
         };
         const res = {
             json: jest.fn(),
             redirect: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
-                    delete: jest.fn().mockResolvedValueOnce({ id: 1 }),
+                    delete: jest.fn().mockResolvedValueOnce({ id: '1' }),
                 },
             },
         }));
 
         await deletUser(req, res);
 
-        expect(res.json).toHaveBeenCalledWith({ data: { id: 1 } });
+        expect(res.json).toHaveBeenCalledWith({ data: { id: '1' } });
         expect(res.redirect).toHaveBeenCalledWith('/');
     });
 
     it('should handle user deletion failure', async () => {
         const req = {
-            user: { id: 1 },
+            user: { id: '1' },
         };
         const res = {
             json: jest.fn(),
             redirect: jest.fn(),
         };
 
-        jest.mock('../db', () => ({
+        jest.mock('../../db', () => ({
             __esModule: true,
             default: {
                 user: {
