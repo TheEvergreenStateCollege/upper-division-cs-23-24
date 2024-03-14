@@ -5,16 +5,17 @@ import { Request, Response } from 'express';
 
 export const createNewUser = async ( req: Request, res: Response ) => {
   try {
+    console.log(req.body.username);
     const user: User = await prisma.user.create({
       data: {
         username: req.body.username,
         password: await hashPassword(req.body.password)
       }
     });
-  
+    console.log(req.body.username);
     const token = createJWT(user);
     res.json({ token });
-  
+
   } catch(e) {
     res.status(401);
     res.json({ message: `username ${req.body.username} already exists. Try logging in.` });
@@ -28,7 +29,7 @@ export const getAllUsers = async ( req: Request, res: Response ) => {
 }
 
 export const signin = async ( req: Request, res: Response ) => {
-  const user = await prisma.user.findFirst({
+  const user = await prisma.user.findUnique({
     where: {
       username: req.body.username
     }

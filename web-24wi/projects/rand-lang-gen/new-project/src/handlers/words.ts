@@ -6,7 +6,7 @@ import { validationResult } from "express-validator";
 export const getOneWord = async ( req: Request, res: Response ) => {
     const word = await prisma.word.findFirst({
       where: {
-        name: req.params.name
+        authorId: Number(req.user!.id)
       }
     });
   
@@ -14,14 +14,18 @@ export const getOneWord = async ( req: Request, res: Response ) => {
 }
 
 export const getWords = async ( req: Request, res: Response ) => {
-    const allWords = await prisma.word.findMany();
+    const allWords = await prisma.word.findMany({
+      where: {
+        authorId: Number(req.user!.id)
+      }
+    });
     res.json({ data: allWords });
 }
 
 export const deleteWord = async ( req: Request, res: Response ) => {
     const deleted = await prisma.word.delete({
         where: {
-            id:req.params.id,
+            id:Number(req.user!.id)
         }
     });
     res.json({ data: deleteWord });
@@ -39,6 +43,8 @@ export const createWord = async ( req: Request, res: Response ) => {
     const word = await prisma.word.create({
         data: {
           name: req.body.name,
+          define: req.body.define,
+          language: req.body.language,
           authorId: Number(req.user!.id),
         }
       });
