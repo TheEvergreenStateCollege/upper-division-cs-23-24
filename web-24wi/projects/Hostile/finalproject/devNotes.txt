@@ -31,7 +31,7 @@ Dee Dee:
     update connected.jpg with font
 
 Ellie:
-- [ ] README
+- [x] README
 
 Wishful Thinking
 put dial up audio over blue screen of death
