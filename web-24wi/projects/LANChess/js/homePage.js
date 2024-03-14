@@ -3,23 +3,23 @@ var userID;
 var userToken;
 
 
-async function getUserValuesFromStorage(){
+async function getUserValuesFromStorage() {
 
     //Importing userID, userToken values from local storage.
     userID = localStorage.getItem('userID');
     userToken = localStorage.getItem('userToken');
 
     if (typeof userID !== 'undefined' && typeof userToken !== 'undefined') {
-    //Console testing to ensure values are defined.
-    console.log("--getUserValuesFromStorage-------------------");
-    console.log("The function getUserValuesFromStorage imported the following values");
-    console.log("userID: " + userID);
-    console.log("userToken: " + userToken);
-    console.log("---------------------------------------------");
-    console.log();
-    
+        //Console testing to ensure values are defined.
+        console.log("--getUserValuesFromStorage-------------------");
+        console.log("The function getUserValuesFromStorage imported the following values");
+        console.log("userID: " + userID);
+        console.log("userToken: " + userToken);
+        console.log("---------------------------------------------");
+        console.log();
+
     } else {
-        console.error("userID or userToken not found in localStorage: ", error)    
+        console.error("userID or userToken not found in localStorage: ", error)
     }
 }
 
@@ -34,32 +34,32 @@ async function createNewOnlineGameOnServer() {
 
     try {
         const apiResponse = await fetch("/api/games", {
-            method: "POST", 
+            method: "POST",
             headers: {
                 'Authorization': 'Bearer ' + userToken,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-        body: JSON.stringify({})
+            body: JSON.stringify({})
         })
-    
+
         const gameInfoObject = await apiResponse.json();
         return gameInfoObject;
 
-    } catch(error) {
+    } catch (error) {
         console.error("Failed to create new game on the server: ", error);
     }
 
 }
 
-async function storeCreatedGameInfo(gameInfoObject){
+async function storeCreatedGameInfo(gameInfoObject) {
 
     //Console testing to ensure passed values  are defined.
     console.log("--storeCreatedGameInfo()---------------------");
     console.log("createNewOnlineGameOnServer() passed the following values");
     console.log("gameInfoObj: " + gameInfoObj);
     console.log("gameInfoObj as JSON: " + JSON.stringify(gameInfoObj));
-    
+
     const gameID = gameInfoObject.data.id;
     const gameStart = gameInfoObject.data.start;
     const gameStatus = gameInfoObject.data.status;
@@ -76,27 +76,27 @@ async function storeCreatedGameInfo(gameInfoObject){
     console.log("---------------------------------------------");
 }
 
-async function addSelfAsParticipant(){
+async function addSelfAsParticipant() {
 
     //Retrieving gameID from localStorage.
     const gameID = localStorage.getItem('gameID');
-    
+    console.log(gameID);
     //Console testing
     console.log("--addSelfAsParticipant()---------------------");
     console.log("The following variables are being called from global");
     console.log("userID: " + userID);
     console.log("userToken: " + userToken);
-    
+
 
     try {
-        const response = await fetch("/api/gameParticipant", {
-            method: "POST", 
-            headers:{
+        const response = await fetch("/api/gameParticipant/", {
+            method: "POST",
+            headers: {
                 'Authorization': 'Bearer ' + userToken,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify( {
+            body: JSON.stringify({
                 'gameId': gameID,
                 'userId': userID
             })
@@ -116,7 +116,7 @@ async function addSelfAsParticipant(){
     console.log("---------------------------------------------");
 }
 
-async function storeParticipantID(addSelfAsParticipantRESObj){
+async function storeParticipantID(addSelfAsParticipantRESObj) {
     //Console testing to ensure passed values  are defined.
     console.log("--storeCreatedGameInfo()---------------------");
     console.log("addSelfAsParticipant() passed the following values");
@@ -128,14 +128,14 @@ async function storeParticipantID(addSelfAsParticipantRESObj){
     localStorage.setItem('participantID', participantID);
 }
 
-async function valueOfFormToFindRoomByID(){
-    try { 
-    const gameID = document.getElementById('textBoxFormForUserToEnterRoomID').value;
-    localStorage.setItem('gameID', gameID);
-    return gameID;
+function valueOfFormToFindRoomByID() {
+    try {
+        const gameID = document.getElementById('textBoxFormForUserToEnterRoomID').value;
+        localStorage.setItem('gameID', gameID);
+        return gameID;
 
     } catch (error) {
-    console.error("Failed to retrieve gameID from text entry box: ", error);
+        console.error("Failed to retrieve gameID from text entry box: ", error);
     }
 }
 
@@ -144,13 +144,13 @@ async function valueOfFormToFindRoomByID(){
 
 
 
-async function storeUserColorAsWhite(){
+async function storeUserColorAsWhite() {
     const userColor = 'white';
     localStorage.setItem('userColor', userColor);
     console.log("User color to play stored as white in localStorage");
 }
 
-async function storeUserColorAsBlack(){
+async function storeUserColorAsBlack() {
     const userColor = 'black';
     localStorage.setItem('userColor', userColor);
     console.log("User color to play stored as white in localStorage");
@@ -159,8 +159,8 @@ async function storeUserColorAsBlack(){
 
 //Call functions
 
-async function createNewOnlineGame(){
-   try {
+async function createNewOnlineGame() {
+    try {
         await getUserValuesFromStorage();
         gameInfoObj = await createNewOnlineGameOnServer();
         await storeCreatedGameInfo(gameInfoObj);
@@ -168,23 +168,23 @@ async function createNewOnlineGame(){
         await storeParticipantID(addSelfAsParticipantRESObj);
         await storeUserColorAsWhite();
         window.location.href = "/game"; //Redirect to home page.
-        
-   }
-   catch (error){
-    console.error("createNewOnlineGame() failed", error);
-   }
+
+    }
+    catch (error) {
+        console.error("createNewOnlineGame() failed", error);
+    }
 }
 
-async function joinOnlineGame(){
+async function joinOnlineGame() {
     try {
         await getUserValuesFromStorage();
-        localStorage.setItem('gameID',valueOfFormToFindRoomByID());
+        localStorage.setItem('gameID', valueOfFormToFindRoomByID());
         const addSelfAsParticipantRESObj = await addSelfAsParticipant();
         await storeParticipantID(addSelfAsParticipantRESObj);
         await storeUserColorAsBlack();
         window.location.href = "/game"; //Redirect to home page.
     }
-    catch(error){
+    catch (error) {
         console.error("joinOnlineGame() failed", error);
     }
 }
