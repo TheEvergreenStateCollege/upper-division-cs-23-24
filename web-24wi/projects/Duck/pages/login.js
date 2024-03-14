@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Retrieve existing user data from Local Storage
         //let userData = localStorage.getItem('userData');
+        //userData = userData ? JSON.parse(userData) : {};
         const userData = await fetch('/user', {
             method: 'post',
             headers: {
@@ -78,16 +79,16 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify({"username": signupEmail, "password": signupPassword}),
         })
-        //userData = userData ? JSON.parse(userData) : {};
 
         // Check if user already exists
+        //change this into a fetch call to database
         if (userData.hasOwnProperty(signupEmail)) {
             alert('User already exists. Please use a different email.');
             return;
         }
 
         // Add new user to data
-        userData[signupEmail] = signupPassword;
+        //userData[signupEmail] = signupPassword;
 
         // Save updated user data to Local Storage
         localStorage.setItem('userData', JSON.stringify(userData));
@@ -104,39 +105,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Retrieve user data from Local Storage
         //const userData = JSON.parse(localStorage.getItem('userData'));
-        const userData = await fetch('/signin', {
+        const response = await fetch('/signin', {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({"username": signupEmail, "password": signupPassword}),
-        })
-
-        // Check if user exists and password matches
-        if (userData && userData.hasOwnProperty(loginEmail) && userData[loginEmail] === loginPassword) {
-            alert('Login successful!');
-            // Redirect or perform any other action after successful login
-        } else {
-            alert('Invalid email or password.');
+            body: JSON.stringify({"username": loginEmail, "password": loginPassword}),
+        });
+        if (response.status === 401) {
+            const { message } = await response.json();
+            alert(message);
+            return;
         }
-    });
-
-    // Event listener for login form submission
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const loginEmail = document.getElementById('loginEmail').value;
-        const loginPassword = document.getElementById('loginPassword').value;
-
         // Make a request to the server to authenticate the user
         // Assume the server returns a token upon successful authentication
-        const token = 'example_token'; // Replace this with the actual token received from the server
+        const { token } = await response.json();
 
         // Save the token to localStorage
-        saveToken(token);
-
+        localStorage.setItem('token', JSON.stringify(token));
         alert('Login successful!');
-        // Redirect or perform any other action after successful login
+
+        // Redirect the user to the home page
+        redirectAndShowAlert();
+
     });
+
+    async function redirectAndShowAlert() {
+        window.location.href = '/';
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1 second
+        window.alert('You have successfully logged in as ' + loginEmail + '!');
+    }
 
     // Event listener for forgot password form submission
     forgotPasswordForm.addEventListener('submit', function(event) {

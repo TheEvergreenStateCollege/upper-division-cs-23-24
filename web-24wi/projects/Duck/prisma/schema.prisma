@@ -46,9 +46,10 @@ model Wishlist {
   body  String
 
   //wishlist can have multiple product but a product can only belong to 1 wishlist
-  productId String
-  belongsTo User      @relation(fields: [id], references: [id])
-  product   Product[]
+  productId   String
+  belongsToId String
+  belongsTo   User      @relation(fields: [id], references: [id])
+  product     Product[]
 
   @@unique([productId])
 }

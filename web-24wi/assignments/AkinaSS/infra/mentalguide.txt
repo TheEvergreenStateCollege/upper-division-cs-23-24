@@ -54,3 +54,9 @@ After doing this, you may fix the identity used for this commit with:
 
  5 files changed, 221 insertions(+), 18 deletions(-)
  create mode 100644 web-24wi/assignments/ppham/infra/api-server/README.md
+
+Command to run prisma database:
+autossh -M 30001 -o ControlMaster=auto -o ControlPath=/tmp/mysshcontrolpath -fNT -L 5432:localhost:5432 -i ./id_ecdsa ubuntu@AkinaSS.arcology.builders
+
+Command to run ssh tunneling
+ssh -L 5432:localhost:5432 -i .\Documents\infrastructure.pem ubuntu@AkinaSS.arcology.builders
