@@ -140,23 +140,15 @@ ws.onerror = (event) => {
 }
 
 ws.onmessage = (event) => {
+
     const messageBuffer = JSON.parse(event.data);
     const message = messageBuffer.FEN_string;
+    console.log("contents of message: " + message)
+    boardCache = message;
+    turnCounter++;
+    determineIsItUsersTurn();
+    renderBoard(boardCache, userColor, isItUsersTurn);
 
-
-    if (message === 'ACK') {
-        gameStatusONGOING = true;
-        console.log("ACK recieved")
-    } else if (message.FEN_string) {
-        console.log(message.FEN_string);
-        boardCache = message.FEN_string;
-        turnCounter++;
-        determineIsItUsersTurn();
-        renderBoard(boardCache, userColor, isItUsersTurn); 
-    } else {
-        // console.log(message);
-        console.log("FROM SERVER: " + JSON.stringify(message));
-    }
 }
 
 
