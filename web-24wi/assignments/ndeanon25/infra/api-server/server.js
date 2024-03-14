@@ -3,7 +3,10 @@ let app = express();
 const port = 5000;
 const path = require("path");
 
-app.use(express.static("static"));
+const { parsed } = require("dotenv").config();
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+app.use(express.static("pages"));
 
 /**
  *  * app.[method]([route], [route handler])
@@ -55,7 +58,7 @@ app.post("/user", async(req,res) => {
 
 app.get("/cities", async(req,res) => {
 
-	const allCities = await.prisma.uSCity.findMany();
+	const allCities = await prisma.uSCity.findMany();
 	res.json(allCities);
 });
 
@@ -71,5 +74,7 @@ app.post("/city", async (req,res) => {
 	});
 	res.json(result);
 });
+
+
 
 

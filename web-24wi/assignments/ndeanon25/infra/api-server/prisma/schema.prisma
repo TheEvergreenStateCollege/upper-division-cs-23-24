@@ -77,6 +77,6 @@ model USCity {
   latitude  Float
   longitude Float
   authorId  Int
-  User      User     @relation(fields:[authorId, references: [id])
+  User      User     @relation(fields:[authorId, references: [id]])
 }
 
