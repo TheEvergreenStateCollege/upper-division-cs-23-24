@@ -1,13 +1,16 @@
 //userRegisterAndLoginPage.js
-const baseURL = 'http://localhost:5000';
+
+//***GLOBAL VAR***//////////////////////////////////////////////////////////////////////
+
 var usernameValue;
 var usernameValueLen;
 var passwordValue;
 var passwordValueLen;
 
 
+//***CALL FUNCTIONS***///////////////////////////////////////////////////////////
 
-
+//Storing the value of the login form into usernameValue, also finding len.
 async function credentials() { //This function stores the value of the login page's "username" textbox form into the initial initUsername
     usernameValue = document.getElementById('textBoxFormForUserToCreateNewUsername').value;
     passwordValue = document.getElementById('textBoxFormForUserToCreateNewPassword').value;
@@ -15,6 +18,7 @@ async function credentials() { //This function stores the value of the login pag
     passwordValueLen = passwordValue.length;
 }
 
+//Check if the syntax for login are valid:
 async function credentialsSyntaxCheckForRegistration(){
     if ((usernameValueLen && passwordValueLen >=2) && (usernameValueLen && passwordValueLen <=10)) {
         usernameValue = usernameValue;
@@ -26,11 +30,11 @@ async function credentialsSyntaxCheckForRegistration(){
     }
 }
 
+//Register new user if valid syntax:
 async function registerNewUser(){
     credentials();
     credentialsSyntaxCheckForRegistration();
     
-
         try {
             const response = await fetch("/register", {
                 method: "POST", 
@@ -53,7 +57,8 @@ async function registerNewUser(){
                
             console.log("Credentials stored to local storage successfully");
 
-            window.location.href = "/home"; //Redirect to home page.
+            //After successful login redirect them to the home page.
+            window.location.href = "/home";
 
         } catch (error) {
             console.error("Failed registration error:", error);
@@ -76,18 +81,15 @@ async function loginUser(){
                     password: passwordValue
               })})
     
-                
                 const userLoginResponseObj = await response.json();
                 const userID = userLoginResponseObj.id;
                 const userToken = userLoginResponseObj.token;
 
-            
                 localStorage.setItem('userID', userID);
                 localStorage.setItem('userToken', userToken);
 
-                //   console.log("Credentials stored to local storage successfully");
-           
-                window.location.href = "/home"; //Redirect to home page.
+                //After successful login redirect them to the home page.
+                window.location.href = "/home"; 
                 
         } catch (error) {
             console.error("Failed login error:", error);
