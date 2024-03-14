@@ -3,7 +3,6 @@ import { comparePasswords, createJWT, hashPassword } from "../modules/auth.js";
 
 // auth handlers
 export const createNewUser = async (req, res) => {
-    console.log(req.body.username);
     const user = await prisma.user.create({
         data: {
             username: req.body.username,
@@ -21,7 +20,6 @@ export const signin = async (req, res) => {
             username: req.body.username,
         }
     })
-    console.log();
     if (user == null) {
         res.status(401);
         res.json("incorrect username");
