@@ -23,6 +23,7 @@ app.use(session({
 app.use("/public", express.static(path.resolve("../public")));
 app.use("/static", express.static(path.resolve("../static")));
 app.use(express.json());
+app.use(express.urlencoded());
 
 app.post("/login", async (req, res) => {
 	const { username, password } = req.body;
