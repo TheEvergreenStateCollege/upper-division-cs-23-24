@@ -40,6 +40,7 @@ Follow this tutorial:
 1. clone library
   - `` git clone https://github.com/TheEvergreenStateCollege/upper-division-cs.git ``
 <p>&nbsp;   </p>
+
 2. run 'npm i' in finalproject/api and finalproject/client
    
   - navigate to ``/web-24wi/projects/Hostile/finalproject/api`` and run npm i
@@ -73,10 +74,7 @@ Follow this tutorial:
      - ``npm run build``
    - run this command in the /api/ directory
      - ``npm run dev``
-
-Provide step-by-step instructions on how to install and set up Hostile. Include any dependencies that need to be 
-installed and how to install them.
-
+<p>&nbsp;   </p>
 ## Usage
 
 Hostile is intuitive to use, following the familiar conventions of social media platforms while offering a unique aesthetic experience.
@@ -98,9 +96,8 @@ Hostile is intuitive to use, following the familiar conventions of social media 
 
 
 
+<p>&nbsp;   </p>
 
-
-9. View the feed:
 
 ## Documentation
 
@@ -117,28 +114,38 @@ Hostile is intuitive to use, following the familiar conventions of social media 
 - Desktop.tsx - Inverts the colors with the bottom left button and allows for the desktop app transitions
 - main.tsx - Renders the page
 
+  <p>&nbsp;   </p>
+
 ### Wireframe
 - Below is our initial wireframe created during the middle of our quarter
 ![wireframe.jpg](./wireframe/images/wireframe.jpg)
 ![dataSchema.jpg](./wireframe/images/dataSchema.jpg)
 
+### Testing and unit tests
+- Please refer to our amazing dev diary located [here](./dev_diary/tests.md)
+
+  <p>&nbsp;   </p>
+
 ## Contributing
 
-
-- We do not welcome contributions to Hostile! If you're interested please fire a signal flare and we'll get back to you,
+- We do not welcome contributions to Hostile! If you're interested please fire a signal flare and we'll get back to you.
+  <p>&nbsp;   </p>
 
 ## License
 
 - Our website is VERY hostile please do not alter it, it WILL fight back and we cannot control it.
 - If you find ANY intuitive user design please report immediately to the head contributors
-
-Hostile is distributed under MIT license, which outlines the terms and conditions for its use, reproduction, and distribution.
+  
+<p>&nbsp;   </p>
 
 ## Acknowledgements
+Thank you to:
+- Rain
+- Dee Dee
+- Ellie
+- Paul Pham
 
-
-
-If Hostile includes third-party libraries, tools, or resources, give credit to the respective authors or projects.
+<p>&nbsp;   </p>
 
 ## Contact
 - Interested in contacting us? Reach out to either us or our mentor on discord!
@@ -148,19 +155,13 @@ If Hostile includes third-party libraries, tools, or resources, give credit to t
 
 <p>&nbsp;   </p>
 
-- mentor: 
-Provide contact information for users and contributors to reach out to you or the project team.
+- mentor's discord: life_long_learner
 
-## Frequently Asked Questions (FAQ)
-
-Address common questions or issues that users might encounter.
-
-## Tests
-Include tests for app and provide examples of how to run them.
+<p>&nbsp;   </p>
 
 ## Roadmap
 <p>
   In the upcoming phases of our React application development, we're planning to introduce a range of innovative and nostalgic features to enhance user experience and engagement. Firstly, we aim to incorporate the iconic dial-up audio over the classic blue screen of death when you attempt to exit the application. In a nod to operating systems of yesteryear, we will introduce a React alert system that emulates the familiar Windows 95 pop-up messages, blending old-school charm with modern functionality. To further emphasize the theme of technological excess, we plan to integrate fake advertisements that evoke the era of early internet bloatware, providing both humor and commentary on digital culture. The application's aesthetic will be boldly reimagined with an intentionally ugly background for posts, deliberately clashing with modern design norms to create a distinct and memorable visual experience. Lastly, we're looking to enhance our application's capabilities by adding the ability to store images directly in the database, significantly improving the way users share and interact with visual content. These updates are designed to offer a blend of nostalgia, innovation, and functionality, making our React application a unique and engaging platform for users.
 </p>
 
-// Outline future plans and features for the project.
+<p>&nbsp;   </p>
