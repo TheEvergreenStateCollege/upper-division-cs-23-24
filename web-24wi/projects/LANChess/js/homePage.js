@@ -130,7 +130,7 @@ async function storeParticipantID(addSelfAsParticipantRESObj){
 
 async function valueOfFormToFindRoomByID(){
     try { 
-    const gameID = document.getElementById(textBoxFormForUserToEnterRoomID).value;
+    const gameID = document.getElementById('textBoxFormForUserToEnterRoomID').value;
     localStorage.setItem('gameID', gameID);
     return gameID;
 
@@ -178,8 +178,8 @@ async function createNewOnlineGame(){
 async function joinOnlineGame(){
     try {
         await getUserValuesFromStorage();
-        gameID = valueOfFormToFindRoomByID();
-        const addSelfAsParticipantRESObj = await addSelfAsParticipant(gameID);
+        localStorage.setItem('gameID',valueOfFormToFindRoomByID());
+        const addSelfAsParticipantRESObj = await addSelfAsParticipant();
         await storeParticipantID(addSelfAsParticipantRESObj);
         await storeUserColorAsBlack();
         window.location.href = "/game"; //Redirect to home page.
