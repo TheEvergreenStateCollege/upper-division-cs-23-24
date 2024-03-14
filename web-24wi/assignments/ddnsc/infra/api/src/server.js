@@ -1,21 +1,23 @@
-import express from "express";
-import path from "node:path";
-
+import express from 'express';
 const app = express();
+const port = 5000;
+import path from 'path';
+
 app.use(express.static("static"));
 
 /**
  * app.[method]([route], [route handler])
  */
 app.get("/", (req, res) => {
-    // Update the path to the correct location of your HTML file
-    res.sendFile(path.resolve(__dirname, 'pages', 'index.html'));
+    res.sendFile(path.resolve("src/pages/index.html"));
 });
 
-const PORT = 5000;
-
+// Handler function to serve HTML files
+function serveHTMLFile(req, res, fileName) {
+    res.sendFile(path.resolve(`src/pages/${fileName}.html`));
+}
 
 // creates and starts a server for our API on a defined port
-app.listen(PORT, () => {
-    console.log(`App listening at ${PORT}`);
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
 });
