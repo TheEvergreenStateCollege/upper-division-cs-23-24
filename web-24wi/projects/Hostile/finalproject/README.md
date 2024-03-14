@@ -75,6 +75,7 @@ Follow this tutorial:
    - run this command in the /api/ directory
      - ``npm run dev``
 <p>&nbsp;   </p>
+
 ## Usage
 
 Hostile is intuitive to use, following the familiar conventions of social media platforms while offering a unique aesthetic experience.
@@ -160,8 +161,10 @@ Thank you to:
 <p>&nbsp;   </p>
 
 ## Roadmap
-<p>
-  In the upcoming phases of our React application development, we're planning to introduce a range of innovative and nostalgic features to enhance user experience and engagement. Firstly, we aim to incorporate the iconic dial-up audio over the classic blue screen of death when you attempt to exit the application. In a nod to operating systems of yesteryear, we will introduce a React alert system that emulates the familiar Windows 95 pop-up messages, blending old-school charm with modern functionality. To further emphasize the theme of technological excess, we plan to integrate fake advertisements that evoke the era of early internet bloatware, providing both humor and commentary on digital culture. The application's aesthetic will be boldly reimagined with an intentionally ugly background for posts, deliberately clashing with modern design norms to create a distinct and memorable visual experience. Lastly, we're looking to enhance our application's capabilities by adding the ability to store images directly in the database, significantly improving the way users share and interact with visual content. These updates are designed to offer a blend of nostalgia, innovation, and functionality, making our React application a unique and engaging platform for users.
-</p>
+- We're very excited for the future and what it holds, here are a few addictions we're looking to make to our application
+- Add dial-up noise to blue screen of death
+- Create a React alert that emulates win 95 pop ups
+- create fake ads on our social media platform and just bloatware looking additions that could be immersive :3
+- Make the Post compenent more interactive and have small animation of closing when you make a post
 
 <p>&nbsp;   </p>
