@@ -1,6 +1,6 @@
 import { register } from "module";
-import API from "./API.js";
-import Router from "./Router.js";
+import API from "../../../assignments/AkinaSS/infra/week9/API.js/index.js";
+import Router from "../../../../projects/Duck/Authentication/Router.js";
 
 const Auth = {
     isLoggedIn: false,

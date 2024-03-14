@@ -1,40 +1,46 @@
 import { Router } from "express";
-import { body, oneOf } from "express-validator";
-import { handleInputErrors, status } from "./modules/middleware";
+import { body } from "express-validator";
+import { handleInputErrors } from "./modules/middleware";
+import { createCart, deleteCart, getCarts, getOneCart, updateCart } from "./handlers/cart";
 import { createProduct, deleteProduct, getOneProduct, getProducts, updateProduct } from "./handlers/product";
-import { createUpdate, deleteUpdate, getOneUpdate, getUpdates, theMainUpdate } from "./handlers/update";
 
 const router = Router();
+
+/**
+ * Cart
+ */
+
+router.get("/cart", getCarts);
+
+router.get("/cart/:id", getOneCart);
+
+router.post("/cart", body('name').isString(), 
+body('body').isString(), body('productId').exists().isString(),
+body('status').isIn(['FOOD', 'UTILITIES', 'PET_CARE', 'HABITAT']).optional(), handleInputErrors, createCart);
+
+router.put("/cart/:id", body('name').isString(), 
+body('body').isString(), body('productId').exists().isString(),
+body('status').isIn(['FOOD', 'UTILITIES', 'PET_CARE', 'HABITAT']).optional(), handleInputErrors, updateCart);
+
+router.delete("/cart/:id", deleteCart);
+
 /**
  * Product
  */
+
 router.get("/product", getProducts);
 
 router.get("/product/:id", getOneProduct);
 
-router.post("/product", body('name').isString(), handleInputErrors, createProduct);
+router.post("/product", body('name').exists().isString(), body('body').exists().isString(), 
+body('status').isIn(['FOOD', 'UTILITIES', 'PET_CARE', 'HABITAT']).optional(), 
+createProduct);
 
-router.put("/product/:id", body('name').isString(), handleInputErrors, updateProduct);
+router.put("/product/:id", body('name').exists().isString(), body('body').exists().isString(), 
+body('status').isIn(['FOOD', 'UTILITIES', 'PET_CARE', 'HABITAT']).optional(),
+updateProduct);
 
 router.delete("/product/:id", deleteProduct);
-
-/**
- * Update
- */
-
-router.get("/update", getUpdates);
-
-router.get("/update/:id", getOneUpdate);
-
-router.post("/update", body('title').exists().isString(), 
-body('body').exists().isString(), body('productId').exists().isString(), createUpdate);
-
-router.put("/update/:id", body('title').optional(), 
-body('body').optional(), body('status').isIn(['IN_PROGRESS','LIVE', 'DEPRECATED', 'SHIPPED', 'ARCHIVED']).optional(),
-//oneOf(status), 
-body('version').optional(), theMainUpdate);
-
-router.delete("/update/:id", deleteUpdate);
 
 /**
  * UpdatePoint

@@ -1,10 +1,9 @@
-import { request } from "express";
 import { createJWT, hashPassword, comparePasswords } from "../modules/auth";
 import prisma from "./db";
 
 async function findUser(username: string) {
   const result = await prisma.user.findUnique({
-    where: { username: request.body.username },
+    where: { username },
   });
 
   if (result === null) return undefined;
@@ -13,15 +12,15 @@ async function findUser(username: string) {
 };
 
 export const createNewUser = async (req, res, next) => {
+  console.log(req.body.username);
   try {
     //const salt = bcrypt.genSaltsync(10);
     //const hashes = bcrypt.hashsync(req.password, salt);
-
-    if (findUser(req.body.username)) {
+    let userExist = await findUser(req.body.username)
+    if (userExist != undefined) {
       //the user already exist
-      res.sendFile({ok: false, message: "user already exist"});
+      res.json({ok: false, message: "user already exist"});
     }
-    console.log(req.body.password);
 
   const hash = await hashPassword(req.body.password);
 
@@ -45,9 +44,15 @@ export const createNewUser = async (req, res, next) => {
 };
 
 export const signin = async (req, res) => {
+  //console.log(JSON.stringify(req.headers));
+  console.log(JSON.stringify(req.body));
+
   const userfound = findUser(req.body.username)
 
   if (userfound) {
+    //console.log(JSON.stringify(req.headers));
+    console.log(JSON.stringify(req.body));
+
     const user = await prisma.user.findUnique({
       where: { username: req.body.username },
     });
@@ -56,7 +61,7 @@ export const signin = async (req, res) => {
   
     if (!isValid) {
       res.status(401);
-      res.send("Invalid username or password");
+      res.json({ message :"Invalid username or password"} );
       return;
     }
 
@@ -73,5 +78,10 @@ export const signin = async (req, res) => {
   
     const token = createJWT(user);
     res.json({ token });
+  }
+  else {
+    res.status(401);
+    res.json({ message :"Invalid username or password"} );
+    return;
   }
 };

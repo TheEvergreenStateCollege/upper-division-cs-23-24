@@ -1,4 +1,4 @@
-import Auth from "./Auth.js";
+import Auth from "Auth";
 
 const Router = {
     init: () => {
