@@ -13,6 +13,9 @@ const wordValidators = [
   body('language').isString(),
   body('authorId').isNumeric(),
 ]
+const deleteValidator = [
+  body('id').isNumeric()
+]
 
 router.get('/word', getWords);
 router.get('/word/:name', getOneWord);
@@ -20,6 +23,8 @@ router.post('/word', ...wordValidators,
   createWord
 );
 
-router.delete('/word', deleteWord);
+router.delete('/word', ...deleteValidator,
+  deleteWord
+);
 
 export default router;

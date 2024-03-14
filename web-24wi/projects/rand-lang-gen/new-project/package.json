@@ -27,8 +27,7 @@
   "scripts": {
     "build": "tsc",
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "dev": "npm run build && nodemon .dist/index.js"
-
+    "dev":  "ts-node src/index.ts"
   },
   "author": "",
   "license": "ISC"
