@@ -38,8 +38,10 @@ body {
 }
 
 .board-b72b1 {
-  /* border: 15px solid #f3e8dc; */
+  border: 3px solid #f3e8dc;
   box-sizing: content-box;
+  border-color: ddd8c0;
+  border-radius: 5px;
 }
 
 .square-55d63 {
