@@ -3,12 +3,12 @@
 /* Adding custom font for style */
 @font-face {
   font-family: '3D Isometric Black';
-  src: url('/web-24wi/projects/LANChess/fonts/3DIsometric-YzLLy.ttf');
+  src: url('../fonts/3DIsometric-YzLLy.ttf');
 }
 
 
 body {
-  background-color: black;
+  background-image: url(../img/backgrounds/background.jpg);
   min-height:  100vh; 
   margin-top: 50px;
   cursor: grab;

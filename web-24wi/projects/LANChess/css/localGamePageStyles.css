@@ -2,7 +2,7 @@
 
 body {
     transition-duration: 0.25s;
-    background-color: black;
+    background-image: url(../img/backgrounds/background.jpg);
     min-height:  100vh; 
     margin-top: 50px;
   }
@@ -29,7 +29,7 @@ body {
   
   #confirmMoveBtn:hover{
     cursor: pointer;
-    transform: scale(1.05)
+    transform: scale(1.4) rotate(2deg) translate(15px, -15px) 
   }
   
   
@@ -67,7 +67,7 @@ body {
   }
   
   .black-3c85d {
-    background-color: black;
+    background-color: transparent;
     color: none;
   }
   
