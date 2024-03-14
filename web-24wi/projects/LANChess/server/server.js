@@ -98,7 +98,7 @@ wss.on("connection", (ws, req) => {
         players.forEach(player_id => {
             if (!(player_id === userid)) {
                 const client = clients.get(player_id);
-                client.send({ FEN_string: message });
+                client.send(JSON.stringify({ FEN_string: message }));
             }
         });
         //createMove({
