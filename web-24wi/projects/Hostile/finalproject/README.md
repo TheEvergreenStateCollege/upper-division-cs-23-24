@@ -40,6 +40,7 @@ Follow this tutorial:
 1. clone library
   - `` git clone https://github.com/TheEvergreenStateCollege/upper-division-cs.git ``
 <p>&nbsp;   </p>
+
 2. run 'npm i' in finalproject/api and finalproject/client
    
   - navigate to ``/web-24wi/projects/Hostile/finalproject/api`` and run npm i
@@ -73,67 +74,97 @@ Follow this tutorial:
      - ``npm run build``
    - run this command in the /api/ directory
      - ``npm run dev``
-
-Provide step-by-step instructions on how to install and set up Hostile. Include any dependencies that need to be 
-installed and how to install them.
+<p>&nbsp;   </p>
 
 ## Usage
 
 Hostile is intuitive to use, following the familiar conventions of social media platforms while offering a unique aesthetic experience.
 1. Login:
+ ![Pasted image 20240313132249](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/7bdf5e93-5795-4c34-ac8f-8358d92611be)
 2. Post to your feed:
-3. View the feed:
+  ![Pasted image 20240313132104](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/9820201d-ca13-4c49-8590-ac7671395dc0)
+3. Invert your colors!
+   ![Pasted image 20240313132123](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/d1d0fdbe-59c0-487c-9b73-0c9cde5f2b0b)
+4. View your feed:
+   ![Pasted image 20240313131601](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/019ec40c-cbc5-4a26-9f15-b7f5bc59b1b6)
+5. View your profile and all posts that you've made:
+   ![Pasted image 20240313131628](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/a903d086-2448-4c47-b582-d7b3974800e7)
+6. Modify your Account to change the username, password, or delete your account:
+   ![Pasted image 20240313131825](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/d3245898-9796-474b-b702-aec2e11d1349)
+7. explore other's projects:
+   ![image](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/426bf6e6-5073-49c0-a647-26a3b4170ff1)
+
+
+
+
+<p>&nbsp;   </p>
+
 
 ## Documentation
 
-Link to [video](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/web-24wi/projects/Hostile/finalproject/final-project.webm)
-add comments for each component
-add wireframe
+![Video of Hostile Usage and Functionality](./final-project.webm)
+- ButtonPicker.tsx - Randomly selects two buttons to be displayed on the browser
+- CatchAll.tsx - Under construction animation using CSS
+- Post.tsx - Uses /api/makepost to post to the feed and to your profile history
+- WindowButtons.tsx - creates the onMinimize, onMaximize, and onClose button's for the browser window
+- Browser.tsx - main login page for sign-in and registering
+- feed.tsx - adds the abyss with the feed of all user posts
+- menu.tsx - links to external projects
+- Profile.tsx adds the ability to change your username, password, and delete your account. It also loads all your previous code
+- users.tsx - Fetches the user list from the /api/users
+- Desktop.tsx - Inverts the colors with the bottom left button and allows for the desktop app transitions
+- main.tsx - Renders the page
+
+  <p>&nbsp;   </p>
+
+### Wireframe
+- Below is our initial wireframe created during the middle of our quarter
+![wireframe.jpg](./wireframe/images/wireframe.jpg)
+![dataSchema.jpg](./wireframe/images/dataSchema.jpg)
+
+### Testing and unit tests
+- Please refer to our amazing dev diary located [here](./dev_diary/tests.md)
+
+  <p>&nbsp;   </p>
 
 ## Contributing
 
-
-We do not welcome contributions to Hostile! If you're interested in improving the platform or adding new features, please check out our contribution guidelines for how to submit issues, feature requests, and pull requests.
-
-
-If you want others to contribute to your project, provide guidelines on how they can do so. Include information about 
-how to report issues, submit feature requests, and make pull requests.
+- We do not welcome contributions to Hostile! If you're interested please fire a signal flare and we'll get back to you.
+  <p>&nbsp;   </p>
 
 ## License
 
 - Our website is VERY hostile please do not alter it, it WILL fight back and we cannot control it.
 - If you find ANY intuitive user design please report immediately to the head contributors
-
-Hostile is distributed under MIT license, which outlines the terms and conditions for its use, reproduction, and distribution.
+  
+<p>&nbsp;   </p>
 
 ## Acknowledgements
+Thank you to:
+- Rain
+- Dee Dee
+- Ellie
+- Paul Pham
 
-
-
-If Hostile includes third-party libraries, tools, or resources, give credit to the respective authors or projects.
+<p>&nbsp;   </p>
 
 ## Contact
-add Rain's discord
-add Paul's discord
+- Interested in contacting us? Reach out to either us or our mentor on discord!
+- discord: ferralforrest
+- discord: sn34k3rn3t
+- discord: spockmeow
 
-Provide contact information for users and contributors to reach out to you or the project team.
+<p>&nbsp;   </p>
 
-## Frequently Asked Questions (FAQ)
+- mentor's discord: life_long_learner
 
-Address common questions or issues that users might encounter.
-
-## Tests
-Include tests for app and provide examples of how to run them.
+<p>&nbsp;   </p>
 
 ## Roadmap
+- We're very excited for the future and what it holds, here are a few addictions we're looking to make to our application
+- Add dial-up noise to blue screen of death
+- Create a React alert that emulates win 95 pop ups
+- create fake ads on our social media platform and just bloatware looking additions that could be immersive :3
+- Make the Post compenent more interactive and have small animation of closing when you make a post
 
-Wishful Thinking
-put dial up audio over blue screen of death
-React alert emulating win 95 pop up
-Ads
-Ugly background for post?
-Post is a small component that pops up for you to make post and closes when you make it
-Add ability to store images in the database
-
-
-// Outline future plans and features for the project.
+<p>&nbsp;   </p>

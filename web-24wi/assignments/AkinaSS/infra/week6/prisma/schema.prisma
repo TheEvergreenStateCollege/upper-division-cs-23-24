@@ -26,13 +26,16 @@ model Product {
   belongsToId String
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
   updates     Update[]
+
   @@unique([id, belongsToId])
 }
 
 enum UPDATE_STATUS {
   IN_PROGRESS
-  SHIPPED
+  LIVE
   DEPRECATED
+  ARCHIVED
+  SHIPPED
 }
 
 model Update {
@@ -40,7 +43,7 @@ model Update {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  title   String
+  title   String        @db.VarChar(255)
   body    String
   status  UPDATE_STATUS @default(IN_PROGRESS)
   version String?
@@ -54,7 +57,7 @@ model Update {
 model UpdatePoint {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updatedAt
 
   name        String @db.VarChar(255)
   description String
