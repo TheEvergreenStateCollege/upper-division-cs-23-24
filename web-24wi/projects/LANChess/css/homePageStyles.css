@@ -3,7 +3,7 @@
 /* Adding custom font for style */
 @font-face {
   font-family: '3D Isometric Black';
-  src: url('/web-24wi/projects/LANChess/fonts/3DIsometric-YzLLy.ttf');
+  src: url('../fonts/3DIsometric-YzLLy.ttf');
 }
 
 
