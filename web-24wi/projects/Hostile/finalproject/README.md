@@ -86,18 +86,28 @@ Hostile is intuitive to use, following the familiar conventions of social media 
 
 ## Documentation
 
-Link to [video](https://github.com/TheEvergreenStateCollege/upper-division-cs/blob/main/web-24wi/projects/Hostile/finalproject/final-project.webm)
-add comments for each component
-add wireframe
+![Video of Hostile Usage and Functionality](./final-project.webm)
+- ButtonPicker.tsx - Randomly selects two buttons to be displayed on the browser
+- CatchAll.tsx - Under construction animation using CSS
+- Post.tsx - Uses /api/makepost to post to the feed and to your profile history
+- WindowButtons.tsx - creates the onMinimize, onMaximize, and onClose button's for the browser window
+- Browser.tsx - main login page for sign-in and registering
+- feed.tsx - adds the abyss with the feed of all user posts
+- menu.tsx - links to external projects
+- Profile.tsx adds the ability to change your username, password, and delete your account. It also loads all your previous code
+- users.tsx - Fetches the user list from the /api/users
+- Desktop.tsx - Inverts the colors with the bottom left button and allows for the desktop app transitions
+- main.tsx - Renders the page
+
+### Wireframe
+- Below is our initial wireframe created during the middle of our quarter
+![wireframe.jpg](./wireframe/images/wireframe.jpg)
+![dataSchema.jpg](./wireframe/images/dataSchema.jpg)
 
 ## Contributing
 
 
-We do not welcome contributions to Hostile! If you're interested in improving the platform or adding new features, please check out our contribution guidelines for how to submit issues, feature requests, and pull requests.
-
-
-If you want others to contribute to your project, provide guidelines on how they can do so. Include information about 
-how to report issues, submit feature requests, and make pull requests.
+- We do not welcome contributions to Hostile! If you're interested please fire a signal flare and we'll get back to you,
 
 ## License
 
@@ -126,14 +136,8 @@ Address common questions or issues that users might encounter.
 Include tests for app and provide examples of how to run them.
 
 ## Roadmap
-
-Wishful Thinking
-put dial up audio over blue screen of death
-React alert emulating win 95 pop up
-Ads
-Ugly background for post?
-Post is a small component that pops up for you to make post and closes when you make it
-Add ability to store images in the database
-
+<p>
+  In the upcoming phases of our React application development, we're planning to introduce a range of innovative and nostalgic features to enhance user experience and engagement. Firstly, we aim to incorporate the iconic dial-up audio over the classic blue screen of death when you attempt to exit the application. In a nod to operating systems of yesteryear, we will introduce a React alert system that emulates the familiar Windows 95 pop-up messages, blending old-school charm with modern functionality. To further emphasize the theme of technological excess, we plan to integrate fake advertisements that evoke the era of early internet bloatware, providing both humor and commentary on digital culture. The application's aesthetic will be boldly reimagined with an intentionally ugly background for posts, deliberately clashing with modern design norms to create a distinct and memorable visual experience. Lastly, we're looking to enhance our application's capabilities by adding the ability to store images directly in the database, significantly improving the way users share and interact with visual content. These updates are designed to offer a blend of nostalgia, innovation, and functionality, making our React application a unique and engaging platform for users.
+</p>
 
 // Outline future plans and features for the project.
