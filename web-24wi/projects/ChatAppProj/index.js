@@ -111,4 +111,4 @@ server.listen(PORT,() => {
     console.log("Server running on port 3000");
 })
 //tells the browser than API is accessable to all users 
-app.use(cors())
+//app.use(cors())

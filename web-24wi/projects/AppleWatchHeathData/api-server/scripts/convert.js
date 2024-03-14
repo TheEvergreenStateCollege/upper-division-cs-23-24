@@ -23,24 +23,26 @@ const main = async() => {
         }
 
         const jsonBody = {};
-        jsonBody["steps"] = dataPoint["dataPoint"];
-        jsonBody["distance"] = dataPoint["dataPoint"];
-        jsonBody["flights"] = dataPoint["dataPoint"];
-        jsonBody["activeEnergyCals"] = dataPoint["dataPoint"];
-        jsonBody["handwashingSeconds"] = dataPoint["dataPoint"];
-        jsonBody["restingEnergyCals"] = dataPoint["dataPoint"];
-        jsonBody["soundLevel"] = dataPoint["dataPoint"];
+        jsonBody["date"] = dataPoint[0];
+        jsonBody["steps"] = dataPoint[1];
+        jsonBody["distance"] = dataPoint[2];
+        jsonBody["flights"] = dataPoint[3];
+        jsonBody["activeEnergyCals"] = dataPoint[4];
+        jsonBody["handwashingSeconds"] = dataPoint[5];
+        jsonBody["restingEnergyCals"] = dataPoint[6];
+        jsonBody["soundLevel"] = dataPoint[7];
         jsonBody["userId"] = id;
 
+
         const response = await fetch(
-            "http://localhost:5000/daily-Watch-Data",
+            "http://localhost:5000/daily-watch-data",
             {
                 "method": "POST",
                 "headers": {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`,
                 },
-                "body": JSON.stringify(dataPoint)
+                "body": JSON.stringify(jsonBody)
             }
         );
         const json = await response.json();

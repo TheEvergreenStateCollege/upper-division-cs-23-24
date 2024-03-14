@@ -4,32 +4,26 @@ const port = 5000;
 const path = require("path");
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
-
-console.log(parsed['DATABASE_URL']);
-console.log(process.env['DATABASE_URL']);
-const prisma = new PrismaClient();
-
+const session = require("express-session");
 const bcrypt = require('bcrypt');
 
+console.log(process.env.DATABASE_URL);
 
+const prisma = new PrismaClient();
 
-// app.[method]([route], [route handler])
-app.get("/", (req, res) => {
-	// sending back an HTML file that a browser can render on the screen.
-	res.sendFile(path.resolve("pages/index.html"));
-});
+const saltRounds = 10; // Define the number of salt rounds
 
+// Session middleware configuration
+app.use(session({
+	secret: "your-secret-key",
+	resave: false,
+	saveUninitialized: false
+}));
 
-// Return search hit given :hit  URL route parameters
-app.get("/search-hit/:hit", (req, res) => {
-	// sending back an HTML file that a browser can render on the screen.
-	res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));
-});
-
-// creates and starts a server for our API on a defined port
-app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
-});
+app.use("/public", express.static(path.resolve("../public")));
+app.use("/static", express.static(path.resolve("../static")));
+app.use(express.json());
+app.use(express.urlencoded());
 
 app.post("/login", async (req, res) => {
 	const { username, password } = req.body;
@@ -61,59 +55,46 @@ app.post("/login", async (req, res) => {
 
 
 app.post("/user", async (req, res) => {
-	const { username, password } = req.body;
-  
-	// Implement password hashing using bcrypt before storing
-	const hashedPassword = await bcrypt.hash(password, 10); // Example with cost factor of 10
-  
-	try {
-	  const newUser = await prisma.user.create({
-		data: {
-		  username,
-		  password: hashedPassword, // Use the hashed password
-		},
-	  });
-	  console.log("User created:", newUser);
-	  res.status(201).send("User created successfully!"); // Success message
-	} catch (error) {
-	  console.error("Error creating user:", error);
-	  res.status(500).send("Error creating user"); // Error message
-	}
-  });
-  
+    const { username, password } = req.body;
 
-
-app.get("/users", async (req, res) => {
-	const allUsers = await prisma.user.findMany();
-	res.json(allUsers);
+    try {
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+        const newUser = await prisma.user.create({
+            data: {
+                username,
+                password: hashedPassword,
+            },
+        });
+        console.log("User created:", newUser);
+        res.status(201).send("User created successfully!");
+    } catch (error) {
+        console.error("Error creating user:", error); // Log the specific error
+        res.status(500).send("Error creating user");
+    }
 });
 
-app.get("/randomGraph", async (req, res) => {
-	let results = []
-	for (let i = 0; i < 10; i++) {
-		results.push({ "day": i, "stepCount": Math.round(Math.random() * 1000) });
-	}
-	res.json({ results });
+// Redirect root URL to login page
+app.get("/", (req, res) => {
+	res.redirect("/login");
 });
 
+app.listen(port, () => {
+	console.log(`Example app listening at http://localhost:${port}`);
+});
+
+// Removed redundant declaration of 'path' variable
+const publicPath = path.join(__dirname, "..", "public");
 
 app.get("/login", async (req, res) => {
-	res.sendFile(path.resolve("../login.html"));
+    res.sendFile(path.join(publicPath, "login.html"));
 });
 
-app.get("/register", async (req, res) => {
-	res.sendFile(path.resolve("../register.html"));
+app.get("/register", (req, res) => {
+    res.sendFile(path.join(publicPath, "register.html"));
 });
 
 app.get("/game", (req, res) => {
-	if (req.session && req.session.loggedIn) {
-		// User is logged in, send the game page
-		res.sendFile(path.resolve("../game.html"));
-	} else {
-		// User is not logged in, redirect to login page
-		res.redirect("/login");
-	}
+    res.sendFile(path.join(publicPath, "game.html"));
 });
 
-app.use(express.static("static"));
-app.use(express.json());
+//please work
