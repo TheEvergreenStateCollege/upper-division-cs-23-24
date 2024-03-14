@@ -34,10 +34,12 @@ model User {
 model Product {
   id          String   @id @default(uuid())
   createdAt   DateTime @default(now())
-  name        String
+
+  name        String   @db.VarChar(255)
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
   belongsToId String
   updates     Update[]
+  @@unique([id, belongsToId])
 }
 
 enum UPDATE_STATUS {
@@ -50,9 +52,9 @@ enum UPDATE_STATUS {
 model Update {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updateAt()
 
-  title   String        @db.VarChar(255)
+  title   String        
   body    String
   status  UPDATE_STATUS @default(IN_PROGRESS)
   version String?
