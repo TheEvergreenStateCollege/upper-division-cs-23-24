@@ -81,8 +81,26 @@ installed and how to install them.
 
 Hostile is intuitive to use, following the familiar conventions of social media platforms while offering a unique aesthetic experience.
 1. Login:
+ ![Pasted image 20240313132249](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/7bdf5e93-5795-4c34-ac8f-8358d92611be)
 2. Post to your feed:
-3. View the feed:
+  ![Pasted image 20240313132104](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/9820201d-ca13-4c49-8590-ac7671395dc0)
+3. Invert your colors!
+   ![Pasted image 20240313132123](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/d1d0fdbe-59c0-487c-9b73-0c9cde5f2b0b)
+4. View your feed:
+   ![Pasted image 20240313131601](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/019ec40c-cbc5-4a26-9f15-b7f5bc59b1b6)
+5. View your profile and all posts that you've made:
+   ![Pasted image 20240313131628](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/a903d086-2448-4c47-b582-d7b3974800e7)
+6. Modify your Account to change the username, password, or delete your account:
+   ![Pasted image 20240313131825](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/d3245898-9796-474b-b702-aec2e11d1349)
+7. explore other's projects:
+   ![image](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114445048/426bf6e6-5073-49c0-a647-26a3b4170ff1)
+
+
+
+
+
+
+9. View the feed:
 
 ## Documentation
 
@@ -123,9 +141,14 @@ Hostile is distributed under MIT license, which outlines the terms and condition
 If Hostile includes third-party libraries, tools, or resources, give credit to the respective authors or projects.
 
 ## Contact
-add Rain's discord
-add Paul's discord
+- Interested in contacting us? Reach out to either us or our mentor on discord!
+- discord: ferralforrest
+- discord: sn34k3rn3t
+- discord: spockmeow
 
+<p>&nbsp;   </p>
+
+- mentor: 
 Provide contact information for users and contributors to reach out to you or the project team.
 
 ## Frequently Asked Questions (FAQ)
