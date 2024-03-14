@@ -60,7 +60,7 @@ async function getUserValuesFromStorage(){
 //Loads a window alert with the code for a friend to join the game.
 async function gameWaitingRoom(userColor){
     if (userColor === 'white') {
-        window.alert('ROOM CODE: ' + '[ ' + gameID + ' ]');
+        alert('ROOM CODE: ' + '[ ' + gameID + ' ]');
     }
 }
 
@@ -139,9 +139,9 @@ async function renderBoard(boardCache, userColor, isItUsersTurn){
 async function initializeNewGameOnClient() {
     gameActive = true;
     await getUserValuesFromStorage();
-    await gameWaitingRoom(userColor);
     await determineIsItUsersTurn();
     await renderBoard(boardCache, userColor, isItUsersTurn);
+    await gameWaitingRoom(userColor);
 }
 
 //Now to initialize:
