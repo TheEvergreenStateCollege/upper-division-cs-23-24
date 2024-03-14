@@ -33,6 +33,9 @@ body{
 /* ------------------------------twigs.html------------------------------ */
 #cardHolder{
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .card{
     display: inline-block;
@@ -68,12 +71,15 @@ body{
 #imgHolder{
     display: inline-block;
     width: 60%;
+    max-height: 25rem;
+    overflow: auto;
 }
 
 .infoImg{
     object-fit: contain;
     background-size: cover;
-    max-height: 50%;
+    height: 19rem;
+    max-height: 20rem;
 }
 
 #keyCharacteristics{
@@ -89,8 +95,115 @@ body{
 }
 
 
+/*-----------------------ID form stuff----------------*/
+
+h1{
+    text-align: center;
+}
+
+.formSection{
+    background-color: rgb(218, 191, 160);
+    padding: 1% 5%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10rem 0;
+}
 
 
+.formClass {
+    display: flex;
+    justify-content: right;
+}
+
+#formHolder{
+    display: block;
+    margin: 10%;
+}
+
+#formHolder h1{
+    font-size: 5rem;
+    background-color: rgb(98, 161, 98);
+}
+
+#formHolder h3{
+    font-size: 1.2rem;
+}
+
+#twigMorphology{
+    max-height: 30rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formSection img{
+    max-height: 20rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Q{
+    display: flex;
+    max-height: 5rem;
+    margin: 1rem;
+}
+
+
+.box{
+    margin: 10px;
+    border-bottom: 3px dotted #353535;
+    resize: vertical;
+    overflow: auto;
+}
+
+.boxLeft {
+    float: left;
+    max-width: 50%;
+    padding: 10px;
+}
+
+.boxLeft img{
+    max-height: 15rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*--question selecters styling--*/
+.holder input[type="radio"] {
+    opacity: 0;
+    width: 0;
+}
+
+.holder label {
+    display: inline-block;
+    background-color: #eaffd0;
+    padding: .5rem 1rem;
+    border: 1px solid #b6ce99;
+    border-radius: 5rem;
+}
+
+.holder input[type="radio"]:checked + label {
+    background-color:rgb(70, 182, 70);
+    border-color: #4c4;
+    color: aliceblue;
+}
+
+.holder label:hover {
+    background-color: rgb(230, 245, 132);
+}
+
+/*-----------------------profile stuff----------------*/
+.newTwig-card{
+    background-color: var(--acsentcolor);
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.newTwig-card header{
+    font-size: 3rem;
+}
 
 
 
@@ -137,4 +250,9 @@ button {
     border-radius: 40px;
     color: var(--darkcolor);
     font-size: 2rem;
+}
+
+button:hover{
+    background-color: rgb(202, 224, 119);
+    color: var(--darkcolor);
 }
