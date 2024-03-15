@@ -4,8 +4,9 @@
 	100% {background-position: bottom right;}
 }
 @keyframes moveIt2 {
-	from {background-position: bottom;}
-	to {background-position: top;}
+	0% {background-position: bottom;}
+	50% {background-position: top;}
+	100% {background-position: bottom;}
 }
 @keyframes rotateIt1 {
 	0% {rotate: 0deg; width: 150px;}
@@ -89,7 +90,7 @@ body {
 	line-height: 115px;
 	font-style: italic;
 	font-family: "TrattatelloManual", fantasy;
-	animation: moveIt2 5s ease-in-out infinite;
+	animation: moveIt2 10s ease-in-out infinite;
 }
 .text2 {
 	font-size: 50px;

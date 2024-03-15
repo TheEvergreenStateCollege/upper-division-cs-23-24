@@ -25,6 +25,8 @@ button.addEventListener("click", async (event) => {
   // response has a json body
   const jsonBody = await response.json();
     console.log(`Response ${JSON.stringify(jsonBody)}`);
-    
+    if (jsonBody.hasOwnProperty("token")) {
+      
+    }
   });
 
