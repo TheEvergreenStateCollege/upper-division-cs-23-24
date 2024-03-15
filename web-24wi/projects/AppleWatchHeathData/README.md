@@ -21,7 +21,7 @@ I would say everything, but to be more specific, the backend. It was the hardest
 
 ## What we learned
 
-I learned front and backend web engineering.  
+I learned frontend skills needed to built a visible webpage for a user to see which include html, css, and javascript. I tried to learn backend functionality which would make the website way better such as being able to makle an account and proper security to the page. For the backend skills we used, we needed a backend programming and we used  Node.js. For the frameworks, we used Express, then for the package manager, we used npm, and for the database, we used PostgreSQL. 
 
 ## What's next for Apple Watch Data Viewer
 
