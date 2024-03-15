@@ -1,4 +1,4 @@
-![screenshot](LanChessWordmarkLogoWhite.png)
+![screenshot](web-24wi/projects/LANChess/img/overlays/LanChessWordmarkLogoWhite.png)
 
 
 LAN Chess is an online multiplayer chess web application completed as a final project for the course Student Originated Software Winter 24' at TESC.
