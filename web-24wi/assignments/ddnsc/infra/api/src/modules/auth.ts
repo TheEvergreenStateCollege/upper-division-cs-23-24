@@ -15,9 +15,12 @@ export const createJWT = (user) => {
             username: user.username
         },
         process.env.JWT_SECRET
-    )
-    return token
+    );
+
+    console.log('Generated JWT token:', token); // Log the token
+    return token;
 }
+
 
 export const protect = (req, res, next) => {
     const bearer = req.headers.authorization
