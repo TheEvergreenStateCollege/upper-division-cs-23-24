@@ -1,7 +1,6 @@
-import { $Enums } from "@prisma/client"
-import prisma from "../db"
+import prisma  from "../db"
 
-export const getOneUpdate = async (req: { params: { id: any } }, res: { json: (arg0: { data: { id: string; createdAt: Date; updatedAt: Date; title: string; body: string; status: $Enums.UPDATE_STATUS; version: string | null; asset: string | null; productId: string } | null }) => void }) => {
+export const getOneUpdate = async (req, res) => {
     const update = await prisma.update.findUnique({
         where: {
             id: req.params.id
@@ -11,7 +10,7 @@ export const getOneUpdate = async (req: { params: { id: any } }, res: { json: (a
     res.json({data: update})
 }
 
-export const getUpdates = async (req: { user: { id: any } }, res: { json: (arg0: { data: any[] }) => void }) => {
+export const getUpdates = async (req, res) => {
     const products = await prisma.product.findMany({
         where: {
             belongsToId: req.user.id
@@ -27,7 +26,7 @@ export const getUpdates = async (req: { user: { id: any } }, res: { json: (arg0:
 
     res.json({data: updates})
 }
-export const createUpdate = async (req: { body: { productId: any; title: any; body: any } }, res: { json: (arg0: { message?: string; data?: { id: string; createdAt: Date; updatedAt: Date; title: string; body: string; status: $Enums.UPDATE_STATUS; version: string | null; asset: string | null; productId: string } }) => void }) => {
+export const createUpdate = async (req, res) => {
 
 
     const product = await prisma.product.findUnique({
@@ -52,7 +51,7 @@ export const createUpdate = async (req: { body: { productId: any; title: any; bo
     res.json({data: update})
 }
 
-export const updateUpdate = async (req: { user: { id: any }; params: { id: any }; body: any }, res: { json: (arg0: { message?: string; data?: { id: string; createdAt: Date; updatedAt: Date; title: string; body: string; status: $Enums.UPDATE_STATUS; version: string | null; asset: string | null; productId: string } }) => void }) => {
+export const updateUpdate = async (req, res) => {
     const products = await prisma.product.findMany({
         where: {
             belongsToId: req.user.id,
@@ -66,7 +65,7 @@ export const updateUpdate = async (req: { user: { id: any }; params: { id: any }
         return [...allUpdates, ...product.updates]
     }, [])
 
-    const match = updates.find((update: { id: any }) => update.id === req.params.id)
+    const match = updates.find(update => update.id === req.params.id)
 
     if (!match) {
         // handle this
@@ -84,7 +83,7 @@ export const updateUpdate = async (req: { user: { id: any }; params: { id: any }
     res.json({data: updatedUpdate})
 }
 
-export const deleteUpdate = async (req: { user: { id: any }; params: { id: any } }, res: { json: (arg0: { message?: string; data?: { id: string; createdAt: Date; updatedAt: Date; title: string; body: string; status: $Enums.UPDATE_STATUS; version: string | null; asset: string | null; productId: string } }) => void }) => {
+export const deleteUpdate = async (req, res) => {
     const products = await prisma.product.findMany({
         where: {
             belongsToId: req.user.id,
@@ -98,7 +97,7 @@ export const deleteUpdate = async (req: { user: { id: any }; params: { id: any }
         return [...allUpdates, ...product.updates]
     }, [])
 
-    const match = updates.find((update: { id: any }) => update.id === req.params.id)
+    const match = updates.find(update => update.id === req.params.id)
 
     if (!match) {
         // handle this

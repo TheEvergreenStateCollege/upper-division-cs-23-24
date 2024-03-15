@@ -1,7 +1,7 @@
 import prisma from '../db'
 import { comparePasswords, createJWT, hashPassword } from '../modules/auth'
 
-export const createNewUser = async (req: { body: { username: any; password: string } }, res: { json: (arg0: { token: string }) => void }) => {
+export const createNewUser = async (req, res) => {
     const user = await prisma.user.create({
         data: {
             username: req.body.username,
@@ -13,14 +13,14 @@ export const createNewUser = async (req: { body: { username: any; password: stri
     res.json({ token })
 }
 
-export const signin = async (req: { body: { username: any; password: string; }; }, res: { status: (arg0: number) => void; json: (arg0: { message?: string; token?: string; }) => void; }) => {
+export const signin = async (req, res) => {
     const user = await prisma.user.findUnique({
         where: {
             username: req.body.username
         }
     })
 
-    const isValid = user ? await comparePasswords(req.body.password, user.password) : false;
+    const isValid = await comparePasswords(req.body.password, user.password)
 
     if (!isValid) {
         res.status(401)
@@ -28,10 +28,6 @@ export const signin = async (req: { body: { username: any; password: string; }; 
         return
     }
 
-    if (user !== null) {
-        const token = createJWT(user);
-        res.json({ token });
-    } else {
-        // Handle the case where user is null
-    }
+    const token = createJWT(user)
+    res.json({ token })
 }
