@@ -25,7 +25,7 @@ Here the user can register or login with an account using a simple username and 
 
 
 #### Home Page
-Here the user can either create a new game which will provide them a code for a friend to search for. Or if the user's friend already has a game started they can put the code into the textbox and click search to join!
+Here the user can either create a new online game which will provide them a code for a friend to search for. Or if the user's friend already has an online game started they can put the code into the textbox and click search to join!
 
 ### Clients
 #### Local Game Client
