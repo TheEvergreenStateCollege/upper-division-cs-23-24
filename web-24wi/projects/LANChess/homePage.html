@@ -1,26 +1,22 @@
 <!--homePage.html-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Home</title>
-<link rel="stylesheet" href="css/homePageStyles.css">
-</head>in
-<body>
-        <div class="container-title">
-                <img src="img/overlays/LanChessWordmarkLogoWhite.png" id="titleLogo" onclick=""/>
-        </div>
-
-        <div class="container-forms">
-                <input type="text" id="textBoxFormForUserToEnterRoomID" placeholder="enter room id" autocomplete="off" />  
-        </div>
-
-        <div class="container-buttons">
-                <img src="img/buttons/user-search-button.png" id="searchButton" onclick="joinOnlineGame()"/>
-                <img src="img/buttons/user-createonlinegame-button.png" id="createNewOnlineGameButton" onclick="createNewOnlineGame()"/>
-                <img src="img/buttons/user-localgame-button.png" id="startLocalGameButton"  onclick="window.location.href='localGamePage.html'"/>
-                
-        </div>
-        
-        <script src="js/homePage.js"></script>
-</body>
+        <head>
+                <title>Home</title>
+                <link rel="stylesheet" href="css/homePageStyles.css">
+        </head>
+        <body>
+                <div class="container-title">
+                        <img src="img/overlays/LanChessWordmarkLogoWhite.png" id="titleLogo" onclick=""/>
+                </div>
+                <div class="container-forms">
+                        <input type="text" id="textBoxFormForUserToEnterRoomID" placeholder="enter room id" autocomplete="off" />  
+                </div>
+                <div class="container-buttons">
+                        <img src="img/buttons/user-search-button.png" id="searchButton" onclick="joinOnlineGame()"/>
+                        <img src="img/buttons/user-createonlinegame-button.png" id="createNewOnlineGameButton" onclick="createNewOnlineGame()"/>
+                        <img src="img/buttons/user-localgame-button.png" id="startLocalGameButton"  onclick="window.location.href='localGamePage.html'"/>
+                </div>
+                <script src="js/homePage.js"></script>
+        </body>
 </html>
