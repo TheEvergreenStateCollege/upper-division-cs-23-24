@@ -5,8 +5,11 @@ LAN Chess is an online multiplayer chess web application completed as a final pr
 
 ### [LAN Chess](https://wshine.arcology.builders)
 
-<img src=demo.gif  height="372" width="664">
-![demo](demo.gif)
+
+
+
+https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/156841820/2ce63dc7-8e49-4792-9f54-49ffdc73e7bc
+
 
 
 ## Features
