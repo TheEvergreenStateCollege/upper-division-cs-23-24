@@ -92,8 +92,3 @@ https://stock.adobe.com/images/retrofuturistic-geometry-design-elements-collecti
 
 
 
-
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
