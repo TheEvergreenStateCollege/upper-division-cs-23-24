@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--Initial Title: W3.CSS Template-->
+  <title>The Chainsmokers</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
+  <!-- JQuery Library Link -->
+  <script src="JavaScript/jquery-3.7.1.min.js"></script>
+</head>
+
+<body onload="getTime()" class="background">
+
+<!--id for wrapping all content-->
+<div id="container">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-md navbar-dark w-100">
+
+        <button class="navbar-toggler p-1 m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="nav-bar navbar-nav mt-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#band">BAND</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#tour">TOUR</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#contact">CONTACT</a></li>
+            <li class="nav-item dropdown dropbtn">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">MORE</a>
+              <ul class="dropdown_list dropdown-menu mt-4">
+                <li><a class="dropdown-item" href="merchandise.html">Merchandise</a></li>
+                <li><a class="dropdown-item" href="extras.html">Extras</a></li>
+                <li><a class="dropdown-item" href="media.html">Media</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Display Clock -->
+      <p id="time" class="text-center mt-3"></p>
+    
+    </header>
+    
+
+  <!-- Page content -->
+  <main>
+
+    <!-- Thank you note -->
+    <div id="thankYou">
+      <h1>Thank you for submitting, we'll be in touch soon.</h1>
+      <button type="button" id="goBack" class="btn btn-primary">Go back to main page</button>
+    </div>
+
+    <!-- End Page Content -->
+  </main>
+
+  <!-- Footer -->
+    <footer>
+      <a href="https://www.facebook.com/thechainsmokers">
+        <button>
+          <i class="fa fa-facebook-official fa-lg"></i>
+        </button>
+      </a>
+      <a href="https://www.instagram.com/thechainsmokers/">
+        <button>
+          <i class="fa fa-instagram fa-lg"></i>
+        </button>
+      </a>
+      <a href="https://www.snapchat.com/add/thechainsmokers">
+        <button>
+          <i class="fa fa-snapchat fa-lg"></i>
+        </button>
+      </a>
+      <a href="https://www.reddit.com/r/The_Chainsmokers/?rdt=47015">
+        <button>
+          <i class="fa fa-reddit fa-lg"></i>
+        </button>
+      </a>
+      <a href="https://twitter.com/thechainsmokers">
+        <button>
+          <i class="fa fa-twitter fa-lg"></i>
+        </button>
+      </a>
+      <a href="https://open.spotify.com/artist/69GGBxA162lTqCwzJG5jLp">
+        <button>
+          <i class="fa fa-spotify fa-lg"></i>
+        </button>
+      </a>
+
+      <p>&copy; Creative Commons licenses</p>
+    </footer>
+
+    <!-- Clock -->
+    <script src="JavaScript/timeClock.js"></script>
+
+    <!-- Form Validation -->
+    <script>
+      const form = document.getElementById("goBack");
+      form.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.location.href = "index.html";
+      });
+    </script>
+</div>
+</body>
+</html>
