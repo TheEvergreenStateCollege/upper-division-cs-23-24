@@ -22,7 +22,7 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+        <Header title="DASHBOARD" subtitle="Welcome to the DrvierData DashBoard" />
 
         <Box>
           <Button
@@ -56,7 +56,7 @@ const Dashboard = () => {
         >
           <StatBox
             title="12,361" //random value
-            subtitle="Emails Sent"
+            subtitle="Total Miles"
             progress="0.75"
             increase="+14%"
             icon={
@@ -75,7 +75,7 @@ const Dashboard = () => {
         >
           <StatBox
             title="44,997" //random value
-            subtitle="Sales Obtained"
+            subtitle="Total Time"
             progress="0.50"
             increase="+21%"
             icon={
@@ -94,7 +94,7 @@ const Dashboard = () => {
         >
           <StatBox
             title="33,877" //random value
-            subtitle="New Clients"
+            subtitle="Total Cost"
             progress="0.4"
             increase="+5%"
             icon={
@@ -112,8 +112,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1,223,223" //random value
-            subtitle="TPS"
+            title="$.14" //random value
+            subtitle="Cost per mile"
             progress="0.80"
             increase="+43%"
             icon={
@@ -182,7 +182,7 @@ const Dashboard = () => {
             p="15px"
           >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
+              Recent Trips
             </Typography>
           </Box>
           {mockTransactions.map((transaction, i) => (
@@ -228,7 +228,7 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaigns
+            Money saved during the Quarter
           </Typography>
           <Box
             display="flex"
@@ -242,9 +242,9 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $435.01 revenue generated
+              $435.01 dollars saved
             </Typography>
-            <Typography>Includes 100% sales</Typography>
+            <Typography>Includes 100% tracking</Typography>
           </Box>
         </Box>
 
@@ -259,7 +259,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            Sales Quantity
+            24 Hour Budget
           </Typography>
           <Box height="250px" mt="-20px">
             <PieChart isDashboard={true} />
@@ -277,7 +277,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ marginBottom: "15px" }}
           >
-            Geography Based Traffic
+            Driving routes
           </Typography>
           <Box height="200px">
             <GeographyChart isDashboard={true} />

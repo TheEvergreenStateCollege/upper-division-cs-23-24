@@ -24,3 +24,39 @@ npx prisma format
 npx prisma generate --save-dev
 npm i @prisma/client --save
 npx prisma migrate dev --name init
+
+database_url syntax:
+DATABASE_URL="postgresql://username:password@hostname:port/database_name"
+
+To find the database URL in your Prisma .env file, you can open the .env file in your project directory using a text editor or code editor. 
+Look for a variable named DATABASE_URL or something similar, as this is the convention for specifying the database connection URL in Prisma projects.
+
+In this example, replace username, password, hostname, port, and database_name with the actual credentials and connection details for your database. 
+The database URL should follow the appropriate format for the type of database you're using (e.g., PostgreSQL, MySQL, SQLite).
+
+If you're using Prisma with a different configuration or have custom environment variable names, you'll need to look for those specific variables in your .env file. 
+The database URL should be clearly defined and identifiable within the .env file.
+
+$ git commit -m "A test commit message to demonstrate the initial config, your message will be different."
+[pham-week4 7b17c6a9] Added prisma schema from class on 1/29 and fixed up relations with npx prisma format.
+ Committer: Ubuntu <ubuntu@ip-172-31-31-151.us-west-2.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 5 files changed, 221 insertions(+), 18 deletions(-)
+ create mode 100644 web-24wi/assignments/ppham/infra/api-server/README.md
+
+Command to run prisma database:
+autossh -M 30001 -o ControlMaster=auto -o ControlPath=/tmp/mysshcontrolpath -fNT -L 5432:localhost:5432 -i ./id_ecdsa ubuntu@AkinaSS.arcology.builders
+
+Command to run ssh tunneling
+ssh -L 5432:localhost:5432 -i .\Documents\infrastructure.pem ubuntu@AkinaSS.arcology.builders

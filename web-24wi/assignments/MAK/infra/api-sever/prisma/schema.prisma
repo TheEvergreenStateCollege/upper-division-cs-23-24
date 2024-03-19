@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  username  String    @unique
+  password  String
+  updates   Update[]
+  Product   Product[]
+//  USCity    USCity[]
+}
+
+//model USCity {
+//  id          Int         @id @default(autoincrement())
+//  name        String      @db.VarChar(255)
+//  CreatedAt   DateTime    @default(now())
+//  latitude    Float
+//  longitude   Float
+//  authorId    Int
+//  author      User        @relation(fields: [authorId], references: [id])
+//}
+
+
+model Product {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+
+  name        String   @db.VarChar(255)
+  belongsTo   User     @relation(fields: [belongsToId], references: [id])
+  belongsToId String
+  updates     Update[]
+  @@unique([id, belongsToId])
+}
+
+enum UPDATE_STATUS {
+  IN_PROGRESS
+  LIVE
+  DEPRECATED
+  ARCHIVED
+}
+
+model Update {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updateAt()
+
+  title   String        
+  body    String
+  status  UPDATE_STATUS @default(IN_PROGRESS)
+  version String?
+  asset   String
+
+  productId    String
+  product      Product       @relation(fields: [productId], references: [id])
+  updatePoints UpdatePoint[]
+  User         User?         @relation(fields: [userId], references: [id])
+  userId       String?
+}
+
+model UpdatePoint {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+
+  name        String @db.VarChar(255)
+  description String
+
+  updateId String
+  update   Update @relation(fields: [updateId], references: [id])
+}

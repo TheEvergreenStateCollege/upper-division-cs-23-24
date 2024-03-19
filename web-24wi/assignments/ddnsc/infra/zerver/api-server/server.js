@@ -20,6 +20,20 @@ app.get("/search-hit/:hit", (req, res) => {
   res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));
 });
 
+app.get("/randomGraph", async (req, res) => {
+  let results = [];
+  for (let i = 0; i < 10; i += 1) {
+    results.push({ "day": i, "stepCount": Math.round(Math.random() * 1000) });
+  }
+  res.json({ results });
+});
+
+app.get("/graph.html", (req, res) => {
+  res.sendFile(path.resolve("pages/graph.html"))
+})
+
+
+
 // creates and starts a server for our API on a defined port
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

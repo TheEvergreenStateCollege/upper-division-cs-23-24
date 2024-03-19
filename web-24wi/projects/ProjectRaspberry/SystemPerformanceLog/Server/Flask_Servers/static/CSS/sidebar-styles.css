@@ -1,0 +1,444 @@
+/* Styles instructions for the mainMenu sidebar */
+
+/* Reset and box-sizing rules */
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+/* Section and typography */
+section {
+    position: relative;
+    left: 100px;
+}
+
+h1 {
+    margin: 80px 0 10px 0;
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px #50a3a2,
+                 2px 2px 0px #50a3a2,
+                 3px 3px 0px #50a3a2,
+                 4px 4px 0px #50a3a2;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+/* Body and background */
+body {
+    padding: 100px 0;
+    background: rgb(173, 190, 208);
+    color: whitesmoke;
+    max-width: 640px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+}
+
+nav {
+    float: left;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: transparent;
+}
+
+nav ul {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+    width: 70px;
+    cursor: pointer;
+    background: #50a3a2;
+    text-transform: uppercase;
+    transition: all .4s ease-out;
+    margin: 20px 0;
+}
+
+nav ul li:after {
+	position: absolute;
+	background: whitesmoke;
+	color: #50a3a2;
+	top:0;
+	left: 70px;
+	width: 70px; height: 100%;
+    opacity:.5;
+    transform: perspective(400px) rotateY(90deg);
+	transform-origin: 0 100%;
+	transition:all .4s ease-out;
+}
+
+nav ul li:nth-child(1):after { 
+	content: "Home";
+	line-height: 45px;
+}
+nav ul li:nth-child(2):after { 
+	content: "About";
+	line-height: 40px;
+}
+nav ul li:nth-child(3):after { 
+	content: "GitHub";
+    line-height: 50px;
+}
+nav ul li:nth-child(4):after { 
+	content: "Say hi";
+	line-height: 35px;
+}
+
+nav ul li:hover:after {
+    opacity: 1;
+      transform: perspective(400px) rotateY(0deg) scale(1) ;
+  }
+  
+  
+  nav ul li > div {
+      display: inline-block;
+      padding: 25px 0;
+      background: transparent;
+  }
+  
+  nav ul li div { position: relative; }
+  
+  .roof {
+      width: 0;
+      height: 0;
+      top:2px;
+      right: -13.5px;
+      border-style: solid;
+      border-width: 0 21px 15px 21px;
+      border-color: transparent transparent whitesmoke transparent;
+  }
+  
+  .roof-edge {
+      position: absolute;
+      z-index: 20;
+      left: -17px;
+      top: 3px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 17px 12px 17px;
+      border-color: transparent transparent #50a3a2 transparent;
+  }
+  /*white triangle over red triangle*/
+  .roof-edge:after {
+      position: absolute;
+      left: -14.5px;
+      top: 3px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 14.5px 10px 14.5px;
+      border-color: transparent transparent whitesmoke transparent;
+  }
+  
+  .front {
+      position: relative;
+      top: 1px;
+      width: 28.5px;
+      height: 25px;
+      margin: 0 auto;
+      background: whitesmoke;
+  }
+  /*door*/
+  .front:after {
+      position: absolute;
+      background: #50a3a2;
+      width: 11px;
+      height: 13px;
+      bottom: 0;
+      left:9px;
+  }
+  
+  /*/// About me ////*/
+  
+  .head {
+      width: 32px;
+      height: 35px;
+      background: whitesmoke;
+      border-radius:9px;
+      left: 18px;
+  }
+  /*mouth*/
+  .head:after {
+      width: 4px;
+      height: 10px;
+      background: whitesmoke;
+      position: absolute;
+      border-radius:4px 0 0 4px;
+      top:21px;
+      left: 18px;
+      transform:rotate(270deg);
+  }
+  
+  .eyes {
+      width: 8px;
+      height: 5px;
+      border-radius: 50%;
+      position: absolute;
+      top: 10px;
+      left: 5px;
+      background: #50a3a2;
+  }
+  /*right eye*/
+  .eyes:after {
+      content: '';
+      width: 8px;
+      height: 5px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 14px;
+      background: #50a3a2;
+  }
+
+  /*left eye*/
+  .eyes:before {
+    width: 8px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 14px;
+    background: #50a3a2;
+}
+  
+  .beard {
+      width: 32px;
+      height: 17px;
+      background: #50a3a2;
+      border:2px solid whitesmoke;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius:0 0 8px 8px;
+  }
+  /*nose*/
+  .beard:after {
+      position: absolute;
+      top:-2px;
+      left: 11px;
+      background: whitesmoke;
+      width:6px;
+      height: 4px;
+      border-left:1px solid #50a3a2;
+      border-right:1px solid #50a3a2;
+  }
+  
+  /*//work//*/
+  
+  .paper {
+      position: relative;
+      height:50px;
+      width: 36px;
+      left: 16px;
+      background: whitesmoke;
+      border:2px solid whitesmoke;
+  }
+  
+  /*window*/
+  .paper:after {
+      position: absolute;
+      top:1px;
+      left: 16px;
+      width: 50px;
+      height: 36px;
+      background: whitesmoke;
+      border-top:4px solid #50a3a2;
+  }
+  
+  .lines {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      width: 11px;
+      box-shadow: 0 0 0 1px #50a3a2;
+  }
+  
+  .lines:after {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      width: 11px;
+      box-shadow: 0 0 0 1px #50a3a2;
+  }
+  
+  .lines:nth-child(2) {
+      position: absolute;
+      top: 26px;
+      left: 23px;
+      width: 11px;
+  }
+  
+  .lines:nth-child(2):after {
+      position: absolute;
+      top: 26px;
+      left: 23px;
+      width: 11px;
+  }
+  
+  .lines:nth-child(3) {
+      position: absolute;
+      top: 36px;
+      left: 26px;
+      width: 14px;
+  }
+  
+  .lines:nth-child(3):after {
+      display: none;
+  }
+  
+  /*//mail //*/
+  
+  .mail-base {
+      position: relative;
+      width: 32px;
+      height: 30px;
+      left: 18px;
+      background: whitesmoke;
+  }
+  
+  .mail-top {
+      position: absolute;
+      z-index: 20;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      transform: rotate(180deg);
+      border-style: solid;
+      border-width: 0 16px 11px 16px;
+      border-color: transparent transparent #50a3a2 transparent;
+  }
+  
+  .mail-top:after {
+      position: absolute;
+      z-index: 20;
+      left: -16px;
+      top: 3px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 16px 9px 16px;
+      border-color: transparent transparent #50a3a2 transparent;
+  }
+
+.home-icon {
+    position: relative;
+}  
+
+/* 3D rotating effect */
+.home-icon-link, .about-icon, .projects-icon, .mail-icon {
+    perspective: 1000px;
+}
+
+.home-icon-link:hover, .about-icon:hover, .projects-icon:hover, .mail-icon:hover {
+    /* rotate on hover */
+    transform: rotateY(180deg);
+    transition: transform 0.6s;
+}
+
+.home-icon-link {
+    display: block;
+    text-decoration: none;
+    color: currentColor;
+}
+
+/* Instructions for vertical footer */
+.vertical-footer {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #30a3a2; /*OG #f0f0f0*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for vertical footer content */
+.vertical-footer p {
+    margin: 20px 0; /* Spacing between paragraphs */
+    color: #333;
+}
+
+/* Log out button */
+.vertical-footer .logout-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 500px;
+    background-color: #50a3a2;
+    color: whitesmoke;
+    text-decoration: none;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.vertical-footer .logout-button:hover {
+    background-color: #077187;
+}
+
+
+
+/* Instructions for Calculator_app */
+/* These instructions down-size the image used,
+   and place the image in a desired location on the verticle footer. */
+.calculator-app-link {
+    display: block;
+    margin-top: 10px; /* adjust this for spacing */
+}
+
+.calculator-icon {
+    width: 60px;  /* adjust this to fit on verticle footer */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.vertical-footer a {
+    margin-bottom: 20px; /* Adds space below each link */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.raspberrysmiling-icon {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: 100px; 
+}
+
+.calculator-icon {
+    width: 60px;  
+    height: auto;
+}
+
+/* United States Map link */
+.UnitedStatesMap-link {
+    display: block;
+    margin-top: 40px;
+}
+
+/* United States Map icon */
+.USAmap-icon {
+    width: 60px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}

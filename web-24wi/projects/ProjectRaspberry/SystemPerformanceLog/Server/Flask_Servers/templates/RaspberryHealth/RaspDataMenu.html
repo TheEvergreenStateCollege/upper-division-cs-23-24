@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Health</title>
+    <link rel="stylesheet" href="/static/CSS/Raspberrystyle.css">
+    
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('raspberry_health') }}">
+            <img src="/static/assets/raspberry.png" alt="Raspberry" class="header-logo">
+        </a>
+        <h1> Raspberry Health Dashboard</h1>
+    </header>
+    <nav id="menu">
+        <button id="view-all-data" data-target="view all data">View All Data</button>
+        <button id="view-unique-os-names" data-target="view unique os names">View Unique OS Names</button>
+        <button id="filter-os-names" data-target="filter by os name.">Filter OS Name</button>
+        <button id="filter-by-date-and-time" data-target="filter by date and time">Filter By Date and Time</button>
+        <button id="temperature" data-target="CPU Temp">CPU Temperature</button>
+        
+        <!-- TODO: implement  the above button id's -->
+        <button data-target="wi-fi strength">Wi-Fi Strength</button>
+        <button data-target="wi-fi quality">Wi-Fi Quality</button>
+        <button data-target="cpu">CPU Usage</button>
+        <button data-target="memory">Memory Usage</button>
+        <button data-target="disk">Disk Usage</button>
+        <button data-target="network traffic">Network Traffic Usage</button>
+        <button data-target="print json data">JSON data</button>
+        
+    </nav>
+    <main id="content">
+        <div id="data-container">Loading data...</div>
+    </main>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+    <!-- View All Data -->
+    <script>
+    document.getElementById('view-all-data').addEventListener('click', function() {
+        fetch('/raspberryhealth/view-all-data')
+            .then(response => response.json())
+            .then(data => {
+                // Process and display the data
+                const container = document.getElementById('data-container');
+                container.innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error:', error));
+    });
+    </script>
+    
+    <!-- View Unique OS Names -->
+    <script>
+    document.getElementById('view-unique-os-names').addEventListener('click', function() {
+        fetch('/raspberryhealth/view-unique-os-names')
+        .then(response => response.json())  // Need to convert to JSON
+        .then(data => {
+            // Process and display the data
+            const container = document.getElementById('data-container');
+            container.innerHTML = 'Unique OS Names: <br>' + data.join(', ');
+        })
+        .catch(error => console.error('Error:' , error));
+    });
+    </script>
+    
+    <!-- Filter OS Names -->
+    <script>
+    document.getElementById('filter-os-names').addEventListener('click', function() {
+        fetch('/raspberryhealth/filter-os-name')
+        .then(response => response.json())  // Need to convert to JSON
+        .then(data => {
+            // Process and display the data
+            const container = document.getElementById('data-container');
+            container.innerHTML = 'Filter OS Names: <br>' + data.join(', ');
+        })
+        .catch(error => console.error('Error:' , error));
+    });
+    </script>
+
+    <!-- Filter Date and Time -->
+    <script>
+    document.getElementById('filter-by-date-and-time').addEventListener('click', function() {
+        fetch('/raspberryhealth/filter-by-date-and-time')
+        .then(response => response.json())  // Need to convert to JSON
+        .then(data => {
+            // Process and display the data
+            const container = document.getElementById('data-container');
+            container.innerHTML = 'Filter Date and Time: <br>' + data.join(', ');
+        })
+        .catch(error => console.error('Error:' , error));
+    });
+    </script>
+
+    <!-- CPU Temperature -->
+    <script>
+    document.getElementById('temperature').addEventListener('click', function() {
+        fetch('/raspberryhealth/cpu-temperature')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('data-container');
+            container.innerHTML = 'CPU Temperature: <br>' + 
+                                'Highest Temperature: ' + data.highest_temp.toFixed(2) + '°C<br>' +
+                                'Lowest Temperature: ' + data.lowest_temp.toFixed(2) + '°C<br>' +
+                                'Average Temperature: ' + data.average_temp.toFixed(2) + '°C'+
+                                '<img src =" ' + data.heatmap_image_path + '" alt="CPU Temperature Heatmap">';
+        })
+        .catch(error => console.error('Error:', error));
+    });
+    </script>
+        
+        
+
+
+    <!-- Wi-Fi Strength -->
+    <!-- Wi-Fi Quality -->
+    <!-- CPU Usage -->
+    <!-- Memory Usage -->
+    <!-- Disk Usage -->
+    <!-- Network Traffic Usage -->
+    <!-- TODO -->
+
+</body>
+</html>
+

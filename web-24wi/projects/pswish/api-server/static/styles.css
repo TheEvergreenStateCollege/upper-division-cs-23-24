@@ -54,6 +54,7 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 0.25rem/* 4px */;
+    margin-top: 5px;
   }
   
   button:hover {
@@ -102,4 +103,10 @@ header{
   --tw-gradient-stops: var(--tw-gradient-from), #5d5195, var(--tw-gradient-to);
   --tw-gradient-to: #b4abab;
 */
+}
+.react-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 15px
 }
