@@ -1,19 +1,22 @@
 <!--homePage.html-->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Game Page</title>
-            <link rel="stylesheet" href="css/homePageStyles.css">
-    </head>
-    <body>
-        <section="siteTitle">
-            <img src="img/siteTitles/siteTitleBeigeBackground.png" width=960px height="420px" alt="titleWordmarkOfPage">
-        </section>
-        <section="textBoxForUserToChooseUsername">
-            <input type="text" id="findOpponentByUsernameForm" placeholder="Opponent?" autocomplete="off" /> 
-        </section>
-
-
-        <script src="js/homePage.js"></script>
-    </body>
+        <head>
+                <title>Home</title>
+                <link rel="stylesheet" href="css/homePageStyles.css">
+        </head>
+        <body>
+                <div class="container-title">
+                        <img src="img/overlays/LanChessWordmarkLogoWhite.png" id="titleLogo" onclick=""/>
+                </div>
+                <div class="container-forms">
+                        <input type="text" id="textBoxFormForUserToEnterRoomID" placeholder="enter room id" autocomplete="off" />  
+                </div>
+                <div class="container-buttons">
+                        <img src="img/buttons/user-search-button.png" id="searchButton" onclick="joinOnlineGame()"/>
+                        <img src="img/buttons/user-createonlinegame-button.png" id="createNewOnlineGameButton" onclick="createNewOnlineGame()"/>
+                        <img src="img/buttons/user-localgame-button.png" id="startLocalGameButton"  onclick="window.location.href='localGamePage.html'"/>
+                </div>
+                <script src="js/homePage.js"></script>
+        </body>
 </html>

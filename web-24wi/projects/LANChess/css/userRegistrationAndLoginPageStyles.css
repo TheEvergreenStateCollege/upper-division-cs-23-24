@@ -45,26 +45,26 @@ body {
   transition-duration: 0.25s;
 }
 
-#searchButton{
+#loginButton{
   margin: 10px;
-  width: 190px;
+  width: 140px;
   height: auto;
   transition-duration: 0.2s;
 }
 
-#searchButton:hover {
+#loginButton:hover {
   cursor: pointer;
   transform: scale(1.4) rotate(2deg) translate(15px, -15px) 
 }
 
-#createNewOnlineGameButton{
+#registerButton{
   margin: 10px;
-  width: 175px;
+  width: 180px;
   height: auto;
   transition-duration: 0.2s;
 }
 
-#createNewOnlineGameButton:hover {
+#registerButton:hover {
   cursor: pointer;
   transform: scale(1.4) rotate(-2deg)translate(-15px, -15px);
 }
@@ -81,7 +81,7 @@ body {
   transform: scale(1.4) rotate(2deg) translate(15px, -15px) 
 }
 
-#textBoxFormForUserToEnterRoomID{
+#textBoxFormForUserToCreateNewUsername{
   margin: 10px;
   width: 500px; 
   height: 25px; 
@@ -96,3 +96,17 @@ body {
   margin-left: 35%;
 }
 
+#textBoxFormForUserToCreateNewPassword{
+  margin: 10px;
+  width: 500px; 
+  height: 25px; 
+  background-color: black;
+  border: 3px solid #f3e8dc;
+  outline: none;
+  padding: 25px; 
+  font-size: 40px; 
+  color: #f3e8dc;
+  caret-color: white;
+  font-family: '3D Isometric Black';
+  margin-left: 35%;
+}

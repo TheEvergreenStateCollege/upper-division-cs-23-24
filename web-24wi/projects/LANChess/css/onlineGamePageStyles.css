@@ -1,42 +1,34 @@
-/* gamePageStyles.css */
+/* onlineGamePageStyles.css */
 
-main {
-  display: grid;
-}
 body {
-  background-image: url(/web-24wi/projects/LANChess/img/backgrounds/darkBackground.png);
-  margin:  0; 
+  background-image: url(../img/backgrounds/background.jpg);
   min-height:  100vh; 
-  display: grid;
-  justify-content: center;  
-  align-items: center; 
+  margin-top: 50px;
+}
+
+.container-ui{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.container-board{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 
-.siteTitle {
-  align-self: center;
+
+#confirmMoveBtn{
+  transition-duration: 0.25s;
+}
+
+#confirmMoveBtn:hover{
   cursor: pointer;
+  transform: scale(1.4) rotate(2deg) translate(15px, -15px) 
 }
-
-.gamePageHUD {
-  align-self: center;
-  padding-right: 0px;
-  cursor: pointer;
-  padding-top: 100px;
-  padding-bottom: 20px;
-
-}
-.confirmMoveButton {
-  align-self: center;
-  padding-left: 200px;
-  padding-top: 50px;
-  cursor: pointer;
-}
-
-
-
-
-
 
 
 /* CHESSBOARD STYLING */
@@ -46,8 +38,10 @@ body {
 }
 
 .board-b72b1 {
-  border: 15px solid #d4d2c1;
+  border: 3px solid #f3e8dc;
   box-sizing: content-box;
+  border-color: ddd8c0;
+  border-radius: 5px;
 }
 
 .square-55d63 {
@@ -70,7 +64,7 @@ body {
 }
 
 .black-3c85d {
-  background-color: black;
+  background-color: transparent;
   color: none;
 }
 

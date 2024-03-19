@@ -1,0 +1,21 @@
+<!-- onlineGamePage.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Online Game</title>
+        <link rel="stylesheet" href="css/onlineGamePageStyles.css"> 
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> <!-- Importing jquery in order to use chessboard.js library. -->
+        <script src="js/chessboard-1.0.0.min.js"></script>  <!-- Importing chessboard.js for chessboard functionality and rendering.-->
+    </head>
+    <body>
+        <div class="container-board">
+            <div id="board" style="width:  600px"></div> <!-- Set board and pieces.-->
+        </div>
+        <div class="container-ui">
+            <img id="confirmMoveBtn" src="img/buttons/online-game-confirmmove-button.png" width="" height="100" onclick="confirmMove();"/>
+        </div>
+        <script src="js/onlineGameClient.js"></script> <!-- Importing the boardState.js script to use for managing the board state. -->
+    </body>
+</html>
+
+

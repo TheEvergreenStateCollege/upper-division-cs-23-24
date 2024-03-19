@@ -1,0 +1,23 @@
+<!--userRegistrationAndLoginPage.html-->
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <title>Login</title>
+                <link rel="stylesheet" href="css/userRegistrationAndLoginPageStyles.css">
+        </head>
+        <body>
+                <div class="container-title">
+                        <img src="img/overlays/LanChessWordmarkLogoWhite.png" id="titleLogo" onclick=""/>
+                </div>
+                <div class="container-forms">
+                        <input type="text" id="textBoxFormForUserToCreateNewUsername" placeholder="username?" autocomplete="off" /> 
+                        <input type="password" id="textBoxFormForUserToCreateNewPassword" placeholder="password?" autocomplete="off" /> 
+                </div>
+                <div class="container-buttons">
+                        <img src="img/buttons/user-login-button.png" id="loginButton" onclick="loginUser()"/>
+                        <img src="img/buttons/user-register-button.png" id="registerButton" onclick="registerNewUser()"/>
+                        <img src="img/buttons/user-localgame-button.png" id="startLocalGameButton"  onclick="window.location.href='localGamePage.html'"/>
+                </div>
+                <script src="js/userRegisterAndLoginPage.js"></script>
+        </body>
+</html>
