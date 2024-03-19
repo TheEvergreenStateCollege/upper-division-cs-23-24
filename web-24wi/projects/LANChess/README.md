@@ -112,18 +112,15 @@ erDiagram
 ## Credits
 
 
-
-/////////////////////////////////////////////////////////////////////////////////////////
-
-Development by:
+####Development by:
 
 Winston Shine
 
 Taylor Wolff 
 
-///////////////////////////////////////////////////////////////////////////////////////
 
 
+#### Library used for Chessboard rendering and FEN strings.
 [Chessboard.js](https://github.com/oakmac/chessboardjs/)
 
 #### Font for logo and UI: 
