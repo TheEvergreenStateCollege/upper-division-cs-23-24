@@ -51,39 +51,39 @@ const moreDetails = function(event) {
     switch(idnum) {
         case 0:
         document.getElementById("info_box").style.top = "20%";
-        document.getElementById("info_box").style.left = "7%";
+        document.getElementById("info_box").style.left = "9%";
         break;
         case 1:
         document.getElementById("info_box").style.top = "20%";
-        document.getElementById("info_box").style.left = "39%";
+        document.getElementById("info_box").style.left = "41%";
         break;
         case 2:
         document.getElementById("info_box").style.top = "20%";
-        document.getElementById("info_box").style.left = "71%";
+        document.getElementById("info_box").style.left = "73%";
         break;
         case 3:
         document.getElementById("info_box").style.top = "50%";
-        document.getElementById("info_box").style.left = "7%";
+        document.getElementById("info_box").style.left = "9%";
         break;
         case 4:
         document.getElementById("info_box").style.top = "50%";
-        document.getElementById("info_box").style.left = "39%";
+        document.getElementById("info_box").style.left = "41%";
         break;
         case 5:
         document.getElementById("info_box").style.top = "50%";
-        document.getElementById("info_box").style.left = "71%";
+        document.getElementById("info_box").style.left = "73%";
         break;
         case 6:
         document.getElementById("info_box").style.top = "80%";
-        document.getElementById("info_box").style.left = "7%";
+        document.getElementById("info_box").style.left = "9%";
         break;
         case 7:
         document.getElementById("info_box").style.top = "80%";
-        document.getElementById("info_box").style.left = "39%";
+        document.getElementById("info_box").style.left = "41%";
         break;
         case 8:
         document.getElementById("info_box").style.top = "80%";
-        document.getElementById("info_box").style.left = "71%";
+        document.getElementById("info_box").style.left = "73%";
         break;
     }
 }

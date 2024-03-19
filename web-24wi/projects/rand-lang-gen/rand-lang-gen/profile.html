@@ -1,0 +1,38 @@
+<script type = "text/javascript">
+const jsonData = [
+ {
+      "id": 12357,
+      "word": "help",
+      "authorId": 1
+    },
+    {
+      "id": 12358,
+      "createdAt": "2024-03-05T17:56:43.322Z",
+      "word": "bag",
+      "authorId": 1
+    }
+  ];
+
+  const response = await fetch("/api/profile", 
+    {
+        "method": "GET",
+        "headers": {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+    );
+    const bodyTag = document.getElementByTagName("body")[0];
+
+    for (let i in jsonData) {
+	const wordCard = document.createElement("div");
+	wordCard.classList = ["word-card"];
+	
+	const wordName = document.createElement("header");
+	wordName.textContent = jsonData[i].name;
+	
+	wordCard.appendChild(wordName);
+	bodyTag.appendChild(wordCard);
+
+    }
+  const jsonData = await response.json();
+</script>

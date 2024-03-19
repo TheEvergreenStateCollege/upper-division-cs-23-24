@@ -18,13 +18,13 @@ class Carousel extends Component {
   };
 
   render() {
-    const { active } = this.state,
-      { images } = this.props;
+    const { active } = this.state;
+    const { images } = this.props;
 
     return (
-      <div className={"carousel"}>
-        <img src={images[active]} alt={"animal hero"} />
-        <div className={"carousel-smaller"}>
+      <div className={"mb-10 flex items-center justify-center"}>
+        <img src={images[active]} alt={"animal hero"} className={"mr-4"} />
+        <div className={"flex flex-col "}>
           {images.map((photo, index) => (
             <img
               // eslint-disable-next-line
@@ -32,7 +32,8 @@ class Carousel extends Component {
               data-index={index}
               key={photo}
               src={photo}
-              className={index === active ? "active" : ""}
+              className={`mr-2 h-16 w-16 cursor-pointer rounded-full 
+              ${index === active ? "border-2 border-orange-500" : ""}`}
               alt={"animal thumbnail"}
             />
           ))}

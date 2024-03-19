@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Raspberry Health</title>
+    <link rel="stylesheet" href="/static/CSS/Raspberrystyle.css">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('raspberry_health') }}">
+            <img src="/static/assets/raspberrybunch.png" alt="RaspberryBunch" class="header-logo">
+        </a>
+        <h1>Privacy Policy</h1>
+    </header>
+    <main>
+        <section class="privacy-policy">
+            <h2>Introduction</h2>
+            <p>We, myself, and I at Raspberry Health are committed to protecting your privacy. This policy outlines the types of information we collect from our devices and how we use and safeguard that information.</p>
+            
+            <h2>Information Collection and Use</h2>
+            <p>We collect data directly from a Raspberry Pi device, including CPU usage, temperature data, disk usage, and network traffic. This information is used to provide you with detailed performance analytics and is not shared with third parties without my consent.</p>
+            
+            <h2>Data Storage and Protection</h2>
+            <p>All data collected is loally stored and is only accessible by authorized personnel. We implement a variety of security measures to ensure the safety of your data against unauthorized access, alteration, or destruction.</p>
+            
+            <h2>Your Rights</h2>
+            <p>You have the right to access the data collected from your device at any time. If you wish to request a copy of your data or have any questions about our privacy practices, please contact us at [contact information].</p>
+            
+            <h2>Changes to This Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
+            
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us at [contact information].</p>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <a href="{{ url_for('raspberry_health') }}">Home</a>
+            <a href="{{ url_for('raspberry_health_about') }}">About</a>
+            <a href="{{ url_for('raspberry_health_privacy') }}">Privacy Policy</a>
+            <a href="{{ url_for('raspberry_health_terms') }}">Terms of Service</a>
+            
+        </div>
+    </footer>
+</body>
+</html>

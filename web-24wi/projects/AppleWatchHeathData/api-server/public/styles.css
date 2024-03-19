@@ -1,9 +1,12 @@
-header{
+h1 {
 background-color: black;
 color: white;
 height:80px;
 text-align: center;
 font-size: 35px;
+line-height: 80px;
+margin: 0;
+padding: 0;
 
 }
 
@@ -18,14 +21,15 @@ font-size: 35px;
 button {
     padding: 10px 20px;
     font-size: 25px;
-    background-color: greenyellow;
+    background-color: rgba(255, 255, 255, 0.8); /* Lighten the button on hover */
     border: solid;
     border-radius: 20px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: rgba(255, 255, 255, 0.8); /* Lighten the button on hover */
+    
+    background-color: greenyellow;
 }
 
 
@@ -51,3 +55,22 @@ body{
 
 }
 
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    height: 20rem;
+  }
+  
+  input {
+    padding: 5px;
+    margin: 7px;
+    border-radius: 3px;
+  }
+
+  h2{
+      text-align: center;
+      margin-bottom: 75px;
+      border-bottom: 2px solid;
+      padding-bottom: 10px;
+  }

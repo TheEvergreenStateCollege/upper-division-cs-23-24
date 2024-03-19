@@ -1,0 +1,36 @@
+<!DOCTYPE=html>
+    <html>
+
+    <head></head>
+
+    <body>
+        <form action="/" target="localhost:5000">
+            <label for="input-name">Name</label>
+            <input type="text" id="input-name">
+            <label for="input-password">Password</label>
+            <input type="text" id="input-password">
+            <button type="button" id="button-submit">Hit IT!</button>
+        </form>
+        <script>
+            const button = document.getElementById("button-submit");
+            console.log(button);
+    
+            const username = document.getElementById("input-name").value;
+            const password = document.getElementById("input-password").value;
+            console.log(username);
+            console.log(password);
+            button.addEventListener("click", async (event) => {
+                event.preventDefault();
+                const response = await fetch("localhost:5000/api/user", {
+                    "headers": {
+                        "Content-Type": "application/json",
+                    },
+                    "method": "post",
+                    "body": {username, password}
+                });
+                console.log("Submission: {} {}", username, password)
+            });
+        </script>
+    </body>
+
+    </html>

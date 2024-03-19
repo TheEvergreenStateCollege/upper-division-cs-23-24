@@ -18,14 +18,17 @@
                 <input type="text" id="input-name">
             <label for="input-password" tag="Password">Enter your Password</label>
                 <input type="password" id="input-password">
-            <button id="button-submit">Click</button>
+            <button id="button-submit">Login</button>
+            <button id="button-create" margin-top="5px">Creat User</button>
             
         </form>
     </div>
 
+    
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             const button = document.getElementById('button-submit');
+            const button2 = document.getElementById('button-create');
             const username = document.getElementById('input-name');
             const password = document.getElementById('input-password');
 
@@ -33,7 +36,7 @@
                 e.preventDefault();
                 
                 const response = await 
-                fetch('http://pswish-corp.arcology.builders:5000/login', {
+                fetch('http://54.153.27.74:3000/signin', {
                     method: 'post',
                     headers: { 'Content-Type': 'application/json'},
                     body: JSON.stringify({
@@ -42,13 +45,27 @@
                     }),
                 });
             });
+            button2.addEventListener('click', async (e) => {
+                e.preventDefault();
+                
+                const response = await 
+                fetch('http://54.153.27.74:3000/user', {
+                    method: 'post',
+                    headers: { 'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        "username": username.value,
+                        "password": password.value
+                    }),
+                });
+            });
+
         })
     </script>
 <footer>  
     <nav class="bottom-navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="https://pswish-corp.arcology.builders:5173">Home</a>
+        <a href="https://paulswisher.co">About</a>
+        <a href="https://paulswisher.co/cv/">Contact</a>
     </nav>
     <small>
         Copyright © 2024 pswish-frankenbits-corp LLC. All Rights Reserved.

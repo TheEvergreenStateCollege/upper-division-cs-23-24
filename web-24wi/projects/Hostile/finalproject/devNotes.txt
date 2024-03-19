@@ -1,0 +1,42 @@
+To do:
+- [x] 5 unit tests with jest - dee dee & rain
+- [] unit test dev diary
+- [x] 2-minute video
+- [ ] 500 line README.MD
+
+Tuesday:
+- [x] fix feed front end & sort out window/browser situation
+- [x] fix browser sizing
+- [x] run unit tests
+- [] complete README.md
+- [x] run through app (see below)
+- [x] make 2-min video
+
+Rain:
+- [ ] profile.tsx change 'Loading...' to 'No Posts' for new accounts
+- [x] feed.tsx
+- [ ] unit testing
+
+Dee Dee:
+    ## - [x] unit testing section
+    ## - [x] import jest, write unit tests for user.ts
+    ## - [ ] add the menu links (done with all but one)
+    ## - [x] make modal for updating profile using form in profile.tsx
+    ## - [x] make image modal for mugshot Easter egg
+    ## - [x] README.md outline
+
+    create custom colors in tailwind.config.js
+    assign user random custom color at registration
+    update db with OPTIONAL color
+    update connected.jpg with font
+
+Ellie:
+- [x] README
+
+Wishful Thinking
+put dial up audio over blue screen of death
+React alert emulating win 95 pop up
+Ads
+Ugly background for post?
+Post is a small component that pops up for you to make post and closes when you make it
+Add ability to store images in the database

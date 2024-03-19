@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        const jsonData = [
+        {
+            "id": 12345,
+            "createdAt": "2024-03-05T17:56:43.302Z",
+            "date": "2023-05-10T17:50:40:.202Z",
+            "steps": 11968,
+            "distanceMiles": 6.3,
+            "flights":  0,
+            "activeEnergyCals": 640,
+            "handwashingSeconds": 15,
+            "restingEnergyCals": 1683,
+            "soundLevel": 79,
+        },
+
+        {
+            "id": 67891,
+            "createdAt": "2024-03-05T17:55:42.202Z",
+            "date": "2023-06-10T17:50:40:.202Z",
+            "steps": 8129,
+            "distanceMiles": 3.8,
+            "flights":  2,
+            "activeEnergyCals": 385,
+            "handwashingSeconds": 11,
+            "restingEnergyCals": 1599,
+            "soundLevel": 75
+        }
+    ];
+
+    const bodyTag = document.getElementsByTagName("body")[0];
+    for (let i in jsonData){
+        const watchData = document.createElement("div");
+        watchData.classList = ["watch-data"];
+
+        const w = document.createElement("header");
+        w.textContent = jsonData[i].name;
+
+        watchData.appendChild(w);
+        bodyTag.appendChild(watchData);
+
+    }
+
+    </script>
+    
+</body>
+</html>
