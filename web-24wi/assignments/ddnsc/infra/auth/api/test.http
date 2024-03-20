@@ -1,0 +1,10 @@
+POST /user HTTP/1.1
+Host: http://localhost:5000
+Content-Type: application/json
+
+{
+  "username": "example_user",
+  "password": "example_password"
+}
+
+
