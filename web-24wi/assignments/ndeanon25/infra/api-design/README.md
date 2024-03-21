@@ -154,8 +154,6 @@ GameDeX is still a work in progress, so the software design diagram is incomplet
 <li> Landing Page </li>
 <li> Data Mystery </li>
 
-### Relationships
-<li> U</li>
 
 <p align="right">
 <a href="#top" >Back to top</a>
@@ -164,14 +162,12 @@ GameDeX is still a work in progress, so the software design diagram is incomplet
 
 ## Getting Started and Running the Game
 
-1. Go to this Directory
+1. Go to this Website {Not Working Yet}
    ```sh
-   /workspace/upper-division-cs/dsa-23au/java-dsa/ndeanon25/src/main/java/com/ndeanon25/FinalProjectDSA
+   nd25Corp.arcology.builders
    ```
-2. Run the file ImpossibleHangman.java with Java Red Hat Extension
-   ```sh
-   Download = Name: Language Support for Java(TM) by Red Hat
-   ```
+2. Sign Up and start playing Data Mystery!
+  
 3. ENJOY THE GAME!!
 
 <p align="right">
@@ -182,18 +178,16 @@ GameDeX is still a work in progress, so the software design diagram is incomplet
 
 ## How I did I Make it Run?!?
 
-<img src="https://media0.giphy.com/media/E3MQDZl9qsVwgnKA7b/giphy.gif?cid=ecf05e47e5c8snl6ye46cxtmin0hvv665klaq4w6vc2xsqkt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Logo" width="250" height="190" img align="left">
+
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm0zYXNtMWVqZ2oxMGxkNnZ1dDV0bHp1dWw2eWxybzZ1am5paTJsbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btPCcdNniyf0ArS/giphy.gif" alt="Logo" width="250" height="190" img align="right" >
 
 
-Magic. Really, this was a struggle. I made a gameplan and the very broad steps of getting there.
+That is the thing, it is not in a running state as of v.1. I wanted to divide and conquer. I did my back-end and front-end separately. I feel like if I were to try to do both, I would get bogged down and feel overwhelmed, so separating them seemed more achievable. I have not connected my front end and my back end yet, so I have a server up with my API and database ready to go, but I do not have my UI connected to it. 
 
-<li> Read from my dictionary file
-<li> Get the input from the player
-<li> Use HangmanLogic ( Behind the scenes)
-<li> Start the Hangman game
-<li> Lose
+I want to be able to connect my users to my games and keep track of their progress in my games. This was the goal for the project. Additionally, I plan to implement user authentication and secure data storage to ensure a smooth and safe user experience. Once these components are connected and functional, I believe the project will be ready for its first release.
 
-It seemed pretty simple to start but once I started, it seemed like the problem was only getting deeper and deeper. **I just divided and conquered.** I broke the gameplan into smaller gameplans and started from there. The DMV project helped me read a file and get it into my project. The inputs from the player are multiple if statements that I lost count of. The Hangman logic was the heaviest of the problems. 
+
+
 
 
 <ins>**Tips and tricks**
@@ -210,18 +204,14 @@ It seemed pretty simple to start but once I started, it seemed like the problem 
 
 ## Challenges I ran into
 
-I changed my data structures like 7 times and most of the time I had a surface level understanding of what is I am implementing. StackOverFlow then finally led me to a TreeSet. It is a balanced tree, that uses Set. ChatGPT helped me implement it and figure out what I wanted to do. 
 
-
-The method record alone took me over 2 hours. The textbook from class and StackOverFlow helped me write this code. Writing the psducode and trying to implement it and getting the right syntax is what took the most time. This method was the hardest for me. This method would record the user's guess and return a String representation of the word with the guessed char. Based on the guessed char, it will choose the next wordlist and then keep doing that every guess. 
-
-One of the biggest problem was that my hangman game kept taking all chars rather than just letters and just debugging this took over an hour of just trying different code from ChatGPT and StackOverFlow. From this experience it has helped me get a better grasp of different errors and try/catch flow.
 
 ```mermaid
-pie title What I spent time on
-         "Time spent writing code" : 20
-         "Time spent debugging/confused" : 80
-        
+xychart-beta
+    title "Level of difficulty"
+    x-axis [API-Design, Prisma-Schema, Data-Mystery, Front-End ]
+    y-axis "Scale" 0 --> 10
+    bar [8, 4, 8, 5]
 ```
 
 <p align="right">
@@ -239,6 +229,8 @@ The most important part of my learning experience is that I really enjoyed writi
 
 <p align="right">
 <a href="#top" >Back to top</a>
+
+  
 <!-- Accomplishments I am proud of  -->
 
 ## Accomplishments I am Proud of
@@ -249,21 +241,6 @@ The most important part of my learning experience is that I really enjoyed writi
 <li> Getting my Junit test to compile
 <li>My Javadoc, I tried to make it simple to non-programmers so they could understand it.
 
-
-
-<p align="right">
-<a href="#top" >Back to top</a>
-
-
-<!--Big O and Data Structures I used  -->
-
-## Big O() and Data Structures I used
-HangmanLogic has multiple methods that are generally O(1) like the accessor methods. Then there is the Constructor that iterates through the dictionary. This runs at O(n) where n is the number of words in the dictionary.
-
-The record method has to insert into a treemap so it runs O(w*log k) where w is the number of words and k is the number of unique patterns. The record method uses the other methods so I believe the running time for this project runs at O(n*logn). 
-
-
-The Data Structure I used was a Set[String] wordList. This Set is used to store the list of words that are possible answers in the game. The next data structure was a SortedSet[Character]. This SortedSet keeps track of the characters (letters) that the player has guessed so far. The next data structure is the Map[String,Set[String]] which is used to group words based on a certain pattern formed after each guess. It maps a pattern (represented as a String) to a set of words (each a String) that match this pattern. 
 
 
 <p align="right">
