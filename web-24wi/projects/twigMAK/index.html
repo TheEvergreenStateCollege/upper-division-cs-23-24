@@ -12,11 +12,17 @@
 <body>
 
     <button class ="navButton" onclick="document.location='about.html'">about</button>
-    <button class ="navButton" onclick="document.location='twigs.html'">twigs</button>
+    <button class ="navButton" onclick="clearSave()">twigs</button>
     <button class ="navButton" onclick="document.location='ID.html'">ID</button>
 
     <button class ="navButton" onclick="document.location='/auth/login.html'">login</button>
     <button class ="navButton" onclick="document.location='/auth/profile.html'">user twigs</button>
-
+    
+    <script>
+        function clearSave() {
+            localStorage.setItem("ordered", "no");
+            document.location='twigs.html';
+        }
+    </script>
 </body>
 </html>

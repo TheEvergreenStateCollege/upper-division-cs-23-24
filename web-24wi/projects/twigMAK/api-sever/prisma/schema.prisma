@@ -52,7 +52,7 @@ enum UPDATE_STATUS {
 model Update {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime @updateAt()
+  updatedAt DateTime @updatedAt
 
   title   String        
   body    String
