@@ -1,7 +1,7 @@
 function loadInfoPage(){ //load info page with twig
 
-    //window.location.href="info.html"; //load page on same page
-    window.open("info.html", '_blank').focus(); //load page on new page
+    window.location.href="info.html"; //load page on same page
+    //window.open("info.html", '_blank').focus(); //load page on new page
 
    infoPage();
 

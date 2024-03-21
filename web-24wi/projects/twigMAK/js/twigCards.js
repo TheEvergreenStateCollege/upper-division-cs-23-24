@@ -37,7 +37,7 @@ function makeCards(twigArraytmp){
     //check if come from ID
     console.log(localStorage.getItem("ordered"));
     if(localStorage.getItem("ordered") == "yes"){
-        localStorage.setItem("ordered", "no");
+        //localStorage.setItem("ordered", "no");
         loadkeytwigs();
     }
 }
@@ -69,13 +69,17 @@ function loadkeytwigs(){
     orderString =  localStorage.getItem("match");
     const matchAmountArray = orderString.split(",");
 
-    console.log(orderArray, matchAmountArray);
-    orderCardsbyKey(orderArray, matchAmountArray);
+    console.log("loading in match Types");
+    orderString =  localStorage.getItem("matchType");
+    const matchTypeArray = orderString.split(",");
+
+    console.log(orderArray, matchAmountArray, matchTypeArray);
+    orderCardsbyKey(orderArray, matchAmountArray, matchTypeArray);
 
 }
 
 //card orderer  for ID------------------------------------------------------------------
-function orderCardsbyKey(orderArray, matchAmountArray){
+function orderCardsbyKey(orderArray, matchAmountArray, matchTypeArray){
 
     console.log("ordering cards");
 
@@ -85,8 +89,9 @@ function orderCardsbyKey(orderArray, matchAmountArray){
             scientificName = twigArray[i].genus + " " + twigArray[i].species;
 
             if(orderArray[y] == scientificName){
-                console.log(' matches='+matchAmountArray[y] +' '+ orderArray[y]+' '+scientificName + y);
+                //console.log(' matches='+matchAmountArray[y] +' '+ orderArray[y]+' '+scientificName + y);
                 cardTitle('p', "matches", "card-"+scientificName, "match"+y, "matches = "+matchAmountArray[y]); //adds match amount to card
+                //cardTitle('p', "matchetype", "card-"+scientificName, "matchetype"+y, matchTypeArray[y]+" <br>"); //adds match Type to card
                 document.getElementById("card-"+scientificName).style.order = y;    //set order
             }
         }

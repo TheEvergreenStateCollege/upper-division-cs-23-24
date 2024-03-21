@@ -165,9 +165,10 @@ function imageCroper(imageid, Iwidth, Iheight, ILocation){   //crops web image
 function identify(){
 
    
-    //add key tracker 
+    //add key tracker and match
     for (let i=0; i < twigArray.length; i++){
         twigArray[i].key = 0;
+        twigArray[i].matchType = "";
     }
 
     //check arrangment 
@@ -282,6 +283,12 @@ function lookThrougTwigs(Array, valueArray, name){
         if (testFind(valueArray[i], checked) == true){
             count ++;
             twigArray[i].key = twigArray[i].key + 1; //incurment key
+            console.log(twigArray[i].CommonName); //log twigs that match
+
+            if(checked !== undefined){   //match types
+                twigArray[i].matchType = twigArray[i].matchType +" "+ name+"-"+checked; //at match type
+                //console.log(twigArray[i].matchType);
+            }
         }
     }
 
@@ -324,10 +331,17 @@ function keyload(array){
         tmpArrayholdAmount.push(twigArray[i].key);
     }
 
+    tmpArrayMatchesType = [];  //matchs Type
+    for (let i=0; i < array.length; i++){
+        tmpArrayMatchesType.push(twigArray[i].matchType);
+        console.log(twigArray[i].matchType);
+    }
+
     console.log(tmpArrayholdAmount);
     console.log(tmpArrayhold);
     localStorage.setItem("key", tmpArrayhold);  //save twigs in order
     localStorage.setItem("match", tmpArrayholdAmount);  //save twig match amount
+    localStorage.setItem("matchType", tmpArrayMatchesType);  //save twig match Type
     localStorage.setItem("ordered", "yes"); //marked ordered 
     window.location.href="twigs.html"; //load page 
 }
