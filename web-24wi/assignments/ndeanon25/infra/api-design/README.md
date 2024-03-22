@@ -30,7 +30,7 @@
 <h3 align="center">GameDeX</h3>
 
 <p align="center">
-    Welcome to GameDex! This will be a portfolio for all my games, ideas, and projects. 
+    Welcome to GameDex! This portfolio will be for all my games, ideas, and projects. 
     It will serve as a platform to continue my thought process and further develop my skills. 
     Through GameDex, my goal is to share my passion for software development and contribute to the community. 
     <br />
@@ -79,8 +79,8 @@
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHFxYjQ1eDlvOGdvczF4MmFnZDB6ZjUwNnc0eWQ4b3Z2Z20wbmdtciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JIX9t2j0ZTN9S/giphy.gif" alt="Logo" width="400" height="300" img align="right">
 
 This is GameDex. I wanted to create this project as it's on my bucket list; I have always wanted to create my own game. Data Mystery is an RPG inspired by my childhood.
-My intentions are to help players understand different data structures while solving a case. Data Mystery will also have its own battle UI to make it more like a game rather than a lesson. 
-These are all big picture ideas, and hopefully, future versions will introduce more features.
+My intentions are to help players understand different data structures while solving a case. Data Mystery will also have its battle UI to make it more like a game rather than a lesson. 
+These are all big-picture ideas with future versions that will introduce more features.
  
  <li> Github User : ndeanon25
  <li> Repo : Upper-Division-CS
@@ -136,10 +136,10 @@ A--->D
 
 ## Inspiration
 
-Like in my last final project for DSA, my inspiration is the love for video games. GameDeX is going to be my portfolio for all my games and projects. 
-GameDeX will not just showcase my games, but also serve as a platform for all my ideas and projects. 
+Like in my final project for DSA, my inspiration is my love for video games. GameDeX is going to be my portfolio for all my games and projects. 
+GameDeX will not only showcase my games but also serve as a platform for all my ideas and projects. 
 I aim to continue this work and make my website public, sharing my passion for software engineering and learning with others. 
-Through GameDeX, I hope to connect with fellow engineers and game enthusiast to collaborate on these exciting projects.
+Through GameDeX, I hope to connect with fellow software engineers and game enthusiasts to collaborate on these exciting projects.
 
 <p align="right">
 <a href="#top" >Back to top</a>
@@ -147,7 +147,10 @@ Through GameDeX, I hope to connect with fellow engineers and game enthusiast to 
 
 ## Software Design Diagram
 
-GameDeX is still a work in progress, so the software design diagram is incomplete, I completed my back-end and front-end seperately
+GameDeX is currently under development, so the software design is not fully finished. I've built the back-end and front-end separately.
+Ideally, my API should link my website to my database, which is hosted on Render, and connect everything to my domain. However, I haven't created a diagram to show how everything will work together yet.
+Once completed, the flow will allow users to interact with the website, with requests being handled by the back-end and data being stored and retrieved from the database. 
+This setup will ensure a smooth and responsive experience for users accessing GameDeX.
 
 ### Major Components of GameDeX v.1
 <li> My API design from FrontEndMasters and Schema used in Render</li>
@@ -182,7 +185,7 @@ GameDeX is still a work in progress, so the software design diagram is incomplet
 <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm0zYXNtMWVqZ2oxMGxkNnZ1dDV0bHp1dWw2eWxybzZ1am5paTJsbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btPCcdNniyf0ArS/giphy.gif" alt="Logo" width="250" height="190" img align="right" >
 
 
-That is the thing, it is not in a running state as of v.1. I wanted to divide and conquer. I did my back-end and front-end separately. I feel like if I were to try to do both, I would get bogged down and feel overwhelmed, so separating them seemed more achievable. I have not connected my front end and my back end yet, so I have a server up with my API and database ready to go, but I do not have my UI connected to it. 
+That is the thing, it is not in a running state as of v.1. Like every project I start, I divide and conquer. I did my back-end and front-end separately. I feel like if I were to try to do both, I would get bogged down and feel overwhelmed, so separating them seemed more achievable. I have not connected my front end and my back end yet, so I have a server up with my API and database ready to go, but I do not have my UI connected to it. 
 
 I want to be able to connect my users to my games and keep track of their progress in my games. This was the goal for the project. Additionally, I plan to implement user authentication and secure data storage to ensure a smooth and safe user experience. Once these components are connected and functional, I believe the project will be ready for its first release.
 
@@ -191,10 +194,11 @@ I want to be able to connect my users to my games and keep track of their progre
 
 
 <ins>**Tips and tricks**
-<li>Understanding HashMaps and Sets are also helpful. 
-<li>Tracking your objects and writing down where they are going and how they are being implemented is helpful.
-<li>Writing your Junit test before you start your methods. This would have be so helpful because I did not do this, and I know now that how helpful writing Junit can be. 
-<li>If doing a Junit test is too much, adding a debugger is super helpful. This could just be a print statement to show what you expect, which I did on my main method.
+<li>Understanding JavaScript and the flow of what the backend requires. 
+<li>Always divide and conquer because projects like this seem simple but once you break down everything you need, you get overwhelmed.  
+<li>Use all your resources, this is my first time doing anything related to building a website and I am still trying to learn more.  
+<li>Your website will never be perfect, there will always be bugs and updates you can make.
+<li> Believe in yourself - Naruto</li>
 
 <p align="right">
 <a href="#top" >Back to top</a>
@@ -203,6 +207,14 @@ I want to be able to connect my users to my games and keep track of their progre
 <!-- Challenges I ran into-->
 
 ## Challenges I ran into
+Although the list of challenges I faced during this project is extensive, I will highlight the three major ones. Managing time constraints and grappling with the vast complexities of backend development were particularly daunting. Despite these difficulties, I persevered. I recognize that the learning curve is steep. But, it is incredibly rewarding when my code functions as work as intended. While this project remains incomplete, I am committed to overcoming these challenges and achieving my goals to get this website running.  
+
+### Three Major Challenges
+<li> I had no experience with developing a back-end so understanding what an API was and pulling information from a database was all new to me</li>
+<li> Learning how to handle errors and debugging is critical when dealing with JavaScript, I am not the best at error handling so I spent the most time with this</li>
+<li> Underestimating this project, I thought I would have plenty of time but this project is bigger than I imagined.  </li>
+
+
 
 
 
@@ -221,11 +233,17 @@ xychart-beta
 
 ## The Learning Experience 
 
-The Learning Experience was a rollercoaster. There were times where I felt like I was on top and I understood everything about my code. Then there were times where I did not understand why it is not running properly. The Hang man game used a lot of game theory and I was able to connect with my Game Theory class. The decision tree was helpful when writing the code to understand the choices that the program was making and understanding what I expect it to do. 
+My experience with the final project for DSA was like a rollercoaster ride. It was a fast-paced and crucial period for me, and I had initially thought I would have enough time to get my website up and running. But, that turned out not to be the case.
 
-The most important part of my learning experience is that I really enjoyed writing and creating this game. While I was frustrated with this project multiple times. I have enjoyed seeing this come together. 
+There were moments when I felt proud of myself, especially when I was learning different languages like JavaScript, TypeScript, HTML, and CSS. I particularly enjoyed working on the front end of the project, designing the website and creating the game without using a framework.
 
-<img src="https://media4.giphy.com/media/V0IdVIIW1y5d6/giphy.gif?cid=ecf05e47mxzz7egn4vm49pwlymp82lg2c73gxikcy56sgh6v&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Logo" width="200" height="200">
+However, the most challenging part was the back-end development. While it was rewarding and fascinating when things worked, I spent the most time on it. I had to make multiple changes, and initially, I struggled to connect my API to my database.
+
+Subsequently, I faced difficulties connecting my API and database to my UI. This was frustrating, and I ran out of time before the final project deadline. Despite this setback, I am still eager to complete this project, but I will need to do it in my own time. It has been an interesting experience because creating my website with my own portfolio has always been on my bucket list.   
+
+ 
+
+<img src="https://i.giphy.com/Z5xk7fGO5FjjTElnpT.webp" alt="Logo" width="200" height="200">
 
 <p align="right">
 <a href="#top" >Back to top</a>
