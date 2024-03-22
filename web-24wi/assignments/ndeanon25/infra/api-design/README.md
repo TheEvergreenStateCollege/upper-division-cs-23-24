@@ -252,12 +252,11 @@ Subsequently, I faced difficulties connecting my API and database to my UI. This
 <!-- Accomplishments I am proud of  -->
 
 ## Accomplishments I am Proud of
-<li>The ReadMe file, this was fun to make and using Markdown and Mermaid was very intuitive.
-<li>Understanding HashMaps and Sets
-<li> Debugging the Input Errors on the front end and learning about try/catch.
-<li> Getting the code to compile
-<li> Getting my Junit test to compile
-<li>My Javadoc, I tried to make it simple to non-programmers so they could understand it.
+<li> My landing page is pretty.
+<li> Learning about the flow of a back-end design
+<li> Have a working game, not much content but it has maps and characters 
+<li> Getting users with bearer tokens and to be able to log in on ThunderClient
+<li> Learning multiple languages 
 
 
 
@@ -273,7 +272,8 @@ Subsequently, I faced difficulties connecting my API and database to my UI. This
 * [Thank you, othneildrew for the Github README Template](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md?plain=1)
 * [ChatGPT helped debug my code](https://chat.openai.com/)
 * [StackOverFlow helped debug as well](https://stackoverflow.com/)
-* [DMV project we did in class](https://github.com/TheEvergreenStateCollege/upper-division-cs)
+* [Thank you Drew with the Game](https://www.youtube.com/@DrewConley)
+* [Thank you, FrontEnd Masters, API Design by Scott](https://frontendmasters.com/courses/api-design-nodejs-v4/)
 <p align="right">
 <a href="#top" >Back to top</a>
 
