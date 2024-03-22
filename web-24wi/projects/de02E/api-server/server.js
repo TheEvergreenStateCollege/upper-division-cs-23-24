@@ -48,22 +48,7 @@ app.post("/user", async (req, res) => {
   });
 });
 
-app.get("/cities", async (req, res) =>{
-  const allCities = await.prisma.uSCity.findMany();
-  res.json(allCities);
-});
-
-app.post("/city", async (req, res) => {
-  const result = await prisma.uSCity.create({
-    data: {
-      name: req.body.cityName,
-      longitude: Number(req.body.longitude),
-      latitude: Number(req.body.latitude),
-      authorId: Number(req.body.authorId),
-    }
-  });
-});
-
+app.use ("/api", protect, router);
 
 
 
