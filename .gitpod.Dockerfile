@@ -55,14 +55,8 @@ RUN rm rustup.sh
 ENV PATH=/opt/.cargo/bin:$PATH
 
 # install Rustlings
-RUN mkdir ./rustlings-tmp
-RUN cd ./rustlings-tmp
-RUN curl -L https://raw.githubusercontent.com/rust-lang/rustlings/main/install.sh >> rustlings.sh
-RUN chmod 700 rustlings.sh
-RUN ./rustlings.sh # clones rustlings repo in order to build rustlings binary, we delete it below
-RUN rm rustlings.sh
-RUN cd ..
-RUN rm -Rf ./rustlings-tmp
+COPY scripts/install-rustlings.sh scripts/install-rustlings.sh
+RUN ./scripts/install-rustlings.sh
 
 # install node version manager
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
