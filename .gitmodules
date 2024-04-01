@@ -43,3 +43,6 @@
 [submodule "sc-24sp/git-games/game-15"]
 	path = sc-24sp/git-games/game-15
 	url = https://github.com/TheEvergreenStateCollege/game-15
+[submodule "sc-24sp/git-games/rustlings"]
+	path = sc-24sp/git-games/rustlings
+	url = https://github.com/rust-lang/rustlings.git
