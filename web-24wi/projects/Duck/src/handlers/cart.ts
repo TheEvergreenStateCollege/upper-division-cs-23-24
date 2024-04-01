@@ -29,13 +29,27 @@ export const getOneCart = async (req, res) => {
 
 //Create new wishlist
 export const createCart = async (req, res, next) => {
+  console.log(req.body.name);
+  console.log(req.body.body);
   try {
+    const product = await prisma.product.findUnique({
+      where: {
+        id: req.body.productId
+      }
+    })
+
+    if (!product) {
+      // does not belong to user
+      return res.json({message: 'invalid'})
+    }
+
     const wishlist = await prisma.wishlist.create({
     data: {
       name: req.body.name,
       body: req.body.body,
-      productId: req.product.id,
-      belongsToId: req.user.id
+      belongsToProductId: { connect: { id: String(product.id) } },
+      belongsToId: req.user.id,
+      belongsTo: { connect: { id: req.user.id } },
     }
   });
 

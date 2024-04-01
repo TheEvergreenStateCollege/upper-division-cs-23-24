@@ -30,11 +30,6 @@ app.post("/login", (req, res) => {
   res.sendFile(path.resolve("pages/logIn.html"));
 });
 
-app.post("/cart", (req, res) => {
-	// sending back an HTML file that a browser can render on the screen.
-	res.sendFile(path.resolve("pages/cart.html"));
-  });
-
 app.use('/api', protect, router);
 
 app.post("/user", createNewUser);
