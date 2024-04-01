@@ -122,7 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const { token } = await response.json();
 
         // Save the token to localStorage
-        localStorage.setItem('token', JSON.stringify(token));
+        localStorage.setItem('token', token);
+        localStorage.setItem('isLoggedIn', 'true');
         alert('Login successful!');
 
         // Redirect the user to the home page
