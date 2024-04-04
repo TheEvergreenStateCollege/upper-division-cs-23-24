@@ -4,7 +4,7 @@ const path = require('path');
 const musicMetadata = require('music-metadata');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
-const jwt = require('jsonwebtoken');
+
 
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
@@ -13,6 +13,7 @@ const app = express();
 app.use(express.static("static"));
 app.use(express.json());
 app.use(cors()); // Use CORS for all routes
+app.use("/api", protect, router);
 
 const port = 5000;
 
@@ -20,23 +21,6 @@ console.log(parsed['DATABASE_URL']);
 console.log(process.env['DATABASE_URL']);
 
 const prisma = new PrismaClient();
-
-/* API SERVER - Handles authentication*/
-
-// app.get("/users", async (req, res) => {
-// 	const allUsers = await prisma.user.findMany();
-// 	res.json(allUsers);
-// });
-
-// app.post("/user", async (req, res) => {
-// 	const newUser = await prisma.user.create({
-// 		data: {
-// 			username: req.body.username,
-// 			password: '',
-// 		},
-// 	});
-// 	console.log("created new user");
-// });
 
 //New authentication system
 app.post("/auth/login", async (req, res) => {
@@ -94,42 +78,6 @@ async function findUser(username) {
 	}
 }
 
-const createJWT = (user) => {
-	const token = jwt.sign(
-		{ id: user.id, username: user.username },
-		process.env.JWT_SECRET
-	);
-	return token;
-};
-
-const protect = (req, res, next) => {
-	const bearer = req.headers.authorization;
-
-	if (!bearer) {
-		res.status(401);
-		res.send("Not authorized");
-		return;
-	}
-	const [, token] = bearer.split(" ");
-	if (!token) {
-		res.status(401);
-		res.send("Not authorized");
-		return;
-	}
-	try {
-		const payload = jwt.verify(token, process.env.JWT_SECRET);
-		req.user = payload;
-		console.log(payload);
-		next();
-		return;
-
-	} catch (e) {
-		console.error(e);
-		res.status(401);
-		res.send("Not authorized");
-		return;
-	}
-};
 
 /*Static website and music streaming*/
 
