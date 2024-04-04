@@ -17,7 +17,7 @@ app.use(express.json);
  *   */
 app.get("/", (req, res) => {
 	  // sending back an HTML file that a browser can render on the screen.
-	res.sendFile(path.resolve("pages/index.html"));
+	res.sendFile(path.resolve("../../index.html"));
 });
 	
 	// creates and starts a server for our API on a defined port
