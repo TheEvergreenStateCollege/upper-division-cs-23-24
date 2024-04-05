@@ -7,7 +7,13 @@ ProtoType 08
 
 
 
+
+
+
 ## How to run our demo
+
+
+
 
 
 
@@ -15,11 +21,21 @@ ProtoType 08
 
 
 
+
+
+
 ## Challenges we ran into
 
 
 
+
+
+
 ## Accomplishments we are proud of
+
+
+
+
 
 
 
@@ -28,4 +44,11 @@ ProtoType 08
 
 
 
+
+
+
 ## What is next for the project
+
+
+
+
