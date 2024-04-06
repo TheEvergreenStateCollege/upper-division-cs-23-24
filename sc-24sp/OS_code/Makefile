@@ -1,8 +1,8 @@
 
-all: p1 p2 p3 p4 q1 q2
+all: p1 p2 p3 p4 q1 q2 q3
 
 clean:
-	rm -f p1 p2 p3 p4 q1 q2
+	rm -f p1 p2 p3 p4 q1 q2 q3
 
 p1: p1.c
 	gcc -o p1 p1.c -Wall
@@ -20,4 +20,7 @@ q1: q1.c
 	gcc -o q1 q1.c -Wall
 
 q2: q2.c
-	qcc -o q2 q2.c -Wall
+	gcc -o q2 q2.c -Wall
+
+q3: q3.c
+	gcc -o q3 q3.c -Wall

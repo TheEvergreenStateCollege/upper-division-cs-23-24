@@ -1,12 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <fcntl.h> 
 #include <sys/wait.h>
 
 int main(int argc, char *argv[])
 {
     printf("hello world (pid:%d)\n", (int)getpid());
-    int file = open("");
+    int file = open("input.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+    if (file < 0) {
+        perror("Error opening file");
+        exit(1);
+    }
 
     int rc = fork();
     if (rc < 0)
@@ -25,7 +30,7 @@ int main(int argc, char *argv[])
     {
         // parent goes down this path (original process)
         int wc = wait(NULL);
-        printf("hello, I am parent of %d (wc:%d) (pid:%d) file = &d \n",
+        printf("hello, I am parent of %d (wc:%d) (pid:%d) file = %d \n",
                rc, wc, (int)getpid(), file);
     }
     return 0;
