@@ -1,11 +1,11 @@
-use prototype_0::eat_at_restaurant;
+// Can we really use the crate name
+// here?
 
-use crate::garden::vegetables::Asparagus;
+use prototype_0::types::Board;
 
-pub mod garden;
+//use crate::garden::vegetables::Asparagus;
 
 fn main() {
-    let plant = Asparagus {};
-    println!("I'm growing {:?}!", plant);
-    eat_at_restaurant();
+    let board: Board = Board::new();
+    println!("{:?}", board);
 }
