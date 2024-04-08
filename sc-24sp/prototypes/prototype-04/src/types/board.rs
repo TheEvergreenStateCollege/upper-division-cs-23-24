@@ -9,7 +9,7 @@ const EMPTY_BOARD: [[Cell; 3]; 3] = [
 
 pub struct Board<'a> {
     pub cells: [[Cell<'a>; 3]; 3],
-    next_to_move: &'a Player,
+    pub next_to_move: &'a Player,
 }
 
 impl Board<'_> {
