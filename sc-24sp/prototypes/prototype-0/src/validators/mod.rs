@@ -11,7 +11,7 @@ fn row_win_validator(board: &Board, row: u32) -> bool {
 fn col_win_validator(board: &Board, col: u32) -> bool {
     let mut all_equal = true;
     for i in 0..2 {
-        all_equal = all_equal && board.cells[i][col as usize] == board.cells[i+1][col as usize];
+        all_equal = all_equal && (board.cells[i][col as usize] == board.cells[i+1][col as usize]);
     }
     all_equal && (board.cells[0][col as usize] != Option::None)
 }
@@ -44,11 +44,25 @@ pub fn win_validator(board: &Board) -> bool {
         }
     }
 
+    println!("No rows were winning");
+
     for col in 0..3 {
         if col_win_validator(board, col) {
             return true
         }
     }
 
-    diag1_win_validator(board) || diag2_win_validator(board)
+    println!("No cols were winning");
+
+    if diag1_win_validator(board) {
+        println!("diag1 was winning");
+        return true
+    }
+
+    if diag2_win_validator(board) {
+        println!("diag2 was winning");
+        return true
+    }
+
+    return false;
 }
