@@ -23,20 +23,20 @@ impl Board<'_> {
         }
         Board { next_to_move: self.next_to_move, cells }
     }
-    pub fn make_move<'a>(&'a self, new_move: &'a Move) -> (Board,Option<MoveError>) {
-        let mut new_board = Board::clone(self);
-        if new_move.player == self.next_to_move {
+    pub fn make_move<'a>(&'a mut self, new_move: &'a Move) -> (Option<MoveError>) {
+        //let mut new_board = Board::clone(self);
+        //if move_player == self.next_to_move {
             let new_row = new_move.coords.0;
             let new_col = new_move.coords.1;
             if new_row < 3 && new_col < 3 {
-                new_board.cells[new_row as usize][new_col as usize] = Some(self.next_to_move);
-                new_board.next_to_move = new_board.next_to_move.other();
-                (new_board, Option::None)
+                self.cells[new_row as usize][new_col as usize] = Some(self.next_to_move);
+                self.next_to_move = self.next_to_move.other();
+                (Option::None)
             } else {
-                (new_board, Some(MoveError::OutOfBounds))
+                (Some(MoveError::OutOfBounds))
             }
-        } else {
-            (new_board, Some(MoveError::WrongPlayer))
-        }
+        //} else {
+        //    (Some(MoveError::WrongPlayer))
+        //}
     }
 }

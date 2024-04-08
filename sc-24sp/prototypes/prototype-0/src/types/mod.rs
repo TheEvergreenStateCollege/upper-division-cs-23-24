@@ -19,9 +19,9 @@ impl Player {
     }
 }
 
-pub struct Move<'a> {
+#[derive(Debug)]
+pub struct Move {
     pub coords: (u8, u8),
-    pub player: &'a Player,
 }
 
 pub type Cell<'a> = Option<&'a Player>;

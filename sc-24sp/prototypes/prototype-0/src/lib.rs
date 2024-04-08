@@ -1,5 +1,6 @@
 pub mod types;
 pub mod moves;
+pub mod validators;
 
 pub mod front_of_house {
     pub mod hosting {
