@@ -39,6 +39,7 @@ fn main() {
                     do_move(&mut board, &player_move, &Player::O);
                     // Our solver's move
                     do_move(&mut board, next_move, &Player::X);
+                    println!("{:?}", &board);
                 }
                 _ => println!(
                     "Sorry, I couldn't understand this move ({:?}.{:?}), let's try again",
