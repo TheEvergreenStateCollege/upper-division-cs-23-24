@@ -37,9 +37,10 @@ fn main() {
                 (Ok(row), Ok(col)) => {
                     let player_move = Move { coords: (row, col) };
                     do_move(&mut board, &player_move, &Player::O);
+                    println!("Player's move: {:?}", &board);
                     // Our solver's move
                     do_move(&mut board, next_move, &Player::X);
-                    println!("{:?}", &board);
+                    println!("Computer's move: {:?}", &board);
                 }
                 _ => println!(
                     "Sorry, I couldn't understand this move ({:?}.{:?}), let's try again",
