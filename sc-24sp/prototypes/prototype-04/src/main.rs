@@ -8,7 +8,7 @@ use prototype_04::{
     validators::win_validator,
 };
 
-fn do_move<'a>(mut board: &mut Board<'a>, next_move: &Move, player: &Player) {
+fn do_move<'a>(board: &mut Board<'a>, next_move: &Move, player: &Player) {
     match board.make_move(next_move, player) {
         Err(MoveError::CellTaken) => println!("Cell already taken!"),
         Err(MoveError::WrongPlayer) => println!("Wrong player, skipping turn"),

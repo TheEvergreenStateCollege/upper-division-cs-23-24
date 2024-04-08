@@ -29,8 +29,8 @@ impl Board<'_> {
         let new_row = new_move.coords.0;
         let new_col = new_move.coords.1;
 
-        if new_row < 3 && new_row < 3 {
-            if self.cells[new_row as usize][new_col as usize] != None {
+        if new_row < 3 && new_col < 3 {
+            if self.cells[new_row as usize][new_col as usize].is_some() {
                 Err(MoveError::CellTaken)
             } else if player != self.next_to_move {
                 Err(MoveError::WrongPlayer)
