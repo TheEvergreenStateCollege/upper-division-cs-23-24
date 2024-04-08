@@ -7,6 +7,7 @@ const EMPTY_BOARD: [[Cell; 3]; 3] = [
     [Cell::None, Cell::None, Cell::None],
 ];
 
+#[derive(Debug)]
 pub struct Board<'a> {
     pub cells: [[Cell<'a>; 3]; 3],
     pub next_to_move: &'a Player,
