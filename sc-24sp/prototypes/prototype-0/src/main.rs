@@ -1,25 +1,13 @@
 // Can we really use the crate name
 // here?
 
-use std::{default, io};
+use std::io;
 use regex_lite::Regex;
 
 use prototype_0::moves::MoveError;
-use prototype_0::moves::enumerator::{list_moves};
+use prototype_0::moves::enumerator::list_moves;
 use prototype_0::types::{Board,Player,Move};
 use prototype_0::validators::win_validator;
-
-//use crate::garden::vegetables::Asparagus;
-
-fn generate_array(size: usize) -> Vec<usize> {
-    let mut results = Vec::new();
-
-    for i in 0..size {
-        results.push(i);
-    }
-
-    results
-}
 
 fn do_move<'a>(mut board: Board<'a>, next_move: &Move, player: &Player) -> Board<'a> {
     let (move_error) = board.make_move(next_move, player);
@@ -46,11 +34,10 @@ fn do_move<'a>(mut board: Board<'a>, next_move: &Move, player: &Player) -> Board
     board               
 }
 fn main() {
-    let mut board = Board::new();
+    let board = Board::new();
     let mut board_in_progress: Board = board.clone();
-    let (mut moves, mut board_ref) = list_moves(&board);
+    let (moves, mut _board_ref) = list_moves(&board);
 
-    let mut move_indices = generate_array(moves.len());
     let moves_iter = moves.iter();
 
     let re = Regex::new(r"\(([0-2]),([0-2])\)").unwrap();
@@ -74,9 +61,6 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-        let mut row: u8;
-        let mut col: u8;
-
         let mut board1;
 
         for (_, [row_cap, col_cap]) in re.captures_iter(&guess).map(|c| c.extract()) {
@@ -87,7 +71,7 @@ fn main() {
                     // Our solver's move
                     board_in_progress = do_move(board1, next_move, &Player::X);
                 }
-                default => {
+                _ => {
                     println!("Sorry I couldn't understand this move ({:?},{:?}, let's try again", row_cap, col_cap);
                 }
             };

@@ -44,7 +44,7 @@ pub fn win_validator(board: &Board) -> bool {
         }
     }
 
-    println!("No rows were winning");
+    // println!("No rows were winning");
 
     for col in 0..3 {
         if col_win_validator(board, col) {
@@ -52,7 +52,7 @@ pub fn win_validator(board: &Board) -> bool {
         }
     }
 
-    println!("No cols were winning");
+    // println!("No cols were winning");
 
     if diag1_win_validator(board) {
         println!("diag1 was winning");
