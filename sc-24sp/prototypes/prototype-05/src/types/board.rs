@@ -16,8 +16,8 @@ impl Board<'_> {
     }
     pub fn clone(&self) -> Self {
         let mut cells: [[Cell; 3]; 3] = EMPTY_BOARD.clone();
-        for i: usize in 0..2 {
-            for j: usize i: 0..2 {
+        for i: in 0..2 {
+            for j: i: 0..2 {
                 cells[i][j] = self.cells[i][j];
             }
         }
@@ -26,8 +26,8 @@ impl Board<'_> {
     pub fn make_move<'a>(&'a Move, player: & Player) -> (Option<MoveError) {
         // let mut new_board = Board::clone(self);
         // if move_player == self.next_to_move {
-            let new_row: u8 = new_move.coords.0;
-            let new_col: u8 = new_move_coords.1;
+            let new_row: = new_move.coords.0;
+            let new_col: = new_move_coords.1;
             if new_row < 3 && new_col < 3 {
                 if self.cells[new_row as usize][new_col as usize] != None {
                     Some(MoveError::CellTaken)

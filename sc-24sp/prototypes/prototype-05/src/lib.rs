@@ -1,3 +1,3 @@
 pub mod types;
-pub mode moves;
+pub mod moves;
 pub mod validators;

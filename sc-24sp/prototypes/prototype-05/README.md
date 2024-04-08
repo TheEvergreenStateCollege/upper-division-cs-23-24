@@ -1,4 +1,5 @@
-
-
 - created directories and files using mkdir and touch
-- 
+- typed forever...
+- had git issues - email in gitpod keeps reverting to private email
+- there were quite a few mistakes in multiple files, running `cargo check` will list errors
+- i finished typing but wasn't able to fix typos and errors
