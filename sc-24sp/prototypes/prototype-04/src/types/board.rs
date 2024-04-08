@@ -8,7 +8,7 @@ const EMPTY_BOARD: [[Cell; 3]; 3] = [
 ];
 
 pub struct Board<'a> {
-    cells: [[Cell; 3]; 3],
+    pub cells: [[Cell<'a>; 3]; 3],
     next_to_move: &'a Player,
 }
 
@@ -29,12 +29,12 @@ impl Board<'_> {
         let new_col = new_move.coords.1;
 
         if new_row < 3 && new_row < 3 {
-            if self.cells[new_row][new_col] != None {
+            if self.cells[new_row as usize][new_col as usize] != None {
                 Err(MoveError::CellTaken)
             } else if player != self.next_to_move {
                 Err(MoveError::WrongPlayer)
             } else {
-                self.cells[new_row][new_col] = Some(self.next_to_move);
+                self.cells[new_row as usize][new_col as usize] = Some(self.next_to_move);
                 self.next_to_move = self.next_to_move.other();
                 Ok(())
             }
