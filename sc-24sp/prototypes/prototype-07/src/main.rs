@@ -7,7 +7,7 @@ use prototype_0::types::{Board, Player, Move};
 use prototype_0::validators::win_validator;
 
 fn do_move<'a>(mut board: Board<'a>, next_move: &Move, player: &Player) -> Board<'a> {
-    let (move_error: Option<MoveError>) = board.make_move(new_move:next_move, player);
+    let (move_error) = board.make_move(new_move:next_move, player);
     println!("{:?}", board);
     match move_error {
         Some(MoveError::OutOfBounds)=> {
@@ -17,7 +17,7 @@ fn do_move<'a>(mut board: Board<'a>, next_move: &Move, player: &Player) -> Board
 
         },
         Some(MoveError::WrongPlayer) => {
-            println!("Wrong player, skiing turn");
+            println!("Wrong player, skipping turn");
         },
         None=> {},
     }
@@ -27,11 +27,11 @@ fn do_move<'a>(mut board: Board<'a>, next_move: &Move, player: &Player) -> Board
 fn main() {
     let board:Board<'static> = Board::new();
     let mut board_in_progress: Board = board.clone();
-    let (moves: Vec<Move>, mut _board_ref: &Board<'static>) = list_moves(&board);
+    let (moves, mut _board_ref) = list_moves(&board);
 
     let moves_iter: Iter<'static, Move> = moves.iter();
 
-    let re: Regex = Regex::new(pattern: r"\(([0-2]),([0-2])\)").unwrap();
+    let re: Regex = Regex::new( r"\(([0-2]),([0-2])\)").unwrap();
 
     println!("{:?}", board);
 
@@ -45,7 +45,7 @@ fn main() {
 
         let mut board1;
 
-        for (_, [row_cap, col_cap]) in re.captures_iter(&guess).map(c|c.extract()) {
+        for (_, [row_cap, col_cap]) in re.captures_iter(&guess).map(|c|c.extract()) {
             match (row_cap.parse::<u8>(), col_cap.parse::<u8>()) {
                 (Ok(_row), Ok(_col)) => {
                     let player_move = Move { coords: ( _row, _col)};
