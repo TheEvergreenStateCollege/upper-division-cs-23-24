@@ -10,7 +10,7 @@ pub enum Player {
 }
 
 impl Player { 
-    pub fn other(&self) -> &Player::X {
+    pub fn other(&self) -> &Player {
         if self == &Player::X {
             &Player::O
     } else {
@@ -20,7 +20,7 @@ impl Player {
 }
 
 #[derive(Debug)]
-pub sturct Move {
+pub struct Move {
     pub coords: (u8, u8),
 }
 
