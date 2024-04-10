@@ -14,15 +14,6 @@ impl Board<'_> {
             cells: EMPTY_BOARD,
         }
     }
-    pub fn clone(&self) -> Self {
-        let mut cells: [[Cell; 3]; 3] = EMPTY_BOARD.clone();
-        for i in 0..2 {
-            for j in 0..2 {
-                cells[i][j] = self.cells[i][j];
-            }
-        }
-        Board { next_to_move: self.next_to_move, cells }
-    }
     pub fn make_move<'a>(&'a mut self, new_move: &'a Move, player: &Player) -> (Option<MoveError>) {
         //let mut new_board = Board::clone(self);
         //if move_player == self.next_to_move {
