@@ -1,5 +1,5 @@
 [package]
-name = "prototype-09"
+name = "tictactoe"
 version = "0.1.0"
 edition = "2021"
 
