@@ -5,7 +5,7 @@ use std::io;
 use regex_lite::Regex;
 
 use prototype_0::moves::MoveError;
-use prototype_0::moves::enumerator::list_moves;
+use prototype_0::moves::ranker::rank_moves;
 use prototype_0::types::{Board,Player,Move};
 use prototype_0::validators::win_validator;
 
@@ -35,9 +35,9 @@ fn do_move<'a>(board: &mut Board<'a>, next_move: &Move, player: &Player) {
 
 fn main() {
     let mut board: Board = Board::new();
-    let (moves, mut _board_ref) = list_moves(&board);
+    //let (moves, mut _board_ref) = list_moves(&board);
 
-    let mut moves_iter = moves.iter();
+    //let mut moves_iter = moves.iter();
 
     let re = Regex::new(r"\(([0-2]),([0-2])\)").unwrap();
 
@@ -74,14 +74,19 @@ fn main() {
             }
         };
 
+        let best_moves = rank_moves(&mut board);
+        let mut moves_iter = best_moves.iter();
+
         match moves_iter.next() {
             Some(next_move) => {
                 do_move(&mut board, next_move, &Player::X);
             }
             None => {
                 // no more moves are left
-                // This shouldn't happen, but if so, solver forfeits
-                println!("🏆 GAME WON 🏆 \n by {:?}", board.next_to_move);
+                // This shouldn't happen normally,
+                // but until you implement the ranker
+                // in moves::ranker::rank_moves, the solver effectively forfeits
+                println!("🏆 GAME WON 🏆 \n by {:?}", Player::X);
                 break;    
             }
         }
