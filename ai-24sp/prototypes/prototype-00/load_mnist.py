@@ -57,24 +57,27 @@ def load_training_image(i):
     save_single_image(image, width, height)
     #images.append(image)
 
+# 0x7  ->  [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+# label is integer 0-9 to index output vector
+def one_hot_vector_from_label(label):
+    e = np.zeros((10, 1))
+    e[label] = 1.0
+    return e
+
 # Return ndarray of shape [60000, 10]
-def load_training_labels():
+def load_training_label(i):
     f = open("train-labels-idx1-ubyte", "rb")
 
     data = f.read()
 
-    def convert_four(arr):
-        result = 0
-        for i in arr:
-            print(f"result {result} {i}")
-            result *= 255
-            result += i 
-        return result
-
-    size = int(data[6]*256+data[7])
+    size = bytes_to_num(data[6:8])
     print(f"Number of images {size}")
 
-    labels = [] 
+    label = data[8+i]
+    one_hot_vector = one_hot_vector_from_label(label)
+
+    print(f"Label of image {i} is {chr(label+48)} {one_hot_vector}")
+
 
     #for i in range(size):
     #    print(chr(data[8+i]+48))
@@ -84,3 +87,4 @@ def load_training_labels():
     #f.close()
 
 load_training_image(127)
+load_training_label(127)
