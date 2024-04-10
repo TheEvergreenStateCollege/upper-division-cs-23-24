@@ -20,7 +20,7 @@ impl Player {
 }
 
 #[derive(Debug)]
-#[derive(PartialEq,Eq)]
+#[derive(PartialEq, Eq)]
 #[derive(Hash)]
 pub struct Move {
     pub coords: (u8, u8),
@@ -28,7 +28,7 @@ pub struct Move {
 
 pub type Cell<'a> = Option<&'a Player>;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Board<'a> {
     // Row first coordinate, column second coordinate
     pub cells: [[ Cell<'a>; 3]; 3],
