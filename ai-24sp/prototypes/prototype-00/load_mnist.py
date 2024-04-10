@@ -36,14 +36,26 @@ def load_training_image(i):
 
     # images = [] 
 
-    data_arr = np.array(data[16:16 + 784 * size])
+    start=16
+    end=16 + 784*size
+    
+    print(f"start image data at byte {start}")
+    print(f"end image data at byte {end}")
+    data_list = list(data[16:16 + 784 * size]) # I think this is bytearray type
+    # we want list of bytes
+    print(f"length of sliced 1D image data {type(data_list)}")
 
-    #for i in range(size):
-        start = 16 + i * 784
-        end = 16 + (i+1)*784
-        image = data[start:end]
-        save_single_image
-        #images.append(image)
+    data_arr = np.array(data_list, dtype=np.ubyte).reshape((size, width*height, 1))
+
+    #Expect (60000*784, 1)  (the ,1) is a grayscale pixel value 0-255
+    # or (47040000, 1)
+    print(f"Shape of data straight from file {data_arr.shape}")
+
+    start = 16 + i * 784
+    end = 16 + (i+1)*784
+    image = data[start:end]
+    save_single_image(image, width, height)
+    #images.append(image)
 
 # Return ndarray of shape [60000, 10]
 def load_training_labels():
@@ -71,16 +83,4 @@ def load_training_labels():
     #f2.close()
     #f.close()
 
-
-def load_and_write_one(image):
-    # i = 0
-# for image in images:
-#     newImg = Image.new("RGB", (width, height))
-#     for x in range(width):
-#         for y in range(height):
-#             pixel = int(image[x*width+y])
-#             if pixel > 255:
-#                raise Error(f"Invalid 8-bit pixel value {pixel}")
-#            newImg.putpixel((x,y), (pixel, pixel, pixel))
-#    newImg.save(f"mnist-{i}.png")
-#    i += 1
+load_training_image(127)
