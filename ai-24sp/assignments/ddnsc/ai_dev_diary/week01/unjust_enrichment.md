@@ -1,0 +1,8 @@
+# HW 01: Response to Article
+### Article: [Unjust Enrichment Lawsuit: Actors' Strike 2023 and Grand Moff Tarkin](https://www.rosieburbidge.com/post/peter-cushing-performers-rights)
+
+Tyburn Film Productions argues that their rights to control Cushing's portrayal were established in a 1993 agreement, even though Cushing died in 1994. Tyburn Film Productions claims unjust enrichment, asserting control over exploiting Peter Cushing's rights. Conversely, the defendants, including Cushing's estate, argue they had the right to resurrect him. They cite agreements dating back to 1976 with his production company or agreements made in 2016 as the 
+basis for their actions.
+
+The case explores nuanced legal territory, particularly regarding performers' rights and the evolution of intellectual property law. Judge Master Kaye highlights the complexity of determining historic rights amidst legislative changes. The unresolved questions include interpreting regulations and the scope of unjust enrichment in multi-party situations.  Comparably, this case echoes disputes over digital entertainment resurrections, such as using CGI to recreate deceased actors like [Carrie Fisher in the Star Wars franchise](https://www.nytimes.com/2016/12/27/movies/how-rogue-one-brought-back-grand-moff-tarkin.html) and [Christopher Reeves (among others) in The Flash](https://www.ign.com/articles/cgi-cameos-the-flash-reactions). Both instances 
+prompt examination of legal frameworks around intellectual property and performers' rights, highlighting the need for legal clarity and potential legislative reform.
