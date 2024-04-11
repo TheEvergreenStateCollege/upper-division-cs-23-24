@@ -1,17 +1,26 @@
 #![allow(unused)]
 
 mod board;
+mod win_check;
 
 use board::{Board, CellState};
 use std::{fmt, io};
 
+enum Player {
+    X,
+    O,
+}
+
 fn main() {
     let mut b = Board::new(3);
 
-    let mut input = String::new();
+    let mut current_player = Player::X;
+
     loop {
         let (x, y) = get_user_input();
+
         b.place(x, y, CellState::X);
+
         println!("{}", b);
     }
 }
