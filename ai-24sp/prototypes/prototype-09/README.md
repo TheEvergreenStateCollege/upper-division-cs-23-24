@@ -12,4 +12,7 @@
 - used `gunzip` to unzip compressed database files
 
 
-
+### 10-April-2024
+- Work done by Nathan and Timothy
+- Completed Network.py and load_mnist.py
+- Ran load_mnist.py
