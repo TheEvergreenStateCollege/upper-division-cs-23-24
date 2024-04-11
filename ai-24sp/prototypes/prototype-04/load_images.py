@@ -40,16 +40,3 @@ for image in images:
             newImg.putpixel((x,y), (pixel, pixel, pixel))
         newImg.save(f"mnist-{i}.png")
         i += 1
-
-f = open("train-labels-idx1-ubyte", "rb")
-data = f.read()
-
-def convert_four(arr):
-    result = 0
-    for i in arr:
-        print(f"result {result} {i}")
-        result *= 255
-        result += i
-    return result
-
-
