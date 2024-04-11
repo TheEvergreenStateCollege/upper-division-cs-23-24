@@ -5,3 +5,8 @@ If you have any questions ask Griffin or Nathan
 We didn't create a gitignore file, so we've pushed uncompressed files. A gitignore still needs to be created.
 We copied the code to prototype-08.py
 We've lost prototype-08.py. We uploaded too many files to github, so it has omitted 50,000+ files. Sorry
+
+
+4/11/24
+Jeff and Morgan added network.py and load_mnist.py to the project. load_mnist.py will need to be updated to work with python3.
+
