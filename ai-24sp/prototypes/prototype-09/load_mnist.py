@@ -1,6 +1,5 @@
 from PIL import Image 
 import numpy as np
-import pickle
 
 def bytes_to_num(arr):
     result = 0

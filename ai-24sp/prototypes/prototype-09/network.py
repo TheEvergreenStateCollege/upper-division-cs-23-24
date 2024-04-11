@@ -11,7 +11,7 @@ and omits many desirable features.
 
 import random 
 import numpy as np 
-import pickle
+#import pickle
 
 
 class Network(object):
@@ -32,8 +32,10 @@ def __init__(self, sizes):
     self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
     self.weights = [np.random.randn(y, x) 
     for x, y in zip(sizes[:-1], sizes[1:])]
-#net = Network([2, 3, 1])
-
+    #net = Network([2, 3, 1])
+    #with open('filename.pickle', 'wb') as handle:
+        #pickle.dump(self.biases, handle, protocol=pickle.HIGHEST_PROTOCOL)
+        #pickle.dump(self.weights, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
 def feedforward(self,a):
@@ -140,4 +142,3 @@ def sigmoid(z):
     
 def sigmoid_prime(z):
     return sigmoid(z)*(1-sigmoid(z))
-
