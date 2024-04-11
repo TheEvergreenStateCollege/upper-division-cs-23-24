@@ -13,3 +13,10 @@
 
 
 
+## Update: 
+We screenshot after running load_mnist.py
+
+
+![image](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/146136622/bc06eeee-43fa-48fa-b467-559e7367fedc)
+
+
