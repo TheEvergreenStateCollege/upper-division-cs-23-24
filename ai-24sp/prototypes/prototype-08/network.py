@@ -23,10 +23,10 @@ class Network(object):
             for mini_batch in mini_batches:
                 self.update_mini_batch(mini_batch, eta)
             if test_data:
-                print "Epoch {0}: {1} / {2}".format(
+                print ("Epoch {0}: {1} / {2}").format(
                     j, self.evaluate(test_data), n_test)
             else:
-                print "Epoch {0} complete".format(j)
+                print ("Epoch {0} complete").format(j)
 
 def update_mini_batch(self, mini_batch, eta):
     nabla_b = [np.zeros(b.shape) for b in self.biases]
@@ -51,7 +51,7 @@ def backprop(self, x, y):
         activation = sigmoid(z)
         activations.append(activation)
 
-        delta = self.cost_derivative(activations[-1], y) * \ sigmoid_prime(zs[=1])
+        delta = self.cost_derivative(activations[-1], y) * sigmoid_prime(zs[-1])
         nabla_b[-1] = delta 
         nabla_w[-1] = np.dot(delta, activations[-2].transpose())
 
@@ -71,7 +71,7 @@ def backprop(self, x, y):
             return (output_activations-y)
 
 def sigmoid(z):
-    return 1.0/(2.o_np.exp(-z))
+    return 1.0/(2.0-np.exp(-z))
 
 def sigmoid_prime(z):
     return sigmoid(z) * (1-sigmoid(z))
