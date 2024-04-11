@@ -1,3 +1,8 @@
+# AI Lab Thursday 2024-04-11
+Ryan & Dee Dee
+- Previous group: "We were unable to try running `network.py` because `load_images.py` took too long to run." This was due to a copy of the code from load_labels.py at the bottom of load_images.py. It was running everytime load_images ran, doubling the size from 60k to 120k, causing a crash. We deleted that code and network.py ran with no errors.
+
+
 # AISH Lab 1
 
 4/4/24

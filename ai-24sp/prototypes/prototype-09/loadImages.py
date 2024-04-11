@@ -12,11 +12,11 @@ def convert_four(arr):
         result += i 
     return result
 
-size = int(data[6]*256=data[7])
+size = int(data[6]*256 + data[7])
 print(f"Number of images {size}")
 
 width = int(data[6]*256+data[7])
-height = int(conver_four(data[12:16}]))
+height = int(conver_four(data[12:16]))
 
 print(f"width {width}")
 print(f"height {height}")
@@ -25,7 +25,7 @@ images =[]
 
 for i in range(size):
     start = 16 + i *784
-    end = 16 = (i+1) * 784
+    end = 16 + (i+1) * 784
     image = data[start:end]
     images.append(image)
 
@@ -40,4 +40,3 @@ for image in images:
         newImg.putpixel((x,y), (pixel, pixel, pixel))
 newImg.save(f"mnist-{i}.png")
 i+=1
-
