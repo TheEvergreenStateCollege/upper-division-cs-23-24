@@ -1,6 +1,8 @@
 use std::fmt;
 
-#[derive(Copy, Clone)]
+use crate::win_check::*;
+
+#[derive(Copy, Clone, Eq, PartialEq)]
 pub enum CellState {
     X,
     O,
@@ -29,8 +31,23 @@ impl Board {
 
         self.cells[x as usize][y as usize] = new_state;
     }
+
+    pub fn get_cell(&self, x: u8, y: u8) -> CellState {
+        if x > self.dimensions - 1 || y > self.dimensions - 1 {
+            // TODO: Return Err
+            panic!("Out of bounds");
+        }
+
+        self.cells[x as usize][y as usize]
+    }
+
+    /// Check if the current board state constitutes a win, and returns who won
+    pub fn check_win(&self) -> WinState {
+        todo!()
+    }
 }
 
+// Shamelessly lifted from Gavin
 impl fmt::Display for Board {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         for row in 0..self.dimensions {
