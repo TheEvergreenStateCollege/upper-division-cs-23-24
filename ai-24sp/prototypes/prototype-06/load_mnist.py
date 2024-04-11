@@ -15,7 +15,7 @@ def save_single_image(image_data, width, height):
         for y in range(height):
             pixel = int(image_data[x*width+y])
             if pixel > 255:
-                raise Error(f"Invalid 8-bit pixel value {pixel}")
+                print(f"Invalid 8-bit pixel value {pixel}")
             newImg.putpixel((x,y), (pixel, pixel, pixel))
     newImg.save(f"mnist.png")
 
