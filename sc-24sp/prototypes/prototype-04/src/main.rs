@@ -1,62 +1,79 @@
 #![allow(unused)]
 
-use std::fmt;
+mod board;
+
+use board::{Board, CellState};
+use std::{fmt, io};
 
 fn main() {
     let mut b = Board::new(3);
-    b.place(0, 2, CellState::X);
-    b.place(1, 0, CellState::O);
-    println!("{}", b);
-}
 
-#[derive(Copy, Clone)]
-enum CellState {
-    X,
-    O,
-    Empty,
-}
-
-#[derive(Clone)]
-struct Board {
-    cells: Vec<Vec<CellState>>,
-    dimensions: u8,
-}
-
-impl Board {
-    pub fn new(dimensions: u8) -> Self {
-        Board {
-            cells: vec![vec![CellState::Empty; dimensions.into()]; dimensions.into()],
-            dimensions,
-        }
-    }
-
-    pub fn place(&mut self, x: u8, y: u8, new_state: CellState) {
-        if x > self.dimensions - 1 || y > self.dimensions - 1 {
-            // TODO: Return Err
-            panic!("Out of bounds");
-        }
-
-        self.cells[x as usize][y as usize] = new_state;
+    let mut input = String::new();
+    loop {
+        let (x, y) = get_user_input();
+        b.place(x, y, CellState::X);
+        println!("{}", b);
     }
 }
 
-impl fmt::Display for Board {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        for i in 0..3 {
-            writeln!(f, "-------------")?;
-            for j in 0..3 {
-                write!(
-                    f,
-                    "| {} ",
-                    match self.cells[i][j] {
-                        CellState::O => "O",
-                        CellState::X => "X",
-                        CellState::Empty => " ",
-                    }
-                );
+// Shamelessly lifted from Gavin
+fn get_user_input() -> (u8, u8) {
+    loop {
+        let mut line = String::new();
+        println!("Input your move: ");
+        io::stdin()
+            .read_line(&mut line)
+            .expect("failed to read line");
+        line = line.trim().to_lowercase();
+
+        match line.as_str() {
+            "center" => break (1, 1),
+            "middle" => break (1, 1),
+            "dead center" => break (1, 1),
+            "center center" => break (1, 1),
+            "middle middle" => break (1, 1),
+            "center middle" => break (1, 1),
+            "middle center" => break (1, 1),
+
+            "top left" => break (0, 0),
+            "left top" => break (0, 0),
+
+            "top" => break (1, 0),
+            "top center" => break (1, 0),
+            "top middle" => break (1, 0),
+            "center top" => break (1, 0),
+            "middle top" => break (1, 0),
+
+            "top right" => break (2, 0),
+            "right top" => break (2, 0),
+
+            "left" => break (0, 1),
+            "left center" => break (0, 1),
+            "center left" => break (0, 1),
+            "middle left" => break (0, 1),
+            "left middle" => break (0, 1),
+
+            "right" => break (2, 1),
+            "right center" => break (2, 1),
+            "center right" => break (2, 1),
+            "middle right" => break (2, 1),
+            "right middle" => break (2, 1),
+
+            "bottom left" => break (0, 2),
+            "left bottom" => break (0, 2),
+
+            "bottom" => break (1, 2),
+            "bottom center" => break (1, 2),
+            "bottom middle" => break (1, 2),
+            "center bottom" => break (1, 2),
+            "middle bottom" => break (1, 2),
+
+            "bottom right" => break (2, 2),
+            "right bottom" => break (2, 2),
+            _ => {
+                println!("Invalid move. Please describe your move as \"top/center/bottom right/center/left\", or \"top/right/bottom/left/center\"");
+                continue;
             }
-            writeln!(f, "|")?
         }
-        write!(f, "-------------")
     }
 }
