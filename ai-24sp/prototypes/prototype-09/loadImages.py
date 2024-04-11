@@ -40,4 +40,3 @@ for image in images:
         newImg.putpixel((x,y), (pixel, pixel, pixel))
 newImg.save(f"mnist-{i}.png")
 i+=1
-

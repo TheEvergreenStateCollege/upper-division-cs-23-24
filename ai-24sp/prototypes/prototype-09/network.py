@@ -29,10 +29,8 @@ class Network(object):
         self.num_layers = len(sizes)
         self.sizes = sizes
         self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
-        self.weights = [np.random.randn(y, x) 
-                        for x, y in zip(sizes[:-1], sizes[1:])]
-#net = Network([2, 3, 1])
-
+        self.weights = [np.random.randn(y, x) for x, y in zip(sizes[:-1], sizes[1:])]
+        #net = Network([2, 3, 1])
 
 
 def feedforward(self,a):
@@ -139,4 +137,3 @@ def sigmoid(z):
     
 def sigmoid_prime(z):
     return sigmoid(z)*(1-sigmoid(z))
-
