@@ -10,7 +10,8 @@ and omits many desirable features.
 """
 
 import random 
-import numpy as np
+import numpy as np 
+import pickle
 
 
 class Network(object):
@@ -25,12 +26,23 @@ class Network(object):
         won't set any biases for those neurons, since biases are only
         ever used in computing the outputs from later layers."""
 
+<<<<<<< HEAD
     def __init__(self, sizes):
         self.num_layers = len(sizes)
         self.sizes = sizes
         self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
         self.weights = [np.random.randn(y, x) for x, y in zip(sizes[:-1], sizes[1:])]
         #net = Network([2, 3, 1])
+=======
+def __init__(self, sizes):
+    self.num_layers = len(sizes)
+    self.sizes = sizes
+    self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
+    self.weights = [np.random.randn(y, x) 
+    for x, y in zip(sizes[:-1], sizes[1:])]
+    #net = Network([2, 3, 1])
+
+>>>>>>> 4b12ef3f095993c4c983e61cf7d6dfe6ac6fb6ea
 
 
 def feedforward(self,a):
