@@ -1,5 +1,39 @@
 # prototype-00 Dev Diary
 
+## 2024-04-11 ppham
+
+Added back loading of all training images and labels to load_mnist.py
+and also loading of test images and labels.
+
+Created numpy arrays from them, and printed out their shape to verify.
+I added in the comments the expected shapes:
+
+(60000, 784, 1) for images
+(60000, 10) for labels that have been encoded into one-hot vectors
+
+I zipped them together into (x,y) image and label training pairs
+because that is what the neural network expects, based on the
+original Mike Nielsen loader.
+
+I don't have a working `network.py` yet, so I'll need help from
+others to test it. I'll keep working on the `Network` class
+so I can test it myself.
+
+You can run it like
+```
+python3 load_mnist.py
+```
+
+with these files downloaded and gunzipped from Yann Lecun.
+
+```
+-rw-r--r-- 1 gitpod gitpod 7.5M Jul 21  2000 t10k-images-idx3-ubyte
+-rw-r--r-- 1 gitpod gitpod 9.8K Jul 21  2000 t10k-labels-idx1-ubyte
+-rw-r--r-- 1 gitpod gitpod  45M Jul 21  2000 train-images-idx3-ubyte
+-rw-r--r-- 1 gitpod gitpod  59K Jul 21  2000 train-labels-idx1-ubyte
+```
+
+
 ## 2024-04-04 ppham 
 
 Following these course notes.
