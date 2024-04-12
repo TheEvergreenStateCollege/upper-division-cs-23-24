@@ -54,8 +54,8 @@ impl fmt::Display for Board {
                     f,
                     "| {} ",
                     match self.cells[column as usize][row as usize] {
-                        Some(Player::X) => "O",
-                        Some(Player::O) => "X",
+                        Some(Player::X) => "X",
+                        Some(Player::O) => "O",
                         None => " ",
                     }
                 );
