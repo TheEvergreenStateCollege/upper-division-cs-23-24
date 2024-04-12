@@ -13,10 +13,16 @@ fn main() {
     loop {
         let (x, y) = get_user_input();
 
-        b.place(x, y, Some(Player::X)).unwrap();
-        println!("{}", b.check_win(Player::X));
+        if let Err(board::BoardError::CellTaken) = b.place(x, y, Some(Player::X)) {
+            println!("Cell taken. Please choose another one.");
+        };
 
         println!("{}", b);
+
+        if b.check_win(current_player) {
+            println!("Player {:?} won!", current_player);
+            std::process::exit(0);
+        }
     }
 }
 
