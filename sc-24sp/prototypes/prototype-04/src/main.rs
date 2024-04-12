@@ -14,6 +14,7 @@ fn main() {
         let (x, y) = get_user_input();
 
         b.place(x, y, Some(Player::X));
+        println!("{}", b.check_win(Player::X));
 
         println!("{}", b);
     }

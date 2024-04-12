@@ -1,6 +1,6 @@
 use std::fmt;
 
-#[derive(Clone, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Player {
     X,
     O,
@@ -38,9 +38,38 @@ impl Board {
         &self.cells[x as usize][y as usize]
     }
 
-    /// Check if the current board state constitutes a win, and returns who won
-    pub fn check_win(&self, player: &Player) -> bool {
-        todo!()
+    /// Check if the given player has won
+    pub fn check_win(&self, p: Player) -> bool {
+        //Diagonal top-left to bottom-right
+        if self.cells[0][0] == Some(p) && self.cells[1][1] == Some(p) && self.cells[2][2] == Some(p)
+        {
+            return true;
+        };
+        //Diagonal top-right to bottom-left
+        if self.cells[2][0] == Some(p) && self.cells[1][1] == Some(p) && self.cells[0][2] == Some(p)
+        {
+            return true;
+        };
+        //Row wins
+        for y in 0..3 {
+            if self.cells[0][y] == Some(p)
+                && self.cells[1][y] == Some(p)
+                && self.cells[2][y] == Some(p)
+            {
+                return true;
+            };
+        }
+        //Column wins
+        for x in 0..3 {
+            if self.cells[x][0] == Some(p)
+                && self.cells[x][1] == Some(p)
+                && self.cells[x][2] == Some(p)
+            {
+                return true;
+            };
+        }
+
+        false
     }
 }
 
