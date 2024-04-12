@@ -1,9 +1,7 @@
 use std::fmt;
 
-use crate::win_check::*;
-
 #[derive(Clone, PartialEq, Eq)]
-enum Player {
+pub enum Player {
     X,
     O,
 }
@@ -31,13 +29,13 @@ impl Board {
         self.cells[x as usize][y as usize] = new_state;
     }
 
-    pub fn get_cell(&self, x: u8, y: u8) -> Option<Player> {
+    pub fn get_cell(&self, x: u8, y: u8) -> &Option<Player> {
         if x > self.dimensions - 1 || y > self.dimensions - 1 {
             // TODO: Return Err
             panic!("Out of bounds");
         }
 
-        self.cells[x as usize][y as usize]
+        &self.cells[x as usize][y as usize]
     }
 
     /// Check if the current board state constitutes a win, and returns who won
