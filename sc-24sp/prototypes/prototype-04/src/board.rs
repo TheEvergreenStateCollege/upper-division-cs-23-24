@@ -2,28 +2,27 @@ use std::fmt;
 
 use crate::win_check::*;
 
-#[derive(Copy, Clone, Eq, PartialEq)]
-pub enum CellState {
+#[derive(Clone, PartialEq, Eq)]
+enum Player {
     X,
     O,
-    Empty,
 }
 
 #[derive(Clone)]
 pub struct Board {
-    cells: Vec<Vec<CellState>>,
+    cells: Vec<Vec<Option<Player>>>,
     dimensions: u8,
 }
 
 impl Board {
     pub fn new(dimensions: u8) -> Self {
         Board {
-            cells: vec![vec![CellState::Empty; dimensions.into()]; dimensions.into()],
+            cells: vec![vec![None; dimensions.into()]; dimensions.into()],
             dimensions,
         }
     }
 
-    pub fn place(&mut self, x: u8, y: u8, new_state: CellState) {
+    pub fn place(&mut self, x: u8, y: u8, new_state: Option<Player>) {
         if x > self.dimensions - 1 || y > self.dimensions - 1 {
             // TODO: Return Err
             panic!("Out of bounds");
@@ -32,7 +31,7 @@ impl Board {
         self.cells[x as usize][y as usize] = new_state;
     }
 
-    pub fn get_cell(&self, x: u8, y: u8) -> CellState {
+    pub fn get_cell(&self, x: u8, y: u8) -> Option<Player> {
         if x > self.dimensions - 1 || y > self.dimensions - 1 {
             // TODO: Return Err
             panic!("Out of bounds");
@@ -42,7 +41,7 @@ impl Board {
     }
 
     /// Check if the current board state constitutes a win, and returns who won
-    pub fn check_win(&self) -> WinState {
+    pub fn check_win(&self, player: &Player) -> bool {
         todo!()
     }
 }
@@ -57,9 +56,9 @@ impl fmt::Display for Board {
                     f,
                     "| {} ",
                     match self.cells[column as usize][row as usize] {
-                        CellState::O => "O",
-                        CellState::X => "X",
-                        CellState::Empty => " ",
+                        Some(Player::X) => "O",
+                        Some(Player::O) => "X",
+                        None => " ",
                     }
                 );
             }
