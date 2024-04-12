@@ -43,6 +43,16 @@ impl Board {
         Ok(())
     }
 
+    pub fn remove(&mut self, x: u8, y: u8) -> Result<(), BoardError> {
+        if x > self.dimensions - 1 || y > self.dimensions - 1 {
+            return Err(BoardError::OutOfBounds);
+        }
+
+        self.cells[x as usize][y as usize] = None;
+
+        Ok(())
+    }
+
     pub fn get_cell(&self, x: u8, y: u8) -> &Option<Player> {
         if x > self.dimensions - 1 || y > self.dimensions - 1 {
             // TODO: Return Err
