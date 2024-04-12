@@ -3,8 +3,8 @@ use thiserror::Error;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Player {
-    X,
-    O,
+    Human,
+    AI,
 }
 
 #[derive(Error, Debug)]
@@ -29,13 +29,13 @@ impl Board {
         }
     }
 
-    pub fn place(&mut self, x: u8, y: u8, new_state: Option<Player>) -> Result<(), BoardError> {
+    pub fn place(&mut self, x: u8, y: u8, player: Player) -> Result<(), BoardError> {
         if x > self.dimensions - 1 || y > self.dimensions - 1 {
             return Err(BoardError::OutOfBounds);
         }
 
         if self.get_cell(x, y).is_none() {
-            self.cells[x as usize][y as usize] = new_state;
+            self.cells[x as usize][y as usize] = Some(player);
         } else {
             return Err(BoardError::CellTaken);
         }
@@ -107,8 +107,8 @@ impl fmt::Display for Board {
                     f,
                     "| {} ",
                     match self.cells[column as usize][row as usize] {
-                        Some(Player::X) => "X",
-                        Some(Player::O) => "O",
+                        Some(Player::Human) => "X",
+                        Some(Player::AI) => "O",
                         None => " ",
                     }
                 );

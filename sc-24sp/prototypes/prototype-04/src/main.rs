@@ -1,23 +1,32 @@
 #![allow(unused)]
 
+mod ai;
 mod board;
 
+use ai::AI;
 use board::{Board, Player};
+
 use std::{fmt, io};
 
 fn main() {
     let mut b = Board::new(3);
 
-    let mut current_player = Player::X;
+    let mut current_player = Player::Human;
+
+    let ai = AI {};
 
     loop {
         let (x, y) = get_user_input();
 
-        if let Err(board::BoardError::CellTaken) = b.place(x, y, Some(Player::X)) {
+        if let Err(board::BoardError::CellTaken) = b.place(x, y, Player::Human) {
             println!("Cell taken. Please choose another one.");
         };
 
         println!("{}", b);
+
+        if let Some((x, y)) = ai.check_for_possible_win(&mut b, current_player) {
+            println!("Possible winning spot: {}, {}", x, y);
+        }
 
         if b.check_win(current_player) {
             println!("Player {:?} won!", current_player);
