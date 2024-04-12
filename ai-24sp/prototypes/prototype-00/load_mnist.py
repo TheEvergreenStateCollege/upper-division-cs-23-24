@@ -20,9 +20,8 @@ def save_single_image(image_data, width, height):
             newImg.putpixel((x,y), (pixel, pixel, pixel))
     newImg.save(f"mnist.png")
 
-# Return ndarray of shape [60000, 784]
-def load_all_training_images():
-    f = open("train-images-idx3-ubyte", "rb")
+def load_images(filename):
+    f = open(filename, "rb")
 
     data = f.read()
 
@@ -51,38 +50,15 @@ def load_all_training_images():
     print(f"Shape of data straight from file {data_arr.shape}")
 
     return (data_arr, width, height) 
+
+
+# Return ndarray of shape [60000, 784]
+def load_all_training_images():
+    return load_images("train-images-idx3-ubyte")
 
 # Return ndarray of shape [10000, 784]
 def load_all_test_images():
-    f = open("t10k-images-idx3-ubyte", "rb")
-
-    data = f.read()
-
-    size = int(data[6]*256+data[7])
-    print(f"Number of images {size}")
-
-    width = int(bytes_to_num(data[8:12]))
-    height = int(bytes_to_num(data[12:16]))
-
-    print(f"width {width}")
-    print(f"height {height}")
-
-    start=16
-    end=16 + 784*size
-    
-    print(f"start image data at byte {start}")
-    print(f"end image data at byte {end}")
-    data_list = list(data[16:16 + 784 * size]) # I think this is bytearray type
-    # we want list of bytes
-    print(f"length of sliced 1D image data {type(data_list)}")
-
-    data_arr = np.array(data_list, dtype=np.ubyte).reshape((size, width*height, 1))
-
-    #Expect (60000*784, 1)  (the ,1) is a grayscale pixel value 0-255
-    # or (47040000, 1)
-    print(f"Shape of data straight from file {data_arr.shape}")
-
-    return (data_arr, width, height) 
+    return load_images("t10k-images-idx3-ubyte")
 
 # 0x7  ->  [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
 # label is integer 0-9 to index output vector
@@ -91,47 +67,38 @@ def one_hot_vector_from_label(label):
     e[label] = 1.0
     return e
 
-# Return ndarray of shape [10000, 10]
-def load_all_training_labels():
-    f = open("train-labels-idx1-ubyte", "rb")
-
+def load_labels(filename=""):
+    f = open(filename, "rb")
     data = f.read()
 
     size = bytes_to_num(data[6:8])
-    print(f"Number of images {size}")
+    print(f"Number of training labels {size}")
 
-    return np.array([one_hot_vector_from_label(l) for l in data[8:]])
+    return np.array(list(data[8:]))
 
-#    label = data[8+i]
-#    one_hot_vector = one_hot_vector_from_label(label)
-
-#    print(f"Label of image {i} is {chr(label+48)} {one_hot_vector}")
+# Return ndarray of shape [10000, 10]
+def load_all_training_labels():
+    return load_labels("train-labels-idx1-ubyte")
 
 # Return ndarray of shape [10000, 10]
 def load_all_test_labels():
-    f = open("t10k-labels-idx1-ubyte", "rb")
+    return load_labels("t10k-labels-idx1-ubyte")
 
-    data = f.read()
-
-    size = bytes_to_num(data[6:8])
-    print(f"Number of test labels {size}")
-
-    return np.array([one_hot_vector_from_label(l) for l in data[8:]])
-
-
+#############################################################################
 ## LOAD TRAINING IMAGES AND LABELS
 # shape is (60000, 784, 1)
 (original_training_images, width, height) = load_all_training_images()
-print(f"Training data shape {original_training_images.shape}")
+print(f"Training image shape {original_training_images.shape}")
 # save_single_image(original_training_images[127], width, height)
 
 # shape is (60000, 10)
 training_labels = load_all_training_labels()
+print(f"Training labels shape {training_labels.shape}")
 # load_training_label(127)
 
 # shape is (60000, ((784, 1), 10))
 # 60000 2-tuples, of (x,y) image,label training pair
-original_training_data = zip(original_training_images, training_labels)
+original_training_data = list(zip(original_training_images, training_labels))
 
 # shape is (10000, ((784, 1), 10))
 #validation_data = original_training_data[50000:60000]
@@ -146,7 +113,7 @@ training_data = original_training_data
 test_labels = load_all_test_labels()
 # shape is (10000, ((784, 1), 10))
 # 10000 2-tuples, of (x,y) image,label training pair
-test_data = zip(test_images, test_labels)
+test_data = list(zip(test_images, test_labels))
 
 from network import Network
 

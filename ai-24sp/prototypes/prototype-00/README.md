@@ -33,6 +33,59 @@ with these files downloaded and gunzipped from Yann Lecun.
 -rw-r--r-- 1 gitpod gitpod  59K Jul 21  2000 train-labels-idx1-ubyte
 ```
 
+The need to wrap the result of `zip`
+with a `list` is to force it to be a collection, like `.collect` in Rust.
+
+Apparently this behavior changed from Python2 to Python3
+
+```
+In Python 2, zip() returns an actual list which is not very efficient if you work with a large amount of data. For this reason, in Python 3, zip() returns an iterable which produces the result on demand.
+```
+https://thepythonguru.com/python-builtin-functions/zip/
+
+Debugging with Gavin, it turns out it was a mistake to one-hot encode the
+training labels (and the test labels), because the comparison with the
+result (or activation) of feedforward expects it to be a single character,
+like in the original Lecun file.
+
+```
+def evaluate(self, test_data):
+        """Return the number of test inputs for which the neural
+        network outputs the correct result. Note that the neural
+        network's output is assumed to be the index of whichever
+        neuron in the final layer has the highest activation."""
+        test_results = [(np.argmax(self.feedforward(x)), y)
+                        for (x, y) in test_data]
+        return sum(int(x == y) for (x, y) in test_results)
+```
+
+I've fixed this in `load_mnist` by removing the call to `one_hot_encode_from_label`
+
+### Python3 Version of Mike Nielsen Code is already available
+
+I just found the official Mike Nielsen github code for the textbook
+
+https://github.com/mnielsen/neural-networks-and-deep-learning
+
+and there is already a Python3 version with CUDA
+
+https://github.com/MichalDanielDobrzanski/DeepLearningPython
+
+I suppose it made things harder to do our own MNIST loader, but I also
+wanted to understand the dimensionality of the data at a deeper level,
+and to also be able to dump / pickle the model.
+
+So I'm satisfied with the harder way we took, I just want better quiz questions
+and exercises to make what's happening inside this neural network more clear
+(and visual).
+
+### List of Python2 Fixes
+
+* `xrange` in Python2 is just `range` now in Python3
+* `print()` instead of `print`
+* `f"{var}"` format strings instead of `"{0}".format(var)`
+
+![alt text](image.png)
 
 ## 2024-04-04 ppham 
 
