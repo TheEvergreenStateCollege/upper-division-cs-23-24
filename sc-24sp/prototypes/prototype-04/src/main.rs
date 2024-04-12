@@ -13,7 +13,7 @@ fn main() {
     loop {
         let (x, y) = get_user_input();
 
-        b.place(x, y, Some(Player::X));
+        b.place(x, y, Some(Player::X)).unwrap();
         println!("{}", b.check_win(Player::X));
 
         println!("{}", b);

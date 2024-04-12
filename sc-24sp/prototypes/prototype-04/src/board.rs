@@ -1,9 +1,18 @@
 use std::fmt;
+use thiserror::Error;
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Player {
     X,
     O,
+}
+
+#[derive(Error, Debug)]
+pub enum BoardError {
+    #[error("Cell is out of bounds")]
+    OutOfBounds,
+    #[error("Cell is taken")]
+    CellTaken,
 }
 
 #[derive(Clone)]
@@ -20,13 +29,18 @@ impl Board {
         }
     }
 
-    pub fn place(&mut self, x: u8, y: u8, new_state: Option<Player>) {
+    pub fn place(&mut self, x: u8, y: u8, new_state: Option<Player>) -> Result<(), BoardError> {
         if x > self.dimensions - 1 || y > self.dimensions - 1 {
-            // TODO: Return Err
-            panic!("Out of bounds");
+            return Err(BoardError::OutOfBounds);
         }
 
-        self.cells[x as usize][y as usize] = new_state;
+        if self.get_cell(x, y).is_none() {
+            self.cells[x as usize][y as usize] = new_state;
+        } else {
+            return Err(BoardError::CellTaken);
+        }
+
+        Ok(())
     }
 
     pub fn get_cell(&self, x: u8, y: u8) -> &Option<Player> {
