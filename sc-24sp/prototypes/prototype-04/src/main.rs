@@ -10,10 +10,9 @@ use std::{fmt, io};
 
 fn main() {
     let mut b = Board::new(3);
+    let ai = AI {};
 
     let mut current_player = Player::Human;
-
-    let ai = AI {};
 
     loop {
         let (x, y) = get_user_input();
@@ -32,6 +31,9 @@ fn main() {
             println!("Player {:?} won!", current_player);
             std::process::exit(0);
         }
+
+        // AI looks at board and ranks all of its possible moves, and takes the one with the
+        // highest rank.
     }
 }
 
