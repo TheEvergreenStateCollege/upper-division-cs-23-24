@@ -10,7 +10,13 @@ pub struct AI {}
 
 impl AI {
     pub fn make_move(&self, b: &mut Board) {
+        // Check if one of the next possible moves is a win. If so, make it.
         if let Some((x, y)) = self.check_for_possible_win(b, Player::AI) {
+            b.place(x, y, Player::AI);
+        }
+
+        // Check if one of the human's next possible moves is a win. If so, block it.
+        if let Some((x, y)) = self.check_for_possible_win(b, Player::Human) {
             b.place(x, y, Player::AI);
         }
     }

@@ -15,32 +15,44 @@ fn main() {
     let mut current_player = Player::Human;
 
     loop {
-        let (x, y) = get_user_input();
+        match current_player {
+            Player::Human => {
+                let (x, y) = get_user_input();
 
-        if let Err(board::BoardError::CellTaken) = b.place(x, y, Player::Human) {
-            println!("Cell taken. Please choose another one.");
-        };
+                if let Err(board::BoardError::CellTaken) = b.place(x, y, Player::Human) {
+                    println!("Cell taken. Please choose another one.");
+                };
 
-        println!("{}", b);
+                println!("Your move: \n{}\n", b);
 
-        if let Some((x, y)) = ai.check_for_possible_win(&mut b, current_player) {
-            println!("Possible winning spot: {}, {}", x, y);
+                if b.check_win(current_player) {
+                    println!("Player {:?} won!", current_player);
+                    break;
+                }
+
+                current_player = Player::AI;
+            }
+            Player::AI => {
+                ai.make_move(&mut b);
+
+                println!("AI's move: \n{}\n", b);
+
+                if b.check_win(current_player) {
+                    println!("Player {:?} won!", current_player);
+                    break;
+                }
+
+                current_player = Player::Human;
+            }
         }
-
-        if b.check_win(current_player) {
-            println!("Player {:?} won!", current_player);
-            std::process::exit(0);
-        }
-
-        // AI looks at board and ranks all of its possible moves, and takes the one with the
-        // highest rank.
     }
 }
 
 // Shamelessly lifted from Gavin
 fn get_user_input() -> (u8, u8) {
+    let mut line = String::new();
+
     loop {
-        let mut line = String::new();
         println!("Input your move: ");
         io::stdin()
             .read_line(&mut line)
