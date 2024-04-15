@@ -4,10 +4,10 @@
 use std::io;
 use regex_lite::Regex;
 
-use prototype_08::moves::MoveError;
-use prototype_08::moves::ranker::rank_moves;
-use prototype_08::types::{Board,Player,Move};
-use prototype_08::validators::win_validator;
+use prototype_0::moves::MoveError;
+use prototype_0::moves::ranker::rank_moves;
+use prototype_0::types::{Board,Player,Move};
+use prototype_0::validators::win_validator;
 
 fn do_move<'a>(board: &mut Board<'a>, next_move: &Move, player: &Player) {
     let (move_error) = board.make_move(next_move, player);
@@ -30,11 +30,7 @@ fn do_move<'a>(board: &mut Board<'a>, next_move: &Move, player: &Player) {
         },
 
 
-<<<<<<< HEAD
     }
-=======
-    } 
->>>>>>> 8b3c15891c24e4d5e0dfe772293ce94b84337109
 }
 
 fn main() {
@@ -91,22 +87,14 @@ fn main() {
                 // but until you implement the ranker
                 // in moves::ranker::rank_moves, the solver effectively forfeits
                 println!("🏆 GAME WON 🏆 \n by {:?}", Player::X);
-<<<<<<< HEAD
                 break;
-=======
-                break;    
->>>>>>> 8b3c15891c24e4d5e0dfe772293ce94b84337109
             }
         }
 
         if win_validator(&board) {
             println!("🏆 GAME WON 🏆 \n by {:?}", board.next_to_move);
             break;
-<<<<<<< HEAD
         }
-=======
-        }    
->>>>>>> 8b3c15891c24e4d5e0dfe772293ce94b84337109
 
     }
 
