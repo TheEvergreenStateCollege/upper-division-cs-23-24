@@ -26,14 +26,10 @@ impl AI {
             b.place(row, column, Player::AI);
         }
 
+        // TODO: How can I fit this into the hierarchy of possible moves?
         // Thinking two steps ahead:
         // For every possible move:
-        // for row in 0..3 {
-        //     for column in 0..3 {
-        //
-        //         //   Make move
-        //     }
-        // }
+        //     Make move
         //   If check_for_possible_win() returns a possible win
         //     Make winning move
         //   Otherwise
