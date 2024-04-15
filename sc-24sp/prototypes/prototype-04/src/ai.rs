@@ -14,28 +14,30 @@ impl AI {
         // Check if one of the next possible moves is a win. If so, make it.
         if let Some((x, y)) = self.check_for_possible_win(b, Player::AI) {
             b.place(x, y, Player::AI);
-        }
-        // Otherwise, if one of the human's next possible moves is a win. If so, block it.
-        else if let Some((x, y)) = self.check_for_possible_win(b, Player::Human) {
+        // Otherwise, if one of the human's next possible moves is a win, block it.
+        } else if let Some((x, y)) = self.check_for_possible_win(b, Player::Human) {
             b.place(x, y, Player::AI);
+        // Otherwise, if center is not taken, take it.
+        } else if b.get_cell(1, 1).is_none() {
+            b.place(1, 1, Player::AI);
+        // Otherwise, make any move.
+        } else if let Some((row, column)) = self.check_for_empty_spaces(b) {
+            // TODO: Maybe take a random spot?
+            b.place(row, column, Player::AI);
         }
+
         // Thinking two steps ahead:
         // For every possible move:
-        //   Make move
+        // for row in 0..3 {
+        //     for column in 0..3 {
+        //
+        //         //   Make move
+        //     }
+        // }
         //   If check_for_possible_win() returns a possible win
         //     Make winning move
         //   Otherwise
         //     Undo the move
-
-        // Place anywhere
-        // If center is not taken, take it
-        else if b.get_cell(1, 1).is_none() {
-            b.place(1, 1, Player::AI);
-        // TODO: Maybe take a random spot?
-        // Otherwise, take the first possible space
-        } else if let Some((row, column)) = self.check_for_empty_spaces(b) {
-            b.place(row, column, Player::AI);
-        }
     }
 
     /// Check if any of the next moves will win
