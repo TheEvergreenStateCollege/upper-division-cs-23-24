@@ -46,7 +46,7 @@ impl AI {
                     // Make the move
                     b.place(row, column, p);
                     // Check if it won
-                    let has_won = b.check_win(p);
+                    let has_won = b.check_game_state(p);
                     // Undo the move
                     b.remove(row, column);
 

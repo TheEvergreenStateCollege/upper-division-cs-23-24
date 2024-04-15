@@ -64,18 +64,18 @@ impl Board {
 
     // TODO: Make this check_game_state and also return true for ties
     /// Check if the given player has won
-    pub fn check_win(&self, p: Player) -> bool {
-        //Diagonal top-left to bottom-right
+    pub fn check_game_state(&self, p: Player) -> bool {
+        // Diagonal top-left to bottom-right
         if self.cells[0][0] == Some(p) && self.cells[1][1] == Some(p) && self.cells[2][2] == Some(p)
         {
             return true;
         };
-        //Diagonal top-right to bottom-left
+        // Diagonal top-right to bottom-left
         if self.cells[2][0] == Some(p) && self.cells[1][1] == Some(p) && self.cells[0][2] == Some(p)
         {
             return true;
         };
-        //Row wins
+        // Row wins
         for y in 0..3 {
             if self.cells[0][y] == Some(p)
                 && self.cells[1][y] == Some(p)
@@ -84,7 +84,7 @@ impl Board {
                 return true;
             };
         }
-        //Column wins
+        // Column wins
         for x in 0..3 {
             if self.cells[x][0] == Some(p)
                 && self.cells[x][1] == Some(p)
@@ -93,6 +93,15 @@ impl Board {
                 return true;
             };
         }
+
+        // Check for ties
+        if self
+            .cells
+            .iter()
+            .all(|row| row.iter().all(|cell| cell.is_some()))
+        {
+            println!("TIE!");
+        };
 
         false
     }
