@@ -15,12 +15,10 @@ impl AI {
         if let Some((x, y)) = self.check_for_possible_win(b, Player::AI) {
             b.place(x, y, Player::AI);
         }
-
-        // Check if one of the human's next possible moves is a win. If so, block it.
-        if let Some((x, y)) = self.check_for_possible_win(b, Player::Human) {
+        // Otherwise, if one of the human's next possible moves is a win. If so, block it.
+        else if let Some((x, y)) = self.check_for_possible_win(b, Player::Human) {
             b.place(x, y, Player::AI);
         }
-
         // Thinking two steps ahead:
         // For every possible move:
         //   Make move
@@ -31,11 +29,16 @@ impl AI {
 
         // Place anywhere
         // If center is not taken, take it
+        else if b.get_cell(1, 1).is_none() {
+            b.place(1, 1, Player::AI);
         // Otherwise, take the first possible space
+        } else if let Some((row, column)) = self.check_for_empty_spaces(b) {
+            b.place(row, column, Player::AI);
+        }
     }
 
     /// Check if any of the next moves will win
-    pub fn check_for_possible_win(&self, b: &mut Board, p: Player) -> Option<(u8, u8)> {
+    fn check_for_possible_win(&self, b: &mut Board, p: Player) -> Option<(u8, u8)> {
         // Iterate through possible board states and call win_checker on them
         for row in 0..3 {
             for column in 0..3 {
@@ -51,6 +54,18 @@ impl AI {
                     if has_won {
                         return Some((row, column));
                     }
+                }
+            }
+        }
+
+        None
+    }
+
+    fn check_for_empty_spaces(&self, b: &Board) -> Option<(u8, u8)> {
+        for row in 0..3 {
+            for column in 0..3 {
+                if b.get_cell(row, column).is_none() {
+                    return Some((row, column));
                 }
             }
         }
