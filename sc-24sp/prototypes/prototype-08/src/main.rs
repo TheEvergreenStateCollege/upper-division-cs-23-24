@@ -4,10 +4,10 @@
 use std::io;
 use regex_lite::Regex;
 
-use prototype_0::moves::MoveError;
-use prototype_0::moves::ranker::rank_moves;
-use prototype_0::types::{Board,Player,Move};
-use prototype_0::validators::win_validator;
+use prototype_08::moves::MoveError;
+use prototype_08::moves::ranker::rank_moves;
+use prototype_08::types::{Board,Player,Move};
+use prototype_08::validators::win_validator;
 
 fn do_move<'a>(board: &mut Board<'a>, next_move: &Move, player: &Player) {
     let (move_error) = board.make_move(next_move, player);
