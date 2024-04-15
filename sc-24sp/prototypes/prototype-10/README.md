@@ -13,11 +13,11 @@ Wrote all code from https://github.com/TheEvergreenStateCollege/upper-division-c
 
 #### 15-APR-2024 @faulkdf @nathanMcL:
 
-- Working on `moves/ranker.rs`
+- Wrote `moves/ranker.rs`
 - Wrote `types/board.rs`
 - Wrote `types/mod.rs`
 - Wrote `validators/mod.rs`
-
+- Did troubleshooting while trying to build project. 
 
 
 
