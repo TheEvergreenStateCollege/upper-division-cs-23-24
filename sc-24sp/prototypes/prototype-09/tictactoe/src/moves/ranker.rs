@@ -42,14 +42,26 @@ pub mod ranker {
         
         //Then if we can make a move that threatens a win on a subsequent move, we make it.
         let threatening_moves = find_threatening_moves(b, Player::X);
+        for threat in &threatening_moves { 
+            if (threat.coords.0 == 0 || threat.coords.0 == 2) && (threat.coords.1 == 0 || threat.coords.1 == 2) { //corner checker
+                return (*threat, "Threaten a win");
+            }
+        }
         if threatening_moves.len() > 0 {return (threatening_moves[0], "threaten to win on the next turn")};
         
-        //Then if the center is free, we take it.
+        //Then if the center is free, we take it. This blocks 4 win routes
         if b.cells[1][1] == None {return (Move{coords: (1,1)}, "take the center position")}
         
-        //If we can block an opponent from threatening a win, we do so.
-        let opp_threatening_moves = find_threatening_moves(b, Player::O);
-        if opp_threatening_moves.len() > 0 {return (opp_threatening_moves[0], "block an opponent's path")};
+        //If we can block an opponent from threatening a win, we do so. We prioritize corners because they block more wins
+        let op_threatening_moves = find_threatening_moves(b, Player::O);
+        for op_threat in &op_threatening_moves { 
+            if (op_threat.coords.0 == 0 || op_threat.coords.0 == 2) && (op_threat.coords.1 == 0 || op_threat.coords.1 == 2) { //corner checker
+                return (*op_threat, "block an opponent's path");
+            }
+        }
+        if op_threatening_moves.len() > 0 {
+            return (op_threatening_moves[0], "block an opponent's path");
+        }
 
         //Then if there's any valid move, do it.
         let valid_moves = list_moves(&b);
