@@ -21,7 +21,7 @@ fn main() {
 
                 if let Err(board::BoardError::CellTaken) = b.place(x, y, Player::Human) {
                     println!("Cell taken. Please choose another one.");
-                    // TODO: We should ask for their move again, because this will just move ahead.
+                    // BUG: We should ask for their move again, because this will just move ahead.
                 };
 
                 println!("Your move: \n{}\n", b);

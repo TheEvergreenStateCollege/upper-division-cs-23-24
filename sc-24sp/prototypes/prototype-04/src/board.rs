@@ -39,7 +39,7 @@ impl Board {
             return Err(BoardError::OutOfBounds);
         }
 
-        if self.get_cell(x, y).is_none() {
+        if self.get_cell(x, y)?.is_none() {
             self.cells[x as usize][y as usize] = Some(player);
         } else {
             return Err(BoardError::CellTaken);
@@ -58,13 +58,12 @@ impl Board {
         Ok(())
     }
 
-    pub fn get_cell(&self, x: u8, y: u8) -> &Option<Player> {
+    pub fn get_cell(&self, x: u8, y: u8) -> Result<&Option<Player>, BoardError> {
         if x > self.dimensions - 1 || y > self.dimensions - 1 {
-            // TODO: Return Err
-            panic!("Out of bounds");
+            return Err(BoardError::OutOfBounds);
         }
 
-        &self.cells[x as usize][y as usize]
+        Ok(&self.cells[x as usize][y as usize])
     }
 
     /// Checks the result of the game. Returns None for no result, or GameResult::Win or Tie.

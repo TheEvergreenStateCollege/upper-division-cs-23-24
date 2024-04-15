@@ -21,7 +21,10 @@ impl AI {
             // Think two steps ahead:
             for row in 0..3 {
                 for column in 0..3 {
-                    if b.get_cell(row, column).is_none() {
+                    if b.get_cell(row, column)
+                        .expect("The AI shouldn't choose something OOB")
+                        .is_none()
+                    {
                         b.place(row, column, Player::AI);
 
                         // If this move could get us a win in the future, keep it.
@@ -37,7 +40,10 @@ impl AI {
 
             // Lowest priority, just try to make a move
             // If center is not taken, take it.
-            if b.get_cell(1, 1).is_none() {
+            if b.get_cell(1, 1)
+                .expect("The AI shouldn't choose something OOB")
+                .is_none()
+            {
                 b.place(1, 1, Player::AI);
             // Otherwise, make any move.
             } else if let Some((row, column)) = self.check_for_empty_spaces(b) {
@@ -52,7 +58,10 @@ impl AI {
         // Iterate through possible board states and see if they win
         for row in 0..3 {
             for column in 0..3 {
-                if b.get_cell(row, column).is_none() {
+                if b.get_cell(row, column)
+                    .expect("The AI shouldn't choose something OOB")
+                    .is_none()
+                {
                     // Make the move
                     b.place(row, column, p);
                     // Check if it won
@@ -76,7 +85,10 @@ impl AI {
     fn check_for_empty_spaces(&self, b: &Board) -> Option<(u8, u8)> {
         for row in 0..3 {
             for column in 0..3 {
-                if b.get_cell(row, column).is_none() {
+                if b.get_cell(row, column)
+                    .expect("The AI shouldn't choose something OOB")
+                    .is_none()
+                {
                     return Some((row, column));
                 }
             }
