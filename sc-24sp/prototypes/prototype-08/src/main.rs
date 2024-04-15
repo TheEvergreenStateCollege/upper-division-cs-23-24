@@ -30,7 +30,11 @@ fn do_move<'a>(board: &mut Board<'a>, next_move: &Move, player: &Player) {
         },
 
 
+<<<<<<< HEAD
+    }
+=======
     } 
+>>>>>>> 8b3c15891c24e4d5e0dfe772293ce94b84337109
 }
 
 fn main() {
@@ -87,14 +91,22 @@ fn main() {
                 // but until you implement the ranker
                 // in moves::ranker::rank_moves, the solver effectively forfeits
                 println!("🏆 GAME WON 🏆 \n by {:?}", Player::X);
+<<<<<<< HEAD
+                break;
+=======
                 break;    
+>>>>>>> 8b3c15891c24e4d5e0dfe772293ce94b84337109
             }
         }
 
         if win_validator(&board) {
             println!("🏆 GAME WON 🏆 \n by {:?}", board.next_to_move);
             break;
+<<<<<<< HEAD
+        }
+=======
         }    
+>>>>>>> 8b3c15891c24e4d5e0dfe772293ce94b84337109
 
     }
 
