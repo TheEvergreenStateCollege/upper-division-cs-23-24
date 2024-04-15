@@ -1,5 +1,7 @@
 use crate::types::{Board,Cell};
 
+pub mod winning;
+
 fn row_win_validator(board: &Board, row: u32) -> bool {
     let mut all_equal = true;
     for i in 0..2 {
