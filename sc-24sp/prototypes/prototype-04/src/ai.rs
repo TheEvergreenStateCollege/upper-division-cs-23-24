@@ -9,7 +9,7 @@ use crate::board::{Board, GameResult, Player};
 pub struct AI {}
 
 impl AI {
-    /// Make the AI perform a move, given a board.
+    /// Make the AI perform a move on the given board.
     pub fn make_move(&self, b: &mut Board) {
         // If one of the next possible moves is a win. If so, make it.
         if let Some((x, y)) = self.check_for_possible_win(b, Player::AI) {
@@ -18,16 +18,24 @@ impl AI {
         } else if let Some((x, y)) = self.check_for_possible_win(b, Player::Human) {
             b.place(x, y, Player::AI);
         } else {
-            // Thinking two steps ahead:
-            // For every possible move:
-            //     Make move
-            //     If check_for_possible_win() returns a possible win
-            //       Make the move that will get us a future win
-            //       Break out of loop and exit function
-            //   Otherwise
-            //     Undo the move
-            // }
+            // Think two steps ahead:
+            for row in 0..3 {
+                for column in 0..3 {
+                    if b.get_cell(row, column).is_none() {
+                        b.place(row, column, Player::AI);
 
+                        // If this move could get us a win in the future, keep it.
+                        if self.check_for_possible_win(b, Player::AI).is_some() {
+                            return;
+                        // Otherwise, undo it.
+                        } else {
+                            b.remove(row, column);
+                        }
+                    }
+                }
+            }
+
+            // Lowest priority, just try to make a move
             // If center is not taken, take it.
             if b.get_cell(1, 1).is_none() {
                 b.place(1, 1, Player::AI);
