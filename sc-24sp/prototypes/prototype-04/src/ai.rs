@@ -4,7 +4,7 @@
 // Continue chain
 // Place anywhere
 
-use crate::board::{Board, Player};
+use crate::board::{Board, GameResult, Player};
 
 pub struct AI {}
 
@@ -31,6 +31,7 @@ impl AI {
         // If center is not taken, take it
         else if b.get_cell(1, 1).is_none() {
             b.place(1, 1, Player::AI);
+        // TODO: Maybe take a random spot?
         // Otherwise, take the first possible space
         } else if let Some((row, column)) = self.check_for_empty_spaces(b) {
             b.place(row, column, Player::AI);
@@ -46,12 +47,12 @@ impl AI {
                     // Make the move
                     b.place(row, column, p);
                     // Check if it won
-                    let has_won = b.check_game_state(p);
+                    let game_result = b.check_game_result(p);
                     // Undo the move
                     b.remove(row, column);
 
                     // Just take the first possible winning move
-                    if has_won {
+                    if let Some(GameResult::Win) = game_result {
                         return Some((row, column));
                     }
                 }

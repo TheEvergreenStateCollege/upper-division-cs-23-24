@@ -4,7 +4,7 @@ mod ai;
 mod board;
 
 use ai::AI;
-use board::{Board, Player};
+use board::{Board, GameResult, Player};
 
 use std::{fmt, io};
 
@@ -25,9 +25,16 @@ fn main() {
 
                 println!("Your move: \n{}\n", b);
 
-                if b.check_game_state(current_player) {
-                    println!("Player {:?} won!", current_player);
-                    break;
+                match b.check_game_result(current_player) {
+                    Some(GameResult::Win) => {
+                        println!("The {:?} won!", current_player);
+                        break;
+                    }
+                    Some(GameResult::Tie) => {
+                        println!("Tie :(");
+                        break;
+                    }
+                    None => (),
                 }
 
                 current_player = Player::AI;
@@ -37,9 +44,16 @@ fn main() {
 
                 println!("AI's move: \n{}\n", b);
 
-                if b.check_game_state(current_player) {
-                    println!("Player {:?} won!", current_player);
-                    break;
+                match b.check_game_result(current_player) {
+                    Some(GameResult::Win) => {
+                        println!("The {:?} won!", current_player);
+                        break;
+                    }
+                    Some(GameResult::Tie) => {
+                        println!("Tie!");
+                        break;
+                    }
+                    None => (),
                 }
 
                 current_player = Player::Human;

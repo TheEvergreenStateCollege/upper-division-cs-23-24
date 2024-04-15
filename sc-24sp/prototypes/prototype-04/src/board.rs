@@ -15,6 +15,11 @@ pub enum BoardError {
     CellTaken,
 }
 
+pub enum GameResult {
+    Win,
+    Tie,
+}
+
 #[derive(Clone)]
 pub struct Board {
     cells: Vec<Vec<Option<Player>>>,
@@ -62,18 +67,17 @@ impl Board {
         &self.cells[x as usize][y as usize]
     }
 
-    // TODO: Make this check_game_state and also return true for ties
-    /// Check if the given player has won
-    pub fn check_game_state(&self, p: Player) -> bool {
+    /// Checks the result of the game. Returns None for no result, or GameResult::Win or Tie.
+    pub fn check_game_result(&self, p: Player) -> Option<GameResult> {
         // Diagonal top-left to bottom-right
         if self.cells[0][0] == Some(p) && self.cells[1][1] == Some(p) && self.cells[2][2] == Some(p)
         {
-            return true;
+            return Some(GameResult::Win);
         };
         // Diagonal top-right to bottom-left
         if self.cells[2][0] == Some(p) && self.cells[1][1] == Some(p) && self.cells[0][2] == Some(p)
         {
-            return true;
+            return Some(GameResult::Win);
         };
         // Row wins
         for y in 0..3 {
@@ -81,7 +85,7 @@ impl Board {
                 && self.cells[1][y] == Some(p)
                 && self.cells[2][y] == Some(p)
             {
-                return true;
+                return Some(GameResult::Win);
             };
         }
         // Column wins
@@ -90,7 +94,7 @@ impl Board {
                 && self.cells[x][1] == Some(p)
                 && self.cells[x][2] == Some(p)
             {
-                return true;
+                return Some(GameResult::Win);
             };
         }
 
@@ -100,10 +104,10 @@ impl Board {
             .iter()
             .all(|row| row.iter().all(|cell| cell.is_some()))
         {
-            println!("TIE!");
+            return Some(GameResult::Tie);
         };
 
-        false
+        None
     }
 }
 
