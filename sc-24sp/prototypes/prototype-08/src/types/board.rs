@@ -1,5 +1,5 @@
 use super::{Board, Cell, Player, Move};
-use crate::Moves::MoveError
+use crate::Moves::MoveError;
 
 const Empty_Board:[[Cell:3];3] = [
     [Cell::None, Cell::None, Cell::None],
