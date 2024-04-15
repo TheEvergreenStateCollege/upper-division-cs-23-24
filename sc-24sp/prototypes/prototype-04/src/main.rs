@@ -14,15 +14,19 @@ fn main() {
 
     let mut current_player = Player::Human;
 
+    // Game loop
     loop {
         match current_player {
             Player::Human => {
-                let (x, y) = get_user_input();
+                loop {
+                    let (x, y) = get_user_input();
 
-                if let Err(board::BoardError::CellTaken) = b.place(x, y, Player::Human) {
-                    println!("Cell taken. Please choose another one.");
-                    // BUG: We should ask for their move again, because this will just move ahead.
-                };
+                    if let Err(board::BoardError::CellTaken) = b.place(x, y, Player::Human) {
+                        println!("Cell taken. Please choose another one.");
+                    } else {
+                        break;
+                    };
+                }
 
                 println!("Your move: \n{}\n", b);
 
