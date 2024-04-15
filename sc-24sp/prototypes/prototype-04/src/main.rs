@@ -25,7 +25,7 @@ fn main() {
 
                 println!("Your move: \n{}\n", b);
 
-                if b.check_win(current_player) {
+                if b.check_game_state(current_player) {
                     println!("Player {:?} won!", current_player);
                     break;
                 }
@@ -37,7 +37,7 @@ fn main() {
 
                 println!("AI's move: \n{}\n", b);
 
-                if b.check_win(current_player) {
+                if b.check_game_state(current_player) {
                     println!("Player {:?} won!", current_player);
                     break;
                 }
@@ -105,6 +105,7 @@ fn get_user_input() -> (u8, u8) {
             "right bottom" => break (2, 2),
             _ => {
                 println!("Invalid move. Please describe your move as \"top/center/bottom right/center/left\", or \"top/right/bottom/left/center\"");
+                line.clear();
                 continue;
             }
         }
