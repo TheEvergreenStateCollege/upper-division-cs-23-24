@@ -86,5 +86,22 @@ def load_training_label(i):
     #f2.close()
     #f.close()
 
-load_training_image(127)
+
+## Load training images and labels
+# shape is (60000, 784, 1)
+(original_training_images, width, height) = load_all_training_images()
+save_single_image(training_images[127], width, height)
 load_training_label(127)
+
+# Shape is (60000, (784,1), 10)
+# 60000 2-tuples of (x,y) image, label training pair
+original_training_data = zip(original_training_images, training_labels)
+
+# Shape is (60000, 10)
+training_labels = load_all_training_labels()
+
+# Shape is (60000, (784,1), 10)
+# 60000 2-tuples of (x,y) image, label training pair
+original_training_data = zip(original_training_images, training_labels)
+
+
