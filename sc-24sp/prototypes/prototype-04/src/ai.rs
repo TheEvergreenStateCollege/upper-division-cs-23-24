@@ -49,7 +49,7 @@ impl AI {
 
     /// Check if any of the next moves will win
     fn check_for_possible_win(&self, b: &mut Board, p: Player) -> Option<(u8, u8)> {
-        // Iterate through possible board states and call win_checker on them
+        // Iterate through possible board states and see if they win
         for row in 0..3 {
             for column in 0..3 {
                 if b.get_cell(row, column).is_none() {
@@ -59,6 +59,8 @@ impl AI {
                     let game_result = b.check_game_result(p);
                     // Undo the move
                     b.remove(row, column);
+
+                    // TODO: Shouldn't I just make the move and not remove it if it's a winner?
 
                     // Just take the first possible winning move
                     if let Some(GameResult::Win) = game_result {
