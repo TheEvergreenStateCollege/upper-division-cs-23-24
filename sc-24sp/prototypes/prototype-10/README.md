@@ -11,6 +11,13 @@ Wrote all code from https://github.com/TheEvergreenStateCollege/upper-division-c
 - Wrote `moves/mod.rs`
 - Wrote `lib.rs`
 
+#### 15-APR-2024 @faulkdf @nathanMcL:
+
+- Working on `moves/ranker.rs`
+- Wrote `types/board.rs`
+- Wrote `types/mod.rs`
+- Wrote `validators/mod.rs`
+
 
 
 
