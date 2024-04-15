@@ -9,6 +9,7 @@ use crate::board::{Board, Player};
 pub struct AI {}
 
 impl AI {
+    /// Make the AI perform a move given a board.
     pub fn make_move(&self, b: &mut Board) {
         // Check if one of the next possible moves is a win. If so, make it.
         if let Some((x, y)) = self.check_for_possible_win(b, Player::AI) {
@@ -19,6 +20,18 @@ impl AI {
         if let Some((x, y)) = self.check_for_possible_win(b, Player::Human) {
             b.place(x, y, Player::AI);
         }
+
+        // Thinking two steps ahead:
+        // For every possible move:
+        //   Make move
+        //   If check_for_possible_win() returns a possible win
+        //     Make winning move
+        //   Otherwise
+        //     Undo the move
+
+        // Place anywhere
+        // If center is not taken, take it
+        // Otherwise, take the first possible space
     }
 
     /// Check if any of the next moves will win

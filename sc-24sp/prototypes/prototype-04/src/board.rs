@@ -62,6 +62,7 @@ impl Board {
         &self.cells[x as usize][y as usize]
     }
 
+    // TODO: Make this check_game_state and also return true for ties
     /// Check if the given player has won
     pub fn check_win(&self, p: Player) -> bool {
         //Diagonal top-left to bottom-right
