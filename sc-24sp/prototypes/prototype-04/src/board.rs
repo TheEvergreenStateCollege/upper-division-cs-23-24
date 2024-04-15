@@ -7,6 +7,15 @@ pub enum Player {
     AI,
 }
 
+impl fmt::Display for Player {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match &self {
+            Player::Human => write!(f, "human"),
+            Player::AI => write!(f, "AI"),
+        }
+    }
+}
+
 #[derive(Error, Debug)]
 pub enum BoardError {
     #[error("Cell is out of bounds")]

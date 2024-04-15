@@ -28,7 +28,7 @@ fn main() {
 
                 match b.check_game_result(current_player) {
                     Some(GameResult::Win) => {
-                        println!("The {:?} won!", current_player);
+                        println!("The {} won!", current_player);
                         break;
                     }
                     Some(GameResult::Tie) => {
@@ -47,7 +47,7 @@ fn main() {
 
                 match b.check_game_result(current_player) {
                     Some(GameResult::Win) => {
-                        println!("The {:?} won!", current_player);
+                        println!("The {} won!", current_player);
                         break;
                     }
                     Some(GameResult::Tie) => {
