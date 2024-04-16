@@ -8,7 +8,7 @@ When I think about AI, particularly in the context of generating responses to us
 
 
 4/16/2024
-added prototype-00. ' -00 ' is a current build from Ai-selfhosting course. I ran both prototypes within gitpod. Once I executed the first prototype the training files then unzip within the directory. which I thought was fine, I had created a .gitignore file.
+added prototype-00 & -08 to my personal GitHub profile. ' -00 ' is a current build from Ai-selfhosting course. I ran both prototypes within gitpod. Once I executed the first prototype the training files then unzip within the directory. which I thought was fine, I had created a .gitignore file.
 I was unable to commit and push my changes after I ran the prototypes.
 I had to exit out, get back into gitpod and redo my changes, then commit and push.
 
