@@ -1,9 +1,7 @@
-// Submodules go here
 pub mod board;
 
-#[derive(Debug)]
-#[derive(Clone)]
-#[derive(PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
+
 pub enum Player {
     X,
     O,

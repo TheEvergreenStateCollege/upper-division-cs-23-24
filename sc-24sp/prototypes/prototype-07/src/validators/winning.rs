@@ -4,6 +4,8 @@ use std::hash::Hash;
 use crate::types::{Player,Move,Board};
 
 // A set of moves by the same player that would win a 3x3 game
+/* Set of three coordinates
+ */
 #[derive(PartialEq,Eq)]
 pub struct WinningState {
     three_moves: HashSet<Move>,
@@ -20,13 +22,14 @@ impl Hash for WinningState {
     }
 }
 
+/* Contains player and number of positions in a row occupied by player
+ */
 #[derive(PartialEq, Eq)]
 pub struct BoardMatch {
     pub player: Player,
     pub moves_in_a_row: u8,
 }
 
-#[derive(PartialEq, Eq)]
 pub enum WhoseAhead {
     X,
     O,

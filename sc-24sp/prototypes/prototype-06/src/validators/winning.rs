@@ -26,7 +26,6 @@ pub struct BoardMatch {
     pub moves_in_a_row: u8,
 }
 
-#[derive(PartialEq, Eq)]
 pub enum WhoseAhead {
     X,
     O,
