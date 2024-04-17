@@ -37,7 +37,10 @@ pip3 install Pillow  && pip3 install numpy
 
 ## todo:
 
- load_mnist.py", line 25, in load_all_training_images  <br>
-    f = open("train-images-idx3-ubyte", "rb")   <br>
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ <br>
-FileNotFoundError: [Errno 2] No such file or directory: 'train-images-idx3-ubyte' <br>
+load_mnist.py", line 153, in <module>  <br>
+    nn = Network([784, 100, 10])  <br>
+         ^^^^^^^^^^^^^^^^^^^^^^^  <br>
+  File "/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/network.py", line 9, in __init__<br>
+    self.biases = [np.random.randn(y, 1) for y in sizes[i]] <br>
+                                                        ^
+NameError: name 'i' is not defined. Did you mean: 'id'? <br>
