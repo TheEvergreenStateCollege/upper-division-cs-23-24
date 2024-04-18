@@ -141,4 +141,9 @@ Next, we want to increase the success rate of the model by adjusting the paramet
 
 ![Screen Shot 2024-04-18 at 1 39 11 PM](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114694086/d325dfd6-fe13-4fff-9d12-51d2eb8a5ea7)
 
+But before we can adjust the code and execute it we need to install Numpy and Pillow using PIP. 
 
+We are encountering indentation errors in our code.
+We fixed the indentation by correctly defining the function in scope.
+
+We were able to run the program, but it's taking a long time...
