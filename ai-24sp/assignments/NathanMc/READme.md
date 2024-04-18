@@ -34,7 +34,7 @@ gunzip *.gz
 pip3 install Pillow  && pip3 install numpy
 ```
 ## 04/18/2024
-using my personal gitpod branch/account
+Using my personal gitpod branch/account <br>
 FYI: I have to install the dependencies each time I log back into gitpod to work on the code.
 
 Once I execute the following command:
