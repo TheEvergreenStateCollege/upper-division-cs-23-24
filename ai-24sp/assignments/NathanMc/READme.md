@@ -33,6 +33,10 @@ gunzip *.gz
 ```
 pip3 install Pillow  && pip3 install numpy
 ```
+by creating a file named 'requirements.txt' we can run this command instead: <br> 
+```
+pip3 install -r requirements.txt
+```
 ## 04/18/2024
 Using my personal gitpod branch/account <br>
 FYI: I have to install the dependencies each time I log back into gitpod to work on the code.
