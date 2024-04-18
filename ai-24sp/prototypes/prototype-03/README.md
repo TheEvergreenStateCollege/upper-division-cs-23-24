@@ -1,6 +1,6 @@
 ## prototype-03 dev diary
 
-## 04/18/24: JonahEadieEvergreen
+## 04/18/24: JonahEadieEvergreen and rilesb
 
 # Training session 1
 
@@ -38,6 +38,11 @@ Epoch 26 : 6982 / 10000
 Epoch 27 : 6370 / 10000
 Epoch 28 : 6700 / 10000
 Epoch 29 : 6925 / 10000
+
+Above model correctly identifies idx3 as 8, and idx1 as 
+
+- Tested above model on image 140. Image looks somewhat like sloppy, curved 7. Model identified this as the number 7, correctly.
+- Also tested on image 150, which looks clearly to be a 4. The model classified this as an 8, incorrectly as the image is a 4.
 
 ## 04/04/24
 
