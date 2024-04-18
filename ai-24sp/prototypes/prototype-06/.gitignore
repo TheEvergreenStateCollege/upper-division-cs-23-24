@@ -1,5 +1,5 @@
-*.gz
 *.png
 *ubyte
+*.gz
 /__pychache__
 labels.txt
