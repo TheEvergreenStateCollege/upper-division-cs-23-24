@@ -128,3 +128,17 @@ test results: 6448 out of 10000
 Hmm. I'm not sure if it needs more epochs, or a change in size, but none of these results are close to the promised 96% correctness.
 
 This is as much as I will try for now.
+
+## 2024-04-17-Afternoon
+Julian, Timothy, Griffin
+
+
+We had to create loader.py and train.py, so we copied it from this repo: https://github.com/MichalDanielDobrzanski/DeepLearningPython
+
+Although we had a network.py, we copied it also.
+
+Next, we want to increase the success rate of the model by adjusting the parameters in train.py.
+
+![Screen Shot 2024-04-18 at 1 39 11 PM](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/114694086/d325dfd6-fe13-4fff-9d12-51d2eb8a5ea7)
+
+
