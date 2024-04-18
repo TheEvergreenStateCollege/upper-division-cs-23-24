@@ -1,20 +1,20 @@
+#!/usr/bin/env python3
+
 """
 network.py
-~~~~~~~~~~
+~~~~~~~~~~~
 
+By Mike Nielsen, https://github.com/mnielsen/neural-networks-and-deep-learning?tab=readme-ov-file
 A module to implement the stochastic gradient descent learning
-algorithm for a feedforward neural network.  Gradients are calculated
-using backpropagation.  Note that I have focused on making the code
-simple, easily readable, and easily modifiable.  It is not optimized,
-and omits many desirable features.
+algorithm for a feedforward neural network. Gradients are
+calculated using backpropagation. Note that Mike Nielsen
+focused on making the code simple, easily readable, and easily modifiable.
+It is not optimized, and omits many desirable features.
 """
 
-#### Libraries
-# Standard library
-import random
-
-# Third-party libraries
 import numpy as np
+import random
+import pbjson
 
 class Network(object):
 
@@ -31,9 +31,34 @@ class Network(object):
         ever used in computing the outputs from later layers."""
         self.num_layers = len(sizes)
         self.sizes = sizes
+        # QUESTION: Why do we initialized randomly?
+        # By analogy: if you are exploring a strange landscape for an unknown prize, is
+        # it always better to start in a random location?
+        # QUESTION: Why do we not have biases for the first layer? Because we slice off sizes[1:]
         self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
         self.weights = [np.random.randn(y, x)
                         for x, y in zip(sizes[:-1], sizes[1:])]
+
+    def saveToPBJSON(self, filename):
+        model = {
+            "weights": self.weights,
+            "biases": self.biases,
+            "sizes": self.sizes,
+            "num_layers": self.num_layers,
+        }
+        with open(filename, "wb") as f:
+            pbjson.dump(model, f)
+
+    @staticmethod 
+    def fromPBJSON(filename):
+        with open(filename, "rb") as f:
+            model = pbjson.load(f)
+            #print(f"Rehydrating {model}")
+            n = Network(model["sizes"])
+            n.num_layers = model["num_layers"]
+            n.weights = model["weights"]
+            n.biases = model["biases"]
+            return n
 
     def feedforward(self, a):
         """Return the output of the network if ``a`` is input."""
@@ -41,7 +66,8 @@ class Network(object):
             a = sigmoid(np.dot(w, a)+b)
         return a
 
-    def SGD(self, training_data, epochs, mini_batch_size, eta, show_progress, test_data=None, ):
+    def SGD(self, training_data, epochs, mini_batch_size, eta,
+            test_data=None):
         """Train the neural network using mini-batch stochastic
         gradient descent.  The ``training_data`` is a list of tuples
         ``(x, y)`` representing the training inputs and the desired
@@ -50,8 +76,14 @@ class Network(object):
         network will be evaluated against the test data after each
         epoch, and partial progress printed out.  This is useful for
         tracking progress, but slows things down substantially."""
-        if test_data: n_test = len(test_data)
+
+        training_data = list(training_data)
         n = len(training_data)
+
+        if test_data:
+            test_data = list(test_data)
+            n_test = len(test_data)
+
         for j in range(epochs):
             random.shuffle(training_data)
             mini_batches = [
@@ -59,11 +91,10 @@ class Network(object):
                 for k in range(0, n, mini_batch_size)]
             for mini_batch in mini_batches:
                 self.update_mini_batch(mini_batch, eta)
-            if show_progress and test_data:
-                print(f"Epoch {j}: {self.evaluate(test_data)} / {n_test}")
+            if test_data:
+                print("Epoch {} : {} / {}".format(j,self.evaluate(test_data),n_test))
             else:
-                print(f"Epoch {j} complete")
-        print(f"Training complete. Correct test results: {self.evaluate(test_data)} out of {n_test}")
+                print("Epoch {} complete".format(j))
 
     def update_mini_batch(self, mini_batch, eta):
         """Update the network's weights and biases by applying
@@ -121,8 +152,16 @@ class Network(object):
         network outputs the correct result. Note that the neural
         network's output is assumed to be the index of whichever
         neuron in the final layer has the highest activation."""
-        test_results = [(np.argmax(self.feedforward(x)), y) for (x, y) in test_data]
+        test_results = [(np.argmax(self.feedforward(x)), y)
+                        for (x, y) in test_data]
         return sum(int(x == y) for (x, y) in test_results)
+
+    def single(self, test_image):
+        """
+        Return the output classification label for a single input image.
+        Useful for validating or testing a loaded model.
+        """
+        return np.argmax(self.feedforward(test_image))
 
     def cost_derivative(self, output_activations, y):
         """Return the vector of partial derivatives \partial C_x /
