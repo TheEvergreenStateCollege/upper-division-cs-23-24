@@ -147,3 +147,7 @@ We are encountering indentation errors in our code.
 We fixed the indentation by correctly defining the function in scope.
 
 We were able to run the program, but it's taking a long time...
+
+We updated the training python code to create a file with the output. 
+
+we are estimating the size of our files will be ~500kb.
