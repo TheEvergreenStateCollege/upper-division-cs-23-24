@@ -22,4 +22,4 @@ To run this version you must:
     4. Run training.py
         >> python3 training.py
     5. This will produce a .pbjson file. 
-    6. This file can be fed into run_model.py, by changing line 4. 
+    6. This file can be fed into run_model.py, by replacing the file name in line 4 with the appropriate file name. 
