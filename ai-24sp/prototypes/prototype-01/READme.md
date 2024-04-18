@@ -16,7 +16,7 @@ When we think about AI, particularly in the context of generating responses to u
 
 ## How to run our demo
 
-
+@ndeanon25 - I added the requirements.txt. You have to install these python packages to run the program. The command is pip3 install -r requirements.txt. 
 
 
 
@@ -56,3 +56,7 @@ When we think about AI, particularly in the context of generating responses to u
 
 
 
+## Updates
+
+@ndeanon25 - I added the loader.py, run_model.py, and run.py, train.py files. Loader replaced load_mnist.py, loader.py is from Paul's prototype. I also updated Network.py since Paul's was different. I added a screenshot of training my model. It was only a 56% accurate.  
+![alt text](image.png)
