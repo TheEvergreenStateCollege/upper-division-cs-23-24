@@ -51,12 +51,13 @@ class Network(object):
 
     @staticmethod 
     def fromPBJSON(filename):
-        with open(filename) as f:
+        with open(filename, "rb") as f:
             model = pbjson.load(f)
-            n = Network(model.sizes)
-            n.num_layers = model.num_layers
-            n.weights = model.weights
-            n.biases = model.biases 
+            #print(f"Rehydrating {model}")
+            n = Network(model["sizes"])
+            n.num_layers = model["num_layers"]
+            n.weights = model["weights"]
+            n.biases = model["biases"]
             return n
 
     def feedforward(self, a):
