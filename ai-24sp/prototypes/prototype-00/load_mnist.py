@@ -79,7 +79,8 @@ def load_labels(filename=""):
 
 # Return ndarray of shape [10000, 10]
 def load_all_training_labels():
-    return load_labels("train-labels-idx1-ubyte")
+    labels = load_labels("train-labels-idx1-ubyte")
+    return np.array([one_hot_vector_from_label(l) for l in labels])
 
 # Return ndarray of shape [10000, 10]
 def load_all_test_labels():
@@ -121,12 +122,13 @@ from network import Network
 nn = Network([784, 100, 10])
 nn.SGD(
     training_data=training_data,
-    epochs=50,
+    epochs=30,
     mini_batch_size=10,
     eta=1.0,
     test_data=test_data
 )
 
+nn.saveToPBJSON("model.pbjson")
 # When this stops, you'll have a model with ~96% success rate (4% error)
 
 # Validate here with validate_data
