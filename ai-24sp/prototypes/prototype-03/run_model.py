@@ -1,9 +1,9 @@
 from loader import load_images, load_labels, save_single_image
 from network import Network
 
-nn = Network.fromPBJSON("model-30epochs-10batch-1_0eta.pbjson")
+nn = Network.fromPBJSON("model-30epochs-10batch-0_5eta.pbjson")
 
-i = 137
+i = 150
 (image_data, width, height) = load_images("train-images-idx3-ubyte", which=None, i=i)
 image_label = load_labels("train-labels-idx1-ubyte", which=None, i=i)
 image_data = image_data.reshape((width*height, 1))
