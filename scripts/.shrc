@@ -1,4 +1,0 @@
-#!/bin/bash
-
-export PATH=/workspace/upper-division-cs/scripts:${PATH}
-export PATH=${HOME}/.cargo/bin:${HOME}/.local/bin:$(npm get prefix)/bin:${PATH}

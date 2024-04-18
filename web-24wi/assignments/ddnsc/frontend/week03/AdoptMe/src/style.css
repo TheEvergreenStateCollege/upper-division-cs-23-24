@@ -1,4 +1,0 @@
-/*layers*/
-@tailwind base;
-@tailwind components; /* overrides base */
-@tailwind utilities; /* overrides components */

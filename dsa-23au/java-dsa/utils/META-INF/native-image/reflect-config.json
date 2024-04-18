@@ -1,6 +1,0 @@
-[
-{
-  "name":"java.util.concurrent.atomic.AtomicBoolean",
-  "fields":[{"name":"value"}]
-}
-]

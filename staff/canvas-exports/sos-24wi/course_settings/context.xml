@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<context_info xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
-  <course_id>6249</course_id>
-  <course_name>Student-Originated Software - Winter 2024 </course_name>
-  <root_account_id>15670000000000001</root_account_id>
-  <root_account_name>The Evergreen State College</root_account_name>
-  <root_account_uuid>xFVbLn6jPHy2pGxTTjoNcqVO3PgwAJS4k9Ib6lnF</root_account_uuid>
-  <canvas_domain>canvas.evergreen.edu</canvas_domain>
-</context_info>

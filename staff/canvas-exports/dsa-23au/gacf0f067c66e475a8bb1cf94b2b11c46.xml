@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<topic xmlns="http://www.imsglobal.org/xsd/imsccv1p1/imsdt_v1p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsccv1p1/imsdt_v1p1  http://www.imsglobal.org/profile/cc/ccv1p1/ccv1p1_imsdt_v1p1.xsd">
-  <title>Networking in Winter</title>
-  <text texttype="text/html">&lt;p&gt;There was some confusion about Networking next quarter. I will be teaching Networking (4 credits) and it will be part of SOS. It can be taken as a separate thread. We will be using the Text Computer Networking by Kurose and Ross (8&lt;sup&gt;th&lt;/sup&gt; edition). You can rent it. It is about how the Internet works. The topics include: overview of OSI and Internet layers, application layer (http), transport layer (TCP, UDP), networking (IPv4, IPv6), link layer (Ethernet). network performance and routers&lt;/p&gt;</text>
-</topic>

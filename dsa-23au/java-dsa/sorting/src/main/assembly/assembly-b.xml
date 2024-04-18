@@ -1,8 +1,0 @@
-<assembly>
-    <id>jar-with-main-class-b</id>
-    <archive>
-        <manifest>
-            <mainClass>dev.codewithfriends.App</mainClass>
-        </manifest>
-    </archive>
-</assembly>
