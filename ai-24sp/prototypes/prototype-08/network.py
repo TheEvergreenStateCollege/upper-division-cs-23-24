@@ -1,5 +1,6 @@
 import random
-import numpy as np 
+import numpy as np
+import pbjson 
 
 class Network(object):
 
@@ -61,6 +62,27 @@ class Network(object):
         self.biases = [b-(eta/len(mini_batch))*nb
                         for b, nb in zip(self.biases, nabla_b)]
 
+    def saveToPBJSON(self, filename):
+        model = {
+            "weights": self.weights,
+            "biases": self.biases,
+            "sizes": self.sizes,
+            "num_layers": self.num_layers,
+        }
+        with open(filename, "wb") as f:
+            pbjson.dump(model, f)
+
+    @staticmethod
+    def fromPBJSON(filename):
+        with open(filename, "rb") as f:
+            model = pbjson.load(f)
+            #print(f"Rehydrating {model}")
+            n = Network(model["sizes"])
+            n.num_layers = model["num_layers"]
+            n.weights = model["weights"]
+            n.biases = model["biases"]
+            return n 
+            
     def feedforward(self, a):
         """Return the output of the network if "a" is input."""
         for b, w in zip(self.biases, self.weights):
@@ -101,3 +123,5 @@ class Network(object):
         r"""Return the vector of partial derivatives \partial C_x /
         \partial a for the output activations."""
         return (output_activations-y)
+
+
