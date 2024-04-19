@@ -110,3 +110,22 @@ Traceback (most recent call last):
                ^^^^^^^^^^^
 TypeError: only length-1 arrays can be converted to Python scalars
 ```
+## 04/19/2024
+
+Updated ```network.py```<br>
+Added ```loader.py```, ```run_model.py```, and ```train.py```<br>
+
+Once libraries were installed...<br>
+
+Using ```python3 train.py``` I received the following errors, see traceback below...<br>
+```
+Traceback (most recent call last):
+  File "train.py", line 9, in <module>
+    (original_training_images, width, height) = load_all_training_images()
+  File "/workspace/upper-division-cs/ai-24sp/prototypes/prototype-08/loader.py", line 62, in load_all_training_images
+    return load_images("train-images-idx3-ubyte")
+  File "/workspace/upper-division-cs/ai-24sp/prototypes/prototype-08/loader.py", line 24, in load_images
+    f = open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'train-images-idx3-ubyte'
+```
+Time to solve
