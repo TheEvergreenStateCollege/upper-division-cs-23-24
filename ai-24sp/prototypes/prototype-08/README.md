@@ -90,26 +90,6 @@ Then there is a slight pause and the following errors are received(see TODO belo
 I do not think they are necessarily errors but more converting from python2 to python3.<br>
 
 
-
-## todo:
-
-```
-/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/network.py:14: RuntimeWarning: overflow encountered in exp
-  return 1.0/(1.0+np.exp(-z))
-Traceback (most recent call last):
-  File "/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/load_mnist.py", line 154, in <module>
-    nn.SGD(
-  File "/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/network.py", line 45, in SGD
-    j, self.evaluate(test_data), n_test))
-       ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/network.py", line 96, in evaluate
-    return sum(int(x == y) for (x, y) in test_results)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/network.py", line 96, in <genexpr>
-    return sum(int(x == y) for (x, y) in test_results)
-               ^^^^^^^^^^^
-TypeError: only length-1 arrays can be converted to Python scalars
-```
 ## 04/19/2024
 
 Updated ```network.py```<br>
@@ -117,9 +97,17 @@ Added ```loader.py```, ```run_model.py```, and ```train.py```<br>
 
 Once libraries were installed...<br>
 
+## 04/19/2024 15:35
+I was able to create a running version of the class prototype on my own machine. I will let it run for some time to see what happens.
+
 Using ```python3 train.py``` <br>
-This is terrible screeshot...<br>
-I wanted to show the program running, which was running on the right monitor... :\
-![Screenshot (503)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/e55d6a2f-9ff9-4b54-9e00-daaffc7f3471)
+This screenshot shows the trainer running.<br>
+
+![Screenshot (509)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/d7785d55-3a86-4232-a85b-4190b2b1c0e8)
 
 
+## todo:
+
+```
+
+```
