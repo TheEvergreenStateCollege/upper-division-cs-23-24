@@ -31,7 +31,7 @@ gunzip *.gz
 
 ## Installed libraries
 ```
-pip3 install Pillow  && pip3 install numpy
+pip3 install Pillow  && pip3 install numpy && pip3 install pbjson
 ```
 by creating a file named 'requirements.txt' we can run this command instead: <br> 
 ```
