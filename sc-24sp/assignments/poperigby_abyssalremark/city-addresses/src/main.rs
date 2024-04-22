@@ -1,6 +1,7 @@
 use city_drawer::{Road, RoadDirection};
 use rand::Rng;
 
+mod city;
 pub mod city_drawer;
 
 use crate::city_drawer::{city_drawer, HEIGHT, WIDTH};

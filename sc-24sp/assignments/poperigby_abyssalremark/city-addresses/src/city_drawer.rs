@@ -22,7 +22,7 @@ pub const WIDTH: usize = 50;
 pub const HEIGHT: usize = 50;
 
 pub fn city_drawer(n_s_avenues: &[Road], e_w_streets: &[Road]) {
-    let mut grid: [[char; WIDTH]; HEIGHT] = [['.'; WIDTH]; HEIGHT];
+    let mut grid: Vec<Vec<char>> = vec![vec!['.'; WIDTH]; HEIGHT];
 
     let mut n_s_iter = n_s_avenues.iter();
     while let Some(avenue) = n_s_iter.next() {
@@ -52,5 +52,21 @@ pub fn city_drawer(n_s_avenues: &[Road], e_w_streets: &[Road]) {
             }
         }
         println!();
+    }
+}
+
+fn draw_roads(roads: &[Road], grid: &mut Vec<Vec<char>>) {
+    let direction = roads[0].direction;
+    for road in roads {
+        for i in 0..grid.len() {
+            match direction {
+                RoadDirection::Vertical => {
+                    grid[road.location][i] = '#';
+                }
+                RoadDirection::Horizontal => {
+                    grid[i][road.location] = '#';
+                }
+            }
+        }
     }
 }
