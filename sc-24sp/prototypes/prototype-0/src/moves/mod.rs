@@ -18,6 +18,11 @@ pub mod enumerator {
     
 }
 
+use crate::types::{Move, Board, Cell};
+pub trait Ranker {
+    fn rank_moves(board: &mut Board) -> Vec<Move>;
+}
+
 #[derive(Debug)]
 pub enum MoveError {
     WrongPlayer, // wrong player tried to move next 
