@@ -1,0 +1,4 @@
+*.gz
+*ubyte
+*.png
+*.pbjson

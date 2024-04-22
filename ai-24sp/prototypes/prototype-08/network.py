@@ -1,5 +1,8 @@
 import random
-import numpy as np 
+import numpy as np
+import pbjson
+import time
+
 
 class Network(object):
 
@@ -12,7 +15,7 @@ class Network(object):
     @staticmethod
     def sigmoid(z):
         # Clip the value of z to prevent overflow in the exp function
-        z = np.clip(z, -500, 500)  # the values can be adjusted
+        z = np.clip(z, -500, 1000)  # the values can be adjusted
         return 1.0/(1.0+np.exp(-z))
 
     #@staticmethod
@@ -33,6 +36,10 @@ class Network(object):
         training_data = list(training_data)
         n = len(training_data)
 
+        # create a timer
+        start_time = time.time()
+        save_interval = 3600   # seconds, set to one hour
+
         for j in range(epochs):
             random.shuffle(training_data)
             mini_batches = [
@@ -42,11 +49,20 @@ class Network(object):
             for mini_batch in mini_batches:
                 if mini_batch:  # Ensure mini_batch is not empty
                     self.update_mini_batch(mini_batch, eta)
-                if test_data:
-                    print("Epoch {0}: {1} / {2}".format(
-                        j, self.evaluate(test_data), n_test))
-                else:
-                    print("Epoch {0} complete".format(j))
+
+            # Save the model after each Epoch
+            self.saveToPBJSON(f"model_epoch_{j}.pbjson")
+
+            # Check if an hour has passed since last save
+            if time.time() - start_time > save_interval:
+                self.saveToPBJSON(f"model_hourly_{int((time.time() - start_time) // 3600)}.pbjson")
+                start_time = time.time()  # Reset the start time after saving
+
+            if test_data:
+                print("Epoch {0}: {1} / {2}".format(
+                    j, self.evaluate(test_data), n_test))
+            else:
+                print("Epoch {0} complete".format(j))
 
 
     def update_mini_batch(self, mini_batch, eta):
@@ -61,6 +77,27 @@ class Network(object):
         self.biases = [b-(eta/len(mini_batch))*nb
                         for b, nb in zip(self.biases, nabla_b)]
 
+    def saveToPBJSON(self, filename):
+        model = {
+            "weights": self.weights,
+            "biases": self.biases,
+            "sizes": self.sizes,
+            "num_layers": self.num_layers,
+        }
+        with open(filename, "wb") as f:
+            pbjson.dump(model, f)
+
+    @staticmethod
+    def fromPBJSON(filename):
+        with open(filename, "rb") as f:
+            model = pbjson.load(f)
+            #print(f"Rehydrating {model}")
+            n = Network(model["sizes"])
+            n.num_layers = model["num_layers"]
+            n.weights = model["weights"]
+            n.biases = model["biases"]
+            return n 
+            
     def feedforward(self, a):
         """Return the output of the network if "a" is input."""
         for b, w in zip(self.biases, self.weights):
@@ -101,3 +138,5 @@ class Network(object):
         r"""Return the vector of partial derivatives \partial C_x /
         \partial a for the output activations."""
         return (output_activations-y)
+
+
