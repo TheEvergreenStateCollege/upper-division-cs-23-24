@@ -1,13 +1,35 @@
 // Import the `Rng` trait from the `rand` crate to use random number generation functions
 use rand::Rng;
 
-// Import the local module `city_drawer`, which presumably contains definitions and functionalities related to drawing a city
+// Import the local module `city_drawer`
 pub mod city_drawer;
 
-// Import specific items from the `city_drawer` module, including `Avenue`, `Street`, a function named `city_drawer`, and constants `WIDTH` and `HEIGHT`
+// Import specific items from the `city_drawer` module
 use crate::city_drawer::{Avenue, Street, city_drawer, WIDTH, HEIGHT};
 
+pub fn random_avenues(count: usize) -> Vec<Avenue> {
+    let mut rng = rand::thread_rng(); // Create a random number generator instance.
+    let mut avenues = Vec::new(); // Create an empty vector to store Avenue instances
+    for _ in 0..count {  // Loop `count` times to generate the specified number of avenues.
+        let pos = rng.gen_range(0..WIDTH); // Generate a random position within the width limits of the city map.
+        avenues.push(Avenue { x: pos }); // Create a new Avenue struct with the generated position and add it to the vector.
+    }
+    avenues
+}
+
+pub fn random_streets(count: usize) -> Vec<Street> {
+    let mut rng = rand::thread_rng();
+    let mut streets = Vec::new();
+    for _ in 0..count {
+        let pos = rng.gen_range(0..HEIGHT);
+        streets.push(Street { y: pos });
+    }
+    streets
+}
+
 fn main() {
+    let random_avenues = random_avenues(10);
+    let random_streets = random_streets(10);
     
     println!("Hello, city!");
 
@@ -50,6 +72,10 @@ fn main() {
         // Print the added street's y-coordinate
         println!("Added street {:?}", j);
     }
+
+    // Debug prints to see the outputs
+    println!("Random Avenues: {:?}", random_avenues);
+    println!("Random Streets: {:?}", random_streets);
 
     // Call the `city_drawer` function, passing the vectors of avenues and streets to draw the city
     city_drawer(&mut n_s_avenues, &mut e_w_streets);
