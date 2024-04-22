@@ -1,6 +1,8 @@
 import random
 import numpy as np
-import pbjson 
+import pbjson
+import time
+
 
 class Network(object):
 
@@ -13,7 +15,7 @@ class Network(object):
     @staticmethod
     def sigmoid(z):
         # Clip the value of z to prevent overflow in the exp function
-        z = np.clip(z, -500, 500)  # the values can be adjusted
+        z = np.clip(z, -500, 1000)  # the values can be adjusted
         return 1.0/(1.0+np.exp(-z))
 
     #@staticmethod
@@ -34,6 +36,10 @@ class Network(object):
         training_data = list(training_data)
         n = len(training_data)
 
+        # create a timer
+        start_time = time.time()
+        save_interval = 3600   # seconds, set to one hour
+
         for j in range(epochs):
             random.shuffle(training_data)
             mini_batches = [
@@ -43,11 +49,20 @@ class Network(object):
             for mini_batch in mini_batches:
                 if mini_batch:  # Ensure mini_batch is not empty
                     self.update_mini_batch(mini_batch, eta)
-                if test_data:
-                    print("Epoch {0}: {1} / {2}".format(
-                        j, self.evaluate(test_data), n_test))
-                else:
-                    print("Epoch {0} complete".format(j))
+
+            # Save the model after each Epoch
+            self.saveToPBJSON(f"model_epoch_{j}.pbjson")
+
+            # Check if an hour has passed since last save
+            if time.time() - start_time > save_interval:
+                self.saveToPBJSON(f"model_hourly_{int((time.time() - start_time) // 3600)}.pbjson")
+                start_time = time.time()  # Reset the start time after saving
+
+            if test_data:
+                print("Epoch {0}: {1} / {2}".format(
+                    j, self.evaluate(test_data), n_test))
+            else:
+                print("Epoch {0} complete".format(j))
 
 
     def update_mini_batch(self, mini_batch, eta):
