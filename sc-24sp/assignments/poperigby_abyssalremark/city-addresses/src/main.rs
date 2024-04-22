@@ -7,27 +7,27 @@ use crate::city_drawer::{city_drawer, HEIGHT, WIDTH};
 
 fn main() {
     println!("Hello, city!");
-    let mut n_s_avenues = create_roads(RoadDirection::Vertical, HEIGHT);
+    let n_s_avenues = create_roads(RoadDirection::Vertical, HEIGHT);
 
-    let mut e_w_streets = create_roads(RoadDirection::Horizontal, WIDTH);
+    let e_w_streets = create_roads(RoadDirection::Horizontal, WIDTH);
 
-    city_drawer(&mut n_s_avenues, &mut e_w_streets);
+    city_drawer(&n_s_avenues, &e_w_streets);
 }
 
 fn create_roads(direction: RoadDirection, bound: usize) -> Vec<Road> {
     let mut roads: Vec<Road> = vec![];
-    let mut current_size = 0;
+    let mut current_location = 0;
     loop {
-        let location = rand::thread_rng().gen_range(3..10);
-        current_size += location;
+        let offset = rand::thread_rng().gen_range(3..10);
+        current_location += offset;
 
-        if current_size >= bound {
+        if current_location >= bound {
             break;
         }
 
         roads.push(Road {
             direction,
-            location: current_size,
+            location: current_location,
         })
     }
 
