@@ -2,11 +2,11 @@ use rand::Rng;
 
 pub mod city_drawer;
 
-use crate::city_drawer::{Road,Address,city_drawer,BOUND};
+use crate::city_drawer::{Road,Street,RoadDirection,Grid,draw_grid,city_drawer,BOUND};
 
 // Can we have a "parent type" to Avenue and Street,
 // let's call it Road
-fn gen_random_roads(bound: usize) -> Vec<Road> {
+fn gen_random_roads(bound: usize, ctor: fn(usize) -> Road) -> Vec<Road> {
     let mut directional_roads = Vec::<Road>::new();
     let mut w = 0;
     loop {
@@ -17,7 +17,7 @@ fn gen_random_roads(bound: usize) -> Vec<Road> {
         if w >= bound {
             break;
         }
-        directional_roads.push(Road {x: w});
+        directional_roads.push(ctor(w));
         println!("Added Road {:?}", w);
         
 
@@ -29,9 +29,16 @@ fn main() {
     println!("Hello, city!");
     let size = 50;
 
-    let mut n_s_avenues = gen_random_roads(size);
+    let n_s_avenues = gen_random_roads(size, |x| Road {
+        road_type: RoadDirection::NorthSouth, coord: x  });
 
-    let mut e_w_streets = gen_random_roads(size);
+    let e_w_streets = gen_random_roads(size, |y: usize| Road { 
+        road_type: RoadDirection::EastWest, coord: y });
 
-    city_drawer(&mut n_s_avenues, &mut e_w_streets);
+    let mut grid: Grid = [['.'; BOUND]; BOUND];
+
+    grid = *city_drawer(&mut grid, &n_s_avenues);
+    grid = *city_drawer(&mut grid, &e_w_streets);
+
+    draw_grid(grid);
 }
