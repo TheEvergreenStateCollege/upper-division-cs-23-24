@@ -23,16 +23,17 @@ pub fn city_drawer(n_s_avenues: &mut Vec<Road>, e_w_streets: &mut Vec<Road>) {
         loop {
             match road_iter.next() {
                 some(road) => {
-                for x in 0..BOUNDS {
-                    match road.road_type {
-                        RoadDirection:NorthSouth => {
-                            in_grid[road.coord as usize(x)]
+                    for x in 0..BOUNDS {
+                        match road.road_type {
+                            RoadDirection:NorthSouth => {
+                                in_grid[road.coord as usize(x)]
+                            }
                         }
+                    //grid[road.x ]
                     }
-                    grid[road.x ]
                 }
+            }
         }
-    }
 
 
 
