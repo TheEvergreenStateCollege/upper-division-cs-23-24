@@ -7,6 +7,7 @@ fn main() {
 
     let secret_number = rand::thread_rng().gen_range(1..=100);   
 
+    //The loop breaks when we win - could we have ask if the user wishes to continue and start a new game if yes or end the program if no?
     loop{
 
         println!("Please input your guess.");
@@ -17,6 +18,7 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
+        //Could we change this code to input a message when a user provides invalid input?
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
