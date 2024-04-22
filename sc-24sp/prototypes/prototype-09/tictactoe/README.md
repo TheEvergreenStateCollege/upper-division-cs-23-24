@@ -31,7 +31,7 @@ I re-wrote most of the code to bring it in-line with my preferences. I fixed the
 
 After hours of troubleshooting, I finally found the bug. Paul's clone implementation for Board uses 2 instead of 3 as the exclusive range bound. Meaning that it erased the bottom and rightmost moves every time I copied the board. The only place I used copy was in the AI, where it's used to test permutations of the existing board. So it just looked like the AI was incorrectly reading certain board states.
 
-God dammit Paul
+Dammit Paul
 
 The culprit:
 ```rust
@@ -48,5 +48,3 @@ impl Clone for Board {
 }
 ```
 Worst of all, it's totally pointless to define Clone anyway because you can derive it! (The derivation works perfectly). I overlooked clone when troubleshooting because I assumed that Paul's code was correct, aside from the bug he specified. I mostly re-wrote Paul's code because I found it offensive to my sensibilities, or to make it more useful for my AI.
-
-Lesson learned: never trust Paul's code to be correct

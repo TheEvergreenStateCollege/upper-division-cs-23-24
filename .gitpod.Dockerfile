@@ -45,14 +45,18 @@ RUN apt-get install -yqq net-tools
 RUN apt-get install -yqq nodejs
 RUN apt-get install -yqq npm
 
+# add gitpod user
+RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
+USER gitpod
+WORKDIR /home/gitpod
+
 # install rust toolchain
-ENV RUSTUP_HOME=/opt/.rustup
-ENV CARGO_HOME=/opt/.cargo
 RUN curl https://sh.rustup.rs -sSf >> rustup.sh
 RUN chmod 700 rustup.sh
 RUN ./rustup.sh --default-toolchain stable -y
 RUN rm rustup.sh
-ENV PATH=/opt/.cargo/bin:$PATH
+
+USER root
 
 # install Rustlings
 COPY scripts/install-rustlings.sh scripts/install-rustlings.sh

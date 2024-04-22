@@ -1,8 +1,10 @@
+pub mod ranker;
+
 pub mod enumerator {
 
     use crate::types::{Move, Board, Cell};
 
-    pub fn list_moves<'a>(board: &'a Board) -> (Vec<Move>, &'a Board<'a>) {
+    pub fn list_moves<'a>(board: &'a Board) -> (Vec<Move>) {
         let mut moves = Vec::<Move>::new();
         for i in 0..3 {
             for j in 0..3 {
@@ -11,9 +13,14 @@ pub mod enumerator {
                 }
             }
         }
-        (moves, board)
+        (moves)
     }
     
+}
+
+use crate::types::{Move, Board, Cell};
+pub trait Ranker {
+    fn rank_moves(board: &mut Board) -> Vec<Move>;
 }
 
 #[derive(Debug)]
