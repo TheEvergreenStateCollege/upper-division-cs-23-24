@@ -1,12 +1,3 @@
-
-pub struct Street {
-    pub y: usize
-}
-
-pub struct Avenue {
-    pub x: usize
-}
-
 pub struct AddressAvenue {
     pub x: usize,
 }
@@ -15,25 +6,36 @@ pub struct AddressStreet {
     pub x: usize,
 }
 
+#[derive(Clone, Copy)]
+pub enum RoadDirection {
+    Vertical,
+    Horizontal,
+}
+
+pub struct Road {
+    pub direction: RoadDirection,
+    pub location: usize,
+}
+
 pub const WIDTH: usize = 50;
 pub const HEIGHT: usize = 50;
 
-pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>) {
-    n_s_avenues.sort_by(|a,b| a.x.cmp(&b.x));
-    e_w_streets.sort_by(|a,b| a.y.cmp(&b.y));
+pub fn city_drawer(n_s_avenues: &mut [Road], e_w_streets: &mut [Road]) {
+    n_s_avenues.sort_by(|a, b| a.location.cmp(&b.location));
+    e_w_streets.sort_by(|a, b| a.location.cmp(&b.location));
 
-    let mut grid: [[char; WIDTH]; HEIGHT] = [['.' as char; WIDTH]; HEIGHT];
+    let mut grid: [[char; WIDTH]; HEIGHT] = [['.'; WIDTH]; HEIGHT];
 
     let mut n_s_iter = n_s_avenues.iter();
     loop {
         match n_s_iter.next() {
             Some(avenue) => {
                 for y in 0..HEIGHT {
-                    grid[avenue.x as usize][y] = '#';
+                    grid[avenue.location][y] = '#';
                 }
             }
             None => {
-                // no more 
+                // no more
                 break;
             }
         }
@@ -44,11 +46,11 @@ pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>)
         match e_w_iter.next() {
             Some(street) => {
                 for x in 0..WIDTH {
-                    grid[x][street.y as usize] = '#';
+                    grid[x][street.location] = '#';
                 }
             }
             None => {
-                // no more 
+                // no more
                 break;
             }
         }
@@ -57,12 +59,15 @@ pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>)
     for row in 0..HEIGHT {
         for col in 0..WIDTH {
             match grid[col][row] {
-                '.' => { print!(".") }
-                '#' => { print!("#") }
-                _ => { }
+                '.' => {
+                    print!(".")
+                }
+                '#' => {
+                    print!("#")
+                }
+                _ => {}
             }
         }
-        println!("");
-
+        println!();
     }
 }
