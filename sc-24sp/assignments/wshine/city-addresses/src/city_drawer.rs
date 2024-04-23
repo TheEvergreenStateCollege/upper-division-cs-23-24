@@ -1,27 +1,34 @@
-fn gen_random_roads<T: Road>(bounds: usize, ctor: fn(usize) -> T ) -> Vec<T> {
-
-    
-    
-    vec![ctor(3)]
+use rand::Rng;
+pub fn gen_random_roads<T: Road + std::fmt::Debug>(bounds: usize, ctor: fn(usize) -> T) -> Vec<T> {
+    let mut rng = rand::thread_rng();
+    let mut random_roads = vec![];
+    Street::new(3);
+    for _ in 0..=10 {
+        random_roads.push(ctor(rng.gen_range(0..bounds)));
+    }
+    println!("{:#?}", random_roads);
+    random_roads
 }
 
 pub trait Road {
     fn new(coord: usize) -> Self;
 }
+#[derive(Debug)]
 pub struct Street {
-    pub y: usize
+    pub y: usize,
 }
-impl Road for Street{
+impl Road for Street {
     fn new(coord: usize) -> Street {
-        Street{ y: coord }
+        Street { y: coord }
     }
 }
+#[derive(Debug)]
 pub struct Avenue {
-    pub x: usize
+    pub x: usize,
 }
 impl Road for Avenue {
     fn new(coord: usize) -> Avenue {
-        Avenue{ x: coord }
+        Avenue { x: coord }
     }
 }
 pub struct AddressAvenue {
@@ -36,8 +43,8 @@ pub const WIDTH: usize = 50;
 pub const HEIGHT: usize = 50;
 
 pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>) {
-    n_s_avenues.sort_by(|a,b| a.x.cmp(&b.x));
-    e_w_streets.sort_by(|a,b| a.y.cmp(&b.y));
+    n_s_avenues.sort_by(|a, b| a.x.cmp(&b.x));
+    e_w_streets.sort_by(|a, b| a.y.cmp(&b.y));
 
     let mut grid: [[char; WIDTH]; HEIGHT] = [['.' as char; WIDTH]; HEIGHT];
 
@@ -50,7 +57,7 @@ pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>)
                 }
             }
             None => {
-                // no more 
+                // no more
                 break;
             }
         }
@@ -65,7 +72,7 @@ pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>)
                 }
             }
             None => {
-                // no more 
+                // no more
                 break;
             }
         }
@@ -74,12 +81,15 @@ pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>)
     for row in 0..HEIGHT {
         for col in 0..WIDTH {
             match grid[col][row] {
-                '.' => { print!(".") }
-                '#' => { print!("#") }
-                _ => { }
+                '.' => {
+                    print!(".")
+                }
+                '#' => {
+                    print!("#")
+                }
+                _ => {}
             }
         }
         println!("");
-
     }
 }
