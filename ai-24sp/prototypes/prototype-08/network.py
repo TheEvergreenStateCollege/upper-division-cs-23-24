@@ -30,11 +30,14 @@ class Network(object):
         mini_batch_size, 
         eta,
         test_data=None):
+
+        training_data = list(training_data)
+        n = len(training_data)
+
         if test_data:
             test_data = list(test_data)
             n_test = len(test_data)
-        training_data = list(training_data)
-        n = len(training_data)
+        
 
         # create a timer
         start_time = time.time()
@@ -59,10 +62,10 @@ class Network(object):
                 start_time = time.time()  # Reset the start time after saving
 
             if test_data:
-                print("Epoch {0}: {1} / {2}".format(
+                print("Epoch {}: {} / {}".format(
                     j, self.evaluate(test_data), n_test))
             else:
-                print("Epoch {0} complete".format(j))
+                print("Epoch {} complete".format(j))
 
 
     def update_mini_batch(self, mini_batch, eta):
@@ -98,11 +101,43 @@ class Network(object):
             n.biases = model["biases"]
             return n 
             
-    def feedforward(self, a):
-        """Return the output of the network if "a" is input."""
-        for b, w in zip(self.biases, self.weights):
+    def feedforward(self, a, apply_dropout=False):
+        """Return the output of the network if 'a' is input, apply dropout to each layer except the output."""
+        for i, (b, w) in enumerate(zip(self.biases[:-1], self.weights[:-1])):  # Exclude the last layer from dropout
             a = self.sigmoid(np.dot(w, a) + b)
-        return a 
+            if apply_dropout:  # Only apply dropout if specified
+                a = self.dropout(a, 0.5)  # Dropout level set to 0.5, adjust as necessary
+        # Process the last layer without dropout
+        b, w = self.biases[-1], self.weights[-1]
+        a = self.sigmoid(np.dot(w, a) + b)
+
+        return a
+
+    # Evaluate
+    def evaluate(self, test_data):
+        """Evaluate the network on test data."""
+        test_results = [(np.argmax(self.feedforward(x, apply_dropout=False)), np.argmax(y))
+                        for (x, y) in test_data]
+        return sum(int(x == y) for (x, y) in test_results)
+
+    # Evaluate Accuracy
+    def evaluate_accuracy(self, data):
+        """Evaluate the network's accuracy on the provided data."""
+        results = [(np.argmax(self.feedforward(x)), np.argmax(y)) for (x, y) in data]
+        accuracy = sum(int(x == y) for (x, y) in results) / len(data) * 100  # I want to calculate the accuracy as a percentage
+        return accuracy
+ 
+    
+    def dropout(self, x, level):
+        if level < 0. or level >= 1:  # Level is the dropout probability
+            raise ValueError('Dropout level must be in interval [0, 1).')
+        retain_prob = 1. - level
+        # We scale the activations at training time to keep the same expected sum of activations.
+        sample = np.random.binomial(n=1, p=retain_prob, size=x.shape)
+        x *= sample
+        x /= retain_prob
+        return x
+
 
     def backprop(self, x, y):
         nabla_b = [np.zeros(b.shape) for b in self.biases]
@@ -128,11 +163,6 @@ class Network(object):
             nabla_b[-l] = delta
             nabla_w[-l] = np.dot(delta, activations[-l-1].transpose())
         return (nabla_b, nabla_w)
-
-    def evaluate(self, test_data):
-        test_results = [(np.argmax(self.feedforward(x)), np.argmax(y))
-                            for (x, y) in test_data]
-        return sum(int(x == y) for (x, y) in test_results)
 
     def cost_derivative(self, output_activations, y):
         r"""Return the vector of partial derivatives \partial C_x /
