@@ -122,6 +122,53 @@ Epoch 49: 1050 / 10000
 ```
 It is good that I can reach Epoch 50. However, the percentage or accuracy of the images recognized  1050 / of the 10k training images used per Epoch should increase as it trains.
 
+## 04/25/2024
+created a ```dropout``` function.<br>
+...But what is a does a ```dropout``` function do?<br>
+```
+def dropout(self, x, level):
+        if level < 0. or level >= 1:  # Level is the dropout probability
+            raise ValueError('Dropout level must be in interval [0, 1).')
+        retain_prob = 1. - level
+        # We scale the activations at training time to keep the same expected sum of activations.
+        sample = np.random.binomial(n=1, p=retain_prob, size=x.shape)
+        x *= sample
+        x /= retain_prob
+        return x
+```
+In the context of this MNIST trainer, the ```dropout``` function manages the network's learning process by randomly deactivating a subset of neurons durning the traing phase.<br>
+This is meant to prevent ```overfitting```. This ```overfitting``` can occur when a neural network model learns the training data too well and can perform poorly on new unseen data. <br>
+
+But, how does the ```dropout``` function work?<br>
+## 1. Probability Setting:<br> 
+The dropout function accepts an input x (the activations from the previous layer) and a level, which represents the dropout rate. The dropout rate is the probability that each neuron’s output is set to zero. This rate must be between 0 and 1, where 0 means no dropout and 1 means complete dropout<br>.
+## 2. Activation Retention: <br>
+The function calculates the retain_prob as 1 - level, which is the probability of retaining a neuron's activation. For example, if the dropout level is 0.5, there’s a 50% chance that any given neuron will be retained (meaning, not dropped).
+## 3. Sampling:<br>
+It uses a binomial distribution to randomly decide which neurons to keep (sample = np.random.binomial(n=1, p=retain_prob, size=x.shape)). In this sampling process, each neuron has an independent probability retain_prob of being retained.<br>
+## 4. Application of Dropout:<br>
+The function then applies this mask to the activations (x *= sample). This step sets the activation of dropped neurons to 0.<br>
+## 5. Scaling:<br> 
+Since on average a proportion retain_prob of the inputs are retained, this could lead to a lower total input to the next layer. To compensate for this reduction in input, the activations are scaled up by dividing by retain_prob (x /= retain_prob). This scaling is needed because it maintains the expected sum of the activations consistent whether dropout is applied or not, in theory, it should... stabilize the learning process<br>
+
+### Why implement this ```dropout``` function?
+Implementing the dropout function helps by the training of mulitple neural networks with different architectures. The function does this by  randomly dropping different sets of neurons. This is repersents sampling from an ensemble of neural networks, which improves the gerneralization of the model.<br>
+So... while the program is "training", ```dropout``` is not applied, the neurons are not dropped, and the full capabilities of the trained network are utilized. This helps the network make the most accurate predictions possible with the learned weight and biases.<br> 
+
+## Evaluate Training Accuracy:<br>
+I wanted to create an instance once the program is finished "training", that ```Training Accuracy``` is printed. The Idea is later, create a CSV log report of the training accuracy amoung other collectable data...<br> 
+But for now... ```print```<br>
+### Date & Time <br>
+04/25/24 0935 <br>
+```Training Accuracy: 70.29833333333333%```
+```
+def evaluate_accuracy(self, data):
+        """Evaluate the network's accuracy on the provided data."""
+        results = [(np.argmax(self.feedforward(x)), np.argmax(y)) for (x, y) in data]
+        accuracy = sum(int(x == y) for (x, y) in results) / len(data) * 100  # I want to calculate the  accuracy as a percentage
+        return accuracy
+```
+
 ## todo:
 
 ```
