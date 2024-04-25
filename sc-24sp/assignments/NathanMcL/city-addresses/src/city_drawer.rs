@@ -1,10 +1,11 @@
-
+#[derive(Debug)]
 pub struct Street {
-    pub y: usize
+    pub y: usize,
 }
 
+#[derive(Debug)]
 pub struct Avenue {
-    pub x: usize
+    pub x: usize,
 }
 
 pub struct AddressAvenue {
@@ -13,6 +14,12 @@ pub struct AddressAvenue {
 
 pub struct AddressStreet {
     pub x: usize,
+}
+
+// Define an enum to choose the type of structure to create
+pub enum StructureType {
+    Avenue,
+    Street,
 }
 
 pub const WIDTH: usize = 50;
@@ -66,3 +73,4 @@ pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>)
 
     }
 }
+

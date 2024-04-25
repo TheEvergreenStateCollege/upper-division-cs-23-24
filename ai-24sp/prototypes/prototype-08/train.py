@@ -36,6 +36,7 @@ test_data = list(zip(test_images, test_labels))
 
 from network import Network
 
+# Added more hidden layers to help the network learn more complex patterns 
 nn = Network([784, 100, 10])
 nn.SGD(
     training_data=training_data,
@@ -44,6 +45,10 @@ nn.SGD(
     eta=0.2,
     test_data=test_data
 )
+
+# After training, evaluate the training accuracy
+training_accuracy = nn.evaluate_accuracy(original_training_data)
+print(f"Training Accuracy: {training_accuracy}%")
 
 nn.saveToPBJSON("model.pbjson")
 # When this stops, you'll have a model with ~96% success rate (4% error)
