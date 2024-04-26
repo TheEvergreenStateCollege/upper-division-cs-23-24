@@ -183,6 +183,17 @@ What the ```evaluate_accuracy``` function does is calculate how many total train
 This function's purpose is to create a CSV file that logs training data once the program is complete.<br>
 The ```log_training_results``` create a CSV file with the following headers: <br>
 ```
+def log_training_results(self, epochs, images_per_epoch, accuracy):
+        filename = 'training_log.csv'
+        with open(filename, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            if file.tell() == 0:
+                writer.writerow(["Date and Time", "Total Epochs", "Images per Epoch", "Training Accuracy"])
+            current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            writer.writerow([current_time, epochs, images_per_epoch, accuracy])
+```
+### CSV headers
+```
 Date and Time, Total Epochs, Images per Epoch, and Training Accuracy
 ```
 (sample csv)<br>
