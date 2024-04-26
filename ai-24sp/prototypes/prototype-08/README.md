@@ -124,7 +124,7 @@ It is good that I can reach Epoch 50. However, the percentage or accuracy of the
 
 ## 04/25/2024
 created a ```dropout``` function.<br>
-...But what is a does a ```dropout``` function do?<br>
+...But what does a ```dropout``` function do?<br>
 ```
 def dropout(self, x, level):
         if level < 0. or level >= 1:  # Level is the dropout probability
