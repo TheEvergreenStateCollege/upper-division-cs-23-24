@@ -156,11 +156,17 @@ Implementing the dropout function helps by the training of mulitple neural netwo
 So... while the program is "training", ```dropout``` is not applied, the neurons are not dropped, and the full capabilities of the trained network are utilized. This helps the network make the most accurate predictions possible with the learned weight and biases.<br> 
 
 ## Evaluate Training Accuracy:<br>
-I wanted to create an instance once the program is finished "training", that ```Training Accuracy``` is printed. The Idea is later, create a CSV log report of the training accuracy amoung other collectable data...<br> 
+I wanted to create an instance once the program is finished "training", that the ```Training Accuracy``` is printed. The Idea is to later, create a CSV log report of the training accuracy amoung other collectable data...<br> 
 But for now... ```print```<br>
+
 ### Date & Time <br>
 04/25/24 0935 <br>
-```Training Accuracy: 70.29833333333333%```
+```
+   Training Accuracy: 70.29833333333333%
+   Training Accuracy: 85.53%
+```
+
+
 ```
 def evaluate_accuracy(self, data):
         """Evaluate the network's accuracy on the provided data."""
@@ -168,9 +174,30 @@ def evaluate_accuracy(self, data):
         accuracy = sum(int(x == y) for (x, y) in results) / len(data) * 100  # I want to calculate the  accuracy as a percentage
         return accuracy
 ```
+What the ```evaluate_accuracy``` function does is calculate how many total training labels are recognized out of the total training imaged used as a percentage.<br>
+
+
+## 04/26/2024
+### Log the Training Results
+
+This function's purpose is to create a CSV file that logs training data once the program is complete.<br>
+The ```log_training_results``` create a CSV file with the following headers: <br>
+```
+Date and Time, Total Epochs, Images per Epoch, and Training Accuracy
+```
+(sample csv)<br>
+```
+Date and Time,Total Epochs,Images per Epoch,Training Accuracy
+2024-04-26 05:02:08,50,60000,53.059999999999995
+```
+
+
 
 ## todo:
 
 ```
-Figure out how to improve the algorithm to increase its recognition
+Figure out how to improve the algorithm to:
+ increase its recognition,
+ increase wall-clock speed,
+
 ```

@@ -2,6 +2,8 @@ import random
 import numpy as np
 import pbjson
 import time
+import csv
+import datetime
 
 
 class Network(object):
@@ -48,10 +50,13 @@ class Network(object):
             mini_batches = [
                 training_data[k:k + mini_batch_size] for k in range(0, n, mini_batch_size)
             ]
-
             for mini_batch in mini_batches:
-                if mini_batch:  # Ensure mini_batch is not empty
+                if mini_batch:
                     self.update_mini_batch(mini_batch, eta)
+                    #print("Epoch {} complete".format(j))
+                    
+            # After training, log the results
+            self.log_training_results(epochs, len(training_data), self.evaluate_accuracy(training_data))
 
             # Save the model after each Epoch
             self.saveToPBJSON(f"model_epoch_{j}.pbjson")
@@ -169,4 +174,11 @@ class Network(object):
         \partial a for the output activations."""
         return (output_activations-y)
 
-
+    def log_training_results(self, epochs, images_per_epoch, accuracy):
+        filename = 'training_log.csv'
+        with open(filename, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            if file.tell() == 0:
+                writer.writerow(["Date and Time", "Total Epochs", "Images per Epoch", "Training Accuracy"])
+            current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            writer.writerow([current_time, epochs, images_per_epoch, accuracy]) 
