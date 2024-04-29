@@ -2,35 +2,43 @@ use rand::Rng;
 
 pub mod city_drawer;
 
-use crate::city_drawer::{Avenue,Street,AddressAvenue, AddressStreet,city_drawer,WIDTH,HEIGHT};
+use crate::city_drawer::{Road,Street,RoadDirection,Grid,draw_grid,city_drawer,BOUND};
+
+// Can we have a "parent type" to Avenue and Street,
+// let's call it Road
+fn gen_random_roads(bound: usize, ctor: fn(usize) -> Road) -> Vec<Road> {
+    let mut directional_roads = Vec::<Road>::new();
+    let mut w = 0;
+    loop {
+        let next_w = rand::thread_rng().gen_range(3..10);
+        w += next_w;
+        
+        // check if we've exceeded the bound
+        if w >= bound {
+            break;
+        }
+        directional_roads.push(ctor(w));
+        println!("Added Road {:?}", w);
+        
+
+    }   
+    directional_roads
+}
 
 fn main() {
     println!("Hello, city!");
-    let mut n_s_avenues = Vec::<Avenue>::new();
-    let mut i = 0;
-    loop {
-        let next_x = rand::thread_rng().gen_range(1..10);
-        i += next_x;
+    let size = 50;
 
-        if i >= WIDTH {
-            break;
-        }
-        n_s_avenues.push(Avenue{ x: i });
-        println!("Added avenue {:?}", i);
-    }
+    let n_s_avenues = gen_random_roads(size, |x| Road {
+        road_type: RoadDirection::NorthSouth, coord: x  });
 
-    let mut e_w_streets = Vec::<Street>::new();
-    let mut j = 0;
-    loop {
-        let next_y = rand::thread_rng().gen_range(0..10);
-        j += next_y;
+    let e_w_streets = gen_random_roads(size, |y: usize| Road { 
+        road_type: RoadDirection::EastWest, coord: y });
 
-        if j >= HEIGHT {
-            break;
-        }
-        e_w_streets.push(Street { y: j });
-        println!("Added street {:?}", j);
+    let mut grid: Grid = [['.'; BOUND]; BOUND];
 
-    }
-    city_drawer(&mut n_s_avenues, &mut e_w_streets);
+    grid = *city_drawer(&mut grid, &n_s_avenues);
+    grid = *city_drawer(&mut grid, &e_w_streets);
+
+    draw_grid(grid);
 }
