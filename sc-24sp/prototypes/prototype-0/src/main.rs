@@ -4,14 +4,14 @@
 use std::io;
 use regex_lite::Regex;
 
-use prototype_0::moves::MoveError;
-use prototype_0::moves::ranker::rank_moves;
+use prototype_0::moves::{MoveError};
+use prototype_0::moves::ranker::{RandomRanker, Ranker};
 use prototype_0::types::{Board,Player,Move};
 use prototype_0::validators::win_validator;
 
-fn do_move<'a>(board: &mut Board<'a>, next_move: &Move, player: &Player) {
+fn do_move(board: &mut Board, next_move: &Move, player: &Player) {
     let (move_error) = board.make_move(next_move, player);
-    println!("{:?}", board);
+    println!("{}", board);
     match move_error {
         Some(MoveError::OutOfBounds) => {
             println!("Move out of bounds");
@@ -74,7 +74,7 @@ fn main() {
             }
         };
 
-        let best_moves = rank_moves(&mut board);
+        let best_moves = RandomRanker::rank_moves(&mut board);
         let mut moves_iter = best_moves.iter();
 
         match moves_iter.next() {
