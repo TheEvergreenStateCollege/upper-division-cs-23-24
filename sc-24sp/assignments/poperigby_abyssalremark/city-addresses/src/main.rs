@@ -4,15 +4,18 @@ use rand::Rng;
 mod city;
 pub mod city_drawer;
 
-use crate::city_drawer::{city_drawer, HEIGHT, WIDTH};
+use crate::city_drawer::city_drawer;
 
 fn main() {
     println!("Hello, city!");
-    let n_s_avenues = create_roads(RoadDirection::Vertical, HEIGHT);
 
-    let e_w_streets = create_roads(RoadDirection::Horizontal, WIDTH);
+    let width = 50;
+    let height = 50;
 
-    city_drawer(&n_s_avenues, &e_w_streets);
+    let n_s_avenues = create_roads(RoadDirection::Vertical, height);
+    let e_w_streets = create_roads(RoadDirection::Horizontal, width);
+
+    city_drawer(&n_s_avenues, &e_w_streets, width, height);
 }
 
 fn create_roads(direction: RoadDirection, bound: usize) -> Vec<Road> {
