@@ -3,6 +3,7 @@ use rand::Rng;
 use crate::types::{Board,Move};
 use crate::validators::winning::{BoardMatch, WinningState, get_winning_states};
 use super::enumerator::list_moves;
+use rand::Rng;
 
 #[derive(PartialEq, Eq)]
 struct RankedMove {
