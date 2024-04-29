@@ -2,7 +2,7 @@ use rand::Rng;
 
 pub mod city_drawer;
 
-use crate::city_drawer::{Road,Street,RoadDirection,Grid,draw_grid,city_drawer,BOUND};
+use crate::city_drawer::{Road,RoadDirection,Grid,draw_grid,city_drawer,BOUND};
 
 // Can we have a "parent type" to Avenue and Street,
 // let's call it Road
@@ -27,7 +27,7 @@ fn gen_random_roads(bound: usize, ctor: fn(usize) -> Road) -> Vec<Road> {
 
 fn main() {
     println!("Hello, city!");
-    let size = 50;
+    let size = 40;
 
     let n_s_avenues = gen_random_roads(size, |x| Road {
         road_type: RoadDirection::NorthSouth, coord: x  });

@@ -45,3 +45,10 @@ f.close()
 This is one of two scripts which process the MNIST training data into a format that `network.py` can read. This one processes the labels, and the other one processes the images. These scripts are replacements for the `mnist_loader` script from the [Original instructions](http://neuralnetworksanddeeplearning.com/chap1.html#implementing_our_network_to_classify_digits). According to Paul, it had breaking changes in trying to update it from Python2 to Python3.
 
 We were unable to try running `network.py` because `load_images.py` took too long to run.
+
+# 04-25-2024
+Duck and Torsten
+
+For some reason, there's some missing files on this prototype instead so we copy and compare what we have to Paul's prototype and fill in the missing file, he tries the new loader that removes the needs of using `load-image.py` so we delete that and change it to his loader and test it then fill in our stuff. It's now a fully functional program now. You can train and have your own model as `model.pbjson` then plug in and play by using `python3 run_model.py` to test it out. 
+
+I also make an another files called `finetunning.py` that's just the same to `train.py` except that I swap the network parameter with the current model to fine-tuning it without having to modify `train.py` so that it cuts short of the work and error. If you want to finetuning the model then use that instead (Currently having error for now, wait for Paul to troubleshoot)
