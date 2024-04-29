@@ -1,11 +1,31 @@
 use crate::types::{Board,Move};
 use crate::validators::winning::{BoardMatch, WinningState, get_winning_states};
 use super::enumerator::list_moves;
+use rand::Rng;
 
 #[derive(PartialEq, Eq)]
 struct RankedMove {
     board_match: BoardMatch,
     next_move: Move,    
+}
+
+pub trait Ranker {
+    fn rank_moves(board: &mut Board) -> Vec<Move>;
+}
+
+pub struct RandomRanker {
+
+}
+
+impl Ranker for RandomRanker {
+    fn rank_moves(board: &mut Board) -> Vec<Move> {
+        let all_valid_moves = list_moves(board);
+        let mut best_moves = Vec::<Move>::with_capacity(all_valid_moves.len());
+
+        
+
+        best_moves
+    }    
 }
 
 
