@@ -19,7 +19,6 @@ fn gen_random_roads(bound: usize) -> Vec<Road> {
         }
         directional_roads.push(Road {x: w});
         println!("Added Road {:?}", w);
-        
 
     }   
     directional_roads
