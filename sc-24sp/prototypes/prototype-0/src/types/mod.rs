@@ -22,6 +22,8 @@ impl Player {
 #[derive(Debug)]
 #[derive(PartialEq, Eq)]
 #[derive(Hash)]
+#[derive(Clone)]
+#[derive(Copy)]
 pub struct Move {
     pub coords: (u8, u8),
 }

@@ -1,3 +1,6 @@
+use std::fmt;
+use regex_lite::Regex;
+
 use super::{Board,Cell,Player,Move};
 use crate::moves::MoveError;
 
@@ -36,4 +39,64 @@ impl Board<'_> {
         //    (Some(MoveError::WrongPlayer))
         //}
     }
+}
+
+// From Gavin Bowers via Discord
+impl fmt::Display for Board<'_> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        for i in 0..3 {
+            write!(f, "-------------\n")?;
+            for j in 0..3 {
+                write!(f, "| {} ", self.cells[i][j].map_or(" ", |p| match p {Player::O => "O", Player::X => "X"}))?
+            }
+            write!(f, "|\n")?
+        }
+        write!(f, "-------------\n");
+        write!(f, "Next {:?}\n", self.next_to_move)
+    }
+}
+
+use std::str::FromStr;
+
+pub struct ParseBoardErr<'a> {
+    message: &'a str,
+}
+
+// From https://rust-lang-nursery.github.io/rust-cookbook/text/string_parsing.html
+impl<'a> FromStr for Board<'a> {
+
+    fn from_str(board_string: &str) -> Result<Self, Self::Err> {
+
+        let rows: Vec<&str> = board_string.split("\n").collect();
+        let mut cells = EMPTY_BOARD.clone();
+        for (i, row) in rows[0..3].iter().enumerate() {
+            let cols: Vec<Cell> = row
+                .split(r"\s*|\s*")
+                .map(|x| match x {
+                    "X" => Some(&Player::X),
+                    "O" => Some(&Player::O),
+                    _ => None,
+                })
+                .collect();
+            cells[i] = cols.try_into().expect("cell size mismatch");
+        }
+
+        let re = Regex::new(r"Next ([XO])").unwrap();
+
+        let mut caps_iter = re.captures_iter(&rows[4]).map(|c| c.extract());
+        let (_, [player_cap]) = caps_iter.next().unwrap();
+
+        let next_player: &Player = match player_cap {
+            "X" => &Player::X,
+            "O" => &Player::O,
+            _ => return Err(ParseBoardErr { message: "Unparseable next player" } ),
+        };
+
+        Ok(Board{
+            next_to_move: next_player,
+            cells,
+        })
+    }
+    
+    type Err = ParseBoardErr<'a>;
 }
