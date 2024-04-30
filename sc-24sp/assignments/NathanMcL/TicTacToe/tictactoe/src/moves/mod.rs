@@ -19,4 +19,6 @@ pub mod enumerator {
 #[derive(Debug)]
 pub enum MoveError {
     CellTaken, // the cell for the move was chosen in the past
+    //OutOfBounds, // outside of the 3x3 grid
+    //WrongPlayer, // wrong player tried to move next
 }
