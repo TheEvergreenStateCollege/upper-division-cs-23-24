@@ -1,3 +1,4 @@
+use core::panic;
 use std::i32;
 
 use super::enumerator::list_moves;
@@ -7,7 +8,8 @@ use crate::validators::winning::{get_winning_states, BoardMatch};
 
 // recursive ranking, returning the an int depicting total wins/loss
 fn recursive_rank(board: &mut Board, mv: &Move) -> i32 {
-    board.make_move(mv, &Player::O);
+    board.make_move(mv, &Player::X);
+
     let mut count: i32 = 0;
     let opponent_options = list_moves(board);
 
@@ -38,7 +40,7 @@ fn recursive_rank(board: &mut Board, mv: &Move) -> i32 {
     } else {
         for opt in opponent_options.iter() {
             let mut next_board = board.clone();
-            if next_board.make_move(&opt, &Player::X).is_none() {
+            if next_board.make_move(&opt, &Player::O).is_none() {
                 count += list_moves(&next_board)
                     .iter()
                     .map(|x| recursive_rank(&mut next_board, &x))
