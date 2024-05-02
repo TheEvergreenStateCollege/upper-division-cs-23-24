@@ -17,7 +17,7 @@ impl Player {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Copy)]
 #[derive(PartialEq, Eq)]
 #[derive(Hash)]
 pub struct Move {

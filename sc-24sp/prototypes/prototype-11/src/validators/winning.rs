@@ -5,8 +5,9 @@ use crate::types::{Player,Move,Board};
 
 // A set of moves by the same player that would win a 3x3 game
 #[derive(PartialEq,Eq)]
+#[derive(Debug)]
 pub struct WinningState {
-    three_moves: HashSet<Move>,
+    pub three_moves: HashSet<Move>,
 }
 
 // https://internals.rust-lang.org/t/implementing-hash-for-hashset-hashmap/3817/2
@@ -39,7 +40,6 @@ impl WinningState {
         let mut x_set = BoardMatch { player: Player::X, moves_in_a_row: 0 };
         let mut o_set = BoardMatch { player: Player::O, moves_in_a_row: 0 };
         for each_move in self.three_moves.iter() {
-            println!("{:?}", each_move);
             match board.cells[each_move.coords.0 as usize][each_move.coords.1 as usize] {
                 Some(Player::X) => { x_set.moves_in_a_row += 1; } 
                 Some(Player::O) => { o_set.moves_in_a_row += 1; }
