@@ -21,7 +21,7 @@ impl Hash for WinningState {
     }
 }
 
-#[derive(PartialEq, Eq)]
+#[derive(PartialEq, Eq, Debug)]
 pub struct BoardMatch {
     pub player: Player,
     pub moves_in_a_row: u8,

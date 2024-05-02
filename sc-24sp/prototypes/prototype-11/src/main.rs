@@ -70,6 +70,7 @@ fn main() {
         };
 
         if let Some(best_moves) = rank_moves(&mut board) {
+            println!("{:?}",best_moves);
             let mut next = best_moves.iter().max_by_key(|x| x.1).unwrap().0;
 
             // override for obvious picks

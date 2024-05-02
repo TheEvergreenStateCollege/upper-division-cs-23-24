@@ -6,8 +6,8 @@ use crate::validators::winning::{get_winning_states, BoardMatch};
 
 // recursive ranking, returning the an int depicting total wins/loss
 fn recursive_rank(board: &mut Board, mv: &Move) -> i32 {
+    board.make_move(mv, &Player::O);
     let mut count: i32 = 0;
-    board.make_move(mv, &Player::X);
     let opponent_options = list_moves(board);
 
     // base case
@@ -19,14 +19,14 @@ fn recursive_rank(board: &mut Board, mv: &Move) -> i32 {
                     player: Player::X,
                     moves_in_a_row: 3,
                 } => {
-                    count += 1;
+                    count = -1;
                     break;
                 }
                 BoardMatch {
                     player: Player::O,
                     moves_in_a_row: 3,
                 } => {
-                    count -= 1;
+                    count = 1;
                     break;
                 }
                 _ => (),
@@ -37,14 +37,12 @@ fn recursive_rank(board: &mut Board, mv: &Move) -> i32 {
     } else {
         for opt in opponent_options.iter() {
             let mut next_board = board.clone();
-            if next_board.make_move(&opt, &Player::O).is_none() {
-                if let Some(tmp_count) = list_moves(&next_board)
+            if next_board.make_move(&opt, &Player::X).is_none() {
+                count += list_moves(&next_board)
                     .iter()
                     .map(|x| recursive_rank(&mut next_board, &x))
-                    .reduce(|acc, c| acc + c)
-                {
-                    count += tmp_count;
-                }
+                    .sum::<i32>();
+                // println!("{:?}", count);
             }
         }
     }
