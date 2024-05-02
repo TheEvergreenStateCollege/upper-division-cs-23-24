@@ -7,7 +7,7 @@ use prototype_11::moves::ranker::rank_moves;
 use prototype_11::validators::win_validator;
 
 fn do_move<'a>(board: &mut Board<'a>, next_move: &Move, player: &Player) {
-    let (move_error) = board.make_move(next_move, player);
+    let move_error = board.make_move(next_move, player);
     println!("{:?}", board);
     match move_error {
         Some(MoveError::OutOfBounds) => {
@@ -32,17 +32,10 @@ fn do_move<'a>(board: &mut Board<'a>, next_move: &Move, player: &Player) {
 
 fn main() {
     let mut board: Board = Board::new();
-    //let (moves, mut _board_ref) = list_moves(&board);
-
-    //let mut moves_iter = moves.iter();
 
     let re = Regex::new(r"\(([0-2]),([0-2])\)").unwrap();
 
     println!("{:?}", board);
-
-    // Creating a first move
-    // let first_move = Move { coords: (1,1), player: &Player::O };
-
     loop {
         // Main loop
         // We are currently a naive move picker
@@ -71,21 +64,10 @@ fn main() {
             }
         };
 
-        let best_moves = rank_moves(&mut board);
-        let mut moves_iter = best_moves.iter();
+        if let Some(best_moves) = rank_moves(&mut board) {
+            let next = best_moves.iter().max_by_key(|x| x.1);
+            do_move(&mut board, &next.unwrap().0, &Player::X)
 
-        match moves_iter.next() {
-            Some(next_move) => {
-                do_move(&mut board, &next_move.next_move, &Player::X);
-            }
-            None => {
-                // no more moves are left
-                // This shouldn't happen normally,
-                // but until you implement the ranker
-                // in moves::ranker::rank_moves, the solver effectively forfeits
-                println!("🏆 GAME WON 🏆 \n by {:?}", Player::X);
-                break;    
-            }
         }
 
         if win_validator(&board) {
@@ -94,5 +76,4 @@ fn main() {
         }    
 
     }
-
 }

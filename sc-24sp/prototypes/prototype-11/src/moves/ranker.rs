@@ -1,23 +1,69 @@
+use std::i32;
+
 use super::enumerator::list_moves;
 use crate::types::{Board, Move, Player};
-use crate::validators::winning::{get_winning_states, BoardMatch, WhoseAhead, WinningState};
+use crate::validators::winning::{get_winning_states, BoardMatch};
 
-#[derive(PartialEq, Eq)]
-pub struct RankedMove {
-    board_match: BoardMatch,
-    pub next_move: Move,
-    priority: u32,
+// recursive ranking, returning the an int depicting total wins/loss
+fn recursive_rank(board: &mut Board, mv: &Move) -> i32 {
+    let mut count: i32 = 0;
+    board.make_move(mv, &Player::X);
+    let opponent_options = list_moves(board);
+
+    // base case
+    if opponent_options.len() == 0 {
+        for state in get_winning_states().iter() {
+            let (board_match, _) = state.match_board(board);
+            match board_match {
+                BoardMatch {
+                    player: Player::X,
+                    moves_in_a_row: 3,
+                } => {
+                    count += 1;
+                    break;
+                }
+                BoardMatch {
+                    player: Player::O,
+                    moves_in_a_row: 3,
+                } => {
+                    count -= 1;
+                    break;
+                }
+                _ => (),
+            }
+        }
+
+    // recursive call
+    } else {
+        for opt in opponent_options.iter() {
+            let mut next_board = board.clone();
+            if next_board.make_move(&opt, &Player::O).is_none() {
+                if let Some(tmp_count) = list_moves(&next_board)
+                    .iter()
+                    .map(|x| recursive_rank(&mut next_board, &x))
+                    .reduce(|acc, c| acc + c)
+                {
+                    count += tmp_count;
+                }
+            }
+        }
+    }
+    count
 }
 
 // Return all moves that are equally likely to lead to a draw or for next player to win
-pub fn rank_moves(board: &mut Board) -> Vec<RankedMove> {
-    let all_valid_moves = list_moves(board);
-    let mut best_moves = Vec::<RankedMove>::with_capacity(all_valid_moves.len());
-    let mut best_in_a_row = 0;
-    for state in get_winning_states().iter() {
-        let (board_match, whose_ahead) = state.match_board(board);
-        if whose_ahead == WhoseAhead::X && board_match.moves_in_a_row == 2 {}
+pub fn rank_moves(board: &mut Board) -> Option<Vec<(Move, i32)>> {
+    let mut options: Vec<(Move, i32)> = list_moves(board)
+        .iter()
+        .map(|x| (x.clone(), 0 as i32))
+        .collect();
+    if options.len() == 0 {
+        return None;
+    } else {
+        for option in options.iter_mut() {
+            let mut simulation_board = board.clone();
+            option.1 = recursive_rank(&mut simulation_board, &option.0);
+        }
     }
-    best_moves
+    Some(options)
 }
-

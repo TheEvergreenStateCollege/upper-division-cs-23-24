@@ -14,7 +14,7 @@ impl Board<'_>{
             cells: EMPTY_BOARD,
         }
     }
-    pub fn make_move<'a>(&'a mut self, new_move: &'a Move, player: &Player) -> (Option<MoveError>) {
+    pub fn make_move<'a>(&'a mut self, new_move: &'a Move, player: &Player) -> Option<MoveError> {
         //let mut new_board = Board::clone(self);
         //if move_player == self.next_to_move {
         let new_row = new_move.coords.0;
