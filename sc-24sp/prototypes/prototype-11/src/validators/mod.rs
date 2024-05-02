@@ -56,12 +56,10 @@ pub fn win_validator(board: &Board) -> bool {
     // println!("No cols were winning");
 
     if diag1_win_validator(board) {
-        println!("diag1 was winning");
         return true;
     }
 
     if diag2_win_validator(board) {
-        println!("diag2 was winning");
         return true;
     }
 

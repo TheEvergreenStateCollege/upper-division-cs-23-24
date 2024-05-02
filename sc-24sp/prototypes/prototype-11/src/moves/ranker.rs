@@ -2,6 +2,7 @@ use std::i32;
 
 use super::enumerator::list_moves;
 use crate::types::{Board, Move, Player};
+use crate::validators::win_validator;
 use crate::validators::winning::{get_winning_states, BoardMatch};
 
 // recursive ranking, returning the an int depicting total wins/loss
@@ -11,7 +12,7 @@ fn recursive_rank(board: &mut Board, mv: &Move) -> i32 {
     let opponent_options = list_moves(board);
 
     // base case
-    if opponent_options.len() == 0 {
+    if opponent_options.len() == 0 || win_validator(&board) {
         for state in get_winning_states().iter() {
             let (board_match, _) = state.match_board(board);
             match board_match {
@@ -19,14 +20,14 @@ fn recursive_rank(board: &mut Board, mv: &Move) -> i32 {
                     player: Player::X,
                     moves_in_a_row: 3,
                 } => {
-                    count = -1;
+                    count -= 1;
                     break;
                 }
                 BoardMatch {
                     player: Player::O,
                     moves_in_a_row: 3,
                 } => {
-                    count = 1;
+                    count += 1;
                     break;
                 }
                 _ => (),
