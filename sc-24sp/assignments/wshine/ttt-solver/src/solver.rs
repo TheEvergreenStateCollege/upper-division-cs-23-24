@@ -18,7 +18,9 @@ fn check_diag<'a>(cells: &'a [Cell], idxs: &[usize]) -> Option<(&'a Cell, CellSt
             empty_idx = *i;
         }
     }
-    if x_count == 2 && empty_count == 1 {
+    if x_count == 3 || o_count == 3 {
+        Some((&cells[0], CellState::GAMEEND))
+    } else if x_count == 2 && empty_count == 1 {
         Some((&cells[empty_idx], CellState::X))
     } else if o_count == 2 && empty_count == 1 {
         Some((&cells[empty_idx], CellState::O))
@@ -50,7 +52,7 @@ fn check_single_row(cells: &[Cell], start_idx: usize) -> Option<(&Cell, CellStat
     }
 }
 
-fn check_win_conditions(cells: &[Cell]) -> Vec<Option<(&Cell, CellState)>> {
+pub fn check_win_conditions(cells: &[Cell]) -> Vec<Option<(&Cell, CellState)>> {
     let mut win_conditions: Vec<Option<(&Cell, CellState)>> = Vec::new();
     win_conditions.push(check_diag(cells, &[0, 4, 8]));
     win_conditions.push(check_diag(cells, &[2, 4, 6]));
@@ -71,17 +73,17 @@ mod tests {
 
     #[test]
     fn test_check_diag() {
-        let chars = &['X','E','E','E','X','E','E','E','E'];
+        let chars = &['X', 'E', 'E', 'E', 'X', 'E', 'E', 'E', 'E'];
         let board = Board::from(chars).unwrap();
         let cells = board.to_slice();
 
-        assert!(check_diag(&cells, &[0,4,8]).is_some());
-        assert!(check_diag(&cells, &[2,4,6]).is_none());
+        assert!(check_diag(&cells, &[0, 4, 8]).is_some());
+        assert!(check_diag(&cells, &[2, 4, 6]).is_none());
     }
 
     #[test]
     fn test_check_row() {
-        let chars = &['X','X','E','E','X','E','E','O','O'];
+        let chars = &['X', 'X', 'E', 'E', 'X', 'E', 'E', 'O', 'O'];
         let board = Board::from(chars).unwrap();
         let cells = board.to_slice();
 

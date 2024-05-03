@@ -9,6 +9,7 @@ pub enum CellState {
     X,
     O,
     EMPTY,
+    GAMEEND,
 }
 
 #[derive(Clone, Debug)]
@@ -35,6 +36,7 @@ impl fmt::Display for Cell {
             CellState::EMPTY => write!(f, "{}", ' '),
             CellState::X => write!(f, "{}", 'X'),
             CellState::O => write!(f, "{}", 'O'),
+            _ => Ok(()),
         }
     }
 }
