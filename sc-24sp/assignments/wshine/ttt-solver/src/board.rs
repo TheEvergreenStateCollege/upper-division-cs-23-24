@@ -71,8 +71,8 @@ impl Board {
         }
         Ok(board)
     }
-    pub fn to_vec(self) -> Vec<Cell> {
-        self.cells.clone()
+    pub fn to_slice<'a>(&'a self) -> &'a [Cell] {
+        self.cells.as_slice()
     }
     pub fn make_move(&mut self, x: usize, y: usize, player: CellState) -> Result<(), &'static str> {
         let result = self.validate_move(x, y);

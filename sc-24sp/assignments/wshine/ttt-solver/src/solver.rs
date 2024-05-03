@@ -2,7 +2,7 @@ use std::usize;
 
 use crate::board::*;
 
-fn check_diag<'a>(cells: &'a Vec<Cell>, idxs: &[usize]) -> Option<(&'a Cell, CellState)> {
+fn check_diag<'a>(cells: &'a [Cell], idxs: &[usize]) -> Option<(&'a Cell, CellState)> {
     let mut x_count = 0;
     let mut o_count = 0;
     let mut empty_count = 0;
@@ -26,7 +26,7 @@ fn check_diag<'a>(cells: &'a Vec<Cell>, idxs: &[usize]) -> Option<(&'a Cell, Cel
         None
     }
 }
-fn check_single_row(cells: &Vec<Cell>, start_idx: usize) -> Option<(&Cell, CellState)> {
+fn check_single_row(cells: &[Cell], start_idx: usize) -> Option<(&Cell, CellState)> {
     let mut x_count = 0;
     let mut o_count = 0;
     let mut empty_count = 0;
@@ -50,7 +50,7 @@ fn check_single_row(cells: &Vec<Cell>, start_idx: usize) -> Option<(&Cell, CellS
     }
 }
 
-fn check_win_conditions(cells: &Vec<Cell>) -> Vec<Option<(&Cell, CellState)>> {
+fn check_win_conditions(cells: &[Cell]) -> Vec<Option<(&Cell, CellState)>> {
     let mut win_conditions: Vec<Option<(&Cell, CellState)>> = Vec::new();
     win_conditions.push(check_diag(cells, &[0, 4, 8]));
     win_conditions.push(check_diag(cells, &[2, 4, 6]));
@@ -72,7 +72,8 @@ mod tests {
     #[test]
     fn test_check_diag() {
         let chars = &['X','E','E','E','X','E','E','E','E'];
-        let cells = Board::from(chars).unwrap().to_vec();
+        let board = Board::from(chars).unwrap();
+        let cells = board.to_slice();
 
         assert!(check_diag(&cells, &[0,4,8]).is_some());
         assert!(check_diag(&cells, &[2,4,6]).is_none());
@@ -81,7 +82,8 @@ mod tests {
     #[test]
     fn test_check_row() {
         let chars = &['X','X','E','E','X','E','E','O','O'];
-        let cells = Board::from(chars).unwrap().to_vec();
+        let board = Board::from(chars).unwrap();
+        let cells = board.to_slice();
 
         assert!(check_single_row(&cells, 0).is_some());
         assert!(check_single_row(&cells, 3).is_none());
