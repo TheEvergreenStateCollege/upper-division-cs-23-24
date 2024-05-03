@@ -2,31 +2,92 @@ use std::usize;
 
 use crate::board::*;
 
-fn can_win(cells: &Vec<(Cell, (usize, usize))>) -> Option<(Cell, (usize, usize))> {
+fn check_diag<'a>(cells: &'a Vec<Cell>, idxs: &[usize]) -> Option<(&'a Cell, CellState)> {
     let mut x_count = 0;
     let mut o_count = 0;
-    let mut empty_idx = (0, 0);
-    for (i, c) in cells.iter().enumerate() {
-        match c {
-            (Cell::X, _) => x_count += 1,
-            (Cell::O, _) => o_count += 1,
-            (Cell::EMPTY, idx) => empty_idx = *idx,
+    let mut empty_count = 0;
+    let mut empty_idx = 0;
+    for i in idxs {
+        let cell: &Cell = &cells[*i];
+        if cell.state == CellState::X {
+            x_count += 1;
+        } else if cell.state == CellState::O {
+            o_count += 1;
+        } else if cell.state == CellState::EMPTY {
+            empty_count += 1;
+            empty_idx = *i;
         }
     }
-    if x_count == 2 {
-        Some((Cell::X, empty_idx))
-    } else if o_count == 2 {
-        Some((Cell::O, empty_idx))
+    if x_count == 2 && empty_count == 1 {
+        Some((&cells[empty_idx], CellState::X))
+    } else if o_count == 2 && empty_count == 1 {
+        Some((&cells[empty_idx], CellState::O))
     } else {
         None
     }
 }
-pub fn check_win_conditions(board: &Board) -> Vec<Option<(Cell, (usize,usize))>> {
-    let conditions: Vec<Vec<(Cell, (usize, usize))>> =
-        [board.get_rows(), board.get_diags()].concat();
-    conditions.iter().map(|x| can_win(x)).collect()
+fn check_single_row(cells: &Vec<Cell>, start_idx: usize) -> Option<(&Cell, CellState)> {
+    let mut x_count = 0;
+    let mut o_count = 0;
+    let mut empty_count = 0;
+    let mut empty_idx = 0;
+    for (idx, cell) in cells[start_idx..=start_idx + 2].iter().enumerate() {
+        if cell.state == CellState::X {
+            x_count += 1;
+        } else if cell.state == CellState::O {
+            o_count += 1;
+        } else if cell.state == CellState::EMPTY {
+            empty_count += 1;
+            empty_idx = idx;
+        }
+    }
+    if x_count == 2 && empty_count == 1 {
+        Some((&cells[empty_idx], CellState::X))
+    } else if o_count == 2 && empty_count == 1 {
+        Some((&cells[empty_idx], CellState::O))
+    } else {
+        None
+    }
+}
+
+fn check_win_conditions(cells: &Vec<Cell>) -> Vec<Option<(&Cell, CellState)>> {
+    let mut win_conditions: Vec<Option<(&Cell, CellState)>> = Vec::new();
+    win_conditions.push(check_diag(cells, &[0, 4, 8]));
+    win_conditions.push(check_diag(cells, &[2, 4, 6]));
+    win_conditions.push(check_single_row(cells, 0));
+    win_conditions.push(check_single_row(cells, 3));
+    win_conditions.push(check_single_row(cells, 6));
+    win_conditions
 }
 pub fn select_best(board: &Board) -> (i32, i32) {
     // override obvious picks
     (1, 1)
+}
+
+// unit tests
+
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_check_diag() {
+        let chars = &['X','E','E','E','X','E','E','E','E'];
+        let cells = Board::from(chars).unwrap().to_vec();
+
+        assert!(check_diag(&cells, &[0,4,8]).is_some());
+        assert!(check_diag(&cells, &[2,4,6]).is_none());
+    }
+
+    #[test]
+    fn test_check_row() {
+        let chars = &['X','X','E','E','X','E','E','O','O'];
+        let cells = Board::from(chars).unwrap().to_vec();
+
+        assert!(check_single_row(&cells, 0).is_some());
+        assert!(check_single_row(&cells, 3).is_none());
+        assert!(check_single_row(&cells, 6).is_some());
+    }
+
+    #[test]
+    fn test_check_win_conditions() {}
 }
