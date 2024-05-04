@@ -9,7 +9,6 @@ pub enum CellState {
     X,
     O,
     EMPTY,
-    GAMEEND,
 }
 
 #[derive(Clone, Debug)]
@@ -36,7 +35,6 @@ impl fmt::Display for Cell {
             CellState::EMPTY => write!(f, "{}", ' '),
             CellState::X => write!(f, "{}", 'X'),
             CellState::O => write!(f, "{}", 'O'),
-            _ => Ok(()),
         }
     }
 }
@@ -74,14 +72,12 @@ impl Board {
         Ok(board)
     }
     pub fn list_moves(&self) -> Vec<Cell> {
-        let vec = self.cells.clone();
-
-        vec.iter()
+        self.cells.iter()
             .filter(|x| x.state == CellState::EMPTY)
             .map(|x| x.clone())
             .collect()
     }
-    pub fn to_slice<'a>(&'a self) -> &'a [Cell] {
+    pub fn as_slice(&self) -> &[Cell] {
         self.cells.as_slice()
     }
     pub fn make_move(&mut self, x: usize, y: usize, player: CellState) -> Result<(), &'static str> {

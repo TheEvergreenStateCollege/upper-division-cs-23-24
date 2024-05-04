@@ -60,8 +60,8 @@ fn main() {
                 _ => continue,
             }
         } else if board.list_moves().len() == 0 {
-            print!("Tie");
-
+            println!("Tie");
+            break;
         }
         // machines move
         let best_move = select_best(&board).unwrap();
@@ -84,7 +84,7 @@ fn main() {
                 _ => continue,
             }
         } else if board.list_moves().len() == 0 {
-            print!("Tie");
+            println!("Tie");
             break;
         }
     }

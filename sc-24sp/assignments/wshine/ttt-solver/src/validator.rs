@@ -70,7 +70,7 @@ fn validate_condition(cells: &[Cell], idxs: &[usize]) -> Option<WinCondition> {
 }
 
 pub fn win_validator(board: &Board) -> Vec<WinCondition> {
-    let cells = board.to_slice();
+    let cells = board.as_slice();
     let mut conditions: Vec<WinCondition> = Vec::new();
     for idx in WINCONDITION_IDXS {
         if let Some(win_condition) = validate_condition(cells, &idx) {
