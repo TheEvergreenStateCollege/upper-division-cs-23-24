@@ -77,10 +77,5 @@ pub fn select_best(board: &Board) -> Option<(usize, usize)> {
 //
 #[cfg(test)]
 mod tests {
-    use super::*;
 
-    #[test]
-    fn test_best() {
-        let b = Board::from(&['X', 'X', 'O', 'X', 'O', 'O', 'X', 'O', 'O']).unwrap();
-    }
 }

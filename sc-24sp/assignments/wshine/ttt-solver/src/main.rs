@@ -6,9 +6,6 @@ use ttt_solver::{
     validator::{win_validator, WinCondition},
 };
 
-fn check_game_state() {
-
-}
 fn main() {
     let mut board = Board::new();
     let re = Regex::new(r"\(([0-2]),([0-2])\)").unwrap();

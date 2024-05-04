@@ -34,7 +34,7 @@ impl Ord for WinCondition {
         }
     }
 }
-fn validate_condition<'a>(cells: &'a [Cell], idxs: &[usize]) -> Option<WinCondition> {
+fn validate_condition(cells: &[Cell], idxs: &[usize]) -> Option<WinCondition> {
     let mut x_count = 0;
     let mut o_count = 0;
     let mut empty_count = 0;
