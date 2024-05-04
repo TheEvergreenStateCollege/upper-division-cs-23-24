@@ -1,5 +1,5 @@
 use core::fmt;
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Board {
     cells: Vec<Cell>,
 }
@@ -72,6 +72,14 @@ impl Board {
             }
         }
         Ok(board)
+    }
+    pub fn list_moves(&self) -> Vec<Cell> {
+        let vec = self.cells.clone();
+
+        vec.iter()
+            .filter(|x| x.state == CellState::EMPTY)
+            .map(|x| x.clone())
+            .collect()
     }
     pub fn to_slice<'a>(&'a self) -> &'a [Cell] {
         self.cells.as_slice()

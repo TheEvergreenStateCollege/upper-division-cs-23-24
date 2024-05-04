@@ -1,97 +1,85 @@
+use crate::validator::*;
 use std::usize;
 
-use crate::board::*;
+use crate::{board::*, validator::win_validator};
 
-fn check_diag<'a>(cells: &'a [Cell], idxs: &[usize]) -> Option<(&'a Cell, CellState)> {
-    let mut x_count = 0;
-    let mut o_count = 0;
-    let mut empty_count = 0;
-    let mut empty_idx = 0;
-    for i in idxs {
-        let cell: &Cell = &cells[*i];
-        if cell.state == CellState::X {
-            x_count += 1;
-        } else if cell.state == CellState::O {
-            o_count += 1;
-        } else if cell.state == CellState::EMPTY {
-            empty_count += 1;
-            empty_idx = *i;
+fn recursive_rank(board: &mut Board, mv: &Cell) -> i32 {
+    if let Err(e) = board.make_move(mv.x, mv.y, CellState::X) {
+        eprintln!("{} recursive_rank {} {} \n {}", e, mv.x, mv.y, board);
+    }
+    let mut count = 0;
+    let opponent_moves = board.list_moves();
+    let conditions = win_validator(&board);
+
+    //base case
+    if let Some(winner) = conditions
+        .iter()
+        .find(|x| **x == WinCondition::XWon || **x == WinCondition::OWon)
+    {
+        if *winner == WinCondition::XWon {
+            count -= 1;
+        } else {
+            count += 1;
+        }
+    } else if opponent_moves.len() == 0 {
+        return count;
+    } else {
+        for opp_mv in opponent_moves.iter() {
+            let mut next_board = board.clone();
+            if next_board
+                .make_move(opp_mv.x, opp_mv.y, CellState::O)
+                .is_ok()
+            {
+                count += next_board
+                    .list_moves()
+                    .iter()
+                    .map(|x| recursive_rank(&mut next_board, x))
+                    .sum::<i32>();
+            }
         }
     }
-    if x_count == 3 || o_count == 3 {
-        Some((&cells[0], CellState::GAMEEND))
-    } else if x_count == 2 && empty_count == 1 {
-        Some((&cells[empty_idx], CellState::X))
-    } else if o_count == 2 && empty_count == 1 {
-        Some((&cells[empty_idx], CellState::O))
-    } else {
-        None
-    }
+    count
 }
-fn check_single_row(cells: &[Cell], start_idx: usize) -> Option<(&Cell, CellState)> {
-    let mut x_count = 0;
-    let mut o_count = 0;
-    let mut empty_count = 0;
-    let mut empty_idx = 0;
-    for (idx, cell) in cells[start_idx..=start_idx + 2].iter().enumerate() {
-        if cell.state == CellState::X {
-            x_count += 1;
-        } else if cell.state == CellState::O {
-            o_count += 1;
-        } else if cell.state == CellState::EMPTY {
-            empty_count += 1;
-            empty_idx = idx;
+fn rank_moves(board: Board) -> (usize, usize) {
+    let moves = board.list_moves();
+    let mut ranked_moves: Vec<(i32, (usize, usize))> = Vec::new();
+    for mv in moves {
+        let mut simulation_board = board.clone();
+        let count = recursive_rank(&mut simulation_board, &mv);
+        ranked_moves.push((count, (mv.x, mv.y)));
+    }
+    let max = ranked_moves
+        .iter()
+        .reduce(|acc, x| if x.0 > acc.0 { x } else { acc });
+    max.unwrap().1
+}
+pub fn select_best(board: &Board) -> Option<(usize, usize)> {
+    let mut best: Option<(usize, usize)> = None;
+    let win_conditions = win_validator(board);
+    if win_conditions.len() > 0 {
+        let condition = win_conditions.iter().max();
+        if let Some(c) = condition {
+            best = match c {
+                WinCondition::XWon => None,
+                WinCondition::OWon => None,
+                WinCondition::Machine(x, y) => Some((*x, *y)),
+                WinCondition::Opponent(x, y) => Some((*x, *y)),
+            };
         }
-    }
-    if x_count == 2 && empty_count == 1 {
-        Some((&cells[empty_idx], CellState::X))
-    } else if o_count == 2 && empty_count == 1 {
-        Some((&cells[empty_idx], CellState::O))
     } else {
-        None
+        best = Some(rank_moves(board.clone()));
     }
-}
-
-pub fn check_win_conditions(cells: &[Cell]) -> Vec<Option<(&Cell, CellState)>> {
-    let mut win_conditions: Vec<Option<(&Cell, CellState)>> = Vec::new();
-    win_conditions.push(check_diag(cells, &[0, 4, 8]));
-    win_conditions.push(check_diag(cells, &[2, 4, 6]));
-    win_conditions.push(check_single_row(cells, 0));
-    win_conditions.push(check_single_row(cells, 3));
-    win_conditions.push(check_single_row(cells, 6));
-    win_conditions
-}
-pub fn select_best(board: &Board) -> (i32, i32) {
-    // override obvious picks
-    (1, 1)
+    best
 }
 
 // unit tests
-
+//
+#[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn test_check_diag() {
-        let chars = &['X', 'E', 'E', 'E', 'X', 'E', 'E', 'E', 'E'];
-        let board = Board::from(chars).unwrap();
-        let cells = board.to_slice();
-
-        assert!(check_diag(&cells, &[0, 4, 8]).is_some());
-        assert!(check_diag(&cells, &[2, 4, 6]).is_none());
+    fn test_best() {
+        let b = Board::from(&['X', 'X', 'O', 'X', 'O', 'O', 'X', 'O', 'O']).unwrap();
     }
-
-    #[test]
-    fn test_check_row() {
-        let chars = &['X', 'X', 'E', 'E', 'X', 'E', 'E', 'O', 'O'];
-        let board = Board::from(chars).unwrap();
-        let cells = board.to_slice();
-
-        assert!(check_single_row(&cells, 0).is_some());
-        assert!(check_single_row(&cells, 3).is_none());
-        assert!(check_single_row(&cells, 6).is_some());
-    }
-
-    #[test]
-    fn test_check_win_conditions() {}
 }

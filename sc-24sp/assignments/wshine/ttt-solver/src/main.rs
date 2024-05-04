@@ -1,7 +1,14 @@
 use regex_lite::Regex;
 use std::io;
-use ttt_solver::board::*;
+use ttt_solver::{
+    board::*,
+    solver::select_best,
+    validator::{win_validator, WinCondition},
+};
 
+fn check_game_state() {
+
+}
 fn main() {
     let mut board = Board::new();
     let re = Regex::new(r"\(([0-2]),([0-2])\)").unwrap();
@@ -41,5 +48,28 @@ fn main() {
         println!("{}", board);
 
         // machines move
+        let best_move = select_best(&board).unwrap();
+        let _ = board.make_move(best_move.0, best_move.1, CellState::X);
+
+        println!("{}", board);
+        if let Some(w) = win_validator(&board)
+            .iter()
+            .find(|x| **x == WinCondition::XWon || **x == WinCondition::OWon)
+        {
+            match w {
+                WinCondition::XWon => {
+                    println!("🏆 GAME WON 🏆 \n by X");
+                    break;
+                }
+                WinCondition::OWon => {
+                    println!("🏆 GAME WON 🏆 \n by O");
+                    break;
+  i              }
+                _ => continue,
+            }
+        } else if board.list_moves().len() == 0 {
+            print!("Tie");
+
+        }
     }
 }
