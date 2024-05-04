@@ -88,7 +88,7 @@ fn main() {
             }
         } else if board.list_moves().len() == 0 {
             print!("Tie");
-
+            break;
         }
     }
 }
