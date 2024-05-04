@@ -17,9 +17,9 @@ fn recursive_rank(board: &mut Board, mv: &Cell) -> i32 {
         .find(|x| **x == WinCondition::XWon || **x == WinCondition::OWon)
     {
         if *winner == WinCondition::XWon {
-            count -= 1;
-        } else {
             count += 1;
+        } else {
+            count -= 1;
         }
     } else if opponent_moves.len() == 0 {
         return count;
@@ -48,6 +48,7 @@ fn rank_moves(board: Board) -> (usize, usize) {
         let count = recursive_rank(&mut simulation_board, &mv);
         ranked_moves.push((count, (mv.x, mv.y)));
     }
+    println!("{:?}", ranked_moves);
     let max = ranked_moves
         .iter()
         .reduce(|acc, x| if x.0 > acc.0 { x } else { acc });

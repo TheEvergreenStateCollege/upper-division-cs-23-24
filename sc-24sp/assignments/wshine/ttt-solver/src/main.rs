@@ -45,8 +45,27 @@ fn main() {
             println!("Sorry I couldn't understand your input. let's try again",);
         }
 
-        println!("{}", board);
 
+        println!("{}", board);
+        if let Some(w) = win_validator(&board)
+            .iter()
+            .find(|x| **x == WinCondition::XWon || **x == WinCondition::OWon)
+        {
+            match w {
+                WinCondition::XWon => {
+                    println!("🏆 GAME WON 🏆 \n by X");
+                    break;
+                }
+                WinCondition::OWon => {
+                    println!("🏆 GAME WON 🏆 \n by O");
+                    break;
+                }
+                _ => continue,
+            }
+        } else if board.list_moves().len() == 0 {
+            print!("Tie");
+
+        }
         // machines move
         let best_move = select_best(&board).unwrap();
         let _ = board.make_move(best_move.0, best_move.1, CellState::X);
@@ -64,7 +83,7 @@ fn main() {
                 WinCondition::OWon => {
                     println!("🏆 GAME WON 🏆 \n by O");
                     break;
-  i              }
+                }
                 _ => continue,
             }
         } else if board.list_moves().len() == 0 {
