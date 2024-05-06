@@ -34,7 +34,7 @@ fn main() {
 
     roads.extend(gen_random_roads(size, RoadDirection::EastWest));
 
-    let city = City::new(&roads);
+    let city = City::new(size, &roads);
 
     println!("{}", city);
 }

@@ -18,19 +18,19 @@ pub struct Address {
 }
 
 pub struct City {
-    grid: [[char; BOUND]; BOUND],
+    grid: Vec<Vec<char>>,
 }
 
 impl City {
-    pub fn new(roads: &[Road]) -> Self {
+    pub fn new(size: usize, roads: &[Road]) -> Self {
         let mut city = Self {
-            grid: [['.'; BOUND]; BOUND],
+            grid: vec![vec!['.'; size]; size],
         };
 
         for road in roads {
             let pos = road.position;
 
-            for w in 0..BOUND {
+            for w in 0..size {
                 match road.direction {
                     RoadDirection::NorthSouth => {
                         city.set_cell(pos, w, '#');
@@ -88,14 +88,9 @@ impl City {
 
 impl fmt::Display for City {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        for row in 0..BOUND {
-            for col in 0..BOUND {
-                write!(
-                    f,
-                    "{}",
-                    self.cell(row, col)
-                        .expect("This should always be in-bounds")
-                )?;
+        for x in &self.grid {
+            for y in x {
+                write!(f, "{}", y)?;
             }
             writeln!(f)?;
         }
