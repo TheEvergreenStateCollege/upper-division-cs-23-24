@@ -40,20 +40,12 @@ fn main() {
 
     let mut grid = [['.'; BOUND]; BOUND];
 
-    // Addresses hash map should be populated
     city_builder(&mut addresses, &mut grid, &mut roads);
 
-    println!("The number of generated addresses is {}", addresses.len());
+    let address_string = addresses.get(&query).unwrap_or(unaddress);
 
-    let mut count = 0;
-    for (key,value) in &addresses {
-        if count >= 2 {
-            break;
-        }
-        let address_string = addresses.get(&key).unwrap_or(unaddress);
-        println!("The address at coordinates {:?} is {} ", key, address_string);
-    }
-    
+    println!("The address at coordinates {:?} is {} ", query, address_string);
+
     city_drawer(&grid);
 
 
