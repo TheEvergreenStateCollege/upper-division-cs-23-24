@@ -4,7 +4,7 @@ pub mod ranker {
     use crate::validators::win_validator;
     use std::process;
 
-    fn find_winning_moves(b: &Board, p: Player) -> Vec<Move> {
+    pub fn find_winning_moves(b: &Board, p: Player) -> Vec<Move> {
         let mut res = Vec::new();
         for m in list_moves(b) {
             let mut test_board = b.clone();
@@ -16,7 +16,7 @@ pub mod ranker {
         res
     }
 
-    fn find_threatening_moves(b: &Board, p: Player) -> Vec<Move> {
+    pub fn find_threatening_moves(b: &Board, p: Player) -> Vec<Move> {
         let mut res = Vec::new();
         for m in list_moves(b) {
             let mut test_board = b.clone();

@@ -6,33 +6,33 @@
     <title>calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+  <body>
     <div class= "calculatorBox">
-    
-        <div id="display" class="fourRow"></div>
-        
-        <button class="funButton doubleRow">c</button>
-        <button class="funButton">←</button>
-        <button class="funButton">÷</button>
-        
-        <button class="numButton">7</button>
-        <button class="numButton">8</button>
-        <button class="numButton">9</button>
-        <button class="funButton">x</button>
-    
-        <button class="numButton">4</button>
-        <button class="numButton">5</button>
-        <button class="numButton">6</button>
-        <button class="funButton">-</button>
-        
-        <button class="numButton">1</button>
-        <button class="numButton">2</button>
-        <button class="numButton">3</button>
-        <button class="funButton">+</button>
-        
-        <button class="numButton tripleRow">0</button>
-        <button class="funButton">=</button>
-        
+      
+      <div id="display" class="fourRow">0</div>
+      
+      <button class="funButton doubleRow" onclick="clearNums()">c</button>
+      <button class="funButton" onclick="back()">←</button>
+      <button class="funButton" onclick="MathNum('div')">÷</button>
+      
+      <button class="numButton" onclick="num(7)">7</button>
+      <button class="numButton" onclick="num(8)">8</button>
+      <button class="numButton" onclick="num(9)">9</button>
+      <button class="funButton" onclick="MathNum('mut')">x</button>
+
+      <button class="numButton" onclick="num(4)">4</button>
+      <button class="numButton" onclick="num(5)">5</button>
+      <button class="numButton" onclick="num(6)">6</button>
+      <button class="funButton" onclick="MathNum('sub')">-</button>
+      
+      <button class="numButton" onclick="num(1)">1</button>
+      <button class="numButton" onclick="num(2)">2</button>
+      <button class="numButton" onclick="num(3)">3</button>
+      <button class="funButton" onclick="MathNum('add')">+</button>
+      
+      <button class="numButton tripleRow" onclick="num(0)">0</button>
+      <button class="funButton" onclick="solve()">=</button>
+
       </div>
     <script src="calculator.js"></script>
   </body>

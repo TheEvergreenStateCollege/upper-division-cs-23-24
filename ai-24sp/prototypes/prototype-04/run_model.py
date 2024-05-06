@@ -3,7 +3,7 @@ from network import Network
 
 nn = Network.fromPBJSON("model.pbjson")
 
-i = 1500
+i = 30000
 (image_data, width, height) = load_images("train-images-idx3-ubyte", which=None, i=i)
 image_label = load_labels("train-labels-idx1-ubyte", which=None, i=i)
 image_data = image_data.reshape((width*height, 1))
