@@ -2,7 +2,7 @@ use rand::Rng;
 
 pub mod city_drawer;
 
-use crate::city_drawer::{city_drawer, city_builder, Address, Road, RoadDirection, BOUND};
+use crate::city_drawer::{city_builder, city_drawer, Address, Grid, Road, RoadDirection};
 
 // Can we have a "parent type" to Avenue and Street,
 // let's call it Road
@@ -12,15 +12,17 @@ fn gen_random_roads(bound: usize, direction: RoadDirection) -> Vec<Road> {
     loop {
         let next_w = rand::thread_rng().gen_range(3..10);
         w += next_w;
-        
+
         // check if we've exceeded the bound
         if w >= bound {
             break;
         }
-        directional_roads.push(Road {coord: w, direction: direction });
+        directional_roads.push(Road {
+            position: w,
+            direction,
+        });
         println!("Added Road {:?}", w);
-
-    }   
+    }
     directional_roads
 }
 
@@ -32,7 +34,7 @@ fn main() {
 
     roads.extend(gen_random_roads(size, RoadDirection::EastWest));
 
-    let mut grid = [['.'; BOUND]; BOUND];
+    let mut grid = Grid::new();
 
     city_builder(&mut grid, &mut roads);
 
