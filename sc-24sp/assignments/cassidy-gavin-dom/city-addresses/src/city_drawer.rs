@@ -1,3 +1,7 @@
+use std::fmt;
+
+pub const BOUND: usize = 50;
+
 pub struct Road {
     pub position: usize,
     pub direction: RoadDirection,
@@ -82,6 +86,24 @@ impl City {
     }
 }
 
+impl fmt::Display for City {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        for row in 0..BOUND {
+            for col in 0..BOUND {
+                write!(
+                    f,
+                    "{}",
+                    self.cell(row, col)
+                        .expect("This should always be in-bounds")
+                )?;
+            }
+            writeln!(f)?;
+        }
+
+        Ok(())
+    }
+}
+
 // pub struct AddressAvenue {
 //     pub x: usize,
 // }
@@ -95,15 +117,4 @@ pub struct TokyoAddresser {}
 pub trait CityAddresser {
     fn build(roads: Vec<Road>, city: &mut City) -> Self;
     fn get_address_string(&self, x: usize, y: usize) -> Self;
-}
-
-pub const BOUND: usize = 50;
-
-pub fn city_drawer(grid: &City) {
-    for row in 0..BOUND {
-        for col in 0..BOUND {
-            print!("{}", grid.cell(row, col).unwrap());
-        }
-        println!();
-    }
 }

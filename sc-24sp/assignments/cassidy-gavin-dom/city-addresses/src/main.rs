@@ -2,7 +2,7 @@ use rand::Rng;
 
 pub mod city_drawer;
 
-use crate::city_drawer::{city_drawer, City, Road, RoadDirection};
+use crate::city_drawer::{City, Road, RoadDirection};
 
 // Can we have a "parent type" to Avenue and Street,
 // let's call it Road
@@ -36,5 +36,5 @@ fn main() {
 
     let city = City::new(&roads);
 
-    city_drawer(&city);
+    println!("{}", city);
 }
