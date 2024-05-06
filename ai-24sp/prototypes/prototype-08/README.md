@@ -171,6 +171,7 @@ epoch_durations.append(epoch_duration)  # Append duration to list
 ```
 ![Screenshot (537)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/a0a0e32c-33bc-4881-846b-ac65f2511ef3)
 
+![Screenshot (538)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/e69d9085-8611-41e3-8a79-632e2e4447f0)
 
 
 ## todo:
