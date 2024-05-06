@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 
 pub struct Road {
     pub coord: usize,
@@ -36,8 +37,10 @@ pub trait CityAddresser {
 
 pub const BOUND: usize = 50;
 
-pub fn city_builder<'a>(in_grid: &'a mut Grid, roads: &'a Vec<Road>) -> &'a mut Grid {
+pub fn city_builder<'a>(adresses: &mut AddressMap, in_grid: &'a mut Grid, roads: &'a Vec<Road>) -> &'a mut Grid {
     //roads.sort_by(|a,b| a.coord.cmp(&b.coord));
+
+    let mut address_counter = 0;
 
     let mut roads_iter = roads.iter();
     loop {
@@ -51,21 +54,37 @@ pub fn city_builder<'a>(in_grid: &'a mut Grid, roads: &'a Vec<Road>) -> &'a mut 
                             // Check if we're not the leftmost avenue, and draw locations on left side
                             if road.coord > 0 && in_grid[road.coord - 1 as usize][w] == '.' {
                                 in_grid[road.coord - 1 as usize][w] = 'o';
+                                // East of an Avenue
+                                let address_string = format!("{} Avenue {}", address_counter, road.coord);
+                                address_counter += 1;
+                                addresses.insert((road.coord, w), address_string)
                             }
                             // Check if we're not the rightmost avenue, and draw locations on the right side
                             if road.coord < BOUND + 1  && in_grid[road.coord as usize + 1][w] == '.' {
                                 in_grid[road.coord as usize + 1][w] = 'o';
+                                // West of an Avenue
+                                let address_string = format!("{} Avenue {}", address_counter, road.coord);
+                                address_counter += 1;
+                                addresses.insert((road.coord as usize + 1, w), address_string)
                             }
                         }
                         RoadDirection::EastWest => {
                             in_grid[w][road.coord] = '#';
                             // Check if we're not the topmost street, and draw locations on the top side
                             if road.coord > 0 && in_grid[w][road.coord - 1 as usize] == '.' {
-                                in_grid[w][road.coord as usize - 1 as usize] = 'o';
+                                in_grid[w][road.coord - 1 as usize] = 'o';
+                                // North of an Avenue
+                                let address_string = format!("{} Avenue {}", address_counter, road.coord);
+                                address_counter += 1;
+                                addresses.insert((w, road.coord), address_string)
                             }
                             // Check if we're not the bottommost street, and draw locations on the bottom side
                             if road.coord < BOUND && in_grid[w][road.coord + 1 as usize] == '.' {
                                 in_grid[w][road.coord + 1 as usize] = 'o';
+                                // South of an Avenue
+                                let address_string = format!("{} Avenue {}", address_counter, road.coord);
+                                address_counter += 1;
+                                addresses.insert((w, road.coord + 1), address_string)
                             }
                         }
                     }
