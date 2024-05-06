@@ -2,7 +2,8 @@ use rand::Rng;
 
 pub mod city_drawer;
 
-use crate::city_drawer::{city_drawer, city_builder, Address, Road, RoadDirection, BOUND};
+use crate::city_drawer::{city_drawer, city_builder, Address, AddressesMap, Road, RoadDirection, BOUND};
+use std::collections::HashMap;
 
 // Can we have a "parent type" to Avenue and Street,
 // let's call it Road
@@ -24,9 +25,14 @@ fn gen_random_roads(bound: usize, direction: RoadDirection) -> Vec<Road> {
     directional_roads
 }
 
+
 fn main() {
+    let unaddress: &String = &String::from("Unaddressed");
+
     println!("Hello, city!");
     let size = 50;
+
+    let mut addresses = AddressesMap::new();
 
     let mut roads = gen_random_roads(size, RoadDirection::NorthSouth);
 
@@ -34,7 +40,14 @@ fn main() {
 
     let mut grid = [['.'; BOUND]; BOUND];
 
-    city_builder(&mut grid, &mut roads);
+    city_builder(&mut addresses, &mut grid, &mut roads);
+
+    let query = (0,7);
+    let address_string = addresses.get(&query).unwrap_or(unaddress);
+
+    println!("The address at coordinates {:?} is {} ", query, address_string);
 
     city_drawer(&grid);
+
+
 }
