@@ -33,8 +33,12 @@ pub fn city_drawer(n_s_roads: &mut Vec<Road>, e_w_roads: &mut Vec<Road>) {
                     for x in 0..BOUND {
                         if index == 0 {
                             grid[road.x as usize][x] = '#';
+                            if road.x != 0 && grid[road.x as usize-1][x] == '.' {grid[road.x as usize-1][x] = 'o';}
+                            if road.x != 49 && grid[road.x as usize+1][x] == '.' {grid[road.x as usize+1][x] = 'o';}
                         } else {
                             grid[x][road.x as usize] = '#';
+                            if road.x != 0 && grid[x][road.x as usize-1] == '.' {grid[x][road.x as usize-1] = 'o';}
+                            if road.x != 49 && grid[x][road.x as usize+1] == '.' {grid[x][road.x as usize+1] = 'o';}
                         }
                     }
                 }
@@ -51,6 +55,7 @@ pub fn city_drawer(n_s_roads: &mut Vec<Road>, e_w_roads: &mut Vec<Road>) {
             match grid[col][row] {
                 '.' => { print!(".") }
                 '#' => { print!("#") }
+                'o' => { print!("o") }
                 _ => { }
             }
         }

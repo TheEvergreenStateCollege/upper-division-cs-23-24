@@ -1,4 +1,5 @@
-use rand::Rng;
+use rand::prelude::*;
+use rand_chacha::ChaCha8Rng;
 
 pub mod city_drawer;
 
@@ -9,8 +10,9 @@ use crate::city_drawer::{Road,Address,city_drawer,BOUND};
 fn gen_random_roads(bound: usize) -> Vec<Road> {
     let mut directional_roads = Vec::<Road>::new();
     let mut w = 0;
+    let mut rng = ChaCha8Rng::seed_from_u64(2);
     loop {
-        let next_w = rand::thread_rng().gen_range(3..10);
+        let next_w = rng.gen_range(3..10);
         w += next_w;
 
         // check if we've exceeded the bound
