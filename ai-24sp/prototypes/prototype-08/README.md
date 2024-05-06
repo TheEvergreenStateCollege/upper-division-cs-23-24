@@ -169,6 +169,7 @@ epoch_durations.append(epoch_duration)  # Append duration to list
 
  print(f"Average Epoch Duration: {average_epoch_duration} seconds, Final Accuracy: {accuracy}%")
 ```
+![Screenshot (537)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/a0a0e32c-33bc-4881-846b-ac65f2511ef3)
 
 
 
