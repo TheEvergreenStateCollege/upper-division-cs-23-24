@@ -48,7 +48,7 @@ fn main() {
 
     let mut count = 0;
     for (key,value) in &addresses {
-        if count >= 2 {
+        if count >= 0 {
             break;
         }
         let address_string = addresses.get(&key).unwrap_or(unaddress);
