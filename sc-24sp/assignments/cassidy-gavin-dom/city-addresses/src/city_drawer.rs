@@ -13,15 +13,56 @@ pub struct Address {
     pub x: usize,
 }
 
-pub struct Grid {
+pub struct City {
     grid: [[char; BOUND]; BOUND],
 }
 
-impl Grid {
-    pub fn new() -> Self {
-        Self {
+impl City {
+    pub fn new(roads: &[Road]) -> Self {
+        let mut city = Self {
             grid: [['.'; BOUND]; BOUND],
+        };
+
+        for road in roads {
+            let pos = road.position;
+
+            for w in 0..BOUND {
+                match road.direction {
+                    RoadDirection::NorthSouth => {
+                        city.set_cell(pos, w, '#');
+                        // Check if we're not the leftmost avenue, and draw locations on left side
+                        if let Some(value) = city.cell(pos - 1_usize, w) {
+                            if value == '.' {
+                                city.set_cell(pos - 1_usize, w, 'o');
+                            }
+                        }
+                        // Check if we're not the rightmost avenue, and draw locations on the right side
+                        if let Some(value) = city.cell(pos + 1_usize, w) {
+                            if value == '.' {
+                                city.set_cell(pos + 1_usize, w, 'o');
+                            }
+                        }
+                    }
+                    RoadDirection::EastWest => {
+                        city.set_cell(w, pos, '#');
+                        // Check if we're not the topmost street, and draw locations on the top side
+                        if let Some(value) = city.cell(w, pos - 1_usize) {
+                            if value == '.' {
+                                city.set_cell(w, pos - 1_usize, 'o');
+                            }
+                        }
+                        // Check if we're not the bottom most street, and draw locations on the bottom side
+                        if let Some(value) = city.cell(w, pos + 1_usize) {
+                            if value == '.' {
+                                city.set_cell(w, pos + 1_usize, 'o');
+                            }
+                        }
+                    }
+                }
+            }
         }
+
+        city
     }
 
     pub fn cell(&self, x: usize, y: usize) -> Option<char> {
@@ -41,12 +82,6 @@ impl Grid {
     }
 }
 
-impl Default for Grid {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
 // pub struct AddressAvenue {
 //     pub x: usize,
 // }
@@ -58,54 +93,13 @@ impl Default for Grid {
 pub struct TokyoAddresser {}
 
 pub trait CityAddresser {
-    fn build(roads: Vec<Road>, city: &mut Grid) -> Self;
+    fn build(roads: Vec<Road>, city: &mut City) -> Self;
     fn get_address_string(&self, x: usize, y: usize) -> Self;
 }
 
 pub const BOUND: usize = 50;
 
-pub fn city_builder(grid: &mut Grid, roads: &[Road]) {
-    for road in roads {
-        let pos = road.position;
-
-        for w in 0..BOUND {
-            match road.direction {
-                RoadDirection::NorthSouth => {
-                    grid.set_cell(pos, w, '#');
-                    // Check if we're not the leftmost avenue, and draw locations on left side
-                    if let Some(value) = grid.cell(pos - 1_usize, w) {
-                        if value == '.' {
-                            grid.set_cell(pos - 1_usize, w, 'o');
-                        }
-                    }
-                    // Check if we're not the rightmost avenue, and draw locations on the right side
-                    if let Some(value) = grid.cell(pos + 1_usize, w) {
-                        if value == '.' {
-                            grid.set_cell(pos + 1_usize, w, 'o');
-                        }
-                    }
-                }
-                RoadDirection::EastWest => {
-                    grid.set_cell(w, pos, '#');
-                    // Check if we're not the topmost street, and draw locations on the top side
-                    if let Some(value) = grid.cell(w, pos - 1_usize) {
-                        if value == '.' {
-                            grid.set_cell(w, pos - 1_usize, 'o');
-                        }
-                    }
-                    // Check if we're not the bottom most street, and draw locations on the bottom side
-                    if let Some(value) = grid.cell(w, pos + 1_usize) {
-                        if value == '.' {
-                            grid.set_cell(w, pos + 1_usize, 'o');
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-pub fn city_drawer(grid: &Grid) {
+pub fn city_drawer(grid: &City) {
     for row in 0..BOUND {
         for col in 0..BOUND {
             print!("{}", grid.cell(row, col).unwrap());

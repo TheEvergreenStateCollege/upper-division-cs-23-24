@@ -2,7 +2,7 @@ use rand::Rng;
 
 pub mod city_drawer;
 
-use crate::city_drawer::{city_builder, city_drawer, Address, Grid, Road, RoadDirection};
+use crate::city_drawer::{city_drawer, City, Road, RoadDirection};
 
 // Can we have a "parent type" to Avenue and Street,
 // let's call it Road
@@ -34,9 +34,7 @@ fn main() {
 
     roads.extend(gen_random_roads(size, RoadDirection::EastWest));
 
-    let mut grid = Grid::new();
+    let city = City::new(&roads);
 
-    city_builder(&mut grid, &mut roads);
-
-    city_drawer(&grid);
+    city_drawer(&city);
 }
