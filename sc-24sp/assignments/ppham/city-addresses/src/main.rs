@@ -18,8 +18,9 @@ fn gen_random_roads(bound: usize, direction: RoadDirection) -> Vec<Road> {
         if w >= bound {
             break;
         }
-        directional_roads.push(Road {coord: w, direction: direction });
-        println!("Added Road {:?}", w);
+        let new_road = Road {coord: w, direction: direction };
+        println!("Added {}", &new_road);
+        directional_roads.push(new_road);
 
     }   
     directional_roads
@@ -52,6 +53,7 @@ fn main() {
         }
         let address_string = addresses.get(&key).unwrap_or(unaddress);
         println!("The address at coordinates {:?} is {} ", key, address_string);
+        count += 1;
     }
     
     city_drawer(&grid);

@@ -1,8 +1,17 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, fmt};
 
 pub struct Road {
     pub coord: usize,
     pub direction: RoadDirection,
+}
+
+impl fmt::Display for Road {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self.direction {
+            RoadDirection::NorthSouth => write!(f, "Avenue {}", self.coord),
+            RoadDirection::EastWest => write!(f, "Street {}", self.coord)
+        }
+    }
 }
 
 #[derive(Clone,Copy)]
