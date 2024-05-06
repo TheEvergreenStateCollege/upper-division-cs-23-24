@@ -24,29 +24,30 @@ class Network(object):
     def sigmoid_prime(self, z):
         """Derivates of the sigmoid function."""
         return self.sigmoid(z) * (1 - self.sigmoid(z))
-
         
     def SGD(self,
         training_data,
         epochs, 
         mini_batch_size, 
         eta,
-        test_data=None):
+        test_data=None,
+        validation_split=0.1
+        ):
 
-        training_data = list(training_data)
-        n = len(training_data)
-
-        if test_data:
-            test_data = list(test_data)
-            n_test = len(test_data)
+        # 05/02/24: Splitting the training data into training and validation sets
+        random.shuffle(training_data)
+        split_at = int(len(training_data) * (1 - validation_split))
+        validation_data = training_data[split_at:]
+        training_data = training_data[:split_at]
         
-
-        # create a timer
-        start_time = time.time()
-        save_interval = 3600   # seconds, set to one hour
+        n = len(training_data)
+        #n_validation = len(validation_data)
+        epoch_durations = []  # This stores the duration of each epoch
 
         for j in range(epochs):
-            random.shuffle(training_data)
+            start_epoch_time = time.time() # Mark-time, March...
+            #self.process_mini_batches(training_data, mini_batch_size, eta)
+                       
             mini_batches = [
                 training_data[k:k + mini_batch_size] for k in range(0, n, mini_batch_size)
             ]
@@ -54,25 +55,35 @@ class Network(object):
                 if mini_batch:
                     self.update_mini_batch(mini_batch, eta)
                     #print("Epoch {} complete".format(j))
-                    
+            
+            end_epoch_time = time.time()  # End time for each epoch
+            epoch_duration = end_epoch_time - start_epoch_time
+            epoch_durations.append(epoch_duration)  # Append duration to list
+
+            # Evaluate on validation data
+            validation_accuracy = self.evaluate_accuracy(validation_data)
+            print(f"Epoch {j+1}, Validation Accuracy: {validation_accuracy}%")
+
+            
             # Save the model after each Epoch
+            
+            if test_data:
+                test_accuracy = self.evaluate_accuracy(test_data)
+                print(f"Epoch {j+1} Test Accuracy: {test_accuracy}%")
+            else:
+                print(f"Epoch {j+1} complete")
+
             self.saveToPBJSON(f"model_epoch_{j}.pbjson")
 
-            # Check if an hour has passed since last save
-            if time.time() - start_time > save_interval:
-                self.saveToPBJSON(f"model_hourly_{int((time.time() - start_time) // 3600)}.pbjson")
-                start_time = time.time()  # Reset the start time after saving
+        average_epoch_duration = sum(epoch_durations) / len(epoch_durations)
+        accuracy = self.evaluate_accuracy(training_data)
+        #print(f"Average Epoch Duration: {average_epoch_duration} seconds")
+        print(f"Average Epoch Duration: {average_epoch_duration} seconds, Final Accuracy: {accuracy}%")
 
-            if test_data:
-                print("Epoch {}: {} / {}".format(
-                    j, self.evaluate(test_data), n_test))
-            else:
-                print("Epoch {} complete".format(j))
-        
         # After training, log the results
-        self.log_training_results(epochs, len(training_data), self.evaluate_accuracy(training_data))
+        self.log_training_results(epochs, n, self.evaluate_accuracy(training_data), average_epoch_duration, epoch_durations)
 
-
+            
     def update_mini_batch(self, mini_batch, eta):
         nabla_b = [np.zeros(b.shape) for b in self.biases]
         nabla_w = [np.zeros(w.shape) for w in self.weights]
@@ -174,11 +185,19 @@ class Network(object):
         \partial a for the output activations."""
         return (output_activations-y)
 
-    def log_training_results(self, epochs, images_per_epoch, accuracy):
-        filename = 'training_log.csv'
-        with open(filename, mode='a', newline='') as file:
+    def log_epoch_results(self, epoch, validation_data, test_data):
+        if validation_data:
+            validation_accuracy = self.evaluate_accuracy(validation_data)
+            print(f"Validation Accuracy after Epoch {epoch+1}: {validation_accuracy}%")
+        if test_data:
+            test_accuracy = self.evaluate_accuracy(test_data)
+            print(f"Test Accuracy after Epoch {epoch+1}: {test_accuracy}%")
+
+    def log_training_results(self, epochs, training_data, accuracy, average_epoch_duration, epoch_durations):
+        # Ensure this writes after all epochs
+        with open('MNIST_training_log.csv', mode='a', newline='') as file:
             writer = csv.writer(file)
-            if file.tell() == 0:
-                writer.writerow(["Date and Time", "Total Epochs", "Images per Epoch", "Training Accuracy"])
+            if file.tell() == 0:  # if file is empty, write header
+                writer.writerow(["Date and Time", "Epochs", "training_data","Accuracy", "Average Epoch Duration"])
             current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            writer.writerow([current_time, epochs, images_per_epoch, accuracy])  
+            writer.writerow([current_time, epochs, training_data, accuracy, average_epoch_duration]) 
