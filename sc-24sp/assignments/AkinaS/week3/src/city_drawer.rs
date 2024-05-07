@@ -1,41 +1,33 @@
-// I don't know how to have a trait return itself as a return type
-// pub trait Road {
-//     fn new(w: usize) -> Road;
-// }
+use std::{collections::HashMap, fmt};
 
+#[derive(Debug)]
+pub struct Road {
+    pub coord: usize,
+    pub direction: RoadDirection,
+}
+
+impl fmt::Display for Road {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self.direction {
+            RoadDirection::NorthSouth => write!(f, "Avenue {}", self.coord),
+            RoadDirection::EastWest => write!(f, "Street {}", self.coord)
+        }
+    }
+}
+
+#[derive(Clone,Copy,Debug)]
 pub enum RoadDirection {
     NorthSouth,
     EastWest,
 }
 
-pub struct Road {
-    pub road_type: RoadDirection,
-    pub coord: usize,
-}
+pub type AddressesMap = HashMap::<(usize,usize),String>;
 
-pub struct Avenue {
-    pub x: usize
-}
+// pub struct Address {
+//     pub x: usize
+// }
 
-/*
-impl Road for Avenue {
-    fn new(x: usize) -> Avenue {
-        Avenue {x}
-    }
-}
- */
-
-pub struct Street {
-    pub y: usize
-}
-
-/*
-impl Road for Street {
-    fn new(y: usize) -> Street {
-        Street { y }
-    }
-}
- */
+type Grid = [[char; BOUND]; BOUND];
 
 // pub struct AddressAvenue {
 //     pub x: usize,
@@ -45,66 +37,85 @@ impl Road for Street {
 //     pub x: usize,
 // }
 
+
+pub struct TokyoAddresser {
+    
+}
+
+type AddressMap = HashMap::<(usize,usize),String>;
+
+pub trait CityAddresser {
+    fn build(addresses: &mut AddressMap, roads: Vec<Road>, city: &mut Grid) -> Self;
+//    fn get_address_string(&self, x: usize, y: usize) -> Self;
+}
+
 pub const BOUND: usize = 50;
-//pub const BOUND: usize = 50;
 
-pub type Grid = [[char; BOUND]; BOUND];
-
-pub fn city_drawer<'a>(in_grid: &'a mut Grid, roads: &'a Vec<Road>) -> &'a mut Grid {
+pub fn city_builder<'a>(addresses: &mut AddressesMap, in_grid: &'a mut Grid, roads: &'a Vec<Road>) -> &'a mut Grid {
     //roads.sort_by(|a,b| a.coord.cmp(&b.coord));
 
-    let mut roads_iter = roads.iter();
-    loop {
-        match roads_iter.next() {
-            Some(road) => {
-                for w in 0..BOUND {
-                    match road.road_type {
-                        RoadDirection::NorthSouth => {
-                            in_grid[road.coord as usize][w] = '#';
-                            // Is this meant for the North-South orientation,
-                            // if first coord is horizontal (east-west)
-                            // and second coord is vertical (north-south)
-                            // if in_grid[road.coord as usize][w-1] == '.' {
-                            //    in_grid[road.coord as usize][w-1] = 'o';
-                            //}
-                            if road.coord > 0 && in_grid[road.coord-1 as usize][w] == '.' {
-                                in_grid[road.coord-1 as usize][w] = 'o';
-                             }
-                             if road.coord < BOUND-1 && in_grid[road.coord as usize + 1][w] == '.' {
-                                in_grid[road.coord+1 as usize][w] = 'o';
-                             } 
-                        }
-                        RoadDirection::EastWest => {
-                            in_grid[w][road.coord] = '#';
-                            if road.coord > 0 && in_grid[w][road.coord-1 as usize] == '.' {
-                                in_grid[w][road.coord-1 as usize] = 'o';
-                            }
+    for road in roads {
+        let mut address_counter: u32 = 0;
 
-                            if road.coord < BOUND-1 && in_grid[w][road.coord+1 as usize] == '.' {
-                                in_grid[w][road.coord+1 as usize] = 'o';
-                            }
-                        }
+        for w in 0..BOUND {
+            if address_counter == 20 {
+                println!("Reused address number {} {}", address_counter, road);
+            }
+
+            match road.direction {
+                RoadDirection::NorthSouth => {
+                    in_grid[road.coord as usize][w] = '#';
+                    //in_grid[w][road.coord] = '#';
+                    // Check if we're not the leftmost avenue, and draw locations on left side
+                    if road.coord > 0 && in_grid[road.coord - 1 as usize][w] == '.' {
+                        in_grid[road.coord - 1 as usize][w] = 'o';
+                        // TODO 1: Fill in coords for two question marks, East of an Avenue
+                        let address_string = format!("{} Avenue {}", address_counter, road.coord);
+                        address_counter += 1;
+                        addresses.insert((road.coord-1, w), address_string);
+                    }
+                    // Check if we're not the rightmost avenue, and draw locations on the right side
+                    if road.coord < BOUND - 1  && in_grid[road.coord as usize + 1][w] == '.' {
+                        in_grid[road.coord as usize + 1][w] = 'o';
+                        // TODO 2: Fill in coords for two question marks, West of an Avenue
+                        let address_string = format!("{} Avenue {}", address_counter, road.coord);
+                        address_counter += 1;
+                        addresses.insert((road.coord +1 as usize,w), address_string);
+                        
                     }
                 }
-            }
-            None => {
-                // no more 
-                break;
+                RoadDirection::EastWest => {
+                    in_grid[w][road.coord] = '#';
+                    //in_grid[road.coord][w] = '#';
+                    // Check if we're not the topmost street, and draw locations on the top side
+                    if road.coord > 0 && in_grid[w][road.coord - 1 as usize] == '.' {
+                        in_grid[w][road.coord - 1 as usize] = 'o';
+                        // TODO 3: Fill in coords for two question marks, South of a Street
+                        let address_string = format!("{} Street {}", address_counter, road.coord);
+                        address_counter += 1;
+                        addresses.insert((w,road.coord-1), address_string);
+                    }
+                    // Check if we're not the bottommost street, and draw locations on the bottom side
+                    if road.coord < BOUND-1 && in_grid[w][road.coord + 1 as usize] == '.' {
+                        in_grid[w][road.coord + 1 as usize] = 'o';
+                        // TODO 4: Fill in coords for two question marks, North of a Street
+                        let address_string = format!("{} Street {}", address_counter, road.coord);
+                        address_counter += 1;
+                        addresses.insert((w,road.coord + 1), address_string);
+
+                    }
+                }
             }
         }
     }
     in_grid
+
 }
 
-pub fn draw_grid(grid: Grid) {
+pub fn city_drawer(grid: &Grid) {
     for row in 0..BOUND {
         for col in 0..BOUND {
-            match grid[col][row] {
-                '.' => { print!(".") }
-                '#' => { print!("#") }
-                'o' => { print!("o") }
-                _ => { }
-            }
+            print!("{}", grid[col][row]);
         }
         println!("");
     }
