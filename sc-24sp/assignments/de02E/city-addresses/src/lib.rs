@@ -1,12 +1,15 @@
+#[cfg(test)]
+mod tests {
+    
 use rand::prelude::*;
 use rand_chacha::ChaCha8Rng;
 
+use std::collections::HashMap;
+
 pub mod city_drawer;
 
-use crate::city_drawer::{city_builder,city_drawer,address_dumper,address_get,Road, AddressesMap, RoadDirection, BOUND};
+use crate::tests::city_drawer::{city_builder,city_drawer,address_dumper,address_get,Road, AddressesMap, RoadDirection, BOUND};
 
-// Can we have a "parent type" to Avenue and Street,
-// let's call it Road
 fn gen_random_roads(bound: usize, direction: RoadDirection) -> Vec<Road> {
     let mut directional_roads = Vec::<Road>::new();
     let mut w = 0;
@@ -27,8 +30,9 @@ fn gen_random_roads(bound: usize, direction: RoadDirection) -> Vec<Road> {
     directional_roads
 }
 
-fn main() {
-    let unaddress: &String = &String::from("Unaddressed");
+    #[test]
+    fn it_works() {
+        let unaddress: &String = &String::from("Unaddressed");
     println!("Hello City");
     let size = 50;
 
@@ -52,6 +56,11 @@ fn main() {
 
     address_dumper(addresses.clone(),&grid);
 
-    let test = address_get(&addresses,14,49).unwrap_or(unaddress);
-    print!("{}", test == "98 Avenue 15");
+    let test1 = address_get(&addresses,14,49).unwrap_or(unaddress);
+    assert_eq!(test1,"98 Avenue 15");
+    let test2 = address_get(&addresses,0,44).unwrap_or(unaddress);
+    assert_eq!(test2,"1 Street 43");
+    let test3 = address_get(&addresses,8,49).unwrap_or(unaddress);
+    assert_eq!(test3,"98 Avenue 9");
+    }
 }
