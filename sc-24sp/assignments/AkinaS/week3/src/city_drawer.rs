@@ -39,7 +39,11 @@ type Grid = [[char; BOUND]; BOUND];
 
 
 pub struct TokyoAddresser {
-    
+    // Based on the Japan address system, this is what I can think of
+    pub building: usize,
+    pub block: Vec<usize>,
+    pub coord: Vec<usize>,
+    pub direction: RoadDirection,
 }
 
 type AddressMap = HashMap::<(usize,usize),String>;
