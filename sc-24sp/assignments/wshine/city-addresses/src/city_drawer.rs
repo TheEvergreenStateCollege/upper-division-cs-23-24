@@ -1,4 +1,5 @@
 use rand::Rng;
+
 pub fn gen_random_roads<T: Road + std::fmt::Debug>(bounds: usize, ctor: fn(usize) -> T) -> Vec<T> {
     let mut rng = rand::thread_rng();
     let mut random_roads = vec![];

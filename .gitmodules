@@ -46,3 +46,6 @@
 [submodule "sc-24sp/git-games/rustlings"]
 	path = sc-24sp/rustlings
 	url = https://github.com/rust-lang/rustlings.git
+[submodule "ai-24sp/word2vec"]
+	path = ai-24sp/word2vec
+	url = https://github.com/dav/word2vec.git

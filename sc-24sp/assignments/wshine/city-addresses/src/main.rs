@@ -1,5 +1,3 @@
-pub mod city_drawer;
-
 use crate::city_drawer::{
     city_drawer, gen_random_roads, Avenue, Street, Road, HEIGHT, WIDTH,
 };
