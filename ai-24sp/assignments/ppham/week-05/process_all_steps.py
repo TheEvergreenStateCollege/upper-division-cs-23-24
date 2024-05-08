@@ -47,7 +47,10 @@ preprocessed = [item for item in split_text if type(item) == str and item.strip(
 text_into_token_ids = [token_ids[i] for i in preprocessed]
 print(f"Encoded sentence {text_into_token_ids}")
 
-text = "How can I read the documentation for the programmatic interface?"
+encoded = tokenizer.encode(text)
+print(f"Encoded sentence {encoded}")
+
+text = "Then I looked up the documentation to the programmatic interface"
 split_text = re.split(r'([.,?_!"()\']|--|&mdash;)|\s', text)
 preprocessed = [item for item in split_text if type(item) == str and item.strip()]
 
