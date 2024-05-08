@@ -1,3 +1,8 @@
+```
+ProtoType 08, Prototype_text
+```
+
+
 ## What is Ai Self-Hosting?
 
 AI self-hosting refers to the capability to run AI models on your own infrastructure rather than relying on cloud-based services.<br>
@@ -14,7 +19,7 @@ I had to exit out, get back into gitpod and redo my changes, then commit and pus
 
 Next time commit and push changes before running.<br>
 
-You'll need to download the training images and labels, and test images and labels, from Yann LeCun's website
+You'll need to download the training images, labels, test images and labels, from Yann LeCun's website.
 
 https://yann.lecun.com/exdb/mnist/ by using the following command:
 
@@ -31,101 +36,202 @@ gunzip *.gz
 
 ## Installed libraries
 ```
-pip3 install Pillow  && pip3 install numpy
-```
-by creating a file named 'requirements.txt' we can run this command instead: <br> 
-```
-pip3 install -r requirements.txt
+pip3 install Pillow  && pip3 install numpy && pip3 install pbjson
 ```
 ## 04/18/2024
-Using my personal gitpod branch/account <br>
 FYI: I have to install the dependencies each time I log back into gitpod to work on the code.
 
-Once I execute the following command:
-``` python3 load_mnist.py ```
-The load_mnist.py and network.py run and the following data is what is generated before errors occur.<br>
+## 04/19/2024
+I was able to create the trainer on my local machine. It will run for a while to see what happens. <br>
+
+## 04/22/2024
+I have been able to save the epochs up to 50
+```
+Epoch 40: 1030 / 10000
+Epoch 41: 1015 / 10000
+Epoch 42: 1032 / 10000
+Epoch 43: 1129 / 10000
+Epoch 44: 1063 / 10000
+Epoch 45: 1088 / 10000
+Epoch 46: 1039 / 10000
+Epoch 47: 1044 / 10000
+Epoch 48: 1055 / 10000
+Epoch 49: 1050 / 10000
+```
+It is good that I can reach Epoch 50. However, the percentage or accuracy of the images recognized  1050 / of the 10k training images used per Epoch should increase as it trains.
+
+## 04/25/2024
+created a ```dropout``` function.<br>
+...But what is a ```dropout``` function?<br>
+```
+def dropout(self, x, level):
+        if level < 0. or level >= 1:  # Level is the dropout probability
+            raise ValueError('Dropout level must be in interval [0, 1).')
+        retain_prob = 1. - level
+        # We scale the activations at training time to keep the same expected sum of activations.
+        sample = np.random.binomial(n=1, p=retain_prob, size=x.shape)
+        x *= sample
+        x /= retain_prob
+        return x
+```
+In the context of this MNIST trainer, the ```dropout``` function manages the network's learning process by randomly deactivating a subset of neurons durning the traing phase.<br>
+This is meant to prevent ```overfitting```. This ```overfitting``` can occur when a neural network model learns the training data too well and can perform poorly on new unseen data. <br>
+
+But, how does the ```dropout``` function work?<br>
+## 1. Probability Setting:<br> 
+The dropout function accepts an input x (the activations from the previous layer) and a level, which represents the dropout rate. The dropout rate is the probability that each neuron’s output is set to zero. This rate must be between 0 and 1, where 0 means no dropout and 1 means complete dropout.<br>
+## 2. Activation Retention: <br>
+The function calculates the retain_prob as 1 - level, which is the probability of retaining a neuron's activation. For example, if the dropout level is 0.5, there’s a 50% chance that any given neuron will be retained (meaning, not dropped).<br>
+## 3. Sampling:<br>
+It uses a binomial distribution to randomly decide which neurons to keep (sample = np.random.binomial(n=1, p=retain_prob, size=x.shape)). In this sampling process, each neuron has an independent probability retain_prob of being retained.<br>
+## 4. Application of Dropout:<br>
+The function then applies this mask to the activations (x *= sample). This step sets the activation of dropped neurons to 0.<br>
+## 5. Scaling:<br> 
+Since on average a proportion retain_prob of the inputs are retained, this could lead to a lower total input to the next layer. To compensate for this reduction in input, the activations are scaled up by dividing by retain_prob (x /= retain_prob). This scaling is needed because it maintains the expected sum of the activations consistent whether dropout is applied or not, in theory, it should... stabilize the learning process.<br>
+
+### Why implement this ```dropout``` function?
+Implementing the dropout function helps by the training of mulitple neural networks with different architectures. The function does this by  randomly dropping different sets of neurons. This is repersents sampling from an ensemble of neural networks, which improves the gerneralization of the model.<br>
+So... while the program is "training", ```dropout``` is not applied, the neurons are not dropped, and the full capabilities of the trained network are utilized. This helps the network make the most accurate predictions possible with the learned weight and biases.<br> 
+
+## Evaluate Training Accuracy:<br>
+I wanted to create an instance once the program is finished "training", that the ```Training Accuracy``` is printed. The Idea is to later, create a CSV log report of the training accuracy amoung other collectable data...<br> 
+But for now... ```print```<br>
+### Date & Time <br>
+04/25/24 0935 <br>
+```
+   Training Accuracy: 70.29833333333333%
+   Training Accuracy: 85.53%
+```
+
 
 ```
-Number of images 60000
-result 0 0
-result 0 0
-result 0 0
-result 0 28
-result 0 0
-result 0 0
-result 0 0
-result 0 28
-width 28
-height 28
-start image data at byte 16
-end image data at byte 47040016
-length of sliced 1D image data <class 'list'>
-Shape of data straight from file (60000, 784, 1)
-Training data shape (60000, 784, 1)
-result 0 234
-result 234 96
-Number of images 59766
-Number of images 10000
-result 0 0
-result 0 0
-result 0 0
-result 0 28
-result 0 0
-result 0 0
-result 0 0
-result 0 28
-width 28
-height 28
-start image data at byte 16
-end image data at byte 7840016
-length of sliced 1D image data <class 'list'>
-Shape of data straight from file (10000, 784, 1)
-result 0 39
-result 39 16
-Number of test labels 9961
+def evaluate_accuracy(self, data):
+        """Evaluate the network's accuracy on the provided data."""
+        results = [(np.argmax(self.feedforward(x)), np.argmax(y)) for (x, y) in data]
+        accuracy = sum(int(x == y) for (x, y) in results) / len(data) * 100  # I want to calculate the  accuracy as a percentage
+        return accuracy
+```
+What the ```evaluate_accuracy``` function does is calculate how many total training labels are recognized out of the total training imaged used as a percentage.<br>
+
+
+## 04/26/2024
+### Log the Training Results
+
+This function's purpose is to create a CSV file that logs training data once the program is complete.<br>
+The ```log_training_results``` create a CSV file with the following headers: <br>
+```
+Date and Time, Total Epochs, Images per Epoch, and Training Accuracy
+```
+(sample csv)<br>
+```
+Date and Time,Total Epochs,Images per Epoch,Training Accuracy
+2024-04-26 05:02:08,50,60000,53.059999999999995
+```
+## 05/06/2024
+
+Implemented two features for the MNIST trainer.<br>
+- Training and Validation sets
+- Average time spent per Epoch
+
+### Training and Validation
+In machine learning, tasks like training a neural network, the dataset can be thought of in three parts:<br>
+- Training set: Used to train the model.<br>
+- Validation set: Used to adjust the parameters and avoid overfitting.<br>
+- Test set: Used to test the mode's performance after the training process.<br>
+
+The `validation_split` parameter in the MNIST trainer’s `network.py` script directly influences how the training data is split into training and validation sets. The parameter specifies the fraction of the training data to be used as the validation set. For example, a `validation_split` of 0.1 means that 10% of the training data is set aside for validation purposes, while the remaining 90% is used for training the model.<br>
+
+### Okay... now how does the `validation_split` work?<br>
+
+Within the Python `network.py` file, in the main method of the script `SGD` where the validation split is used.<br>
 
 ```
-Then there is a slight pause and the following errors are received(see TODO below).
+split_at = int(len(training_data) * (1 - validation_split))
+validation_data = training_data[split_at:]
+training_data = training_data[:split_at]
+```
+### nice!.. But what are the benefits of using a Validation Split in the MNIST trainer?<br>
 
-I do not think they are necessarily errors but more converting from python2 to python3.<br>
+- The validation set allows you to fine-tune the parameters like the learning rate, number of epochs, mini-batch size.<br>
+
+- Overfitting occurs when a model learns the training data too well, including the noise and fluctuations in the data, to the extent that it performs poorly on new data. By monitoring the model’s performance on the validation set, you can stop the training early if the validation error starts increasing.<br>
+
+- The validation process provides a feedback loop during training, giving insights into how well the model is learning and generalizing from epoch to epoch.
+
+### Average time spent per Epoch
+
+The Average time spent per Epoch or `average_epoch_duration` is pretty straight forward. Creating a timer within the main loop that marks time for each of the Epochs. Once the program has completed its training, the average time it took per Epoch will be printed to the terminal and the CSV file.<br>
+```
+end_epoch_time = time.time()  # End time for each epoch
+epoch_duration = end_epoch_time - start_epoch_time
+epoch_durations.append(epoch_duration)  # Append duration to list
+
+
+ print(f"Average Epoch Duration: {average_epoch_duration} seconds, Final Accuracy: {accuracy}%")
+```
+![Screenshot (537)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/a0a0e32c-33bc-4881-846b-ac65f2511ef3)
+
+![Screenshot (538)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/e69d9085-8611-41e3-8a79-632e2e4447f0)
+
+## 05/08/2024
+### The Art of War, By Sun Tzu 
+`Prototype_text.py`
+
+![Screenshot (541)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/ea39b1d7-424d-4bf9-b1ca-5d54a88afdd4)
 
 
 
 ## todo:
 
 ```
-/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/network.py:14: RuntimeWarning: overflow encountered in exp
-  return 1.0/(1.0+np.exp(-z))
-Traceback (most recent call last):
-  File "/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/load_mnist.py", line 154, in <module>
-    nn.SGD(
-  File "/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/network.py", line 45, in SGD
-    j, self.evaluate(test_data), n_test))
-       ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/network.py", line 96, in evaluate
-    return sum(int(x == y) for (x, y) in test_results)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/Student.Originated.Software/Ai_SelfHosting/prototype-08/network.py", line 96, in <genexpr>
-    return sum(int(x == y) for (x, y) in test_results)
-               ^^^^^^^^^^^
-TypeError: only length-1 arrays can be converted to Python scalars
-```
-## 04/19/2024
+Figure out how to improve the algorithm to:
+ increase its recognition,
+ increase wall-clock speed,
 
-Updated ```network.py```<br>
-Added ```loader.py```, ```run_model.py```, and ```train.py```<br>
-
-Once libraries were installed...<br>
-
-Using ```python3 train.py``` I received the following errors, see traceback below...<br>
 ```
-Traceback (most recent call last):
-  File "train.py", line 9, in <module>
-    (original_training_images, width, height) = load_all_training_images()
-  File "/workspace/upper-division-cs/ai-24sp/prototypes/prototype-08/loader.py", line 62, in load_all_training_images
-    return load_images("train-images-idx3-ubyte")
-  File "/workspace/upper-division-cs/ai-24sp/prototypes/prototype-08/loader.py", line 24, in load_images
-    f = open(filename, "rb")
-FileNotFoundError: [Errno 2] No such file or directory: 'train-images-idx3-ubyte'
-```
-Time to solve
+
+
+
+
+## How to run our demo
+Example of how you can run the program once you have navigated to the directory.
+```python3 prototype-00```
+```python3 train.py```
+
+
+
+## How we built it
+
+
+
+
+
+
+## Challenges we ran into
+
+
+
+
+
+
+## Accomplishments we are proud of
+
+
+
+
+
+
+
+## What we learned
+
+
+
+
+
+
+
+## What is next for the project
+
+
+
+
