@@ -2,7 +2,7 @@
 
 # 01 open and count words 
 raw_text = "" 
-with open("mark-twain-autobio.txt", "r", encoding="utf-8") as f:
+with open("../data/mark-twain-autobio.txt", "r", encoding="utf-8") as f:
     raw_text = f.read()
 
 print(f"Total number of characters: {len(raw_text)}")
@@ -57,5 +57,11 @@ preprocessed = [item for item in split_text if type(item) == str and item.strip(
 text_into_token_ids = [token_ids[i] for i in preprocessed]
 print(f"Encoded sentence {text_into_token_ids}")
 
-encoded = tokenizer.encode(text)
+from tokenizer import SimpleTokenizerV2
+tokenizer2 = SimpleTokenizerV2(token_ids)
+
+encoded = tokenizer2.encode(text)
 print(f"Encoded sentence {encoded}")
+
+decoded = tokenizer2.decode(encoded)
+print(f"Decoded sentence {encoded}")
