@@ -44,7 +44,10 @@ RUN apt-get install -yqq telnet
 RUN apt-get install -yqq net-tools
 RUN apt-get install -yqq nodejs
 RUN apt-get install -yqq npm
+RUN apt-get install -yqq poppler-utils
+RUN pip3 install html2text
 
+ENV PATH=${PATH}:/home/gitpod/.local/bin
 # add gitpod user
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
 USER gitpod
