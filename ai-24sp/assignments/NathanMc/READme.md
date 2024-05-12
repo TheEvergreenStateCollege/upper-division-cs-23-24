@@ -179,7 +179,12 @@ epoch_durations.append(epoch_duration)  # Append duration to list
 
 ![Screenshot (541)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/ea39b1d7-424d-4bf9-b1ca-5d54a88afdd4)
 
+## 05/12/2024
 
+### Tokenization
+Tokenize the words... `tokenizer = tiktoken.get_encoding`
+What does it mean to tokenize the words?
+To tokenize the words means to assign a numerical value
 
 ## todo:
 
