@@ -72,7 +72,7 @@ RUN . ${HOME}/.nvm/nvm.sh; nvm install v14
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir ~/scripts
-COPY ./scripts/.shrc /root/.shrc
+COPY ./scripts/.shrc /home/gitpod/.shrc
 
 RUN ssh-keyscan github.com
 
