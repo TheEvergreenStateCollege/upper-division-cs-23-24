@@ -5,3 +5,6 @@ image:
 vscode:
   extensions:
     - gitpod.gitpod-web
+
+gitConfig:
+  diff.ignoreSubmodules: all
