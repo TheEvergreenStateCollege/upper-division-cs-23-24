@@ -1,8 +1,8 @@
 use rand::Rng;
 
-pub mod city_drawer;
+pub mod city;
 
-use crate::city_drawer::{City, Road, RoadDirection};
+use crate::city::{City, Road, RoadDirection};
 
 // Can we have a "parent type" to Avenue and Street,
 // let's call it Road
