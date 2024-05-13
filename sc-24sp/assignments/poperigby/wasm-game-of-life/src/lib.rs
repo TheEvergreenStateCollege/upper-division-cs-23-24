@@ -21,6 +21,8 @@ pub struct Universe {
 #[wasm_bindgen]
 impl Universe {
     pub fn new(width: u32, height: u32) -> Self {
+        console_error_panic_hook::set_once();
+
         Self {
             width,
             height,
