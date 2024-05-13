@@ -18,6 +18,7 @@ pub struct Universe {
     cells: Vec<Cell>,
 }
 
+#[wasm_bindgen]
 impl Universe {
     pub fn new(width: u32, height: u32) -> Self {
         Self {
