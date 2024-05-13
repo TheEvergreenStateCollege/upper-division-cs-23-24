@@ -1,8 +1,17 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, fmt};
 
 pub struct Road {
     pub coord: usize,
     pub direction: RoadDirection,
+}
+
+impl fmt::Display for Road {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self.direction {
+            RoadDirection::NorthSouth => write!(f, "Avenue {}", self.coord),
+            RoadDirection::EastWest => write!(f, "Street {}", self.coord)
+        }
+    }
 }
 
 #[derive(Clone,Copy)]
@@ -44,22 +53,25 @@ pub const BOUND: usize = 50;
 pub fn city_builder<'a>(addresses: &mut AddressesMap, in_grid: &'a mut Grid, roads: &'a Vec<Road>) -> &'a mut Grid {
     //roads.sort_by(|a,b| a.coord.cmp(&b.coord));
 
-    let mut address_counter: u32 = 0;
-
     for road in roads {
 
+        let mut address_counter: u32 = 0;
+
         for w in 0..BOUND {
+
+            //if address_counter == 16 {}
+
             match road.direction {
                 RoadDirection::NorthSouth => {
                     in_grid[road.coord as usize][w] = '#';
-                    in_grid[w][road.coord] = '#';
+                    //in_grid[w][road.coord] = 'o';
                     // Check if we're not the leftmost avenue, and draw locations on left side
                     if road.coord > 0 && in_grid[road.coord - 1 as usize][w] == '.' {
                         in_grid[road.coord - 1 as usize][w] = 'o';
                         // TODO 1: ADD YOUR THREE LINES HERE, East of an Avenue
                         let address_string = format!("{} Avenue {}", address_counter, road.coord);
                         address_counter += 1;
-                        addresses.insert((road.coord - 1, w), address_string);
+                        addresses.insert((road.coord-1, w), address_string);
                     }
                     // Check if we're not the rightmost avenue, and draw locations on the right side
                     if road.coord < BOUND - 1  && in_grid[road.coord as usize + 1][w] == '.' {
@@ -67,7 +79,7 @@ pub fn city_builder<'a>(addresses: &mut AddressesMap, in_grid: &'a mut Grid, roa
                         // TODO 2: Fill in coords for two question marks, West of an Avenue
                         let address_string = format!("{} Avenue {}", address_counter, road.coord);
                         address_counter += 1;
-                        addresses.insert((road.coord + 1 as usize, w), address_string);
+                        addresses.insert((road.coord +1 as usize,w), address_string);
                         
                     }
                 }
@@ -79,7 +91,7 @@ pub fn city_builder<'a>(addresses: &mut AddressesMap, in_grid: &'a mut Grid, roa
                         // TODO 3: Fill in coords for two question marks, North of a Street
                         let address_string = format!("{} Street {}", address_counter, road.coord);
                         address_counter += 1;
-                        addresses.insert((w,road.coord - 1), address_string);
+                        addresses.insert((w,road.coord-1), address_string);
                     }
                     // Check if we're not the bottommost street, and draw locations on the bottom side
                     if road.coord < BOUND-1 && in_grid[w][road.coord + 1 as usize] == '.' {
