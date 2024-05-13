@@ -18,8 +18,9 @@ fn gen_random_roads(bound: usize, direction: RoadDirection) -> Vec<Road> {
         if w >= bound {
             break;
         }
-        directional_roads.push(Road {coord: w, direction: direction });
-        println!("Added Road {:?}", w);
+        let new_road = Road {coord: w, direction: direction };
+        println!("Added {}", &new_road);
+        directional_roads.push(new_road);
 
     }   
     directional_roads
@@ -40,13 +41,21 @@ fn main() {
 
     let mut grid = [['.'; BOUND]; BOUND];
 
+    // Addresses hash map should be populated
     city_builder(&mut addresses, &mut grid, &mut roads);
 
-    let query = (0,7);
-    let address_string = addresses.get(&query).unwrap_or(unaddress);
+    println!("The number of generated addresses is {}", addresses.len());
 
-    println!("The address at coordinates {:?} is {} ", query, address_string);
-
+    let mut count = 0;
+    for (key,value) in &addresses {
+        if count >= 2 {
+            break;
+        }
+        let address_string = addresses.get(&key).unwrap_or(unaddress);
+        println!("The address at coordinates {:?} is {} ", key, address_string);
+        count += 1;
+    }
+    
     city_drawer(&grid);
 
 
