@@ -61,7 +61,7 @@ RUN rm rustup.sh
 
 # install node version manager
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN . ${HOME}/.nvm/nvm.sh && nvm install v14
+RUN /bin/bash -c ". ${HOME}/.nvm/nvm.sh && nvm install v14"
 
 USER root
 
