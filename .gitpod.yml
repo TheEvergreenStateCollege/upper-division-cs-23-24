@@ -6,6 +6,5 @@ vscode:
   extensions:
     - gitpod.gitpod-web
 
-tasks:
-  - name: config
-    command: git config diff.ignoreSubmodules all
+gitConfig:
+  diff.ignoreSubmodules: all
