@@ -59,15 +59,16 @@ RUN chmod 700 rustup.sh
 RUN ./rustup.sh --default-toolchain stable -y
 RUN rm rustup.sh
 
+# install node version manager
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN . ${HOME}/.nvm/nvm.sh; nvm install v14
+
 USER root
 
 # install Rustlings
 COPY scripts/install-rustlings.sh scripts/install-rustlings.sh
 RUN ./scripts/install-rustlings.sh
 
-# install node version manager
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN . ${HOME}/.nvm/nvm.sh; nvm install v14
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
