@@ -67,8 +67,7 @@ RUN ./scripts/install-rustlings.sh
 
 # install node version manager
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN . ${HOME}/.nvm/nvm.sh; nvm install v20
-ENV NODE_OPTIONS=--openssl-legacy-provider
+RUN . ${HOME}/.nvm/nvm.sh; nvm install v14
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
