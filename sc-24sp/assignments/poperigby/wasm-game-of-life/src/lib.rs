@@ -75,6 +75,18 @@ impl Universe {
         self.cells = next;
     }
 
+    pub fn width(&self) -> u32 {
+        self.width
+    }
+
+    pub fn height(&self) -> u32 {
+        self.height
+    }
+
+    pub fn cells(&self) -> *const Cell {
+        self.cells.as_ptr()
+    }
+
     /// Get a cell's index in the one-dimensional array using a row and column
     fn index(&self, row: u32, column: u32) -> usize {
         (row * self.width + column) as usize
