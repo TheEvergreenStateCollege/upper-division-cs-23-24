@@ -30,8 +30,10 @@
         "wasm-game-of-life": "file:../pkg"
     },
     "devDependencies": {
-        "copy-webpack-plugin": "^12.0.2",
-        "webpack": "^5.90.1",
+        "@webpack-cli/serve": "^2.0.5",
+        "copy-webpack-plugin": "^11.0.0",
+        "hello-wasm-pack": "^0.1.0",
+        "webpack": "^5.88.0",
         "webpack-cli": "^5.1.4",
         "webpack-dev-server": "^4.15.1"
     }
