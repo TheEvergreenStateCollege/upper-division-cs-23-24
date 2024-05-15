@@ -1,2 +1,3 @@
 tiktoken
+numpy
 torch
