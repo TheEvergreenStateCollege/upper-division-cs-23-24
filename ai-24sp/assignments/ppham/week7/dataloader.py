@@ -24,7 +24,7 @@ class GPTDatasetV1(Dataset):
     def __getitem__(self, idx):
         return self.input_ids[idx], self.target_ids[idx]
 
-def create_dataloader_v1(txt, batch_size=4, max_length=256, stride=128, shuffle=True, drop_last=True, num_workers=1):
+def create_dataloader_v1(txt, batch_size=8, max_length=4, stride=4, shuffle=True, drop_last=True, num_workers=1):
 
     #Initialize the tokenizer
     tokenizer = tiktoken.get_encoding("gpt2")
