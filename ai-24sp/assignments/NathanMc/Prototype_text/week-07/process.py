@@ -1,15 +1,16 @@
 import torch
 import pdfplumber
+import os
 
-from dataloader import create_dataloader
+#from dataloader import create_dataloader
 
 print("PyTorch version:", torch.__version__)
 
-data_path = r"/mnt/d/myPython/SpringStudentOriginatedSoftware/AI_SelfHosting/Prototype_LLM/resources/ArtOfWar.pdf"
-if not os.path.isfile(data_path):
-    raise FileNotFoundError(f"File not found at: {data_path}")
+resources = r"ai-24sp/assignments/NathanMc/Prototype_text/resources/ArtOfWar.pdf"
+if not os.path.isfile(resources):
+    raise FileNotFoundError(f"File not found at: {resources}")
 
-with pdfplumber.open(data_path) as pdf:
+with pdfplumber.open(resources) as pdf:
     raw_text = ""
     for page in pdf.pages:
         raw_text += page.extract_text()
@@ -19,7 +20,7 @@ vocab_size = 50257
 token_embedding_layer = torch.nn.Embedding(vocab_size, output_dim)
 
 max_length = 4
-dataloader = create_dataloader_v1(
+dataloader = create_dataloader(
     raw_text, batch_size=8, max_length=max_length, stride=max_length
     )
 

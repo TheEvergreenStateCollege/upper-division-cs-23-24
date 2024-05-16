@@ -2,7 +2,7 @@ import tiktoken
 import pdfplumber
 import os
 import torch
-#import torch.nn as nn
+import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 
 print(torch.__version__)
@@ -43,7 +43,7 @@ def create_dataloader(txt, batch_size=4, max_length=256, stride=128, shuffle=Tru
     return dataloader
 
 
-data_path = r"/mnt/d/myPython/SpringStudentOriginatedSoftware/AI_SelfHosting/Prototype_LLM/resources/ArtOfWar.pdf"
+data_path = r"ai-24sp/assignments/NathanMc/Prototype_text/resources/ArtOfWar.pdf"
 if not os.path.isfile(data_path):
     raise FileNotFoundError(f"File not found at: {data_path}")
 
