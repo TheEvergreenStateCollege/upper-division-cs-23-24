@@ -183,8 +183,55 @@ epoch_durations.append(epoch_duration)  # Append duration to list
 
 ### Tokenization
 Tokenize the words... `tokenizer = tiktoken.get_encoding`
-What does it mean to tokenize the words?
-To tokenize the words means to assign a numerical value
+What does it mean to tokenize the words?<br>
+
+Tokenizing a word involves assigning numerical values to each word within the document, enabling the model to process and understand the text. Here's an example of how a large language model might tokenize the sentence "Cat mastering LLMs: Pawsitive progress, zero bugs!":<br>
+```
+[818] Cat
+[818, 262] Cat mastering
+[818, 262, 4252] Cat mastering LLM
+[818, 262, 4252, 18250] Cat mastering LLMs:
+[818, 262, 4252, 18250, 8812] Cat mastering LLMs: Pawsitive
+[818, 262, 4252, 18250, 8812, 2114] Cat mastering LLMs: Pawsitive progress
+[818, 262, 4252, 18250, 8812, 2114, 286] Cat mastering LLMs: Pawsitive progress,
+[818, 262, 4252, 18250, 8812, 2114, 286, 617] Cat mastering LLMs: Pawsitive progress, zero
+[818, 262, 4252, 18250, 8812, 2114, 286, 617, 34680] Cat mastering LLMs: Pawsitive progress, zero bugs
+[818, 262, 4252, 18250, 8812, 2114, 286, 617, 34680, 27271] Cat mastering LLMs: Pawsitive progress, zero bugs!"
+```
+
+By tokenizing, the model converts words into numerical values, which allows it to efficiently process and generate responses based on those values.<br>
+
+## 05/16/2024
+
+## week 7
+In `Prototype_text` 
+
+Import dependencies:
+```pip3 install --upgrade pip && pip3 install tiktoken && pip3 install pdfplumber```
+
+and then...
+```
+sudo apt-get update
+sudo apt-get install -y python3.9 python3.9-venv python3.9-dev
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
+```
+
+and then... ...
+```
+python3.9 -m venv venv
+source venv/bin/activate
+
+```
+
+ok...and then... ... ...
+```
+pip install --upgrade pip
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
+
+```
+
+now I forgot
 
 ## todo:
 
