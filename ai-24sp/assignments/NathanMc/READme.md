@@ -231,7 +231,57 @@ pip install torch torchvision torchaudio --extra-index-url https://download.pyto
 
 ```
 
-now I forgot
+now I forgot..<br>
+
+## 05/17/2024
+
+I was able to correctly import all the `process.py` & `dataloader.py` dependencies. After some help, I was able to ensure I was working out my correct WSL Ubuntu environment. Using local machine WSL virtual memory terminals... not sure how else to describe it.<br>
+
+to test and see if the imports were installed I created a small python program, `test_torch.y`
+ 
+```
+import torch
+from torch.utils.data import DataLoader, Dataset
+
+print(torch.__version__)
+print(DataLoader, Dataset)
+
+```
+After I troubleshot my way through running the program
+
+I was able to get confirmation.<br>
+
+```
+2.3.0+cpu
+<class 'torch.utils.data.dataloader.DataLoader'> <class 'torch.utils.data.dataset.Dataset'>
+```
+
+Now, I can start testing `process.py` & `dataloader.py`.
+
+errors...<br>
+	errors...<br>
+		errors...<br>
+I like errors...<br>
+
+So, besides resolving my errors, I was able to compile week 7 program files.
+
+![Screenshot (553)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/2f1a0769-0233-4640-b025-a48bb0c87c08)
+
+Next up:
+What does this `Token ID:` mean?
+
+```
+Token ID:
+ tensor([[  547,  4030,  3938,  9322],
+        [ 4411,   600,   258,  8534],
+        [  515,  6738, 45529,    13],
+        [   64,  1659,   198, 22602],
+        [23893,  2024,    11,   271],
+        [  329,   340,   198,  1326],
+        [ 4625,  1169,  1941,    21],
+        [47247, 41603, 19187,   436]])
+```
+
 
 ## todo:
 
