@@ -13,6 +13,15 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///./test.db"
     db.init_app(app)
 
+    @app.route("/tasks", methods=["POST"])
+    def add_task():
+        task_data = request.get_json()
+        new_task = Task(title=task_data["title"])
+        db.session.add(new_task)
+        db.session.commit()
+        return jsonify({"title": new_task.title}), 200
+
+    return app
 
 def task():
     pass

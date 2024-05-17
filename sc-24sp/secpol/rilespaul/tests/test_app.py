@@ -15,7 +15,7 @@ def client():
             yield client
 
     def test_create_task(client):
-            response = client.post("/tasks",json={"Title":"New Task"})
-            assert response.status_code == 200
-            assert b"New Task" in response.data
-            assert Task.query.count() == 1
+        response = client.post("/tasks",json={"Title":"New Task"})
+        assert response.status_code == 200
+        assert b"New Task" in response.data
+        assert task.query.count() == 1
