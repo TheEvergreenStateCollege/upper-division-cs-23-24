@@ -201,6 +201,38 @@ Tokenizing a word involves assigning numerical values to each word within the do
 
 By tokenizing, the model converts words into numerical values, which allows it to efficiently process and generate responses based on those values.<br>
 
+## 05/16/2024
+
+## week 7
+In `Prototype_text` 
+
+Import dependencies:
+```pip3 install --upgrade pip && pip3 install tiktoken && pip3 install pdfplumber```
+
+and then...
+```
+sudo apt-get update
+sudo apt-get install -y python3.9 python3.9-venv python3.9-dev
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
+```
+
+and then... ...
+```
+python3.9 -m venv venv
+source venv/bin/activate
+
+```
+
+ok...and then... ... ...
+```
+pip install --upgrade pip
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
+
+```
+
+now I forgot
+
 ## todo:
 
 ```
