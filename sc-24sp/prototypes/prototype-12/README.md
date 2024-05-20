@@ -52,3 +52,43 @@ warning: `prototype-12` (bin "prototype-12") generated 1 warning
 error: could not compile `prototype-12` (bin "prototype-12") due to 5 previous errors; 1 warning emitted
 
 ```
+
+I tried fixing these errors, but they just generated new errors.
+
+```
+
+error[E0433]: failed to resolve: use of undeclared crate or module `prototype_12`
+ --> src\main.rs:4:5
+  |
+4 | use prototype_12::moves::ranker::{RandomRanker, Ranker};
+  |     ^^^^^^^^^^^^ use of undeclared crate or module `prototype_12`
+
+error[E0433]: failed to resolve: use of undeclared crate or module `prototype_12`
+ --> src\main.rs:5:5
+  |
+5 | use prototype_12::moves::MoveError;
+  |     ^^^^^^^^^^^^ use of undeclared crate or module `prototype_12`
+
+error[E0433]: failed to resolve: use of undeclared crate or module `prototype_12`
+ --> src\main.rs:6:5
+  |
+6 | use prototype_12::types::{Board, Move, Player};
+  |     ^^^^^^^^^^^^ use of undeclared crate or module `prototype_12`
+
+error[E0433]: failed to resolve: use of undeclared crate or module `prototype_12`
+ --> src\main.rs:7:5
+  |
+7 | use prototype_12::validators::win_validator;
+  |     ^^^^^^^^^^^^ use of undeclared crate or module `prototype_12`
+
+error[E0432]: unresolved import `regex_lite`
+ --> src\main.rs:1:5
+  |
+1 | use regex_lite::Regex;
+  |     ^^^^^^^^^^ use of undeclared crate or module `regex_lite`
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `prototype-12` (bin "prototype-12") due to 5 previous errors
+
+```
