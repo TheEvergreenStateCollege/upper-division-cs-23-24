@@ -88,3 +88,4 @@ conditions.
 
 Worked on this code from the book all class. had many issues with installing and running, and at the end of class I have an issue where the HTML doesnt display properly. 
 wasted about an hour trying to do this locally, I guess my personal machine is running everything in a version that is too new. 
+As of 20-MAY it works now. Added one more line of code that wasnt clear on weather it was needed. 
