@@ -19,6 +19,7 @@ use std::fmt;
 pub enum Cell {
     Dead = 0,
     Alive = 1,
+    Warm = 2,
 }
 
 #[wasm_bindgen]
@@ -59,7 +60,29 @@ impl Universe {
                 let neighbor_row = (row + delta_row) % self.height;
                 let neighbor_col = (column + delta_col) % self.width;
                 let idx = self.get_index(neighbor_row, neighbor_col);
-                count += self.cells[idx] as u8;
+                if self.cells[idx] == Cell::Alive{
+                    count += 1 as u8;
+                }
+                
+            }
+        }
+        count
+    }
+
+    fn warm_neighbor_count(&self, row: u32, column: u32) -> u8 {
+        let mut count = 0;
+        for delta_row in [self.height - 1, 0, 1].iter().cloned() {
+            for delta_col in [self.width - 1, 0, 1].iter().cloned() {
+                if delta_row == 0 && delta_col == 0 {
+                    continue;
+                }
+
+                let neighbor_row = (row + delta_row) % self.height;
+                let neighbor_col = (column + delta_col) % self.width;
+                let idx = self.get_index(neighbor_row, neighbor_col);
+                if self.cells[idx] == Cell::Warm{
+                    count += 1 as u8;
+                }
             }
         }
         count
@@ -73,22 +96,27 @@ impl Universe {
                 let idx = self.get_index(row, col);
                 let cell = self.cells[idx];
                 let live_neighbors = self.live_neighbor_count(row, col);
+                let warm_neighbors = self.warm_neighbor_count(row, col);
 
-                let next_cell = match (cell, live_neighbors) {
+                let next_cell = match (cell, live_neighbors, warm_neighbors) {
                     // Rule 1: Any live cell with fewer than two live neighbours
                     // dies, as if caused by underpopulation.
-                    (Cell::Alive, x) if x < 2 => Cell::Dead,
+                    (Cell::Alive, x, _) if x < 2 => Cell::Warm,
                     // Rule 2: Any live cell with two or three live neighbours
                     // lives on to the next generation.
-                    (Cell::Alive, 2) | (Cell::Alive, 3) => Cell::Alive,
+                    (Cell::Alive, 2, _) | (Cell::Alive, 3, _) => Cell::Alive,
                     // Rule 3: Any live cell with more than three live
                     // neighbours dies, as if by overpopulation.
-                    (Cell::Alive, x) if x > 3 => Cell::Dead,
+                    // *Now goes to warm instead
+                    (Cell::Alive, x, _) if x > 3 => Cell::Warm,
                     // Rule 4: Any dead cell with exactly three live neighbours
                     // becomes a live cell, as if by reproduction.
-                    (Cell::Dead, 3) => Cell::Alive,
+                    (Cell::Dead, 3, _) => Cell::Alive,
+                    // *RULE 5: Warm cells live on or die.
+                    (Cell::Warm, x, _) if x > 2 => Cell::Alive,
+                    (Cell::Warm, x, _) if x < 2 => Cell::Dead,
                     // All other cells remain in the same state.
-                    (otherwise, _) => otherwise,
+                    (otherwise, _, _) => otherwise,
                 };
 
                 next[idx] = next_cell;
