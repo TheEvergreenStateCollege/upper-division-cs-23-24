@@ -179,6 +179,108 @@ epoch_durations.append(epoch_duration)  # Append duration to list
 
 ![Screenshot (541)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/ea39b1d7-424d-4bf9-b1ca-5d54a88afdd4)
 
+## 05/12/2024
+
+### Tokenization
+Tokenize the words... `tokenizer = tiktoken.get_encoding`
+What does it mean to tokenize the words?<br>
+
+Tokenizing a word involves assigning numerical values to each word within the document, enabling the model to process and understand the text. Here's an example of how a large language model might tokenize the sentence "Cat mastering LLMs: Pawsitive progress, zero bugs!":<br>
+```
+[818] Cat
+[818, 262] Cat mastering
+[818, 262, 4252] Cat mastering LLM
+[818, 262, 4252, 18250] Cat mastering LLMs:
+[818, 262, 4252, 18250, 8812] Cat mastering LLMs: Pawsitive
+[818, 262, 4252, 18250, 8812, 2114] Cat mastering LLMs: Pawsitive progress
+[818, 262, 4252, 18250, 8812, 2114, 286] Cat mastering LLMs: Pawsitive progress,
+[818, 262, 4252, 18250, 8812, 2114, 286, 617] Cat mastering LLMs: Pawsitive progress, zero
+[818, 262, 4252, 18250, 8812, 2114, 286, 617, 34680] Cat mastering LLMs: Pawsitive progress, zero bugs
+[818, 262, 4252, 18250, 8812, 2114, 286, 617, 34680, 27271] Cat mastering LLMs: Pawsitive progress, zero bugs!"
+```
+
+By tokenizing, the model converts words into numerical values, which allows it to efficiently process and generate responses based on those values.<br>
+
+## 05/16/2024
+
+## week 7
+In `Prototype_text` 
+
+Import dependencies:
+```pip3 install --upgrade pip && pip3 install tiktoken && pip3 install pdfplumber```
+
+and then...
+```
+sudo apt-get update
+sudo apt-get install -y python3.9 python3.9-venv python3.9-dev
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
+```
+
+and then... ...
+```
+python3.9 -m venv venv
+source venv/bin/activate
+
+```
+
+ok...and then... ... ...
+```
+pip install --upgrade pip
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
+
+```
+
+now I forgot..<br>
+
+## 05/17/2024
+
+I was able to correctly import all the `process.py` & `dataloader.py` dependencies. After some help, I was able to ensure I was working out my correct WSL Ubuntu environment. Using local machine WSL virtual memory terminals... not sure how else to describe it.<br>
+
+to test and see if the imports were installed I created a small python program, `test_torch.y`
+ 
+```
+import torch
+from torch.utils.data import DataLoader, Dataset
+
+print(torch.__version__)
+print(DataLoader, Dataset)
+
+```
+After I troubleshot my way through running the program
+
+I was able to get confirmation.<br>
+
+```
+2.3.0+cpu
+<class 'torch.utils.data.dataloader.DataLoader'> <class 'torch.utils.data.dataset.Dataset'>
+```
+
+Now, I can start testing `process.py` & `dataloader.py`.
+
+errors...<br>
+	errors...<br>
+		errors...<br>
+I like errors...<br>
+
+So, besides resolving my errors, I was able to compile week 7 program files.
+
+![Screenshot (553)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/2f1a0769-0233-4640-b025-a48bb0c87c08)
+
+Next up:
+What does this `Token ID:` mean?
+
+```
+Token ID:
+ tensor([[  547,  4030,  3938,  9322],
+        [ 4411,   600,   258,  8534],
+        [  515,  6738, 45529,    13],
+        [   64,  1659,   198, 22602],
+        [23893,  2024,    11,   271],
+        [  329,   340,   198,  1326],
+        [ 4625,  1169,  1941,    21],
+        [47247, 41603, 19187,   436]])
+```
 
 
 ## todo:

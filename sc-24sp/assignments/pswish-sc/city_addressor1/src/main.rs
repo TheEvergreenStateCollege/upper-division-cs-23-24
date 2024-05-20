@@ -2,7 +2,9 @@ use rand::Rng;
 
 pub mod city_drawer;
 
-use crate::city_drawer::{city_drawer, draw_grid, Address, Grid, Road, RoadDirection, BOUND};
+use crate::city_drawer::{
+    city_drawer, draw_grid, Address, AddressesMap, Grid, Road, RoadDirection, BOUND,
+};
 
 // Can we have a "parent type" to Avenue and Street,
 // let's call it Road
@@ -27,6 +29,8 @@ fn main() {
     println!("Hello, city!");
     let size = 50;
 
+    let mut addresses = AddressesMap::new();
+
     let n_s_avenues = gen_random_roads(size, |x| Road {
         road_type: RoadDirection::NorthSouth,
         coord: x,
@@ -39,8 +43,10 @@ fn main() {
 
     let mut grid: Grid = [['.'; BOUND]; BOUND];
 
-    grid = *city_drawer(&mut grid, &n_s_avenues);
-    grid = *city_drawer(&mut grid, &e_w_streets);
+    println!("The number of generated addresses is {}", addresses.len());
+
+    grid = *city_drawer(&mut addresses, &mut grid, &n_s_avenues);
+    grid = *city_drawer(&mut addresses, &mut grid, &e_w_streets);
 
     draw_grid(grid);
 }

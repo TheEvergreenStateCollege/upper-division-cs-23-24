@@ -1,11 +1,15 @@
 
 pub struct Street {
     pub y: usize
+    pub y: usize
 }
+
 
 pub struct Avenue {
     pub x: usize
+    pub x: usize
 }
+
 
 pub struct AddressAvenue {
     pub x: usize,
@@ -21,6 +25,8 @@ pub const HEIGHT: usize = 50;
 pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>) {
     n_s_avenues.sort_by(|a,b| a.x.cmp(&b.x));
     e_w_streets.sort_by(|a,b| a.y.cmp(&b.y));
+    n_s_avenues.sort_by(|a,b| a.x.cmp(&b.x));
+    e_w_streets.sort_by(|a,b| a.y.cmp(&b.y));
 
     let mut grid: [[char; WIDTH]; HEIGHT] = [['.' as char; WIDTH]; HEIGHT];
 
@@ -33,6 +39,7 @@ pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>)
                 }
             }
             None => {
+                // no more 
                 // no more 
                 break;
             }
@@ -49,6 +56,7 @@ pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>)
             }
             None => {
                 // no more 
+                // no more 
                 break;
             }
         }
@@ -60,9 +68,13 @@ pub fn city_drawer(n_s_avenues: &mut Vec<Avenue>, e_w_streets: &mut Vec<Street>)
                 '.' => { print!(".") }
                 '#' => { print!("#") }
                 _ => { }
+                '.' => { print!(".") }
+                '#' => { print!("#") }
+                _ => { }
             }
         }
         println!("");
+
 
     }
 }

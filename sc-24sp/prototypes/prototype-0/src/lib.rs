@@ -1,34 +1,18 @@
-pub mod types;
-pub mod moves;
-pub mod validators;
+pub mod addresser;
+
 
 #[cfg(test)]
 mod tests {
-    use crate::types::Board;
+
+    use crate::city_drawer::{city_drawer, city_builder, Address, Road, RoadDirection, BOUND};
 
     #[test]
-    fn board_to_string() {
-        let board = Board::new();
+    fn test_olympia_addresser1() {
+        let mut grid = [['.'; BOUND]; BOUND];
 
-        // If we use {:?} format specifier, we'll use the Debug trait,
-        // which isn't implemented yet,
-        // instead of the Display trait
-        let board_string = format!("{}", board);
-        let expected =
-"-------------
-|   |   |   |
--------------
-|   |   |   |
--------------
-|   |   |   |
--------------
-Next O
-";
-        assert_eq!(board_string, expected);
+
+
+        let addresser = city_builder(&mut grid, &mut roads);
+        let address_string = addresser.get_address_string(())
     }
-
-    // YOUR TESTS HERE
-    // copy and paste the test above and give it a different function name.
-    // Try making a move to mutate the board, and assert what you 
-    // think the expected result as an ASCII string should be
 }

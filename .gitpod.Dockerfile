@@ -45,6 +45,15 @@ RUN apt-get install -yqq net-tools
 RUN apt-get install -yqq nodejs
 RUN apt-get install -yqq npm
 
+# For pdf2text
+RUN apt-get install -yqq poppler-utils
+# For AI assignments
+RUN pip3 install html2text
+RUN pip3 install tiktoken
+RUN pip3 install torch
+RUN pip3 install numpy
+
+ENV PATH=${PATH}:/home/gitpod/.local/bin
 # add gitpod user
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
 USER gitpod
@@ -56,15 +65,16 @@ RUN chmod 700 rustup.sh
 RUN ./rustup.sh --default-toolchain stable -y
 RUN rm rustup.sh
 
+# install node version manager
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN /bin/bash -c ". ${HOME}/.nvm/nvm.sh && nvm install v14"
+
 USER root
 
 # install Rustlings
 COPY scripts/install-rustlings.sh scripts/install-rustlings.sh
 RUN ./scripts/install-rustlings.sh
 
-# install node version manager
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN . ${HOME}/.nvm/nvm.sh; nvm install v20
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
