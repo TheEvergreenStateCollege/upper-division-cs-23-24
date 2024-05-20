@@ -44,9 +44,16 @@ RUN apt-get install -yqq telnet
 RUN apt-get install -yqq net-tools
 RUN apt-get install -yqq nodejs
 RUN apt-get install -yqq npm
+
+# For pdf2text
 RUN apt-get install -yqq poppler-utils
 RUN apt-get install -yqq pkg-config
+
+# For AI assignments
 RUN pip3 install html2text
+RUN pip3 install tiktoken
+RUN pip3 install torch
+RUN pip3 install numpy
 
 ENV PATH=${PATH}:/home/gitpod/.local/bin
 # add gitpod user
@@ -67,6 +74,10 @@ RUN cargo install cargo-generate
 # install node version manager
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 RUN . ${HOME}/.nvm/nvm.sh; nvm install v14
+
+# install node version manager
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN /bin/bash -c ". ${HOME}/.nvm/nvm.sh && nvm install v14"
 
 USER root
 
