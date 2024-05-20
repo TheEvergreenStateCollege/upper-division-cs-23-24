@@ -1,6 +1,5 @@
 mod utils;
 
-use std::fmt;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -9,8 +8,11 @@ extern "C" {
     // `log(..)`
     #[wasm_bindgen(js_namespace = console)]
     fn log(s: &str);
+
+    fn alert(s: &str);
 }
 
+#[allow(unused_macros)]
 macro_rules! console_log {
     // Note that this is using the `log` function imported above during
     // `bare_bones`
@@ -53,7 +55,8 @@ impl Universe {
         }
     }
 
-    // Get the index of a cell inside the 1D array, given a row and column. Wraps.
+    // Get the index of a cell inside the 1D array, given a row and column. Wraps if the row or
+    // column is out of bounds.
     fn index(&self, row: i32, col: i32) -> i32 {
         let index = row * self.width + col;
         if self.cells.get(index as usize).is_some() {
@@ -89,10 +92,7 @@ impl Universe {
         self.cells[self.index(row, col) as usize]
     }
 
-    pub fn render(&self) -> String {
-        self.to_string()
-    }
-
+    // Move the universe simulation along by one step.
     pub fn tick(&mut self) {
         let mut next = self.cells.clone();
 
@@ -161,27 +161,4 @@ impl Universe {
 
         count
     }
-}
-
-impl fmt::Display for Universe {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        for row in self.cells.chunks(self.width as usize) {
-            for cell in row {
-                write!(f, "{}", if *cell == Cell::Dead { '◻' } else { '◼' })?;
-            }
-            writeln!(f)?;
-        }
-
-        Ok(())
-    }
-}
-
-#[wasm_bindgen]
-extern "C" {
-    fn alert(s: &str);
-}
-
-#[wasm_bindgen]
-pub fn greet(name: &str) {
-    alert(&format!("Hello, {}!", name));
 }
