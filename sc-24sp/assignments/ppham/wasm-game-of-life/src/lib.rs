@@ -9,5 +9,5 @@ extern "C" {
 
 #[wasm_bindgen]
 pub fn greet(message: &str) {
-    alert(&format!("{}", message)[..]);
+    alert(&format!("Game of Life Ahoy: {}", message)[..]);
 }

@@ -45,6 +45,7 @@ RUN apt-get install -yqq net-tools
 RUN apt-get install -yqq nodejs
 RUN apt-get install -yqq npm
 RUN apt-get install -yqq poppler-utils
+RUN apt-get install -yqq pkg-config
 RUN pip3 install html2text
 
 ENV PATH=${PATH}:/home/gitpod/.local/bin
@@ -58,16 +59,20 @@ RUN curl https://sh.rustup.rs -sSf >> rustup.sh
 RUN chmod 700 rustup.sh
 RUN ./rustup.sh --default-toolchain stable -y
 RUN rm rustup.sh
+# WASM assignments in Software Construction
+ENV PATH=${PATH}:/home/gitpod/.cargo/bin
+RUN cargo install wasm-pack
+RUN cargo install cargo-generate
+
+# install node version manager
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN . ${HOME}/.nvm/nvm.sh; nvm install v14
 
 USER root
 
 # install Rustlings
 COPY scripts/install-rustlings.sh scripts/install-rustlings.sh
 RUN ./scripts/install-rustlings.sh
-
-# install node version manager
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN . ${HOME}/.nvm/nvm.sh; nvm install v14
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
