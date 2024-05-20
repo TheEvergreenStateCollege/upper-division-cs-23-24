@@ -4,23 +4,38 @@ use std::fmt;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
+extern "C" {
+    // Use `js_namespace` here to bind `console.log(..)` instead of just
+    // `log(..)`
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(s: &str);
+}
+
+macro_rules! console_log {
+    // Note that this is using the `log` function imported above during
+    // `bare_bones`
+    ($($t:tt)*) => (log(&format_args!($($t)*).to_string()))
+}
+
+#[wasm_bindgen]
 #[repr(u8)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Cell {
     Dead = 0,
     Alive = 1,
+    Warm = 2,
 }
 
 #[wasm_bindgen]
 pub struct Universe {
-    width: u32,
-    height: u32,
+    width: i32,
+    height: i32,
     cells: Vec<Cell>,
 }
 
 #[wasm_bindgen]
 impl Universe {
-    pub fn new(width: u32, height: u32) -> Self {
+    pub fn new(width: i32, height: i32) -> Self {
         console_error_panic_hook::set_once();
 
         Self {
@@ -38,6 +53,42 @@ impl Universe {
         }
     }
 
+    // Get the index of a cell inside the 1D array, given a row and column. Wraps.
+    fn index(&self, row: i32, col: i32) -> i32 {
+        let index = row * self.width + col;
+        if self.cells.get(index as usize).is_some() {
+            index
+        } else {
+            // If position is out of bounds, wrap around
+
+            // OOB to right, wrap to start
+            let col = if col >= self.width {
+                0
+            // OOB to left, wrap to end
+            } else if col < 0 {
+                self.width - 1
+            } else {
+                col
+            };
+
+            // OOB of bottom, wrap to top
+            let row = if row >= self.height {
+                0
+            // OOB of top, wrap to bottom
+            } else if row < 0 {
+                self.height - 1
+            } else {
+                row
+            };
+
+            row * self.width + col
+        }
+    }
+
+    pub fn get_cell(&self, row: i32, col: i32) -> Cell {
+        self.cells[self.index(row, col) as usize]
+    }
+
     pub fn render(&self) -> String {
         self.to_string()
     }
@@ -47,8 +98,7 @@ impl Universe {
 
         for row in 0..self.height {
             for col in 0..self.width {
-                let index = self.index(row, col);
-                let cell = self.cells[index];
+                let cell = self.get_cell(row, col);
                 let live_neighbor_count = self.live_neighbor_count(row, col);
 
                 let next_cell = match (cell, live_neighbor_count) {
@@ -68,18 +118,18 @@ impl Universe {
                     (state, _) => state,
                 };
 
-                next[index] = next_cell;
+                next[self.index(row, col) as usize] = next_cell;
             }
         }
 
         self.cells = next;
     }
 
-    pub fn width(&self) -> u32 {
+    pub fn width(&self) -> i32 {
         self.width
     }
 
-    pub fn height(&self) -> u32 {
+    pub fn height(&self) -> i32 {
         self.height
     }
 
@@ -87,25 +137,27 @@ impl Universe {
         self.cells.as_ptr()
     }
 
-    /// Get a cell's index in the one-dimensional array using a row and column
-    fn index(&self, row: u32, column: u32) -> usize {
-        (row * self.width + column) as usize
-    }
-
-    fn live_neighbor_count(&self, row: u32, col: u32) -> u8 {
+    fn live_neighbor_count(&self, row: i32, col: i32) -> u8 {
         let mut count = 0;
-        for delta_row in [self.height - 1, 0, 1].iter().cloned() {
-            for delta_col in [self.width - 1, 0, 1].iter().cloned() {
-                if delta_row == 0 && delta_col == 0 {
+
+        for neighbor_row in [row + 1, row, row - 1] {
+            for neighbor_col in [col + 1, col, col - 1] {
+                // Skip the cell we're checking the neighbors of
+                if neighbor_row == row && neighbor_col == col {
                     continue;
                 }
 
-                let neighbor_row = (row + delta_row) % self.height;
-                let neighbor_col = (col + delta_col) % self.width;
-                let index = self.index(neighbor_row, neighbor_col);
-                count += self.cells[index] as u8
+                if let Cell::Alive = self.get_cell(neighbor_row, neighbor_col) {
+                    count += 1;
+                }
             }
         }
+
+        count
+    }
+
+    fn warm_neighbor_count(&self, row: u32, col: u32) -> u8 {
+        let mut count = 0;
 
         count
     }
