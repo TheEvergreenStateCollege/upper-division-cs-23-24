@@ -1,8 +1,6 @@
 image: 
   file: .gitpod.Dockerfile
   context: /
-tasks:
-  - before: sh /home/gitpod/.shrc
 
 vscode:
   extensions:
