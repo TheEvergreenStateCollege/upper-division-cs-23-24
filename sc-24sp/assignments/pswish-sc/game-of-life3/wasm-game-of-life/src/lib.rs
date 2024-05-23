@@ -1,7 +1,12 @@
+#![allow(unused_variables, dead_code)]
+
 mod utils;
 
 use wasm_bindgen::prelude::*;
 
+
+fn main() {
+    
 #[wasm_bindgen]
 pub struct Universe {
     width: u32,
@@ -10,10 +15,18 @@ pub struct Universe {
 }
 
 #[wasm_bindgen]
+#[repr(u8)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cell {
+    Dead = 0,
+    Alive = 1,
+}
+
+#[wasm_bindgen]
 impl Universe {
     pub fn tick(&mut self) {
         let mut next = self.cells.clone();
-
+        
         for row in 0..self.height {
             for col in 0..self.width {
                 let idx = self.get_index(row, col);
@@ -67,22 +80,13 @@ impl Universe {
 
     pub fn render(&self) -> String {
         self.to_string()
-        // Called by java script to render to display
+        // Called by javascript to render to display
     }
-}
 
-#[wasm_bindgen]
-#[repr(u8)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum Cell {
-    Dead = 0,
-    Alive = 1,
-}
-
-impl Universe {
     fn get_index(&self, row: u32, column: u32) -> usize {
         (row * self.width + column) as usize
     }
+
     fn live_neighbor_count(&self, row: u32, column: u32) -> u8 {
         let mut count = 0;
         for delta_row in [self.height - 1, 0, 1].iter().cloned() {
@@ -99,8 +103,19 @@ impl Universe {
         }
         count
     }
-}
 
+    // Getter functions
+    pub fn width(&self) -> u32 {
+        self.width
+    }
+    pub fn height(&self) -> u32 {
+        self.height
+    }
+    pub fn cells(&self) -> *const Cell {
+        self.cells.as_ptr()
+    }
+
+}
 use std::fmt;
 
 impl fmt::Display for Universe {
@@ -115,4 +130,5 @@ impl fmt::Display for Universe {
 
         Ok(())
     }
+}
 }
