@@ -11,7 +11,11 @@ token_embedding_layer = torch.nn.Embedding(vocab_size, output_dim)
 
 max_length = 4
 dataloader = create_dataloader_v1(
-    raw_text, batch_size=8, max_length=max_length, stride=max_length, shuffle=False
+    raw_text, 
+    batch_size=8, 
+    max_length=max_length, 
+    stride=max_length, 
+    shuffle=False
 )
 data_iter = iter(dataloader)
 
