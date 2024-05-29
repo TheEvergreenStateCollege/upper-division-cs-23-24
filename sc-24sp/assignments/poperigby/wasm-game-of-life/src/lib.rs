@@ -25,7 +25,7 @@ macro_rules! console_log {
 pub enum Cell {
     Dead = 0,
     Alive = 1,
-    Warm = 2,
+    // Warm = 2,
 }
 
 #[wasm_bindgen]
@@ -97,6 +97,13 @@ impl Universe {
         self.cells[index as usize] = value;
     }
 
+    pub fn toggle_cell(&mut self, row: i32, col: i32) {
+        match self.cell(row, col) {
+            Cell::Alive => self.set_cell(row, col, Cell::Dead),
+            Cell::Dead => self.set_cell(row, col, Cell::Alive),
+        }
+    }
+
     // Move the universe simulation along by one step.
     pub fn tick(&mut self) {
         let mut next = self.cells.clone();
@@ -161,9 +168,9 @@ impl Universe {
         count
     }
 
-    fn warm_neighbor_count(&self, row: u32, col: u32) -> u8 {
-        let mut count = 0;
-
-        count
-    }
+    // fn warm_neighbor_count(&self, row: u32, col: u32) -> u8 {
+    //     let mut count = 0;
+    //
+    //     count
+    // }
 }
