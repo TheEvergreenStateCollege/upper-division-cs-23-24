@@ -3,3 +3,5 @@ data/
 *.htm*
 *.txt
 *.7z
+*.pdf
+*.pth
