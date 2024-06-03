@@ -11,4 +11,9 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin(['index.html'])
   ],
+  devServer: {
+    compress: true,
+    disableHostCheck: true,   // That solved it
+  
+  }    
 };
