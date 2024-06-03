@@ -110,21 +110,40 @@ const drawCells = () => {
 
     context.beginPath();
 
+    // Alive cells.
+    context.fillStyle = ALIVE_COLOR;
     for (let row = 0; row < height; row++) {
-        for (let col = 0; col < width; col++) {
-            const idx = getIndex(row, col);
-
-            context.fillStyle = cells[idx] === Cell.Dead
-                ? DEAD_COLOR
-                : ALIVE_COLOR;
-
-            context.fillRect(
-                col * (CELL_SIZE + 1) + 1,
-                row * (CELL_SIZE + 1) + 1,
-                CELL_SIZE,
-                CELL_SIZE
-            );
+      for (let col = 0; col < width; col++) {
+        const idx = getIndex(row, col);
+        if (cells[idx] !== Cell.Alive) {
+          continue;
         }
+
+        context.fillRect(
+          col * (CELL_SIZE + 1) + 1,
+          row * (CELL_SIZE + 1) + 1,
+          CELL_SIZE,
+          CELL_SIZE
+        );
+      }
+    }
+
+    // Dead cells.
+    context.fillStyle = DEAD_COLOR;
+    for (let row = 0; row < height; row++) {
+      for (let col = 0; col < width; col++) {
+        const idx = getIndex(row, col);
+        if (cells[idx] !== Cell.Dead) {
+          continue;
+        }
+
+        context.fillRect(
+          col * (CELL_SIZE + 1) + 1,
+          row * (CELL_SIZE + 1) + 1,
+          CELL_SIZE,
+          CELL_SIZE
+        );
+      }
     }
 
     context.stroke();
