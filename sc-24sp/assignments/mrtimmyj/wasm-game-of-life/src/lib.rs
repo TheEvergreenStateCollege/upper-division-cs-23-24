@@ -5,6 +5,16 @@ extern crate web_sys;
 use wasm_bindgen::prelude::*;
 use std::fmt;
 
+// #[wasm_bindgen]
+// extern "C" {
+//     fn alert(s: &str);
+// }
+
+// #[wasm_bindgen]
+// pub fn greet(name: &str) {
+//     alert(&format!("Hello, {}!", name));
+// }
+
 #[wasm_bindgen]
 extern "C" {
     // Use `js_namespace` here to bind `console.log(..)` instead of just
@@ -53,7 +63,6 @@ impl fmt::Display for Universe {
 
 #[wasm_bindgen]
 impl Universe {
-
     fn get_index(&self, row: u32, column: u32) -> usize {
         (row * self.width + column) as usize
     }
@@ -61,22 +70,6 @@ impl Universe {
     pub fn toggle_cell(&mut self, row: u32, column: u32) {
         let idx = self.get_index(row, column);
         self.cells[idx].toggle();
-    }
-
-    /// Set the width of the universe.
-    ///
-    /// Resets all cells to the dead state.
-    pub fn set_width(&mut self, width: u32) {
-        self.width = width;
-        self.cells = (0..width * self.height).map(|_i| Cell::Dead).collect();
-    }
-
-    /// Set the height of the universe.
-    ///
-    /// Resets all cells to the dead state.
-    pub fn set_height(&mut self, height: u32) {
-        self.height = height;
-        self.cells = (0..self.width * height).map(|_i| Cell::Dead).collect();
     }
 
     fn live_neighbor_count(&self, row: u32, column: u32) -> u8 {
@@ -97,13 +90,6 @@ impl Universe {
     }
 
     pub fn tick(&mut self) {
-        // A macro to provide `println!(..)`-style syntax for `console.log` logging.
-        macro_rules! log {
-            ( $( $t:tt )* ) => {
-                web_sys::console::log_1(&format!( $( $t )* ).into());
-            }
-        }
-
         let mut next = self.cells.clone();
 
         for row in 0..self.height {
@@ -130,27 +116,6 @@ impl Universe {
                 };
 
                 next[idx] = next_cell;
-
-                let cell = self.cells[idx];
-                let live_neighbors = self.live_neighbor_count(row, col);
-
-                log!(
-                    "cell[{}, {}] is initially {:?} and has {} live neighbors",
-                    row,
-                    col,
-                    cell,
-                    live_neighbors
-                );
-
-                let next_cell = match (cell, live_neighbors) {
-                    // Rule 1: Any live cell with fewer than two live neighbours
-                    // dies, as if caused by underpopulation.
-                    (otherwise, _) => otherwise,
-                };
-
-                log!("    it becomes {:?}", next_cell);
-
-                next[idx] = next_cell;
             }
         }
 
@@ -158,7 +123,6 @@ impl Universe {
     }
 
     pub fn new() -> Universe {
-        utils::set_panic_hook();
         let width = 64;
         let height = 64;
 
@@ -222,7 +186,7 @@ impl Universe {
     }
 }
 
-// Warm Cells
+// Code for Warm Cells
 // mod utils;
 
 // use wasm_bindgen::prelude::*;
