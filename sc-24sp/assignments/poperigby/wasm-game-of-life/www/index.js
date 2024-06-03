@@ -179,7 +179,9 @@ playPauseButton.addEventListener("click", _ => {
 const renderLoop = () => {
     fps.render();
     
-    universe.tick();
+    for (let i = 0; i < 9; i++) {
+      universe.tick();
+    }
 
     drawGrid();
     drawCells();
