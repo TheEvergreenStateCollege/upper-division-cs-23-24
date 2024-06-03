@@ -4,6 +4,7 @@ use wasm_bindgen::prelude::*;
 
 extern crate web_sys;
 use web_sys::console;
+
 #[wasm_bindgen]
 extern "C" {
     // Use `js_namespace` here to bind `console.log(..)` instead of just

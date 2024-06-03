@@ -1,5 +1,5 @@
 ```
-ProtoType 08, Prototype_text
+ProtoType 08, Prototype_text, GPT_final
 ```
 
 
@@ -183,15 +183,228 @@ epoch_durations.append(epoch_duration)  # Append duration to list
 
 ### Tokenization
 Tokenize the words... `tokenizer = tiktoken.get_encoding`
-What does it mean to tokenize the words?
-To tokenize the words means to assign a numerical value
+What does it mean to tokenize the words?<br>
+
+Tokenizing a word involves assigning numerical values to each word within the document, enabling the model to process and understand the text. Here's an example of how a large language model might tokenize the sentence "Cat mastering LLMs: Pawsitive progress, zero bugs!":<br>
+```
+[818] Cat
+[818, 262] Cat mastering
+[818, 262, 4252] Cat mastering LLM
+[818, 262, 4252, 18250] Cat mastering LLMs:
+[818, 262, 4252, 18250, 8812] Cat mastering LLMs: Pawsitive
+[818, 262, 4252, 18250, 8812, 2114] Cat mastering LLMs: Pawsitive progress
+[818, 262, 4252, 18250, 8812, 2114, 286] Cat mastering LLMs: Pawsitive progress,
+[818, 262, 4252, 18250, 8812, 2114, 286, 617] Cat mastering LLMs: Pawsitive progress, zero
+[818, 262, 4252, 18250, 8812, 2114, 286, 617, 34680] Cat mastering LLMs: Pawsitive progress, zero bugs
+[818, 262, 4252, 18250, 8812, 2114, 286, 617, 34680, 27271] Cat mastering LLMs: Pawsitive progress, zero bugs!"
+```
+
+By tokenizing, the model converts words into numerical values, which allows it to efficiently process and generate responses based on those values.<br>
+
+## 05/16/2024
+
+## week 7
+
+For process.py
+
+Import dependencies:
+```pip3 install --upgrade pip && pip3 install tiktoken && pip3 install pdfplumber```
+
+and then...
+```
+sudo apt-get update
+sudo apt-get install -y python3.9 python3.9-venv python3.9-dev
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
+```
+
+and then... ...
+```
+python3.9 -m venv venv
+source venv/bin/activate
+
+```
+
+ok...and then... ... ...
+```
+pip install --upgrade pip
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
+
+```
+
+now I forgot...
+
+## 05/17/2024
+
+I was able to correctly import all the `process.py` & `dataloader.py` dependencies. After some help, I was able to ensure I was working out my correct WSL Ubuntu environment. Using local machine WSL virtual memory terminals... not sure how else to describe it.<br>
+
+To test and see if the imports were installed I created a small python program, `test_torch.y`
+ 
+```
+import torch
+from torch.utils.data import DataLoader, Dataset
+
+print(torch.__version__)
+print(DataLoader, Dataset)
+
+```
+After I troubleshot my way through running the program,<br>
+
+I was able to get confirmation.<br>
+
+```
+2.3.0+cpu
+<class 'torch.utils.data.dataloader.DataLoader'> <class 'torch.utils.data.dataset.Dataset'>
+```
+
+Now, I can start testing `process.py` & `dataloader.py`.
+
+errors...<br>
+	errors...<br>
+		errors...<br>
+I like errors...<br>
+
+So, besides resolving my errors, I was able to compile week 7 program files.<br>
+
+![Screenshot (553)](https://github.com/TheEvergreenStateCollege/upper-division-cs/assets/129904249/2f1a0769-0233-4640-b025-a48bb0c87c08)
+
+![Screenshot (554)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/f84b097b-cbca-46b8-9cfc-2c25585aef62)
+
+
+Next up:
+What does this `Token ID:` mean?
+
+```
+Token ID:
+ tensor([[  547,  4030,  3938,  9322],
+        [ 4411,   600,   258,  8534],
+        [  515,  6738, 45529,    13],
+        [   64,  1659,   198, 22602],
+        [23893,  2024,    11,   271],
+        [  329,   340,   198,  1326],
+        [ 4625,  1169,  1941,    21],
+        [47247, 41603, 19187,   436]])
+```
+## 05/22/2024 Week-08
+How do I increase the size of the tensor deminsions?<br>
+
+![Screenshot (567)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/83189244-076f-4c86-9bcf-774a99b38e9d)
+
+## 05/25/2024
+The `tensor` from the `Token ID:` from the previous days(05/17/2024) entry, is a multi-dimensional array of numerical values used to represent different aspects of the text data. <br>
+```
+Token ID:
+ tensor([[  547,  4030,  3938,  9322],
+        [ 4411,   600,   258,  8534],
+        [  515,  6738, 45529,    13],
+        [   64,  1659,   198, 22602],
+        [23893,  2024,    11,   271],
+        [  329,   340,   198,  1326],
+        [ 4625,  1169,  1941,    21],
+        [47247, 41603, 19187,   436]])
+
+```
+in this tensor, each numerical value is a token ID that corresponds to a specific word ro subword token derived from the text dataset "The Art of War" by Sun Tzu. The process of tokenization converts the text into these numerical values. This allows the LLM to process and understand the text.<br>
+
+- Rows & Columns: Each row in the tensor is a sequance of token IDs, where each ID corresponds to a token in the text.<br>
+- Tokens: Tokens are values assigned to words within the data set. So, the token ID `547` could correspond to the word "war", and `4030` might correspond to the word "strategy."
+- Each ID is mapped to a specific word or subword in the tokenizer's vocabulary data set.
+ 
+
+## 05/28/2024: `Project_LLM/week-10`<br>
+### `GELUactivation.py`<br>
+Pg 122: 4.3: Implementing the GELU activation function. <br>
+GELU is a small neural network submodule that is used as part of
+the transformer block in LLMs.<br>
+The image shows the GELU gradual non-linear curve from zero compared to the ReLU's sharper corner at zero.<br>
+"<br>
+the ReLU activation function has been used in deep learning due to its simplicity and effectiveness across various neural network architectures. However, in LLMs, several other activation functions are employed beyond the ReLU activation function. An example is GELU (Gaussian Error Linear Unit).<br>
+GELU is a more complex and smooth activation function that incorporates the Gaussian linear units, respectively. They offer improved performance for deep learning models, unlike the simpler ReLU.<br>
+"<br>
+![Screenshot (572)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/91b6c2c9-ce2e-4843-ab94-61e2738a5297)
+
+
+"<br>
+Looking at the resulting plots, ReLU is a piecewise linear function that outputs the input directly if it is positive; otherwise, it outputs zero. GELU is a smooth, non-linear function that approximates ReLU but with a non-zero gradient for negative values.<br>
+"<br>
+
+"<br>
+The smoothness of GELU, as shown, can lead to better optimization properties during training, as it allows for more nuanced adjustments to the model's parameters. In contrast, ReLU has a sharp corner at zero, which can sometimes make optimization harder, especially in networks that are very deep or have complex architectures. So, unlike RELU, which outputs zero for any negative input, GELU allows for a small, non-zero output for negative values. This characteristic means that during the training process, neurons that receive negative input can still contribute to the learning process.<br>
+"<br> 
+(Words transcribed from Buld a Large Language Model (from scratch)) By: Sebastian Raschka.<br>
+
+### `GELU_ReLU.png`
+![Screenshot (573)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/5e7ba08e-39d9-438b-9309-2254a0b2e185)
+
+## 05/31/2024
+### It's Alive! ALIVE!! well sorta :)
+10 Epoch training cycle.<br>
+![Screenshot (582)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/5ccfa8d5-8d65-44a0-9c7e-0974770241b6)
+
+##Training loss VS. Validation loss
+![Screenshot (583)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/d8d9844e-eec6-420f-90b6-9123a041f0e6)
+
+- Training Loss: The training loss decreases steadily, indicating that the model is learning from the training data.
+- Validation Loss: The validation loss decreases initially but then begins to plateau, which might indicate that the model is reaching its capacity to generalize from the training data.
+
+## Training_log.csv
+![Screenshot (584)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/1c683662-f739-4aae-b2d3-fd5c0cc25f48)
+
+## 06/01/2024
+While pondering...<br>
+Updates:<br>
+- Find another source to incorperate into the data set, so that `gpt_train.py` uses multiple sources from the `resources` directory.<br>
+- update `GPTLogging` to process the additonal `resources` data.<br>
+- update `gpt_train.py` to handle using additional `resources`.<br>
+
+### 06/01/24 1500 `Chat_log`
+After producing three seperate training models and using the models in `GPT_gabba.py` as its sources for producing a response. Currently the response dosesn't make since, see the following screenshot.<br>
+
+![Screenshot (586)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/e4fd6af3-8e83-4dec-bbd2-70b86bed4488)
+
+- After searching things up, I learned that I can adjust the `OTHER_SETTINGS` parameters.<br>
+```
+OTHER_SETTINGS = {
+        "learning_rate": 1e-4,  # Original value was: 5e-4,
+        "num_epochs": 20,       # Increase number of epochs from 10 to 20
+        "batch_size": 4,        # Increase the batch size
+```
+- By slowing down the rate the model learns it should make the learning process more stable.<br>
+- Increasing the number of epochs from 10 to 20, the model has more opportunities to see the training data, this can help it learn better patterns.<br>
+- A smaller batch size provides more updates per epoch and can improve generalization, but too small batch sizes can lead to noisy updates. Larger batch sizes provide more stable updates but can require more memory.<br>
+
+## 06/02/2024 Killed!!!
+![Screenshot (588)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/d5e40d5d-54b0-4fc7-a45e-ff55186f92c1)
+- Because I have added more resources that are used while training, with a batch size of 4, and a learning rate of 3e-4. The amount of new resources to process, tokeninze, create new weights and bias, etc... With the batch rate at 4 uses more memory and system hardware resources, and well my local machine needs more power!!! <br>
+- The message "Killed" might indicate that the program was terminated by the system, because the excessive memory usage or running out of available resources. Training large models like GPT can be very resource-intensive, especially with increased batch sizes and longer training durations.
+
+`gpt_train_loss.pdf`
+![Screenshot (589)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/ce788f57-2957-45d1-ab15-9ff1f23a78bf)
+
+- With the additional data set resources, more epochs, slower learning rate.<br>
+```
+OTHER_SETTINGS = {
+        "learning_rate": 3e-4,  # Original value was: 5e-4,
+        "num_epochs": 20,       # Increase number of epochs from 10 to 20
+        "batch_size": 2,        # Increase the batch size or Decrease. 
+        "weight_decay": 0.1
+    }
+```
+- I am trying to figure out how to stabilize the `Training loss` as it decreases.<br>
+- I like how the `Validation loss` has lowered, but I think that is due to the increased data set...<br>
+- I am not sure if the `Validation loss` should have dropped that dramatically, then it starts to plateau before rising again.<br>
+
+
+
+
 
 ## todo:
-
+Always seek improvements<br>
 ```
 Figure out how to improve the algorithm to:
  increase its recognition,
  increase wall-clock speed,
+ improve the data collection,
 
 ```
 
@@ -200,8 +413,10 @@ Figure out how to improve the algorithm to:
 
 ## How to run our demo
 Example of how you can run the program once you have navigated to the directory.
-```python3 prototype-00```
-```python3 train.py```
+```python3 prototype-00```<br>
+```python3 train.py```<br>
+```python3 process.py```<br>
+```Python3 gpt_train.py```<br>
 
 
 
