@@ -6,14 +6,13 @@
 import matplotlib.pyplot as plt
 import os
 import torch
-#import urllib.request
+import urllib.request
 import tiktoken
 import sys
 
 # Import from local files
 from previous_chapters import GPTModel, create_dataloader_v1, generate_text_simple
 from gpt_train import GPT_CONFIG_124M
-
 
 def text_to_token_ids(text, tokenizer):
     encoded = tokenizer.encode(text)
@@ -135,13 +134,13 @@ def get_standard_model_params():
 
 def main(gpt_config, settings):
 
-    #torch.manual_seed(123)
+ # torch.manual_seed(123)
     (device, tokenizer) = get_standard_model_params()
     ##############################
     # Download data if necessary
     ##############################
 
-    file_path = "..data/totally-profound-monologue.txt"
+    file_path = "../data/totally-profound-monologue.txt"
 
     with open(file_path, "r", encoding="utf-8") as file:
             text_data = file.read()
@@ -198,10 +197,9 @@ def main(gpt_config, settings):
 
     return train_losses, val_losses, tokens_seen, model, device, tokenizer
 
-
 if __name__ == "__main__":
 
-    GPT_CONFIG_124M = {
+   GPT_CONFIG_124M = {
         "vocab_size": 50257,    # Vocabulary size
         "context_length": 256,  # Shortened context length (orig: 1024)
         "emb_dim": 768,         # Embedding dimension
@@ -221,35 +219,26 @@ if __name__ == "__main__":
     ###########################
     # Initiate training
     ###########################
-
-    #train_losses, val_losses, tokens_seen, model = main(GPT_CONFIG_124M, OTHER_SETTINGS)
-    device = None
-    tokenizer = None
-
-    ###########################
-    # After training
-    ###########################
     print(f"argv {sys.argv}")
     if (sys.argv[-1] == "train"):
+        print("Training ")
         train_losses, val_losses, tokens_seen, model, device, tokenizer = main(GPT_CONFIG_124M, OTHER_SETTINGS)
-    ###########################
-    # After training
-    ###########################
 
-    # Plot results
-    epochs_tensor = torch.linspace(0, OTHER_SETTINGS["num_epochs"], len(train_losses))
-    plot_losses(epochs_tensor, tokens_seen, train_losses, val_losses)
-    plt.savefig("loss.pdf")
+        ###########################
+        # After training
+        ###########################
 
-    # Save and load model
-    torch.save(model.state_dict(), "model.pth")
-else:
-    device, tokenizer = get_standard_model_params()
+        # Plot results
+        epochs_tensor = torch.linspace(0, OTHER_SETTINGS["num_epochs"], len(train_losses))
+        plot_losses(epochs_tensor, tokens_seen, train_losses, val_losses)
+        plt.savefig("loss.pdf")
 
-    model = GPTModel(GPT_CONFIG_124M)
+        # Save and load model
+        torch.save(model.state_dict(), "model.pth")
+    else:
+        (device, tokenizer) = get_standard_model_params()
 
     model.load_state_dict(torch.load("model.pth"))
     generate_and_print_sample(
         model, tokenizer, device, "Every effort moves you"
     )
-
