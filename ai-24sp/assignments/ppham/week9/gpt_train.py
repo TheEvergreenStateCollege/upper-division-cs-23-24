@@ -8,7 +8,7 @@ import os
 import torch
 import urllib.request
 import tiktoken
-
+import sys
 
 # Import from local files
 from previous_chapters import GPTModel, create_dataloader_v1, generate_text_simple
@@ -127,18 +127,25 @@ def plot_losses(epochs_seen, tokens_seen, train_losses, val_losses):
     fig.tight_layout()  # Adjust layout to make room
     # plt.show()
 
+# Get parameters needed for both training and inference
+# Should not depend on other settings
+# Returns (device, tokenizer)
+def get_standard_model_params():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    tokenizer = tiktoken.get_encoding("gpt2")
+    return (device, tokenizer)
 
 def main(gpt_config, settings):
 
-    torch.manual_seed(123)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # torch.manual_seed(123)
+    (device, tokenizer) = get_standard_model_params()
 
     ##############################
     # Download data if necessary
     ##############################
 
-    file_path = "the-verdict.txt"
-    url = "https://raw.githubusercontent.com/rasbt/LLMs-from-scratch/main/ch02/01_main-chapter-code/the-verdict.txt"
+    file_path = "/workspace/upper-division-cs/ai-24sp/assignments/whereismyprozac/data/totally-profound-monologue.txt"
+    url = "https://gist.github.com/JKirchartz/0fe59db390528740cd9eb5a1d0e35b7f.js"
 
     if not os.path.exists(file_path):
         with urllib.request.urlopen(url) as response:
@@ -191,15 +198,13 @@ def main(gpt_config, settings):
     # Train model
     ##############################
 
-    tokenizer = tiktoken.get_encoding("gpt2")
-
     train_losses, val_losses, tokens_seen = train_model_simple(
         model, train_loader, val_loader, optimizer, device,
         num_epochs=settings["num_epochs"], eval_freq=5, eval_iter=1,
         start_context="Every effort moves you", tokenizer=tokenizer
     )
 
-    return train_losses, val_losses, tokens_seen, model
+    return train_losses, val_losses, tokens_seen, model, device, tokenizer
 
 
 if __name__ == "__main__":
@@ -225,18 +230,30 @@ if __name__ == "__main__":
     # Initiate training
     ###########################
 
-    train_losses, val_losses, tokens_seen, model = main(GPT_CONFIG_124M, OTHER_SETTINGS)
+    # Create in this scope so we can update it in if-else branches
+    device = None
+    tokenizer = None
 
-    ###########################
-    # After training
-    ###########################
+    print(f"argv {sys.argv}")
+    if (sys.argv[-1] == "train"):
+        print("Training ")
+        train_losses, val_losses, tokens_seen, model, device, tokenizer = main(GPT_CONFIG_124M, OTHER_SETTINGS)
 
-    # Plot results
-    epochs_tensor = torch.linspace(0, OTHER_SETTINGS["num_epochs"], len(train_losses))
-    plot_losses(epochs_tensor, tokens_seen, train_losses, val_losses)
-    plt.savefig("loss.pdf")
+        ###########################
+        # After training
+        ###########################
 
-    # Save and load model
-    torch.save(model.state_dict(), "model.pth")
+        # Plot results
+        epochs_tensor = torch.linspace(0, OTHER_SETTINGS["num_epochs"], len(train_losses))
+        plot_losses(epochs_tensor, tokens_seen, train_losses, val_losses)
+        plt.savefig("loss.pdf")
+
+        # Save and load model
+        torch.save(model.state_dict(), "model.pth")
+    else:
+        (device, tokenizer) = get_standard_model_params()
+
     model = GPTModel(GPT_CONFIG_124M)
     model.load_state_dict(torch.load("model.pth"))
+
+    generate_and_print_sample(model, tokenizer, device, "Every effort moves you")

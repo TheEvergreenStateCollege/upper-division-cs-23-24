@@ -12,7 +12,7 @@ import sys
 
 # Import from local files
 from previous_chapters import GPTModel, create_dataloader_v1, generate_text_simple
-
+from gpt_train import GPT_CONFIG_124M
 
 def text_to_token_ids(text, tokenizer):
     encoded = tokenizer.encode(text)
@@ -126,6 +126,7 @@ def plot_losses(epochs_seen, tokens_seen, train_losses, val_losses):
 
     fig.tight_layout()  # Adjust layout to make room
     # plt.show()
+
 def get_standard_model_params():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     tokenizer = tiktoken.get_encoding("gpt2")
@@ -140,6 +141,7 @@ def main(gpt_config, settings):
     ##############################
 
     file_path = "../data/totally-profound-monologue.txt"
+
     with open(file_path, "r", encoding="utf-8") as file:
             text_data = file.read()
 
@@ -185,6 +187,7 @@ def main(gpt_config, settings):
     # Train model
     ##############################
 
+    #tokenizer = tiktoken.get_encoding("gpt2")
 
     train_losses, val_losses, tokens_seen = train_model_simple(
         model, train_loader, val_loader, optimizer, device,
@@ -195,8 +198,8 @@ def main(gpt_config, settings):
     return train_losses, val_losses, tokens_seen, model, device, tokenizer
 
 if __name__ == "__main__":
-    
-    GPT_CONFIG_124M = {
+
+   GPT_CONFIG_124M = {
         "vocab_size": 50257,    # Vocabulary size
         "context_length": 256,  # Shortened context length (orig: 1024)
         "emb_dim": 768,         # Embedding dimension
@@ -235,7 +238,7 @@ if __name__ == "__main__":
     else:
         (device, tokenizer) = get_standard_model_params()
 
-        # Save and load model
-        
-    model = GPTModel(GPT_CONFIG_124M)
-    model.load_state_dict(torch.load("model.pth"))                  
+    model.load_state_dict(torch.load("model.pth"))
+    generate_and_print_sample(
+        model, tokenizer, device, "Every effort moves you"
+    )

@@ -47,6 +47,8 @@ RUN apt-get install -yqq npm
 
 # For pdf2text
 RUN apt-get install -yqq poppler-utils
+RUN apt-get install -yqq pkg-config
+
 # For AI assignments
 RUN pip3 install html2text
 RUN pip3 install tiktoken
@@ -64,9 +66,15 @@ RUN curl https://sh.rustup.rs -sSf >> rustup.sh
 RUN chmod 700 rustup.sh
 RUN ./rustup.sh --default-toolchain stable -y
 RUN rm rustup.sh
+# WASM assignments in Software Construction
+ENV PATH=${PATH}:/home/gitpod/.cargo/bin
+RUN cargo install wasm-pack
+RUN cargo install cargo-generate
 
 # install node version manager
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+# We use Node v14 which is quite old for cargo-generate to work 
+# It would be better to find an alternative to cargo-generate for rustwasm game-of-life 
 RUN /bin/bash -c ". ${HOME}/.nvm/nvm.sh && nvm install v14"
 
 USER root
@@ -75,11 +83,10 @@ USER root
 COPY scripts/install-rustlings.sh scripts/install-rustlings.sh
 RUN ./scripts/install-rustlings.sh
 
-
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir ~/scripts
-COPY ./scripts/.shrc /root/.shrc
+COPY ./scripts/.shrc /home/gitpod/.shrc
 
 RUN ssh-keyscan github.com
 
