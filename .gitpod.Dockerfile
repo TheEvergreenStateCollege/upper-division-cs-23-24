@@ -73,10 +73,8 @@ RUN cargo install cargo-generate
 
 # install node version manager
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN . ${HOME}/.nvm/nvm.sh; nvm install v14
-
-# install node version manager
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+# We use Node v14 which is quite old for cargo-generate to work 
+# It would be better to find an alternative to cargo-generate for rustwasm game-of-life 
 RUN /bin/bash -c ". ${HOME}/.nvm/nvm.sh && nvm install v14"
 
 USER root
