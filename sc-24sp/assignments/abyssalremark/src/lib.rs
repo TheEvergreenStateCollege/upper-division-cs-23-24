@@ -1,6 +1,7 @@
 mod utils;
 
 use wasm_bindgen::prelude::*;
+use std::thread;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
@@ -29,14 +30,12 @@ impl Universe {
     fn get_index(&self, row: u32, column: u32) -> usize {
         (row * self.width + column) as usize
     }
-
-    // ...
 }
 
 /// Public methods, exported to JavaScript.
 #[wasm_bindgen]
 impl Universe {
-    pub fn tick(&mut self) {
+    pub fn tick_single(&mut self) {
         let mut next = self.cells.clone();
 
         for row in 0..self.height {
@@ -67,6 +66,55 @@ impl Universe {
         }
 
         self.cells = next;
+    }
+
+    //Threaded one goes here
+    pub fn tick_thread(&mut self){
+
+        //make the new buffer. 
+        let mut next = self.cells.clone();
+
+        //number of threads for now. 
+        let thread_count = 4;
+
+        //slice array to hand to threads to work on. 
+        //slice section to write to. 
+        //use logic  below...
+
+        for row in 0..self.height {
+            for col in 0..self.width {
+                let idx = self.get_index(row, col);
+                let cell = self.cells[idx];
+                next[idx] = self.do_logic(cell, row, col);
+            }
+        }
+            
+        //join threads
+        //  does it need to do anything other then wait?
+        //emplace next. 
+
+        self.cells = next;
+    }
+
+    fn do_logic(&self, cell: Cell, row: u32, col: u32) -> Cell {
+                let live_neighbors = self.live_neighbor_count(row, col);
+                let next_cell = match (cell, live_neighbors) {
+                    // Rule 1: Any live cell with fewer than two live neighbours
+                    // dies, as if caused by underpopulation.
+                    (Cell::Alive, x) if x < 2 => Cell::Dead,
+                    // Rule 2: Any live cell with two or three live neighbours
+                    // lives on to the next generation.
+                    (Cell::Alive, 2) | (Cell::Alive, 3) => Cell::Alive,
+                    // Rule 3: Any live cell with more than three live
+                    // neighbours dies, as if by overpopulation.
+                    (Cell::Alive, x) if x > 3 => Cell::Dead,
+                    // Rule 4: Any dead cell with exactly three live neighbours
+                    // becomes a live cell, as if by reproduction.
+                    (Cell::Dead, 3) => Cell::Alive,
+                    // All other cells remain in the same state.
+                    (otherwise, _) => otherwise,
+                };
+                next_cell
     }
 
     fn live_neighbor_count(&self, row: u32, column: u32) -> u8 {
