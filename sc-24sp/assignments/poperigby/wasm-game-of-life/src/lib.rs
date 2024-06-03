@@ -25,7 +25,7 @@ macro_rules! console_log {
 pub enum Cell {
     Dead = 0,
     Alive = 1,
-    Warm = 2,
+    // Warm = 2,
 }
 
 #[wasm_bindgen]
@@ -88,8 +88,20 @@ impl Universe {
         }
     }
 
-    pub fn get_cell(&self, row: i32, col: i32) -> Cell {
+    pub fn cell(&self, row: i32, col: i32) -> Cell {
         self.cells[self.index(row, col) as usize]
+    }
+
+    pub fn set_cell(&mut self, row: i32, col: i32, value: Cell) {
+        let index = self.index(row, col);
+        self.cells[index as usize] = value;
+    }
+
+    pub fn toggle_cell(&mut self, row: i32, col: i32) {
+        match self.cell(row, col) {
+            Cell::Alive => self.set_cell(row, col, Cell::Dead),
+            Cell::Dead => self.set_cell(row, col, Cell::Alive),
+        }
     }
 
     // Move the universe simulation along by one step.
@@ -98,7 +110,7 @@ impl Universe {
 
         for row in 0..self.height {
             for col in 0..self.width {
-                let cell = self.get_cell(row, col);
+                let cell = self.cell(row, col);
                 let live_neighbor_count = self.live_neighbor_count(row, col);
 
                 let next_cell = match (cell, live_neighbor_count) {
@@ -147,7 +159,7 @@ impl Universe {
                     continue;
                 }
 
-                if let Cell::Alive = self.get_cell(neighbor_row, neighbor_col) {
+                if let Cell::Alive = self.cell(neighbor_row, neighbor_col) {
                     count += 1;
                 }
             }
@@ -156,9 +168,9 @@ impl Universe {
         count
     }
 
-    fn warm_neighbor_count(&self, row: u32, col: u32) -> u8 {
-        let mut count = 0;
-
-        count
-    }
+    // fn warm_neighbor_count(&self, row: u32, col: u32) -> u8 {
+    //     let mut count = 0;
+    //
+    //     count
+    // }
 }
