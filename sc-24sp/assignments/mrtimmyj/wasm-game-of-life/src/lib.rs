@@ -186,7 +186,7 @@ impl Universe {
     }
 }
 
-// Warm Cells
+// Code for Warm Cells
 // mod utils;
 
 // use wasm_bindgen::prelude::*;
