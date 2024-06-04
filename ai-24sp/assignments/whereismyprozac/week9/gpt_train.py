@@ -1,14 +1,10 @@
-# Copyright (c) Sebastian Raschka under Apache License 2.0 (see LICENSE.txt).
-# Source for "Build a Large Language Model From Scratch"
-#   - https://www.manning.com/books/build-a-large-language-model-from-scratch
-# Code: https://github.com/rasbt/LLMs-from-scratch
-
 import matplotlib.pyplot as plt
 import os
 import torch
-#import urllib.request
+import urllib.request
 import tiktoken
 import sys
+
 
 # Import from local files
 from previous_chapters import GPTModel, create_dataloader_v1, generate_text_simple
@@ -222,7 +218,7 @@ if __name__ == "__main__":
     # Initiate training
     ###########################
 
-    #train_losses, val_losses, tokens_seen, model = main(GPT_CONFIG_124M, OTHER_SETTINGS)
+    #train_losses, val_losses, tokens_seen, model = main(GPT_CONFIG_124M, OTHER_SETTINGS) #watch this
     device = None
     tokenizer = None
 
@@ -242,7 +238,7 @@ if __name__ == "__main__":
     plt.savefig("loss.pdf")
 
     # Save and load model
-    torch.save(model.state_dict(), "model.pth")
+    torch.save(model.state_dict(), "gpt.pth")
 else:
     device, tokenizer = get_standard_model_params()
 
