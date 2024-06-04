@@ -76,10 +76,29 @@ impl Universe {
 
         //number of threads for now. 
         let thread_count = 4;
+        let sections_size =  (self.width * (self.height / thread_count)) as usize; 
+        //hard coded vec slices.. for now. 
+        let slice_inputs = vec![
+            &self.cells[..sections_size],  
+            &self.cells[sections_size..sections_size * 2], 
+            &self.cells[sections_size * 2..sections_size * 3], 
+            &self.cells[sections_size * 3..sections_size * 4], 
+        ];
+
+        let mut outputs = Vec::new();
+        for i in 0..thread_count-1{
+            //takes ownership of slice. right?
+            let start = sections_size * i as usize;
+            let end = sections_size * (i + 1) as usize;
+            outputs.push( &mut self.cells[start..end])
+            //so I just sent it into the scope of outputs.. 
+            //thus violating the borrow checker. 
+        }  
+        // (row * self.width + column)
 
         //slice array to hand to threads to work on. 
         //slice section to write to. 
-        //use logic  below...
+        //use logic  below... but itteritive over slices
 
         for row in 0..self.height {
             for col in 0..self.width {
