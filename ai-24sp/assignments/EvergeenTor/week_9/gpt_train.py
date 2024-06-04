@@ -193,7 +193,7 @@ def main(gpt_config, settings):
     train_losses, val_losses, tokens_seen = train_model_simple(
         model, train_loader, val_loader, optimizer, device,
         num_epochs=settings["num_epochs"], eval_freq=5, eval_iter=1,
-        start_context="Every effort moves you", tokenizer=tokenizer
+        start_context="there are 11 players on the", tokenizer=tokenizer
     )
 
     return train_losses, val_losses, tokens_seen, model
@@ -213,7 +213,7 @@ if __name__ == "__main__":
 
     OTHER_SETTINGS = {
         "learning_rate": 5e-4,
-        "num_epochs": 10,
+        "num_epochs": 7,
         "batch_size": 2,
         "weight_decay": 0.1
     }
