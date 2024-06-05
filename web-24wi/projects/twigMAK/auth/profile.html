@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../pages/styles.css">
+    <title>profile</title>
+</head>
+<header>
+    <a href="../pages/index.html" class="linkpage" id="backtomainpage">←</a>
+
+    <div class="titleBlock">User Twigs</div>
+</header>
+<body>
+
+    <div id= cardHolder></div>
+
+    <script src="../js/generalMake.js"></script> 
+    <script src="../js/twigCards.js"></script> 
+    <script src="../js/twigInfo.js"></script>
+<script type="text/javascript">
+
+    const jsonData = [  //let user add new twigs
+        {
+            "authorId": 1,
+            "family" : "Rosaceae" ,
+            "genus" : "Pyrus" ,
+            "species" : "malus" ,
+            "CommonName" : "Apple" ,
+            "arrangement" : "alternate" ,
+            "twig" : "Twigs moderately stout, pubescent with matted hairs; dark reddish-brown beneath the overcoating of gray pubescence, somewhat angled below the leaf scars; lenticels inconspicuous, scattered; short thick spurs present on older twigs." ,
+            "bud" : "Buds 3/16 to 1/4 inch long, appressed to the stem; scales several, densely gray-pubescent, reddish-brown beneath the pubescence, obtuse, often mucronate." ,
+            "leafscars" : "Leaf scars alternate, raised, lunate, scalloped beneath the bundle scars: bundle scars 3, large; phyllotaxy 2/5." ,
+            "image" : [ "https://api.gbif.org/v1/image/cache/fit-in/500x/occurrence/3705525959/media/1cc661f144a984834d2729136342cabe" ],
+            "herbariums" : "https://burkeherbarium.org/imagecollection/taxon.php?Taxon=Malus+domestica" 
+        },
+        {
+            "authorId": 1,
+            "family" : "Rosaceae" ,
+            "genus" : "Crataegus" ,
+            "species" : "douglasii" ,
+            "CommonName" : "Western Hawthorn" ,
+            "arrangement" : "alternate" ,
+            "twig" : "Twigs slender, often with short internodes, dull red or brown, lustrous to dull, with dense gray pubescence and mealy scurf; armed with stout thorns at right angles to stems; these, morphologically, modified branches with leaf scars near their bases; lenticels few, small and inconspicuous, slightly raised." ,
+            "bud" : "Buds mostly under 1/8 inch long, blunt, rounded at the apex on mature plants, acute on young rapidly growing specimens; scales many, small, dry, sparingly scurfy, the lower scales sparsely pubescent, the lowest pair swollen, fleshy at the base, leaf blade rudiments imbricate." ,
+            "leafscars" : "Leaf scars raised, alternate, round to half round; on young rapidly growing twigs a petiole cushion remaining, this usually absent in mature slowly growing trees; bundle scars 3, obscured by a mealy scurf; phyllotaxy 2/5." ,
+            "image" : [ "https://burkeherbarium.org/imagecollection/wtu17000/tb/wtu017003.jpg" , "https://burkeherbarium.org/imagecollection/wtu17000/tb/wtu017004.jpg", "https://burkeherbarium.org/imagecollection/wtu17000/tb/wtu017006.jpg"],
+            "herbariums" : "" 
+        }
+    ];
+
+    //render user twigs
+    /*
+    const bodyTag = document.getElementsByTagName("body")[0];
+
+    for (let i in jsonData){
+        const userTwigCard = document.createElement("div");
+        userTwigCard.classList = ["newTwig-card"];
+
+        //add common name as header
+        const userTwigName = document.createElement("header");
+        userTwigName.innerHTML = jsonData[i].CommonName;
+        userTwigCard.appendChild(userTwigName);
+
+        //add scientif name
+        const userTwigSci = document.createElement("p");
+        userTwigSci.innerHTML = jsonData[i].genus + ' '+ jsonData[i].species;
+        userTwigCard.appendChild(userTwigSci);
+
+        //add to page
+        bodyTag.appendChild(userTwigCard);
+    } */
+
+    makeCards(jsonData);
+
+    /*
+    // If you already  able to serve API calls
+
+    //You code will look like below
+    //How will you handle errors?
+    //What is the difference between error in `await fetch`
+    const response = await fetch('/api/profile'
+        {
+            "method": "GET",
+            "headers": {
+                "Authorization": `Bearer ${token}`
+            }
+        }
+    );
+    const jsonData = await response.json();
+    */
+
+</script>
+
+</body>
+</html>
