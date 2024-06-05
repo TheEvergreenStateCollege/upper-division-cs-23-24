@@ -376,7 +376,7 @@ OTHER_SETTINGS = {
 ## 06/02/2024 Killed!!!
 ![Screenshot (588)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/d5e40d5d-54b0-4fc7-a45e-ff55186f92c1)
 - Because I have added more resources that are used while training, with a batch size of 4, and a learning rate of 3e-4. The amount of new resources to process, tokeninze, create new weights and bias, etc... With the batch rate at 4 uses more memory and system hardware resources, and well my local machine needs more power!!! <br>
-- The message "Killed" might indicate that the program was terminated by the system, because the excessive memory usage or running out of available resources. Training large models like GPT can be very resource-intensive, especially with increased batch sizes and longer training durations.
+- The message "Killed" might indicate that the program was terminated by the system, because the excessive memory usage or running out of available resources. Training large models like GPT can be very resource-intensive, especially with increased batch sizes and longer training durations.<br>
 
 `gpt_train_loss.pdf`
 ![Screenshot (589)](https://github.com/nathanMcL/Student.Originated.Software/assets/129904249/ce788f57-2957-45d1-ab15-9ff1f23a78bf)
@@ -394,7 +394,24 @@ OTHER_SETTINGS = {
 - I like how the `Validation loss` has lowered, but I think that is due to the increased data set...<br>
 - I am not sure if the `Validation loss` should have dropped that dramatically, then it starts to plateau before rising again.<br>
 
+## 06/05/2024
 
+Attemping to train `gpt_train.py` in gitpod... must install dependancies each time... <br>
+```
+pip install matplotlib && pip install tiktoken && pip install torch && pip install pdfplumber
+```
+Next, I needed to change the resource file paths to reflect the GitHub / GitPod environment.<br>
+```
+resource_files = [
+        "/workspace/upper-division-cs/ai-24sp/assignments/NathanMc/Prototype_text/resources/ArtOfWar.pdf",  # The Art of War, By Sun Tzu
+        "/workspace/upper-division-cs/ai-24sp/assignments/NathanMc/Prototype_text/resources/BlueBookTP600-4.pdf",  # New recurit, Basic Training book
+        "/workspace/upper-division-cs/ai-24sp/assignments/NathanMc/Prototype_text/resources/LDRSHIP_ARN36735-FM_6-22-000-WEB-1.pdf",  # Army Leardership
+        "/workspace/upper-division-cs/ai-24sp/assignments/NathanMc/Prototype_text/resources/DrillandCer_ARN32297-TC_3-21.5-000-WEB-1.pdf",  # Army Drill and Ceremonies
+        "/workspace/upper-division-cs/ai-24sp/assignments/NathanMc/Prototype_text/resources/PhysFitARN30964-FM_7-22-001-WEB-4.pdf" # Army Physical Readiness Training
+    ]
+```
+### Gitpod `gpt_training.py` <br>
+I uploaded the most recent CSV data from my local machine. With training in gitpod I hope to see different out put.<br> 
 
 
 
