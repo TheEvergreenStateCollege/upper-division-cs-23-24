@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>login</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../pages/styles.css">
 </head>
+<header>
+    <a href="../pages/index.html" class="linkpage" id="backtomainpage">←</a>
+    <div class="titleBlock">Login</div>
+</header>
 <body>
-    <form id="formLogin" onsubmit="Auth.login(event)">
+    <form id="formLogin" onsubmit="/scripts/Auth.login(event)">
         <fieldset>
             <label for="login_email">E-mail</label>
-            <input placeholder="email" id="login_email"
-                required autocomplete="webauthn username">      
-            <section hidden id="login_section_password">              
+            <input type="email" id="login_email" autocomplete="email">     
+
+            <section show id="login_section_password">              
                 <label for="login_password">Password</label>
-                <input type="password" id="login_password"
-                    autocomplete="webauthn current-password">
-            </section>                                      
-            <section hidden id="login_section_webauthn">
-                <a href="#" class="navlink" onclick="Auth.webAuthnLogin(); event.preventDefault">Log in with your Authenticator</a> 
-            </section>                                      
+                <input type="password" id="login_password" autocomplete="current-password">
+            </section>   
+                                  
         </fieldset>
         <button>Continue</button>
     

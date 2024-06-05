@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../pages/styles.css">
 </head>
+<header>
+    <a href="../pages/index.html" class="linkpage" id="backtomainpage">←</a>
+    <div class="titleBlock">Register</div>
+</header>
 <body>
-    <form id="formRegister" onsubmit="Auth.register(event)">
+    <form id="formRegister" onsubmit="/scripts/Auth.register(event)">
         <fieldset>
             <label for="register_name">Name</label>
-            <input placeholder="Name" id="register_name"
-                    required autocomplete="name">
+            <input placeholder="Name" id="register_name">
+
             <label for="register_email">E-mail (your username)</label>
             <input placeholder="Email" id="register_email" 
                     required type="email" autocomplete="username">

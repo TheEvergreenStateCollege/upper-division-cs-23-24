@@ -1,0 +1,258 @@
+
+:root {
+    --backgroundcolor: rgb(195, 164, 128);
+    --acsentcolor: rgb(158, 212, 177);
+    --darkcolor: rgb(51, 35, 16);
+}
+body{
+    margin: 0;
+    background-color: var(--backgroundcolor);
+}
+
+/* ------------------------------top------------------------------ */
+.titleBlock{  
+    font-size: 4rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    
+    background-color: var(--darkcolor);
+    color: var(--acsentcolor);
+}
+#backtomainpage{
+    text-decoration: none;
+    color: #fff;
+    font-size: 3rem;
+    padding: 0 1rem;
+
+    position: absolute;
+}
+/* ------------------------------index.html------------------------------ */
+
+
+/* ------------------------------twigs.html------------------------------ */
+#cardHolder{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    display: inline-block;
+    height: 30rem;
+    width: 20rem;
+    background-color: lightgray;
+    margin: 1rem;
+    color: black;
+  }
+.card:hover{
+    background-color: var(--acsentcolor);
+}
+
+.twigImg{
+    width:15rem;
+    height:15rem;
+    object-fit: cover;
+  }
+
+/* ------------------------------info.html------------------------------ */
+#infoPage{
+    text-align: center;
+    color: #fff;
+    
+}
+
+#leftHolder{
+    display: inline-block;
+    width: 20%;
+    background-color:var(--acsentcolor);
+}
+
+#imgHolder{
+    display: inline-block;
+    width: 60%;
+    max-height: 25rem;
+    overflow: auto;
+}
+
+.infoImg{
+    object-fit: contain;
+    background-size: cover;
+    height: 19rem;
+    max-height: 20rem;
+}
+
+#keyCharacteristics{
+    height: 10rm;
+}
+
+#desctiptionHolder{
+    display: inline-block;
+    width: 70%;
+    text-align: left;
+    background-color:var(--darkcolor);
+    padding: 1rem 5%;
+}
+
+
+/*-----------------------ID form stuff----------------*/
+
+h1{
+    text-align: center;
+}
+
+.formSection{
+    background-color: rgb(218, 191, 160);
+    padding: 1% 5%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10rem 0;
+}
+
+
+.formClass {
+    display: flex;
+    justify-content: right;
+}
+
+#formHolder{
+    display: block;
+    margin: 10%;
+}
+
+#formHolder h1{
+    font-size: 5rem;
+    background-color: rgb(98, 161, 98);
+}
+
+#formHolder h3{
+    font-size: 1.2rem;
+}
+
+#twigMorphology{
+    max-height: 30rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formSection img{
+    max-height: 20rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Q{
+    display: flex;
+    max-height: 5rem;
+    margin: 1rem;
+}
+
+
+.box{
+    margin: 10px;
+    border-bottom: 3px dotted #353535;
+    resize: vertical;
+    overflow: auto;
+}
+
+.boxLeft {
+    float: left;
+    max-width: 50%;
+    padding: 10px;
+}
+
+.boxLeft img{
+    max-height: 15rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*--question selecters styling--*/
+.holder input[type="radio"] {
+    opacity: 0;
+    width: 0;
+}
+
+.holder label {
+    display: inline-block;
+    background-color: #eaffd0;
+    padding: .5rem 1rem;
+    border: 1px solid #b6ce99;
+    border-radius: 5rem;
+}
+
+.holder input[type="radio"]:checked + label {
+    background-color:rgb(70, 182, 70);
+    border-color: #4c4;
+    color: aliceblue;
+}
+
+.holder label:hover {
+    background-color: rgb(230, 245, 132);
+}
+
+/*-----------------------profile stuff----------------*/
+.newTwig-card{
+    background-color: var(--acsentcolor);
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.newTwig-card header{
+    font-size: 3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------login stuff----------------*/
+form label {
+    display: block;
+    color: var(--darkcolor);
+    font-size: 2rem;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+form input {
+    display: block;
+    width: 94%;
+    padding: .5rem;
+    border-radius: 20px;
+    background-color: var(--acsentcolor);
+}
+
+button {
+    display: block;
+    background-color: var(--acsentcolor);
+    border: 0;
+    width: 50%;
+    margin: 1rem 25%;
+    padding: .4rem 0;
+    border-radius: 40px;
+    color: var(--darkcolor);
+    font-size: 2rem;
+}
+
+button:hover{
+    background-color: rgb(202, 224, 119);
+    color: var(--darkcolor);
+}
