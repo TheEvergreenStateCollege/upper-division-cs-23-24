@@ -139,11 +139,12 @@ def main(gpt_config, settings):
     # Process command-line arguments
     ##############################
 
-    if (sys.argv.len() <= 1)
+    if (len(sys.argv) <= 1 or len(sys.argv) < 2):
         print("usage: python gpt_train [seed-phrase]")
         return
 
     seed_phrase = sys.argv[1]
+    print("Seed phrase: " + seed_phrase)
 
     ##############################
     # Download data if necessary
