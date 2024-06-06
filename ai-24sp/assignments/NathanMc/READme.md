@@ -398,7 +398,7 @@ OTHER_SETTINGS = {
 
 Attemping to train `gpt_train.py` in gitpod... must install dependancies each time... <br>
 ```
-pip install matplotlib && pip install tiktoken && pip install torch && pip install pdfplumber
+pip install matplotlib && pip install tiktoken && pip install torch && pip install pdfplumber && install joblib
 ```
 Next, I needed to change the resource file paths to reflect the GitHub / GitPod environment.<br>
 ```
