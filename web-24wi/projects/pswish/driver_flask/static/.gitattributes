@@ -1,2 +1,0 @@
-car_large.jpg filter=lfs diff=lfs merge=lfs -text
-Q5.jpeg filter=lfs diff=lfs merge=lfs -text

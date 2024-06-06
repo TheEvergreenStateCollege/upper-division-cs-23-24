@@ -1,14 +1,13 @@
-use std::sync::{Arc, Mutex}
-use std::thread;
+// use std::sync::{Arc, Mutex};
+// use std::thread;
 
-#![allow(unused_variables, dead_code)]
-
+#[allow(unused_variables, dead_code)]
 mod utils;
 
 use wasm_bindgen::prelude::*;
 
 #[allow(unused_imports)]
-#[macro_use(log)]
+// #[macro_use(log)]
 #[wasm_bindgen]
 pub struct Universe {
     width: u32,
@@ -16,10 +15,9 @@ pub struct Universe {
     cells: Vec<Cell>,
 }
 
-struct ThreadSafeUniverse {
-    universe: Arc<Mutex<Universe>>,
-}
-
+// struct ThreadSafeUniverse {
+//     universe: Arc<Mutex<Universe>>,
+// }
 
 #[wasm_bindgen]
 #[repr(u8)]
@@ -149,38 +147,37 @@ impl Universe {
     }
 }
 
-impl ThreadSafeUniverse {
-    fn run_parallel(&self, num_threads: usize) {
-        let universe = Arc::clone(&self.universe);
-        let mut handles = Vec::with_capacity(num_threads);
+// impl ThreadSafeUniverse {
+//     fn run_parallel(&self, num_threads: usize) {
+//         let universe = Arc::clone(&self.universe);
+//         let mut handles = Vec::with_capacity(num_threads);
 
-        let rows_per_thread = self.universe.lock().unwrap().height / num_threads as u32;
+//         let rows_per_thread = self.universe.lock().unwrap().height / num_threads as u32;
 
-        for thread_id in 0..num_threads {
-            let universe = Arc::clone(&universe);
-            let start_row = thread_id as u32 * rows_per_thread;
-            let end_row = start_row + rows_per_thread;
+//         for thread_id in 0..num_threads {
+//             let universe = Arc::clone(&universe);
+//             let start_row = thread_id as u32 * rows_per_thread;
+//             let end_row = start_row + rows_per_thread;
 
-            handles.push(thread::spawn(move || {
-                for row in start_row..end_row {
-                    for col in 0..universe.lock().unwrap().width {
-                        let idx = universe.lock().unwrap().get_index(row, col);
-                        let cell = universe.lock().unwrap().cells[idx];
-                        let live_neighbors = universe.lock().unwrap().live_neighbor_count(row, col);
+//             handles.push(thread::spawn(move || {
+//                 for row in start_row..end_row {
+//                     for col in 0..universe.lock().unwrap().width {
+//                         let idx = universe.lock().unwrap().get_index(row, col);
+//                         let cell = universe.lock().unwrap().cells[idx];
+//                         let live_neighbors = universe.lock().unwrap().live_neighbor_count(row, col);
 
-                        // Apply the Game of Life rules here
-                        // ...
-                    }
-                }
-            }));
-        }
+//                         // Apply the Game of Life rules here
+//                         // ...
+//                     }
+//                 }
+//             }));
+//         }
 
-        for handle in handles {
-            handle.join().unwrap();
-        }
-    }
-}
-
+//         for handle in handles {
+//             handle.join().unwrap();
+//         }
+//     }
+// }
 
 // Testing methods
 impl Universe {

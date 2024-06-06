@@ -1,0 +1,8 @@
+__pycache__
+cashe_dir
+data/
+*.htm*
+*.txt
+*.7z
+*.pth
+*.log
