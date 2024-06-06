@@ -187,11 +187,11 @@ def main(gpt_config, settings):
     # Replaced the single-thread loading with the parallel version
     try:
         resource_files = [
-            r"/mnt/d/myPython/SpringStudentOriginatedSoftware/AI_SelfHosting/Prototype_LLM/resources/ArtOfWar.pdf",
-            r"/mnt/d/myPython/SpringStudentOriginatedSoftware/AI_SelfHosting/Prototype_LLM/resources/BlueBookTP600-4.pdf",
-            r"/mnt/d/myPython/SpringStudentOriginatedSoftware/AI_SelfHosting/Prototype_LLM/resources/LDRSHIP_ARN36735-FM_6-22-000-WEB-1.pdf",
-            r"/mnt/d/myPython/SpringStudentOriginatedSoftware/AI_SelfHosting/Prototype_LLM/resources/DrillandCer_ARN32297-TC_3-21.5-000-WEB-1.pdf",
-            r"/mnt/d/myPython/SpringStudentOriginatedSoftware/AI_SelfHosting/Prototype_LLM/resources/PhysFitARN30964-FM_7-22-001-WEB-4.pdf"
+            "/workspace/upper-division-cs/ai-24sp/assignments/NathanMc/Prototype_text/resources/ArtOfWar.pdf",  # The Art of War, By Sun Tzu
+            "/workspace/upper-division-cs/ai-24sp/assignments/NathanMc/Prototype_text/resources/BlueBookTP600-4.pdf",  # New recurit, Basic Training book
+            "/workspace/upper-division-cs/ai-24sp/assignments/NathanMc/Prototype_text/resources/LDRSHIP_ARN36735-FM_6-22-000-WEB-1.pdf",  # Army Leardership
+            "/workspace/upper-division-cs/ai-24sp/assignments/NathanMc/Prototype_text/resources/DrillandCer_ARN32297-TC_3-21.5-000-WEB-1.pdf",  # Army Drill and Ceremonies
+            "/workspace/upper-division-cs/ai-24sp/assignments/NathanMc/Prototype_text/resources/PhysFitARN30964-FM_7-22-001-WEB-4.pdf" # Army Physical Readiness Training
         ]
 
         raw_text = load_data_parallel(resource_files)
