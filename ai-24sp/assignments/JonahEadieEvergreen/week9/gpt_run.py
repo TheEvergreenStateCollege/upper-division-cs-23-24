@@ -136,17 +136,6 @@ def main(gpt_config, settings):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     ##############################
-    # Process command-line arguments
-    ##############################
-
-    if (len(sys.argv) <= 1 or len(sys.argv) < 2):
-        print("usage: python gpt_train [seed-phrase]")
-        return
-
-    seed_phrase = sys.argv[1]
-    print("Seed phrase: " + seed_phrase)
-
-    ##############################
     # Download data if necessary
     ##############################
 
@@ -233,6 +222,17 @@ if __name__ == "__main__":
         "batch_size": 2,
         "weight_decay": 0.1
     }
+
+    ##############################
+    # Process command-line arguments
+    ##############################
+
+    if (len(sys.argv) <= 1 or len(sys.argv) < 2):
+        print("usage: python gpt_train [seed-phrase]")
+        return
+
+    seed_phrase = sys.argv[1]
+    print("Seed phrase: " + seed_phrase)
 
     # Following based on Paul Pham's code
     
