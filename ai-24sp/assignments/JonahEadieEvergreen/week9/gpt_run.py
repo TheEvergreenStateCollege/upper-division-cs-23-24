@@ -229,7 +229,6 @@ if __name__ == "__main__":
 
     if (len(sys.argv) <= 1 or len(sys.argv) < 2):
         print("usage: python gpt_train [seed-phrase]")
-        return
 
     seed_phrase = sys.argv[1]
     print("Seed phrase: " + seed_phrase)
@@ -494,8 +493,7 @@ if __name__ == "__main__":
     ##############################
 
     seed_phrase = sys.argv[1]
-    print("Seed phrase: " + seed_phrase)
-    
+    print("Seed phrase: " + seed_phrase)    
 
     device = torch.device("cuda" if torch.cude.is_available() else "cpu")
     tokenizer = tiktoken.get_encoding("gpt2")
