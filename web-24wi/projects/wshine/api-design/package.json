@@ -1,7 +1,0 @@
-{
-    "type": "module",
-    "dependencies": {
-        "@prisma/client": "^5.9.1",
-        "express": "^4.18.2"
-    }
-}
