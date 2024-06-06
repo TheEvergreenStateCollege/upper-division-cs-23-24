@@ -167,11 +167,15 @@ def load_data_parallel(resource_files):
 def load_single_file(data_path):
     if not os.path.isfile(data_path):
         raise FileNotFoundError(f"File not found at: {data_path}")
-    with pdfplumber.open(data_path) as pdf:
-        raw_text = ""
-        for page in pdf.pages:
-            raw_text += page.extract_text()
-    return raw_text
+    try:
+        with pdfplumber.open(data_path) as pdf:
+            raw_text = ""
+            for page in pdf.pages:
+                raw_text += page.extract_text()
+        return raw_text
+    except Exception as e:
+        logging.error(f"Error reading {data_path}: {e}")
+        return ""
 
 # Main 
 def main(gpt_config, settings):
