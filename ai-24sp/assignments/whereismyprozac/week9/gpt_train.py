@@ -1,3 +1,8 @@
+# Copyright (c) Sebastian Raschka under Apache License 2.0 (see LICENSE.txt).
+# Source for "Build a Large Language Model From Scratch"
+#   - https://www.manning.com/books/build-a-large-language-model-from-scratch
+# Code: https://github.com/rasbt/LLMs-from-scratch
+
 import matplotlib.pyplot as plt
 import os
 import torch
@@ -5,10 +10,8 @@ import urllib.request
 import tiktoken
 import sys
 
-
 # Import from local files
 from previous_chapters import GPTModel, create_dataloader_v1, generate_text_simple
-from gpt_train import GPT_CONFIG_124M
 
 
 def text_to_token_ids(text, tokenizer):
@@ -70,7 +73,7 @@ def generate_and_print_sample(model, tokenizer, device, start_context):
 
 
 def train_model_simple(model, train_loader, val_loader, optimizer, device, num_epochs,
-                       eval_freq, eval_iter, start_context, tokenizer):
+                    eval_freq, eval_iter, start_context, tokenizer):
     # Initialize lists to track losses and tokens seen
     train_losses, val_losses, track_tokens_seen = [], [], []
     tokens_seen = 0
@@ -96,7 +99,7 @@ def train_model_simple(model, train_loader, val_loader, optimizer, device, num_e
                 val_losses.append(val_loss)
                 track_tokens_seen.append(tokens_seen)
                 print(f"Ep {epoch+1} (Step {global_step:06d}): "
-                      f"Train loss {train_loss:.3f}, Val loss {val_loss:.3f}")
+                    f"Train loss {train_loss:.3f}, Val loss {val_loss:.3f}")
 
         # Print a sample text after each epoch
         generate_and_print_sample(
@@ -124,6 +127,9 @@ def plot_losses(epochs_seen, tokens_seen, train_losses, val_losses):
     fig.tight_layout()  # Adjust layout to make room
     # plt.show()
 
+# Get parameters needed for both training and inference
+# Should not depend on other settings
+# Returns (device, tokenizer)
 def get_standard_model_params():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     tokenizer = tiktoken.get_encoding("gpt2")
@@ -131,16 +137,17 @@ def get_standard_model_params():
 
 def main(gpt_config, settings):
 
-    #torch.manual_seed(123)
+    # torch.manual_seed(123)
     (device, tokenizer) = get_standard_model_params()
+
     ##############################
     # Download data if necessary
     ##############################
 
-    file_path = "..data/totally-profound-monologue.txt"
+    file_path = "ai-24sp/assignments/whereismyprozac/data/totally-profound-monologue.txt"
 
     with open(file_path, "r", encoding="utf-8") as file:
-            text_data = file.read()
+        text_data = file.read()
 
     ##############################
     # Initialize model
@@ -184,8 +191,6 @@ def main(gpt_config, settings):
     # Train model
     ##############################
 
-    #tokenizer = tiktoken.get_encoding("gpt2")
-
     train_losses, val_losses, tokens_seen = train_model_simple(
         model, train_loader, val_loader, optimizer, device,
         num_epochs=settings["num_epochs"], eval_freq=5, eval_iter=1,
@@ -218,34 +223,30 @@ if __name__ == "__main__":
     # Initiate training
     ###########################
 
-    #train_losses, val_losses, tokens_seen, model = main(GPT_CONFIG_124M, OTHER_SETTINGS) #watch this
+    # Create in this scope so we can update it in if-else branches
     device = None
     tokenizer = None
 
-    ###########################
-    # After training
-    ###########################
     print(f"argv {sys.argv}")
     if (sys.argv[-1] == "train"):
+        print("Training ")
         train_losses, val_losses, tokens_seen, model, device, tokenizer = main(GPT_CONFIG_124M, OTHER_SETTINGS)
-    ###########################
-    # After training
-    ###########################
 
-    # Plot results
-    epochs_tensor = torch.linspace(0, OTHER_SETTINGS["num_epochs"], len(train_losses))
-    plot_losses(epochs_tensor, tokens_seen, train_losses, val_losses)
-    plt.savefig("loss.pdf")
+        ###########################
+        # After training
+        ###########################
 
-    # Save and load model
-    torch.save(model.state_dict(), "gpt.pth")
-else:
-    device, tokenizer = get_standard_model_params()
+        # Plot results
+        epochs_tensor = torch.linspace(0, OTHER_SETTINGS["num_epochs"], len(train_losses))
+        plot_losses(epochs_tensor, tokens_seen, train_losses, val_losses)
+        plt.savefig("loss.pdf")
+
+        # Save and load model
+        torch.save(model.state_dict(), "model.pth")
+    else:
+        (device, tokenizer) = get_standard_model_params()
 
     model = GPTModel(GPT_CONFIG_124M)
-
     model.load_state_dict(torch.load("model.pth"))
-    generate_and_print_sample(
-        model, tokenizer, device, "Every effort moves you"
-    )
 
+    generate_and_print_sample(model, tokenizer, device, "Every effort moves you")
