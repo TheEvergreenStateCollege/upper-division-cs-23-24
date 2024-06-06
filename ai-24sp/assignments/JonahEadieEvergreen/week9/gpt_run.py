@@ -241,7 +241,7 @@ if __name__ == "__main__":
     seed_phrase = sys.argv[1]
     print("Seed phrase: " + seed_phrase)    
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu")
     tokenizer = tiktoken.get_encoding("gpt2")
     
     model = GPTModel(GPT_CONFIG_124M)
