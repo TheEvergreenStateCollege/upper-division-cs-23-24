@@ -133,7 +133,7 @@ def main(gpt_config, settings):
     # Download data if necessary
     ##############################
 
-    file_path = "../data/totally-profound-monologue.txt"
+    file_path = "../data/Frank Herbert - Dune Messiah.txt"
     with open(file_path, "r", encoding="utf-8") as file:
             text_data = file.read()
 
