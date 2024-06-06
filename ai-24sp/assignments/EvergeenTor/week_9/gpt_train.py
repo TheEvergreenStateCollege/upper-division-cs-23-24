@@ -213,7 +213,7 @@ if __name__ == "__main__":
 
     OTHER_SETTINGS = {
         "learning_rate": 5e-4,
-        "num_epochs": 7,
+        "num_epochs": 75,
         "batch_size": 2,
         "weight_decay": 0.1
     }
