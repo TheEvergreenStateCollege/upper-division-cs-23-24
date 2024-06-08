@@ -3,6 +3,9 @@ mod utils;
 extern crate web_sys;
 use web_sys::console;
 
+use std::thread;
+use std::sync::Arc;
+
 use wasm_bindgen::prelude::*;
 use std::fmt;
 
@@ -48,6 +51,14 @@ impl<'a> Drop for Timer<'a> {
     fn drop(&mut self) {
         console::time_end_with_label(self.name);
     }
+}
+
+const THREAD_COUNT: u8 = 2;
+
+pub struct UniverseSlice<'a> {
+    universe: &'a Universe,
+    start_x: usize,
+    end_x: usize,
 }
 
 #[wasm_bindgen]
@@ -161,39 +172,55 @@ impl Universe {
         count
     }
 
-    // pub fn tick(&mut self) {
-    //     let _timer = Timer::new("Universe::tick");
+    pub fn tick_slice(slice: &UniverseSlice) {
+        let _timer = Timer::new("Universe::tick");
 
-    //     let mut next = self.cells.clone();
+        let mut next = slice.cells.cells.clone();
 
-    //     for row in 0..self.height {
-    //         for col in 0..self.width {
-    //             let idx = self.get_index(row, col);
-    //             let cell = self.cells[idx];
-    //             let live_neighbors = self.live_neighbor_count(row, col);
+        for row in 0..slice.height {
+            for col in slice.start_x..slice.end_x {
+                slice.universe.get_index(row, col);
+                let idx = slice.cells.get_index(row, col);
+                let cell = slice.cells.cells[idx];
+                let live_neighbors = slice.cells.live_neighbor_count(row, col);
 
-    //             let next_cell = match (cell, live_neighbors) {
-    //                 // Rule 1: Any live cell with fewer than two live neighbours
-    //                 // dies, as if caused by underpopulation.
-    //                 (Cell::Alive, x) if x < 2 => Cell::Dead,
-    //                 // Rule 2: Any live cell with two or three live neighbours
-    //                 // lives on to the next generation.
-    //                 (Cell::Alive, 2) | (Cell::Alive, 3) => Cell::Alive,
-    //                 // Rule 3: Any live cell with more than three live
-    //                 // neighbours dies, as if by overpopulation.
-    //                 (Cell::Alive, x) if x > 3 => Cell::Dead,
-    //                 // Rule 4: Any dead cell with exactly three live neighbours
-    //                 // becomes a live cell, as if by reproduction.
-    //                 (Cell::Dead, 3) => Cell::Alive,
-    //                 // All other cells remain in the same state.
-    //                 (otherwise, _) => otherwise,
-    //             };
+                let next_cell = match (cell, live_neighbors) {
+                    // Rule 1: Any live cell with fewer than two live neighbours
+                    // dies, as if caused by underpopulation.
+                    (Cell::Alive, x) if x < 2 => Cell::Dead,
+                    // Rule 2: Any live cell with two or three live neighbours
+                    // lives on to the next generation.
+                    (Cell::Alive, 2) | (Cell::Alive, 3) => Cell::Alive,
+                    // Rule 3: Any live cell with more than three live
+                    // neighbours dies, as if by overpopulation.
+                    (Cell::Alive, x) if x > 3 => Cell::Dead,
+                    // Rule 4: Any dead cell with exactly three live neighbours
+                    // becomes a live cell, as if by reproduction.
+                    (Cell::Dead, 3) => Cell::Alive,
+                    // All other cells remain in the same state.
+                    (otherwise, _) => otherwise,
+                };
 
-    //             next[idx] = next_cell;
-    //         }
-    //     }
+                next[idx] = next_cell;
+            }
+        }
+    }
 
     pub fn tick(&mut self) {
+        let mut handles = vec![2];
+
+        for i in 0..THREAD_COUNT {
+            let start_x = i * (self.width/THREAD_COUNT);
+            let end_x = (i+1) (self.width/THREAD_COUNT);
+            let slice = Arc::new(UniverseSlice{universe:self, start_x: start_x, end_x: end_x});
+
+            let handle = thread::spawn(move || {
+                Self::tick_slice(&slice);
+            });
+            handles.push(handle);
+        }
+
+
         let _timer = Timer::new("Universe::tick");
     
         let mut next = {
@@ -235,8 +262,6 @@ impl Universe {
         self.cells = next;
     }
 
-        self.cells = next;
-    }
 
     pub fn new() -> Universe {
         let width = 64;
