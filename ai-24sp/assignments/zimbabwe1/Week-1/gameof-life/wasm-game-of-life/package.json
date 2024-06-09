@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "create-wasm-app": "^0.1.0"
+  },
+  "devDependencies": {
+    "wasm-pack": "^0.12.1"
+  }
+}
