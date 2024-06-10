@@ -68,6 +68,7 @@ impl Universe {
                 next[idx] = next_cell;
             }
         }
+        self.cells = next;
     }
 
     pub fn new() -> Universe {
