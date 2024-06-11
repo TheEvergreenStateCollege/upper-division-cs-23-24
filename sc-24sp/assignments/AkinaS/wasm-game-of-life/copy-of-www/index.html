@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Hello wasm-pack!</title>
+
+    <style>
+      body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      @viewport {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      #fps {
+        white-space: pre;
+        font-family: monospace;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+      }
+
+      #play-pause {
+        position: fixed;
+        bottom: 60px;
+        right: 20px;
+      }
+
+      #scroller {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      #randomize {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+      }
+
+      #doa {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+    <button id="play-pause"></button>
+    <input id="scroller" type="range" min="1" max="10" value="1">
+    <div id="fps"></div>
+    <canvas id="game-of-life-canvas"></canvas>
+    <button id="doa">All Dead/All Alive</button>
+    <button id="randomize">Randomize State</button>
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>

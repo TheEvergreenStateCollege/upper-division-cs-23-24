@@ -1,0 +1,13 @@
+{
+    "capabilities": {
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+        "args": ["--headless", "--disable-gpu"]
+      }
+    },
+    "hostname": "localhost",
+    "port": 8080,
+    "url": "http://localhost:8080/",
+    "protocol": "webdriver",
+    "path": "/session"
+}
