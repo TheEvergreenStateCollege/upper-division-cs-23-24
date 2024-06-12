@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <div id="playlist-section"> </--You can add music from the available categories to a playlist and save it--/>
+        <div id="playlist-section">
             <div id="playlist-container">
                 <ul id="playlist">
                 </ul>
@@ -52,7 +52,7 @@
             <div id="music-list">
 
             </div>
-            <div id="auth-window">
+            <div id="auth-window" style="display: none">
                 <form id="loginForm" onsubmit="handleAuthForm(event, 'login')">
                     <fieldset>
                         <label for="login-username">Username</label>
@@ -77,7 +77,7 @@
                 </form>
             </div>
         </div>
-        <div id="music-player-container">
+        <div id="music-bar">
             <div id="music-info-container">
                 <p class="music-info" id="current-artist">Artist</p>
                 <span class="music-info material-symbols-outlined" id="music-info-separator">
@@ -85,46 +85,48 @@
                 </span>
                 <p class="music-info" id="current-title">Currently Playing Song</p>
             </div>
-            <div id="playback-controls">
-                <button class="playback-button" aria-label="loop song">
-                    <span class="material-symbols-outlined" id="loop-icon">
-                        repeat
-                    </span>
-                </button>
-                <button class="playback-button" aria-label="previous song">
-                    <span class="material-symbols-outlined" id="back-icon">
-                        skip_previous
-                    </span>
-                </button>
-                <button onclick="playAudio()" class="playback-button" aria-label="play">
-                    <span class="material-symbols-outlined" id="play-icon">
-                        play_arrow
-                    </span>
-                </button>
-                <button class="playback-button" aria-label="next song">
-                    <span class="material-symbols-outlined" id="next-icon">
-                        skip_next
-                    </span>
-                </button>
-                <button class="playback-button" aria-label="shuffle">
-                    <span class="material-symbols-outlined" id="shuffle-icon">
-                        shuffle
-                    </span>
-                </button>
-                <div id="volume-dropdown">
-                    <div id="volume-dropdown-content">
-                        <input type="range" id="volume-slider" max="100" value="50">
-                    </div>
-                    <button class="playback-button" id="volume-button" aria-label="volume">
-                        <span class="material-symbols-outlined" id="volume-icon">
-                            volume_up
+            <div id="music-player-container">
+                <div id="playback-controls">
+                    <button onclick="toggleRepeat()" class="playback-button" aria-label="loop song">
+                        <span class="material-symbols-outlined" id="loop-icon">
+                            repeat
                         </span>
                     </button>
+                    <button onclick="previousSong()" class="playback-button" aria-label="previous song">
+                        <span class="material-symbols-outlined" id="back-icon">
+                            skip_previous
+                        </span>
+                    </button>
+                    <button onclick="playAudio()" class="playback-button" aria-label="play">
+                        <span class="material-symbols-outlined" id="play-icon">
+                            play_arrow
+                        </span>
+                    </button>
+                    <button onclick="nextSong()" class="playback-button" aria-label="next song">
+                        <span class="material-symbols-outlined" id="next-icon">
+                            skip_next
+                        </span>
+                    </button>
+                    <button onclick="shuffle()" class="playback-button" aria-label="shuffle">
+                        <span class="material-symbols-outlined" id="shuffle-icon">
+                            shuffle
+                        </span>
+                    </button>
+                    <div id="volume-dropdown">
+                        <div id="volume-dropdown-content">
+                            <input type="range" id="volume-slider" max="100" value="50">
+                        </div>
+                        <button class="playback-button" id="volume-button" aria-label="volume">
+                            <span class="material-symbols-outlined" id="volume-icon">
+                                volume_up
+                            </span>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div id="music-tracker-container">
-                <input type="range" class="music-tracker" id="music-tracker" oninput="seekAudio()" min="0" max="100" value="0">
-                <audio id="current-audio"></audio>
+                <div id="music-tracker-container">
+                    <input type="range" class="music-tracker" id="music-tracker" oninput="seekAudio()" min="0" max="100" value="0">
+                    <audio id="current-audio"></audio>
+                </div>
             </div>
         </div>
     </div>
