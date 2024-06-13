@@ -1,0 +1,10 @@
+This is a copy of the www submodules that includes along with the template of the game of life.
+
+Because it's a submodule for unknown reason, the fact that it got its own branch shows that it can't be mixed
+with the main repo.
+
+Hence I create this folder for archive reasons, there should also be a node_modules but 1 it got gitignored by
+default, which is understandable, and 2 it always comes with the intialization of this template through npm init
+by default as well, so it's self explanatory and don't need to get archived in.
+
+Thank you for checking this out.
