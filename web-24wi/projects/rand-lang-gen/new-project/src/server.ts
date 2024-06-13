@@ -16,6 +16,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.get('/', async (req: Request, res: Response, next: NextFunction) => {
   res.sendFile(path.resolve("pages/index.html"));
+  res.json({message: 'hello'})
 });
 
 app.use('/api', protect, router);
