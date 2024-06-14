@@ -90,9 +90,10 @@ app.get("/map", function(req, res) {
 	res.sendFile(path.join(__dirname, '/static/pages/maps.html'));
 });
 
-app.get('/audio/:fileName', (req, res) => {
+app.get('/audio/:category/:fileName', (req, res) => {
+	const category = req.params.category;
 	const fileName = req.params.fileName;
-	const filePath = path.join(mediaDir, fileName);
+	const filePath = path.join(mediaDir, category, fileName);
 
 	if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
 		fs.stat(filePath, (err, stats) => {
@@ -140,9 +141,10 @@ const songPrototype = {
 async function indexMusic(subdir, index) {
 	let songs = [];
 	try {
-		const files = await fs.promises.readdir(mediaDir + subdir);
+		const categoryDir = path.join(mediaDir, subdir);
+		const files = await fs.promises.readdir(categoryDir);
 		for (const file of files) {
-			const filePath = path.join(mediaDir + subdir, file)
+			const filePath = path.join(categoryDir, file)
 			const stat = await fs.promises.stat(filePath);
 			if (stat.isFile()) {
 				let title = "error: no title";
@@ -157,7 +159,7 @@ async function indexMusic(subdir, index) {
 				let song = Object.create(songPrototype);
 				song.title = title;
 				song.artist = artist;
-				song.filename = subdir + "/" + file;
+				song.filename = path.join(subdir,file);
 				songs.push(song);
 			}
 		}
