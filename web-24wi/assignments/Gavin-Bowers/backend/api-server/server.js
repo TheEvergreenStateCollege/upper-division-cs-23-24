@@ -129,8 +129,8 @@ app.get('/audio/:fileName', (req, res) => {
 });
 
 /* Make a list of available music when server starts*/
-const mediaDir = "/home/ubuntu/src/media"
-var musicList = [];
+// const mediaDir = "/home/ubuntu/src/media"
+var musicList = [[]];
 
 const songPrototype = {
 	title: "song title",
@@ -138,11 +138,11 @@ const songPrototype = {
 	filename: "song filename"
 }
 
-async function indexMusic() {
+async function indexMusic(mediadir, listIndex) {
 	try {
-		const files = await fs.promises.readdir(mediaDir);
+		const files = await fs.promises.readdir(mediadir);
 		for (const file of files) {
-			const filePath = path.join( mediaDir, file)
+			const filePath = path.join( mediadir, file)
 			const stat = await fs.promises.stat(filePath);
 			if (stat.isFile()) {
 				let title = "error: no title";
@@ -158,7 +158,7 @@ async function indexMusic() {
 				song.title = title;
 				song.artist = artist;
 				song.filename = file;
-				musicList.push(song);
+				musicList[listIndex].push(song);
 			}
 		}
 	} catch (error) {
@@ -166,7 +166,9 @@ async function indexMusic() {
 	}
 }
 
-indexMusic();
+indexMusic("/home/ubuntu/src/media/server_music/halley-labs-mix", 0);
+indexMusic("/home/ubuntu/src/media/server_music/progressive", 1);
+indexMusic("/home/ubuntu/src/media/server_music/chill-vibes", 2);
 
 app.get("/musicdata", function(req, res) {
 	res.json(musicList);

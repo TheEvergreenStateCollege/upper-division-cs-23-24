@@ -11,23 +11,30 @@
 <body>
     <div id="content-container">
         <div id="top-row">
-            <div class="controls" id="ambience-controls">
-                <button id="coffeeshop-ambience">
-                    <span class="material-symbols-outlined" id="cafe-icon">
-                        local_cafe
-                    </span>
+            <button onclick="showMyPlaylist()" id="playlist-button">
+                My Playlist
+            </button>
+            <button onclick="toggleEditMode()" id="edit-button" aria-label="edit">
+                <span class="material-symbols-outlined" id="edit-icon">
+                    edit
+                </span>
+            </button>
+            <div id="music-selector">
+                <button onclick="showMusicCategory(0)" class="music-selector-button">
+                    Halley Labs Mix
                 </button>
-                <button id="rain-ambience">
-                    <span class="material-symbols-outlined" id="rain-icon">
-                        rainy
-                    </span>
+                <button onclick="showMusicCategory(1)" class="music-selector-button">
+                    Progressive
                 </button>
-                <button id="ocean-ambience">
-                    <span class="material-symbols-outlined" id="wave-icon">
-                        waves
-                    </span>
+                <button onclick="showMusicCategory(2)" class="music-selector-button">
+                    Chill Vibes
                 </button>
             </div>
+            <button id="info-button">
+                <span class="material-symbols-outlined" id="info-icon">
+                    info
+                </span>
+            </button>
             <div class="auth-dropdown">
                 <button class="dropbtn">
                     <span class="material-symbols-outlined" id="account-icon">
@@ -116,7 +123,7 @@
                         <div id="volume-dropdown-content">
                             <input type="range" id="volume-slider" max="100" value="50">
                         </div>
-                        <button class="playback-button" id="volume-button" aria-label="volume">
+                        <button onclick="toggleMute()" id="volume-button" aria-label="volume">
                             <span class="material-symbols-outlined" id="volume-icon">
                                 volume_up
                             </span>
@@ -124,7 +131,7 @@
                     </div>
                 </div>
                 <div id="music-tracker-container">
-                    <input type="range" class="music-tracker" id="music-tracker" oninput="seekAudio()" min="0" max="100" value="0">
+                    <input type="range" class="music-tracker" id="music-tracker" oninput="seekAudio()" min="0" max="5000" value="0">
                     <audio id="current-audio"></audio>
                 </div>
             </div>

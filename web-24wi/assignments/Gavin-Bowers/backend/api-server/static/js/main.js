@@ -10,12 +10,52 @@ const playlistTag = document.getElementById('playlist');
 
 const endpoint = "https://gavin-bowers.arcology.builders/"
 
-var musiclist = [];
+const TRACKER_SIZE = 5000;
+
+var musiclists = [[]];
 var playlist = [];
+var savedPlaylist = [];
 var playlistIndex = 0;
 var repeat = false;
 var shuffleOn = false;
 var musicStarted = false;
+
+var editMode = false;
+var dragStart;
+var dragEnd;
+
+function showMusicCategory(category) {
+    savedPlaylist = playlist.slice();
+    playlist = musiclists[category].slice();
+    displayPlaylist();
+}
+
+function showMyPlaylist() {
+    playlist = savedPlaylist.slice();
+    displayPlaylist();
+}
+
+function toggleEditMode() {
+    if (editMode) {
+        editMode = false;
+    } else {
+        editMode = true;
+    }
+    displayPlaylist();
+}
+
+function removeSong(index) {
+    playlist.splice(index, 1);
+    if (index < playlistIndex) {
+        playlistIndex--;
+    } else if (index == playlistIndex) {
+        playSong();
+    }
+    // for (let song of playlist) {
+
+    // }
+    displayPlaylist();
+}
 
 function playAudio() {
     if (audio.paused) {
@@ -60,7 +100,8 @@ function shuffle() {
         shuffleOn = false;
         document.getElementById('shuffle-icon').innerHTML = 'shuffle';
         playlist = [];
-        for (let song of musiclist) {
+        console.log(savedPlaylist);
+        for (let song of savedPlaylist) {
             playlist.push(song);
         }
         playlistIndex = 0;
@@ -78,11 +119,11 @@ function shuffle() {
         shufflePlaylist();
     }
     displayPlaylist();
-    playlistTag.children[playlistIndex].children[0].style.background = 
-    "linear-gradient(90deg, #f39d72 0%, #e19d9d 23%, #edd492 100%)";
 }
 
 function shufflePlaylist() {
+    savedPlaylist = playlist.slice();
+
     for (let i = playlist.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * i + 1);
         [playlist[i], playlist[j]] = [playlist[j], playlist[i]];
@@ -99,6 +140,16 @@ function shufflePlaylist() {
     playlistIndex = 0;
 }
 
+function toggleMute() {
+    if (audio.muted) {
+        document.getElementById("volume-icon").innerHTML = "volume_up";
+        audio.muted = false;
+    } else {
+        document.getElementById("volume-icon").innerHTML = "volume_off";
+        audio.muted = true;
+    }
+}
+
 audio.onplay = (event) => {
     playIcon.innerHTML = 'pause';
 }
@@ -112,14 +163,17 @@ audio.onended = (event) => {
 }
 
 volumeSlider.addEventListener('input', (event) => {
-    const value = event.target.value;
-    let volumeFraction = value / 100;
-    let logVolume = Math.pow(volumeFraction, 2);
-    audio.volume = logVolume;
+    setVolume(event.target.value);
 });
 
+function setVolume(volume) {
+    let volumeFraction = volume / 100;
+    let logVolume = Math.pow(volumeFraction, 2);
+    audio.volume = logVolume;
+}
+
 function seekAudio() {
-    var seekTo = audio.duration * (musicTracker.value / 100);
+    var seekTo = audio.duration * (musicTracker.value / TRACKER_SIZE);
     audio.currentTime = seekTo;
     audio.play();
 }
@@ -128,17 +182,13 @@ audio.ontimeupdate = function() {
     if (isNaN(audio.duration) || audio.duration === 0) { //prevents invalid values from making the range become the default value (50)
         return;
     }
-    var progress = (audio.currentTime / audio.duration) * 100;
+    var progress = (audio.currentTime / audio.duration) * TRACKER_SIZE;
     musicTracker.value = progress;
 };
 
 async function getMusicData() {
     const res = await fetch(endpoint + 'musicdata');
-    musiclist = await res.json();
-    for (let song of musiclist) {
-        playlist.push(song);
-    }
-    displayPlaylist();
+    musiclists = await res.json();
 }
 
 function displayPlaylist() {
@@ -148,16 +198,79 @@ function displayPlaylist() {
     let index = 0;
     for (let song of playlist) {
         let playlistElement = document.createElement('li');
+        playlistElement.classList.add('playlist-element');
+        playlistElement.classList.add('draggable');
+        playlistElement.draggable = true;
+
         let songButton = document.createElement('button');
         songButton.className = "playlist-song"
         let closureIndex = index; //Copies the index value for the following closure
         songButton.onclick = function() {playlistIndex = closureIndex; playSong();};
-        songButton.innerHTML = song.artist + ' — ' + song.title;
+        songButton.append(song.artist + ' — ' + song.title)
+
+        if (index == playlistIndex) {
+            songButton.style.background = "linear-gradient(90deg, #f39d72 0%, #e19d9d 23%, #edd492 100%)";
+        } else {
+            songButton.style.background = "linear-gradient(90deg, rgba(238,120,62,1) 0%, rgba(214,122,122,1) 23%, rgba(227,189,88,1) 100%)";
+        }
+        if (editMode) {
+            let removeButtom = document.createElement('button');
+            removeButtom.className = "remove-button";
+            let removeIcon = document.createElement('span');
+            removeIcon.innerHTML = 'playlist_remove';
+            removeIcon.className = 'material-symbols-outlined';
+            removeButtom.append(removeIcon);
+            removeButtom.onclick = function() {removeSong(closureIndex);};
+            playlistElement.append(removeButtom);
+        }
         playlistElement.append(songButton);
+
+        playlistElement.addEventListener('dragstart', () => {
+            dragStart = closureIndex;
+            playlistElement.classList.add('dragging');
+        });
+        playlistElement.addEventListener('dragend', e => {
+            playlistElement.classList.remove('dragging');
+            let movingSong = playlist.splice(dragStart, 1);
+            if (dragEnd > dragStart) { //accounts for offset when song is moved after itself
+                playlist.splice(dragEnd - 1, 0, movingSong[0]);
+            } else {
+                playlist.splice(dragEnd, 0, movingSong[0]);
+            }
+            if (dragStart < playlistIndex && dragEnd > playlistIndex) {
+                playlistIndex--;
+            } else if (dragStart > playlistIndex && dragEnd < playlistIndex) {
+                playlistIndex++;
+            } else if (dragStart == playlistIndex) {
+                playlistIndex = dragEnd;
+                if (dragEnd > dragStart) {
+                    playlistIndex--;
+                }
+            }
+            displayPlaylist();
+        });
         playlistTag.append(playlistElement);
         index++;
     }
 }
+
+
+
+playlistTag.addEventListener('dragover', e => {
+    e.preventDefault();
+    let rect = e.currentTarget.getBoundingClientRect();
+    let offset = e.clientY - rect.top;
+    let newIndex = Math.floor(offset / 33 + 0.5);
+    dragEnd = newIndex;
+    for (child of playlistTag.children) {
+        child.style.borderTop = 'none';
+        child.style.paddingTop = '1.5px';
+        child.style.paddingBottom = '1.5px';
+    }
+    playlistTag.children[newIndex].style.borderTop = '3px solid #f1f1f1';
+    playlistTag.children[newIndex].style.paddingTop = '0px';
+    playlistTag.children[newIndex - 1].style.paddingBottom = '0px';
+});
 
 async function playSong() {
     let song = playlist[playlistIndex];
@@ -165,11 +278,12 @@ async function playSong() {
     currentArtist.innerHTML = song.artist;
     currentTitle.innerHTML = song.title;
 
-    for (let child of playlistTag.children) {
-        child.children[0].style.background = 
+    
+    for (let elem of document.getElementsByClassName('playlist-song')) {
+        elem.style.background = 
             "linear-gradient(90deg, rgba(238,120,62,1) 0%, rgba(214,122,122,1) 23%, rgba(227,189,88,1) 100%)";
     }
-    playlistTag.children[playlistIndex].children[0].style.background = 
+    [...document.getElementsByClassName('playlist-song')][playlistIndex].style.background = 
         "linear-gradient(90deg, #f39d72 0%, #e19d9d 23%, #edd492 100%)";
     currentAudio.load();
     await audio.play();
