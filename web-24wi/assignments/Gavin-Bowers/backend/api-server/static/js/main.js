@@ -187,8 +187,12 @@ audio.ontimeupdate = function() {
 };
 
 async function getMusicData() {
-    const res = await fetch(endpoint + 'musicdata');
-    musiclists = await res.json();
+    const res1 = await fetch(endpoint + 'musicdata/halley-labs-mix');
+    musiclists[0] = await res1.json();
+    const res2 = await fetch(endpoint + 'musicdata/progressive');
+    musiclists[1] = await res2.json();
+    const res3 = await fetch(endpoint + 'musicdata/chill-vibes');
+    musiclists[2] = await res3.json();
 }
 
 function displayPlaylist() {

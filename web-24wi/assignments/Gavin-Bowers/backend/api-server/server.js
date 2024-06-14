@@ -13,7 +13,7 @@ const app = express();
 app.use(express.static("static"));
 app.use(express.json());
 app.use(cors()); // Use CORS for all routes
-app.use("/api", protect, router);
+// app.use("/api", protect, router); //currently this line breaks things
 
 const port = 5000;
 
@@ -128,17 +128,14 @@ app.get('/audio/:fileName', (req, res) => {
 	}
 });
 
-/* Make a list of available music when server starts*/
-// const mediaDir = "/home/ubuntu/src/media"
-var musicList = [[]];
-
 const songPrototype = {
 	title: "song title",
 	artist: "song artist(s)",
 	filename: "song filename"
 }
 
-async function indexMusic(mediadir, listIndex) {
+async function indexMusic(mediadir) {
+	let songs = [];
 	try {
 		const files = await fs.promises.readdir(mediadir);
 		for (const file of files) {
@@ -158,20 +155,27 @@ async function indexMusic(mediadir, listIndex) {
 				song.title = title;
 				song.artist = artist;
 				song.filename = file;
-				musicList[listIndex].push(song);
+				songs.push(song);
 			}
 		}
 	} catch (error) {
-		console.error("media file error: ", e);
+		console.error("media file error: ", error);
 	}
+	return songs;
 }
 
-indexMusic("/home/ubuntu/src/media/server_music/halley-labs-mix", 0);
-indexMusic("/home/ubuntu/src/media/server_music/progressive", 1);
-indexMusic("/home/ubuntu/src/media/server_music/chill-vibes", 2);
+const halleyLabsMix = indexMusic("/home/ubuntu/src/media/server_music/halley-labs-mix");
+const progressive = indexMusic("/home/ubuntu/src/media/server_music/progressive");
+const chillVibes = indexMusic("/home/ubuntu/src/media/server_music/chill-vibes");
 
-app.get("/musicdata", function(req, res) {
-	res.json(musicList);
+app.get("/musicdata/halley-labs-mix", function(req, res) {
+	res.json(halleyLabsMix);
+});
+app.get("/musicdata/progressive", function(req, res) {
+	res.json(progressive);
+});
+app.get("/musicdata/chill-vibes", function(req, res) {
+	res.json(chillVibes);
 });
 	
 app.listen(port, () => {
