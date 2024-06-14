@@ -16,6 +16,7 @@ app.use(cors()); // Use CORS for all routes
 // app.use("/api", protect, router); //currently this line breaks things
 
 const port = 5000;
+const mediaDir = "/home/ubuntu/src/media/server_music";
 
 console.log(parsed['DATABASE_URL']);
 console.log(process.env['DATABASE_URL']);
@@ -91,7 +92,7 @@ app.get("/map", function(req, res) {
 
 app.get('/audio/:fileName', (req, res) => {
 	const fileName = req.params.fileName;
-	const filePath = path.join('/home/ubuntu/src/media/', fileName);
+	const filePath = path.join(mediaDir, fileName);
 
 	if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
 		fs.stat(filePath, (err, stats) => {
@@ -136,12 +137,12 @@ const songPrototype = {
 	filename: "song filename"
 }
 
-async function indexMusic(mediadir, index) {
+async function indexMusic(subdir, index) {
 	let songs = [];
 	try {
-		const files = await fs.promises.readdir(mediadir);
+		const files = await fs.promises.readdir(mediaDir + subdir);
 		for (const file of files) {
-			const filePath = path.join( mediadir, file)
+			const filePath = path.join(mediaDir + subdir, file)
 			const stat = await fs.promises.stat(filePath);
 			if (stat.isFile()) {
 				let title = "error: no title";
@@ -156,7 +157,7 @@ async function indexMusic(mediadir, index) {
 				let song = Object.create(songPrototype);
 				song.title = title;
 				song.artist = artist;
-				song.filename = file;
+				song.filename = subdir + "/" + file;
 				songs.push(song);
 			}
 		}
@@ -166,9 +167,9 @@ async function indexMusic(mediadir, index) {
 	musicData[index] = songs;
 }
 
-indexMusic("/home/ubuntu/src/media/server_music/halley-labs-mix", 0);
-indexMusic("/home/ubuntu/src/media/server_music/progressive", 1);
-indexMusic("/home/ubuntu/src/media/server_music/chill-vibes", 2);
+indexMusic("halley-labs-mix", 0);
+indexMusic("progressive", 1);
+indexMusic("chill-vibes", 2);
 console.log(musicData);
 
 app.get("/musicdata", function(req, res) {
