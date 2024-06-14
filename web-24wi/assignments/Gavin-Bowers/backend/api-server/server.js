@@ -128,13 +128,15 @@ app.get('/audio/:fileName', (req, res) => {
 	}
 });
 
+var musicData = [];
+
 const songPrototype = {
 	title: "song title",
 	artist: "song artist(s)",
 	filename: "song filename"
 }
 
-async function indexMusic(mediadir) {
+async function indexMusic(mediadir, index) {
 	let songs = [];
 	try {
 		const files = await fs.promises.readdir(mediadir);
@@ -161,21 +163,16 @@ async function indexMusic(mediadir) {
 	} catch (error) {
 		console.error("media file error: ", error);
 	}
-	return songs;
+	musicData[index] = songs;
 }
 
-const halleyLabsMix = indexMusic("/home/ubuntu/src/media/server_music/halley-labs-mix");
-const progressive = indexMusic("/home/ubuntu/src/media/server_music/progressive");
-const chillVibes = indexMusic("/home/ubuntu/src/media/server_music/chill-vibes");
+indexMusic("/home/ubuntu/src/media/server_music/halley-labs-mix", 0);
+indexMusic("/home/ubuntu/src/media/server_music/progressive", 1);
+indexMusic("/home/ubuntu/src/media/server_music/chill-vibes", 2);
+console.log(musicData);
 
-app.get("/musicdata/halley-labs-mix", function(req, res) {
-	res.json(halleyLabsMix);
-});
-app.get("/musicdata/progressive", function(req, res) {
-	res.json(progressive);
-});
-app.get("/musicdata/chill-vibes", function(req, res) {
-	res.json(chillVibes);
+app.get("/musicdata", function(req, res) {
+	res.json(musicData);
 });
 	
 app.listen(port, () => {
