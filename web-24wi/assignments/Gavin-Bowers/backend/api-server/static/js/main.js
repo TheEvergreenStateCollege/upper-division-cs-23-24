@@ -378,14 +378,14 @@ async function handleAuthForm(event, method) {
     makePostRequest(user, method);
 }
 
-async function testProtectedRoute() {
+async function savePlaylist() {
     try {
-        const res = await fetch(endpoint + "protected/test", {
+        const res = await fetch(endpoint + "protected/save", {
             'method': 'POST',
             'headers': {
                 'Content-Type': 'application/json',
             },
-            'body': {},
+            'body': JSON.stringify(savedPlaylist),
         });
         const result = await res.json();
     } catch (error) {

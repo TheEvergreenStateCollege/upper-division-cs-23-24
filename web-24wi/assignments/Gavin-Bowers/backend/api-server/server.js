@@ -61,8 +61,9 @@ const protect = (req, res, next) => {
 
 app.use("/protected", protect);
 
-app.post("protected/test", async (req, res) => {
+app.post("protected/save", async (req, res) => {
 	console.log("user accessed protected route");
+	console.log(req.body);
 });
 
 // Authentication system
