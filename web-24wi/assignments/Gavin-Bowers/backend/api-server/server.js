@@ -33,13 +33,7 @@ const createJWT = (user) => {
 };
 
 const protect = (req, res, next) => {
-	const bearer = req.headers.authorization;
-	if (!bearer) {
-		res.status(401);
-		res.send("Not authorized");
-		return;
-	}
-	const [, token] = bearer.split(" ");
+	const token = req.headers.jwt;
 	if (!token) {
 		res.status(401);
 		res.send("Not authorized");

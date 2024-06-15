@@ -384,6 +384,7 @@ async function savePlaylist() {
             'method': 'POST',
             'headers': {
                 'Content-Type': 'application/json',
+                'jwt': jwt,
             },
             'body': JSON.stringify(savedPlaylist),
         });
