@@ -4,7 +4,7 @@ const path = require('path');
 const musicMetadata = require('music-metadata');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
-import jwt from "jsonwebtoken";
+const jwt = require('jsonwebtoken');
 
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
@@ -59,14 +59,14 @@ const protect = (req, res, next) => {
 	}
 };
 
-app.use("/protected", protect);
+// app.use("/protected", protect);
 
-app.post("protected/save", async (req, res) => {
-	console.log("user accessed protected route");
-});
+// app.post("protected/save", async (req, res) => {
+// 	console.log("user accessed protected route");
+// });
 
 // Authentication system
-app.post("auth/login", async (req, res) => {
+app.post("login", async (req, res) => {
 	console.log(req.body);
 	const user = await findUser(req.body.username);
 	if (user) {
@@ -85,7 +85,7 @@ app.post("auth/login", async (req, res) => {
 		res.send('User does not exist');
 	}
 });
-app.post("auth/register", async (req, res) => {
+app.post("register", async (req, res) => {
 	console.log(req.body);
 	const salt = bcrypt.genSaltSync(10); //alternatively just use bcrypt.hash
 	const hash = bcrypt.hashSync(req.body.password, salt);

@@ -344,8 +344,6 @@ async function playSong() {
     await audio.play();
 }
 
-var jwt;
-
 //Authentication
 async function makePostRequest(user, method) {
     try {
@@ -356,8 +354,9 @@ async function makePostRequest(user, method) {
             },
             'body': JSON.stringify(user),
         });
-        jwt = await res.json();
-        console.log(method + ": " + jwt);
+        console.log(res);
+        const result = await res.json();
+        console.log(method + ": " + result.ok + ": " + result.message);
     } catch (error) {
         console.error("Error:", error);
     }
