@@ -9,6 +9,20 @@
     <style>@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');</style>
 </head>
 <body>
+    <div id="auth-window">
+        <div id="auth-container">
+            <form id="loginForm" onsubmit="handleAuthForm(event, 'login')">
+                <input placeholder="username" id="login-username" autocomplete="username" required>
+                <input placeholder="password" type="password" id="login-password" autocomplete="webauthn current-password" required>
+                <button class="auth-button">Login</button>
+            </form>
+            <form id="registerForm" onsubmit="handleAuthForm(event, 'register')">
+                <input placeholder="username" id="register-username" required>
+                <input placeholder="password" type="password" id="register-password" required>
+                <button class="auth-button">Register</button>
+            </form>
+        </div>
+    </div>
     <div id="content-container">
         <div id="top-row">
             <button onclick="showMyPlaylist()" class="music-selector-button" id="playlist-button">
@@ -59,30 +73,6 @@
             <div id="music-list">
 
             </div>
-            <div id="auth-window" style="display: none">
-                <form id="loginForm" onsubmit="handleAuthForm(event, 'login')">
-                    <fieldset>
-                        <label for="login-username">Username</label>
-                        <input placeholder="username" id="login-username" required autocomplete="username">
-                        <section id="login-password-section">
-                            <label for="login-password">Password</label>
-                            <input type="password" id="login-password" autocomplete="webauthn current-password">
-                        </section>
-                    </fieldset>
-                    <button>Login</button>
-                </form>
-                <form id="registerForm" onsubmit="handleAuthForm(event, 'register')">
-                    <fieldset>
-                        <label for="register-username">Username</label>
-                        <input placeholder="username" id="register-username" required autocomplete="username">
-                        <section id="register-password-section">
-                            <label for="register-password">Password</label>
-                            <input type="password" id="register-password">
-                        </section>
-                    </fieldset>
-                    <button>Register</button>
-                </form>
-            </div>
         </div>
         <div id="music-bar">
             <div id="music-info-container">
@@ -114,7 +104,7 @@
                             skip_next
                         </span>
                     </button>
-                    <button onclick="shuffle()" class="playback-button" aria-label="shuffle">
+                    <button onclick="toggleShuffle()" class="playback-button" aria-label="shuffle">
                         <span class="material-symbols-outlined" id="shuffle-icon">
                             shuffle
                         </span>

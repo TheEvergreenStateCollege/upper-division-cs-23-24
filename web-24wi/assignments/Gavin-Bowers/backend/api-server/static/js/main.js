@@ -15,24 +15,53 @@ const TRACKER_SIZE = 5000;
 var musiclists;
 var playlist = [];
 var savedPlaylist = [];
+var unshuffledPlaylist = [];
 var playlistIndex = 0;
+
+var editMode = false;
+var browsingMusic = false;
+
 var repeat = false;
 var shuffleOn = false;
 var musicStarted = false;
 
-var editMode = false;
 var dragStart;
 var dragEnd;
 
 function showMusicCategory(category) {
-    savedPlaylist = playlist.slice();
+    if (!browsingMusic) {
+        if (shuffleOn) {
+            savedPlaylist = unshuffledPlaylist;
+        }
+        savedPlaylist = playlist.slice();
+    }
+    shuffleOn = false;
+    document.getElementById('shuffle-icon').innerHTML = 'shuffle';
+
+    browsingMusic = true;
     playlist = musiclists[category].slice();
+    playlistIndex = 0;
     displayPlaylist();
+    playSong();
+    audio.pause();
+    audio.currentTime = 0;
+    musicTracker.value = 0;
+    
 }
 
 function showMyPlaylist() {
-    playlist = savedPlaylist.slice();
-    displayPlaylist();
+    if (browsingMusic) {
+        shuffleOn = false;
+        document.getElementById('shuffle-icon').innerHTML = 'shuffle';
+        browsingMusic = false;
+        playlist = savedPlaylist.slice();
+        playlistIndex = 0;
+        displayPlaylist();
+        playSong();
+        audio.pause();
+        audio.currentTime = 0;
+        musicTracker.value = 0;
+    }
 }
 
 function toggleEditMode() {
@@ -51,9 +80,11 @@ function removeSong(index) {
     } else if (index == playlistIndex) {
         playSong();
     }
-    // for (let song of playlist) {
+    displayPlaylist();
+}
 
-    // }
+function addSong(index) {
+    savedPlaylist.push(playlist.slice(index, index+1)[0]);
     displayPlaylist();
 }
 
@@ -95,13 +126,12 @@ function toggleRepeat() {
     }
 }
 
-function shuffle() {
+function toggleShuffle() {
     if (shuffleOn) {
         shuffleOn = false;
         document.getElementById('shuffle-icon').innerHTML = 'shuffle';
         playlist = [];
-        console.log(savedPlaylist);
-        for (let song of savedPlaylist) {
+        for (let song of unshuffledPlaylist) {
             playlist.push(song);
         }
         playlistIndex = 0;
@@ -122,7 +152,7 @@ function shuffle() {
 }
 
 function shufflePlaylist() {
-    savedPlaylist = playlist.slice();
+    unshuffledPlaylist = playlist.slice();
 
     for (let i = playlist.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * i + 1);
@@ -188,13 +218,7 @@ audio.ontimeupdate = function() {
 
 async function getMusicData() {
     const res = await fetch(endpoint + 'musicdata');
-    let a = await res.json();
-    console.log(a);
-    musiclists = a;
-    // const res2 = await fetch(endpoint + 'musicdata/progressive');
-    // musiclists[1] = await res2.json();
-    // const res3 = await fetch(endpoint + 'musicdata/chill-vibes');
-    // musiclists[2] = await res3.json();
+    musiclists = await res.json();
 }
 
 function displayPlaylist() {
@@ -220,14 +244,39 @@ function displayPlaylist() {
             songButton.style.background = "linear-gradient(90deg, rgba(238,120,62,1) 0%, rgba(214,122,122,1) 23%, rgba(227,189,88,1) 100%)";
         }
         if (editMode) {
-            let removeButtom = document.createElement('button');
-            removeButtom.className = "remove-button";
-            let removeIcon = document.createElement('span');
-            removeIcon.innerHTML = 'playlist_remove';
-            removeIcon.className = 'material-symbols-outlined';
-            removeButtom.append(removeIcon);
-            removeButtom.onclick = function() {removeSong(closureIndex);};
-            playlistElement.append(removeButtom);
+            if (browsingMusic) {
+                let addButtom = document.createElement('button');
+                addButtom.className = "add-button";
+                let addIcon = document.createElement('span');
+                
+                let alreadyAdded = false;
+                for (let savedSong of savedPlaylist) {
+                    if (song.title === savedSong.title && song.artist === savedSong.artist) {
+                        alreadyAdded = true;
+                    }
+                }
+                if (alreadyAdded) {
+                    addIcon.innerHTML = 'playlist_add_check';
+                    addIcon.style.color = '#808080';
+                } else {
+                    addIcon.innerHTML = 'playlist_add';
+                    addButtom.onclick = function() {
+                        addSong(closureIndex);
+                    };
+                }
+                addIcon.className = 'material-symbols-outlined';
+                addButtom.append(addIcon);
+                playlistElement.append(addButtom);
+            } else {
+                let removeButtom = document.createElement('button');
+                removeButtom.className = "remove-button";
+                let removeIcon = document.createElement('span');
+                removeIcon.innerHTML = 'playlist_remove';
+                removeIcon.className = 'material-symbols-outlined';
+                removeButtom.append(removeIcon);
+                removeButtom.onclick = function() {removeSong(closureIndex);};
+                playlistElement.append(removeButtom);
+            }
         }
         playlistElement.append(songButton);
 
@@ -295,6 +344,8 @@ async function playSong() {
     await audio.play();
 }
 
+var jwt;
+
 //Authentication
 async function makePostRequest(user, method) {
     try {
@@ -305,8 +356,8 @@ async function makePostRequest(user, method) {
             },
             'body': JSON.stringify(user),
         });
-        const result = await res.json();
-        console.log(method + ": " + result.ok + ": " + result.message);
+        jwt = await res.json();
+        console.log(method + ": " + jwt);
     } catch (error) {
         console.error("Error:", error);
     }

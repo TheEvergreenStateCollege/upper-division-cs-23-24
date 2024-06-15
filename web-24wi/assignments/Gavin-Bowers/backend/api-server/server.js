@@ -4,54 +4,97 @@ const path = require('path');
 const musicMetadata = require('music-metadata');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
-
+import jwt from "jsonwebtoken";
 
 const { PrismaClient } = require('@prisma/client');
 const { parsed } = require('dotenv').config();
+// import { protect, createNewUser, signin } from './modules/auth';
+// import { body, validationResult } from 'express-validator';
 
 const app = express();
 app.use(express.static("static"));
 app.use(express.json());
 app.use(cors()); // Use CORS for all routes
-// app.use("/api", protect, router); //currently this line breaks things
 
 const port = 5000;
 const mediaDir = "/home/ubuntu/src/media/server_music";
 
-console.log(parsed['DATABASE_URL']);
-console.log(process.env['DATABASE_URL']);
+// console.log(parsed['DATABASE_URL']);
+// console.log(process.env['DATABASE_URL']);
 
 const prisma = new PrismaClient();
 
-//New authentication system
-app.post("/auth/login", async (req, res) => {
+const createJWT = (user) => {
+	const token = jwt.sign(
+		{ id: user.id, username: user.username },
+		process.env.JWT_SECRET
+	);
+	return token;
+};
+
+const protect = (req, res, next) => {
+	const bearer = req.headers.authorization;
+	if (!bearer) {
+		res.status(401);
+		res.send("Not authorized");
+		return;
+	}
+	const [, token] = bearer.split(" ");
+	if (!token) {
+		res.status(401);
+		res.send("Not authorized");
+		return;
+	}
+	try {
+		const payload = jwt.verify(token, process.env.JWT_SECRET);
+		req.user = payload;
+		console.log(payload);
+		next();
+		return;
+	} catch (error) {
+		console.error(error);
+		res.status(401);
+		res.send("Not authorized");
+		return;
+	}
+};
+
+app.use("/protected", protect);
+
+app.post("protected/save", async (req, res) => {
+	console.log("user accessed protected route");
+});
+
+// Authentication system
+app.post("auth/login", async (req, res) => {
 	console.log(req.body);
 	const user = await findUser(req.body.username);
 	if (user) {
 		if (bcrypt.compareSync(req.body.password, user.password)) {
 			console.log("login: success");
-			res.send({ok: true, username: user.username});
+			const token = createJWT(user);
+			res.json({token});
 		} else {
 			console.log("login: invalid password");
-			res.send({ok: false, message: 'Data is invalid'});
+			res.status(401);
+			res.send('Invalid password');
 		}
 	} else {
 		console.log("login: user doesn't exist");
-		res.send({ok: false, message: 'User does not exist'});
+		res.status(401);
+		res.send('User does not exist');
 	}
 });
-app.post("/auth/register", async (req, res) => {
+app.post("auth/register", async (req, res) => {
 	console.log(req.body);
-	const salt = bcrypt.genSaltSync(10);
+	const salt = bcrypt.genSaltSync(10); //alternatively just use bcrypt.hash
 	const hash = bcrypt.hashSync(req.body.password, salt);
-	// const user = {
-	// 	username: req.body.username,
-	// 	password: hash
-	// };
+
 	const userFound = await findUser(req.body.username);
 	if (userFound) {
 		console.log("register: user already exists");
-		res.send({ok:false, message: 'User already exists'});
+		res.status(401);
+		res.send('User already exists');
 	} else {
 		console.log("register: success");
 		//prisma.user.create({data: user});
@@ -61,7 +104,8 @@ app.post("/auth/register", async (req, res) => {
 				username: req.body.username,
 			},
 		});
-		res.send({ok:true, message: "User created"});
+		const token = createJWT(user);
+		res.json({token});
 	}
 });
 async function findUser(username) {
@@ -172,7 +216,6 @@ async function indexMusic(subdir, index) {
 indexMusic("halley-labs-mix", 0);
 indexMusic("progressive", 1);
 indexMusic("chill-vibes", 2);
-console.log(musicData);
 
 app.get("/musicdata", function(req, res) {
 	res.json(musicData);

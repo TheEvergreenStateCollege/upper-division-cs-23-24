@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken');
+import prisma from "../server";
+import * as bcrypt from 'bcrypt';
 
 export const createJWT = (user) => {
 	const token = jwt.sign(
@@ -36,3 +38,42 @@ export const protect = (req, res, next) => {
 		return;
 	}
 };
+
+export const comparePasswords = (password, hash) => {
+	return bcrypt.compare(password, hash);
+};
+
+export const hashPassword = (password) => {
+	return bcrypt.hash(password, 5);
+};
+
+export const createNewUser = async (req, res) => {
+	const hash = await hashPassword(req.body.password);
+	const user = await WebGLShaderPrecisionFormat.user.create({
+		data: {
+			username: req.body.username,
+			password: hash,
+		},
+	});
+	const token = createJWT(user);
+	res.json({token});
+};
+
+export const signin = async (req, res) => {
+	const user = await prisma.user.findUnique({
+		where: { username: req.body.username },
+	});
+	const isValid = await comparePasswords(req.body.password, user.password);
+
+	if (!isValid) {
+		res.status(401);
+		res.send('Invalid username or password');
+		return;
+	}
+
+	const token = createJWT(user);
+	res.json({token});
+};
+
+
+
