@@ -73,16 +73,16 @@ app.post("/auth/login", async (req, res) => {
 		if (bcrypt.compareSync(req.body.password, user.password)) {
 			console.log("login: success");
 			const token = createJWT(user);
-			res.json({token});
+			res.json({status: 'ok', token});
 		} else {
 			console.log("login: invalid password");
 			res.status(401);
-			res.send('Invalid password');
+			res.send({status: 'error', message: 'Invalid password'});
 		}
 	} else {
 		console.log("login: user doesn't exist");
 		res.status(401);
-		res.send('User does not exist');
+		res.send({status: 'error', message: 'User does not exist'});
 	}
 });
 app.post("/auth/register", async (req, res) => {
@@ -94,7 +94,7 @@ app.post("/auth/register", async (req, res) => {
 	if (userFound) {
 		console.log("register: user already exists");
 		res.status(401);
-		res.send('User already exists');
+		res.send({status: 'error', message: 'User already exists'});
 	} else {
 		console.log("register: success");
 		//prisma.user.create({data: user});
@@ -105,7 +105,7 @@ app.post("/auth/register", async (req, res) => {
 			},
 		});
 		const token = createJWT(user);
-		res.json({token});
+		res.send({status: 'ok', token});
 	}
 });
 async function findUser(username) {

@@ -344,6 +344,8 @@ async function playSong() {
     await audio.play();
 }
 
+var jwt;
+
 //Authentication
 async function makePostRequest(user, method) {
     try {
@@ -354,9 +356,13 @@ async function makePostRequest(user, method) {
             },
             'body': JSON.stringify(user),
         });
-        console.log(res);
         const result = await res.json();
-        console.log(method + ": " + result.ok + ": " + result.message);
+        if (result.status == 'ok') {
+            console.log(method + " successful, JWT aquired");
+            jwt = result.token;
+        } else {
+            console.log(method + ": " + result.status + ": " + result.message);
+        }
     } catch (error) {
         console.error("Error:", error);
     }
