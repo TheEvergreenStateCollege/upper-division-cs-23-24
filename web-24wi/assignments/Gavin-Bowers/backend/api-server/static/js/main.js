@@ -378,6 +378,21 @@ async function handleAuthForm(event, method) {
     makePostRequest(user, method);
 }
 
+async function testProtectedRoute() {
+    try {
+        const res = await fetch(endpoint + "protected/test", {
+            'method': 'POST',
+            'headers': {
+                'Content-Type': 'application/json',
+            },
+            'body': {},
+        });
+        const result = await res.json();
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
 window.onload = (event) => {
     getMusicData();
     audio.volume = Math.pow(0.5, 2);

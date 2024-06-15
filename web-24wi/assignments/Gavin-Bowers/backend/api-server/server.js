@@ -59,11 +59,11 @@ const protect = (req, res, next) => {
 	}
 };
 
-// app.use("/protected", protect);
+app.use("/protected", protect);
 
-// app.post("protected/save", async (req, res) => {
-// 	console.log("user accessed protected route");
-// });
+app.post("protected/test", async (req, res) => {
+	console.log("user accessed protected route");
+});
 
 // Authentication system
 app.post("/auth/login", async (req, res) => {
