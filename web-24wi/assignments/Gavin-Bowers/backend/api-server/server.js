@@ -66,7 +66,7 @@ const protect = (req, res, next) => {
 // });
 
 // Authentication system
-app.post("login", async (req, res) => {
+app.post("/auth/login", async (req, res) => {
 	console.log(req.body);
 	const user = await findUser(req.body.username);
 	if (user) {
@@ -85,7 +85,7 @@ app.post("login", async (req, res) => {
 		res.send('User does not exist');
 	}
 });
-app.post("register", async (req, res) => {
+app.post("/auth/register", async (req, res) => {
 	console.log(req.body);
 	const salt = bcrypt.genSaltSync(10); //alternatively just use bcrypt.hash
 	const hash = bcrypt.hashSync(req.body.password, salt);
@@ -98,7 +98,7 @@ app.post("register", async (req, res) => {
 	} else {
 		console.log("register: success");
 		//prisma.user.create({data: user});
-		const newUser = await prisma.user.create({
+		const user = await prisma.user.create({
 			data: {
 				password: hash,
 				username: req.body.username,

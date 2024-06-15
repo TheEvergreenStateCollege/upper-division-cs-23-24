@@ -347,7 +347,7 @@ async function playSong() {
 //Authentication
 async function makePostRequest(user, method) {
     try {
-        const res = await fetch(endpoint + 'auth/' + method, {
+        const res = await fetch(endpoint + "auth/" + method, {
             'method': 'POST',
             'headers': {
                 'Content-Type': 'application/json',
