@@ -360,6 +360,7 @@ async function makePostRequest(user, method) {
         if (result.status == 'ok') {
             console.log(method + " successful, JWT aquired");
             jwt = result.token;
+            hideAuthWindow();
         } else {
             console.log(method + ": " + result.status + ": " + result.message);
         }
@@ -378,17 +379,37 @@ async function handleAuthForm(event, method) {
     makePostRequest(user, method);
 }
 
+function hideAuthWindow() {
+    document.getElementById("auth-window").style.display="none";
+}
+
 async function savePlaylist() {
     try {
-        const res = await fetch(endpoint + "protected/save", {
+        const res = await fetch(endpoint + "protected/save-playlist", {
             'method': 'POST',
             'headers': {
                 'Content-Type': 'application/json',
                 'jwt': jwt,
             },
-            'body': JSON.stringify(savedPlaylist),
+            'body': JSON.stringify(playlist),
         });
         const result = await res.json();
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+async function getPlaylist() {
+    try {
+        const res = await fetch(endpoint + "protected/get-playlist", {
+            'method': 'GET',
+            'headers': {
+                'Content-Type': 'application/json',
+                'jwt': jwt,
+            }
+        });
+        const result = await res.json();
+        playlist = result.playlist;
     } catch (error) {
         console.error("Error:", error);
     }

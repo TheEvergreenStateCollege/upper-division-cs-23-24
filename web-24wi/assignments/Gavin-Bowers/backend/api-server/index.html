@@ -21,7 +21,6 @@
                 <input placeholder="password" type="password" id="register-password" required>
                 <button class="auth-button">Register</button>
             </form>
-            <button onclick="savePlaylist()" style="color: black; border: 1px solid black">Test protected route</button>
         </div>
     </div>
     <div id="content-container">
@@ -34,6 +33,8 @@
                     edit
                 </span>
             </button>
+            <button onclick="savePlaylist()" style="color: black; border: 1px solid black">Save Playlist</button>
+            <button onclick="getPlaylist()" style="color: black; border: 1px solid black">Load Playlist</button>
             <div id="music-selector">
                 <button onclick="showMusicCategory(0)" class="music-selector-button">
                     Halley Labs Mix

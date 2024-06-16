@@ -55,9 +55,48 @@ const protect = (req, res, next) => {
 
 app.use("/protected", protect);
 
-app.post("protected/save", async (req, res) => {
+app.get("/protected/get-playlist", async (req, res) => {
+	const userId = req.user.id;
+	let playlist = await prisma.playlist.findFirst({
+		where: {
+			belongsToId: userId
+		}
+	});
+	if (playlist) {
+		res.send({status:'error', playlist:playlist.jsonData});
+	} else {
+		res.send({status:'error', message:'No saved playlist'});
+	}
+});
+
+app.post("/protected/save-playlist", async (req, res) => {
 	console.log("user accessed protected route");
-	console.log(req.body);
+	const userId = req.user.id;
+	const jsonData = req.body;
+
+	let existingPlaylist = await prisma.playlist.findFirst({
+		where: {
+			belongsToId: userId
+		}
+	});
+	if (existingPlaylist) {
+		existingPlaylist = await prisma.playlist.update({
+			where: {
+				id: existingPlaylist.id
+			},
+			data: {
+				jsonData: JSON.stringify(jsonData)
+			}
+		});
+	} else {
+		const playlist = await prisma.playlist.create({
+			data: {
+				jsonData: JSON.stringify(req.body),
+				belongsToId: req.user.id,
+			},
+		});
+	}
+	// console.log(req.body);
 });
 
 // Authentication system
