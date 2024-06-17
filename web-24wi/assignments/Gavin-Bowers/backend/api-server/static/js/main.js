@@ -16,6 +16,7 @@ var musiclists;
 var playlist = [];
 var savedPlaylist = [];
 var unshuffledPlaylist = [];
+var shadowPlaylist = [];
 var playlistIndex = 0;
 
 var editMode = false;
@@ -37,16 +38,10 @@ function showMusicCategory(category) {
     }
     shuffleOn = false;
     document.getElementById('shuffle-icon').innerHTML = 'shuffle';
-
     browsingMusic = true;
     playlist = musiclists[category].slice();
-    playlistIndex = 0;
+    cleanupPlaying();
     displayPlaylist();
-    playSong();
-    audio.pause();
-    audio.currentTime = 0;
-    musicTracker.value = 0;
-    
 }
 
 function showMyPlaylist() {
@@ -55,13 +50,13 @@ function showMyPlaylist() {
         document.getElementById('shuffle-icon').innerHTML = 'shuffle';
         browsingMusic = false;
         playlist = savedPlaylist.slice();
-        playlistIndex = 0;
-        displayPlaylist();
-        playSong();
-        audio.pause();
-        audio.currentTime = 0;
-        musicTracker.value = 0;
+        cleanupPlaying();
     }
+}
+
+function cleanupPlaying() {
+    playlistIndex = -1;
+    displayPlaylist();
 }
 
 function toggleEditMode() {
@@ -77,7 +72,7 @@ function removeSong(index) {
     playlist.splice(index, 1);
     if (index < playlistIndex) {
         playlistIndex--;
-    } else if (index == playlistIndex) {
+    } else if (index == playlistIndex && !audio.paused) {
         playSong();
     }
     displayPlaylist();
@@ -361,8 +356,10 @@ async function makePostRequest(user, method) {
             console.log(method + " successful, JWT aquired");
             jwt = result.token;
             hideAuthWindow();
+            getPlaylist();
         } else {
-            console.log(method + ": " + result.status + ": " + result.message);
+            document.getElementById('auth-feedback').style.display = "block";
+            document.getElementById('auth-feedback').textContent = method + " failed: " + result.message;
         }
     } catch (error) {
         console.error("Error:", error);
@@ -381,9 +378,27 @@ async function handleAuthForm(event, method) {
 
 function hideAuthWindow() {
     document.getElementById("auth-window").style.display="none";
+    document.getElementById('register-form').style.display="none";
+    document.getElementById('login-form').style.display="none";
+    document.getElementById('auth-feedback').style.display = "none";
+}
+
+function showRegister() {
+    document.getElementById("auth-window").style.display="block";
+    document.getElementById('register-form').style.display="block";
+    document.getElementById('login-form').style.display="none";
+    document.getElementById('auth-label').textContent = "Register"
+}
+function showLogin() {
+    document.getElementById("auth-window").style.display="block";
+    document.getElementById('login-form').style.display="block";
+    document.getElementById('register-form').style.display="none";
+    document.getElementById('auth-label').textContent = "Login"
 }
 
 async function savePlaylist() {
+    if (browsingMusic) {return;}
+    if (shuffleOn) {return;}
     try {
         const res = await fetch(endpoint + "protected/save-playlist", {
             'method': 'POST',
@@ -400,6 +415,7 @@ async function savePlaylist() {
 }
 
 async function getPlaylist() {
+    browsingMusic = false;
     try {
         const res = await fetch(endpoint + "protected/get-playlist", {
             'method': 'GET',
@@ -409,7 +425,10 @@ async function getPlaylist() {
             }
         });
         const result = await res.json();
-        playlist = result.playlist;
+        if (result.playlist) {
+            playlist = JSON.parse(result.playlist);
+            cleanupPlaying();
+        }
     } catch (error) {
         console.error("Error:", error);
     }

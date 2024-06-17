@@ -12,7 +12,7 @@ const { parsed } = require('dotenv').config();
 // import { body, validationResult } from 'express-validator';
 
 const app = express();
-app.use(express.static("static"));
+app.use('/static', express.static("static"));
 app.use(express.json());
 app.use(cors()); // Use CORS for all routes
 
@@ -63,7 +63,7 @@ app.get("/protected/get-playlist", async (req, res) => {
 		}
 	});
 	if (playlist) {
-		res.send({status:'error', playlist:playlist.jsonData});
+		res.send({status:'ok', playlist:playlist.jsonData});
 	} else {
 		res.send({status:'error', message:'No saved playlist'});
 	}
@@ -161,7 +161,7 @@ async function findUser(username) {
 /*Static website and music streaming*/
 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, '/index.html'));
 });
 
 app.get("/map", function(req, res) {

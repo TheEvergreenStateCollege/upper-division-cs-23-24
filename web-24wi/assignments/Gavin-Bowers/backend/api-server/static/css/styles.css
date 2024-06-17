@@ -4,9 +4,17 @@
 }
 
 #edit-button {
-    margin-right: 2%;
+    margin-right: 0px;
 }
 #edit-button:hover {
+    color: rgb(238, 109, 86);
+}
+
+#save-button {
+    margin-right: 2%;
+}
+
+#save-button:hover {
     color: rgb(238, 109, 86);
 }
 
@@ -26,11 +34,45 @@
     color: rgb(238, 109, 86);
 }
 
-#info-button {
-    position: relative;
-    display: inline-block;
+#top-right-buttons {
+    display: flex;
     margin-left: auto;
     margin-right: 0;
+}
+
+.info-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 0%;
+}
+.info-dropdown-content {
+    display: none;
+    position: absolute;
+    width: 500px;
+    right: 0;
+    background-color: #f1f1f1;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    z-index: 1;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
+}
+.info-dropdown-content p {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-family: 'Nunito Sans', sans-serif;
+    display: block;
+    text-align: left;
+}
+.info-dropdown-content a:hover {background-color: #ddd;}
+.info-dropdown:hover .info-dropdown-content {display: block;}
+.info-dropdown:hover .info-dropbtn {
+    background-color: #f1f1f1;
+    color: #161616;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .auth-dropdown {
@@ -140,6 +182,7 @@ background-color: #161616;
 /*Authentication*/
 
 #auth-window {
+    display: none;
     position: fixed;
     left: 0;
     right: 0;
@@ -159,9 +202,39 @@ background-color: #161616;
     border-radius: 10px;
 }
 
+#auth-top-row {
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+#auth-label {
+    font-size: 22px;
+    font-family: 'Nunito', sans-serif;
+    margin-left: 15px;
+    margin: 0px;
+}
+
+#exit-auth {
+    margin-left: auto;
+    margin-right: 15px;
+    margin-top: 0;
+    padding: 0;
+    height: 30px;
+    color:#141414;
+}
+#exit-auth:hover {
+    color:#9e0000;
+}
+
 ::placeholder {
     font-size: 16px;
     font-family: 'Nunito', sans-serif;
+}
+
+#login-form,
+#register-form
+{
+    display: none;
 }
 
 input {
@@ -177,16 +250,27 @@ input {
 }
 
 .auth-button {
-    color:#d6d5d1;
+    color:#000000;
     font-family: 'Nunito', sans-serif;
     font-size: 18px;
-    background-color: #141414;
-    width: 50%;
+    background-color: #dbdad5;
+    width: 100px;
     margin-top: 10px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: calc(100% / 2 - 50px);
+    margin-right: auto;
     margin-bottom: 10px;
-    border: none;
+    border: 1px solid #ccc;
+}
+.auth-button:hover {
+    background-color: #e6e4de;
+}
+
+#auth-feedback {
+    display: none;
+    font-size: 18px;
+    font-family: 'Nunito', sans-serif;
+    padding-left: 15px;
+    padding-bottom: 15px;
 }
 
 /* Music Player */
@@ -356,10 +440,12 @@ input[type="range"] {
     height: 0.6em;
     cursor: pointer;
     background-color: #979797;
+    border: 1px solid #979797;
+    border-radius: 5px;
   }
   input[type="range"]::-moz-range-progress {
     background-color: #fff;
-    height: 0.5em;
+    height: 0.7em;
   }
   input[type="range"]::-moz-focus-outer {
     border: 0;
@@ -367,9 +453,9 @@ input[type="range"] {
   input[type="range"]::-moz-range-thumb {
     box-sizing: content-box;
     border: none;
-    height: 18px;
-    width: 18px;
-    border-radius: 50%;
+    height: 22px;
+    width: 10px;
+    border-radius: 10%;
     background-color: #fff;
     cursor: pointer;
   }
