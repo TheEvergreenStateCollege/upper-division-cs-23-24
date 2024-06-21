@@ -1,0 +1,39 @@
+
+.wordle {
+    background-color: rgb(221, 221, 221);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 400px;
+    width: 300px;
+    transform: translate(-50%, -50%);
+  }
+  .line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(184, 184, 184);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    height: 55px;
+    width: 295px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 40px;
+    overflow: visible;
+  }
+  .letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(150, 150, 150);
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    height: 40px;
+    width: 40px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 40px;
+  }
