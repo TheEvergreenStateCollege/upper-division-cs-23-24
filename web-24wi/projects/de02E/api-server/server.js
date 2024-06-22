@@ -1,66 +1,58 @@
 const express = require("express");
+import { Low } from 'lowdb'
+import { JSONFile } from 'lowdb/node'
+import * as url from 'url'
+import bcrypt from 'bcrypt.js'
+import * as jwtJsDecode from 'jwt-js-decode'
+import base64url from 'base64url'
+import SimpleWebAuthnServer from '@simplewebauthn/server' 
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
+
 const app = express();
-const port = 8000;
-const path = require("path");
+app.use(express.json())
+
+const adapter = new JSONFile(__dirname + '/auth.json')
+const db = new Low(adapter)
+await db.read()
+db.data ||= { users: []}
+
+const rpID = "localhost"
+const protocol = "http"
+const port = "5050"
+const expectedOrigin = '${protocol}://${rpID}:${port}'
 
 app.use(express.static("pages"));
+app.use(express.json())
+app.use(express.urlencoded({
+  extended: true
+}))
 
-/**
- * app.[method]([route], [route handler])
- */
-app.get("/", (req, res) => {
-  // sending back an HTML file that a browser can render on the screen.
-  res.sendFile(path.resolve("pages/index.html"));
-});
-
-// creates and starts a server for our API on a defined port
-app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
-});
-
-	// Return search hit given :hit  URL route parameters
-app.get("/search-hit/:hit", (req, res) => {
-  // sending back an HTML file that a browser can render on the screen.
-  res.sendFile(path.resolve(`pages/search-hit-${req.params.hit}.html`));
-});
-
-app.get("/randomGraph", async (req, res) => {
-  let results = [];
-  for (let i = 0; i < 10; i+=1) {
-    results.push({ "day": i, "stepCount": Math.round(Math.random() * 1000) });
-  }
-  res.json({ results });
-});
-
-console.log(Object.keys(prisma));
-
-app.get("/users", async (req, res) => {
-  const allUsers = await prisma.user.findMany();
-  res.json(allUsers);
-});
-
-app.post("/user", async (req, res) => {
-  const result = await prisma.user.create({
-    data: {
-      username: req.body.username,
-      password: req.body.password,
+app.post("/auth/login", (req, res) => {
+  const user = findUser(req.body.name)
+  if (user) {
+    if (bcrypt.compareSync(req.body.password, user.password)) {
+      res.send({ok: true, name: user.name})
+    } else {
+      res.send({ok: false, message: 'Data is invalid'})
     }
-  });
-});
+  } else {
+    res.send({ok: false, message: 'Data is invalid'})
+  }
+})
 
-app.use ("/api", protect, router);
+function findUser(name) {
+  const results = db.data.users.filter(u=>u.name==name)
+  if (results.length == 0) return undefined
+  return results[0]
+}
 
+a
 
+app.get("*", (req, res) =>  {
+  res.sendFile(__dirname + "pages/index.html")
+})
 
-
-
-
-
-
-
-
-
-
-
-
-
+app.listen(port, () => {
+  console.log('App listening on port ${port}')
+})
