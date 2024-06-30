@@ -1,3 +1,5 @@
+# 3.3.1 A simple self-attention mechanism without trainable weights
+
 import torch
 
 inputs = torch.tensor(
@@ -31,3 +33,16 @@ attn_weights_2_naive = softmax_naive(attn_scores_2)
 
 print("Attention weights:", attn_weights_2_naive)
 print("Sum:", attn_weights_2_naive.sum())
+
+attn_weights_2 = torch.softmax(attn_scores_2, dim=0)
+
+print("Attention weights:", attn_weights_2)
+print("Sum:", attn_weights_2.sum())
+
+query = inputs[1] # 2nd input token is the query
+
+context_vec_2 = torch.zeros(query.shape)
+for i,x_i in enumerate(inputs):
+    context_vec_2 += attn_weights_2[i]*x_i
+
+print(context_vec_2)
