@@ -8,5 +8,5 @@
       "esModuleInterop": true,
       "declaration": true
     },
-    "include": ["src/**/*.ts"]
+    "include": ["src/**/*.ts", "prisma/db.ts", "prisma/index.ts", "prisma/router.ts", "prisma/server.ts"]
   }
