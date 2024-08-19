@@ -265,3 +265,12 @@ header{
 .login-register p a:hover{
     text-decoration: underline;
 }
+
+.input-box button {
+    background: none; /* Removes the background color */
+    border: none; /* Removes the border */
+    cursor: pointer; /* Shows a pointer cursor on hover */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+    font-size: 1.2em; /* Adjust icon size if needed */
+    color: #ffffff; /* Sets the icon color */}
