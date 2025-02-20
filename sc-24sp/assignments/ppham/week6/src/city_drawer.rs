@@ -1,17 +1,8 @@
-use std::{collections::HashMap, fmt};
+use std::collections::HashMap;
 
 pub struct Road {
     pub coord: usize,
     pub direction: RoadDirection,
-}
-
-impl fmt::Display for Road {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        match self.direction {
-            RoadDirection::NorthSouth => write!(f, "Avenue {}", self.coord),
-            RoadDirection::EastWest => write!(f, "Street {}", self.coord)
-        }
-    }
 }
 
 #[derive(Clone,Copy)]
@@ -53,20 +44,15 @@ pub const BOUND: usize = 50;
 pub fn city_builder<'a>(addresses: &mut AddressesMap, in_grid: &'a mut Grid, roads: &'a Vec<Road>) -> &'a mut Grid {
     //roads.sort_by(|a,b| a.coord.cmp(&b.coord));
 
+    let mut address_counter: u32 = 0;
+
     for road in roads {
 
-        let mut address_counter: u32 = 0;
-
         for w in 0..BOUND {
-
-            if address_counter == 16 {
-                println!("Reused address number {} {}", address_counter, road);
-            }
-            
             match road.direction {
                 RoadDirection::NorthSouth => {
                     in_grid[road.coord as usize][w] = '#';
-                    //in_grid[w][road.coord] = 'o';
+                    in_grid[w][road.coord] = '#';
                     // Check if we're not the leftmost avenue, and draw locations on left side
                     if road.coord > 0 && in_grid[road.coord - 1 as usize][w] == '.' {
                         in_grid[road.coord - 1 as usize][w] = 'o';
